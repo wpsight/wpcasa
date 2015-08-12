@@ -1,0 +1,69 @@
+<?php
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) )
+	exit;
+
+class WPSight_Shortcode_Listings {
+	
+	/**
+	 * __construct()
+	 *
+	 * @access public
+	 */
+	public function __construct() {		
+		add_shortcode( 'wpsight_listings', array( $this, 'shortcode_listings' ) );
+	}
+	
+	/**
+	 * shortcode_listings()
+	 *
+	 * Shortcode [wpsight_listings] to
+	 * display listing queries.
+	 *
+	 * @param array $atts Shortcode attributes
+	 * @uses wpsight_listing_query_vars()
+	 * @uses wpsight_listings()
+	 * @uses wp_kses_allowed_html()
+	 *
+	 * @return string $output Entire shortcode output
+	 *
+	 * @since 1.0.0
+	 */
+
+    public function shortcode_listings( $atts ) {
+        
+        $defaults = array(
+            'before' => '',
+            'after'  => '',
+            'wrap'	 => 'div',
+            'offset'            => '',
+			'posts_per_page'    => get_query_var( 'nr' ) ? get_query_var( 'nr' ) : get_option( 'posts_per_page' ),
+			'orderby'           => get_query_var( 'orderby' ) ? get_query_var( 'orderby' ) : 'date',
+			'order'             => get_query_var( 'order' ) ? get_query_var( 'order' ) : 'DESC',
+			'featured'          => get_query_var( 'featured' ) ? get_query_var( 'featured' ) : null
+        );
+        
+		// Add custom vars to $defaults
+		$defaults = array_merge( $defaults, wpsight_listing_query_vars() );
+
+		// Merge shortcodes atts with defaults and extract
+        extract( shortcode_atts( $defaults, $atts ) );
+        
+        ob_start();
+        
+        wpsight_listings( shortcode_atts( $defaults, $atts ) );
+        
+        $output = sprintf( '%1$s%3$s%2$s', $before, $after, ob_get_clean() );
+	
+		// Optionally wrap shortcode in HTML tags
+		
+		if( ! empty( $wrap ) && $wrap != 'false' && in_array( $wrap, array_keys( wp_kses_allowed_html( 'post' ) ) ) )
+			$output = sprintf( '<%2$s class="wpsight-listings-sc">%1$s</%2$s>', $output, $wrap );
+
+        return apply_filters( 'wpsight_shortcode_listings', $output, $atts );
+        
+    }
+
+}
+
+new WPSight_Shortcode_Listings();

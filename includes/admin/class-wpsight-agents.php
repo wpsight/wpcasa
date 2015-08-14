@@ -77,10 +77,30 @@ class WPSight_Admin_Agents {
 	        <tr>
 	            <th><label for="agent_logo"><?php _e( 'Agent Image', 'wpsight' ); ?></label></th>
 	            <td>
-	                <p>Agent image option with media uploader here (<code>name="agent_logo"</code>). Add JS to /assets/js/profile.js.<br />
-	                When there is an image, display with edit and remove options like on listing edit page.</p>
-	                
-	                <p>We need to save the image URL as <code>agent_logo</code> and the image post ID as <code>agent_logo_id</code>.</p>
+	            <style type="text/css">
+					.agent_logo_field .field-title { 
+						display: none; 
+					}
+					.CMB_Image_Field.postbox { 
+						box-shadow: none;
+						-webkit-box-shadow: none;
+						border: none;
+					}
+	            </style>
+	            	<?php 
+	            	// load the existing value
+	            	$field_value = get_user_meta( $user->ID, 'agent_logo_id', true );
+	            	// intialize an image field for the agent image
+	            	$agent_image_field = new CMB_Image_Field( 'agent_logo_id', 'Agent Image', array( $field_value ) );
+	            	// enque scripts of the field
+	            	$agent_image_field->enqueue_scripts(); ?>
+
+	            	<div class="CMB_Image_Field postbox agent_logo_field">
+	            		<?php // render the image field uploader
+	            		$agent_image_field->display() ?>
+	            	</div>
+	            	<p><?php _e( 'Setting the agent image here will serve as a default image for every listing of that agent. ', 'wpsight' ); ?></p>
+	            	<p><?php _e( 'Associating an image at the listing itself will override the default image.', 'wpsight' ); ?></p>
 	            </td>
 	        </tr>
 	    </table><?php
@@ -103,11 +123,11 @@ class WPSight_Admin_Agents {
 	    if ( ! current_user_can( 'edit_user', $user_id ) )
 	        return false;
 	        
-		$_POST['agent_logo'] = isset( $_POST['agent_logo'] ) ? $_POST['agent_logo'] : false;
-		$_POST['agent_logo_id'] = isset( $_POST['agent_logo_id'] ) ? $_POST['agent_logo_id'] : false;
+		$agent_logo_id = isset( $_POST['agent_logo_id']['cmb-field-0'] ) ? $_POST['agent_logo_id']['cmb-field-0'] : false;
+		$agent_logo = (array) wp_get_attachment_image_src( $agent_logo_id, 'full' );
 	
-	    update_user_meta( $user_id, 'agent_logo', $_POST['agent_logo'] );
-	    update_user_meta( $user_id, 'agent_logo_id', $_POST['agent_logo_id'] );
+	    update_user_meta( $user_id, 'agent_logo', current( $agent_logo ) );
+	    update_user_meta( $user_id, 'agent_logo_id', sanitize_text_field( $agent_logo_id ) );
 	
 	}
 	

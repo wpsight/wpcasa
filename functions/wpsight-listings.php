@@ -83,12 +83,11 @@ function wpsight_get_listings( $args = array() ) {
 		'p'                 => '',
 		'post__in'          => '',
 		'offset'            => '',
-		'post_status'       => '',
+		'post_status'  => '',
 		'posts_per_page'    => get_query_var( 'nr' )   ? get_query_var( 'nr' ) : get_option( 'posts_per_page' ),
 		'orderby'           => get_query_var( 'orderby' )  ? get_query_var( 'orderby' ) : 'date',
 		'order'             => get_query_var( 'order' )  ? get_query_var( 'order' ) : 'DESC',
-		'featured'          => get_query_var( 'featured' )  ? get_query_var( 'featured' ) : null,
-		'author'            => ''
+		'author'   => ''
 	);
 
 	// Add custom vars to $defaults
@@ -166,15 +165,6 @@ function wpsight_get_listings( $args = array() ) {
 		$query_args['orderby'] = array( 'price' => $query_args['order'] );
 
 	}
-
-	// Check if orderby featured
-
-	if ( $args['orderby'] == 'featured' ) {
-		$query_args['orderby'] = 'meta_key';
-		$query_args['meta_key'] = '_listing_featured';
-		add_filter( 'posts_clauses', 'wpsight_get_listings_order_featured' );
-	}
-
 	// Set meta query for offer (sale, rent)
 
 	if ( ! empty( $args['offer'] ) ) {
@@ -388,28 +378,11 @@ function wpsight_get_listings( $args = array() ) {
 
 	do_action( 'wpsight_get_listings_after', $query_args, $args );
 
-	remove_filter( 'posts_clauses', 'wpsight_get_listings_order_featured' );
-
 	// Reset query
 	wp_reset_query();
 
 	return apply_filters( 'wpsight_get_listings', $result, $query_args, $args );
 
-}
-
-/**
- * WP Core doens't let us change the sort direction for invidual orderby params - http://core.trac.wordpress.org/ticket/17065
- *
- * @param array   $args
- * @return array
- * @since 1.0.0
- */
-function wpsight_get_listings_order_featured( $args ) {
-	global $wpdb;
-
-	$args['orderby'] = "$wpdb->postmeta.meta_value+0 DESC, $wpdb->posts.post_date DESC";
-
-	return $args;
 }
 
 /**

@@ -158,8 +158,13 @@ function wpsight_get_listings( $args = array() ) {
 	// Check if orderby price
 
 	if ( $args['orderby'] == 'price' ) {
-		$query_args['orderby'] = 'meta_value_num';
-		$query_args['meta_key'] = '_price';
+		$query_args['meta_query']['price'] = array(
+			'key'     => '_price',
+			'type'    => 'numeric',
+			'compare' => 'EXISTS'
+		);
+		$query_args['orderby'] = array( 'price' => $query_args['order'] );
+
 	}
 
 	// Check if orderby featured

@@ -1331,7 +1331,9 @@ class WPSight_Admin_CPT {
 	public function parse_query_listing_taxonomy( $query ) {	
 	    global $typenow;
 	    
-	    if ( 'edit-listing' == get_current_screen()->id ) {
+	    $current_screen = get_current_screen();
+
+	    if ( isset( $current_screen->id ) && 'edit-listing' == $current_screen->id ) {
 	    
 	        $filters = get_object_taxonomies( $typenow );
 	        

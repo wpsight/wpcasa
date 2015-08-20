@@ -66,6 +66,7 @@ class WPSight_Framework {
 		include( 'includes/class-wpsight-post-types.php' );		
 		include( 'includes/class-wpsight-api.php' );
 		include( 'includes/class-wpsight-geocode.php' );
+		include( 'includes/class-wpsight-listings.php' );
 		
 		// Include shortcodes
 		include( 'includes/shortcodes/class-wpsight-shortcodes.php' );

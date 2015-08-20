@@ -400,10 +400,10 @@ class WPSight_Listings {
 	 * @since 1.0.0
 	 */
 
-	function listing_teaser( $teaser_id = null ) {
+	public static function listing_teaser( $teaser_id = null ) {
 		global $teaser;
 
-		$teaser = get_listing( $teaser_id );
+		$teaser = wpsight_get_listing( $teaser_id );
 
 		if ( $teaser ) {
 
@@ -418,6 +418,61 @@ class WPSight_Listings {
 		}
 
 	}
+
+	/**
+	 * listing()
+	 *
+	 * Output formatted single listing or
+	 * archive teaser if $full is (bool) false.
+	 *
+	 * @param integer|object $listing_id Post or listing ID or WP_Post object
+	 * @param bool    $full       Set true to show entire listing or false to show archive teaser
+	 * @uses wpsight_get_listing()
+	 * @uses wpsight_get_template()
+	 * @uses wpsight_get_template_part()
+	 *
+	 * @since 1.0.0
+	 */
+	public static function listing( $listing_id = null, $full = true ) {
+		
+		global $listing;
+		
+		$listing = wpsight_get_listing( $listing_id );
+		
+		// Show listing if found
+		if ( $listing ) {
+		
+			// Set up post data for required listing
+			setup_postdata( $GLOBALS['post'] =& $listing );
+		
+			if ( $full === true ) {
+		
+				// Get template before single
+				wpsight_get_template( 'listing-single-before.php' );
+		
+				// Get listing single template
+				wpsight_get_template_part( 'listing', 'single' );
+		
+				// Get template after single
+				wpsight_get_template( 'listing-single-after.php' );
+		
+			} else {
+		
+				// Get listing archive template
+				wpsight_get_template_part( 'listing', 'archive' );
+			}
+		
+			// Reset post data
+			wp_reset_postdata();
+		
+			// Else show no listing template
+		} else {
+		
+			// Get template for no listings
+			wpsight_get_template_part( 'listing', 'no' );
+		}
+	}
+
 
 	/**
 	 * listing_teasers()

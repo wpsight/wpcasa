@@ -78,6 +78,7 @@ class WPSight_Framework {
 
 		// Init classes
 		$this->post_types = new WPSight_Post_Type_Listing();
+		$this->admin = new WPSight_Admin();
 
 		// Activation
 		
@@ -95,6 +96,9 @@ class WPSight_Framework {
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
 		
 		//add_action( 'admin_init', array( $this, 'updater' ) );
+
+		do_action( 'wpsight_init', $this );
+
 	}
 
 	/**
@@ -187,4 +191,27 @@ class WPSight_Framework {
 	}
 }
 
-$GLOBALS['wpsight'] = new WPSight_Framework();
+/**
+ *  wpsight()
+ *
+ *  The main function responsible for returning the one true wpsight Instance to functions everywhere.
+ *  Use this function like you would a global variable, except without needing to declare the global.
+ *
+ *  Example: <?php $wpsight = wpsight(); ?>
+ *
+ *  @return  object $wpsight
+ */
+function wpsight() {
+
+	global $wpsight;
+	
+	if ( !isset( $wpsight ) ){
+		$wpsight = new WPSight_Framework();
+	}
+	
+	return $wpsight;
+}
+
+wpsight();
+
+// remove_filter( 'manage_users_columns', array( wpsight()->admin, 'manage_users_columns' ));

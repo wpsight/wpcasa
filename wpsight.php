@@ -97,7 +97,7 @@ class WPSight_Framework {
 		
 		//add_action( 'admin_init', array( $this, 'updater' ) );
 
-		do_action( 'wpsight_init', $this );
+		do_action_ref_array( 'wpsight_init', array( &$this ) );
 
 	}
 

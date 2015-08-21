@@ -13,10 +13,10 @@ class WPSight_Admin {
 	 */
 	public function __construct() {
 
-		include_once 'class-wpsight-cpt.php';
-		include_once 'class-wpsight-settings.php';
-		include_once 'class-wpsight-meta-boxes.php';
-		include_once 'class-wpsight-agents.php';
+		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-cpt.php';
+		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-settings.php';
+		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-meta-boxes.php';
+		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-agents.php';
 
 		$this->settings_page = new WPSight_Admin_Settings();
 

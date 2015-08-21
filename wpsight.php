@@ -52,29 +52,29 @@ class WPSight_Framework {
 		
 		// Include functions
 
-		include( 'functions/wpsight-general.php' );
-		include( 'functions/wpsight-template.php' );
-		include( 'functions/wpsight-listings.php' );
-		include( 'functions/wpsight-agents.php' );
-		include( 'functions/wpsight-search.php' );
-		include( 'functions/wpsight-helpers.php' );
-		include( 'functions/wpsight-admin.php' );
-		include( 'functions/wpsight-meta-boxes.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-general.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-template.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-listings.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-agents.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-search.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-helpers.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-admin.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-meta-boxes.php' );
 		
 		// Include classes
 		
-		include( 'includes/class-wpsight-post-types.php' );		
-		include( 'includes/class-wpsight-api.php' );
-		include( 'includes/class-wpsight-geocode.php' );
-		include( 'includes/class-wpsight-listings.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-post-types.php' );		
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-api.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-geocode.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-listings.php' );
 		
 		// Include shortcodes
-		include( 'includes/shortcodes/class-wpsight-shortcodes.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/shortcodes/class-wpsight-shortcodes.php' );
 		
 		// Include admin class
 
 		if ( is_admin() )
-			include( 'includes/admin/class-wpsight-admin.php' );
+			include( WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin.php' );
 
 		// Init classes
 		$this->post_types = new WPSight_Post_Type_Listing();
@@ -213,5 +213,3 @@ function wpsight() {
 }
 
 wpsight();
-
-// remove_filter( 'manage_users_columns', array( wpsight()->admin, 'manage_users_columns' ));

@@ -73,12 +73,13 @@ class WPSight_Framework {
 		
 		// Include admin class
 
-		if ( is_admin() )
+		if ( is_admin() ) {
 			include( WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin.php' );
-
+			$this->admin = new WPSight_Admin();
+		}
+		
 		// Init classes
 		$this->post_types = new WPSight_Post_Type_Listing();
-		$this->admin = new WPSight_Admin();
 
 		// Activation
 		

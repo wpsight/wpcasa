@@ -67,6 +67,7 @@ class WPSight_Framework {
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-api.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-geocode.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-listings.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-agents.php' );
 		
 		// Include shortcodes
 		include( WPSIGHT_PLUGIN_DIR . '/includes/shortcodes/class-wpsight-shortcodes.php' );
@@ -80,6 +81,7 @@ class WPSight_Framework {
 		
 		// Init classes
 		$this->post_types = new WPSight_Post_Type_Listing();
+		$this->agents = new WPSight_Agents();
 
 		// Activation
 		

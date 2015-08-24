@@ -38,72 +38,13 @@
  *	)
  *
  * @return array $roles Array of roles to be used by add_role() in /includes/class-wpsight-install.php
+ * @uses WPSight_Agents::agent_roles()
  *
  * @since 1.0.0
  */
  
 function wpsight_agent_roles() {
-
-	$roles = array(
-
-		'listing_admin' => array(
-			'id'   => 'listing_admin',
-			'name' => _x( 'Listing Admin', 'agent role', 'wpsight' ),
-			'caps' => array(
-				'read'						=> true,
-				'upload_files' 		    	=> true,
-				'unfiltered_html'			=> true,
-		    	'edit_listing'				=> true,
-		    	'edit_listing_id'			=> true,
-				'read_listing'				=> true,
-				'delete_listing'			=> true,
-				'edit_listings'				=> true,
-				'edit_others_listings'		=> true,
-				'publish_listings'			=> true,
-				'read_private_listings'		=> true,
-				'delete_listings'			=> true,
-				'delete_private_listings'	=> true,
-				'delete_published_listings'	=> true,
-				'delete_others_listings'	=> true,
-				'edit_private_listings'		=> true,
-				'edit_published_listings'	=> true,
-				'edit_listings'				=> true,
-				'manage_listing_terms'		=> true,
-	            'edit_listing_terms'		=> true,
-	            'delete_listing_terms'		=> true,
-				'assign_listing_terms'		=> true
-			)
-		),
-
-		'listing_agent' => array(
-			'id'   => 'listing_agent',
-			'name' => _x( 'Listing Agent', 'agent role', 'wpsight' ),
-			'caps' => array(
-				'read'						=> true,
-				'upload_files' 		    	=> true,
-		    	'edit_listing'				=> true,
-				'read_listing'				=> true,
-				'delete_listing'			=> true,
-				'edit_listings'				=> true,
-				'delete_listings'			=> true,
-				'edit_listings'				=> true,
-				'assign_listing_terms'		=> true
-			)
-		),
-
-		'listing_subscriber' => array(
-			'id'   => 'listing_subscriber',
-			'name' => _x( 'Listing Subscriber', 'agent role', 'wpsight' ),
-			'caps' => array(
-				'read'						=> true,
-				'read_listing'				=> true
-			)
-		)
-
-	);
-
-	return apply_filters( 'wpsight_agent_roles', $roles );
-
+	return WPSight_Agents::agent_roles();
 }
 
 /**
@@ -130,44 +71,13 @@ function wpsight_listing_agent_image( $post = null, $size = array( 75, 75 ) ) {
  * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
  * @param string|array $size Size of the image (WordPress sizes or custom width and height in array)
  * @return string|bool $agent_image HTML image tag of the listing agent image or false
+ * @uses WPSight_Agents::wpsight_get_listing_agent_image()
  *
  * @since 1.0.0
  */
 
 function wpsight_get_listing_agent_image( $post = null, $size = array( 75, 75 ) ) {
-	
-	$agent_image 	 = '';
-	$agent_image_url = '';
-	
-	// Get post object
-	$post = get_post( $post );
-
-	// Get image URL from post meta
-	$agent_image_url = $post->_agent_logo;
-	
-	// If we have a URL, built the image
-	
-	if( ! empty( $agent_image_url ) ) {
-		
-		// Get attachment ID
-		$attachment_id = wpsight_get_attachment_id_by_url( $agent_image_url );
-		
-		// Get attachment URL for specific size
-		$attachment = wp_get_attachment_image_src( $attachment_id, $size );
-		
-		// Build HTML image tag 
-		$agent_image = '<img src="' . $attachment[0] . '" width="' . $attachment[1] . '" height="' . $attachment[2] . '" alt="' . wpsight_get_listing_agent_name( $post ) . '" />';
-
-	}
-	
-	// If no image, return false
-	
-	if( empty( $agent_image ) )
-		$agent_image = false;
-
-	// Return agent image or false
-	return apply_filters( 'wpsight_listing_agent_image', $agent_image, $post, $size );
-  
+	return WPSight_Agents::get_listing_agent_image( $post, $size ) ;
 }
 
 /**
@@ -197,23 +107,7 @@ function wpsight_listing_agent_name( $post = null ) {
  */
 
 function wpsight_get_listing_agent_name( $post = null ) {
-
-	$agent_name = '';
-	
-	// Get post object
-	$post = get_post( $post );
-	
-	// Get agent name from post meta
-	$agent_name = $post->_agent_name;
-	
-	// If no name, return false
-	
-	if( empty( $agent_name ) )
-		$agent_name = false;
-
-	// Return agent name or false
-	return apply_filters( 'wpsight_listing_agent_name', $agent_name, $post );
-  
+	return WPSight_Agents::get_listing_agent_name( $post );
 }
 
 /**
@@ -243,23 +137,7 @@ function wpsight_listing_agent_company( $post = null ) {
  */
 
 function wpsight_get_listing_agent_company( $post = null ) {
-	
-	$agent_company = '';
-	
-	// Get post object
-	$post = get_post( $post );
-	
-	// Get agent company from post meta
-	$agent_company = $post->_agent_company;
-	
-	// If no name, return false
-	
-	if( empty( $agent_company ) )
-		$agent_company = false;
-
-	// Return agent name or false
-	return apply_filters( 'wpsight_listing_agent_company', $agent_company, $post );
-  
+	return WPSight_Agents::get_listing_agent_company( $post );
 }
 
 /**
@@ -289,18 +167,7 @@ function wpsight_listing_agent_description( $post = null ) {
  */
 
 function wpsight_get_listing_agent_description( $post = null ) {
-	
-	$agent_description = '';
-	
-	// Get post object
-	$post = get_post( $post );
-
-	// Get agent description from post meta
-	$agent_description = ! empty( $post->_agent_description ) ? wpsight_format_content( $post->_agent_description ) : false;
-
-	// Return agent description or false
-	return apply_filters( 'wpsight_listing_agent_description', $agent_description, $post );
-  
+	return WPSight_Agents::get_listing_agent_description( $post );
 }
 
 /**
@@ -330,23 +197,7 @@ function wpsight_listing_agent_website( $post = null ) {
  */
 
 function wpsight_get_listing_agent_website( $post = null ) {
-	
-	$agent_website = '';
-	
-	// Get post object
-	$post = get_post( $post );
-
-	// Get agent website from post meta
-	$agent_website = esc_url( $post->_agent_website );
-	
-	// If no website, return false
-	
-	if( empty( $agent_website ) )
-		$agent_website = false;
-
-	// Return agent website or false
-	return apply_filters( 'wpsight_listing_agent_website', $agent_website, $post );
-  
+	return WPSight_Agents::get_listing_agent_website( $post );
 }
 
 /**
@@ -378,28 +229,7 @@ function wpsight_listing_agent_twitter( $post = null, $return = 'user' ) {
  */
 
 function wpsight_get_listing_agent_twitter( $post = null, $return = 'user' ) {
-	
-	$agent_twitter = '';
-	
-	// Get post object
-	$post = get_post( $post );
-
-	// Get agent twitter from post meta
-	$agent_twitter = $post->_agent_twitter;
-	
-	// Remove @ to get username only
-	
-	if ( strpos( $agent_twitter, '@' ) === 0 )
-		$agent_twitter = substr( $agent_twitter, 1 );
-	
-	if( $return == 'url' ) {		
-		// If no twitter, return false. Else prepend twitter.com if URL requested
-		$agent_twitter = empty( $agent_twitter ) ? false : esc_url( 'https://twitter.com/' . $agent_twitter );	
-	}
-
-	// Return agent twitter or false
-	return apply_filters( 'wpsight_listing_agent_twitter', $agent_twitter, $post, $return );
-  
+	return WPSight_Agents::get_listing_agent_twitter( $post, $return );  
 }
 
 /**
@@ -432,23 +262,7 @@ function wpsight_listing_agent_facebook( $post = null, $return = 'user' ) {
  */
 
 function wpsight_get_listing_agent_facebook( $post = null, $return = 'user' ) {
-	
-	$agent_facebook = '';
-	
-	// Get post object
-	$post = get_post( $post );
-
-	// Get agent twitter from post meta
-	$agent_facebook = $post->_agent_facebook;
-	
-	if( $return == 'url' ) {
-		// If no facebook, return false. Else prepend facebook.com if URL requested
-		$agent_facebook = empty( $agent_facebook ) ? false : esc_url( 'https://www.facebook.com/' . $agent_facebook );	
-	}
-
-	// Return agent twitter or false
-	return apply_filters( 'wpsight_listing_agent_facebook', $agent_facebook, $post, $return );
-  
+	return WPSight_Agents::get_listing_agent_facebook( $post, $return );
 }
 
 /**
@@ -481,82 +295,7 @@ function wpsight_listing_agent_archive( $post = null, $user_id = false ) {
  */
 
 function wpsight_get_listing_agent_archive( $post = null, $user_id = false ) {
-	
-	$agent_archive = '';
-	
-	// Get post object
-	$post = get_post( $post );
-	
-	// Set user ID
-	$user_id = $user_id == false ? absint( $post->post_author ) : absint( $user_id );
-	
-	// If user ID, set author posts URL with query arg, else false
-	$agent_archive = ! empty( $user_id ) ? esc_url( add_query_arg( 'listings', '1', get_author_posts_url( $user_id ) ) ) : false;
-
-	// Return agent archive link or false
-	return apply_filters( 'wpsight_get_listing_agent_archive', $agent_archive, $post, $user_id );
-  
-}
-
-/**
- * wpsight_author_listings()
- *
- * Limit author archive entries to listings
- * when corresponding query arg is set.
- *
- * @param object $query WP_Query object
- * @uses wpsight_is_listing_agent_archive()
- * @uses wpsight_post_type()
- * @uses $query->set()
- *
- * @since 1.0.0
- */
-
-add_filter( 'pre_get_posts', 'wpsight_author_listings' );
-
-function wpsight_author_listings( $query ) {
-
-	if( wpsight_is_listing_agent_archive( $query ) )
-		$query->set( 'post_type', array( wpsight_post_type() ) );
-
-}
-
-/**
- * Helper function to count posts
- * by user and post type
- *
- * @param integer $user_id User ID (defaults to current user)
- * @param string $post_type Post type (defaults to post)
- * @uses get_posts_by_author_sql()
- *
- * @since 1.0.0
- */
-
-function wpsight_count_user_posts_by_type( $user_id = false, $post_type = 'post' ) {
-	global $wpdb;
-	
-	// Stop if post type not valid
-	
-	if( ! in_array( $post_type, get_post_types() ) )
-		return false;
-	
-	// Set user ID
-	$user_id = $user_id === false ? get_current_user_id() : absint( $user_id );
-	
-	// Author SQL
-	$where = get_posts_by_author_sql( $post_type, TRUE, $user_id );
-	
-	// Set SQL query
-	$query = "SELECT COUNT(*) FROM $wpdb->posts $where";
-	
-	// Get count var
-	$count = $wpdb->get_var( $query );
-	
-	// Respect get_usernumposts filter
-	$count = apply_filters( 'get_usernumposts', $count, $user_id );
-	
-	return apply_filters( 'wpsight_count_user_posts_by_type', $count, $user_id );
-  
+	return WPSight_Agents::get_listing_agent_archive( $post, $user_id );
 }
 
 /**
@@ -571,27 +310,7 @@ function wpsight_count_user_posts_by_type( $user_id = false, $post_type = 'post'
  */
 
 function wpsight_get_user_posts_by_type( $user_id = false, $post_type = 'post' ) {
-	global $wpdb;
-	
-	// Stop if post type not valid
-	
-	if( ! in_array( $post_type, get_post_types() ) )
-		return false;
-	
-	// Set user ID
-	$user_id = $user_id === false ? get_current_user_id() : absint( $user_id );
-	
-	// Author SQL
-	$where = get_posts_by_author_sql( $post_type, TRUE, $user_id );
-	
-	// Set SQL query
-	$query = "SELECT ID FROM $wpdb->posts $where";
-	
-	// Get post IDs
-	$post_ids = $wpdb->get_col( $query );
-	
-	return apply_filters( 'wpsight_get_user_posts_by_type', $post_ids, $user_id );
-  
+	return WPSight_Agents::get_user_posts_by_type( $user_id, $post_type );
 }
 
 /**
@@ -604,22 +323,5 @@ function wpsight_get_user_posts_by_type( $user_id = false, $post_type = 'post' )
  */
 
 function wpsight_profile_contact_fields() {
-
-	$fields = array(
-		'company'    => array(
-			'label' => __( 'Company', 'wpsight' )
-		),
-		'phone'    => array(
-			'label' => __( 'Phone', 'wpsight' )
-		),
-		'twitter'  => array(
-			'label' => 'Twitter'
-		),
-		'facebook'  => array(
-			'label' => 'Facebook'
-		)
-	);
-	
-	return apply_filters( 'wpsight_profile_contact_fields', $fields );
-
+	return WPSight_Agents::profile_contact_fields( $user_id, $post_type );
 }

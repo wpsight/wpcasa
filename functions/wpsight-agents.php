@@ -19,30 +19,30 @@
  * /includes/class-wpsight-post-types.php with
  * capability_type 'listing' and map_meta_cap true.
  *
- *	[cap] => stdClass Object
- *	(
- *		[edit_post]		 		 => edit_listing
- *		[read_post]		 		 => read_listing
- *		[delete_post]		 	 => delete_listing
- *		[edit_posts]		 	 => edit_listings
- *		[edit_others_posts]	 	 => edit_others_listings
- *		[publish_posts]		 	 => publish_listings
- *		[read_private_posts]	 => read_private_listings
- *	    [delete_posts]           => delete_listings
- *	    [delete_private_posts]   => delete_private_listings
- *	    [delete_published_posts] => delete_published_listings
- *	    [delete_others_posts]    => delete_others_listings
- *	    [edit_private_posts]     => edit_private_listings
- *	    [edit_published_posts]   => edit_published_listings
- *	    [create_posts]           => edit_listings
- *	)
+ * [cap] => stdClass Object
+ * (
+ *  [edit_post]      => edit_listing
+ *  [read_post]      => read_listing
+ *  [delete_post]     => delete_listing
+ *  [edit_posts]     => edit_listings
+ *  [edit_others_posts]    => edit_others_listings
+ *  [publish_posts]     => publish_listings
+ *  [read_private_posts]  => read_private_listings
+ *     [delete_posts]           => delete_listings
+ *     [delete_private_posts]   => delete_private_listings
+ *     [delete_published_posts] => delete_published_listings
+ *     [delete_others_posts]    => delete_others_listings
+ *     [edit_private_posts]     => edit_private_listings
+ *     [edit_published_posts]   => edit_published_listings
+ *     [create_posts]           => edit_listings
+ * )
  *
  * @return array $roles Array of roles to be used by add_role() in /includes/class-wpsight-install.php
  * @uses WPSight_Agents::agent_roles()
  *
  * @since 1.0.0
  */
- 
+
 function wpsight_agent_roles() {
 	return WPSight_Agents::agent_roles();
 }
@@ -59,7 +59,7 @@ function wpsight_agent_roles() {
  */
 
 function wpsight_listing_agent_image( $post = null, $size = array( 75, 75 ) ) {
-	echo wpsight_get_listing_agent_image( $post, $size );  
+	echo wpsight_get_listing_agent_image( $post, $size );
 }
 
 /**
@@ -91,7 +91,7 @@ function wpsight_get_listing_agent_image( $post = null, $size = array( 75, 75 ) 
  */
 
 function wpsight_listing_agent_name( $post = null ) {
-	echo wpsight_get_listing_agent_name( $post );  
+	echo wpsight_get_listing_agent_name( $post );
 }
 
 /**
@@ -121,7 +121,7 @@ function wpsight_get_listing_agent_name( $post = null ) {
  */
 
 function wpsight_listing_agent_company( $post = null ) {
-	echo wpsight_get_listing_agent_company( $post );  
+	echo wpsight_get_listing_agent_company( $post );
 }
 
 /**
@@ -151,7 +151,7 @@ function wpsight_get_listing_agent_company( $post = null ) {
  */
 
 function wpsight_listing_agent_description( $post = null ) {
-	echo wpsight_get_listing_agent_description( $post );  
+	echo wpsight_get_listing_agent_description( $post );
 }
 
 /**
@@ -181,7 +181,7 @@ function wpsight_get_listing_agent_description( $post = null ) {
  */
 
 function wpsight_listing_agent_website( $post = null ) {
-	echo wpsight_get_listing_agent_website( $post );  
+	echo wpsight_get_listing_agent_website( $post );
 }
 
 /**
@@ -205,14 +205,14 @@ function wpsight_get_listing_agent_website( $post = null ) {
  *
  * Echo wpsight_get_listing_agent_twitter()
  *
- * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
- * @param string $return Return Twitter user or URL (defaults to 'user' - can be 'url')
+ * @param integer|object $post   Post ID or object of required listing (defaults to null = current listing)
+ * @param string  $return Return Twitter user or URL (defaults to 'user' - can be 'url')
  *
  * @since 1.0.0
  */
 
 function wpsight_listing_agent_twitter( $post = null, $return = 'user' ) {
-	echo wpsight_get_listing_agent_twitter( $post, $return );  
+	echo wpsight_get_listing_agent_twitter( $post, $return );
 }
 
 /**
@@ -221,15 +221,15 @@ function wpsight_listing_agent_twitter( $post = null, $return = 'user' ) {
  * Return agent twitter of the
  * current or a specific listing.
  *
- * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
- * @param string $return Return Twitter user or URL (defaults to 'user' - can be 'url')
+ * @param integer|object $post   Post ID or object of required listing (defaults to null = current listing)
+ * @param string  $return Return Twitter user or URL (defaults to 'user' - can be 'url')
  * @return string|bool $agent_twitter Agent twitter of the listing agent or false
  *
  * @since 1.0.0
  */
 
 function wpsight_get_listing_agent_twitter( $post = null, $return = 'user' ) {
-	return WPSight_Agents::get_listing_agent_twitter( $post, $return );  
+	return WPSight_Agents::get_listing_agent_twitter( $post, $return );
 }
 
 /**
@@ -237,14 +237,14 @@ function wpsight_get_listing_agent_twitter( $post = null, $return = 'user' ) {
  *
  * Echo wpsight_get_listing_agent_facebook()
  *
- * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
- * @param string $return Return Twitter user or URL (defaults to 'user' - can be 'url')
+ * @param integer|object $post   Post ID or object of required listing (defaults to null = current listing)
+ * @param string  $return Return Twitter user or URL (defaults to 'user' - can be 'url')
  *
  * @since 1.0.0
  */
 
 function wpsight_listing_agent_facebook( $post = null, $return = 'user' ) {
-	echo wpsight_get_listing_agent_facebook( $post, $return );  
+	echo wpsight_get_listing_agent_facebook( $post, $return );
 }
 
 /**
@@ -253,8 +253,8 @@ function wpsight_listing_agent_facebook( $post = null, $return = 'user' ) {
  * Return agent facebook of the
  * current or a specific listing.
  *
- * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
- * @param string $return Return Twitter user or URL (defaults to 'user' - can be 'url')
+ * @param integer|object $post   Post ID or object of required listing (defaults to null = current listing)
+ * @param string  $return Return Twitter user or URL (defaults to 'user' - can be 'url')
  *
  * @return string|bool $agent_facebook Agent facebook of the listing agent or false
  *
@@ -270,14 +270,14 @@ function wpsight_get_listing_agent_facebook( $post = null, $return = 'user' ) {
  *
  * Echo wpsight_get_listing_agent_archive()
  *
- * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
+ * @param integer|object $post    Post ID or object of required listing (defaults to null = current listing)
  * @param integer $user_id User ID of the corresponding agent (defaults to post_author)
  *
  * @since 1.0.0
  */
 
 function wpsight_listing_agent_archive( $post = null, $user_id = false ) {
-	echo wpsight_get_listing_agent_archive( $post, $user_id );  
+	echo wpsight_get_listing_agent_archive( $post, $user_id );
 }
 
 /**
@@ -286,7 +286,7 @@ function wpsight_listing_agent_archive( $post = null, $user_id = false ) {
  * Get listing agent archive by adding
  * "listings=1" to get_author_posts_url().
  *
- * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
+ * @param integer|object $post    Post ID or object of required listing (defaults to null = current listing)
  * @param integer $user_id User ID of the corresponding agent (defaults to post_author)
  *
  * @return string $agent_archive Author posts URL with additional query arg "listing=1"
@@ -302,8 +302,8 @@ function wpsight_get_listing_agent_archive( $post = null, $user_id = false ) {
  * Helper function to get posts
  * by user and post type
  *
- * @param integer $user_id User ID (defaults to current user)
- * @param string $post_type Post type (defaults to post)
+ * @param integer $user_id   User ID (defaults to current user)
+ * @param string  $post_type Post type (defaults to post)
  * @uses get_posts_by_author_sql()
  *
  * @since 1.0.0

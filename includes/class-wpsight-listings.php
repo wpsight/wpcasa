@@ -826,34 +826,6 @@ class WPSight_Listings {
 	}
 
 	/**
-	 * listing_details()
-	 *
-	 * Echo formatted listing details or print_r if array/unformatted.
-	 *
-	 * @param integer $post_id   Post ID
-	 * @param array   $details   Array of details (keys from wpsight_details())
-	 * @param bool    $formatted Function returns array if false
-	 * @uses wpsight_get_listing_details()
-	 *
-	 * @since 1.0.0
-	 */
-
-	public static function listing_details( $post_id = '', $details = false, $formatted = 'wpsight-listing-details' ) {
-
-		$listing_details = wpsight_get_listing_details( $post_id, $details, $formatted );
-
-		// Only echo if not array
-
-		if ( ! is_array( $listing_details ) ) {
-			echo $listing_details;
-		} else {
-			// Echo print_r array for debugging
-			?><pre><?php print_r( $listing_details ); ?></pre><?php
-		}
-
-	}
-
-	/**
 	 * get_listing_summary()
 	 *
 	 * Return specific set of listings details.
@@ -878,34 +850,6 @@ class WPSight_Listings {
 		$listing_summary = wpsight_get_listing_details( $post_id, $details, $formatted );
 
 		return apply_filters( 'wpsight_get_listing_summary', $listing_summary, $post_id, $details, $formatted );
-
-	}
-
-	/**
-	 * listing_summary()
-	 *
-	 * Echo listing summary or print_r if array.
-	 *
-	 * @param integer $post_id   Post ID
-	 * @param array   $details   Array of details (keys from wpsight_details())
-	 * @param string|bool $formatted CSS class for wrap or function returns array if false
-	 * @uses wpsight_get_listing_summary()
-	 *
-	 * @since 1.0.0
-	 */
-
-	public static function listing_summary( $post_id = '', $details = false, $formatted = 'wpsight-listing-summary' ) {
-
-		$listing_summary = wpsight_get_listing_summary( $post_id, $details, $formatted );
-
-		// Only echo if not array
-
-		if ( ! is_array( $listing_summary ) ) {
-			echo $listing_summary;
-		} else {
-			// Echo print_r array for debugging
-			?><pre><?php print_r( $listing_summary ); ?></pre><?php
-		}
 
 	}
 

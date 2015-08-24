@@ -102,6 +102,7 @@ function wpsight_listing_agent_name( $post = null ) {
  *
  * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
  * @return string|bool $agent_name Agent name of the listing agent or false
+ * @uses WPSight_Agents::get_listing_agent_name()
  *
  * @since 1.0.0
  */
@@ -132,6 +133,7 @@ function wpsight_listing_agent_company( $post = null ) {
  *
  * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
  * @return string|bool $agent_company Agent company of the listing agent or false
+ * @uses WPSight_Agents::get_listing_agent_company()
  *
  * @since 1.0.0
  */
@@ -162,6 +164,7 @@ function wpsight_listing_agent_description( $post = null ) {
  *
  * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
  * @return string|bool $agent_description Agent description of the listing agent or false
+ * @uses WPSight_Agents::get_listing_agent_description()
  *
  * @since 1.0.0
  */
@@ -192,6 +195,7 @@ function wpsight_listing_agent_website( $post = null ) {
  *
  * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
  * @return string|bool $agent_website Agent website of the listing agent or false
+ * @uses WPSight_Agents::get_listing_agent_website
  *
  * @since 1.0.0
  */
@@ -224,6 +228,7 @@ function wpsight_listing_agent_twitter( $post = null, $return = 'user' ) {
  * @param integer|object $post   Post ID or object of required listing (defaults to null = current listing)
  * @param string  $return Return Twitter user or URL (defaults to 'user' - can be 'url')
  * @return string|bool $agent_twitter Agent twitter of the listing agent or false
+ * @uses WPSight_Agents::get_listing_agent_twitter()
  *
  * @since 1.0.0
  */
@@ -257,6 +262,7 @@ function wpsight_listing_agent_facebook( $post = null, $return = 'user' ) {
  * @param string  $return Return Twitter user or URL (defaults to 'user' - can be 'url')
  *
  * @return string|bool $agent_facebook Agent facebook of the listing agent or false
+ * @uses WPSight_Agents::get_listing_agent_facebook
  *
  * @since 1.0.0
  */
@@ -290,6 +296,7 @@ function wpsight_listing_agent_archive( $post = null, $user_id = false ) {
  * @param integer $user_id User ID of the corresponding agent (defaults to post_author)
  *
  * @return string $agent_archive Author posts URL with additional query arg "listing=1"
+ * @uses WPSight_Agents::get_listing_agent_archive
  *
  * @since 1.0.0
  */
@@ -304,7 +311,7 @@ function wpsight_get_listing_agent_archive( $post = null, $user_id = false ) {
  *
  * @param integer $user_id   User ID (defaults to current user)
  * @param string  $post_type Post type (defaults to post)
- * @uses get_posts_by_author_sql()
+ * @uses WPSight_Agents::get_user_posts_by_type
  *
  * @since 1.0.0
  */
@@ -319,6 +326,7 @@ function wpsight_get_user_posts_by_type( $user_id = false, $post_type = 'post' )
  * Return user contact fields
  *
  * @return array $fields Array of contact fields
+ * @uses WPSight_Agents::profile_contact_fields
  * @since 1.0.0
  */
 

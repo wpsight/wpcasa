@@ -3,7 +3,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Agents API
+ * Agents Class
  *
  * This class sets up agents.
  */

@@ -340,7 +340,7 @@ function wpsight_get_listing_id( $post_id = '', $prefix = 'ID-' ) {
  */
 
 function wpsight_listing_id( $post_id = '', $prefix = '' ) {
-	echo wpsight_listing_id( $post_id, $prefix );
+	echo wpsight_get_listing_id( $post_id, $prefix );
 }
 
 /**

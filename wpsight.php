@@ -8,6 +8,7 @@ Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 3.8
 Tested up to: 4.1.1
+Tested up to: 4.1.1
 Text Domain: wpsight
 Domain Path: /languages
 
@@ -69,6 +70,7 @@ class WPSight_Framework {
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-listings.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-agents.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-contact.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-general.php' );
 		
 		// Include shortcodes
 		include( WPSIGHT_PLUGIN_DIR . '/includes/shortcodes/class-wpsight-shortcodes.php' );
@@ -83,6 +85,7 @@ class WPSight_Framework {
 		// Init classes
 		$this->post_types = new WPSight_Post_Type_Listing();
 		$this->agents = new WPSight_Agents();
+		$this->general = new WPSight_General();
 
 		// Activation
 		

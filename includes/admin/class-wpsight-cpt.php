@@ -1308,7 +1308,7 @@ class WPSight_Admin_CPT {
 						'show_count'        => false,
 						'hide_empty'        => true,
 						'orderby'           => 'NAME',
-						'walker'            => new WPSight_Walker_TaxonomyDropdown()
+						'value_field'       => 'slug',
 		    		)
 		    	);            
 		    }

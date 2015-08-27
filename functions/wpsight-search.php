@@ -460,7 +460,7 @@ function wpsight_get_search_field( $field, $formatted = false ) {
 			    		'name'				=> $field,
 			    		'class'           	=> 'listing-search-' . $field . ' select',
 			    		'selected'			=> $field_value,
-			    		'walker'			=> new WPSight_Walker_TaxonomyDropdown(),
+			    		'value_field'       => 'slug',
 						'hide_if_empty'   	=> false,
 						'cache'				=> true					
 					);

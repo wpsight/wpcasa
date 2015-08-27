@@ -717,16 +717,6 @@ class WPSight_Helpers {
 
 }
 
-
-function wpsight_wp_dropdown_cats( $output, $r ) {
-        
-	$output = str_replace( "value='-1'", "value=''", $output );
-	
-	return $output;
-
-}
-add_filter( 'wp_dropdown_cats', 'wpsight_wp_dropdown_cats', 20, 2 );
-
 class WPSight_Walker_TaxonomyDropdown extends Walker_CategoryDropdown {
  
     function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {

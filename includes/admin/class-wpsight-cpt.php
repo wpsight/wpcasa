@@ -1299,15 +1299,16 @@ class WPSight_Admin_CPT {
 		              
 		    	wp_dropdown_categories(
 		    		array(
-		    	    	'show_option_all' => $tax_obj->label,
-		    	    	'taxonomy' 		  => $tax_slug,
-		    	    	'name' 			  => $tax_obj->name,
-		    	    	'selected' 		  => $selected,
-		    	    	'hierarchical' 	  => $tax_obj->hierarchical,
-		    	    	'show_count' 	  => false,
-		    	    	'hide_empty' 	  => true,
-		    	    	'orderby'		  => 'NAME',
-		    	    	'walker'		  => new WPSight_Walker_TaxonomyDropdown()
+						'show_option_all'   => $tax_obj->label,
+						'option_none_value' => '',
+						'taxonomy'          => $tax_slug,
+						'name'              => $tax_obj->name,
+						'selected'          => $selected,
+						'hierarchical'      => $tax_obj->hierarchical,
+						'show_count'        => false,
+						'hide_empty'        => true,
+						'orderby'           => 'NAME',
+						'walker'            => new WPSight_Walker_TaxonomyDropdown()
 		    		)
 		    	);            
 		    }

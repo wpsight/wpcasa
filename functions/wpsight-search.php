@@ -172,6 +172,7 @@ function wpsight_get_search_fields( $fields = array() ) {
 				// wp_dropdown_categories() options
 				'taxonomy'			=> 'location',
 		    	'show_option_none' 	=> __( 'Location', 'wpsight' ),
+		    	'option_none_value' => '',
 		    	'hierarchical'		=> 1,
 		    	'orderby'         	=> 'ID',
 				'order'           	=> 'ASC'
@@ -186,6 +187,7 @@ function wpsight_get_search_fields( $fields = array() ) {
 				// wp_dropdown_categories() options
 				'taxonomy'			=> 'listing-type',
 		    	'show_option_none' 	=> __( 'Type', 'wpsight' ),
+		    	'option_none_value' => '',
 		    	'hierarchical'		=> 1,
 		    	'orderby'         	=> 'ID', 
 				'order'           	=> 'ASC'

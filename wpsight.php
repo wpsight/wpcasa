@@ -71,6 +71,7 @@ class WPSight_Framework {
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-agents.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-contact.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-general.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-helpers.php' );
 		
 		// Include shortcodes
 		include( WPSIGHT_PLUGIN_DIR . '/includes/shortcodes/class-wpsight-shortcodes.php' );
@@ -86,6 +87,7 @@ class WPSight_Framework {
 		$this->post_types = new WPSight_Post_Type_Listing();
 		$this->agents = new WPSight_Agents();
 		$this->general = new WPSight_General();
+		$this->helpers = new WPSight_Helpers();
 
 		// Activation
 		

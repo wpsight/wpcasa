@@ -14,7 +14,7 @@ class WPSight_Helpers {
 
 
 	/**
-	 * wpsight_post_type()
+	 * post_type()
 	 *
 	 * Helper function that returns the
 	 * post type used in the framework.
@@ -27,7 +27,7 @@ class WPSight_Helpers {
 	}
 
 	/**
-	 * wpsight_is_listing_single()
+	 * is_listing_single()
 	 *
 	 * Helper function that checks if
 	 * we are on a single listing page.
@@ -49,7 +49,7 @@ class WPSight_Helpers {
 	}
 
 	/**
-	 * wpsight_is_listing_agent_archive()
+	 * is_listing_agent_archive()
 	 *
 	 * Helper function that checks if
 	 * we are on a listing agent archive page.
@@ -77,7 +77,7 @@ class WPSight_Helpers {
 	}
 
 	/**
-	 * wpsight_is_listing_archive()
+	 * is_listing_archive()
 	 *
 	 * Helper function that checks if
 	 * we are on a listing archive page.
@@ -105,7 +105,7 @@ class WPSight_Helpers {
 	}
 
 	/**
-	 * wpsight_get_option()
+	 * get_option()
 	 *
 	 * Return theme option value.
 	 * 
@@ -156,7 +156,7 @@ class WPSight_Helpers {
 
 
 	/**
-	 * wpsight_add_option()
+	 * add_option()
 	 *
 	 * Add a specific wpSight option
 	 *
@@ -181,7 +181,7 @@ class WPSight_Helpers {
 	}
 
 	/**
-	 * wpsight_delete_option()
+	 * delete_option()
 	 *
 	 * Delete a specific wpSight option
 	 *
@@ -209,7 +209,7 @@ class WPSight_Helpers {
 	}
 
 	/**
-	 * wpsight_options_defaults()
+	 * options_defaults()
 	 *
 	 * Get array of options with default values
 	 *
@@ -406,7 +406,7 @@ class WPSight_Helpers {
 	}
 
 	/**
-	 * wpsight_sort_array_by_priority()
+	 * sort_array_by_priority()
 	 *
 	 * Helper function to sort array by position key
 	 *
@@ -565,7 +565,14 @@ class WPSight_Helpers {
 	
 	    return $result;
 	}
-
+	/**
+	 *  sort_taxonomies_by_parents()
+	 *
+	 *  @param   array  $data
+	 *  @param   integer  $parent_id
+	 *
+	 *  @return  array
+	 */
 	public static function sort_taxonomies_by_parents( $data, $parent_id = 0 ) {
 	
 	    if ( isset( $data[$parent_id] ) ) {
@@ -582,7 +589,17 @@ class WPSight_Helpers {
 	
 	    return array();
 	}
-
+	/**
+	 *  Returns a list of linked terms
+	 *
+	 *  @param   string  $taxonomy
+	 *  @param   array   $data
+	 *  @param   string  $term_before
+	 *  @param   string  $term_after
+	 *  @param   string  $linked
+	 *
+	 *  @return  array
+	 */
 	public static function get_the_term_list_links( $taxonomy, $data, $term_before = '', $term_after = '', $linked = 'true' ) {
 		
 		$result = array();
@@ -715,34 +732,4 @@ class WPSight_Helpers {
 
 	}
 
-}
-
-class WPSight_Walker_TaxonomyDropdown extends Walker_CategoryDropdown {
- 
-    function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {
-    
-        $pad = str_repeat( '&#45;', $depth );
-        $cat_name = apply_filters( 'list_cats', $category->name, $category );
- 
-        if( ! isset( $args['value'] ) ) {
-            $args['value'] = ( $category->taxonomy != 'category' ? 'slug' : 'id' );
-        }
- 
-        $value = ( $args['value']=='slug' ? $category->slug : $category->term_id );
- 
-        $output .= "\t<option class=\"level-$depth\" value=\"".$value."\"";
-        if ( $value === (string) $args['selected'] ){ 
-            $output .= ' selected="selected"';
-        }
-        $output .= '>';
-        if( ! empty( $pad ) )
-        	$pad = $pad . ' ';
-        $output .= $pad . $cat_name;
-        if ( $args['show_count'] )
-            $output .= '&nbsp;&nbsp;('. $category->count .')';
- 
-        $output .= "</option>\n";
-
-	}
- 
 }

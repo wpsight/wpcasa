@@ -360,9 +360,6 @@ class WPSight_Admin_Meta_Boxes {
 	
 }
 
-// Call wpSight_Admin_Meta_Boxes()
-new WPSight_Admin_Meta_Boxes();
-
 /**
  * Create new WPSight_Checkbox_Field class sub class
  * to replace the original CMB checkbox field.

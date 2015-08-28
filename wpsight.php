@@ -77,17 +77,18 @@ class WPSight_Framework {
 		include( WPSIGHT_PLUGIN_DIR . '/includes/shortcodes/class-wpsight-shortcodes.php' );
 		
 		// Include admin class
+		include( WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin.php' );
 
+		// Only instantiate admin class when in admin area
 		if ( is_admin() ) {
-			include( WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin.php' );
 			$this->admin = new WPSight_Admin();
 		}
 		
 		// Init classes
 		$this->post_types = new WPSight_Post_Type_Listing();
-		$this->agents = new WPSight_Agents();
-		$this->general = new WPSight_General();
-		$this->helpers = new WPSight_Helpers();
+		$this->agents     = new WPSight_Agents();
+		$this->general    = new WPSight_General();
+		$this->helpers    = new WPSight_Helpers();
 
 		// Activation
 		

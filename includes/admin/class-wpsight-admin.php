@@ -18,7 +18,10 @@ class WPSight_Admin {
 		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-meta-boxes.php';
 		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-agents.php';
 
+		$this->cpt           = new WPSight_Admin_CPT();
 		$this->settings_page = new WPSight_Admin_Settings();
+		$this->meta_boxes    = new WPSight_Admin_Meta_Boxes();
+		$this->agents        = new WPSight_Admin_Agents();
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ), 12 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );

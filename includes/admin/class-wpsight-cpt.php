@@ -1467,5 +1467,3 @@ class WPSight_Admin_CPT {
 	}
     
 }
-
-new WPSight_Admin_CPT();

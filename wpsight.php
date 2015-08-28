@@ -73,6 +73,7 @@ class WPSight_Framework {
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-general.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-helpers.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-search.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-meta-boxes.php' );
 		
 		// Include shortcodes
 		include( WPSIGHT_PLUGIN_DIR . '/includes/shortcodes/class-wpsight-shortcodes.php' );

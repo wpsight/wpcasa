@@ -11,14 +11,14 @@
  *
  * Merging arrays of all WPSight meta boxes
  *
- * @uses wpsight_meta_box_listing_*()
+ * @uses WPSight_Meta_Boxes::meta_boxes()
  * @return array Array of all listing meta boxes
  *
  * @since 1.0.0
  */
 
 function wpsight_meta_boxes() {
-	return WPSight_Admin_Meta_Boxes::meta_boxes();
+	return WPSight_Meta_Boxes::meta_boxes();
 }
 
 /**
@@ -26,8 +26,7 @@ function wpsight_meta_boxes() {
  *
  * Create listing attributes meta box
  *
- * @uses wpsight_sort_array_by_priority()
- * @uses wpsight_post_type()
+ * @uses WPSight_Meta_Boxes::meta_box_listing_attributes()
  *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
@@ -36,7 +35,7 @@ function wpsight_meta_boxes() {
  */
 
 function wpsight_meta_box_listing_attributes() {
-	return WPSight_Admin_Meta_Boxes::meta_box_listing_attributes();
+	return WPSight_Meta_Boxes::meta_box_listing_attributes();
 }
 
 /**
@@ -44,8 +43,7 @@ function wpsight_meta_box_listing_attributes() {
  *
  * Create listing images meta box
  *
- * @uses wpsight_sort_array_by_priority()
- * @uses wpsight_post_type()
+ * @uses WPSight_Meta_Boxes::meta_box_listing_images()
  *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
@@ -54,7 +52,7 @@ function wpsight_meta_box_listing_attributes() {
  */
 
 function wpsight_meta_box_listing_images() {
-	return WPSight_Admin_Meta_Boxes::meta_box_listing_images();
+	return WPSight_Meta_Boxes::meta_box_listing_images();
 }
 
 /**
@@ -62,10 +60,7 @@ function wpsight_meta_box_listing_images() {
  *
  * Create listing price meta box
  *
- * @uses wpsight_offers()
- * @uses wpsight_rental_periods()
- * @uses wpsight_sort_array_by_priority()
- * @uses wpsight_post_type()
+ * @uses WPSight_Meta_Boxes::meta_box_listing_price()
  *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
@@ -74,7 +69,7 @@ function wpsight_meta_box_listing_images() {
  */
 
 function wpsight_meta_box_listing_price() {
-	return WPSight_Admin_Meta_Boxes::meta_box_listing_price();
+	return WPSight_Meta_Boxes::meta_box_listing_price();
 }
 
 /**
@@ -82,10 +77,7 @@ function wpsight_meta_box_listing_price() {
  *
  * Create listing details meta box
  *
- * @uses wpsight_user_can_edit_listing_id()
- * @uses wpsight_measurements()
- * @uses wpsight_sort_array_by_priority()
- * @uses wpsight_post_type()
+ * @uses WPSight_Meta_Boxes::meta_box_listing_details()
  *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
@@ -94,7 +86,7 @@ function wpsight_meta_box_listing_price() {
  */
 
 function wpsight_meta_box_listing_details() {
-	return WPSight_Admin_Meta_Boxes::meta_box_listing_details();
+	return WPSight_Meta_Boxes::meta_box_listing_details();
 }
 
 /**
@@ -102,8 +94,7 @@ function wpsight_meta_box_listing_details() {
  *
  * Create listing location meta box
  *
- * @uses wpsight_sort_array_by_priority()
- * @uses wpsight_post_type()
+ * @uses WPSight_Meta_Boxes::meta_box_listing_location()
  *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
@@ -112,7 +103,7 @@ function wpsight_meta_box_listing_details() {
  */
 
 function wpsight_meta_box_listing_location() {
-    return WPSight_Admin_Meta_Boxes::meta_box_listing_location();
+    return WPSight_Meta_Boxes::meta_box_listing_location();
 }
 
 /**
@@ -120,8 +111,7 @@ function wpsight_meta_box_listing_location() {
  *
  * Create listing agent box
  *
- * @uses wpsight_sort_array_by_priority()
- * @uses wpsight_post_type()
+ * @uses WPSight_Meta_Boxes::meta_box_listing_agent()
  *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
@@ -130,7 +120,7 @@ function wpsight_meta_box_listing_location() {
  */
 
 function wpsight_meta_box_listing_agent() {
-    return WPSight_Admin_Meta_Boxes::meta_box_listing_agent();
+    return WPSight_Meta_Boxes::meta_box_listing_agent();
 }
 
 /**
@@ -138,9 +128,7 @@ function wpsight_meta_box_listing_agent() {
  *
  * Create listing spaces box(es)
  *
- * @uses wpsight_spaces()
- * @uses wpsight_sort_array_by_priority()
- * @uses wpsight_post_type()
+ * @uses WPSight_Meta_Boxes::meta_box_spaces()
  *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
@@ -150,5 +138,5 @@ function wpsight_meta_box_listing_agent() {
  */
 
 function wpsight_meta_box_spaces() {
-    return WPSight_Admin_Meta_Boxes::meta_box_spaces();
+    return WPSight_Meta_Boxes::meta_box_spaces();
 }

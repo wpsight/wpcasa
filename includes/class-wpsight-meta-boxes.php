@@ -3,13 +3,13 @@
 if ( ! defined( 'ABSPATH' ) )
 	exit;
 
-// Add custom meta boxes API
-require_once 'Custom-Meta-Boxes/custom-meta-boxes.php';
+
+include( WPSIGHT_PLUGIN_DIR . '/vendor/humanmade/Custom-Meta-Boxes/custom-meta-boxes.php' );
 
 /**
- * wpSight_Admin_Meta_Boxes class
+ * wpSight_Meta_Boxes class
  */
-class WPSight_Admin_Meta_Boxes {
+class WPSight_Meta_Boxes {
 
 	/**
 	 * Constructor

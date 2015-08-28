@@ -1277,7 +1277,6 @@ class WPSight_Admin_CPT {
 	 * @uses get_taxonomy()
 	 * @uses get_terms()
 	 * @uses wp_dropdown_categories()
-	 * @uses WPSight_Walker_TaxonomyDropdown()
 	 *
 	 * @since 1.0.0
 	 */

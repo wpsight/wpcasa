@@ -72,6 +72,7 @@ class WPSight_Framework {
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-contact.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-general.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-helpers.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-search.php' );
 		
 		// Include shortcodes
 		include( WPSIGHT_PLUGIN_DIR . '/includes/shortcodes/class-wpsight-shortcodes.php' );
@@ -89,6 +90,7 @@ class WPSight_Framework {
 		$this->agents     = new WPSight_Agents();
 		$this->general    = new WPSight_General();
 		$this->helpers    = new WPSight_Helpers();
+		$this->search     = new WPSight_Search();
 
 		// Activation
 		

@@ -1,4 +1,4 @@
-<meta itemprop="image" content="<?php echo esc_attr( wpsight_listing_thumbnail_url( get_the_id(), 'wpsight-large' ) ); ?>" />
+<meta itemprop="image" content="<?php echo esc_attr( wpsight_get_listing_thumbnail_url( get_the_id(), 'wpsight-large' ) ); ?>" />
 
 <div class="wpsight-listing-section wpsight-listing-section-image">
 	

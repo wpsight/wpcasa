@@ -1277,7 +1277,6 @@ class WPSight_Admin_CPT {
 	 * @uses get_taxonomy()
 	 * @uses get_terms()
 	 * @uses wp_dropdown_categories()
-	 * @uses WPSight_Walker_TaxonomyDropdown()
 	 *
 	 * @since 1.0.0
 	 */
@@ -1299,15 +1298,16 @@ class WPSight_Admin_CPT {
 		              
 		    	wp_dropdown_categories(
 		    		array(
-		    	    	'show_option_all' => $tax_obj->label,
-		    	    	'taxonomy' 		  => $tax_slug,
-		    	    	'name' 			  => $tax_obj->name,
-		    	    	'selected' 		  => $selected,
-		    	    	'hierarchical' 	  => $tax_obj->hierarchical,
-		    	    	'show_count' 	  => false,
-		    	    	'hide_empty' 	  => true,
-		    	    	'orderby'		  => 'NAME',
-		    	    	'walker'		  => new WPSight_Walker_TaxonomyDropdown()
+						'show_option_all'   => $tax_obj->label,
+						'option_none_value' => '',
+						'taxonomy'          => $tax_slug,
+						'name'              => $tax_obj->name,
+						'selected'          => $selected,
+						'hierarchical'      => $tax_obj->hierarchical,
+						'show_count'        => false,
+						'hide_empty'        => true,
+						'orderby'           => 'NAME',
+						'value_field'       => 'slug',
 		    		)
 		    	);            
 		    }
@@ -1466,5 +1466,3 @@ class WPSight_Admin_CPT {
 	}
     
 }
-
-new WPSight_Admin_CPT();

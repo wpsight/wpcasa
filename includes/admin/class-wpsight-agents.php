@@ -330,5 +330,3 @@ class WPSight_Admin_Agents {
 	}
 
 }
-
-new WPSight_Admin_Agents();

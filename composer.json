@@ -1,0 +1,11 @@
+{
+	"repositories": [
+        {
+            "url": "https://github.com/humanmade/Custom-Meta-Boxes.git",
+            "type": "git"
+        }
+    ],
+    "require": {
+        "humanmade/custom-meta-boxes": "1.0.2"
+    }
+}

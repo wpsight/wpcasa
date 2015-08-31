@@ -8,6 +8,7 @@ Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 3.8
 Tested up to: 4.1.1
+Tested up to: 4.1.1
 Text Domain: wpsight
 Domain Path: /languages
 
@@ -52,31 +53,47 @@ class WPSight_Framework {
 		
 		// Include functions
 
-		include( 'functions/wpsight-general.php' );
-		include( 'functions/wpsight-template.php' );
-		include( 'functions/wpsight-listings.php' );
-		include( 'functions/wpsight-agents.php' );
-		include( 'functions/wpsight-search.php' );
-		include( 'functions/wpsight-helpers.php' );
-		include( 'functions/wpsight-admin.php' );
-		include( 'functions/wpsight-meta-boxes.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-general.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-template.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-listings.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-agents.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-search.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-helpers.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-admin.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/functions/wpsight-meta-boxes.php' );
 		
 		// Include classes
 		
-		include( 'includes/class-wpsight-post-types.php' );		
-		include( 'includes/class-wpsight-api.php' );
-		include( 'includes/class-wpsight-geocode.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-post-types.php' );		
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-api.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-geocode.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-listings.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-agents.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-contact.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-general.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-helpers.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-search.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-meta-boxes.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-template.php' );
 		
 		// Include shortcodes
-		include( 'includes/shortcodes/class-wpsight-shortcodes.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/shortcodes/class-wpsight-shortcodes.php' );
 		
 		// Include admin class
+		include( WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin.php' );
 
-		if ( is_admin() )
-			include( 'includes/admin/class-wpsight-admin.php' );
-
+		// Only instantiate admin class when in admin area
+		if ( is_admin() ) {
+			$this->admin = new WPSight_Admin();
+		}
+		
 		// Init classes
 		$this->post_types = new WPSight_Post_Type_Listing();
+		$this->agents     = new WPSight_Agents();
+		$this->general    = new WPSight_General();
+		$this->helpers    = new WPSight_Helpers();
+		$this->search     = new WPSight_Search();
+		$this->meta_boxes = new WPSight_Meta_Boxes();
 
 		// Activation
 		
@@ -94,6 +111,9 @@ class WPSight_Framework {
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
 		
 		//add_action( 'admin_init', array( $this, 'updater' ) );
+
+		do_action_ref_array( 'wpsight_init', array( &$this ) );
+
 	}
 
 	/**
@@ -186,4 +206,25 @@ class WPSight_Framework {
 	}
 }
 
-$GLOBALS['wpsight'] = new WPSight_Framework();
+/**
+ *  wpsight()
+ *
+ *  The main function responsible for returning the one true wpsight Instance to functions everywhere.
+ *  Use this function like you would a global variable, except without needing to declare the global.
+ *
+ *  Example: <?php $wpsight = wpsight(); ?>
+ *
+ *  @return  object $wpsight
+ */
+function wpsight() {
+
+	global $wpsight;
+	
+	if ( !isset( $wpsight ) ){
+		$wpsight = new WPSight_Framework();
+	}
+	
+	return $wpsight;
+}
+
+wpsight();

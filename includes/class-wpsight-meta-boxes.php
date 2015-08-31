@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) )
 	exit;
 
 
-include( WPSIGHT_PLUGIN_DIR . '/vendor/humanmade/Custom-Meta-Boxes/custom-meta-boxes.php' );
+include_once( WPSIGHT_PLUGIN_DIR . '/vendor/humanmade/Custom-Meta-Boxes/custom-meta-boxes.php' );
 
 /**
  * wpSight_Meta_Boxes class

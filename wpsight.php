@@ -93,6 +93,7 @@ class WPSight_Framework {
 		$this->general    = new WPSight_General();
 		$this->helpers    = new WPSight_Helpers();
 		$this->search     = new WPSight_Search();
+		$this->meta_boxes = new WPSight_Meta_Boxes();
 
 		// Activation
 		

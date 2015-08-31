@@ -539,7 +539,7 @@ class WPSight_Template {
 				'name'     => false,
 				'id'       => false,
 				'class'    => 'actions-print action-link',
-				'href'     => esc_url( add_query_arg( array(  'pid' => $post_id, 'print' => '1' ), get_permalink( $post_id ) ) ),
+				'href'     => esc_url( add_query_arg( array(  'print' => absint( $post_id ) ), get_permalink( $post_id ) ) ),
 				'target'   => false,
 				'icon'     => false,
 				'atts'     => false,

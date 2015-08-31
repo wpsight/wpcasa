@@ -42,6 +42,14 @@ class WPSight_Post_Type_Listing {
 
 		foreach ( array( 'post', 'post-new' ) as $hook )
 			add_action( "admin_footer-{$hook}.php", array( $this,'custom_statuses_submitdiv' ) );
+		
+		// Handle single listing print view
+		
+		add_filter( 'query_vars', array( $this, 'wpsight_print_query_vars' ) );		
+		add_action( 'template_redirect', array( $this, 'wpsight_print_redirect' ) );
+		
+		add_action( 'wpsight_head_print', array( $this, 'wpsight_head_print_css' ) );
+		add_filter( 'wpsight_head_print', array( $this, 'wpsight_head_print_robots' ) );
 
 	}
 	
@@ -571,6 +579,68 @@ class WPSight_Post_Type_Listing {
 			} );
 		</script>
 		<?php
+	}
+	
+	/**
+	 * wpsight_print_query_vars()
+	 *
+	 * Add print to query vars.
+ 	 *
+ 	 * @since 1.0.0
+	 */
+	public function wpsight_print_query_vars( $vars ) {
+	
+	    $new_vars = array( 'print' );
+	    $vars = array_merge( $new_vars, $vars );
+	    
+	    return $vars;
+	}
+	
+	/**
+	 * wpsight_print_redirect()
+	 *
+	 * Redirect to print view template when
+	 * query var 'print' is set.
+	 *
+	 * @uses wpsight_get_template()
+ 	 *
+ 	 * @since 1.0.0
+	 */	
+	function wpsight_print_redirect() {
+	    
+	    global $wp, $wp_query;
+	    
+	    if( isset( $wp->query_vars['print'] ) && absint( $wp->query_vars['print'] ) ) {
+	        wpsight_get_template( 'listing-print.php' );
+	        exit();
+	    }
+
+	}
+	
+	/**
+	 * wpsight_head_print_css()
+	 *
+	 * Add print styles to print header
+	 * using wpsight_head_print action hook.
+	 *
+	 * @since 1.0.0
+	 */
+	function wpsight_head_print_css() { ?>
+	<link href="<?php echo WPSIGHT_PLUGIN_URL; ?>/assets/css/print.css" rel="stylesheet" type="text/css">
+	<?php
+	}
+	
+	/**
+	 * wpsight_head_print_robots()
+	 *
+	 * Disallow indexing of print pages
+	 * using robots:noindex.
+	 *
+	 * @since 1.0.0
+	 */	
+	function wpsight_head_print_robots() {	?>
+	<meta name="robots" content="noindex" />
+	<?php
 	}
 
 }

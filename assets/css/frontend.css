@@ -245,6 +245,19 @@
 	width: auto;
 }
 
+@media (max-width: 599px) {
+	
+	.wpsight-listings .wpsight-listing-left,
+	.wpsight-listing-sc .wpsight-listing-left {
+		
+		float: none;
+		margin-right: 0;
+		margin-bottom: 20px;
+		
+	}
+
+}
+
 .wpsight-listings .wpsight-listing-right,
 .wpsight-listing-sc .wpsight-listing-right {
 	overflow: hidden;
@@ -271,6 +284,15 @@
 .wpsight-listing-sc .wpsight-listing-title h2 {
 	line-height: 1;
 	margin: 0;
+}
+
+@media (max-width: 599px) {
+	
+	.wpsight-listings .wpsight-listing-image,
+	.wpsight-listing-sc .wpsight-listing-image {
+		text-align: center;		
+	}
+
 }
 
 .wpsight-listings .wpsight-listing-image .dashicons,
@@ -307,6 +329,16 @@
 	margin: 0;
 	min-width: 75%;
 	width: auto;
+}
+
+@media (max-width: 599px) {
+
+	.wpsight-listing-title h1,
+	.wpsight-listing-title h1.entry-title {
+		float: none;
+		text-align: center;
+	}
+
 }
 
 .wpsight-listing-section-image {
@@ -466,23 +498,55 @@
 	font-weight: bold;
 }
 
+.wpsight-listing-agent-phone {
+	display: block;
+	font-weight: normal;
+}
+
 .wpsight-listing-agent-links {
 	position: absolute;
 	top: 40px;
 	right: 40px;
 }
 
+@media (max-width: 980px) {
+	
+	.wpsight-listing-agent-links {
+		margin-top: -10px;
+		margin-bottom: 10px;
+		position: relative;
+		top: auto;
+		right: auto;
+	}
+
+}
+
 /* WPSight Listing Actions
 ================================================== */
+
+.wpsight-listing-title .wpsight-listing-actions {
+	float: right;
+	width: auto;
+}
 
 .wpsight-listing-actions .wpsight-listing-action {
 	display: inline-block;
 	margin-left: 5px;
 }
 
-.wpsight-listing-title .wpsight-listing-actions {
-	float: right;
-	width: auto;
+@media (max-width: 599px) {
+	
+	.wpsight-listing-title .wpsight-listing-actions {
+		clear: both;
+		float: none;
+		margin-top: 10px;
+		text-align: center;
+	}
+
+	.wpsight-listing-actions .wpsight-listing-action {
+		margin-right: 5px;
+	}
+
 }
 
 /* WPSight Listing Teaser (horizontal)
@@ -557,11 +621,6 @@
 		margin-bottom: 10px;
 	}
 	
-	.wpsight-listing-image {
-		height: auto;
-		width: 50px;
-	}
-	
 	.wpsight-listing-teaser .wpsight-listing-title,
 	.wpsight-listing-teaser .wpsight-listing-summary {
 		margin-bottom: 5px;
@@ -591,9 +650,9 @@
 
 	.wpsight-listing-teaser .wpsight-listing-image .dashicons {
 		font-size: 24px;
-		height: 50px;
-		line-height: 50px;
-		width: 50px;
+		height: 75px;
+		line-height: 75px;
+		width: 75px;
 	}
 	
 }
@@ -651,7 +710,14 @@
 .wpsight-alert {
 	background-color: #ededed;
     margin-bottom: 40px;
-    padding: 30px;
+    padding: 20px;
+}
+
+.wpsight-alert-small {
+	font-size: 13px;
+	margin-bottom: 20px;
+	opacity: .75;
+	padding: 15px;
 }
 
 .wpsight-error {

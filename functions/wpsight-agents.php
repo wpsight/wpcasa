@@ -205,6 +205,37 @@ function wpsight_get_listing_agent_website( $post = null ) {
 }
 
 /**
+ * wpsight_listing_agent_phone()
+ *
+ * Echo wpsight_get_listing_agent_phone()
+ *
+ * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_listing_agent_phone( $post = null ) {
+	echo wpsight_get_listing_agent_phone( $post );
+}
+
+/**
+ * wpsight_get_listing_agent_phone()
+ *
+ * Return agent phone of the
+ * current or a specific listing.
+ *
+ * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
+ * @return string|bool $agent_phone Agent phone of the listing agent or false
+ * @uses WPSight_Agents::get_listing_agent_phone
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_get_listing_agent_phone( $post = null ) {
+	return WPSight_Agents::get_listing_agent_phone( $post );
+}
+
+/**
  * wpsight_listing_agent_twitter()
  *
  * Echo wpsight_get_listing_agent_twitter()

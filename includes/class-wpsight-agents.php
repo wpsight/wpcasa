@@ -314,6 +314,47 @@ class WPSight_Agents {
 	}
 
 	/**
+	 * listing_agent_phone()
+	 *
+	 * Echo wpsight_get_listing_agent_phone()
+	 *
+	 * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
+	 *
+	 * @since 1.0.0
+	 */
+
+	public static function listing_agent_phone( $post = null ) {
+		echo wpsight_get_listing_agent_phone( $post );
+	}
+
+	/**
+	 * get_listing_agent_phone()
+	 *
+	 * Return agent phone of the
+	 * current or a specific listing.
+	 *
+	 * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
+	 * @return string|bool $agent_phone Agent phone of the listing agent or false
+	 *
+	 * @since 1.0.0
+	 */
+
+	public static function get_listing_agent_phone( $post = null ) {
+
+		$agent_phone = '';
+
+		// Get post object
+		$post = get_post( $post );
+
+		// Get agent phone from post meta
+		$agent_phone = $post->_agent_phone ? sanitize_text_field( $post->_agent_phone ) : false;
+
+		// Return agent website or false
+		return apply_filters( 'wpsight_listing_agent_phone', $agent_phone, $post );
+
+	}
+
+	/**
 	 * listing_agent_twitter()
 	 *
 	 * Echo wpsight_get_listing_agent_twitter()

@@ -318,7 +318,7 @@ function wpsight_listing_agent_archive( $post = null, $user_id = false ) {
 }
 
 /**
- * wpsight_get_listing_agent_twitter()
+ * wpsight_get_listing_agent_archive()
  *
  * Get listing agent archive by adding
  * "listings=1" to get_author_posts_url().
@@ -361,6 +361,6 @@ function wpsight_get_user_posts_by_type( $user_id = false, $post_type = 'post' )
  * @since 1.0.0
  */
 
-function wpsight_profile_contact_fields() {
+function wpsight_profile_contact_fields( $user_id = false, $post_type = 'post' ) {
 	return WPSight_Agents::profile_contact_fields( $user_id, $post_type );
 }

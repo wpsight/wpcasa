@@ -553,5 +553,40 @@ class WPSight_Agents {
 		return apply_filters( 'wpsight_profile_contact_fields', $fields );
 
 	}
+	
+	/**
+	 * get_user_posts_by_type()
+	 *
+	 * Return posts created by a specific author.
+	 *
+	 * @param integer $user_id ID of the corresponding user
+	 * @param string $post_type Post type
+	 * @return array $post_ids Array of post IDs
+	 * @since 1.0.0
+	 */
+	
+	public static function get_user_posts_by_type( $user_id = false, $post_type = 'post' ) {
+		global $wpdb;
+		
+		// Stop if post type not valid
+		
+		if( ! in_array( $post_type, get_post_types() ) )
+			return false;
+		
+		// Set user ID
+		$user_id = $user_id === false ? get_current_user_id() : absint( $user_id );
+		
+		// Author SQL
+		$where = get_posts_by_author_sql( $post_type, TRUE, $user_id );
+		
+		// Set SQL query
+		$query = "SELECT ID FROM $wpdb->posts $where";
+		
+		// Get post IDs
+		$post_ids = $wpdb->get_col( $query );
+		
+		return apply_filters( 'wpsight_get_user_posts_by_type', $post_ids, $user_id );
+	
+	}
 
 }

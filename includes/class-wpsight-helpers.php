@@ -309,9 +309,9 @@ class WPSight_Helpers {
 		if ( ! $content )
 			return;
 
-		$content = do_shortcode( shortcode_unautop( wpautop( convert_chars( convert_smilies( wptexturize( $content ) ) ) ) ) );
+		$formatted = do_shortcode( shortcode_unautop( wpautop( convert_chars( convert_smilies( wptexturize( $content ) ) ) ) ) );
 
-		return apply_filters( 'wpsight_format_content', $content );
+		return apply_filters( 'wpsight_format_content', $formatted, $content );
 
 	}
 

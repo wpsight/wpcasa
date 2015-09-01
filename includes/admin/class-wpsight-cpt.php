@@ -675,9 +675,9 @@ class WPSight_Admin_CPT {
 			// Update post
 			wp_update_post( $listing_data );
 			
-			// Set listing expirey
+			// Set listing expiry
 			
-			if( 'publish' == $status )
+			if( function_exists( 'wpsight_set_listing_expiry' ) && 'publish' == $status )
 				wpsight_set_listing_expiry( $post_id );
 			
 			// Add approved listing to URL and redirect to list

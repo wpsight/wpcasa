@@ -20,12 +20,6 @@ class WPSight_Admin_Agents {
 		add_action( 'personal_options_update', array( $this, 'profile_agent_logo_save' ) );
 		add_action( 'edit_user_profile_update', array( $this, 'profile_agent_logo_save' ) );
 		
-		add_action( 'show_user_profile', array( $this, 'profile_agent_exclude' ) );
-		add_action( 'edit_user_profile', array( $this, 'profile_agent_exclude' ) );
-		
-		add_action( 'personal_options_update', array( $this, 'profile_agent_exclude_save' ) );
-		add_action( 'edit_user_profile_update', array( $this, 'profile_agent_exclude_save' ) );
-		
 		add_action( 'show_user_profile', array( $this, 'profile_agent_update' ) );
 		add_action( 'edit_user_profile', array( $this, 'profile_agent_update' ) );
 		
@@ -71,7 +65,7 @@ class WPSight_Admin_Agents {
 		if ( ! current_user_can( 'edit_user', $user->ID ) )
 	        return false; ?>
 	    
-	    <h3>Listing Agent</h3>
+	    <h3><?php _e( 'Listing Agent', 'wpsight' ); ?></h3>
 	
 	    <table class="form-table">
 	        <tr>
@@ -99,8 +93,7 @@ class WPSight_Admin_Agents {
 	            		<?php // render the image field uploader
 	            		$agent_image_field->display() ?>
 	            	</div>
-	            	<p><?php _e( 'Setting the agent image here will serve as a default image for every listing of that agent. ', 'wpsight' ); ?></p>
-	            	<p><?php _e( 'Associating an image at the listing itself will override the default image.', 'wpsight' ); ?></p>
+	            	<p class="description clear"><?php _e( 'Set a default agent image. You can optionally override it by adding an image to a specific listing.', 'wpsight' ); ?></p>
 	            </td>
 	        </tr>
 	    </table><?php
@@ -132,54 +125,6 @@ class WPSight_Admin_Agents {
 	}
 	
 	/**
-	 * profile_agent_exclude()
-	 *
-	 * Add exclude agent from lists option to profile
-	 *
-	 * @param object $user The WP_User object of the user being edited
-	 * @uses get_the_author_meta()
-	 *
-	 * @since 1.0.0
-	 */
-	public function profile_agent_exclude( $user ) {
-		
-		if ( ! current_user_can( 'listing_admin' ) && ! current_user_can( 'administrator' ) )
-	        return false; ?>
-	
-	    <table class="form-table">
-	        <tr>
-	            <th><label for="agent_exclude"><?php _e( 'Agent Lists', 'wpsight' ); ?></label></th>
-	            <td>
-	                <input type="checkbox" value="1" name="agent_exclude" id="agent_exclude" style="margin-right:5px" <?php checked( get_the_author_meta( 'agent_exclude', $user->ID ), 1 ); ?>> <?php _e( 'Hide this user from agent lists', 'wpsight' ); ?>
-	            </td>
-	        </tr>
-	    </table><?php
-	    
-	}
-	
-	/**
-	 * profile_agent_exclude_save()
-	 *
-	 * Save exclude agent option on profile pages
-	 *
-	 * @param interger $user_id The user ID of the user being edited
-	 * @uses current_user_can()
-	 * @uses update_user_meta()
-	 *
-	 * @since 1.0.0
-	 */
-	public function profile_agent_exclude_save( $user_id ) {
-	
-	    if ( ! current_user_can( 'listing_admin' ) && ! current_user_can( 'administrator' ) )
-	        return false;
-	        
-		$_POST['agent_exclude'] = isset( $_POST['agent_exclude'] ) ? $_POST['agent_exclude'] : false;
-	
-	    update_user_meta( $user_id, 'agent_exclude', $_POST['agent_exclude'] );
-	
-	}
-	
-	/**
 	 * profile_agent_update()
 	 *
 	 * Add update agent data in listings option to profile
@@ -199,7 +144,7 @@ class WPSight_Admin_Agents {
 	            <th><label for="agent_exclude"><?php _e( 'Agent Update', 'wpsight' ); ?></label></th>
 	            <td>
 	                <input type="checkbox" value="1" name="agent_update" id="agent_update" style="margin-right:5px">
-	                <?php _e( 'Update agent info in all listings created by this user', 'wpsight' ); ?>
+	                <?php _e( 'Update agent info of all listings created by this user', 'wpsight' ); ?>
 	            </td>
 	        </tr>
 	    </table><?php
@@ -244,12 +189,12 @@ class WPSight_Admin_Agents {
 			// Map listing agent options with profile info
 			
 			$agent_options = array(
-				'_agent_name' 		 => $_POST['display_name'],
-				'_agent_company' 	 => $_POST['company'],
-				'_agent_description' => $_POST['description'],
-				'_agent_website' 	 => $_POST['url'],
-				'_agent_twitter' 	 => $_POST['twitter'],
-				'_agent_facebook' 	 => $_POST['facebook'],
+				'_agent_name' 		 => sanitize_text_field( $_POST['display_name'] ),
+				'_agent_company' 	 => sanitize_text_field( $_POST['company'] ),
+				'_agent_description' => trim( $_POST['description'] ),
+				'_agent_website' 	 => esc_url_raw( $_POST['url'] ),
+				'_agent_twitter' 	 => sanitize_text_field( $_POST['twitter'] ),
+				'_agent_facebook' 	 => sanitize_text_field( $_POST['facebook'] ),
 				'_agent_logo' 	 	 => $logo_url,
 				'_agent_logo_id' 	 => $logo_id
 			);

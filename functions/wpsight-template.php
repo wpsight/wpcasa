@@ -215,7 +215,7 @@ function wpsight_archive_title() {
  */
 
 function wpsight_get_pagination( $max_num_pages = '', $args = array() ) {
-	return WPSight_Template::get_archive_title( $max_num_pages, $args );
+	return WPSight_Template::get_pagination( $max_num_pages, $args );
 }
 
 /**

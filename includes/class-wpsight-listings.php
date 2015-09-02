@@ -1172,8 +1172,8 @@ class WPSight_Listings {
 		if ( $formatted !== false ) {
 
 			$default_attr = array(
-				'alt' => esc_attr( get_the_title( $post_id ) ),
-				'title' => esc_attr( get_the_title( $post_id ) )
+				'alt' 	=> the_title_attribute( array( 'post' => $post_id, 'echo' => false ) ),
+				'title' => the_title_attribute( array( 'post' => $post_id, 'echo' => false ) )
 			);
 
 			$attr = wp_parse_args( $attr, $default_attr );

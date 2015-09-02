@@ -97,6 +97,7 @@ a:visited {
 	font-weight: bold;
 }
 
+.wpsight-label,
 .wpsight-featured {
 	display: none;
 }

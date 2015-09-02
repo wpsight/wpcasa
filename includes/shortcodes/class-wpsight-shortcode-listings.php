@@ -33,14 +33,14 @@ class WPSight_Shortcode_Listings {
     public function shortcode_listings( $atts ) {
         
         $defaults = array(
-            'before' => '',
-            'after'  => '',
-            'wrap'	 => 'div',
-            'offset'            => '',
-			'posts_per_page'    => get_query_var( 'nr' ) ? get_query_var( 'nr' ) : get_option( 'posts_per_page' ),
-			'orderby'           => get_query_var( 'orderby' ) ? get_query_var( 'orderby' ) : 'date',
-			'order'             => get_query_var( 'order' ) ? get_query_var( 'order' ) : 'DESC',
-			'featured'          => get_query_var( 'featured' ) ? get_query_var( 'featured' ) : null
+            'before'			=> '',
+            'after'				=> '',
+            'wrap'	 			=> 'div',
+            'offset'			=> '',
+			'posts_per_page'	=> get_query_var( 'nr' ) ? get_query_var( 'nr' ) : get_option( 'posts_per_page' ),
+			'orderby'			=> get_query_var( 'orderby' ) ? get_query_var( 'orderby' ) : 'date',
+			'order'				=> get_query_var( 'order' ) ? get_query_var( 'order' ) : 'DESC',
+			'featured'			=> get_query_var( 'featured' ) ? get_query_var( 'featured' ) : null
         );
         
 		// Add custom vars to $defaults

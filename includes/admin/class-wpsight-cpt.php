@@ -295,22 +295,6 @@ class WPSight_Admin_CPT {
 
 			break;
 
-			case "listing_expires" :
-			
-				// Display listing expiry date
-			
-				if ( $post->_listing_expires ) {
-					echo '<span class="listing-expires">' . date_i18n( $datef, $post->_listing_expires ) . '</span>';
-					
-					if( $post->post_status == 'publish' )
-						echo '<span class="listing-expires-left">' . sprintf( __( '%s left', 'wpsight' ), human_time_diff( current_time( 'timestamp' ), $post->_listing_expires ) ) . '</span>';
-					
-				} else {
-					echo '&ndash;';
-				}
-				
-			break;
-
 			case "listing_actions" :
 			
 				// Define some general classes to be used with action buttons
@@ -428,8 +412,7 @@ class WPSight_Admin_CPT {
 			'listing_id'   		=> 'listing_id',
 			'listing_title'   	=> 'title',
 			'listing_price' 	=> 'listing_price',
-			'listing_posted'  	=> 'date',
-			'listing_expires'	=> 'listing_expires'
+			'listing_posted'  	=> 'date'
 		);
 
 		return wp_parse_args( $custom, $columns );
@@ -461,13 +444,6 @@ class WPSight_Admin_CPT {
 				$vars = array_merge( $vars, array(
 					'meta_key' 	=> '_price',
 					'orderby' 	=> 'meta_value_num'
-				) );
-			}
-			
-			if ( 'listing_expires' === $vars['orderby'] ) {
-				$vars = array_merge( $vars, array(
-					'meta_key' 	=> '_listing_expires',
-					'orderby' 	=> 'meta_value'
 				) );
 			}
 

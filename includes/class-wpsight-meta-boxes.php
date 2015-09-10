@@ -166,6 +166,9 @@ class WPSight_Meta_Boxes {
 	 * @since 1.0.0
 	 */
 	public function admin_save_listing_data( $post_id, $post ) {
+		
+		if( ! is_admin() )
+			return;
 
 		// Update listing location data
 
@@ -182,14 +185,11 @@ class WPSight_Meta_Boxes {
 		$agent_logo_id = array_values( $_POST[ '_agent_logo_id' ] );
 
 		if ( ! empty( $agent_logo_id[0] ) ) {
+			
+			$agent_logo = wp_get_attachment_url( absint( $agent_logo_id[0] ) );
 
-			if ( ! $post->_agent_logo ) {
-
-				$agent_logo = wp_get_attachment_url( absint( $agent_logo_id[0] ) );
-
+			if ( $agent_logo != $post->_agent_logo )
 				update_post_meta( $post_id, '_agent_logo', $agent_logo );
-
-			}
 
 		} else {
 
@@ -234,7 +234,6 @@ class WPSight_Meta_Boxes {
 
 		// Rename _price_sold_rented post meta
 
-		// Get old _price_sold_rented value
 		$sold_rented = $post->_price_sold_rented;
 
 		if ( ! empty( $sold_rented ) ) {
@@ -264,6 +263,11 @@ class WPSight_Meta_Boxes {
 
 		// Update gallery information
 		wpsight_maybe_update_gallery( $post_id );
+		
+		// Update post meta title
+		
+		if( $post->post_title != $post->_listing_title )
+			update_post_meta( $post_id, '_listing_title', $post->post_title );
 
 	}
 

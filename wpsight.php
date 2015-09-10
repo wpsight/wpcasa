@@ -13,8 +13,8 @@ Text Domain: wpsight
 Domain Path: /languages
 
 	Copyright: 2015 Simon Rimkus
-	License: GNU General Public License v3.0
-	License URI: http://www.gnu.org/licenses/gpl-3.0.html
+	License: GNU General Public License v2.0 or later
+	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 // Exit if accessed directly

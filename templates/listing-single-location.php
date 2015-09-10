@@ -83,6 +83,12 @@ if( $lat && $long ) { ?>
 				<meta itemprop="latitude" content="<?php echo $lat; ?>" />
 				<meta itemprop="longitude" content="<?php echo $long; ?>" />
 				
+				<?php if( ! empty( $listing->_map_note ) ) : ?>
+				<div class="wpsight-listing-location-note">
+					<?php echo wp_kses_post( $listing->_map_note ); ?>
+				</div>
+				<?php endif; ?>
+				
 			</div>
 			
 			<?php do_action( 'wpsight_listing_single_location_after', $listing->ID ); ?>

@@ -81,6 +81,39 @@ function wpsight_get_listing_agent_image( $post = null, $size = array( 75, 75 ) 
 }
 
 /**
+ * wpsight_agent_image()
+ *
+ * Echo wpsight_get_agent_image()
+ *
+ * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
+ * @param string|array $size Size of the image (WordPress sizes or custom width and height in array)
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_agent_image( $user_id, $size = array( 75, 75 ) ) {
+	echo wpsight_get_agent_image( $user_id, $size );
+}
+
+/**
+ * wpsight_get_agent_image()
+ *
+ * Return HTML image tag of the agent image of
+ * the current or a specific listing.
+ *
+ * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
+ * @param string|array $size Size of the image (WordPress sizes or custom width and height in array)
+ * @return string|bool $agent_image HTML image tag of the listing agent image or false
+ * @uses WPSight_Agents::wpsight_get_listing_agent_image()
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_get_agent_image( $user_id, $size = array( 75, 75 ) ) {
+	return WPSight_Agents::get_agent_image( $user_id, $size ) ;
+}
+
+/**
  * wpsight_listing_agent_name()
  *
  * Echo wpsight_get_listing_agent_name()
@@ -109,6 +142,38 @@ function wpsight_listing_agent_name( $post = null ) {
 
 function wpsight_get_listing_agent_name( $post = null ) {
 	return WPSight_Agents::get_listing_agent_name( $post );
+}
+
+/**
+ * wpsight_agent_name()
+ *
+ * Echo wpsight_get_agent_name()
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ * @param string $name The name type to be returned (defaults to display_name)
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_agent_name( $user_id, $name = 'display_name' ) {
+	echo wpsight_get_agent_name( $user_id, $name );
+}
+
+/**
+ * wpsight_get_agent_name()
+ *
+ * Return name of a specific agent.
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ * @param string $name The name type to be returned (defaults to display_name)
+ * @return string|bool $agent_name Agent name or false
+ * @uses WPSight_Agents::get_listing_agent_name()
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_get_agent_name( $user_id, $name = 'display_name' ) {
+	return WPSight_Agents::get_agent_name( $user_id, $name );
 }
 
 /**
@@ -143,6 +208,36 @@ function wpsight_get_listing_agent_company( $post = null ) {
 }
 
 /**
+ * wpsight_agent_company()
+ *
+ * Echo wpsight_get_agent_company()
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_agent_company( $user_id ) {
+	echo wpsight_get_agent_company( $user_id );
+}
+
+/**
+ * wpsight_get_agent_company()
+ *
+ * Return name of a specific agent.
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ * @return string|bool $agent_company Agent company or false
+ * @uses WPSight_Agents::get_agent_company()
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_get_agent_company( $user_id ) {
+	return WPSight_Agents::get_agent_company( $user_id );
+}
+
+/**
  * wpsight_listing_agent_description()
  *
  * Echo wpsight_get_listing_agent_description()
@@ -171,6 +266,36 @@ function wpsight_listing_agent_description( $post = null ) {
 
 function wpsight_get_listing_agent_description( $post = null ) {
 	return WPSight_Agents::get_listing_agent_description( $post );
+}
+
+/**
+ * wpsight_agent_description()
+ *
+ * Echo wpsight_get_agent_description()
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_agent_description( $user_id ) {
+	echo wpsight_get_agent_description( $user_id );
+}
+
+/**
+ * wpsight_get_agent_description()
+ *
+ * Return description of a specific agent.
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ * @return string|bool $agent_description Agent description or false
+ * @uses WPSight_Agents::get_agent_description()
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_get_agent_description( $user_id ) {
+	return WPSight_Agents::get_agent_description( $user_id );
 }
 
 /**
@@ -205,6 +330,36 @@ function wpsight_get_listing_agent_website( $post = null ) {
 }
 
 /**
+ * wpsight_agent_website()
+ *
+ * Echo wpsight_get_agent_website()
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_agent_website( $user_id ) {
+	echo wpsight_get_agent_website( $user_id );
+}
+
+/**
+ * wpsight_get_agent_website()
+ *
+ * Return website of a specific agent.
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ * @return string|bool $agent_website Agent website or false
+ * @uses WPSight_Agents::get_agent_website
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_get_agent_website( $user_id ) {
+	return WPSight_Agents::get_agent_website( $user_id );
+}
+
+/**
  * wpsight_listing_agent_phone()
  *
  * Echo wpsight_get_listing_agent_phone()
@@ -233,6 +388,36 @@ function wpsight_listing_agent_phone( $post = null ) {
 
 function wpsight_get_listing_agent_phone( $post = null ) {
 	return WPSight_Agents::get_listing_agent_phone( $post );
+}
+
+/**
+ * wpsight_agent_phone()
+ *
+ * Echo wpsight_get_agent_phone()
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_agent_phone( $user_id ) {
+	echo wpsight_get_agent_phone( $user_id );
+}
+
+/**
+ * wpsight_get_agent_phone()
+ *
+ * Return phone of a specific agent.
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ * @return string|bool $agent_phone Agent phone or false
+ * @uses WPSight_Agents::get_agent_phone
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_get_agent_phone( $user_id ) {
+	return WPSight_Agents::get_agent_phone( $user_id );
 }
 
 /**
@@ -266,6 +451,38 @@ function wpsight_listing_agent_twitter( $post = null, $return = 'user' ) {
 
 function wpsight_get_listing_agent_twitter( $post = null, $return = 'user' ) {
 	return WPSight_Agents::get_listing_agent_twitter( $post, $return );
+}
+
+/**
+ * wpsight_agent_twitter()
+ *
+ * Echo wpsight_get_agent_twitter()
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ * @param string  $return Return Twitter user or URL (defaults to 'user' - can be 'url')
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_agent_twitter( $user_id, $return = 'user' ) {
+	echo wpsight_get_agent_twitter( $user_id, $return );
+}
+
+/**
+ * wpsight_get_agent_twitter()
+ *
+ * Return twitter of a specific agent.
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ * @param string  $return Return Twitter user or URL (defaults to 'user' - can be 'url')
+ * @return string|bool $agent_twitter Agent twitter or false
+ * @uses WPSight_Agents::get_agent_twitter()
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_get_agent_twitter( $user_id, $return = 'user' ) {
+	return WPSight_Agents::get_agent_twitter( $user_id, $return );
 }
 
 /**
@@ -303,6 +520,38 @@ function wpsight_get_listing_agent_facebook( $post = null, $return = 'user' ) {
 }
 
 /**
+ * wpsight_agent_facebook()
+ *
+ * Echo wpsight_get_agent_facebook()
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ * @param string  $return Return Twitter user or URL (defaults to 'user' - can be 'url')
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_agent_facebook( $user_id, $return = 'user' ) {
+	echo wpsight_get_agent_facebook( $user_id, $return );
+}
+
+/**
+ * wpsight_get_agent_facebook()
+ *
+ * Return facebook of a specific agent.
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ * @param string  $return Return Twitter user or URL (defaults to 'user' - can be 'url')
+ * @return string|bool $agent_facebook Agent facebook or false
+ * @uses WPSight_Agents::get_agent_facebook
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_get_agent_facebook( $user_id, $return = 'user' ) {
+	return WPSight_Agents::get_agent_facebook( $user_id, $return );
+}
+
+/**
  * wpsight_listing_agent_archive()
  *
  * Echo wpsight_get_listing_agent_archive()
@@ -337,6 +586,36 @@ function wpsight_get_listing_agent_archive( $post = null, $user_id = false ) {
 }
 
 /**
+ * wpsight_agent_archive()
+ *
+ * Echo wpsight_get_agent_archive()
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_agent_archive( $user_id ) {
+	echo wpsight_get_agent_archive( $user_id );
+}
+
+/**
+ * wpsight_get_agent_archive()
+ *
+ * Get archive link of a specific agent.
+ *
+ * @param integer $user_id User ID of corresponding agent (required)
+ * @return string $agent_archive Author posts URL with additional query arg "listings=1"
+ * @uses WPSight_Agents::get_agent_archive
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_get_agent_archive( $user_id ) {
+	return WPSight_Agents::get_agent_archive( $user_id );
+}
+
+/**
  * Helper function to get posts
  * by user and post type
  *
@@ -361,6 +640,6 @@ function wpsight_get_user_posts_by_type( $user_id = false, $post_type = 'post' )
  * @since 1.0.0
  */
 
-function wpsight_profile_contact_fields( $user_id = false, $post_type = 'post' ) {
-	return WPSight_Agents::profile_contact_fields( $user_id, $post_type );
+function wpsight_profile_contact_fields() {
+	return WPSight_Agents::profile_contact_fields();
 }

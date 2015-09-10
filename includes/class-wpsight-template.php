@@ -390,7 +390,7 @@ class WPSight_Template {
 	}
 
 	/**
-	 * get_listings_pagination()
+	 * get_pagination()
 	 *
 	 * Return formatted listings pagination
 	 *
@@ -454,7 +454,7 @@ class WPSight_Template {
 		$pagination = apply_filters( 'wpsight_get_pagination', paginate_links( $args ) );
 
 		if ( ! empty( $pagination ) )
-			return '<div class="wpsight-listings-pagination">' . $pagination . '</div><!-- .wpsight-listings-pagination -->';
+			return '<div class="wpsight-pagination">' . $pagination . '</div><!-- .wpsight-pagination -->';
 
 		return false;
 
@@ -570,7 +570,7 @@ class WPSight_Template {
 		if ( ! $post_id )
 			$post_id = get_the_ID();
 
-		if ( ! post_password_required( $post_id ) ) {
+		if ( ! post_password_required( $post_id ) && 'publish' == get_post_status( $post_id ) ) {
 
 			// Get listing actions
 			$listing_actions = wpsight_get_listing_actions( $post_id );

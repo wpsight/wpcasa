@@ -204,13 +204,13 @@ function wpsight_archive_title() {
 }
 
 /**
- * wpsight_get_listings_pagination()
+ * wpsight_get_pagination()
  *
- * Return formatted listings pagination
+ * Return formatted pagination
  *
  * @param int $max_num_pages max_num_pages parameter of corresponding query
  * @param array $args paginate_links() arguments
- * @return string|bool HTML markup of listings pagination or false if empty
+ * @return string|bool HTML markup of pagination or false if empty
  * @since 1.0.0
  */
 
@@ -219,9 +219,9 @@ function wpsight_get_pagination( $max_num_pages = '', $args = array() ) {
 }
 
 /**
- * wpsight_listings_pagination()
+ * wpsight_pagination()
  *
- * Echo wpsight_get_listings_pagination()
+ * Echo wpsight_get_pagination()
  *
  * @param int $max_num_pages max_num_pages parameter of corresponding query
  * @param array $args paginate_links() arguments

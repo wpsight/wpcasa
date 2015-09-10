@@ -15,7 +15,7 @@ $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 <html>
 	
 <head>
-	<title><?php echo strip_tags( $listing->post_title ); ?></title>
+	<title><?php echo strip_tags( $listing->_listing_title ); ?></title>
 	<?php do_action( 'wpsight_head_print' ); ?>
 </head>
 

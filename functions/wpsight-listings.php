@@ -602,7 +602,7 @@ function wpsight_is_listing_expired( $post_id = '' ) {
  */
 
 function wpsight_user_can_edit_listing( $listing_id ) {
-	return WPSight_Listings::user_can_edit_listing();
+	return WPSight_Listings::user_can_edit_listing( $listing_id );
 }
 
 /**

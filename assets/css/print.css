@@ -111,9 +111,13 @@ a:visited {
 	padding-top: 20px;
 }
 
-.listing-print-agent .alignleft,
+.listing-print-agent .alignleft {
+	max-width: 60%;
+	min-width: 50%;
+}
+
 .listing-print-agent .alignright {
-	max-width: 45%;
+	max-width: 35%;
 }
 
 .listing-print-agent .alignleft img {

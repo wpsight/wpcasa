@@ -1,4 +1,6 @@
-# [WPCasa](https://wpcasa.com) #
+# WPCasa Real Estate #
+[![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/wpsight/wpcasa/blob/master/LICENSE)
+
 Flexible WordPress solution to create professional real estate websites and manage property listings with ease.
 
 Please find more information at [wpcasa.com](https://wpcasa.com)
@@ -19,14 +21,22 @@ Please feel free to visit our [demo site](http://demo.wpcasa.com/) where you can
 ## Add-Ons
 Optionally you can use add-ons especially built for WPCasa to customize and/or extend the functionality your real estate website to your special needs.
 
-* [Featured Listings](https://wpcasa.com/add-ons/wpcasa-featured-listings): Feature specific listings by visually highlighting them and/or making them sticky
-* [Expire Listings](https://wpcasa.com/add-ons/wpcasa-featured-listings): Automatically expire listings after a defined number of days
-* [Favorites](https://wpcasa.com/add-ons/wpcasa-featured-listings): Let users save their favorite listings and compare them on a single page
-* [Dashboard](https://wpcasa.com/add-ons/wpcasa-featured-listings): Let agents submit and manage listings from the front end
-* [Listing Labels](https://wpcasa.com/add-ons/wpcasa-featured-listings): Feature specific listings by visually highlighting with a label
-* [Admin Map UI](https://wpcasa.com/add-ons/wpcasa-featured-listings): Set the listing location by a click on the map and make individual map settings in the listing editor
-* [Listings Map](https://wpcasa.com/add-ons/wpcasa-featured-listings): Show all listings as markers on a central Google Map
-* [List Agents](https://wpcasa.com/add-ons/wpcasa-featured-listings): Display a list of agents using a shortocde
+* [Featured Listings](https://wpcasa.com/add-ons/wpcasa-featured-listings):
+Feature specific listings by visually highlighting them and/or making them sticky
+* [Expire Listings](https://wpcasa.com/add-ons/wpcasa-featured-listings):
+Automatically expire listings after a defined number of days
+* [Favorites](https://wpcasa.com/add-ons/wpcasa-featured-listings):
+Let users save their favorite listings and compare them on a single page
+* [Dashboard](https://wpcasa.com/add-ons/wpcasa-featured-listings):
+Let agents submit and manage listings from the front end
+* [Listing Labels](https://wpcasa.com/add-ons/wpcasa-featured-listings):
+Feature specific listings by visually highlighting with a label
+* [Admin Map UI](https://wpcasa.com/add-ons/wpcasa-featured-listings):
+Set the listing location by a click on the map and make individual map settings in the listing editor
+* [Listings Map](https://wpcasa.com/add-ons/wpcasa-featured-listings):
+Show all listings as markers on a central Google Map
+* [List Agents](https://wpcasa.com/add-ons/wpcasa-featured-listings):
+Display a list of agents using a shortocde
 
 There are lot more add-ons to come.
 
@@ -43,6 +53,14 @@ If you're a developer and would like to talk about creating themes for WPCasa, d
 
 TODO screenshots
 
-## Documentation
+## Support
 
 For help and documentation please feel free to visit our [support page](https://wpcasa.com/support).
+
+## Contribution
+
+TODO contribution
+
+## Bug Reports
+
+If you find an issue and you're sure it's a bug, please [let us know](https://github.com/wpsight/wpcasa/issues).

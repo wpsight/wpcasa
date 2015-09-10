@@ -83,14 +83,17 @@ class WPSight_Listings {
 		global $wpdb;
 
 		$defaults = array(
-			'p'                 => '',
-			'post__in'          => '',
-			'offset'            => '',
-			'post_status'  => '',
-			'posts_per_page'    => get_query_var( 'nr' )   ? get_query_var( 'nr' ) : get_option( 'posts_per_page' ),
-			'orderby'           => get_query_var( 'orderby' )  ? get_query_var( 'orderby' ) : 'date',
-			'order'             => get_query_var( 'order' )  ? get_query_var( 'order' ) : 'DESC',
-			'author'   => ''
+			'p'						=> '',
+			'post__in'				=> '',
+			'offset'				=> '',
+			'post_status'			=> '',
+			'posts_per_page'		=> get_query_var( 'nr' )   ? get_query_var( 'nr' ) : get_option( 'posts_per_page' ),
+			'orderby'				=> get_query_var( 'orderby' )  ? get_query_var( 'orderby' ) : 'date',
+			'order'					=> get_query_var( 'order' )  ? get_query_var( 'order' ) : 'DESC',
+			'author'				=> '',
+			'tax_query'				=> array(),
+			'meta_query'			=> array(),
+			'ignore_sticky_posts'	=> 1
 		);
 
 		// Add custom vars to $defaults
@@ -126,13 +129,13 @@ class WPSight_Listings {
 			'p'                   => absint( $args['p'] ),
 			'post__in'            => $args['post__in'],
 			'post_type'           => wpsight_post_type(),
-			'ignore_sticky_posts' => 1,
+			'ignore_sticky_posts' => $args['ignore_sticky_posts'],
 			'offset'              => absint( $args['offset'] ),
 			'posts_per_page'      => intval( $args['posts_per_page'] ),
 			'orderby'             => $args['orderby'],
 			'order'               => $args['order'],
-			'tax_query'           => array(),
-			'meta_query'          => array(),
+			'tax_query'           => $args['tax_query'],
+			'meta_query'          => $args['meta_query'],
 			'paged'               => $paged,
 			'author'              => $args['author'],
 			'post_status'         => $args['post_status']

@@ -14,7 +14,9 @@ global $listing; ?>
 			<?php _e( 'This listing has expired', 'wpsight' ); ?>
 		</div>
 
-	<?php else : ?>
+	<?php endif; ?>
+	
+	<?php if ( $listing->post_status != 'expired' || wpsight_user_can_edit_listing( $listing->ID ) ) : ?>
 	
 		<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
@@ -39,7 +41,7 @@ global $listing; ?>
 			<?php do_action( 'wpsight_listing_single_after', $listing->ID ); ?>
 
 		</div>
-
+		
 	<?php endif; ?>
 
 </div><!-- .wpsight-listing-<?php echo $listing->ID; ?> -->

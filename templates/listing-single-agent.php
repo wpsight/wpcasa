@@ -29,6 +29,10 @@ global $listing; ?>
 	        	<?php if( wpsight_get_listing_agent_company( $listing->ID ) ) : ?>
 	        	<span class="wpsight-listing-agent-company">(<?php wpsight_listing_agent_company( $listing->ID ); ?>)</span>
 	        	<?php endif; ?>
+	        	
+	        	<?php if( wpsight_get_listing_agent_phone( $listing->ID ) ) : ?>
+	        	<span class="wpsight-listing-agent-phone"><?php wpsight_listing_agent_phone( $listing->ID ); ?></span>
+	        	<?php endif; ?>
 
 	        </div>
 	        

@@ -189,14 +189,15 @@ class WPSight_Admin_Agents {
 			// Map listing agent options with profile info
 			
 			$agent_options = array(
-				'_agent_name' 		 => sanitize_text_field( $_POST['display_name'] ),
-				'_agent_company' 	 => sanitize_text_field( $_POST['company'] ),
-				'_agent_description' => trim( $_POST['description'] ),
-				'_agent_website' 	 => esc_url_raw( $_POST['url'] ),
-				'_agent_twitter' 	 => sanitize_text_field( $_POST['twitter'] ),
-				'_agent_facebook' 	 => sanitize_text_field( $_POST['facebook'] ),
-				'_agent_logo' 	 	 => $logo_url,
-				'_agent_logo_id' 	 => $logo_id
+				'_agent_name'			=> sanitize_text_field( $_POST['display_name'] ),
+				'_agent_company'		=> sanitize_text_field( $_POST['company'] ),
+				'_agent_phone'			=> sanitize_text_field( $_POST['phone'] ),
+				'_agent_description'	=> trim( $_POST['description'] ),
+				'_agent_website'		=> esc_url_raw( $_POST['url'] ),
+				'_agent_twitter'		=> sanitize_text_field( $_POST['twitter'] ),
+				'_agent_facebook'		=> sanitize_text_field( $_POST['facebook'] ),
+				'_agent_logo'			=> $logo_url,
+				'_agent_logo_id'		=> $logo_id
 			);
 			
 			$agent_options = apply_filters( 'profile_agent_update_save_options', $agent_options, $user_id );

@@ -20,14 +20,21 @@ Please feel free to visit our [demo site](http://demo.wpcasa.com/) where you can
 ## Add-Ons
 Optionally use add-ons built for WPCasa to customize and/or extend the functionality of your real estate website to your special needs.
 
-* [Featured Listings](https://wpcasa.com/add-ons/wpcasa-featured-listings): Feature specific listings by visually highlighting them and/or making them sticky
-* [Expire Listings](https://wpcasa.com/add-ons/wpcasa-expire-listings): Automatically expire listings after a defined number of days
-* [Favorites](https://wpcasa.com/add-ons/wpcasa-favorites): Let users save their favorite listings and compare them on a single page
-* [Dashboard](https://wpcasa.com/add-ons/wpcasa-dashboard): Let agents submit and manage listings from the front end
-* [Listing Labels](https://wpcasa.com/add-ons/wpcasa-listing-labels): Feature specific listings by visually highlighting with a label
-* [Admin Map UI](https://wpcasa.com/add-ons/wpcasa-admin-map-ui): Set the listing location by a click on the map and make individual map settings in the listing editor
-* [Listings Map](https://wpcasa.com/add-ons/wpcasa-listings-map): Show all listings as markers on a central Google Map
-* [List Agents](https://wpcasa.com/add-ons/wpcasa-list-agents): Display a list of agents using a shortocde
+[Featured Listings](https://wpcasa.com/add-ons/wpcasa-featured-listings): Feature listings by visually highlighting them and/or making them sticky
+
+[Expire Listings](https://wpcasa.com/add-ons/wpcasa-expire-listings): Automatically expire listings after a defined number of days
+
+[Favorites](https://wpcasa.com/add-ons/wpcasa-favorites): Let users save their favorite listings and compare them on a single page
+
+[Dashboard](https://wpcasa.com/add-ons/wpcasa-dashboard): Let agents submit and manage listings from the front end
+
+[Listing Labels](https://wpcasa.com/add-ons/wpcasa-listing-labels): Feature specific listings by visually highlighting with a label
+
+[Admin Map UI](https://wpcasa.com/add-ons/wpcasa-admin-map-ui): Set listing location by a click and make individual map settings in listing editor
+
+[Listings Map](https://wpcasa.com/add-ons/wpcasa-listings-map): Show all listings as markers on a central Google Map
+
+[List Agents](https://wpcasa.com/add-ons/wpcasa-list-agents): Display a list of agents using a shortocde
 
 More add-ons are currently in the making. If you are missing an add-on or are a developer and would like to talk about creating add-ons for WPCasa, don't hesitate and [get in touch](https://wpcasa.com/contact).
 

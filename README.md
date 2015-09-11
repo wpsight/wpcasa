@@ -1,10 +1,10 @@
 # WPCasa Real Estate #
-[![Plugin](https://img.shields.io/badge/wp.org-v1.0.0-blue.svg?style=flat-square)](https://wordpress.org/plugins/wpcasa/) [![WordPress](https://img.shields.io/wordpress/v/akismet.svg?style=flat-square)](https://codex.wordpress.org/Version_4.3) [![License](https://img.shields.io/badge/license-GPL%202.0%2B-lightgrey.svg?style=flat-square)](https://github.com/wpsight/wpcasa/blob/master/LICENSE)
+[![Plugin](https://img.shields.io/badge/wp.org-v1.0.0-blue.svg?style=flat-square)](https://wordpress.org/plugins/wpcasa/) [![WordPress](https://img.shields.io/wordpress/v/akismet.svg?style=flat-square)](https://codex.wordpress.org/) [![License](https://img.shields.io/badge/license-GPL%202.0%2B-lightgrey.svg?style=flat-square)](https://github.com/wpsight/wpcasa/blob/master/LICENSE)
 
 WPCasa is a flexible WordPress solution to create professional real estate websites and manage property listings with ease. Please find more information at [wpcasa.com](https://wpcasa.com).
 
 ## Description
-WPCasa is a *FREE* WordPress solution to create professional real estate websites without any coding skills. It fully integrates with the familiar and easy-to-use interface that ships with WordPress. Adding property details, location information and image galleries is a breeze using our intuitive WPCasa listing editor.
+WPCasa is a *FREE* WordPress plugin that fully integrates with the familiar and easy-to-use interface that WordPress is famous for. Adding property details, location information, image galleries and more is a breeze using the intuitive WPCasa listing editor. The powerful advanced property search ensures that potential clients find the listing they are looking for in no time.
 
 ## Demo
 Please feel free to visit our [demo site](http://demo.wpcasa.com/) where you can test the features of our framework.

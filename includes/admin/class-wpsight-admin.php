@@ -51,20 +51,14 @@ class WPSight_Admin {
 		$screen = get_current_screen();
 
 		if ( in_array( $screen->id, array( 'edit-listing', 'listing', 'toplevel_page_wpsight-settings', 'wpcasa_page_wpsight-addons' ) ) ) {
-			$jquery_version = isset( $wp_scripts->registered['jquery-ui-core']->ver ) ? $wp_scripts->registered['jquery-ui-core']->ver : '1.9.2';
-
-			// wp_enqueue_style( 'jquery-ui-style', '//ajax.googleapis.com/ajax/libs/jqueryui/' . $jquery_version . '/themes/smoothness/jquery-ui.css' );
 			wp_enqueue_style( 'wpsight_admin_css', WPSIGHT_PLUGIN_URL . '/assets/css/admin.css' );
 			wp_register_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery-tiptip/jquery.tipTip.min.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 			wp_enqueue_script( 'wpsight_admin_js', WPSIGHT_PLUGIN_URL . '/assets/js/admin.js', array( 'jquery', 'jquery-tiptip', 'jquery-ui-datepicker' ), WPSIGHT_VERSION, true );
 		}
 
-		if ( in_array( $screen->id, array( 'profile', 'user-edit' ) ) ) {
+		if ( in_array( $screen->id, array( 'profile', 'user-edit' ) ) )
 			wp_enqueue_media();
-			wp_enqueue_script( 'profile', WPSIGHT_PLUGIN_URL . '/assets/js/profile.js', array( 'jquery' ), WPSIGHT_VERSION, true );
-		}
 
-		wp_enqueue_style( 'wpsight_admin_menu_css', WPSIGHT_PLUGIN_URL . '/assets/css/menu.css' );
 	}
 
 	/**
@@ -321,7 +315,9 @@ class WPSight_Admin {
 			return;
 
 		// Replace 'Published' with 'Active'
-		$views['publish'] = str_replace( __( 'Published' ), __( 'Active', 'wpsight' ), $views['publish'] );
+		
+		if( isset( $views['publish'] ) )
+			$views['publish'] = str_replace( __( 'Published' ), __( 'Active', 'wpsight' ), $views['publish'] );
 
 		if ( empty( $wp_query->query_vars['s'] ) )
 			return $views;

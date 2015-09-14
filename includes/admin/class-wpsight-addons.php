@@ -3,10 +3,10 @@
 if ( ! defined( 'ABSPATH' ) )
 	exit;
 
-if ( ! class_exists( 'wpSight_Addons' ) ) :
+if ( ! class_exists( 'WPSight_Addons' ) ) :
 
 /**
- * wpSight_Addons Class
+ * WPSight_Addons Class
  */
 class WPSight_Addons {
 
@@ -14,13 +14,11 @@ class WPSight_Addons {
 	 * Handles output of the reports page in admin.
 	 */
 	public function output() {
-		
-		/**
 
-		if ( false === ( $addons = get_transient( 'wpSight_Addons_html' ) ) ) {
+		if ( false === ( $addons = get_transient( 'wpsight_addons_html' ) ) ) {
 
 			$raw_addons = wp_remote_get(
-				'https://wpjobmanager.com/add-ons/',
+				'http://wpcasa.com/plugins/',
 				array(
 					'timeout'     => 10,
 					'redirection' => 5,
@@ -38,29 +36,28 @@ class WPSight_Addons {
 				$dom->loadHTML( $raw_addons );
 
 				$xpath  = new DOMXPath( $dom );
-				$tags   = $xpath->query('//ul[@class="products"]');
+				$tags   = $xpath->query('//div[@class="group plugins-list"]');
+				
 				foreach ( $tags as $tag ) {
 					$addons = $tag->ownerDocument->saveXML( $tag );
 					break;
 				}
 
-				$addons = wp_kses_post( utf8_decode( $addons ) );
+				$addons = wp_kses_post( $addons );
 
 				if ( $addons ) {
-					set_transient( 'wpSight_Addons_html', $addons, 60*60*24*7 ); // Cached for a week
+					// set_transient( 'wpsight_addons_html', $addons, 60*60*24*7 ); // Cached for a week
 				}
 			}
-		}
-		
-		*/
+		} ?>
 
-		?>
-		<div class="wrap wp_job_manager wpSight_Addons_wrap">
-			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Addons', 'wpsight' ); ?></h2>
+		<div class="wrap wpsight-addons">
+
+			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Add-Ons', 'wpsight' ); ?></h2>
+
 			<div id="notice" class="updated below-h2"><p>A notice here</p></div>
-			<?php // echo $addons; ?>
 			
-			<p>Add-on here</p>
+			<?php echo $addons; ?>
 			
 		</div>
 		<?php

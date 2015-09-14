@@ -2,13 +2,12 @@
 /*
 Plugin Name: WPCasa
 Plugin URI: http://wpcasa.com
-Description: Real estate WordPress framework.
-Version: 0.0.1
+Description: WPCasa is a flexible WordPress solution to create professional real estate websites and manage property listings with ease.
+Version: 1.0.0
 Author: WPSight
 Author URI: http://wpsight.com
-Requires at least: 3.8
-Tested up to: 4.1.1
-Tested up to: 4.1.1
+Requires at least: 4.0
+Tested up to: 4.3
 Text Domain: wpsight
 Domain Path: /languages
 
@@ -40,7 +39,7 @@ class WPSight_Framework {
 		if ( ! defined( 'WPSIGHT_DOMAIN' ) )
 			define( 'WPSIGHT_DOMAIN', 'wpcasa' );
 
-		define( 'WPSIGHT_VERSION', '0.0.1' );
+		define( 'WPSIGHT_VERSION', '1.0.0' );
 		define( 'WPSIGHT_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 		
@@ -69,7 +68,6 @@ class WPSight_Framework {
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-geocode.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-listings.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-agents.php' );
-		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-contact.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-general.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-helpers.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-search.php' );

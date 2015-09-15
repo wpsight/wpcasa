@@ -45,13 +45,13 @@
 
 .wpsight-listings-search {
 	background-color: #ededed;
-    margin-bottom: 4rem;
-    padding: 2rem 1rem .5rem 2rem;
+    margin-bottom: 40px;
+    padding: 30px 15px 10px 30px;
     position: relative;
 }
 
 .wpsight-listings-search.vertical {
-	padding-bottom: 5rem;
+	padding-bottom: 75px;
 }
 
 .wpsight-listings-search .listings-search-field {
@@ -59,8 +59,8 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	display: inline-block;
-	margin-bottom: 1.5rem;
-	padding-right: 1rem;
+	margin-bottom: 20px;
+	padding-right: 15px;
 	width: 100%;
 }
 
@@ -137,10 +137,11 @@
 	width: 100%;
 }
 
+.wpsight-listings-search .listings-search-field input[type="text"],
 .wpsight-listings-search .listings-search-field select {
 	background-color: rgba(255,255,255,1);
-	height: 2.2rem;
-	line-height: 2.2rem;
+	height: 30px;
+	line-height: 30px;
 	white-space:nowrap;
     -ms-text-overflow:ellipsis;
     text-overflow:ellipsis;
@@ -154,7 +155,7 @@
 .wpsight-listings-search .listings-search-field-taxonomy_checkbox input {
 	cursor: pointer;
 	display: inline-block;
-	margin-right: .25rem;
+	margin-right: 5px;
 	width: auto;
 }
 
@@ -167,7 +168,7 @@
 .wpsight-listings-search.vertical .listings-search-field-radio label.radiogroup,
 .wpsight-listings-search.vertical .listings-search-field-checkbox label.checkboxgroup,
 .wpsight-listings-search.vertical .listings-search-field-taxonomy_checkbox label.checkboxgroup {
-	margin-bottom: .5rem;
+	margin-bottom: 10px;
 }
 
 .wpsight-listings-search .listings-search-field input[type="radio"] {
@@ -178,7 +179,9 @@
 	font-size: 12px;
 }
 
-.wpsight-listings-search .listings-search-field-keyword input {
+.wpsight-listings-search .listings-search-field-keyword input[type="text"] {
+	height: auto;
+	line-height: normal;
 	padding: 10px;
 }
 
@@ -188,9 +191,9 @@
 
 .wpsight-listings-search.vertical .listings-search-field-submit {
 	position: absolute;
-	bottom: 2rem;
-	left: 2rem;
-	right: 1rem;
+	bottom: 30px;
+	left: 30px;
+	right: 15px;
 	margin-bottom: 0;
 	width: auto !important;
 }
@@ -201,12 +204,12 @@
 
 .wpsight-listings-search .listings-search-reset,
 .wpsight-listings-search .listings-search-advanced-toggle {
-	bottom: -1.1rem;
+	bottom: -20px;
 	cursor: pointer;
 	display: block;
 	font-size: 11px;
-	height: 1rem;
-	line-height: 1rem;
+	height: 20px;
+	line-height: 20px;
 	position: absolute;
 	right: 0;
 }
@@ -220,7 +223,7 @@
 ================================================== */
 
 .wpsight-pagination {
-	margin-bottom: 3rem;
+	margin-bottom: 40px;
 }
 
 .wpsight-pagination ul,
@@ -232,7 +235,7 @@
 
 .wpsight-pagination li {
 	display: inline-block;
-	margin-right: .5rem !important;
+	margin-right: 10px !important;
 }
 
 /* WPSight Listings Archive
@@ -421,13 +424,13 @@
 
 .wpsight-listing-summary {
 	font-size: 13px;
-	margin-bottom: 2rem;
+	margin-bottom: 20px;
 	opacity: .75;
 }
 
 .wpsight-listing-summary .listing-details-detail {
     display: inline-block;
-    margin-right: .5rem;
+    margin-right: 5px;
 }
 
 .wpsight-listing-summary .listing-details-value {
@@ -438,7 +441,7 @@
 ================================================== */
 
 .wpsight-listing-section-info {
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 }
 
 .wpsight-listing-info {
@@ -798,138 +801,3 @@
 .wrap {
 	clear: both;
 }
-
-.wpsight-form fieldset
-{
-	margin:0 0 1em;
-	padding:0 0 1em;
-	line-height:2em;
-	border:0;
-	border-bottom:1px solid #eee;
-	zoom:1
-}
-.wpsight-form fieldset:after,.wpsight-form fieldset:before
-{
-	content:"";
-	display:table
-}
-.wpsight-form fieldset:after
-{
-	clear:both
-}
-.wpsight-form fieldset label
-{
-	display:block;
-	margin:0;
-	width:29%;
-	float:left;
-	vertical-align:middle
-}
-
-.wpsight-form fieldset .field-type-radio label,
-.wpsight-form fieldset .field-type-checkbox label {
-	cursor: pointer;
-	float: none;
-	width: auto;
-}
-
-.wpsight-form fieldset .field-type-radio.field-disabled label,
-.wpsight-form fieldset .field-type-checkbox.field-disabled label {
-	cursor: not-allowed;
-}
-
-.wpsight-form fieldset label small
-{
-	opacity:.75;
-	font-size:.83em
-}
-.wpsight-form fieldset div.field
-{
-	width:70%;
-	float:right;
-	vertical-align:middle
-}
-.wpsight-form fieldset .wp-editor-container
-{
-	border:1px solid #ccc;
-	-webkit-border-radius:3px;
-	-moz-border-radius:3px;
-	border-radius:3px
-}
-.wpsight-form fieldset abbr.required
-{
-	color:red;
-	font-weight:700;
-	border:0
-}
-.wpsight-form fieldset input.input-text,.wpsight-form fieldset select,.wpsight-form fieldset textarea
-{
-	margin:0;
-	vertical-align:middle;
-	width:100%;
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	box-sizing:border-box
-}
-.wpsight-form fieldset small.description
-{
-	opacity:.75;
-	font-size:.83em;
-	margin:1.2em 0 0;
-	display:block;
-	line-height:1.2em
-}
-.wpsight-form fieldset .wpsight-uploaded-files
-{
-	display:table
-}
-.wpsight-form fieldset .wpsight-uploaded-files .wpsight-uploaded-file
-{
-	line-height:1.5em;
-	font-style:italic;
-	display:table-row
-}
-.wpsight-form fieldset .wpsight-uploaded-files .wpsight-uploaded-file .wpsight-uploaded-file-preview
-{
-	display:table-cell;
-	vertical-align:middle;
-	padding:.5em 0
-}
-.wpsight-form fieldset .wpsight-uploaded-files .wpsight-uploaded-file .wpsight-uploaded-file-preview img
-{
-	max-height: 100px;
-}
-.wpsight-form fieldset .wpsight-uploaded-files .wpsight-uploaded-file .wpsight-uploaded-file-name
-{
-	display:table-cell;
-	vertical-align:middle;
-	padding:.5em 0 .5em 1em
-}
-.wpsight-form .submit-listing
-{
-	padding:1em 0
-}
-.wpsight-form .wpsight-term-checklist
-{
-	list-style:none outside;
-	max-height:200px;
-	overflow:auto;
-	margin:0
-}
-.wpsight-form .wpsight-term-checklist li
-{
-	list-style:none outside;
-	margin:0;
-	display:block;
-	float:none
-}
-.wpsight-form .wpsight-term-checklist li label
-{
-	width:auto;
-	float:none
-}
-.wpsight-form .wpsight-term-checklist li li
-{
-	margin:0 0 0 2em
-}
-

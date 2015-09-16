@@ -51,9 +51,11 @@ class WPSight_Admin {
 		$screen = get_current_screen();
 
 		if ( in_array( $screen->id, array( 'edit-listing', 'listing', 'toplevel_page_wpsight-settings', 'wpcasa_page_wpsight-addons' ) ) ) {
-			wp_enqueue_style( 'wpsight_admin_css', WPSIGHT_PLUGIN_URL . '/assets/css/admin.css' );
+			
+			wp_enqueue_style( 'wpsight-admin', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin.css' );
 			wp_register_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery-tiptip/jquery.tipTip.min.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 			wp_enqueue_script( 'wpsight_admin_js', WPSIGHT_PLUGIN_URL . '/assets/js/admin.js', array( 'jquery', 'jquery-tiptip', 'jquery-ui-datepicker' ), WPSIGHT_VERSION, true );
+
 		}
 
 		if ( in_array( $screen->id, array( 'profile', 'user-edit' ) ) )

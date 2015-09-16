@@ -40,6 +40,11 @@
 	text-align: center;
 }
 
+.rtl .column-listing_offer span {
+	margin-left: 15px;
+	margin-right: 0;
+}
+
 .column-listing_price .listing-rental-period {
 	display: block;
 	font-size: smaller;
@@ -59,6 +64,11 @@
 	margin-right: 5px;
 }
 
+.rtl .column-listing_title .listing-taxonomies div {
+	margin-left: 5px;
+	margin-right: 0;
+}
+
 .column-listing_title .listing-sticky,
 .column-listing_title .listing-featured {
 	font-weight: normal;
@@ -73,6 +83,12 @@
 	margin-right: 15px;
 	padding: 8px;
 	width: 75px;
+}
+
+.rtl .column-listing_title .wpsight-listing-thumbnail {
+	float: right;
+	margin-left: 15px;
+	margin-right: 0;
 }
 
 @media (min-width: 1350px) {
@@ -131,6 +147,11 @@
 	width: 8px;
 }
 
+.rtl .column-listing_status .listing-status span {
+	margin-left: 10px;
+	margin-right: 0;
+}
+
 .column-listing_status .listing-status.status-publish span {
 	background-color: #2ecc71;
 }
@@ -171,6 +192,11 @@ th.column-listing_actions {
 	text-align: right;
 }
 
+.rtl .column-listing_actions,
+.rtl th.column-listing_actions {
+	text-align: left;
+}
+
 .column-listing_actions strong {
 	display: block;
 	margin-bottom: .2em;
@@ -197,8 +223,19 @@ th.column-listing_actions {
 	overflow: hidden;
 }
 
+.rtl .column-listing_title a.button,
+.rtl .column-listing_actions a.button {
+	margin-left: 0;
+	margin-right: 4px;
+}
+
 .column-listing_title a.button {
 	margin: 0 4px 4px 0;
+}
+
+.rtl .column-listing_title a.button {
+	margin-left: 4px;
+	margin-right: 0px;
 }
 
 .column-listing_title i,

@@ -152,7 +152,11 @@ class WPSight_Framework {
 		
 		wp_localize_script( 'wpsight-listings-search', 'wpsight_localize', $data );
 
-		wp_enqueue_style( 'wpsight-frontend', WPSIGHT_PLUGIN_URL . '/assets/css/frontend.css' );
+		wp_enqueue_style( 'wpsight', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight.css' );
+		
+		if ( is_rtl() )
+			wp_enqueue_style( 'wpsight-rtl', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-rtl.css' );
+
 	}
 	
 	/**

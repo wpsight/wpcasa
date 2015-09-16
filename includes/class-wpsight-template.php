@@ -423,6 +423,11 @@ class WPSight_Template {
 		} else {
 			$paged = 1;
 		}
+		
+		// Set prev/next arrows
+		
+		$arr_prev = ! is_rtl() ? '&larr; ' : '&rarr; ';
+		$arr_next = ! is_rtl() ? ' &rarr;' : ' &larr;';
 
 		// Set paginate_links() defaults
 
@@ -435,8 +440,8 @@ class WPSight_Template {
 			'end_size'           => 1,
 			'mid_size'           => 4,
 			'prev_next'          => true,
-			'prev_text'          => '&larr; ' . __( 'Previous', 'wpsight' ),
-			'next_text'          => __( 'Next', 'wpsight' ) . ' &rarr;',
+			'prev_text'          => $arr_prev . __( 'Previous', 'wpsight' ),
+			'next_text'          => __( 'Next', 'wpsight' ) . $arr_next,
 			'type'               => 'list',
 			'add_args'           => false,
 			'add_fragment'       => '',
@@ -506,7 +511,7 @@ class WPSight_Template {
 			$classes = array_merge( $classes, $class );
 		}
 
-		return get_post_class( $classes, $post->ID );
+		return apply_filters( 'get_listing_class', get_post_class( $classes, $post->ID ), $post_id, $class, $classes );
 
 	}
 

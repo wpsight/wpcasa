@@ -7,11 +7,24 @@
 	z-index: 1; 
 }
 
+.rtl .WPSight_File_Multiple_Field .field-item,
+.rtl .WPSight_Image_Multiple_Field .field-item {
+	float: right;
+	margin-left: 16px !important;
+	margin-right: 0 !important;
+}
+
 .WPSight_File_Multiple_Field .cmb-delete-field,
 .WPSight_Image_Multiple_Field .cmb-delete-field { 
 	z-index: 10;  
 	top: 10px; 
 	right: 10px; 
+}
+
+.rtl .WPSight_File_Multiple_Field .cmb-delete-field,
+.rtl .WPSight_Image_Multiple_Field .cmb-delete-field {
+	right: auto;
+	left: 10px;
 }
 
 .WPSight_File_Multiple_Field .cmb-remove-file,
@@ -20,6 +33,12 @@
 	z-index: 1; 
 	top: 5px; 
 	right: 5px; 
+}
+
+.rtl .WPSight_File_Multiple_Field .cmb-remove-file,
+.rtl .WPSight_Image_Multiple_Field .cmb-remove-file {
+	left: 5px;
+	right: auto;
 }
 
 .WPSight_File_Multiple_Field.repeatable .cmb-remove-file,
@@ -52,10 +71,22 @@
 	background: #F9F9F9;
 }
 
+.rtl .WPSight_File_Multiple_Field.cmb-sortable .ui-sortable-helper:before,
+.rtl .WPSight_Image_Multiple_Field.cmb-sortable .ui-sortable-helper:before {
+	left: auto;
+	right: 0;
+}
+
 .WPSight_File_Multiple_Field .cmb-edit-file,
 .WPSight_Image_Multiple_Field .cmb-edit-file {
 	bottom: 10px;
 	position: absolute;
 	right: 10px;
 	z-index: 10;
+}
+
+.rtl .WPSight_File_Multiple_Field .cmb-edit-file,
+.rtl .WPSight_Image_Multiple_Field .cmb-edit-file {
+	left: 10px;
+	right: auto;
 }

@@ -9,6 +9,11 @@ body {
 	margin-top: 4%;
 }
 
+body.rtl {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+
 page[size="A4"] {
 	background: white;
 	box-shadow: 0 0 0.5cm rgba(0,0,0,0.1);
@@ -125,6 +130,12 @@ a:visited {
 	margin: 0 10px 10px 0;
 }
 
+.rtl .listing-print-agent .alignleft img {
+	float: right;
+	margin-left: 10px;
+	margin-right: 0;
+}
+
 .listing-print-agent strong {
 	font-size: 1.5em;
 	line-height: 2;
@@ -137,12 +148,23 @@ a:visited {
     margin-right: -5%;
 }
 
+.rtl .wpsight-listing-details {
+	margin-left: -5%;
+	margin-right: 0;
+}
+
 .wpsight-listing-details .listing-details-detail {
     border-bottom: 1px solid #ededed;
     float: left;
     margin-right: 5%;
     padding: 10px 0;
     width: 45%;
+}
+
+.rtl .wpsight-listing-details .listing-details-detail {
+	float: right;
+	margin-left: 5%;
+	margin-right: 0;
 }
 
 .wpsight-listing-details .listing-details-label {
@@ -188,7 +210,15 @@ a:visited {
 	width: auto;
 }
 
+.rtl .alignleft {
+	float: right;
+}
+
 .alignright {
 	float: right;
 	width: auto;
+}
+
+.rtl .alignright {
+	float: left;
 }

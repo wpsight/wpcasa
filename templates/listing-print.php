@@ -19,7 +19,7 @@ $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 	<?php do_action( 'wpsight_head_print' ); ?>
 </head>
 
-<body class="print">
+<body class="print<?php if( is_rtl() ) echo ' rtl'; ?>">
 
 	<div class="actions clearfix">
 	

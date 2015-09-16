@@ -57,7 +57,7 @@ class WPSight_Meta_Boxes {
 	public function admin_enqueue_scripts() {
 
 		if ( in_array( get_current_screen()->id, array( 'edit-listing', 'listing' ) ) )
-			wp_enqueue_style( 'wpsight_metaboxes', WPSIGHT_PLUGIN_URL . '/assets/css/meta-boxes.css' );
+			wp_enqueue_style( 'wpsight-meta-boxes', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-meta-boxes.css' );
 
 	}
 
@@ -977,7 +977,7 @@ class WPSight_File_Multiple_Field extends CMB_Field {
 	// Enqueue styles
 
 	function enqueue_styles() {
-		wp_enqueue_style( 'cmb-multiple-upload', WPSIGHT_PLUGIN_URL . '/assets/css/multiple-upload.css' );
+		wp_enqueue_style( 'wpsight-multiple-upload', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-multiple-upload.css' );
 	}
 
 	public function html() {

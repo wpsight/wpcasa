@@ -25,6 +25,10 @@
 	width: 19%;
 }
 
+.rtl .cmb_metabox .cmb-cell-12 .field-title {
+	float: right;
+}
+
 #side-sortables .cmb_metabox .cmb-cell-12 .field-title {
 	float: none;
 	margin-bottom: 10px;
@@ -55,6 +59,10 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+.rtl .cmb_metabox .cmb-cell-12 .field-item {
+	float: left;
 }
 
 #side-sortables .cmb_metabox .cmb-cell-12 .field-item {
@@ -88,9 +96,18 @@
 	width: auto;
 }
 
+.rtl .cmb_metabox .cmb-cell-12 .field.WPSight_Image_Multiple_Field .field-item,
+.rtl .cmb_metabox .cmb-cell-12 .field.WPSight_File_Multiple_Field .field-item {
+	float: right;
+}
+
 .cmb_metabox .cmb-cell-12 .cmb_metabox_description {
 	float: right;
 	width: 80%;
+}
+
+.rtl .cmb_metabox .cmb-cell-12 .cmb_metabox_description {
+	float: left;
 }
 
 #side-sortables .cmb_metabox .cmb-cell-12 .cmb_metabox_description {

@@ -387,38 +387,6 @@
     word-break: break-all;
 }
 
-/* WPSight Listing Compare
-================================================== */
-
-.wpsight-listing-section-compare {
-	display: none;
-}
-
-.wpsight-listing-compare {
-	margin-bottom: 20px;
-}
-
-.wpsight-listing-compare .listing-details-detail {
-	display: block;
-	padding: 5px;
-}
-
-.wpsight-listing-compare .listing-details-detail:nth-child(even) {
-	background-color: #ededed;
-}
-
-.wpsight-listing-compare .listing-details-label {
-	display: inline-block;
-	font-weight: bold;
-	width: 33%;
-}
-
-.listings-panel-action .listings-compare.open:before {
-	content: "\00d7";
-	display:inline-block;
-	padding-right: 2px;
-}
-
 /* WPSight Listing Summary
 ================================================== */
 
@@ -741,23 +709,6 @@
 
 .wpsight-listing-teaser .badge {
 	padding: 3px 6px;
-}
-
-.wpsight-listing-action-favorites .favorites-see {
-	margin-right: 15px;
-	padding-right: 5px;
-	position: relative;
-}
-
-.wpsight-listing-action-favorites .favorites-see .badge {
-	font-size: 10px;
-	font-weight: bold;
-	line-height: 1;
-	padding: 2px 4px;
-	position: absolute;
-	right: -15px;
-	text-align: center;
-	top: -5px;
 }
 
 /* Useful

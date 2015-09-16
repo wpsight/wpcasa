@@ -626,7 +626,7 @@ class WPSight_Post_Type_Listing {
 	 * @since 1.0.0
 	 */
 	function wpsight_head_print_css() { ?>
-	<link href="<?php echo WPSIGHT_PLUGIN_URL; ?>/assets/css/print.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo WPSIGHT_PLUGIN_URL; ?>/assets/css/wpsight-print.css" rel="stylesheet" type="text/css">
 	<?php
 	}
 	

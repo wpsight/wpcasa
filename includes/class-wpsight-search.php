@@ -141,67 +141,49 @@ class WPSight_Search {
 		$args = wp_parse_args( $args, $defaults );
 		
 		// Set form HTML ID
-		$html_id = $args['id'] ? 'id="' . sanitize_html_class( $args['id'] ) . '"' : '';
+		$args['id'] = $args['id'] ? ' id="' . sanitize_html_class( $args['id'] ) . '"' : '';
 		
 		// Set default action from settings
 
 		$page = wpsight_get_option( 'listings_page' );
 		$args['action'] = empty( $args['action'] ) && ! empty( $page ) ? get_permalink( absint( $page ) ) : $args['action'];
 		
-		// Setup search form
-		
-		$search = '<form method="get" ' . $html_id . ' action="' . esc_url( $args['action'] ) . '" class="' . sanitize_html_class( $args['class'] ) . ' ' . sanitize_html_class( $args['orientation'] ) . '">' . "\n\n";
-		
-			// Setup advanced search
-			$search_advanced = '';
-		
-			// Loop through fields
-			
-			foreach( $args['fields'] as $field => $value ) {
-				
-				// Get search field markup
-				$search_field = wpsight_get_search_field( $field, true );
-				
-				// Separate default from advanced search
-				
-				if( isset( $value['advanced'] ) && $value['advanced'] === true ) {				
-					$search_advanced .= $search_field;				
-				} else {				
-					$search .= $search_field;				
-				}
-				
-			} // endforeach $fields
-					
-			// Append advanced search
-			
-			if( ! empty( $search_advanced ) && $args['advanced'] !== false ) {
-				
-				// Wrap advanced search
-				$search .= '<div class="listings-search-advanced">' . "\n\n" . $search_advanced . '</div><!-- .listings-search-advanced -->' . "\n";
-				
-				// Add toggle button
-				$search .= $args['advanced'];
-				
-			}
-			
-			// Append reset button
-			
-			if( $args['reset'] !== false ) {
-				
-				// Add toggle button
-				$search .= $args['reset'];
-				
-			}
-			
-			// Add current page_id to GET parameters if permalinks are not pretty
+		/**
+		 * Loop through search fields and
+		 * separate them into default
+		 * and advanced search.
+		 */
 
-			if( isset( $_GET['page_id'] ) )
-				$search .= "\n" . '<input name="page_id" type="hidden" value="' . absint( $_GET['page_id'] ) . '" />' . "\n\n";
+		// Setup default search
+		$search_default = '';
 		
-		// Close form tag
-		$search .= '</form><!-- .' . sanitize_html_class( $args['class'] ) . ' -->' . "\n\n";
+		// Setup advanced search
+		$search_advanced = '';
 		
-		return apply_filters( 'wpsight_get_search', $search, $args, $search_fields );
+		// Loop through fields
+		
+		foreach( $args['fields'] as $field => $value ) {
+			
+			// Get search field markup
+			$search_field = wpsight_get_search_field( $field, true );
+			
+			// Separate default from advanced search
+			
+			if( isset( $value['advanced'] ) && $value['advanced'] === true ) {				
+				$search_advanced .= $search_field;				
+			} else {				
+				$search_default .= $search_field;				
+			}
+			
+		} // endforeach $fields
+		
+		// Setup search form with template
+		
+		ob_start();
+		
+		wpsight_get_template( 'search-form.php', array( 'args' => $args, 'search_default' => $search_default, 'search_advanced' => $search_advanced ) );
+		
+		return apply_filters( 'wpsight_get_search', ob_get_clean(), $args, $search_fields, $search_default, $search_advanced );
 		
 	}
 
@@ -301,71 +283,6 @@ class WPSight_Search {
 				'data_compare' 	=> '>=',
 				'class'			=> 'width-1-5',
 		    	'priority'		=> 70
-			),
-
-			'min' => array(
-				'label' 		=> __( 'Price (min)', 'wpsight' ),
-				'key'			=> '_price',
-				'type' 			=> 'text',
-				'data_compare' 	=> '>=',
-				'data_type' 	=> 'numeric',
-				'advanced'		=> true,
-				'class'			=> 'width-1-4',
-		    	'priority'		=> 90
-			),
-
-			'max' => array(
-				'label' 		=> __( 'Price (max)', 'wpsight' ),
-				'key'			=> '_price',
-				'type' 			=> 'text',
-				'data_compare' 	=> '<=',
-				'data_type' 	=> 'numeric',
-				'advanced'		=> true,
-				'class'			=> 'width-1-4',
-		    	'priority'		=> 100
-			),
-
-			'orderby' => array(
-				'label'			=> __( 'Order by', 'wpsight' ),
-				'type' 			=> 'select',
-				'data' 			=> array(
-					'date'  => __( 'Date', 'wpsight' ),
-					'price' => __( 'Price', 'wpsight' ),
-					'title'	=> __( 'Title', 'wpsight' )
-				),
-				'default'		=> 'date',
-				'advanced'		=> true,
-				'class'			=> 'width-1-4',
-		    	'priority'		=> 110
-			),
-
-			'order' => array(
-				'label'			=> __( 'Order', 'wpsight' ),
-				'type' 			=> 'select',
-				'data' 			=> array(
-					'asc'  => __( 'asc', 'wpsight' ),
-					'desc' => __( 'desc', 'wpsight' )
-				),
-				'default'		=> 'desc',
-				'advanced'		=> true,
-				'class'			=> 'width-1-4',
-		    	'priority'		=> 120
-			),
-			
-			'feature' => array(
-				'label'			=> '',
-				'data' 			=> array(
-					// get_terms() options
-					'taxonomy'			=> 'feature',
-			    	'orderby'         	=> 'count', 
-					'order'           	=> 'DESC',
-					'operator'			=> 'AND', // can be OR
-					'number'			=> 8
-				),
-				'type' 			=> 'taxonomy_checkbox',
-				'advanced'		=> true,
-				'class'			=> 'width-auto',
-		    	'priority'		=> 130
 			)
 			
 		);
@@ -445,160 +362,14 @@ class WPSight_Search {
 				$field_value = $default;
 			
 			// Check HTML class
-			$class = isset( $fields[$field]['class'] ) ? sanitize_html_class( $fields[$field]['class'] ) : false;
+			$class = isset( $fields[$field]['class'] ) ? esc_attr( $fields[$field]['class'] ) : false;
 			
-			// Create field markup
-			    
-			$search_field .= '<div class="listings-search-field listings-search-field-' . $fields[$field]['type'] . ' listings-search-field-' . $field . ' ' . $class . '">' . "\n";
+			// Get corresponding field template
 			
-				// Create field type text
-				
-				if( $fields[$field]['type'] == 'text' ) {
-					
-					$search_field .= "\t" . '<input class="listing-search-' . $field . ' text" title="' . $fields[$field]['label'] . '" name="' . $field . '" type="text" value="' . $field_value . '" placeholder="' . $fields[$field]['label'] . '" />' . "\n";
-					
-				// Create field type submit
-				
-				} elseif( $fields[$field]['type'] == 'submit' ) {
-					
-					$search_field .= "\t" . '<input type="submit" value="' . $fields[$field]['label'] . '">' . "\n";
-					
-				// Create field type select
-					
-				} elseif( $fields[$field]['type'] == 'select' ) {
-					
-					if( isset( $fields[$field]['data'] ) && is_array( $fields[$field]['data'] ) ) {
-					
-						$search_field .= '<select class="listing-search-' . $field . ' select" name="' . wpsight_get_query_var_by_detail( $field ) . '">' . "\n";
-						
-							// Prepend empty option with label
-							$search_field .= "\t" . '<option value="">' . $fields[$field]['label'] . '</option>' . "\n";
-							
-							foreach( $fields[$field]['data'] as $k => $v ) {
-								
-								$data_default = ( isset( $fields[$field]['default'] ) && $fields[$field]['default'] == $k ) ? 'true' : 'false';
-							
-								if( ! empty( $k ) ) {								
-									$search_field .= "\t" . '<option value="' . $k . '"' . selected( $k, sanitize_key( $field_value ), false ) . ' data-default="' . $data_default . '">' . $v . '</option>' . "\n";
-								}
-						
-							}
-						
-						$search_field .= '</select><!-- .listing-search-' . $field . ' -->' . "\n";
-					
-					} // endif $fields[$field]['data']
-					
-				// Create field type radio
-					
-				} elseif( $fields[$field]['type'] == 'radio' ) {
-					
-					if( ! empty( $fields[$field]['label'] ) )
-				    	$search_field .= "\t" . '<label class="radiogroup" for="' . $field . '">' . $fields[$field]['label'] . '</label>' . "\n";
-				    
-				    foreach( $fields[$field]['data'] as $k => $v ) {
-				    
-				    	$data_default = ( isset( $fields[$field]['default'] ) && $fields[$field]['default'] == $k ) ? 'true' : 'false';
-				    
-				    	$search_field .= "\t" . '<label class="radio"><input type="radio" name="' . wpsight_get_query_var_by_detail( $field ) . '" value="' . $k . '"' . checked( $k, sanitize_key( $field_value ), false ) . ' data-default="' . $data_default . '"/> ' . $v . '</label>' . "\n";
-				    	
-				    }
-				    
-				// Create field type checkbox
-				
-				} elseif( $fields[$field]['type'] == 'checkbox' ) {
-					
-					if( isset( $fields[$field]['data'] ) && is_array( $fields[$field]['data'] ) ) {
-						
-						if( ! empty( $fields[$field]['label'] ) )
-				    		$search_field .= "\t" . '<label class="checkboxgroup" for="' . $field . '">' . $fields[$field]['label'] . '</label>' . "\n";
-						
-						// Loop through data
-						
-						foreach( $fields[$field]['data'] as $k => $v ) {
-							
-							if( is_array( $field_value ) ) {
-
-								$field_option_key = array_search( $k, $field_value );
-								
-								$field_option_value = $field_option_key !== false ? $field_value[$field_option_key] : false;
-
-							} else {
-
-								$field_option_value = $field_value;
-
-							}
-								
-							$search_field .= "\t" . '<label class="checkbox"><input type="checkbox" name="' . $field . '[' . $k . ']" value="' . $k . '" ' . checked( $k, $field_option_value, false ) . '>' . $v . '</label>' . "\n";
-							
-						} // endforeach get_terms()
-					
-					}
-				    
-				// Create field type taxonomy (select)
-					
-				} elseif( $fields[$field]['type'] == 'taxonomy_select' ) {
-					
-					if( isset( $fields[$field]['data'] ) && is_array( $fields[$field]['data'] ) ) {
-						
-						$dropdown_defaults = array(
-				    		'echo'				=> 0,
-				    		'name'				=> $field,
-				    		'class'           	=> 'listing-search-' . $field . ' select',
-				    		'selected'			=> $field_value,
-				    		'value_field'       => 'slug',
-							'hide_if_empty'   	=> false,
-							'cache'				=> true					
-						);
-						
-						// Merge with form field $fields[$field]['data']
-				    	$dropdown_args = wp_parse_args( $fields[$field]['data'], $dropdown_defaults );
-					
-						$search_field .= wp_dropdown_categories( $dropdown_args );
-					
-					}
-					
-				// Create field type taxonomy (checkbox)
-					
-				} elseif( $fields[$field]['type'] == 'taxonomy_checkbox' ) {
-					
-					if( isset( $fields[$field]['data'] ) && is_array( $fields[$field]['data'] ) ) {
-						
-						$checklist_defaults = array(
-				    		'hide_empty'		=> 1
-						);
-						
-						if( ! empty( $fields[$field]['label'] ) )
-				    		$search_field .= "\t" . '<label class="checkboxgroup" for="' . $field . '">' . $fields[$field]['label'] . '</label>' . "\n";
-						
-						// Merge with form field $fields[$field]['data']
-				    	$checklist_args = wp_parse_args( $fields[$field]['data'], $checklist_defaults );
-						
-						// Loop through terms
-						
-						foreach( get_terms( $fields[$field]['data']['taxonomy'], $checklist_args ) as $k => $v ) {
-								
-							if( is_array( $field_value ) ) {
-
-								$field_option_key = array_search( $v->slug, $field_value );
-								
-								$field_option_value = $field_option_key !== false ? $field_value[$field_option_key] : false;
-
-							} else {
-
-								$field_option_value = $field_value;
-
-							}
-								
-							$search_field .= "\t" . '<label class="checkbox"><input type="checkbox" name="' . $field . '[' . $v->term_id . ']" value="' . $v->slug . '" ' . checked( $v->slug, $field_option_value, false ) . '>' . $v->name . '</label>' . "\n";
-							
-						} // endforeach get_terms()
-					
-					}
-					
-				}
+			ob_start();
+			wpsight_get_template( 'search-fields/field-' . $fields[$field]['type'] . '.php', array( 'fields' => $fields, 'field' => $field, 'field_value' => $field_value, 'class' => $class ) );
 			
-			// Close HTML markup
-			$search_field .= '</div><!-- .listings-search-field .listings-search-field-' . $field . ' -->';
+			$search_field = trim( ob_get_clean() );
 			
 			return apply_filters( 'wpsight_get_search_field', $search_field, $field, $formatted );
 			

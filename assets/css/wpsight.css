@@ -54,6 +54,14 @@
 	padding-bottom: 75px;
 }
 
+@media (max-width: 599px) {
+	
+	.wpsight-listings-search {
+		padding-bottom: 75px;
+	}
+
+}
+
 .wpsight-listings-search .listings-search-field {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -196,6 +204,19 @@
 	right: 15px;
 	margin-bottom: 0;
 	width: auto !important;
+}
+
+@media (max-width: 599px) {
+
+	.wpsight-listings-search .listings-search-field-submit {
+		position: absolute;
+		bottom: 30px;
+		left: 30px;
+		right: 15px;
+		margin-bottom: 0;
+		width: auto !important;
+	}
+
 }
 
 .wpsight-listings-search .listings-search-advanced {

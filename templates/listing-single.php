@@ -11,7 +11,7 @@ global $listing; ?>
 	<?php if ( $listing->post_status == 'expired' ) : ?>
 
 		<div class="wpsight-alert wpsight-alert-expired">
-			<?php _e( 'This listing has expired', 'wpsight' ); ?>
+			<?php _e( 'This listing has expired.', 'wpsight' ); ?>
 		</div>
 
 	<?php endif; ?>

@@ -13,7 +13,8 @@ class WPSight_Listings {
 	 *
 	 * Output formatted listing query
 	 *
-	 * @param array   $args Array of query arguments
+	 * @param array $args Array of query arguments
+	 * @param string $template_path Template path for wpsight_get_template()
 	 * @uses wpsight_get_listings()
 	 * @uses wpsight_get_template()
 	 * @uses wpsight_get_template_part()
@@ -93,7 +94,9 @@ class WPSight_Listings {
 			'author'				=> '',
 			'tax_query'				=> array(),
 			'meta_query'			=> array(),
-			'ignore_sticky_posts'	=> 1
+			'ignore_sticky_posts'	=> 1,
+			'show_panel'			=> true,
+			'show_paging'			=> true
 		);
 
 		// Add custom vars to $defaults
@@ -119,6 +122,9 @@ class WPSight_Listings {
 
 		if ( isset( $args['paged'] ) )
 			$paged = absint( $args['paged'] );
+		
+		if( false === $args['show_paging'] )
+			$paged = 1;
 
 		// Make sure nr arg works too
 		if ( ! empty( $args['nr'] ) )
@@ -390,37 +396,6 @@ class WPSight_Listings {
 		return apply_filters( 'wpsight_get_listings', $result, $query_args, $args );
 
 	}
-	/**
-	 * listing_teaser()
-	 *
-	 * Output formatted single listing teaser.
-	 *
-	 * @param integer|object $teaser_id Post or listing ID or WP_Post object
-	 * @uses wpsight_get_listing()
-	 * @uses wpsight_get_template()
-	 * @uses wpsight_get_template_part()
-	 *
-	 * @since 1.0.0
-	 */
-
-	public static function listing_teaser( $teaser_id = null ) {
-		global $teaser;
-
-		$teaser = wpsight_get_listing( $teaser_id );
-
-		if ( $teaser ) {
-
-			// Get listing teaser template
-			wpsight_get_template_part( 'listing', 'teaser' );
-
-		} else {
-
-			// Get template for no listings
-			wpsight_get_template_part( 'listing', 'no' );
-
-		}
-
-	}
 
 	/**
 	 * listing()
@@ -436,8 +411,7 @@ class WPSight_Listings {
 	 *
 	 * @since 1.0.0
 	 */
-	public static function listing( $listing_id = null, $full = true ) {
-		
+	public static function listing( $listing_id = null, $full = true ) {		
 		global $listing;
 		
 		$listing = wpsight_get_listing( $listing_id );
@@ -482,7 +456,8 @@ class WPSight_Listings {
 	 *
 	 * Output list of listing teasers.
 	 *
-	 * @param array   $args Array of query arguments
+	 * @param array $args Array of query arguments
+	 * @param string $template_path Template path for wpsight_get_template()
 	 * @uses wpsight_get_listings()
 	 * @uses wpsight_listing_teaser()
 	 * @uses wp_reset_query()
@@ -490,28 +465,52 @@ class WPSight_Listings {
 	 * @since 1.0.0
 	 */
 
-	public static function listing_teasers( $args = array() ) {
-		global $wpsight_teaser_query;
+	public static function listing_teasers( $args = array(), $template_path = '' ) {
+		global $wpsight_query;
+		
+		// Make sure paging works
+
+		if ( get_query_var( 'paged' ) ) {
+			$paged = get_query_var( 'paged' );
+		} elseif ( get_query_var( 'page' ) ) {
+			$paged = get_query_var( 'page' );
+		} else {
+			$paged = 1;
+		}
+		
+		if( false === $args['show_paging'] )
+			$paged = 1;
 
 		// Make sure other listing queries don't set paged
-		$args = array_merge( array( 'paged' => 1 ), $args );
+		$args = array_merge( array( 'paged' => $paged ), $args );
 
 		// Get listings query
-		$wpsight_teaser_query = wpsight_get_listings( $args );
+		$wpsight_query = wpsight_get_listings( $args );
 
-		if ( $wpsight_teaser_query->have_posts() ) {
+		if ( $wpsight_query->have_posts() ) {
+
+			// Get template before loop
+			wpsight_get_template( 'listing-teasers-before.php', $args, $template_path );
 
 			// Loop through listings
 
-			while ( $wpsight_teaser_query->have_posts() ) {
+			while ( $wpsight_query->have_posts() ) {
 
 				// Setup listing data
-				$wpsight_teaser_query->the_post();
-
-				// Get listing teaser
-				wpsight_listing_teaser( get_the_id() );
+				$wpsight_query->the_post();
+				
+				// Get listing teaser loop template
+				wpsight_get_template( 'listing-teaser.php', $args, $template_path );
 
 			}
+			
+			// Get template after loop
+			wpsight_get_template( 'listing-teasers-after.php', $args, $template_path );
+
+		} else {
+
+			// Get template for no listings
+			wpsight_get_template( 'listings-no.php', $args, $template_path );
 
 		}
 

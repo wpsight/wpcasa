@@ -39,7 +39,9 @@ class WPSight_Shortcode_Listings {
             'offset'			=> '',
 			'posts_per_page'	=> get_query_var( 'nr' ) ? get_query_var( 'nr' ) : get_option( 'posts_per_page' ),
 			'orderby'			=> get_query_var( 'orderby' ) ? get_query_var( 'orderby' ) : 'date',
-			'order'				=> get_query_var( 'order' ) ? get_query_var( 'order' ) : 'DESC'
+			'order'				=> get_query_var( 'order' ) ? get_query_var( 'order' ) : 'DESC',
+			'show_panel'		=> true, // can be false
+			'show_paging'		=> true // can be false
         );
         
 		// Add custom vars to $defaults
@@ -47,10 +49,17 @@ class WPSight_Shortcode_Listings {
 
 		// Merge shortcodes atts with defaults and extract
         extract( shortcode_atts( $defaults, $atts ) );
+		
+		$args = shortcode_atts( $defaults, $atts );
+        
+        // Optionally Convert strings true|false to bool
+		
+		$args['show_panel'] = $args['show_panel'] === true || $args['show_panel'] == 'true' ? true : false;
+		$args['show_paging'] = $args['show_paging'] === true || $args['show_paging'] == 'true' ? true : false;
         
         ob_start();
         
-        wpsight_listings( shortcode_atts( $defaults, $atts ) );
+        wpsight_listings( $args );
         
         $output = sprintf( '%1$s%3$s%2$s', $before, $after, ob_get_clean() );
 	

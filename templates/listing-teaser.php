@@ -1,12 +1,6 @@
-<?php
-/**
- * Template: Listing Teaser
- */
-global $teaser; ?>
-
 <div class="wpsight-listing-teaser entry-content" itemscope itemtype="http://schema.org/Product">
 
-	<meta itemprop="name" content="<?php echo esc_attr( $teaser->post_title ); ?>" />
+	<meta itemprop="name" content="<?php echo esc_attr( $post->post_title ); ?>" />
 	
 	<div itemprop="offers" class="clearfix" itemscope itemtype="http://schema.org/Offer">
 
@@ -14,11 +8,11 @@ global $teaser; ?>
 
 		<div class="wpsight-listing-left">
 
-			<meta itemprop="image" content="<?php echo esc_attr( wpsight_listing_thumbnail_url( $teaser->ID, 'large' ) ); ?>" />
+			<meta itemprop="image" content="<?php echo esc_attr( wpsight_listing_thumbnail_url( $post->ID, 'large' ) ); ?>" />
 				
 			<div class="wpsight-listing-image">
 				<a href="<?php the_permalink(); ?>" rel="bookmark">
-					<?php wpsight_listing_thumbnail( $teaser->ID, array( 75, 75 ) ); ?>
+					<?php wpsight_listing_thumbnail( $post->ID, array( 75, 75 ) ); ?>
 				</a>
 			</div>
 
@@ -30,13 +24,13 @@ global $teaser; ?>
 
 				<div class="alignleft">				
 					<h3 class="entry-title">
-						<a href="<?php echo get_permalink( $teaser->ID ); ?>" rel="bookmark"><?php echo get_the_title( $teaser->ID ); ?></a>
+						<a href="<?php echo get_permalink( $post->ID ); ?>" rel="bookmark"><?php echo get_the_title( $post->ID ); ?></a>
 					</h3>					
 				</div>
 				
 				<div class="alignright">					
 					<div class="wpsight-listing-status">
-						<?php wpsight_listing_offer( $teaser->ID ); ?>
+						<?php wpsight_listing_offer( $post->ID ); ?>
 					</div>					    
 				</div>
 				    
@@ -44,10 +38,10 @@ global $teaser; ?>
 			
 			<div class="wpsight-listing-info clearfix">
 			    <div class="alignleft">
-			    	<?php wpsight_listing_summary( $teaser->ID ); ?>
+			    	<?php wpsight_listing_summary( $post->ID ); ?>
 			    </div>
 			    <div class="alignright">
-			    	<?php wpsight_listing_price( $teaser->ID ); ?>
+			    	<?php wpsight_listing_price( $post->ID ); ?>
 			    </div>
 			</div>
 		

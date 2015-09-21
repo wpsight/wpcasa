@@ -65,21 +65,6 @@ function wpsight_listing( $listing_id = null, $full = true ) {
 }
 
 /**
- * wpsight_listing_teaser()
- *
- * Output formatted single listing teaser.
- *
- * @param integer|object $teaser_id Post or listing ID or WP_Post object
- * @uses WPSight_Listings::listing_teaser()
- *
- * @since 1.0.0
- */
-
-function wpsight_listing_teaser( $teaser_id = null ) {
-	return WPSight_Listings::listing_teaser( $teaser_id );
-}
-
-/**
  * wpsight_listing_teasers()
  *
  * Output list of listing teasers.
@@ -90,8 +75,8 @@ function wpsight_listing_teaser( $teaser_id = null ) {
  * @since 1.0.0
  */
 
-function wpsight_listing_teasers( $args = array() ) {
-	return WPSight_Listings::listing_teasers( $args );
+function wpsight_listing_teasers( $args = array(), $template_path = '' ) {
+	return WPSight_Listings::listing_teasers( $args, $template_path );
 }
 
 /**

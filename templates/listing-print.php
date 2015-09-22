@@ -24,7 +24,7 @@ $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 	<div class="actions clearfix">
 	
 		<div class="alignleft">
-			<a href="<?php echo sanitize_url( get_permalink( $listing->ID ) ); ?>" class="button back">&laquo; <?php _ex( 'Back to Listing', 'listing print', 'wpsight' ); ?></a>
+			<a href="<?php echo esc_url_raw( get_permalink( $listing->ID ) ); ?>" class="button back">&laquo; <?php _ex( 'Back to Listing', 'listing print', 'wpsight' ); ?></a>
 		</div>
 		
 		<div class="alignright">
@@ -85,7 +85,7 @@ $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 					<?php endif; ?>			        
 			    </div>			
 			    <div class="alignright">			    	
-			    	<img src="<?php echo sanitize_url( 'http://chart.apis.google.com/chart?cht=qr&chs=100x100&chld=H|0&chl=' . urlencode( get_permalink( $listing->ID ) ) ); ?>" width="100" height="100" alt="" />
+			    	<img src="<?php echo esc_url_raw( 'http://chart.apis.google.com/chart?cht=qr&chs=100x100&chld=H|0&chl=' . urlencode( get_permalink( $listing->ID ) ) ); ?>" width="100" height="100" alt="" />
 			    </div>			
 			</div><!-- .listing-print-agent -->
 		

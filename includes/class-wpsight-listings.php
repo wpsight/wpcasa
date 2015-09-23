@@ -1043,7 +1043,7 @@ class WPSight_Listings {
 			// Create price markup and place currency before or after value
 
 			if ( $currency_symbol == 'after' ) {
-				$listing_price_symbol  = '<span class="listing-price-value" itemprop="price">' . $listing_price . '</span><!-- .listing-price-value -->';
+				$listing_price_symbol  = '<span class="listing-price-value" itemprop="price" content="'. $post_meta['_price'][0] .'">' . $listing_price . '</span><!-- .listing-price-value -->';
 
 				// Optionally add currency symbol
 
@@ -1057,7 +1057,7 @@ class WPSight_Listings {
 				if ( $args['show_currency'] == true )
 					$listing_price_symbol  = '<span class="listing-price-symbol">' . wpsight_get_currency() . '</span><!-- .listing-price-symbol -->';
 
-				$listing_price_symbol .= '<span class="listing-price-value" itemprop="price">' . $listing_price . '</span><!-- .listing-price-value -->';
+				$listing_price_symbol .= '<span class="listing-price-value" itemprop="price" content="'. $post_meta['_price'][0] .'">' . $listing_price . '</span><!-- .listing-price-value -->';
 
 			} // endif $currency_symbol
 

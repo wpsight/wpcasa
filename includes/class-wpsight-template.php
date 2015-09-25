@@ -142,7 +142,7 @@ class WPSight_Template {
 
 		$defaults = array(
 
-			'type'   => 'select', // links, bootstrap
+			'type'   => 'select', // can be 'links'
 			'orderby' => true,
 			'order'   => true,
 			'labels'  => array(
@@ -169,123 +169,13 @@ class WPSight_Template {
 		if ( $args['orderby'] || $args['order'] ) {
 
 			ob_start();
-
-			// Create orderby type links
-
-			if ( $args['type'] == 'links' ) { ?>
-
-				<div class="listings-sort">
-
-					<?php if ( $args['orderby'] ) { ?>
-
-					<div class="listings-sort-orderby">
-
-						<span class="listings-sort-orderby-label"><?php echo $args['labels']['orderby']; ?></span>
-
-						<?php
-					// Check if order var set
-					if ( get_query_var( 'order' ) )
-						$vars_order = array( 'order' => get_query_var( 'order' ) );
-?>
-
-						<span class="listings-sort-orderby-date">
-							<a href="<?php echo add_query_arg( array_merge( array( 'orderby' => 'date' ), (array) $vars_order ) ); ?>"><?php echo $args['labels']['date']; ?></a>
-						</span>
-
-						<span class="listings-sort-orderby-separator"><?php echo $args['labels']['orderby_sep']; ?></span>
-
-						<span class="listings-sort-orderby-price">
-							<a href="<?php echo add_query_arg( array_merge( array( 'orderby' => 'price' ), (array) $vars_order ) ); ?>"><?php echo $args['labels']['price']; ?></a>
-						</span>
-
-					</div><!-- .listings-sort-orderby -->
-
-					<?php } ?>
-
-					<?php if ( $args['order'] ) { ?>
-
-					<div class="listings-sort-order">
-
-						<span class="listings-sort-order-label"><?php echo $args['labels']['order']; ?></span>
-
-						<?php
-					// Check if orderby var set
-					$vars_orderby = get_query_var( 'orderby' ) == 'price' ? array( 'orderby' => 'price' ) : false;
-?>
-
-						<span class="listings-sort-order-desc">
-							<a href="<?php echo add_query_arg( array_merge( (array) $vars_orderby, array( 'order' => 'DESC' ) ) ); ?>"><?php echo $args['labels']['desc']; ?></a>
-						</span>
-
-						<span class="listings-sort-order-separator"><?php echo $args['labels']['order_sep']; ?></span>
-
-						<span class="listings-sort-order-asc">
-							<a href="<?php echo add_query_arg( array_merge( (array) $vars_orderby, array( 'order' => 'ASC' ) ) ); ?>"><?php echo $args['labels']['asc']; ?></a>
-						</span>
-
-					</div><!-- .listings-sort-order -->
-
-					<?php } ?>
-
-				</div><!-- .listings-sort --><?php
-
-			} elseif ( $args['type'] == 'select' ) { ?>
-
-				<?php
-				$_GET['orderby'] = isset( $_GET['orderby'] ) ? $_GET['orderby'] : false;
-				$_GET['order']   = isset( $_GET['order'] ) ? $_GET['order'] : false;
-?>
-
-				<div class="listings-sort">
-
-					<select name="listings-sort">
-
-						<option value=""><?php echo $args['labels']['orderby']; ?></option>
-
-						<option<?php if ( $_GET['orderby'] == 'date' && $_GET['order'] == 'asc' ) echo ' selected="selected"'; ?> value="<?php echo add_query_arg( array( 'orderby' => 'date', 'order' => 'asc' ) ); ?>"><?php echo $args['labels']['date']; ?> (<?php echo $args['labels']['asc']; ?>)</option>
-
-						<option<?php if ( $_GET['orderby'] == 'date' && $_GET['order'] == 'desc' ) echo ' selected="selected"'; ?> value="<?php echo add_query_arg( array( 'orderby' => 'date', 'order' => 'desc' ) ); ?>"><?php echo $args['labels']['date']; ?> (<?php echo $args['labels']['desc']; ?>)</option>
-
-						<option<?php if ( $_GET['orderby'] == 'price' && $_GET['order'] == 'asc' ) echo ' selected="selected"'; ?> value="<?php echo add_query_arg( array( 'orderby' => 'price', 'order' => 'asc' ) ); ?>"><?php echo $args['labels']['price']; ?> (<?php echo $args['labels']['asc']; ?>)</option>
-
-						<option<?php if ( $_GET['orderby'] == 'price' && $_GET['order'] == 'desc' ) echo ' selected="selected"'; ?> value="<?php echo add_query_arg( array( 'orderby' => 'price', 'order' => 'desc' ) ); ?>"><?php echo $args['labels']['price']; ?> (<?php echo $args['labels']['desc']; ?>)</option>
-
-						<option<?php if ( $_GET['orderby'] == 'title' && $_GET['order'] == 'asc' ) echo ' selected="selected"'; ?> value="<?php echo add_query_arg( array( 'orderby' => 'title', 'order' => 'asc' ) ); ?>"><?php echo $args['labels']['title']; ?> (<?php echo $args['labels']['asc']; ?>)</option>
-
-						<option<?php if ( $_GET['orderby'] == 'title' && $_GET['order'] == 'desc' ) echo ' selected="selected"'; ?> value="<?php echo add_query_arg( array( 'orderby' => 'title', 'order' => 'desc' ) ); ?>"><?php echo $args['labels']['title']; ?> (<?php echo $args['labels']['desc']; ?>)</option>
-
-					</select>
-
-				</div><!-- .listings-sort --><?php
-
-			} elseif ( $args['type'] == 'bootstrap' ) { ?>
-
-				<div class="listings-sort">
-
-					<div class="btn-group">
-
-					  	<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><?php echo $args['labels']['orderby']; ?> <span class="caret"></span></button>
-
-					  	<ul class="dropdown-menu pull-right">
-					    	<li><a href="<?php echo add_query_arg( array( 'orderby' => 'date', 'order' => 'asc' ) ); ?>"><?php echo $args['labels']['date']; ?> (<?php echo $args['labels']['asc']; ?>)</a></li>
-					    	<li><a href="<?php echo add_query_arg( array( 'orderby' => 'date', 'order' => 'desc' ) ); ?>"><?php echo $args['labels']['date']; ?> (<?php echo $args['labels']['desc']; ?>)</a></li>
-					    	<li class="divider"></li>
-					    	<li><a href="<?php echo add_query_arg( array( 'orderby' => 'price', 'order' => 'asc' ) ); ?>"><?php echo $args['labels']['price']; ?> (<?php echo $args['labels']['asc']; ?>)</a></li>
-					    	<li><a href="<?php echo add_query_arg( array( 'orderby' => 'price', 'order' => 'desc' ) ); ?>"><?php echo $args['labels']['price']; ?> (<?php echo $args['labels']['desc']; ?>)</a></li>
-					    	<li class="divider"></li>
-					    	<li><a href="<?php echo add_query_arg( array( 'orderby' => 'title', 'order' => 'asc' ) ); ?>"><?php echo $args['labels']['title']; ?> (<?php echo $args['labels']['asc']; ?>)</a></li>
-					    	<li><a href="<?php echo add_query_arg( array( 'orderby' => 'title', 'order' => 'desc' ) ); ?>"><?php echo $args['labels']['title']; ?> (<?php echo $args['labels']['desc']; ?>)</a></li>
-						</ul>
-
-					</div>
-
-				</div><!-- .listings-sort --><?php
-
-			} // endif $args['type']
+			
+			// Get orderby template
+			wpsight_get_template( 'listings-panel-' . sanitize_file_name( $args['type'] ) . '.php', array( 'args' => $args ) );
 
 			$orderby = ob_get_clean();
 
-		} // endif $args['orderby'] || $args['order']
+		}
 
 		if ( ! empty( $orderby ) )
 			return $orderby;

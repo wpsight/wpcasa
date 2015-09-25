@@ -34,7 +34,7 @@ class WPSight_General {
 
 			'details_1' => array(
 				'id'           => 'details_1',
-				'label'        => __( 'Bedrooms', 'wpsight' ),
+				'label'        => __( 'Beds', 'wpsight' ),
 				'unit'         => '',
 				'data'         => array( '' => __( 'n/d', 'wpsight' ), '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10' ),
 				'description'  => '',
@@ -45,7 +45,7 @@ class WPSight_General {
 			),
 			'details_2' => array(
 				'id'           => 'details_2',
-				'label'        => __( 'Bathrooms', 'wpsight' ),
+				'label'        => __( 'Baths', 'wpsight' ),
 				'unit'         => '',
 				'data'         => array( '' => __( 'n/d', 'wpsight' ), '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10' ),
 				'description'  => '',

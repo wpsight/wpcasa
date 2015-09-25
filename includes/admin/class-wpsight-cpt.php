@@ -53,9 +53,7 @@ class WPSight_Admin_CPT {
 		add_filter( 'parse_query', array( $this, 'parse_query_listing_offers' ) );
 		
 		// Allow users to filter listings by taxomoy term
-		
 		add_action( 'restrict_manage_posts', array( $this, 'restrict_listing_taxonomy' ) );
-		add_filter( 'parse_query', array( $this, 'parse_query_listing_taxonomy' ) );
 		
 		// Allow users to filter listings by author		
 		add_action( 'restrict_manage_posts', array( $this, 'restrict_listing_author' ) );
@@ -1197,7 +1195,7 @@ class WPSight_Admin_CPT {
 	    
 	    	if( isset( $_GET['wpsight-offer'] ) && $_GET['wpsight-offer'] != '' && $_GET['wpsight-offer'] != 'not-available' ) {
 	    		$query->query_vars['meta_key'] = '_price_offer';
-	    		$query->query_vars['meta_value'] = $_GET['wpsight-offer'];
+	    		$query->query_vars['meta_value'] = sanitize_text_field( $_GET['wpsight-offer'] );
 	        }
 	        
 	        if( isset( $_GET['wpsight-offer'] ) && $_GET['wpsight-offer'] == 'not-available' ) {
@@ -1250,7 +1248,6 @@ class WPSight_Admin_CPT {
 	 * @access public
 	 * @uses wpsight_post_type()
 	 * @uses get_object_taxonomies()
-	 * @uses get_taxonomy()
 	 * @uses get_terms()
 	 * @uses wp_dropdown_categories()
 	 *
@@ -1262,23 +1259,19 @@ class WPSight_Admin_CPT {
 		if( $typenow != wpsight_post_type() )
 			return;
 	    
-	    $filters = get_object_taxonomies( $typenow );
+	    $filters = get_object_taxonomies( $typenow, 'objects' );
 	    
-		foreach( $filters as $tax_slug ) {
-		
-		    $tax_obj = get_taxonomy( $tax_slug );
-		               
-		    if( count( get_terms( $tax_slug ) ) > 0 ) {
-		    
-		    	$selected = isset( $_GET[$tax_obj->query_var] ) ? $_GET[$tax_obj->query_var] : false;
-		              
+		foreach( $filters as $tax_obj ) {
+				               
+		    if( ! empty( get_terms( $tax_obj->name ) )) {
+		    		              
 		    	wp_dropdown_categories(
 		    		array(
 						'show_option_all'   => $tax_obj->label,
 						'option_none_value' => '',
-						'taxonomy'          => $tax_slug,
+						'taxonomy'          => $tax_obj->name,
 						'name'              => $tax_obj->name,
-						'selected'          => $selected,
+						'selected'          => get_query_var( $tax_obj->query_var ),
 						'hierarchical'      => $tax_obj->hierarchical,
 						'show_count'        => false,
 						'hide_empty'        => true,
@@ -1288,42 +1281,6 @@ class WPSight_Admin_CPT {
 		    	);            
 		    }
 		}
-	}
-	
-	/**
-	 * parse_query_listing_taxonomy()
-	 *
-	 * Parse the query and limit listings
-	 * to desired taxomoy term.
-	 *
-	 * @access public
-	 * @param object $query WP_Query object
-	 * @uses get_current_screen()
-	 * @uses get_object_taxonomies()
-	 * @uses get_term_by()
-	 *
-	 * @since 1.0.0
-	 */	
-	public function parse_query_listing_taxonomy( $query ) {	
-	    global $typenow;
-	    
-	    $current_screen = get_current_screen();
-
-	    if ( isset( $current_screen->id ) && 'edit-listing' == $current_screen->id ) {
-	    
-	        $filters = get_object_taxonomies( $typenow );
-	        
-	        foreach( $filters as $tax_slug ) {
-	        
-	            $var = &$query->query_vars[$tax_slug];
-	            
-	            if ( isset( $var ) ) {
-	                $term = get_term_by( 'id', $var, $tax_slug );
-	                if( ! empty( $term ) )
-	                	$var = $term->slug;
-	            }
-	        }
-	    }
 	}
 	
 	/**
@@ -1344,10 +1301,11 @@ class WPSight_Admin_CPT {
 		if( $typenow != wpsight_post_type() )
 			return;
 	
-	    $args = array( 'name' => 'author', 'show_option_all' => __( 'Agents', 'wpsight' ) );
-	    
-	    if ( isset( $_GET['user'] ) )
-	        $args['selected'] = $_GET['user'];
+	    $args = array( 
+	    	'name' => 'author', 
+	    	'show_option_all' => __( 'Agents', 'wpsight' ), 
+	    	'selected', get_query_var( 'user' ) 
+	    );
 	
 	    wp_dropdown_users( $args );
 

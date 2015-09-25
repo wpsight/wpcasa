@@ -546,12 +546,12 @@ class WPSight_Helpers {
 				}
 			}
 
-			$object_terms = wpsight_sort_taxonomies_by_parents( $parents_assembled_array );
+			$object_terms = self::sort_taxonomies_by_parents( $parents_assembled_array );
 
 		}
 
 		// Create terms list
-		$term_list = wpsight_get_the_term_list_links( $taxonomy, $object_terms, $term_before, $term_after, $linked );
+		$term_list = self::get_the_term_list_links( $taxonomy, $object_terms, $term_before, $term_after, $linked );
 
 		// Reorder if required
 		if ( $reverse )
@@ -576,7 +576,7 @@ class WPSight_Helpers {
 			if ( ! empty( $data[$parent_id] ) ) {
 				foreach ( $data[$parent_id] as $key => $taxonomy_object ) {
 					if ( isset( $data[$taxonomy_object->term_id] ) ) {
-						$data[$parent_id][$key]->childs = wpsight_sort_taxonomies_by_parents( $data, $taxonomy_object->term_id );
+						$data[$parent_id][$key]->childs = self::sort_taxonomies_by_parents( $data, $taxonomy_object->term_id );
 					}
 				}
 				return $data[$parent_id];
@@ -614,7 +614,7 @@ class WPSight_Helpers {
 
 				if ( ! empty( $term->childs ) ) {
 
-					$res = wpsight_get_the_term_list_links( $taxonomy, $term->childs, $term_before, $term_after, $linked );
+					$res = self::get_the_term_list_links( $taxonomy, $term->childs, $term_before, $term_after, $linked );
 
 					if ( ! empty( $res ) ) {
 

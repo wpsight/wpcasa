@@ -11,7 +11,7 @@ $listing_id = absint( $_GET['print'] );
 $listing = get_post( $listing_id );
 
 $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
-
+<!DOCTYPE html>
 <html>
 	
 <head>

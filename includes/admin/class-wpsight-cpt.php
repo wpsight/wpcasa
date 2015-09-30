@@ -550,8 +550,10 @@ class WPSight_Admin_CPT {
 							// Collect Post ID
 							$approved[] = $post_id;
 							
-							// Set listing expirey
-							wpsight_set_listing_expiry( $post_id );
+							// Set listing expiry
+
+							if( function_exists( 'wpsight_set_listing_expiry' ) )
+								wpsight_set_listing_expiry( $post_id );
 
 						}
 

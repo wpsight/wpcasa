@@ -292,6 +292,10 @@
 	margin-bottom: 10px;
 }
 
+.wpsight-listing-section-compare {
+	display: none;
+}
+
 .wpsight-listings .wpsight-listing-title,
 .wpsight-listings-sc .wpsight-listing-title {
 	border-bottom: 0;

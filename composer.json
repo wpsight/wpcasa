@@ -1,11 +1,8 @@
 {
-	"repositories": [
-        {
-            "url": "https://github.com/humanmade/Custom-Meta-Boxes.git",
-            "type": "git"
-        }
-    ],
     "require": {
-        "humanmade/custom-meta-boxes": "dev-master"
+		"webdevstudios/cmb2": "~2.1"
+    },
+    "autoload": {
+        "files": ["vendor/webdevstudios/cmb2/init.php"]
     }
 }

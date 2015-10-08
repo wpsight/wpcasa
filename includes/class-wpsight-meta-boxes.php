@@ -13,11 +13,15 @@ class WPSight_Meta_Boxes {
 	 */
 	public function __construct() {
 
+		add_filter( 'cmb2_meta_box_url', function( $url ){
+			return str_replace(CMB2_DIR, WPSIGHT_PLUGIN_URL . '/vendor/webdevstudios/cmb2/', $url);
+		} );
+
 		// Enqueue scripts
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
 
 		// Add custom meta boxes
-		add_filter( 'cmb_meta_boxes', array( $this, 'admin_meta_boxes' ) );
+		add_action( 'cmb2_admin_init', array( $this, 'admin_meta_boxes' ) );
 
 		// Set default listing ID
 		add_action( 'wp_insert_post', array( $this, 'admin_listing_id_default' ), null, 2 );
@@ -26,16 +30,13 @@ class WPSight_Meta_Boxes {
 		add_action( 'save_post', array( $this, 'admin_save_post' ), 1, 2 );
 
 		// Add action when a listing is saved
-		add_action( 'wpsight_save_listing', array( $this, 'admin_save_listing_data' ), 20, 2 );
+		//add_action( 'wpsight_save_listing', array( $this, 'admin_save_listing_data' ), 20, 2 );
 
 		// Update geolocation data
 		add_action( 'update_post_meta', array( $this, 'maybe_generate_geolocation_data' ), 10, 4 );
 
 		// Update some listing post meta data
 		add_action( 'add_meta_boxes_listing', array( $this, 'admin_post_meta_update' ) );
-
-		// Add custom meta box field types
-		add_filter( 'cmb_field_types', array( $this, 'admin_metabox_field_types' ) );
 
 		// Set existing attachments as gallery meta data
 		add_action( 'update_post_meta', array( $this, 'admin_gallery_default' ), 1, 4 );
@@ -71,12 +72,17 @@ class WPSight_Meta_Boxes {
 	 *
 	 * @since 1.0.0
 	 */
-	public function admin_meta_boxes( array $meta_boxes ) {
+	public function admin_meta_boxes( ) {
+		$meta_boxes = wpsight_meta_boxes();
 
-		if ( is_array( wpsight_meta_boxes() ) )
-			$meta_boxes = array_merge( wpsight_meta_boxes(), $meta_boxes );
+		foreach ( $meta_boxes as $metabox ) {
+			$cmb = new_cmb2_box( $metabox );
+		    foreach ( $metabox['fields'] as $field ) {
+		    	$cmb->add_field( $field );
+		    }
+		}
 
-		return $meta_boxes;
+		
 
 	}
 
@@ -339,28 +345,6 @@ class WPSight_Meta_Boxes {
 	}
 
 	/**
-	 * admin_metabox_field_types()
-	 *
-	 * Add or replace CMB field types
-	 * using cmb_field_types filter.
-	 *
-	 * @access public
-	 * @param array   $cmb_field_types Existing CMB field types
-	 *
-	 * @since 1.0.0
-	 */
-	public function admin_metabox_field_types( $cmb_field_types ) {
-
-		$cmb_field_types['checkbox']       = 'WPSight_Checkbox_Field';
-		$cmb_field_types['file_multiple']  = 'WPSight_File_Multiple_Field';
-		$cmb_field_types['image_multiple'] = 'WPSight_Image_Multiple_Field';
-		$cmb_field_types['info']           = 'WPSight_Info_Field';
-
-		return $cmb_field_types;
-
-	}
-
-	/**
 	 * meta_boxes()
 	 *
 	 * Merging arrays of all WPSight meta boxes
@@ -431,7 +415,7 @@ class WPSight_Meta_Boxes {
 		$meta_box = array(
 			'id'       => 'listing_attributes',
 			'title'    => __( 'Listing Attributes', 'wpsight' ),
-			'pages'    => array( wpsight_post_type() ),
+			'object_types'    => array( wpsight_post_type() ),
 			'context'  => 'side',
 			'priority' => 'core',
 			'fields'   => $fields
@@ -463,8 +447,7 @@ class WPSight_Meta_Boxes {
 			'images' => array(
 				'name'       => __( 'Images', 'wpsight' ),
 				'id'         => '_gallery',
-				'type'       => 'image_multiple',
-				'repeatable' => true,
+				'type'       => 'file_list',
 				'sortable'   => true,
 				'desc'       => false,
 				'dashboard'  => false
@@ -479,7 +462,7 @@ class WPSight_Meta_Boxes {
 		$meta_box = array(
 			'id'       => 'listing_images',
 			'title'    => __( 'Listing Images', 'wpsight' ),
-			'pages'    => array( wpsight_post_type() ),
+			'object_types'    => array( wpsight_post_type() ),
 			'context'  => 'normal',
 			'priority' => 'high',
 			'fields'   => $fields
@@ -545,7 +528,7 @@ class WPSight_Meta_Boxes {
 		$meta_box = array(
 			'id'       => 'listing_price',
 			'title'    => __( 'Listing Price', 'wpsight' ),
-			'pages'    => array( wpsight_post_type() ),
+			'object_types'    => array( wpsight_post_type() ),
 			'context'  => 'normal',
 			'priority' => 'high',
 			'fields'   => $fields
@@ -648,7 +631,7 @@ class WPSight_Meta_Boxes {
 		$meta_box = array(
 			'id'       => 'listing_details',
 			'title'    => __( 'Listing Details', 'wpsight' ),
-			'pages'    => array( wpsight_post_type() ),
+			'object_types'    => array( wpsight_post_type() ),
 			'context'  => 'normal',
 			'priority' => 'high',
 			'fields'   => $fields
@@ -720,7 +703,7 @@ class WPSight_Meta_Boxes {
 		$meta_box = array(
 			'id'       => 'listing_location',
 			'title'    => __( 'Listing Location', 'wpsight' ),
-			'pages'    => array( wpsight_post_type() ),
+			'object_types'    => array( wpsight_post_type() ),
 			'context'  => 'normal',
 			'priority' => 'high',
 			'fields'   => $fields
@@ -821,7 +804,7 @@ class WPSight_Meta_Boxes {
 		$meta_box = array(
 			'id'       => 'listing_agent',
 			'title'    => __( 'Listing Agent', 'wpsight' ),
-			'pages'    => array( wpsight_post_type() ),
+			'object_types'    => array( wpsight_post_type() ),
 			'context'  => 'normal',
 			'priority' => 'high',
 			'fields'   => $fields
@@ -883,7 +866,7 @@ class WPSight_Meta_Boxes {
 					$fields['description'] = array(
 						'id'       => $space['key'] . '_desc',
 						'name'     => $space['description'],
-						'type'     => 'info',
+						'type'     => 'title',
 						'priority' => 9999
 					);
 
@@ -898,7 +881,7 @@ class WPSight_Meta_Boxes {
 
 				'id'       => $key,
 				'title'    => $space['title'],
-				'pages'    => $space['post_type'],
+				'object_types'    => $space['post_type'],
 				'context'  => 'normal',
 				'priority' => 'high',
 				'fields'   => $fields
@@ -908,290 +891,6 @@ class WPSight_Meta_Boxes {
 		} // endforeach
 
 		return apply_filters( 'wpsight_meta_box_spaces', $meta_boxes );
-
-	}
-
-}
-
-/**
- * Create new WPSight_Checkbox_Field class sub class
- * to replace the original CMB checkbox field.
- *
- * @see https://github.com/humanmade/Custom-Meta-Boxes/blob/master/classes.fields.php#L886 => class CMB_Checkbox
- */
-class WPSight_Checkbox_Field extends CMB_Field {
-
-	public function html() { ?>
-
-		<input <?php $this->id_attr(); ?> <?php $this->boolean_attr(); ?> <?php $this->class_attr(); ?> type="checkbox" <?php $this->name_attr(); ?>  value="1" <?php checked( $this->get_value() ); ?> />
-		<label <?php $this->for_attr(); ?>><?php echo esc_html( $this->args['label_cb'] ); ?></label>
-
-	<?php }
-
-}
-
-/**
- * Create new WPSight_File_Multiple_Field sub class
- * for our custom field type file_multiple.
- *
- * @see https://github.com/humanmade/Custom-Meta-Boxes/blob/master/classes.fields.php#L416 => class CMB_File_Field
- */
-
-class WPSight_File_Multiple_Field extends CMB_Field {
-
-	/**
-	 * Return the default args for the File field.
-	 *
-	 * @return array $args
-	 */
-	public function get_default_args() {
-		return array_merge(
-			parent::get_default_args(),
-			array(
-				'library-type' => array( 'video', 'audio', 'text', 'application' )
-			)
-		);
-	}
-
-	function enqueue_scripts() {
-
-		global $post_ID;
-		$post_ID = isset( $post_ID ) ? (int) $post_ID : 0;
-
-		parent::enqueue_scripts();
-
-		wp_enqueue_media( array( 'post' => $post_ID ) );
-		wp_enqueue_script( 'cmb-multiple-upload', WPSIGHT_PLUGIN_URL . '/assets/js/multiple-upload.js', array( 'jquery', 'cmb-scripts' ) );
-
-		wp_localize_script( 'cmb-multiple-upload', 'cmb_multiple_upload', array(
-				'text_title'  => __( 'Select Files', 'wpsight' ),
-				'text_button' => __( 'Insert Files', 'wpsight' )
-			)
-		);
-
-	}
-
-	// Enqueue styles
-
-	function enqueue_styles() {
-		wp_enqueue_style( 'wpsight-multiple-upload', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-multiple-upload.css' );
-	}
-
-	public function html() {
-
-		if ( $this->get_value() ) {
-			$src = wp_mime_type_icon( $this->get_value() );
-			$size = getimagesize( str_replace( site_url(), ABSPATH, $src ) );
-			$icon_img = '<img src="' . $src . '" ' . $size[3] . ' />';
-		}
-
-		$data_type = ( ! empty( $this->args['library-type'] ) ? implode( ',', $this->args['library-type'] ) : null ); ?>
-
-		<div class="cmb-file-wrap" <?php echo 'data-type="' . esc_attr( $data_type ) . '"'; ?>>
-
-			<div class="cmb-file-wrap-placeholder"></div>
-
-			<button class="button cmb-multiple-upload <?php echo esc_attr( $this->get_value() ) ? 'hidden' : '' ?>">
-				<?php esc_html_e( 'Add Files', 'cmb' ); ?>
-			</button>
-
-			<div class="cmb-file-holder type-file <?php echo $this->get_value() ? '' : 'hidden'; ?>">
-
-				<?php if ( $this->get_value() ) : ?>
-
-					<?php if ( isset( $icon_img ) ) echo $icon_img; ?>
-
-					<div class="cmb-file-name">
-						<strong><?php echo esc_html( basename( get_attached_file( $this->get_value() ) ) ); ?></strong>
-					</div>
-
-				<?php endif; ?>
-
-			</div>
-
-			<button class="cmb-remove-file button <?php echo $this->get_value() ? '' : 'hidden'; ?>">
-				<?php esc_html_e( 'Remove', 'cmb' ); ?>
-			</button>
-
-			<input type="hidden"
-				<?php $this->class_attr( 'cmb-file-upload-input' ); ?>
-				<?php $this->name_attr(); ?>
-				value="<?php echo esc_attr( $this->value ); ?>"
-			/>
-
-		</div>
-
-	<?php }
-
-}
-
-/**
- * Create new WPSight_Image_Multiple_Field sub class
- * for our custom field type image_multiple.
- *
- * @see https://github.com/humanmade/Custom-Meta-Boxes/blob/master/classes.fields.php#L494 => class CMB_Image_Field
- */
-
-class WPSight_Image_Multiple_Field extends wpSight_File_Multiple_Field {
-
-	// Return default args for the field type
-
-	public function get_default_args() {
-		return array_merge(
-			parent::get_default_args(),
-			array(
-				'size'         => 'thumbnail',
-				'library-type' => array( 'image' ),
-				'show_size'    => false
-			)
-		);
-	}
-
-	// Create HTML output for the field type
-
-	public function html() {
-
-		if ( $this->get_value() )
-			$image = wp_get_attachment_image_src( $this->get_value(), $this->args['size'], true );
-
-		// Convert size arg to array of width, height, crop
-		$size = $this->parse_image_size( $this->args['size'] );
-
-		// Inline styles
-		$styles              = sprintf( 'width: %1$dpx; height: %2$dpx; line-height: %2$dpx', intval( $size['width'] ), intval( $size['height'] ) );
-		$placeholder_styles  = sprintf( 'width: %dpx; height: %dpx;', intval( $size['width'] ) - 8, intval( $size['height'] ) - 8 );
-
-		$data_type           = ( ! empty( $this->args['library-type'] ) ? implode( ',', $this->args['library-type'] ) : null ); ?>
-
-		<div class="cmb-file-wrap" style="<?php echo esc_attr( $styles ); ?>" data-type="<?php echo esc_attr( $data_type ); ?>">
-
-			<div class="cmb-file-wrap-placeholder" style="<?php echo esc_attr( $placeholder_styles ); ?>">
-
-				<?php if ( $this->args['show_size'] ) : ?>
-					<span class="dimensions">
-						<?php printf( '%dpx &times; %dpx', intval( $size['width'] ), intval( $size['height'] ) ); ?>
-					</span>
-				<?php endif; ?>
-
-			</div>
-
-			<button class="button cmb-multiple-upload <?php echo esc_attr( $this->get_value() ) ? 'hidden' : '' ?>" data-nonce="<?php echo wp_create_nonce( 'cmb-file-upload-nonce' ); ?>">
-				<?php esc_html_e( 'Add Images', 'cmb' ); ?>
-			</button>
-
-			<div class="cmb-file-holder type-img <?php echo $this->get_value() ? '' : 'hidden'; ?>" data-crop="<?php echo (bool) $size['crop']; ?>">
-
-				<?php if ( ! empty( $image ) ) : ?>
-					<img src="<?php echo esc_url( $image[0] ); ?>" width="<?php echo intval( $image[1] ); ?>" height="<?php echo intval( $image[2] ); ?>" />
-					<a href="<?php echo get_edit_post_link( esc_attr( $this->value ) ); ?>" class="cmb-edit-file button" target="_blank"><?php _e( 'Edit', 'wpsight' ); ?></a>
-				<?php endif; ?>
-
-			</div>
-
-			<button class="cmb-remove-file button <?php echo $this->get_value() ? '' : 'hidden'; ?>">
-				<?php esc_html_e( 'Remove', 'cmb' ); ?>
-			</button>
-
-			<input type="hidden"
-				<?php $this->class_attr( 'cmb-file-upload-input' ); ?>
-				<?php $this->name_attr(); ?>
-				value="<?php echo esc_attr( $this->value ); ?>"
-			/>
-
-		</div>
-
-	<?php }
-
-	/**
-	 * Parse the size argument to get pixel width, pixel height and crop information.
-	 *
-	 * @param string  $size
-	 * @return array width, height, crop
-	 */
-	private function parse_image_size( $size ) {
-
-		// Handle string for built-in image sizes
-
-		if ( is_string( $size ) && in_array( $size, array( 'thumbnail', 'medium', 'large' ) ) ) {
-			return array(
-				'width'  => get_option( $size . '_size_w' ),
-				'height' => get_option( $size . '_size_h' ),
-				'crop'   => get_option( $size . '_crop' )
-			);
-		}
-
-		// Handle string for additional image sizes
-
-		global $_wp_additional_image_sizes;
-		if ( is_string( $size ) && isset( $_wp_additional_image_sizes[$size] ) ) {
-			return array(
-				'width'  => $_wp_additional_image_sizes[$size]['width'],
-				'height' => $_wp_additional_image_sizes[$size]['height'],
-				'crop'   => $_wp_additional_image_sizes[$size]['crop']
-			);
-		}
-
-		// Handle default WP size format
-
-		if ( is_array( $size ) && isset( $size[0] ) && isset( $size[1] ) )
-			$size = array( 'width' => $size[0], 'height' => $size[1] );
-
-		return wp_parse_args( $size, array(
-				'width'  => get_option( 'thumbnail_size_w' ),
-				'height' => get_option( 'thumbnail_size_h' ),
-				'crop'   => get_option( 'thumbnail_crop' )
-			) );
-
-	}
-
-	/**
-	 * Ajax callback for outputing an image src based on post data.
-	 *
-	 * @return null
-	 */
-	static function request_image_ajax_callback() {
-
-		if ( ! ( isset( $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'cmb-file-upload-nonce' ) ) )
-			return;
-
-		$id = intval( $_POST['id'] );
-
-		$size = array(
-			intval( $_POST['width'] ),
-			intval( $_POST['height'] ),
-			'crop' => (bool) $_POST['crop']
-		);
-
-		$image = wp_get_attachment_image_src( $id, $size );
-		echo reset( $image );
-
-		die(); // this is required to return a proper result
-
-	}
-
-}
-add_action( 'wp_ajax_cmb_request_image', array( 'wpSight_Image_Multiple_Field', 'request_image_ajax_callback' ) );
-
-/**
- * Create new WPSight_Info_Field class sub class
- * to create a new info field.
- *
- * @see https://github.com/humanmade/Custom-Meta-Boxes/wiki/Adding-your-own-field-types
- */
-class WPSight_Info_Field extends CMB_Field {
-
-	public function title() {}
-
-	public function html() {
-?>
-
-		<div class="cmb_metabox_description">
-			<p <?php $this->class_attr(); ?>>
-				<?php echo esc_html( $this->title ); ?>
-			</p>
-		</div>
-
-		<?php
 
 	}
 

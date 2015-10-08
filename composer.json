@@ -6,6 +6,6 @@
         }
     ],
     "require": {
-        "humanmade/custom-meta-boxes": "1.0.2"
+        "humanmade/custom-meta-boxes": "dev-master"
     }
 }

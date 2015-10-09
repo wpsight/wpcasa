@@ -392,3 +392,20 @@ if ( ! function_exists( 'wpsight_maybe_update_gallery' ) ) {
 	}
 
 }
+
+/**
+ * Helper function to get all image sizes.
+ *
+ * @param string $size Limit to a specific size
+ *
+ * @since 1.0.0
+ */
+
+// Make function pluggable/overwritable
+if ( ! function_exists( 'wpsight_get_image_sizes' ) ) {
+	
+	function wpsight_get_image_sizes( $size = '' ) {
+		return WPSight_Helpers::get_image_sizes( $size );
+	}
+
+}

@@ -193,24 +193,24 @@ class WPSight_Template {
 	 * @since 1.0.0
 	 */
 
-	public static function get_panel( $args = array() ) {
+	public static function get_panel( $query = false ) {
 
 		$output = false;
 
 		// If only one listing is called, don't show panel
 
-		if ( ! isset( $args->query_vars['p'] ) || empty( $args->query_vars['p'] ) ) {
+		if ( ! isset( $query->query_vars['p'] ) || empty( $query->query_vars['p'] ) ) {
 
 			ob_start();
 
 			// Get panel template
-			wpsight_get_template( 'listings-panel.php' );
+			wpsight_get_template( 'listings-panel.php', array( 'query' => $query ) );
 
 			$output = ob_get_clean();
 
 		}
 
-		return apply_filters( 'wpsight_get_panel', $output, $args );
+		return apply_filters( 'wpsight_get_panel', $output, $query );
 
 	}
 
@@ -258,10 +258,14 @@ class WPSight_Template {
 	 * @since 1.0.0
 	 */
 
-	public static function get_archive_title() {
+	public static function get_archive_title( $query = array() ) {
 		global $wp_query, $wpsight_query;
 
-		if ( isset( $wpsight_query->found_posts ) ) {
+		if ( isset( $query->found_posts ) ) {
+
+			$title = '<span class="listings-panel-found">' . $query->found_posts . '</span>' . ' ' . _n( 'Listing', 'Listings', $query->found_posts, 'wpsight' );
+
+		} elseif ( isset( $wpsight_query->found_posts ) ) {
 
 			$title = '<span class="listings-panel-found">' . $wpsight_query->found_posts . '</span>' . ' ' . _n( 'Listing', 'Listings', $wpsight_query->found_posts, 'wpsight' );
 
@@ -528,8 +532,8 @@ class WPSight_Template {
 			$output .= '</div>';
 
 		}
-
-		return $output;
+		
+		return apply_filters( 'wpsight_listing_actions', $output, $post_id, $actions );
 
 	}
 

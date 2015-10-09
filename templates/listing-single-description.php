@@ -9,7 +9,7 @@ global $listing; ?>
 	<?php do_action( 'wpsight_listing_single_description_before', $listing->ID ); ?>
 	
 	<?php if( wpsight_is_listing_not_available() ) : ?>
-		<div class="wpsight-alert wpsight-alert-small wpsight-alert-not-available">
+		<div class="wpsight-alert wpsight-alert-not-available">
 			<?php _e( 'This property is currently not available.', 'wpsight' ); ?>
 		</div>
 	<?php endif; ?>

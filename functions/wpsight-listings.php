@@ -1,4 +1,4 @@
-<?php // move stuff
+<?php
 /**
  * WPSight listing functions
  *

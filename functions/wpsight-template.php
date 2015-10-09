@@ -187,8 +187,8 @@ function wpsight_listing_title( $post_id = '', $actions = array() ) {
  * @since 1.0.0
  */
 
-function wpsight_get_archive_title() {
-	return WPSight_Template::get_archive_title();
+function wpsight_get_archive_title( $query = false ) {
+	return WPSight_Template::get_archive_title( $query );
 }
 
 /**

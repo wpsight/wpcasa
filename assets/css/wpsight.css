@@ -337,6 +337,19 @@
 	opacity: .25;
 }
 
+/* WPSight Listings Archive (vertical)
+================================================== */
+
+.vertical .wpsight-listings .wpsight-listing-left {
+	float: none;
+	margin-right: 0;
+	margin-bottom: 20px;
+}
+
+.vertical .wpsight-listings .wpsight-listing-image {
+	text-align: center;		
+}
+
 /* WPSight Listing Single
 ================================================== */
 
@@ -661,7 +674,7 @@
 	margin-bottom: 10px;
 }
 
-.vertical .wpsight-listing-image {
+.vertical .wpsight-listing-teaser .wpsight-listing-image {
 	height: auto;
 	width: 50px;
 }

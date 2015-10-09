@@ -21,6 +21,7 @@ class WPSight_Shortcode_Listing_Teasers {
 	 *
 	 * @param array $atts Shortcode attributes
 	 * @uses wpsight_listing_query_vars()
+	 * @uses get_query_var()
 	 * @uses wpsight_listing_teasers()
 	 * @uses sanitize_html_class()
 	 * @uses wp_kses_allowed_html()
@@ -31,34 +32,40 @@ class WPSight_Shortcode_Listing_Teasers {
 	 */
 
     public function shortcode_listing_teasers( $atts ) {
+	    
+	    $atts['show_panel']		= isset( $atts['show_panel'] ) && $atts['show_panel'] == 'true' ? true : false;
+	    $atts['show_paging']	= isset( $atts['show_paging'] ) && $atts['show_paging'] == 'true' ? true : false;
 
 		$defaults = array(
-			'before' 			=> '',
-			'after'  			=> '',
-			'wrap'	 			=> 'div',
-			'offset'			=> '',
-			'posts_per_page'	=> get_query_var( 'nr' ) ? get_query_var( 'nr' ) : get_option( 'posts_per_page' ),
-			'orderby'			=> get_query_var( 'orderby' ) ? get_query_var( 'orderby' ) : 'date',
-			'order'				=> get_query_var( 'order' ) ? get_query_var( 'order' ) : 'DESC',
-			'featured'			=> get_query_var( 'featured' ) ? get_query_var( 'featured' ) : null,
-			'class'				=> '', // additional css class
+			'before' 	 		=> '',
+			'after'  	 		=> '',
+			'wrap'	 	 		=> 'div',
+			'offset'	 		=> '',
+			'nr'		 		=> '',
+			'orderby'	 		=> '',
+			'order'		 		=> '',
+			'class'		 		=> '', // additional css class
 			'orientation'		=> 'horizontal', // can be vertical
-			'show_panel'		=> false, // can be false
+			'show_panel' 		=> false, // can be true
 			'show_paging'		=> false // can be true
 		);
 
 		// Add custom vars to $defaults
-		$defaults = array_merge( $defaults, wpsight_listing_query_vars() );
+		
+		if( $atts['show_panel'] || $atts['show_paging'] )
+			$defaults = array_merge( $defaults, wpsight_listing_query_vars() );
 
 		// Merge shortcodes atts with defaults and extract
 		extract( shortcode_atts( $defaults, $atts ) );
 		
 		$args = shortcode_atts( $defaults, $atts );
-        
-        // Optionally Convert strings true|false to bool
 		
-		$args['show_panel'] = $args['show_panel'] === true || $args['show_panel'] == 'true' ? true : false;
-		$args['show_paging'] = $args['show_paging'] === true || $args['show_paging'] == 'true' ? true : false;
+		// Respect orderby panel
+		
+		$args['orderby']	= $atts['show_panel'] && ! empty( get_query_var( 'orderby' ) ) ? get_query_var( 'orderby' ) : $args['orderby'];
+		$args['order']		= $atts['show_panel'] && ! empty( get_query_var( 'orderby' ) ) ? get_query_var( 'order' ) : $args['order'];
+		
+		// Get the teasers
 		
 		ob_start();
 		

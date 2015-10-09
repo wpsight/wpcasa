@@ -123,27 +123,27 @@ class WPSight_Post_Type_Listing {
 	
 		// Set labels and localize them
 		
-		$types_name		= apply_filters( 'wpsight_taxonomy_types_name', __( 'Listing Types', 'wpsight' ) );
-		$types_singular	= apply_filters( 'wpsight_taxonomy_types_singular', __( 'Listing Type', 'wpsight' ) );
+		$types_name		= apply_filters( 'wpsight_taxonomy_types_name', __( 'Property Types', 'wpsight' ) );
+		$types_singular	= apply_filters( 'wpsight_taxonomy_types_singular', __( 'Property Type', 'wpsight' ) );
 		
 		$types_labels = array(
 			'name' 						 => $types_name,
 			'singular_name' 			 => $types_singular,
-			'menu_name' 		 		 => _x( 'Listing Types', 'taxonomy types', 'wpsight' ),
-	        'all_items' 		 		 => _x( 'All Listing Types', 'taxonomy types', 'wpsight' ),
-	        'edit_item' 		 		 => _x( 'Edit Listing Type', 'taxonomy types', 'wpsight' ),
-	        'view_item' 		 		 => _x( 'View Listing Type', 'taxonomy types', 'wpsight' ),
-	        'update_item' 		 		 => _x( 'Update Listing Type', 'taxonomy types', 'wpsight' ),
-	        'add_new_item' 		 		 => _x( 'Add New Listing Type', 'taxonomy types', 'wpsight' ),
-	        'new_item_name' 	 		 => _x( 'New Listing Type Name', 'taxonomy types', 'wpsight' ),
-	        'parent_item'  		 		 => _x( 'Parent Listing Type', 'taxonomy types', 'wpsight' ),
-	        'parent_item_colon'  		 => _x( 'Parent Listing Type:', 'taxonomy types', 'wpsight' ),
-	        'search_items' 		 		 => _x( 'Search listing types', 'taxonomy types', 'wpsight' ),
-	        'popular_items' 	 		 => _x( 'Popular Listing Types', 'taxonomy types', 'wpsight' ),
-	        'separate_items_with_commas' => _x( 'Separate listing types with commas', 'taxonomy types', 'wpsight' ),
-	        'add_or_remove_items' 		 => _x( 'Add or remove listing types', 'taxonomy types', 'wpsight' ),
-	        'choose_from_most_used' 	 => _x( 'Choose from the most used listing types', 'taxonomy types', 'wpsight' ),
-	        'not_found' 		 		 => _x( 'No listing type found', 'taxonomy types', 'wpsight' )
+			'menu_name' 		 		 => _x( 'Property Types', 'taxonomy types', 'wpsight' ),
+	        'all_items' 		 		 => _x( 'All Property Types', 'taxonomy types', 'wpsight' ),
+	        'edit_item' 		 		 => _x( 'Edit Property Type', 'taxonomy types', 'wpsight' ),
+	        'view_item' 		 		 => _x( 'View Property Type', 'taxonomy types', 'wpsight' ),
+	        'update_item' 		 		 => _x( 'Update Property Type', 'taxonomy types', 'wpsight' ),
+	        'add_new_item' 		 		 => _x( 'Add New Property Type', 'taxonomy types', 'wpsight' ),
+	        'new_item_name' 	 		 => _x( 'New Property Type Name', 'taxonomy types', 'wpsight' ),
+	        'parent_item'  		 		 => _x( 'Parent Property Type', 'taxonomy types', 'wpsight' ),
+	        'parent_item_colon'  		 => _x( 'Parent Property Type:', 'taxonomy types', 'wpsight' ),
+	        'search_items' 		 		 => _x( 'Search Property Types', 'taxonomy types', 'wpsight' ),
+	        'popular_items' 	 		 => _x( 'Popular Property Types', 'taxonomy types', 'wpsight' ),
+	        'separate_items_with_commas' => _x( 'Separate Property Types with commas', 'taxonomy types', 'wpsight' ),
+	        'add_or_remove_items' 		 => _x( 'Add or remove Property Types', 'taxonomy types', 'wpsight' ),
+	        'choose_from_most_used' 	 => _x( 'Choose from the most used Property Types', 'taxonomy types', 'wpsight' ),
+	        'not_found' 		 		 => _x( 'No Property Type found', 'taxonomy types', 'wpsight' )
 		);
 		
 		// Set args and rewrite rules

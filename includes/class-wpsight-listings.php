@@ -1,4 +1,4 @@
-<?php	
+<?php
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) )
 	exit;
@@ -31,7 +31,7 @@ class WPSight_Listings {
 		if ( $wpsight_query->have_posts() ) {
 
 			// Get template before loop
-			wpsight_get_template( 'listings-before.php', $wpsight_query->query_vars, $template_path );
+			wpsight_get_template( 'listings-before.php', $args, $template_path );
 
 			// Loop through listings
 
@@ -41,17 +41,17 @@ class WPSight_Listings {
 				$wpsight_query->the_post();
 
 				// Get listing loop template
-				wpsight_get_template( 'listing-archive.php', $wpsight_query->query_vars, $template_path );
+				wpsight_get_template( 'listing-archive.php', $args, $template_path );
 
 			}
 
 			// Get template after loop
-			wpsight_get_template( 'listings-after.php', $wpsight_query->query_vars, $template_path );
+			wpsight_get_template( 'listings-after.php', $args, $template_path );
 
 		} else {
 
 			// Get template for no listings
-			wpsight_get_template( 'listings-no.php', $wpsight_query->query_vars, $template_path );
+			wpsight_get_template( 'listings-no.php', $args, $template_path );
 
 		}
 
@@ -83,29 +83,29 @@ class WPSight_Listings {
 	public static function get_listings( $args = array() ) {
 		global $wpdb;
 
-		// Get args from WP_Query object
-
-		if ( is_object( $args ) && isset( $args->query_vars ) )
-			$args = $args->query_vars;
-
 		$defaults = array(
 			'p'						=> '',
 			'post__in'				=> '',
 			'offset'				=> '',
 			'post_status'			=> '',
-			'posts_per_page'		=> get_option( 'posts_per_page' ),
-			'orderby'				=> 'date',
-			'order'					=> 'DESC',
+			'posts_per_page'		=> get_query_var( 'nr' )   ? get_query_var( 'nr' ) : get_option( 'posts_per_page' ),
+			'orderby'				=> get_query_var( 'orderby' )  ? get_query_var( 'orderby' ) : 'date',
+			'order'					=> get_query_var( 'order' )  ? get_query_var( 'order' ) : 'DESC',
 			'author'				=> '',
 			'tax_query'				=> array(),
 			'meta_query'			=> array(),
-			'ignore_sticky_posts'	=> true,
-			'show_panel'			=> false,
-			'show_paging'			=> false
+			'ignore_sticky_posts'	=> 1,
+			'show_panel'			=> true,
+			'show_paging'			=> true
 		);
 
 		// Add custom vars to $defaults
 		$defaults = array_merge( $defaults, wpsight_listing_query_vars() );
+
+		// Get args from WP_Query object
+
+		if ( is_object( $args ) && isset( $args->query_vars ) )
+			$args = $args->query_vars;
 
 		// Merge $defaults with $args
 		$args = wp_parse_args( $args, $defaults );
@@ -130,22 +130,21 @@ class WPSight_Listings {
 		if ( ! empty( $args['nr'] ) )
 			$args['posts_per_page'] = intval( $args['nr'] );
 
+
 		$query_args = array(
-			'p'						=> absint( $args['p'] ),
-			'post__in'				=> $args['post__in'],
-			'post_type'				=> wpsight_post_type(),
-			'ignore_sticky_posts'	=> $args['ignore_sticky_posts'],
-			'offset'				=> absint( $args['offset'] ),
-			'posts_per_page'		=> intval( $args['posts_per_page'] ),
-			'orderby'				=> $args['orderby'],
-			'order'					=> $args['order'],
-			'tax_query'				=> $args['tax_query'],
-			'meta_query'			=> $args['meta_query'],
-			'paged'					=> $paged,
-			'author'				=> $args['author'],
-			'post_status'			=> $args['post_status'],
-			'show_panel'			=> $args['show_panel'],
-			'show_paging'			=> $args['show_paging']
+			'p'                   => absint( $args['p'] ),
+			'post__in'            => $args['post__in'],
+			'post_type'           => wpsight_post_type(),
+			'ignore_sticky_posts' => $args['ignore_sticky_posts'],
+			'offset'              => absint( $args['offset'] ),
+			'posts_per_page'      => intval( $args['posts_per_page'] ),
+			'orderby'             => $args['orderby'],
+			'order'               => $args['order'],
+			'tax_query'           => $args['tax_query'],
+			'meta_query'          => $args['meta_query'],
+			'paged'               => $paged,
+			'author'              => $args['author'],
+			'post_status'         => $args['post_status']
 		);
 
 		// Set post_status
@@ -153,6 +152,7 @@ class WPSight_Listings {
 		if ( empty( $args['post_status'] ) || ! is_user_logged_in() ) {
 
 			// When emtpy or unlogged user, set publish
+
 			$query_args['post_status'] = 'publish';
 
 		} else {
@@ -160,6 +160,7 @@ class WPSight_Listings {
 			$query_args['post_status'] = $args['post_status'];
 
 			// When comma-separated, explode to array
+
 			if ( ! is_array( $args['post_status'] ) && strpos( $args['post_status'], ',' ) )
 				$query_args['post_status'] = explode( ',', $args['post_status'] );
 
@@ -176,7 +177,6 @@ class WPSight_Listings {
 			$query_args['orderby'] = array( 'price' => $query_args['order'] );
 
 		}
-
 		// Set meta query for offer (sale, rent)
 
 		if ( ! empty( $args['offer'] ) ) {
@@ -318,7 +318,7 @@ class WPSight_Listings {
 
 		// Set post__in for keyword search
 
-		if ( isset( $args['keyword'] ) && $args['keyword'] ) {
+		if ( $args['keyword'] ) {
 
 			// Trim and explode keywords
 			$keywords = array_map( 'trim', explode( ',', $args['keyword'] ) );
@@ -490,7 +490,7 @@ class WPSight_Listings {
 		if ( $wpsight_query->have_posts() ) {
 
 			// Get template before loop
-			wpsight_get_template( 'listing-teasers-before.php', $wpsight_query->query_vars, $template_path );
+			wpsight_get_template( 'listing-teasers-before.php', $args, $template_path );
 
 			// Loop through listings
 
@@ -500,17 +500,17 @@ class WPSight_Listings {
 				$wpsight_query->the_post();
 				
 				// Get listing teaser loop template
-				wpsight_get_template( 'listing-teaser.php', $wpsight_query->query_vars, $template_path );
+				wpsight_get_template( 'listing-teaser.php', $args, $template_path );
 
 			}
 			
 			// Get template after loop
-			wpsight_get_template( 'listing-teasers-after.php', $wpsight_query->query_vars, $template_path );
+			wpsight_get_template( 'listing-teasers-after.php', $args, $template_path );
 
 		} else {
 
 			// Get template for no listings
-			wpsight_get_template( 'listings-no.php', $wpsight_query->query_vars, $template_path );
+			wpsight_get_template( 'listings-no.php', $args, $template_path );
 
 		}
 
@@ -565,6 +565,77 @@ class WPSight_Listings {
 		}
 
 		return apply_filters( 'wpsight_get_listing', $post );
+	}
+
+	/**
+	 * get_listings_dashboard()
+	 *
+	 * Return listings dashboard content.
+	 *
+	 * @param array   $args Array of arguments
+	 * @uses is_user_logged_in()
+	 * @uses get_query_var()
+	 * @uses get_current_user_id()
+	 * @uses wpsight_get_template()
+	 * @uses wpsight_get_template_part()
+	 *
+	 * @return mixed Dashboard content
+	 *
+	 * @since 1.0.0
+	 */
+
+	public static function get_listings_dashboard( $args = array() ) {
+
+		// Check if the user is logged in
+
+		if ( ! is_user_logged_in() ) {
+
+			$dashboard = __( 'You need to be signed in to manage your listings.', 'wpsight' );
+
+		} else {
+
+			$args = apply_filters( 'wpsight_get_listings_dashboard_args', array(
+					'post_type'           => wpsight_post_type(),
+					'post_status'         => array( 'publish', 'expired', 'pending' ),
+					'ignore_sticky_posts' => 1,
+					'posts_per_page'      => $posts_per_page,
+					'offset'              => ( max( 1, get_query_var( 'paged' ) ) - 1 ) * $posts_per_page,
+					'orderby'             => 'date',
+					'order'               => 'desc',
+					'author'              => get_current_user_id()
+				) );
+
+			$listings = new WP_Query( $args );
+
+			if ( $listings->have_posts() ) {
+
+				ob_start();
+
+				// Get template before loop
+				wpsight_get_template( 'wpsight_listings_dashboard_before' );
+
+				// Loop through listings
+
+				while ( $listings->have_posts() ) {
+
+					// Setup listing data
+					$listings->the_post();
+
+					// Get listing loop template
+					wpsight_get_template_part( 'content', 'listing-dashboard' );
+
+				}
+
+				// Get template after loop
+				wpsight_get_template( 'wpsight_listings_dashboard_after' );
+
+				$dashboard = ob_get_clean();
+
+			}
+
+		}
+
+		return apply_filters( 'wpsight_get_listings_dashboard', $dashboard, $args );
 
 	}
 

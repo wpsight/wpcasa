@@ -15,9 +15,8 @@
   "bugs": {
     "url": "https://github.com/wpsight/wpcasa/issues"
   },
-  "homepage": "https://github.com/wpsight/wpcasa#readme",
+  "homepage": "http://wpcasa.com/",
   "devDependencies": {
-    "grunt-contrib-compress": "^0.13.0",
     "grunt-wp-deploy": "^1.1.0",
     "load-grunt-tasks": "^3.3.0"
   }

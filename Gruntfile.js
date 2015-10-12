@@ -5,18 +5,16 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    compress: {
-      main: {
+    wp_deploy: {
+      deploy: { 
         options: {
-          archive: '<%= pkg.name %>.<%= pkg.version %>.zip'
+          plugin_slug: 'wpcasa',
+          svn_user: 'wpsight',  
+          build_dir: '<%= pkg.name %>', //relative path to your build directory
+          assets_dir: 'wp-assets' //relative path to your assets directory (optional).
         },
-        files: [
-          {src: ['<%= pkg.name %>/**'], dest: 'build/'}, // includes files in path and its subdirs
-        ]
       }
-    }
+    },
   });
-
-  grunt.registerTask( 'build', [ 'compress' ] );
 
 };

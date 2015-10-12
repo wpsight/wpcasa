@@ -18,6 +18,7 @@
   "homepage": "https://github.com/wpsight/wpcasa#readme",
   "devDependencies": {
     "grunt-contrib-compress": "^0.13.0",
+    "grunt-wp-deploy": "^1.1.0",
     "load-grunt-tasks": "^3.3.0"
   }
 }

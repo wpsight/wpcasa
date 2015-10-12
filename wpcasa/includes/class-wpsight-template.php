@@ -18,7 +18,11 @@ class WPSight_Template {
 	 *
 	 *  /wp-content/themes/  theme (child) / $template_name
 	 *
+	 *	/wp-content/themes/  theme (child) / WPSIGHT_DOMAIN (e.g. wpcasa) / $template_name
+	 *
 	 *  /wp-content/themes/  theme (parent) / $template_name
+	 *
+	 *	/wp-content/themes/  theme (parent) / WPSIGHT_DOMAIN (e.g. wpcasa) / $template_name
 	 *
 	 *  $template_path (custom path from addon for example) / $template_name
 	 *
@@ -57,14 +61,24 @@ class WPSight_Template {
 			// Trim off any slashes from the template name
 			$template_name = ltrim( $template_name, '/' );
 
-			// Check child theme first
+			// Check child theme
 			if ( file_exists( trailingslashit( get_stylesheet_directory() ) . $template_name ) ) {
 				$located = trailingslashit( get_stylesheet_directory() ) . $template_name;
 				break;
 
-				// Check parent theme next
+				// Check extra folder in child theme
+			} elseif ( file_exists( trailingslashit( get_stylesheet_directory() . '/' . WPSIGHT_DOMAIN ) . $template_name ) ) {
+				$located = trailingslashit( get_stylesheet_directory() . '/' . WPSIGHT_DOMAIN ) . $template_name;
+				break;
+			
+				// Check parent theme
 			} elseif ( file_exists( trailingslashit( get_template_directory() ) . $template_name ) ) {
 				$located = trailingslashit( get_template_directory() ) . $template_name;
+				break;
+			
+				// Check extra folder parent theme next
+			} elseif ( file_exists( trailingslashit( get_template_directory() . '/' . WPSIGHT_DOMAIN ) . $template_name ) ) {
+				$located = trailingslashit( get_template_directory() . '/' . WPSIGHT_DOMAIN ) . $template_name;
 				break;
 
 				// Check custom path templates (e.g. from addons)

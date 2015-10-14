@@ -1,59 +1,59 @@
-#side-sortables .cmb_metabox .cmb-row {
+#side-sortables .cmb2-metabox .cmb-row {
 	margin-left: 0;
 	margin-right: 0;
 }
 
-.cmb_metabox .field {
+.cmb2-metabox .field {
 	border-color: #eee;
 }
 
-.cmb_metabox .cmb-cell-12 .field {
+.cmb2-metabox .cmb-cell-12 .field {
 	padding: 20px 0;
 }
 
-#side-sortables .cmb_metabox .cmb-cell-12 .field {
+#side-sortables .cmb2-metabox .cmb-cell-12 .field {
 	padding: 15px 0;
 }
 
-.cmb_metabox .cmb-cell-12 .CMB_Group_Field {
+.cmb2-metabox .cmb-cell-12 .CMB_Group_Field {
 	padding: 0;
 }
 
-.cmb_metabox .cmb-cell-12 .field-title {
+.cmb2-metabox .cmb-cell-12 .field-title {
 	float: left;
 	margin-bottom: 0;
 	width: 19%;
 }
 
-.rtl .cmb_metabox .cmb-cell-12 .field-title {
+.rtl .cmb2-metabox .cmb-cell-12 .field-title {
 	float: right;
 }
 
-#side-sortables .cmb_metabox .cmb-cell-12 .field-title {
+#side-sortables .cmb2-metabox .cmb-cell-12 .field-title {
 	float: none;
 	margin-bottom: 10px;
 	width: 100%;
 }
 
-.cmb_metabox .CMB_Group_Field>.field-title {
+.cmb2-metabox .CMB_Group_Field>.field-title {
 	color: inherit;
 	font-size: inherit;
 	font-weight: 700;
 	margin-top: 20px;
 }
 
-.cmb_metabox .cmb-cell-12 .field.repeatable .field-title {
+.cmb2-metabox .cmb-cell-12 .field.repeatable .field-title {
 	margin-bottom: 16px;
 }
 
-.cmb_metabox .cmb-cell-12 .field.WPSight_Image_Multiple_Field .field-title,
-.cmb_metabox .cmb-cell-12 .field.WPSight_File_Multiple_Field .field-title {
+.cmb2-metabox .cmb-cell-12 .field.WPSight_Image_Multiple_Field .field-title,
+.cmb2-metabox .cmb-cell-12 .field.WPSight_File_Multiple_Field .field-title {
 	float: none;
 	margin-bottom: 16px;
 	width: auto;
 }
 
-.cmb_metabox .cmb-cell-12 .field-item {
+.cmb2-metabox .cmb-cell-12 .field-item {
 	float: right;
 	width: 80%;
 	-webkit-box-sizing: border-box;
@@ -61,28 +61,28 @@
 	box-sizing: border-box;
 }
 
-.rtl .cmb_metabox .cmb-cell-12 .field-item {
+.rtl .cmb2-metabox .cmb-cell-12 .field-item {
 	float: left;
 }
 
-#side-sortables .cmb_metabox .cmb-cell-12 .field-item {
+#side-sortables .cmb2-metabox .cmb-cell-12 .field-item {
 	float: none;
 	width: 100%;
 }
 
-.cmb_metabox .cmb-cell-12 .WPSight_Info_Field .field-item,
-.cmb_metabox .cmb-cell-12 .WPSight_Info_Field .cmb_metabox_description {
+.cmb2-metabox .cmb-cell-12 .WPSight_Info_Field .field-item,
+.cmb2-metabox .cmb-cell-12 .WPSight_Info_Field .cmb_metabox_description {
 	float: none;
 	width: 100%;
 }
 
-.cmb_metabox .cmb-cell-12 .WPSight_Info_Field .cmb_metabox_description,
-.cmb_metabox .cmb-cell-12 .WPSight_Info_Field .cmb_metabox_description p {
+.cmb2-metabox .cmb-cell-12 .WPSight_Info_Field .cmb_metabox_description,
+.cmb2-metabox .cmb-cell-12 .WPSight_Info_Field .cmb_metabox_description p {
 	margin-top: 0;
 	margin-bottom: 0 !important;
 }
 
-#side-sortables .cmb_metabox input.cmb_text_small {
+#side-sortables .cmb2-metabox input.cmb_text_small {
 	width: inherit;
 }
 
@@ -90,31 +90,31 @@
 	margin: 0 !important;
 }
 
-.cmb_metabox .cmb-cell-12 .field.WPSight_Image_Multiple_Field .field-item,
-.cmb_metabox .cmb-cell-12 .field.WPSight_File_Multiple_Field .field-item {
+.cmb2-metabox .cmb-cell-12 .field.WPSight_Image_Multiple_Field .field-item,
+.cmb2-metabox .cmb-cell-12 .field.WPSight_File_Multiple_Field .field-item {
 	float: left;
 	width: auto;
 }
 
-.rtl .cmb_metabox .cmb-cell-12 .field.WPSight_Image_Multiple_Field .field-item,
-.rtl .cmb_metabox .cmb-cell-12 .field.WPSight_File_Multiple_Field .field-item {
+.rtl .cmb2-metabox .cmb-cell-12 .field.WPSight_Image_Multiple_Field .field-item,
+.rtl .cmb2-metabox .cmb-cell-12 .field.WPSight_File_Multiple_Field .field-item {
 	float: right;
 }
 
-.cmb_metabox .cmb-cell-12 .cmb_metabox_description {
+.cmb2-metabox .cmb-cell-12 .cmb_metabox_description {
 	float: right;
 	width: 80%;
 }
 
-.rtl .cmb_metabox .cmb-cell-12 .cmb_metabox_description {
+.rtl .cmb2-metabox .cmb-cell-12 .cmb_metabox_description {
 	float: left;
 }
 
-#side-sortables .cmb_metabox .cmb-cell-12 .cmb_metabox_description {
+#side-sortables .cmb2-metabox .cmb-cell-12 .cmb_metabox_description {
 	float: none;
 	width: 100%;
 }
 
-.cmb_metabox .cmb_metabox_description code {
+.cmb2-metabox .cmb_metabox_description code {
 	font-size: 12px;
 }

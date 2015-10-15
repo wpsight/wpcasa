@@ -44,7 +44,7 @@ class WPSight_Meta_Boxes {
 	/**
 	 *  Make sure CMB2 works in unusual environments such as symlinking the plugin
 	 *
-	 *  @see: https://github.com/WebDevStudios/CMB2/issues/432
+	 *  @see https://github.com/WebDevStudios/CMB2/issues/432
 	 *
 	 *  @param   string  $url
 	 *  @return  string
@@ -784,7 +784,7 @@ class WPSight_Meta_Boxes {
 			),
 			'logo' => array(
 				'name'      => __( 'Logo', 'wpsight' ),
-				'id'        => '_agent_logo_id',
+				'id'        => '_agent_logo',
 				'type'      => 'file',
 				'desc'      => false,
 				'priority'  => 70

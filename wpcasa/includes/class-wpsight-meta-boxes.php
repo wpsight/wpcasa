@@ -28,16 +28,13 @@ class WPSight_Meta_Boxes {
 		add_action( 'save_post', array( $this, 'admin_save_post' ), 1, 2 );
 
 		// Add action when a listing is saved
-		//add_action( 'wpsight_save_listing', array( $this, 'admin_save_listing_data' ), 20, 2 );
+		add_action( 'wpsight_save_listing', array( $this, 'admin_save_listing_data' ), 20, 2 );
 
 		// Update geolocation data
 		add_action( 'update_post_meta', array( $this, 'maybe_generate_geolocation_data' ), 10, 4 );
 
 		// Update some listing post meta data
 		add_action( 'add_meta_boxes_listing', array( $this, 'admin_post_meta_update' ) );
-
-		// Set existing attachments as gallery meta data
-		add_action( 'update_post_meta', array( $this, 'admin_gallery_default' ), 1, 4 );
 
 	}
 
@@ -182,29 +179,12 @@ class WPSight_Meta_Boxes {
 
 		// Update listing location data
 
-		$value = array_values( $_POST[ '_map_address' ] );
+		$value = array_values( (array) $_POST[ '_map_address' ] );
 
 		if ( update_post_meta( $post_id, '_map_address', sanitize_text_field( $value[0] ) ) ) {
 			// Location data will be updated by maybe_generate_geolocation_data method
 		} elseif ( apply_filters( 'wpsight_geolocation_enabled', true ) && ! wpSight_Geocode::has_location_data( $post_id ) ) {
 			wpSight_Geocode::generate_location_data( $post_id, sanitize_text_field( $value[0] ) );
-		}
-
-		// Update listing agent logo URL
-
-		$agent_logo_id = array_values( $_POST[ '_agent_logo_id' ] );
-
-		if ( ! empty( $agent_logo_id[0] ) ) {
-			
-			$agent_logo = wp_get_attachment_url( absint( $agent_logo_id[0] ) );
-
-			if ( $agent_logo != $post->_agent_logo )
-				update_post_meta( $post_id, '_agent_logo', $agent_logo );
-
-		} else {
-
-			delete_post_meta( $post_id, '_agent_logo' );
-
 		}
 
 	}
@@ -278,76 +258,6 @@ class WPSight_Meta_Boxes {
 		
 		if( $post->post_title != $post->_listing_title )
 			update_post_meta( $post_id, '_listing_title', $post->post_title );
-
-	}
-
-	/**
-	 * Set available image attachments
-	 * as default images.
-	 *
-	 * @access public
-	 * @uses get_current_screen()
-	 * @uses get_the_id()
-	 * @uses get_post_meta()
-	 * @uses add_post_meta()
-	 * @uses get_posts()
-	 *
-	 * @since 1.0.0
-	 */
-	public function admin_gallery_default( $meta_id, $object_id, $meta_key, $_meta_value ) {
-		global $post;
-
-		if ( '_gallery' !== $meta_key || wpsight_post_type() !== get_post_type( $object_id ) )
-			return;
-
-		$post_id = $post->ID;
-
-		// Check if gallery has already been imported
-		$gallery_imported = $post->_gallery_imported;
-
-		if ( ! $gallery_imported ) {
-
-			// Check existing gallery
-			$gallery = get_post_meta( $post_id, '_gallery' );
-
-			// Get all image attachments
-
-			$attachments = get_posts(
-				array(
-					'post_type'      => 'attachment',
-					'posts_per_page' => -1,
-					'post_parent'    => $post_id,
-					'post_mime_type' => 'image',
-					'orderby'        => 'menu_order'
-				)
-			);
-
-			/**
-			 * If still no gallery is available and it
-			 * hasn't been imported yet, but there are
-			 * attachments, create gallery custom fields
-			 * with attachment IDs.
-			 */
-
-			if ( ! $gallery && $attachments ) {
-
-				// Loop through attachments
-
-				foreach ( $attachments as $attachment ) {
-
-					// Create gallery post meta with attachment ID
-
-					if ( $attachment->ID != absint( $post->_agent_logo_id ) )
-						add_post_meta( $post_id, '_gallery', $attachment->ID );
-
-				}
-
-				// Mark gallery as imported
-				add_post_meta( $post_id, '_gallery_imported', '1' );
-
-			}
-
-		}
 
 	}
 

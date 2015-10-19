@@ -84,7 +84,12 @@ class WPSight_Meta_Boxes {
 		foreach ( $meta_boxes as $metabox ) {
 			$cmb = new_cmb2_box( $metabox );
 		    foreach ( $metabox['fields'] as $field ) {
-		    	$cmb->add_field( $field );
+		    	$field_id = $cmb->add_field( $field );
+		    	if ( 'group' == $field['type'] ) {
+		    		foreach ( $field['fields'] as $key => $value ) {
+		    			$cmb->add_group_field( $field_id, $field );
+		    		}
+		    	}
 		    }
 		}	
 
@@ -707,12 +712,12 @@ class WPSight_Meta_Boxes {
 		// Set meta box
 
 		$meta_box = array(
-			'id'       => 'listing_agent',
-			'title'    => __( 'Listing Agent', 'wpsight' ),
-			'object_types'    => array( wpsight_post_type() ),
-			'context'  => 'normal',
-			'priority' => 'high',
-			'fields'   => $fields
+			'id'           => 'listing_agent',
+			'title'        => __( 'Listing Agent', 'wpsight' ),
+			'object_types' => array( wpsight_post_type() ),
+			'context'      => 'normal',
+			'priority'     => 'high',
+			'fields'       => $fields
 		);
 
 		return apply_filters( 'wpsight_meta_box_listing_agent', $meta_box );

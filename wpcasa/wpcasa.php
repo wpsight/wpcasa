@@ -63,7 +63,7 @@ class WPSight_Framework {
 		
 		// Include classes
 		
-		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-post-types.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-post-types.php' );		
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-api.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-geocode.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-listings.php' );
@@ -137,8 +137,8 @@ class WPSight_Framework {
 		// Enqueue jQuery
 		wp_enqueue_script( 'jquery' );
 		
-		wp_enqueue_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery-tiptip/jquery.tipTip.min.js', array( 'jquery' ), '1.3', true );
-		wp_enqueue_script( 'jquery-cookie', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.cookie.js', array( 'jquery' ), '1.4.1', true );
+		wp_enqueue_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery-tiptip/jquery.tipTip.min.js', array( 'jquery' ), WPSIGHT_VERSION, true );
+		wp_enqueue_script( 'jquery-cookie', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.cookie.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 		wp_enqueue_script( 'wpsight-listings-search', WPSIGHT_PLUGIN_URL . '/assets/js/listings-search.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 		
 		// Localize scripts

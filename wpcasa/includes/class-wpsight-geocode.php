@@ -157,7 +157,7 @@ class WPSight_Geocode {
 
 	/**
 	 * get_location_data()
-	 
+	 *
 	 * Get Location Data from Google. Based on code by Eyal Fitoussi.
 	 *
 	 * @param string $raw_address

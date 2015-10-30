@@ -107,6 +107,23 @@ function wpsight_meta_box_listing_location() {
 }
 
 /**
+ * wpsight_meta_box_user()
+ *
+ * Create listing agent box
+ *
+ * @uses WPSight_Meta_Boxes::meta_box_user()
+ *
+ * @return array $meta_box Meta box array with fields
+ * @see wpsight_meta_boxes()
+ *
+ * @since 1.0.0
+ */
+
+function wpsight_meta_box_user() {
+    return WPSight_Meta_Boxes::meta_box_user();
+}
+
+/**
  * wpsight_meta_box_listing_agent()
  *
  * Create listing agent box

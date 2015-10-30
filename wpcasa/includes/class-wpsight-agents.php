@@ -152,10 +152,10 @@ class WPSight_Agents {
 
 		}
 
-		// If no image, return false
+		// If no image, return agent image
 
 		if ( empty( $agent_image ) )
-			$agent_image = false;
+			$agent_image = wpsight_get_agent_image( $post->post_author );
 
 		// Return agent image or false
 		return apply_filters( 'wpsight_listing_agent_image', $agent_image, $post, $size );

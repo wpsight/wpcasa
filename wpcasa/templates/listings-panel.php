@@ -2,7 +2,7 @@
 	
 	<div class="listings-panel-title">
 	
-		<?php wpsight_archive_title( $query ); ?>
+		<?php wpsight_archive_title(); ?>
 		
 	</div><!-- .listings-panel-title -->
 	

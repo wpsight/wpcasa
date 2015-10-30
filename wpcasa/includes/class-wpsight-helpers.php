@@ -10,7 +10,31 @@ class WPSight_Helpers {
 
 	function __construct() {
 		add_filter( 'get_meta_sql', array( $this, 'cast_decimal_precision' ) );
+		add_action( 'init', array( $this, 'check_gallery_upgrade' ) );
 	}
+
+	public function check_gallery_upgrade() {
+
+		// run the upgrade only once per site
+		if ( false === wpsight_get_option( 'cmb2_gallery_upgraded', false ) ) {
+
+			$listings = get_posts( array( 
+				'no_paging'   => true, 
+				'post_type'   => wpsight_post_type(), 
+				'post_status' => get_post_stati(),
+				'fields'      => 'ids'
+			) );
+
+			foreach ( $listings as $listing_id ) {
+				wpsight_maybe_update_gallery( $listing_id );
+			}
+			
+			// save the option for future checks
+			wpsight_add_option( 'cmb2_gallery_upgraded', true );
+		}
+		
+	}
+
 
 	/**
 	 * post_type()
@@ -531,7 +555,7 @@ class WPSight_Helpers {
 		if ( ! taxonomy_exists( $taxonomy ) )
 			return;
 
-		$object_terms = wp_get_post_terms( $post_id, $taxonomy );
+		$object_terms = get_the_terms( $post_id, $taxonomy );
 
 		// If there are more than one terms, sort them
 
@@ -673,106 +697,70 @@ class WPSight_Helpers {
 	/**
 	 * Helper function to update image gallery.
 	 *
+	 * Checks if the gallery is already in the new format (array of IDs and URLs) or the old one (array of IDs)
+	 * If the gallery is empty it uses all images attached to the listing
+	 *
 	 * @param integer $listing_id Post ID of the corresponding listing
 	 * @since 1.0.0
 	 */
 
 	public static function maybe_update_gallery( $listing_id ) {
 
-		// Check if gallery has already been imported
+		$gallery = get_post_meta( $listing_id, '_gallery' );
 		$gallery_imported = get_post_meta( $listing_id, '_gallery_imported', true );
 
-		if ( ! $gallery_imported ) {
+		if ( $gallery_imported ) {
+			return false;
+		}
 
-			// Check existing gallery
-			$gallery = get_post_meta( $listing_id, '_gallery' );
+		// 1. if the first and only element in the array is not numberic we asume the format is correct
+		if ( ! empty( $gallery[0] ) && 1 === count( $gallery ) && ! is_numeric( $gallery[0] )) {
+			return false;
+		}
 
-			// Get all image attachments
-
-			$attachments = get_posts(
+		// 2. if there isn't at least one element in the array use all attachment images as defaults
+		if ( empty( $gallery ) ) {
+			
+			// Get all image attachments of the listing
+			$gallery = get_posts(
 				array(
 					'post_type'      => 'attachment',
 					'posts_per_page' => -1,
 					'post_parent'    => $listing_id,
 					'post_mime_type' => 'image',
-					'orderby'        => 'menu_order'
+					'orderby'        => 'menu_order',
+					'fields'         => 'ids',
+					'post__not_in'   => array( absint( get_post_meta( $listing_id, '_agent_logo_id', true ) ) )
 				)
 			);
+		}	
+		
+		// delete duplicate keys
+		delete_post_meta( $listing_id, '_gallery' );
+		
+		// prevent future checks
+		update_post_meta( $listing_id, '_gallery_imported', true );
 
-			/**
-			 * If still no gallery is available and it
-			 * hasn't been imported yet, but there are
-			 * attachments, create gallery custom fields
-			 * with attachment IDs.
-			 */
+		if ( ! empty( $gallery )) {
+			$gallery_ids = array();
+			
+			foreach ( $gallery as $attachment_id ) {
+				$image_src = wp_get_attachment_image_src( $attachment_id, 'full' );
 
-			if ( ! $gallery && $attachments ) {
-
-				// Loop through attachments
-
-				foreach ( $attachments as $attachment )
-					// Create gallery post meta with attachment ID
-					add_post_meta( $listing_id, '_gallery', $attachment->ID );
-
-				// Mark gallery as imported
-				add_post_meta( $listing_id, '_gallery_imported', '1' );
-
-				return true;
-
+				// check if the attachment exists
+				if ( isset($image_src[0])) {
+					// the new format expects $attachment_id as key and URL as value
+					$gallery_ids[$attachment_id] = $image_src[0];
+				}
+			}
+			if ( ! empty( $gallery_ids )) {
+				return update_post_meta( $listing_id, '_gallery', $gallery_ids );
 			}
 
 		}
-
+		
 		return false;
 
-	}
-	
-	/**
-	 * Helper function to get all image sizes.
-	 *
-	 * @param string $size Limit to a specific size
-	 *
-	 * @since 1.0.0
-	 */
-	public static function get_image_sizes( $size = '' ) {
-		global $_wp_additional_image_sizes;
-
-        $sizes = array();
-        $get_intermediate_image_sizes = get_intermediate_image_sizes();
-
-        // Create the full array with sizes and crop info
-        foreach( $get_intermediate_image_sizes as $_size ) {
-
-                if ( in_array( $_size, array( 'thumbnail', 'medium', 'large' ) ) ) {
-
-                        $sizes[ $_size ]['width'] = get_option( $_size . '_size_w' );
-                        $sizes[ $_size ]['height'] = get_option( $_size . '_size_h' );
-                        $sizes[ $_size ]['crop'] = (bool) get_option( $_size . '_crop' );
-
-                } elseif ( isset( $_wp_additional_image_sizes[ $_size ] ) ) {
-
-                        $sizes[ $_size ] = array( 
-                                'width' => $_wp_additional_image_sizes[ $_size ]['width'],
-                                'height' => $_wp_additional_image_sizes[ $_size ]['height'],
-                                'crop' =>  $_wp_additional_image_sizes[ $_size ]['crop']
-                        );
-
-                }
-
-        }
-
-        // Get only 1 size if found
-        if ( $size ) {
-
-                if( isset( $sizes[ $size ] ) ) {
-                        return $sizes[ $size ];
-                } else {
-                        return false;
-                }
-
-        }
-
-        return $sizes;
 	}
 
 }

@@ -14,12 +14,6 @@ class WPSight_Admin_Agents {
 		
 		add_filter( 'user_contactmethods', array( $this, 'profile_contact_fields' ) );
 		
-		add_action( 'show_user_profile', array( $this, 'profile_agent_logo' ) );
-		add_action( 'edit_user_profile', array( $this, 'profile_agent_logo' ) );
-		
-		add_action( 'personal_options_update', array( $this, 'profile_agent_logo_save' ) );
-		add_action( 'edit_user_profile_update', array( $this, 'profile_agent_logo_save' ) );
-		
 		add_action( 'show_user_profile', array( $this, 'profile_agent_update' ) );
 		add_action( 'edit_user_profile', array( $this, 'profile_agent_update' ) );
 		
@@ -47,81 +41,6 @@ class WPSight_Admin_Agents {
 			$fields[$k]	= $v['label'];
 		
 		return apply_filters( 'wpsight_do_profile_contact_fields', $fields );
-	}
-	
-	/**
-	 * profile_agent_logo()
-	 *
-	 * Add agent image option to profile
-	 *
-	 * @param object $user The WP_User object of the user being edited
-	 * @uses current_user_can()
-	 * @uses get_the_author_meta()
-	 *
-	 * @since 1.0.0
-	 */
-	public function profile_agent_logo( $user ) {
-		
-		if ( ! current_user_can( 'edit_user', $user->ID ) )
-	        return false; ?>
-	    
-	    <h3><?php _e( 'Listing Agent', 'wpsight' ); ?></h3>
-	
-	    <table class="form-table">
-	        <tr>
-	            <th><label for="agent_logo"><?php _e( 'Agent Image', 'wpsight' ); ?></label></th>
-	            <td>
-	            <style type="text/css">
-					.agent_logo_field .field-title { 
-						display: none; 
-					}
-					.CMB_Image_Field.postbox { 
-						box-shadow: none;
-						-webkit-box-shadow: none;
-						border: none;
-					}
-	            </style>
-	            	<?php 
-	            	// load the existing value
-	            	$field_value = get_user_meta( $user->ID, 'agent_logo_id', true );
-	            	// intialize an image field for the agent image
-	            	$agent_image_field = new CMB_Image_Field( 'agent_logo_id', 'Agent Image', array( $field_value ) );
-	            	// enque scripts of the field
-	            	$agent_image_field->enqueue_scripts(); ?>
-
-	            	<div class="CMB_Image_Field postbox agent_logo_field">
-	            		<?php // render the image field uploader
-	            		$agent_image_field->display() ?>
-	            	</div>
-	            	<p class="description clear"><?php _e( 'Set a default agent image. You can optionally override it by adding an image to a specific listing.', 'wpsight' ); ?></p>
-	            </td>
-	        </tr>
-	    </table><?php
-	    
-	}
-	
-	/**
-	 * profile_agent_logo_save()
-	 *
-	 * Save agent image option on profile pages
-	 *
-	 * @param interger $user_id The user ID of the user being edited
-	 * @uses current_user_can()
-	 * @uses update_user_meta()
-	 *
-	 * @since 1.0.0
-	 */
-	public function profile_agent_logo_save( $user_id ) {
-	
-	    if ( ! current_user_can( 'edit_user', $user_id ) )
-	        return false;
-	        
-		$agent_logo_id = isset( $_POST['agent_logo_id']['cmb-field-0'] ) ? $_POST['agent_logo_id']['cmb-field-0'] : false;
-		$agent_logo = (array) wp_get_attachment_image_src( $agent_logo_id, 'full' );
-	
-	    update_user_meta( $user_id, 'agent_logo', current( $agent_logo ) );
-	    update_user_meta( $user_id, 'agent_logo_id', sanitize_text_field( $agent_logo_id ) );
-	
 	}
 	
 	/**

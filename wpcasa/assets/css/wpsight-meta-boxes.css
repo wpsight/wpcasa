@@ -1,120 +1,51 @@
-#side-sortables .cmb2-metabox .cmb-row {
-	margin-left: 0;
-	margin-right: 0;
-}
-
-.cmb2-metabox .field {
-	border-color: #eee;
-}
-
-.cmb2-metabox .cmb-cell-12 .field {
-	padding: 20px 0;
-}
-
-#side-sortables .cmb2-metabox .cmb-cell-12 .field {
-	padding: 15px 0;
-}
-
-.cmb2-metabox .cmb-cell-12 .CMB_Group_Field {
-	padding: 0;
-}
-
-.cmb2-metabox .cmb-cell-12 .field-title {
-	float: left;
+.postbox-container .cmb-row,
+.cmb-repeat-group-wrap .cmb-row {
 	margin-bottom: 0;
-	width: 19%;
 }
 
-.rtl .cmb2-metabox .cmb-cell-12 .field-title {
-	float: right;
-}
-
-#side-sortables .cmb2-metabox .cmb-cell-12 .field-title {
-	float: none;
-	margin-bottom: 10px;
+.cmb-type-text input,
+.cmb-type-text-url input {
 	width: 100%;
 }
 
-.cmb2-metabox .CMB_Group_Field>.field-title {
-	color: inherit;
-	font-size: inherit;
-	font-weight: 700;
-	margin-top: 20px;
-}
-
-.cmb2-metabox .cmb-cell-12 .field.repeatable .field-title {
-	margin-bottom: 16px;
-}
-
-.cmb2-metabox .cmb-cell-12 .field.WPSight_Image_Multiple_Field .field-title,
-.cmb2-metabox .cmb-cell-12 .field.WPSight_File_Multiple_Field .field-title {
-	float: none;
-	margin-bottom: 16px;
-	width: auto;
-}
-
-.cmb2-metabox .cmb-cell-12 .field-item {
-	float: right;
-	width: 80%;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-.rtl .cmb2-metabox .cmb-cell-12 .field-item {
-	float: left;
-}
-
-#side-sortables .cmb2-metabox .cmb-cell-12 .field-item {
-	float: none;
+.cmb-type-textarea textarea {
 	width: 100%;
 }
 
-.cmb2-metabox .cmb-cell-12 .WPSight_Info_Field .field-item,
-.cmb2-metabox .cmb-cell-12 .WPSight_Info_Field .cmb_metabox_description {
-	float: none;
-	width: 100%;
+.cmb-type-select select {
+	min-width: 230px;
+	max-width: 100%;
 }
 
-.cmb2-metabox .cmb-cell-12 .WPSight_Info_Field .cmb_metabox_description,
-.cmb2-metabox .cmb-cell-12 .WPSight_Info_Field .cmb_metabox_description p {
-	margin-top: 0;
-	margin-bottom: 0 !important;
+.postbox-container .cmb2-wrap > .cmb-field-list > .cmb-row.cmb-type-file-list,
+.cmb-repeat-group-wrap .cmb2-wrap > .cmb-field-list > .cmb-row.cmb-type-file-list {
+	padding-bottom: 15px;
 }
 
-#side-sortables .cmb2-metabox input.cmb_text_small {
-	width: inherit;
+.cmb-attach-list li {
+	margin-bottom: 5px;
 }
 
-#_agent_logo_id .field-item {
-	margin: 0 !important;
+/** Sidebar */
+
+.inner-sidebar .cmb-th label,
+#side-sortables .cmb-th label {
+	padding-bottom: 0;
 }
 
-.cmb2-metabox .cmb-cell-12 .field.WPSight_Image_Multiple_Field .field-item,
-.cmb2-metabox .cmb-cell-12 .field.WPSight_File_Multiple_Field .field-item {
-	float: left;
-	width: auto;
+.inner-sidebar .cmb-th label:after,
+#side-sortables .cmb-th label:after {
+	border-bottom: 0;
+	padding-top: 0;
 }
 
-.rtl .cmb2-metabox .cmb-cell-12 .field.WPSight_Image_Multiple_Field .field-item,
-.rtl .cmb2-metabox .cmb-cell-12 .field.WPSight_File_Multiple_Field .field-item {
-	float: right;
+.inner-sidebar .cmb-row .cmb2-metabox-description,
+#side-sortables .cmb-row .cmb2-metabox-description {
+	padding-bottom: 0;
 }
 
-.cmb2-metabox .cmb-cell-12 .cmb_metabox_description {
-	float: right;
-	width: 80%;
-}
-
-.rtl .cmb2-metabox .cmb-cell-12 .cmb_metabox_description {
-	float: left;
-}
-
-#side-sortables .cmb2-metabox .cmb-cell-12 .cmb_metabox_description {
-	float: none;
-	width: 100%;
-}
-
-.cmb2-metabox .cmb_metabox_description code {
-	font-size: 12px;
+.cmb2-element .ui-datepicker select {
+	background-color: rgba(255,255,255,.15);
+	border: 0;
+	color: #fff;
 }

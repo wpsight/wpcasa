@@ -371,6 +371,7 @@ class WPSight_Meta_Boxes {
 				'name'       => __( 'Images', 'wpsight' ),
 				'id'         => '_gallery',
 				'type'       => 'file_list',
+				'preview_size' => array( 150, 150 ),
 				'sortable'   => true,
 				'desc'       => false,
 				'dashboard'  => false
@@ -607,7 +608,7 @@ class WPSight_Meta_Boxes {
 				'name'      => __( 'Listings Map', 'wpsight' ),
 				'id'        => '_map_exclude',
 				'type'      => 'checkbox',
-				'label_cb'  => __( 'Exclude from general listings map', 'wpsight' ),
+				'desc'		=> __( 'Exclude from general listings map', 'wpsight' ),
 				'priority'  => 60
 			)
 		);
@@ -701,6 +702,7 @@ class WPSight_Meta_Boxes {
 				'name'      => __( 'Logo', 'wpsight' ),
 				'id'        => '_agent_logo',
 				'type'      => 'file',
+				'preview_size' => array( 100, 100 ),
 				'desc'      => false,
 				'priority'  => 70
 			)

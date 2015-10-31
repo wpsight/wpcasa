@@ -36,16 +36,20 @@ if( $lat && $long ) { ?>
 		    
 		    // Get map listing options
 
-		    $map_options = get_post_meta( $listing->ID, '_map_args', true );
+		    $map_options = array(
+			    '_map_type' 			=> get_post_meta( $listing->ID, '_map_type', true ),
+			    '_map_zoom' 			=> get_post_meta( $listing->ID, '_map_zoom', true ),
+			    '_map_no_streetview' 	=> get_post_meta( $listing->ID, '_map_no_streetview', true )
+		    );
 		    
 		    $map_args = array(
-			    'map_type' 		=> isset( $map_options['_map_type'] ) ? $map_options['_map_type'] : $map_defaults['map_type'],
-			    'map_zoom' 		=> isset( $map_options['_map_zoom'] ) ? $map_options['_map_zoom'] : $map_defaults['map_zoom'],
-			    'streetview' 	=> isset( $map_options['_map_no_streetview'] ) ? 'false' : 'true'
+			    'map_type' 		=> ! empty( $map_options['_map_type'] ) ? $map_options['_map_type'] : $map_defaults['map_type'],
+			    'map_zoom' 		=> ! empty( $map_options['_map_zoom'] ) ? $map_options['_map_zoom'] : $map_defaults['map_zoom'],
+			    'streetview' 	=> ! empty( $map_options['_map_no_streetview'] ) ? 'false' : 'true'
 		    );
 
 			// Parse map args and apply filter		    
-		    $map_args = apply_filters( 'wpsight_map_args', wp_parse_args( $map_args, $map_defaults ) );
+		    $map_args = apply_filters( 'wpsight_listing_map_args', wp_parse_args( $map_args, $map_defaults ) );
 		    
 		?>
 	    <script>

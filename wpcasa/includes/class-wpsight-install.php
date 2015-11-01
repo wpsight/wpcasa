@@ -17,7 +17,8 @@ class WPSight_Install {
 	public function __construct() {
 		$this->init_user_roles();
 		$this->cron();
-		//delete_transient( 'wpsight_addons_html' );
+		delete_transient( 'wpsight_addons_html' );
+		delete_transient( 'wpsight_themes_html' );
 		update_option( 'wpsight_version', WPSIGHT_VERSION );
 	}
 

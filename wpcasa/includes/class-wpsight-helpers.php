@@ -13,29 +13,6 @@ class WPSight_Helpers {
 		add_action( 'init', array( $this, 'check_gallery_upgrade' ) );
 	}
 
-	public function check_gallery_upgrade() {
-
-		// run the upgrade only once per site
-		if ( false === wpsight_get_option( 'cmb2_gallery_upgraded', false ) ) {
-
-			$listings = get_posts( array( 
-				'no_paging'   => true, 
-				'post_type'   => wpsight_post_type(), 
-				'post_status' => get_post_stati(),
-				'fields'      => 'ids'
-			) );
-
-			foreach ( $listings as $listing_id ) {
-				wpsight_maybe_update_gallery( $listing_id );
-			}
-			
-			// save the option for future checks
-			wpsight_add_option( 'cmb2_gallery_upgraded', true );
-		}
-		
-	}
-
-
 	/**
 	 * post_type()
 	 *
@@ -692,6 +669,37 @@ class WPSight_Helpers {
 
 		return $image[0];
 
+	}
+
+	/**
+	 * check_gallery_upgrade()
+	 *
+	 * Helper function to run image
+	 * gallery update on all listings.
+	 *
+	 * @return string
+	 * @since 1.0.0
+	 */
+	public function check_gallery_upgrade() {
+
+		// run the upgrade only once per site
+		if ( false === wpsight_get_option( 'cmb2_gallery_upgraded', false ) ) {
+
+			$listings = get_posts( array( 
+				'no_paging'   => true, 
+				'post_type'   => wpsight_post_type(), 
+				'post_status' => get_post_stati(),
+				'fields'      => 'ids'
+			) );
+
+			foreach ( $listings as $listing_id ) {
+				wpsight_maybe_update_gallery( $listing_id );
+			}
+			
+			// save the option for future checks
+			wpsight_add_option( 'cmb2_gallery_upgraded', true );
+		}
+		
 	}
 
 	/**

@@ -92,17 +92,17 @@ class WPSight_Admin_CPT {
 
 		// Define our custom columns
 
-		$columns["listing_offer"]	= __( 'Offer', 'wpsight' );
-		$columns["listing_id"]		= __( 'ID', 'wpsight' );
-		$columns["listing_title"]	= __( 'Listing', 'wpsight' );
-		$columns["listing_price"]	= __( 'Price', 'wpsight' );
-		$columns["listing_posted"]	= __( 'Posted', 'wpsight' );
+		$columns["listing_offer"]	= __( 'Offer', 'wpcasa' );
+		$columns["listing_id"]		= __( 'ID', 'wpcasa' );
+		$columns["listing_title"]	= __( 'Listing', 'wpcasa' );
+		$columns["listing_price"]	= __( 'Price', 'wpcasa' );
+		$columns["listing_posted"]	= __( 'Posted', 'wpcasa' );
 		
 		if( class_exists( 'WPSight_Expire_Listings' ) )
-			$columns["listing_expires"]	= __( 'Expires', 'wpsight' );
+			$columns["listing_expires"]	= __( 'Expires', 'wpcasa' );
 
-		$columns['listing_status']	= __( 'Status', 'wpsight' );;
-		$columns['listing_actions']	= __( 'Actions', 'wpsight' );
+		$columns['listing_status']	= __( 'Status', 'wpcasa' );;
+		$columns['listing_actions']	= __( 'Actions', 'wpcasa' );
 
 		return apply_filters( 'wpsight_admin_listing_columns', $columns );
 
@@ -169,7 +169,7 @@ class WPSight_Admin_CPT {
 						// Display listing title (with edit link if not in trash)
 						
 						if ( $post->post_status !== 'trash' && current_user_can( 'edit_listing', $post->ID ) ) {
-							echo '<a href="' . admin_url( 'post.php?post=' . $post->ID . '&action=edit') . '" class="tips" data-tip="' . __( 'Edit', 'wpsight' ) . '">' . $post->post_title . '</a>';
+							echo '<a href="' . admin_url( 'post.php?post=' . $post->ID . '&action=edit') . '" class="tips" data-tip="' . __( 'Edit', 'wpcasa' ) . '">' . $post->post_title . '</a>';
 						} else {							
 							echo $post->post_title;							
 						}
@@ -179,12 +179,12 @@ class WPSight_Admin_CPT {
 							// Display sticky
 						
 							if( wpsight_is_listing_sticky() )
-								echo ' <span class="listing-sticky">&dash; ' . __( 'Sticky', 'wpsight' ) . '</span>';
+								echo ' <span class="listing-sticky">&dash; ' . __( 'Sticky', 'wpcasa' ) . '</span>';
 							
 							// Display featured
 							
 							if( wpsight_is_listing_featured() )
-								echo ' <span class="listing-featured">&dash; ' . __( 'Featured', 'wpsight' ) . '</span>';
+								echo ' <span class="listing-featured">&dash; ' . __( 'Featured', 'wpcasa' ) . '</span>';
 						
 						}
 						
@@ -219,7 +219,7 @@ class WPSight_Admin_CPT {
 					// Display text if item not available
 					
 					if( wpsight_is_listing_not_available() )
-						echo '<span class="listing-not-available">' . __( 'Item is currently not available', 'wpsight' ) . '</span>';
+						echo '<span class="listing-not-available">' . __( 'Item is currently not available', 'wpcasa' ) . '</span>';
 					
 					// Display listing title actions (edit, view)
 					
@@ -233,13 +233,13 @@ class WPSight_Admin_CPT {
 							
 								$admin_actions_listing_title['edit']   = array(
 									'action'  => 'edit',
-									'name'    => __( 'Edit', 'wpsight' ),
+									'name'    => __( 'Edit', 'wpcasa' ),
 									'url'     => get_edit_post_link( $post->ID )
 								);
 							
 								$admin_actions_listing_title['view']   = array(
 									'action'  => 'view',
-									'name'    => __( 'View', 'wpsight' ),
+									'name'    => __( 'View', 'wpcasa' ),
 									'url'     => get_permalink( $post->ID ),
 									'target'  => '_blank'
 								);
@@ -289,7 +289,7 @@ class WPSight_Admin_CPT {
 				$user_name = current_user_can( 'edit_users' ) ? '<a href="' . get_edit_user_link( $post->post_author ) . '">' . get_the_author() . '</a>' : get_the_author();
 				
 				// Display listing agent
-				echo '<span class="listing-agent">' . ( empty( $post->post_author ) ? __( 'by a guest', 'wpsight' ) : sprintf( __( 'by %s', 'wpsight' ), $user_name ) ) . '</span>';
+				echo '<span class="listing-agent">' . ( empty( $post->post_author ) ? __( 'by a guest', 'wpcasa' ) : sprintf( __( 'by %s', 'wpcasa' ), $user_name ) ) . '</span>';
 
 			break;
 
@@ -324,7 +324,7 @@ class WPSight_Admin_CPT {
 						
 						$admin_actions['approve']   = array(
 							'action'   => 'approve',
-							'name'     => wpsight_is_listing_pending( $post->ID ) ? __( 'Approve', 'wpsight' ) : __( 'Unapprove', 'wpsight' ),
+							'name'     => wpsight_is_listing_pending( $post->ID ) ? __( 'Approve', 'wpcasa' ) : __( 'Unapprove', 'wpcasa' ),
 							'url'      =>  wp_nonce_url( add_query_arg( 'approve_listing', $post->ID ), 'approve_listing' ),
 							'cap'	   => 'publish_listings',
 							'priority' => 10
@@ -332,7 +332,7 @@ class WPSight_Admin_CPT {
 						
 						$admin_actions['unavailable']   = array(
 							'action'   => 'unavailable',
-							'name'     => wpsight_is_listing_not_available( $post->ID ) ? __( 'Mark available', 'wpsight' ) : __( 'Mark unavailable', 'wpsight' ),
+							'name'     => wpsight_is_listing_not_available( $post->ID ) ? __( 'Mark available', 'wpcasa' ) : __( 'Mark unavailable', 'wpcasa' ),
 							'url'      =>  wp_nonce_url( add_query_arg( 'toggle_unavailable', $post->ID ), 'toggle_unavailable' ),
 							'cap'	   => 'publish_listings',
 							'priority' => 20
@@ -340,7 +340,7 @@ class WPSight_Admin_CPT {
 					
 						$admin_actions['delete'] = array(
 							'action'   => 'delete',
-							'name'     => __( 'Trash', 'wpsight' ),
+							'name'     => __( 'Trash', 'wpcasa' ),
 							'url'      => get_delete_post_link( $post->ID ),
 							'cap'	   => 'delete_listing',
 							'priority' => 30
@@ -350,7 +350,7 @@ class WPSight_Admin_CPT {
 					
 						$admin_actions['untrash'] = array(
 							'action'   => 'untrash',
-							'name'     => __( 'Restore', 'wpsight' ),
+							'name'     => __( 'Restore', 'wpcasa' ),
 							'url'      => wp_nonce_url( admin_url( 'post.php?post=' . $post->ID . '&action=untrash' ), 'untrash-post_' . $post->ID ),
 							'cap'	   => 'delete_listing',
 							'priority' => 10
@@ -382,7 +382,7 @@ class WPSight_Admin_CPT {
 					// If no other action is displayed, show view button
 					
 					if( 0 == $i && $post->post_status == 'publish' )
-						printf( '<a class="button tips" href="%2$s" data-tip="%3$s" target="%5$s"><i class="icon icon-view"></i> %4$s</a>', 'view', esc_url( get_permalink( $post->ID ) ), esc_attr( __( 'View', 'wpsight' ) ), esc_html( __( 'View', 'wpsight' ) ), '_blank' );
+						printf( '<a class="button tips" href="%2$s" data-tip="%3$s" target="%5$s"><i class="icon icon-view"></i> %4$s</a>', 'view', esc_url( get_permalink( $post->ID ) ), esc_attr( __( 'View', 'wpcasa' ) ), esc_html( __( 'View', 'wpcasa' ) ), '_blank' );
 
 				echo '</div>';
 
@@ -470,11 +470,11 @@ class WPSight_Admin_CPT {
 			<script type="text/javascript">
 		      jQuery(document).ready(function() {
 
-		        jQuery('<option>').val('approve_listings').text('<?php _e( 'Approve', 'wpsight' ); ?>').appendTo("select[name='action']");
-		        jQuery('<option>').val('approve_listings').text('<?php _e( 'Approve', 'wpsight' ); ?>').appendTo("select[name='action2']");
+		        jQuery('<option>').val('approve_listings').text('<?php _e( 'Approve', 'wpcasa' ); ?>').appendTo("select[name='action']");
+		        jQuery('<option>').val('approve_listings').text('<?php _e( 'Approve', 'wpcasa' ); ?>').appendTo("select[name='action2']");
 		        
-		        jQuery('<option>').val('unapprove_listings').text('<?php _e( 'Unapprove', 'wpsight' ); ?>').appendTo("select[name='action']");
-		        jQuery('<option>').val('unapprove_listings').text('<?php _e( 'Unapprove', 'wpsight' ); ?>').appendTo("select[name='action2']");
+		        jQuery('<option>').val('unapprove_listings').text('<?php _e( 'Unapprove', 'wpcasa' ); ?>').appendTo("select[name='action']");
+		        jQuery('<option>').val('unapprove_listings').text('<?php _e( 'Unapprove', 'wpcasa' ); ?>').appendTo("select[name='action2']");
 
 		      });
 		    </script>
@@ -715,21 +715,21 @@ class WPSight_Admin_CPT {
 				// Display update message with titles of approved listings
 				
 				if( $titles_approved )
-					echo '<div class="updated"><p>' . sprintf( __( '%s have been approved', 'wpsight' ), '&quot;' . implode( '&quot;, &quot;', $titles_approved ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s have been approved', 'wpcasa' ), '&quot;' . implode( '&quot;, &quot;', $titles_approved ) . '&quot;' ) . '</p></div>';
 				
 				// Display update message with titles of unapproved listings
 				
 				if( $titles_unapproved )
-					echo '<div class="updated"><p>' . sprintf( __( '%s are now pending approval', 'wpsight' ), '&quot;' . implode( '&quot;, &quot;', $titles_unapproved ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s are now pending approval', 'wpcasa' ), '&quot;' . implode( '&quot;, &quot;', $titles_unapproved ) . '&quot;' ) . '</p></div>';
 
 			} else {
 				
 				// Display update message with title of single listing
 
 				if( ! wpsight_is_listing_pending( $approved_listings ) ) {
-					echo '<div class="updated"><p>' . sprintf( __( '%s has been approved', 'wpsight' ), '&quot;' . get_the_title( $approved_listings ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s has been approved', 'wpcasa' ), '&quot;' . get_the_title( $approved_listings ) . '&quot;' ) . '</p></div>';
 				} else {
-					echo '<div class="updated"><p>' . sprintf( __( '%s is now pending approval', 'wpsight' ), '&quot;' . get_the_title( $approved_listings ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s is now pending approval', 'wpcasa' ), '&quot;' . get_the_title( $approved_listings ) . '&quot;' ) . '</p></div>';
 				}
 
 			} // endif is_array( $approved_listings )
@@ -831,21 +831,21 @@ class WPSight_Admin_CPT {
 				// Display update message with titles of listings marked sticky
 				
 				if( $titles_sticky )
-					echo '<div class="updated"><p>' . sprintf( __( '%s are now sticky', 'wpsight' ), '&quot;' . implode( '&quot;, &quot;', $titles_sticky ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s are now sticky', 'wpcasa' ), '&quot;' . implode( '&quot;, &quot;', $titles_sticky ) . '&quot;' ) . '</p></div>';
 				
 				// Display update message with titles of unmarked listings
 				
 				if( $titles_unsticky )
-					echo '<div class="updated"><p>' . sprintf( __( '%s are no longer sticky', 'wpsight' ), '&quot;' . implode( '&quot;, &quot;', $titles_unsticky ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s are no longer sticky', 'wpcasa' ), '&quot;' . implode( '&quot;, &quot;', $titles_unsticky ) . '&quot;' ) . '</p></div>';
 
 			} else {
 				
 				// Display update message with title of single listing
 
 				if( wpsight_is_listing_sticky( $marked_listings ) ) {
-					echo '<div class="updated"><p>' . sprintf( __( '%s is now sticky', 'wpsight' ), '&quot;' . get_the_title( $marked_listings ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s is now sticky', 'wpcasa' ), '&quot;' . get_the_title( $marked_listings ) . '&quot;' ) . '</p></div>';
 				} else {
-					echo '<div class="updated"><p>' . sprintf( __( '%s is no longer sticky', 'wpsight' ), '&quot;' . get_the_title( $marked_listings ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s is no longer sticky', 'wpcasa' ), '&quot;' . get_the_title( $marked_listings ) . '&quot;' ) . '</p></div>';
 				}
 
 			} // endif is_array( $marked_listings )
@@ -947,21 +947,21 @@ class WPSight_Admin_CPT {
 				// Display update message with titles of listings marked featured
 				
 				if( $titles_featured )
-					echo '<div class="updated"><p>' . sprintf( __( '%s are now featured', 'wpsight' ), '&quot;' . implode( '&quot;, &quot;', $titles_featured ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s are now featured', 'wpcasa' ), '&quot;' . implode( '&quot;, &quot;', $titles_featured ) . '&quot;' ) . '</p></div>';
 				
 				// Display update message with titles of unmarked listings
 				
 				if( $titles_unfeatured )
-					echo '<div class="updated"><p>' . sprintf( __( '%s are no longer featured', 'wpsight' ), '&quot;' . implode( '&quot;, &quot;', $titles_unfeatured ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s are no longer featured', 'wpcasa' ), '&quot;' . implode( '&quot;, &quot;', $titles_unfeatured ) . '&quot;' ) . '</p></div>';
 
 			} else {
 				
 				// Display update message with title of single listing
 
 				if( wpsight_is_listing_featured( $marked_listings ) ) {
-					echo '<div class="updated"><p>' . sprintf( __( '%s is now featured', 'wpsight' ), '&quot;' . get_the_title( $marked_listings ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s is now featured', 'wpcasa' ), '&quot;' . get_the_title( $marked_listings ) . '&quot;' ) . '</p></div>';
 				} else {
-					echo '<div class="updated"><p>' . sprintf( __( '%s is no longer featured', 'wpsight' ), '&quot;' . get_the_title( $marked_listings ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s is no longer featured', 'wpcasa' ), '&quot;' . get_the_title( $marked_listings ) . '&quot;' ) . '</p></div>';
 				}
 
 			} // endif is_array( $marked_listings )
@@ -1063,21 +1063,21 @@ class WPSight_Admin_CPT {
 				// Display update message with titles of listings marked not available
 				
 				if( $titles_not_available )
-					echo '<div class="updated"><p>' . sprintf( __( '%s are no longer available', 'wpsight' ), '&quot;' . implode( '&quot;, &quot;', $titles_not_available ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s are no longer available', 'wpcasa' ), '&quot;' . implode( '&quot;, &quot;', $titles_not_available ) . '&quot;' ) . '</p></div>';
 				
 				// Display update message with titles of listings marked available
 				
 				if( $titles_available )
-					echo '<div class="updated"><p>' . sprintf( __( '%s are now available', 'wpsight' ), '&quot;' . implode( '&quot;, &quot;', $titles_available ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s are now available', 'wpcasa' ), '&quot;' . implode( '&quot;, &quot;', $titles_available ) . '&quot;' ) . '</p></div>';
 
 			} else {
 				
 				// Display update message with title of single listing
 
 				if( wpsight_is_listing_not_available( $marked_listings ) ) {
-					echo '<div class="updated"><p>' . sprintf( __( '%s is no longer available', 'wpsight' ), '&quot;' . get_the_title( $marked_listings ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s is no longer available', 'wpcasa' ), '&quot;' . get_the_title( $marked_listings ) . '&quot;' ) . '</p></div>';
 				} else {
-					echo '<div class="updated"><p>' . sprintf( __( '%s is now available', 'wpsight' ), '&quot;' . get_the_title( $marked_listings ) . '&quot;' ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%s is now available', 'wpcasa' ), '&quot;' . get_the_title( $marked_listings ) . '&quot;' ) . '</p></div>';
 				}
 
 			} // endif is_array( $marked_listings )
@@ -1098,17 +1098,17 @@ class WPSight_Admin_CPT {
 
 		$messages['listing'] = array(
 			0 => '',
-			1 => sprintf( __( '%s updated. <a href="%s">View</a>', 'wpsight' ), $wp_post_types['listing']->labels->singular_name, esc_url( get_permalink( $post_ID ) ) ),
-			2 => __( 'Custom field updated.', 'wpsight' ),
-			3 => __( 'Custom field deleted.', 'wpsight' ),
-			4 => sprintf( __( '%s updated.', 'wpsight' ), $wp_post_types['listing']->labels->singular_name ),
-			5 => isset( $_GET['revision'] ) ? sprintf( __( '%s restored to revision from %s', 'wpsight' ), $wp_post_types['listing']->labels->singular_name, wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-			6 => sprintf( __( '%s published. <a href="%s">View</a>', 'wpsight' ), $wp_post_types['listing']->labels->singular_name, esc_url( get_permalink( $post_ID ) ) ),
-			7 => sprintf( __( '%s saved.', 'wpsight' ), $wp_post_types['listing']->labels->singular_name ),
-			8 => sprintf( __( '%s submitted. <a target="_blank" href="%s">Preview</a>', 'wpsight' ), $wp_post_types['listing']->labels->singular_name, esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
-			9 => sprintf( __( '%s scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview</a>', 'wpsight' ), $wp_post_types['listing']->labels->singular_name,
-			  date_i18n( __( 'M j, Y @ G:i', 'wpsight' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
-			10 => sprintf( __( '%s draft updated. <a target="_blank" href="%s">Preview</a>', 'wpsight' ), $wp_post_types['listing']->labels->singular_name, esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+			1 => sprintf( __( '%s updated. <a href="%s">View</a>', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name, esc_url( get_permalink( $post_ID ) ) ),
+			2 => __( 'Custom field updated.', 'wpcasa' ),
+			3 => __( 'Custom field deleted.', 'wpcasa' ),
+			4 => sprintf( __( '%s updated.', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name ),
+			5 => isset( $_GET['revision'] ) ? sprintf( __( '%s restored to revision from %s', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name, wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6 => sprintf( __( '%s published. <a href="%s">View</a>', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name, esc_url( get_permalink( $post_ID ) ) ),
+			7 => sprintf( __( '%s saved.', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name ),
+			8 => sprintf( __( '%s submitted. <a target="_blank" href="%s">Preview</a>', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name, esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+			9 => sprintf( __( '%s scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview</a>', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name,
+			  date_i18n( __( 'M j, Y @ G:i', 'wpcasa' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
+			10 => sprintf( __( '%s draft updated. <a target="_blank" href="%s">Preview</a>', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name, esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
 		);
 
 		return $messages;
@@ -1133,11 +1133,11 @@ class WPSight_Admin_CPT {
 		);
 		
 		$messages['listing'] = array(
-			'updated'   => _n( '%s listing updated.', '%s listings updated.', $bulk_counts['updated'] ),
-			'locked'    => _n( '%s listing not updated, somebody is editing it.', '%s listings not updated, somebody is editing them.', $bulk_counts['locked'] ),
-			'deleted'   => _n( '%s listing permanently deleted.', '%s listings permanently deleted.', $bulk_counts['deleted'] ),
-			'trashed'   => _n( '%s listing moved to the Trash.', '%s listings moved to the Trash.', $bulk_counts['trashed'] ),
-			'untrashed' => _n( '%s listing restored from the Trash.', '%s listings restored from the Trash.', $bulk_counts['untrashed'] ),
+			'updated'   => _n( '%s listing updated.', '%s listings updated.', $bulk_counts['updated'], 'wpcasa' ),
+			'locked'    => _n( '%s listing not updated, somebody is editing it.', '%s listings not updated, somebody is editing them.', $bulk_counts['locked'], 'wpcasa' ),
+			'deleted'   => _n( '%s listing permanently deleted.', '%s listings permanently deleted.', $bulk_counts['deleted'], 'wpcasa' ),
+			'trashed'   => _n( '%s listing moved to the Trash.', '%s listings moved to the Trash.', $bulk_counts['trashed'], 'wpcasa' ),
+			'untrashed' => _n( '%s listing restored from the Trash.', '%s listings restored from the Trash.', $bulk_counts['untrashed'], 'wpcasa' ),
 		);
 
 		return $messages;
@@ -1160,7 +1160,7 @@ class WPSight_Admin_CPT {
 		if( ! current_user_can( 'publish_listings' ) )
 			return;
 
-		$plural = __( 'Listings', 'wpsight' );
+		$plural = __( 'Listings', 'wpcasa' );
 		$count  = wp_count_posts( wpsight_post_type(), 'readable' );
 
 		if ( ! empty( $menu ) && is_array( $menu ) ) {
@@ -1229,14 +1229,14 @@ class WPSight_Admin_CPT {
 	    $offers = wpsight_offers(); ?>
 	
 		<select name="wpsight-offer">
-			<option value=""><?php _e( 'Offers', 'wpsight' ); ?></option><?php
+			<option value=""><?php _e( 'Offers', 'wpcasa' ); ?></option><?php
 			
 			$current = isset( $_GET['wpsight-offer'] ) ? $_GET['wpsight-offer'] : false;
 	
 			foreach ( $offers as $offer => $label )
 				echo '<option value="' . $offer . '"' . selected( $offer, $current, false ) . '>' . $label . '</option>'; ?>
 	
-			<option value="not-available"<?php selected( 'not-available', $current ); ?>><?php _e( 'Not Available', 'wpsight'  ); ?></option>
+			<option value="not-available"<?php selected( 'not-available', $current ); ?>><?php _e( 'Not Available', 'wpcasa' ); ?></option>
 		</select><?php
 	
 	}
@@ -1305,7 +1305,7 @@ class WPSight_Admin_CPT {
 	
 	    $args = array( 
 	    	'name' => 'author', 
-	    	'show_option_all' => __( 'Agents', 'wpsight' ), 
+	    	'show_option_all' => __( 'Agents', 'wpcasa' ), 
 	    	'selected', get_query_var( 'user' ) 
 	    );
 	

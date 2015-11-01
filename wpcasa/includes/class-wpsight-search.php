@@ -133,8 +133,8 @@ class WPSight_Search {
 			'orientation' => 'horizontal', // can be vertical
 			'action' 	  => '', // Empty action redirects to same page
 			'fields' 	  => wpsight_get_search_fields( $search_fields ),
-			'advanced'	  => '<span class="listings-search-advanced-toggle">' . __( 'Advanced Search', 'wpsight' ) . '</span>', // Set (bool) false to hide advanced search
-			'reset'		  => '<span class="listings-search-reset">' . __( 'Reset Search', 'wpsight' ) . '</span>', // Set (bool) false to hide reset button
+			'advanced'	  => '<span class="listings-search-advanced-toggle">' . __( 'Advanced Search', 'wpcasa' ) . '</span>', // Set (bool) false to hide advanced search
+			'reset'		  => '<span class="listings-search-reset">' . __( 'Reset Search', 'wpcasa' ) . '</span>', // Set (bool) false to hide reset button
 		);
 		
 		// Merge $defaults with $args
@@ -212,21 +212,21 @@ class WPSight_Search {
 		$defaults = array(
 			
 			'keyword' => array(
-				'label' 		=> __( 'Keyword or Listing ID', 'wpsight' ) . '&hellip;',
+				'label' 		=> __( 'Keyword or Listing ID', 'wpcasa' ) . '&hellip;',
 				'type' 			=> 'text',
 				'class'			=> 'width-3-4',
 		    	'priority'		=> 10
 			),
 			
 			'submit' => array(
-				'label' 		=> __( 'Search', 'wpsight' ),
+				'label' 		=> __( 'Search', 'wpcasa' ),
 				'type' 			=> 'submit',
 				'class'			=> 'width-1-4',
 		    	'priority'		=> 20
 			),
 
 			'offer' => array(
-				'label' 		=> __( 'Offer', 'wpsight' ),
+				'label' 		=> __( 'Offer', 'wpcasa' ),
 				'key'			=> '_price_offer',
 				'data' 			=> wpsight_offers(),
 				'type' 			=> 'select',
@@ -239,7 +239,7 @@ class WPSight_Search {
 				'data' 			=> array(
 					// wp_dropdown_categories() options
 					'taxonomy'			=> 'location',
-			    	'show_option_none' 	=> __( 'Location', 'wpsight' ),
+			    	'show_option_none' 	=> __( 'Location', 'wpcasa' ),
 			    	'option_none_value' => '',
 			    	'hierarchical'		=> 1,
 			    	'orderby'         	=> 'ID',
@@ -254,7 +254,7 @@ class WPSight_Search {
 				'data' 			=> array(
 					// wp_dropdown_categories() options
 					'taxonomy'			=> 'listing-type',
-			    	'show_option_none' 	=> __( 'Type', 'wpsight' ),
+			    	'show_option_none' 	=> __( 'Type', 'wpcasa' ),
 			    	'option_none_value' => '',
 			    	'hierarchical'		=> 1,
 			    	'orderby'         	=> 'ID', 

@@ -55,7 +55,7 @@ class WPSight_Agents {
 
 			'listing_admin' => array(
 				'id'   => 'listing_admin',
-				'name' => _x( 'Listing Admin', 'agent role', 'wpsight' ),
+				'name' => _x( 'Listing Admin', 'agent role', 'wpcasa' ),
 				'caps' => array(
 					'read'                      => true,
 					'upload_files'              => true,
@@ -84,7 +84,7 @@ class WPSight_Agents {
 
 			'listing_agent' => array(
 				'id'   => 'listing_agent',
-				'name' => _x( 'Listing Agent', 'agent role', 'wpsight' ),
+				'name' => _x( 'Listing Agent', 'agent role', 'wpcasa' ),
 				'caps' => array(
 					'read'                 => true,
 					'upload_files'         => true,
@@ -100,7 +100,7 @@ class WPSight_Agents {
 
 			'listing_subscriber' => array(
 				'id'   => 'listing_subscriber',
-				'name' => _x( 'Listing Subscriber', 'agent role', 'wpsight' ),
+				'name' => _x( 'Listing Subscriber', 'agent role', 'wpcasa' ),
 				'caps' => array(
 					'read'         => true,
 					'read_listing' => true
@@ -748,10 +748,10 @@ class WPSight_Agents {
 
 		$fields = array(
 			'company'   => array(
-				'label' => __( 'Company', 'wpsight' )
+				'label' => __( 'Company', 'wpcasa' )
 			),
 			'phone'     => array(
-				'label' => __( 'Phone', 'wpsight' )
+				'label' => __( 'Phone', 'wpcasa' )
 			),
 			'twitter'   => array(
 				'label' => 'Twitter'

@@ -81,7 +81,7 @@ class WPSight_Meta_Boxes {
 	public function admin_meta_boxes( ) {
 		$meta_boxes = wpsight_meta_boxes();
 
-		foreach ( $meta_boxes as $metabox ) {
+		foreach ( $meta_boxes as $metabox ) {			
 			$cmb = new_cmb2_box( $metabox );
 		    foreach ( $metabox['fields'] as $field ) {
 		    	$field_id = $cmb->add_field( $field );
@@ -320,11 +320,11 @@ class WPSight_Meta_Boxes {
 
 		$fields = array(
 			'availability' => array(
-				'name'      => __( 'Availability', 'wpsight' ),
+				'name'      => __( 'Availability', 'wpcasa' ),
 				'id'        => '_listing_not_available',
 				'type'      => 'checkbox',
-				'label_cb'  => __( 'Item not available', 'wpsight' ),
-				'desc'      => __( 'The item is currently not available as it has been sold or rented.', 'wpsight' ),
+				'label_cb'  => __( 'Item not available', 'wpcasa' ),
+				'desc'      => __( 'The item is currently not available as it has been sold or rented.', 'wpcasa' ),
 				'dashboard' => false,
 				'priority'  => 10
 			)
@@ -337,7 +337,7 @@ class WPSight_Meta_Boxes {
 
 		$meta_box = array(
 			'id'       => 'listing_attributes',
-			'title'    => __( 'Listing Attributes', 'wpsight' ),
+			'title'    => __( 'Listing Attributes', 'wpcasa' ),
 			'object_types'    => array( wpsight_post_type() ),
 			'context'  => 'side',
 			'priority' => 'core',
@@ -368,7 +368,7 @@ class WPSight_Meta_Boxes {
 
 		$fields = array(
 			'images' => array(
-				'name'       => __( 'Images', 'wpsight' ),
+				'name'       => __( 'Images', 'wpcasa' ),
 				'id'         => '_gallery',
 				'type'       => 'file_list',
 				'preview_size' => array( 150, 150 ),
@@ -385,7 +385,7 @@ class WPSight_Meta_Boxes {
 
 		$meta_box = array(
 			'id'       => 'listing_images',
-			'title'    => __( 'Listing Images', 'wpsight' ),
+			'title'    => __( 'Listing Images', 'wpcasa' ),
 			'object_types'    => array( wpsight_post_type() ),
 			'context'  => 'normal',
 			'priority' => 'high',
@@ -418,15 +418,15 @@ class WPSight_Meta_Boxes {
 
 		$fields = array(
 			'price' => array(
-				'name'      => __( 'Price', 'wpsight' ) . ' (' . wpsight_get_currency() . ')',
+				'name'      => __( 'Price', 'wpcasa' ) . ' (' . wpsight_get_currency() . ')',
 				'id'        => '_price',
 				'type'      => 'text',
-				'desc'      => __( 'No currency symbols or thousands separators', 'wpsight' ),
+				'desc'      => __( 'No currency symbols or thousands separators', 'wpcasa' ),
 				'dashboard' => true,
 				'priority'  => 10
 			),
 			'offer' => array(
-				'name'      => __( 'Offer', 'wpsight' ),
+				'name'      => __( 'Offer', 'wpcasa' ),
 				'id'        => '_price_offer',
 				'type'      => 'radio',
 				'options'   => wpsight_offers(),
@@ -435,10 +435,10 @@ class WPSight_Meta_Boxes {
 				'priority'  => 20
 			),
 			'period' => array(
-				'name'      => __( 'Period', 'wpsight' ),
+				'name'      => __( 'Period', 'wpcasa' ),
 				'id'        => '_price_period',
 				'type'      => 'select',
-				'options'   => array_merge( array( '' => __( 'None', 'wpsight' ) ), wpsight_rental_periods() ),
+				'options'   => array_merge( array( '' => __( 'None', 'wpcasa' ) ), wpsight_rental_periods() ),
 				'dashboard' => true,
 				'priority'  => 30
 			)
@@ -451,7 +451,7 @@ class WPSight_Meta_Boxes {
 
 		$meta_box = array(
 			'id'       => 'listing_price',
-			'title'    => __( 'Listing Price', 'wpsight' ),
+			'title'    => __( 'Listing Price', 'wpcasa' ),
 			'object_types'    => array( wpsight_post_type() ),
 			'context'  => 'normal',
 			'priority' => 'high',
@@ -484,7 +484,7 @@ class WPSight_Meta_Boxes {
 
 		$fields = array(
 			'id' => array(
-				'name'      => __( 'Listing ID', 'wpsight' ),
+				'name'      => __( 'Listing ID', 'wpcasa' ),
 				'id'        => '_listing_id',
 				'type'      => 'text',
 				'dashboard' => wpsight_user_can_edit_listing_id() ? true : 'disabled',
@@ -552,7 +552,7 @@ class WPSight_Meta_Boxes {
 
 		$meta_box = array(
 			'id'       => 'listing_details',
-			'title'    => __( 'Listing Details', 'wpsight' ),
+			'title'    => __( 'Listing Details', 'wpcasa' ),
 			'object_types'    => array( wpsight_post_type() ),
 			'context'  => 'normal',
 			'priority' => 'high',
@@ -583,32 +583,32 @@ class WPSight_Meta_Boxes {
 
 		$fields = array(
 			'address' => array(
-				'name'      => __( 'Address', 'wpsight' ),
+				'name'      => __( 'Address', 'wpcasa' ),
 				'id'        => '_map_address',
 				'type'      => 'text',
-				'desc'      => __( 'e.g. <code>Marbella, Spain</code> or <code>Platz der Republik 1, 10557 Berlin</code>', 'wpsight' ),
+				'desc'      => __( 'e.g. <code>Marbella, Spain</code> or <code>Platz der Republik 1, 10557 Berlin</code>', 'wpcasa' ),
 				'class'     => 'map-search',
 				'priority'  => 10
 			),
 			'note' => array(
-				'name'      => __( 'Public Note', 'wpsight' ),
+				'name'      => __( 'Public Note', 'wpcasa' ),
 				'id'        => '_map_note',
 				'type'      => 'text',
-				'desc'      => __( 'e.g. <code>Location is not the exact address of the listing</code>', 'wpsight' ),
+				'desc'      => __( 'e.g. <code>Location is not the exact address of the listing</code>', 'wpcasa' ),
 				'priority'  => 40
 			),
 			'secret' => array(
-				'name'      => __( 'Secret Note', 'wpsight' ),
+				'name'      => __( 'Secret Note', 'wpcasa' ),
 				'id'        => '_map_secret',
 				'type'      => 'textarea',
-				'desc'      => __( 'Will not be displayed on the website (e.g. complete address)', 'wpsight' ),
+				'desc'      => __( 'Will not be displayed on the website (e.g. complete address)', 'wpcasa' ),
 				'priority'  => 50
 			),
 			'exclude' => array(
-				'name'      => __( 'Listings Map', 'wpsight' ),
+				'name'      => __( 'Listings Map', 'wpcasa' ),
 				'id'        => '_map_exclude',
 				'type'      => 'checkbox',
-				'desc'		=> __( 'Exclude from general listings map', 'wpsight' ),
+				'desc'		=> __( 'Exclude from general listings map', 'wpcasa' ),
 				'priority'  => 60
 			)
 		);
@@ -620,7 +620,7 @@ class WPSight_Meta_Boxes {
 
 		$meta_box = array(
 			'id'       => 'listing_location',
-			'title'    => __( 'Listing Location', 'wpsight' ),
+			'title'    => __( 'Listing Location', 'wpcasa' ),
 			'object_types'    => array( wpsight_post_type() ),
 			'context'  => 'normal',
 			'priority' => 'high',
@@ -651,7 +651,7 @@ class WPSight_Meta_Boxes {
 
 		$fields = array(
 			'name' => array(
-				'name'      => __( 'Name', 'wpsight' ),
+				'name'      => __( 'Name', 'wpcasa' ),
 				'id'        => '_agent_name',
 				'type'      => 'text',
 				'desc'      => false,
@@ -659,7 +659,7 @@ class WPSight_Meta_Boxes {
 				'priority'  => 10
 			),
 			'company' => array(
-				'name'      => __( 'Company', 'wpsight' ),
+				'name'      => __( 'Company', 'wpcasa' ),
 				'id'        => '_agent_company',
 				'type'      => 'text',
 				'desc'      => false,
@@ -667,7 +667,7 @@ class WPSight_Meta_Boxes {
 				'priority'  => 20
 			),
 			'description' => array(
-				'name'      => __( 'Description', 'wpsight' ),
+				'name'      => __( 'Description', 'wpcasa' ),
 				'id'        => '_agent_description',
 				'type'      => 'textarea',
 				'desc'      => false,
@@ -675,7 +675,7 @@ class WPSight_Meta_Boxes {
 				'priority'  => 30
 			),
 			'website' => array(
-				'name'      => __( 'Website', 'wpsight' ),
+				'name'      => __( 'Website', 'wpcasa' ),
 				'id'        => '_agent_website',
 				'type'      => 'text_url',
 				'desc'      => false,
@@ -683,7 +683,7 @@ class WPSight_Meta_Boxes {
 				'priority'  => 40
 			),
 			'twitter' => array(
-				'name'      => __( 'Twitter', 'wpsight' ),
+				'name'      => __( 'Twitter', 'wpcasa' ),
 				'id'        => '_agent_twitter',
 				'type'      => 'text',
 				'desc'      => false,
@@ -691,7 +691,7 @@ class WPSight_Meta_Boxes {
 				'priority'  => 50
 			),
 			'facebook' => array(
-				'name'      => __( 'Facebook', 'wpsight' ),
+				'name'      => __( 'Facebook', 'wpcasa' ),
 				'id'        => '_agent_facebook',
 				'type'      => 'text',
 				'desc'      => false,
@@ -699,7 +699,7 @@ class WPSight_Meta_Boxes {
 				'priority'  => 60
 			),
 			'logo' => array(
-				'name'      => __( 'Logo', 'wpsight' ),
+				'name'      => __( 'Logo', 'wpcasa' ),
 				'id'        => '_agent_logo',
 				'type'      => 'file',
 				'preview_size' => array( 100, 100 ),
@@ -715,7 +715,7 @@ class WPSight_Meta_Boxes {
 
 		$meta_box = array(
 			'id'           => 'listing_agent',
-			'title'        => __( 'Listing Agent', 'wpsight' ),
+			'title'        => __( 'Listing Agent', 'wpcasa' ),
 			'object_types' => array( wpsight_post_type() ),
 			'context'      => 'normal',
 			'priority'     => 'high',
@@ -735,19 +735,18 @@ class WPSight_Meta_Boxes {
 
 		// Set meta box fields for users
 
-		if ( ! current_user_can( 'edit_user' ) ) {
+		if ( ! current_user_can( 'edit_user' ) )
 			return array();
-		}
 
 		$fields = array(
 			array(
-				'name'     => __( 'Agent Info', 'cmb2' ),
-				'desc'     => __( 'These settings let you change how your agent profile will appear in listings.', 'cmb2' ),
-				'id'       =>  'user_listing_agent_title',
-				'type'     => 'title',
+				'name'     => __( 'Agent Info', 'wpcasa' ),
+				'desc'     => __( 'These settings let you change how your agent profile will appear in listings.', 'wpcasa' ),
+				'id'       =>  'agent_title',
+				'type'     => 'title'
 			),
 			array(
-				'name'      => __( 'Agent Image', 'wpsight' ),
+				'name'      => __( 'Agent Image', 'wpcasa' ),
 				'id'        => 'agent_logo',
 				'type'      => 'file',
 				'desc'      => false,
@@ -762,8 +761,8 @@ class WPSight_Meta_Boxes {
 
 		$meta_box = array(
 			'id'           => 'user_listing_agent',
-			'title'        => __( 'User Listing Agent Settings', 'wpsight' ),
-			'object_types' => array('user'),
+			'title'        => __( 'Agent Info', 'wpcasa' ),
+			'object_types' => array( 'user' ),
 			'fields'       => $fields
 		);
 

@@ -3,7 +3,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * wpSight_Geocode
+ * WPSight_Geocode
  *
  * Obtains Geolocation data for posted listings from Google.
  * This code was mainly taken from the plugin WP Job Manager
@@ -206,31 +206,31 @@ class WPSight_Geocode {
 					switch ( $geocoded_address->status ) {
 
 						case 'ZERO_RESULTS' :
-							throw new Exception( __( "No results found", 'wpsight' ) );
+							throw new Exception( __( "No results found", 'wpcasa' ) );
 						break;
 
 						case 'OVER_QUERY_LIMIT' :
 							set_transient( 'jm_geocode_over_query_limit', 1, HOUR_IN_SECONDS );
-							throw new Exception( __( "Query limit reached", 'wpsight' ) );
+							throw new Exception( __( "Query limit reached", 'wpcasa' ) );
 						break;
 
 						case 'OK' :
 							if ( ! empty( $geocoded_address->results[0] ) ) {
 								set_transient( $transient_name, $geocoded_address, 24 * HOUR_IN_SECONDS * 365 );
 							} else {
-								throw new Exception( __( "Geocoding error", 'wpsight' ) );
+								throw new Exception( __( "Geocoding error", 'wpcasa' ) );
 							}
 						break;
 
 						default :
-							throw new Exception( __( "Geocoding error", 'wpsight' ) );
+							throw new Exception( __( "Geocoding error", 'wpcasa' ) );
 						break;
 
 					}
 
 				} else {
 
-					throw new Exception( __( "Geocoding error", 'wpsight' ) );
+					throw new Exception( __( "Geocoding error", 'wpcasa' ) );
 
 				}
 

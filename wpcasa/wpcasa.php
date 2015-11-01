@@ -107,26 +107,16 @@ class WPSight_Framework {
 		add_action( 'switch_theme', array( $this->post_types, 'register_post_type_listing' ), 10 );
 		add_action( 'switch_theme', 'flush_rewrite_rules', 15 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
-		
-		//add_action( 'admin_init', array( $this, 'updater' ) );
 
 		do_action_ref_array( 'wpsight_init', array( &$this ) );
 
 	}
 
 	/**
-	 * Handle Updates
-	 */
-	public function updater() {
-		// if ( version_compare( WPSIGHT_VERSION, get_option( 'wpsight_version' ), '>' ) )
-			// include_once( 'includes/class-wpsight-install.php' );
-	}
-
-	/**
 	 * Localization
 	 */
 	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'wpsight', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'wpcasa', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**
@@ -150,7 +140,7 @@ class WPSight_Framework {
 		
 		wp_localize_script( 'wpsight-listings-search', 'wpsight_localize', $data );
 		
-		if( true == apply_filters( 'wpsight_css', true ) ) {
+		if( true == apply_filters( 'wpsight_css', true ) && wpsight_get_option( 'listings_css' ) ) {
 
 			wp_enqueue_style( 'wpsight', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight.css' );
 			
@@ -182,7 +172,7 @@ class WPSight_Framework {
 		// Create listings page
 		
 		$page_data = array(
-			'post_title'     => _x( 'Listings', 'listings page title', 'wpsight' ),
+			'post_title'     => _x( 'Listings', 'listings page title', 'wpcasa' ),
 			'post_content'   => '[wpsight_listings]',
 			'post_type'      => 'page',
 			'post_status'	 => 'publish',
@@ -195,7 +185,8 @@ class WPSight_Framework {
 		// Add some default options
 		
 		$options = array(
-			'listings_page' => $page_id
+			'listings_page' => $page_id,
+			'listings_css'	=> '1'
 		);
 		
 		foreach( $options as $option => $value ) {

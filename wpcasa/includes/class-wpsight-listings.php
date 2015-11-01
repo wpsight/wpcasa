@@ -568,78 +568,6 @@ class WPSight_Listings {
 	}
 
 	/**
-	 * get_listings_dashboard()
-	 *
-	 * Return listings dashboard content.
-	 *
-	 * @param array   $args Array of arguments
-	 * @uses is_user_logged_in()
-	 * @uses get_query_var()
-	 * @uses get_current_user_id()
-	 * @uses wpsight_get_template()
-	 * @uses wpsight_get_template_part()
-	 *
-	 * @return mixed Dashboard content
-	 *
-	 * @since 1.0.0
-	 */
-
-	public static function get_listings_dashboard( $args = array() ) {
-
-		// Check if the user is logged in
-
-		if ( ! is_user_logged_in() ) {
-
-			$dashboard = __( 'You need to be signed in to manage your listings.', 'wpsight' );
-
-		} else {
-
-			$args = apply_filters( 'wpsight_get_listings_dashboard_args', array(
-					'post_type'           => wpsight_post_type(),
-					'post_status'         => array( 'publish', 'expired', 'pending' ),
-					'ignore_sticky_posts' => 1,
-					'posts_per_page'      => $posts_per_page,
-					'offset'              => ( max( 1, get_query_var( 'paged' ) ) - 1 ) * $posts_per_page,
-					'orderby'             => 'date',
-					'order'               => 'desc',
-					'author'              => get_current_user_id()
-				) );
-
-			$listings = new WP_Query( $args );
-
-			if ( $listings->have_posts() ) {
-
-				ob_start();
-
-				// Get template before loop
-				wpsight_get_template( 'wpsight_listings_dashboard_before' );
-
-				// Loop through listings
-
-				while ( $listings->have_posts() ) {
-
-					// Setup listing data
-					$listings->the_post();
-
-					// Get listing loop template
-					wpsight_get_template_part( 'content', 'listing-dashboard' );
-
-				}
-
-				// Get template after loop
-				wpsight_get_template( 'wpsight_listings_dashboard_after' );
-
-				$dashboard = ob_get_clean();
-
-			}
-
-		}
-
-		return apply_filters( 'wpsight_get_listings_dashboard', $dashboard, $args );
-
-	}
-
-	/**
 	 * get_listing_offer()
 	 *
 	 * Return listings offer (e.g. sale, rent).
@@ -943,9 +871,9 @@ class WPSight_Listings {
 		// Set listing price labels
 
 		$listing_price_labels = array(
-			'sold'    => __( 'Sold', 'wpsight'  ),
-			'rented'  => __( 'Rented', 'wpsight'  ),
-			'request' => __( 'Price on request', 'wpsight' )
+			'sold'    => __( 'Sold', 'wpcasa'  ),
+			'rented'  => __( 'Rented', 'wpcasa'  ),
+			'request' => __( 'Price on request', 'wpcasa' )
 		);
 
 		$listing_price_labels = apply_filters( 'wpsight_get_listing_price_labels', $listing_price_labels );

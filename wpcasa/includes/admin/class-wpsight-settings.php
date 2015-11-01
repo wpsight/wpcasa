@@ -103,12 +103,12 @@ class WPSight_Admin_Settings {
 
 						flush_rewrite_rules();
 						update_option( $this->settings_name, wpsight_options_defaults() );
-						echo '<div class="updated fade wpsight-updated"><p>' . __( 'Settings reset.', 'wpsight' ) . '</p></div>';
+						echo '<div class="updated fade wpsight-updated"><p>' . __( 'Settings reset.', 'wpcasa' ) . '</p></div>';
 
 					} elseif ( isset( $_GET['settings-updated'] ) ) {
 
 						flush_rewrite_rules();
-						echo '<div class="updated fade wpsight-updated"><p>' . __( 'Settings saved.', 'wpsight' ) . '</p></div>';
+						echo '<div class="updated fade wpsight-updated"><p>' . __( 'Settings saved.', 'wpcasa' ) . '</p></div>';
 
 					}
 
@@ -181,7 +181,7 @@ class WPSight_Admin_Settings {
 										$pages[$page->ID] = $page->post_title;
 
 									?><select id="setting-<?php echo $option_css; ?>" class="regular-text" name="<?php echo $option_id; ?>" <?php echo implode( ' ', $attributes ); ?>>
-										<option value=""><?php _ex( 'Select page', 'plugin settings', 'wpsight' ); ?>&hellip;</option><?php
+										<option value=""><?php _ex( 'Select page', 'plugin settings', 'wpcasa' ); ?>&hellip;</option><?php
 										foreach( $pages as $key => $name )
 											echo '<option value="' . esc_attr( $key ) . '" ' . selected( $value, $key, false ) . '>' . esc_html( $name ) . '</option>';
 									?></select><?php
@@ -256,7 +256,7 @@ class WPSight_Admin_Settings {
 
 					}
 					
-					submit_button( __( 'Save Changes', 'wpsight' ), 'primary', 'wpsight-settings-save' );
+					submit_button( __( 'Save Changes', 'wpcasa' ), 'primary', 'wpsight-settings-save' );
 
 				?>
 
@@ -264,7 +264,7 @@ class WPSight_Admin_Settings {
 		    
 		    <div class="wpsight-settings-reset">
 		    	<form method="post" action="">
-		    		<input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Restore Defaults', 'wpsight' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Are you sure?', 'wpsight' ) ); ?>' );" />
+		    		<input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Restore Defaults', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Are you sure?', 'wpcasa' ) ); ?>' );" />
 		    	</form>
 		    </div>
 		    

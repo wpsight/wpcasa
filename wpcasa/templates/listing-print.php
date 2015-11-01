@@ -24,11 +24,11 @@ $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 	<div class="actions clearfix">
 	
 		<div class="alignleft">
-			<a href="<?php echo esc_url_raw( get_permalink( $listing->ID ) ); ?>" class="button back">&laquo; <?php _ex( 'Back to Listing', 'listing print', 'wpsight' ); ?></a>
+			<a href="<?php echo esc_url_raw( get_permalink( $listing->ID ) ); ?>" class="button back">&laquo; <?php _ex( 'Back to Listing', 'listing print', 'wpcasa' ); ?></a>
 		</div>
 		
 		<div class="alignright">
-			<a href="#" onclick="window.print();return false" class="button printnow"><?php _ex( 'Print Now', 'listing print', 'wpsight' ); ?></a>
+			<a href="#" onclick="window.print();return false" class="button printnow"><?php _ex( 'Print Now', 'listing print', 'wpcasa' ); ?></a>
 		</div>
 	
 	</div><!-- .actions -->
@@ -61,7 +61,7 @@ $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 			<div class="listing-print-description">			
 				<?php if( wpsight_is_listing_not_available() ) : ?>
 					<div class="wpsight-alert wpsight-alert-small wpsight-alert-not-available">
-						<?php _e( 'This property is currently not available.', 'wpsight' ); ?>
+						<?php _e( 'This property is currently not available.', 'wpcasa' ); ?>
 					</div>
 				<?php endif; ?>				
 				<div class="wpsight-listing-description" itemprop="description">

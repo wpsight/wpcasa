@@ -75,27 +75,27 @@ class WPSight_Post_Type_Listing {
 	
 		// Set labels and localize them
 	
-		$locations_name		= apply_filters( 'wpsight_taxonomy_locations_name', __( 'Locations', 'wpsight' ) );
-		$locations_singular	= apply_filters( 'wpsight_taxonomy_locations_singular', __( 'Location', 'wpsight' ) );
+		$locations_name		= apply_filters( 'wpsight_taxonomy_locations_name', __( 'Locations', 'wpcasa' ) );
+		$locations_singular	= apply_filters( 'wpsight_taxonomy_locations_singular', __( 'Location', 'wpcasa' ) );
 	
 		$locations_labels = array(
 			'name' 				 		 => $locations_name,
 			'singular_name' 	 		 => $locations_singular,
-	        'menu_name' 		 		 => _x( 'Locations', 'taxonomy locations', 'wpsight' ),
-	        'all_items' 		 		 => _x( 'All Locations', 'taxonomy locations', 'wpsight' ),
-	        'edit_item' 		 		 => _x( 'Edit Location', 'taxonomy locations', 'wpsight' ),
-	        'view_item' 		 		 => _x( 'View Location', 'taxonomy locations', 'wpsight' ),
-	        'update_item' 		 		 => _x( 'Update Location', 'taxonomy locations', 'wpsight' ),
-	        'add_new_item' 		 		 => _x( 'Add New Location', 'taxonomy locations', 'wpsight' ),
-	        'new_item_name' 	 		 => _x( 'New Location Name', 'taxonomy locations', 'wpsight' ),
-	        'parent_item'  		 		 => _x( 'Parent Location', 'taxonomy locations', 'wpsight' ),
-	        'parent_item_colon'  		 => _x( 'Parent Location:', 'taxonomy locations', 'wpsight' ),
-	        'search_items' 		 		 => _x( 'Search locations', 'taxonomy locations', 'wpsight' ),
-	        'popular_items' 	 		 => _x( 'Popular Locations', 'taxonomy locations', 'wpsight' ),
-	        'separate_items_with_commas' => _x( 'Separate locations with commas', 'taxonomy locations', 'wpsight' ),
-	        'add_or_remove_items' 		 => _x( 'Add or remove locations', 'taxonomy locations', 'wpsight' ),
-	        'choose_from_most_used' 	 => _x( 'Choose from the most used locations', 'taxonomy locations', 'wpsight' ),
-	        'not_found' 		 		 => _x( 'No location found', 'taxonomy locations', 'wpsight' )
+	        'menu_name' 		 		 => _x( 'Locations', 'taxonomy locations', 'wpcasa' ),
+	        'all_items' 		 		 => _x( 'All Locations', 'taxonomy locations', 'wpcasa' ),
+	        'edit_item' 		 		 => _x( 'Edit Location', 'taxonomy locations', 'wpcasa' ),
+	        'view_item' 		 		 => _x( 'View Location', 'taxonomy locations', 'wpcasa' ),
+	        'update_item' 		 		 => _x( 'Update Location', 'taxonomy locations', 'wpcasa' ),
+	        'add_new_item' 		 		 => _x( 'Add New Location', 'taxonomy locations', 'wpcasa' ),
+	        'new_item_name' 	 		 => _x( 'New Location Name', 'taxonomy locations', 'wpcasa' ),
+	        'parent_item'  		 		 => _x( 'Parent Location', 'taxonomy locations', 'wpcasa' ),
+	        'parent_item_colon'  		 => _x( 'Parent Location:', 'taxonomy locations', 'wpcasa' ),
+	        'search_items' 		 		 => _x( 'Search locations', 'taxonomy locations', 'wpcasa' ),
+	        'popular_items' 	 		 => _x( 'Popular Locations', 'taxonomy locations', 'wpcasa' ),
+	        'separate_items_with_commas' => _x( 'Separate locations with commas', 'taxonomy locations', 'wpcasa' ),
+	        'add_or_remove_items' 		 => _x( 'Add or remove locations', 'taxonomy locations', 'wpcasa' ),
+	        'choose_from_most_used' 	 => _x( 'Choose from the most used locations', 'taxonomy locations', 'wpcasa' ),
+	        'not_found' 		 		 => _x( 'No location found', 'taxonomy locations', 'wpcasa' )
 		);
 		
 		// Set args and rewrite rules
@@ -123,27 +123,27 @@ class WPSight_Post_Type_Listing {
 	
 		// Set labels and localize them
 		
-		$types_name		= apply_filters( 'wpsight_taxonomy_types_name', __( 'Listing Types', 'wpsight' ) );
-		$types_singular	= apply_filters( 'wpsight_taxonomy_types_singular', __( 'Listing Type', 'wpsight' ) );
+		$types_name		= apply_filters( 'wpsight_taxonomy_types_name', __( 'Listing Types', 'wpcasa' ) );
+		$types_singular	= apply_filters( 'wpsight_taxonomy_types_singular', __( 'Listing Type', 'wpcasa' ) );
 		
 		$types_labels = array(
 			'name' 						 => $types_name,
 			'singular_name' 			 => $types_singular,
-			'menu_name' 		 		 => _x( 'Listing Types', 'taxonomy types', 'wpsight' ),
-	        'all_items' 		 		 => _x( 'All Listing Types', 'taxonomy types', 'wpsight' ),
-	        'edit_item' 		 		 => _x( 'Edit Listing Type', 'taxonomy types', 'wpsight' ),
-	        'view_item' 		 		 => _x( 'View Listing Type', 'taxonomy types', 'wpsight' ),
-	        'update_item' 		 		 => _x( 'Update Listing Type', 'taxonomy types', 'wpsight' ),
-	        'add_new_item' 		 		 => _x( 'Add New Listing Type', 'taxonomy types', 'wpsight' ),
-	        'new_item_name' 	 		 => _x( 'New Listing Type Name', 'taxonomy types', 'wpsight' ),
-	        'parent_item'  		 		 => _x( 'Parent Listing Type', 'taxonomy types', 'wpsight' ),
-	        'parent_item_colon'  		 => _x( 'Parent Listing Type:', 'taxonomy types', 'wpsight' ),
-	        'search_items' 		 		 => _x( 'Search listing types', 'taxonomy types', 'wpsight' ),
-	        'popular_items' 	 		 => _x( 'Popular Listing Types', 'taxonomy types', 'wpsight' ),
-	        'separate_items_with_commas' => _x( 'Separate listing types with commas', 'taxonomy types', 'wpsight' ),
-	        'add_or_remove_items' 		 => _x( 'Add or remove listing types', 'taxonomy types', 'wpsight' ),
-	        'choose_from_most_used' 	 => _x( 'Choose from the most used listing types', 'taxonomy types', 'wpsight' ),
-	        'not_found' 		 		 => _x( 'No listing type found', 'taxonomy types', 'wpsight' )
+			'menu_name' 		 		 => _x( 'Listing Types', 'taxonomy types', 'wpcasa' ),
+	        'all_items' 		 		 => _x( 'All Listing Types', 'taxonomy types', 'wpcasa' ),
+	        'edit_item' 		 		 => _x( 'Edit Listing Type', 'taxonomy types', 'wpcasa' ),
+	        'view_item' 		 		 => _x( 'View Listing Type', 'taxonomy types', 'wpcasa' ),
+	        'update_item' 		 		 => _x( 'Update Listing Type', 'taxonomy types', 'wpcasa' ),
+	        'add_new_item' 		 		 => _x( 'Add New Listing Type', 'taxonomy types', 'wpcasa' ),
+	        'new_item_name' 	 		 => _x( 'New Listing Type Name', 'taxonomy types', 'wpcasa' ),
+	        'parent_item'  		 		 => _x( 'Parent Listing Type', 'taxonomy types', 'wpcasa' ),
+	        'parent_item_colon'  		 => _x( 'Parent Listing Type:', 'taxonomy types', 'wpcasa' ),
+	        'search_items' 		 		 => _x( 'Search listing types', 'taxonomy types', 'wpcasa' ),
+	        'popular_items' 	 		 => _x( 'Popular Listing Types', 'taxonomy types', 'wpcasa' ),
+	        'separate_items_with_commas' => _x( 'Separate listing types with commas', 'taxonomy types', 'wpcasa' ),
+	        'add_or_remove_items' 		 => _x( 'Add or remove listing types', 'taxonomy types', 'wpcasa' ),
+	        'choose_from_most_used' 	 => _x( 'Choose from the most used listing types', 'taxonomy types', 'wpcasa' ),
+	        'not_found' 		 		 => _x( 'No listing type found', 'taxonomy types', 'wpcasa' )
 		);
 		
 		// Set args and rewrite rules
@@ -170,27 +170,27 @@ class WPSight_Post_Type_Listing {
 	
 		// Set labels and localize them
 		
-		$features_name	   = apply_filters( 'wpsight_taxonomy_features_name', __( 'Features', 'wpsight' ) );
-		$features_singular = apply_filters( 'wpsight_taxonomy_features_singular', __( 'Feature', 'wpsight' ) );
+		$features_name	   = apply_filters( 'wpsight_taxonomy_features_name', __( 'Features', 'wpcasa' ) );
+		$features_singular = apply_filters( 'wpsight_taxonomy_features_singular', __( 'Feature', 'wpcasa' ) );
 		
 		$features_labels = array(
 			'name' 						 => $features_name,
 			'singular_name' 			 => $features_singular,
-			'menu_name' 		 		 => _x( 'Features', 'taxonomy features', 'wpsight' ),
-	        'all_items' 		 		 => _x( 'All Features', 'taxonomy features', 'wpsight' ),
-	        'edit_item' 		 		 => _x( 'Edit Feature', 'taxonomy features', 'wpsight' ),
-	        'view_item' 		 		 => _x( 'View Feature', 'taxonomy features', 'wpsight' ),
-	        'update_item' 		 		 => _x( 'Update Feature', 'taxonomy features', 'wpsight' ),
-	        'add_new_item' 		 		 => _x( 'Add New Feature', 'taxonomy features', 'wpsight' ),
-	        'new_item_name' 	 		 => _x( 'New Feature Name', 'taxonomy features', 'wpsight' ),
-	        'parent_item'  		 		 => _x( 'Parent Feature', 'taxonomy features', 'wpsight' ),
-	        'parent_item_colon'  		 => _x( 'Parent Feature:', 'taxonomy features', 'wpsight' ),
-	        'search_items' 		 		 => _x( 'Search features', 'taxonomy features', 'wpsight' ),
-	        'popular_items' 	 		 => _x( 'Popular Features', 'taxonomy features', 'wpsight' ),
-	        'separate_items_with_commas' => _x( 'Separate features with commas', 'taxonomy features', 'wpsight' ),
-	        'add_or_remove_items' 		 => _x( 'Add or remove features', 'taxonomy features', 'wpsight' ),
-	        'choose_from_most_used' 	 => _x( 'Choose from the most used features', 'taxonomy features', 'wpsight' ),
-	        'not_found' 		 		 => _x( 'No feature found', 'taxonomy features', 'wpsight' )
+			'menu_name' 		 		 => _x( 'Features', 'taxonomy features', 'wpcasa' ),
+	        'all_items' 		 		 => _x( 'All Features', 'taxonomy features', 'wpcasa' ),
+	        'edit_item' 		 		 => _x( 'Edit Feature', 'taxonomy features', 'wpcasa' ),
+	        'view_item' 		 		 => _x( 'View Feature', 'taxonomy features', 'wpcasa' ),
+	        'update_item' 		 		 => _x( 'Update Feature', 'taxonomy features', 'wpcasa' ),
+	        'add_new_item' 		 		 => _x( 'Add New Feature', 'taxonomy features', 'wpcasa' ),
+	        'new_item_name' 	 		 => _x( 'New Feature Name', 'taxonomy features', 'wpcasa' ),
+	        'parent_item'  		 		 => _x( 'Parent Feature', 'taxonomy features', 'wpcasa' ),
+	        'parent_item_colon'  		 => _x( 'Parent Feature:', 'taxonomy features', 'wpcasa' ),
+	        'search_items' 		 		 => _x( 'Search features', 'taxonomy features', 'wpcasa' ),
+	        'popular_items' 	 		 => _x( 'Popular Features', 'taxonomy features', 'wpcasa' ),
+	        'separate_items_with_commas' => _x( 'Separate features with commas', 'taxonomy features', 'wpcasa' ),
+	        'add_or_remove_items' 		 => _x( 'Add or remove features', 'taxonomy features', 'wpcasa' ),
+	        'choose_from_most_used' 	 => _x( 'Choose from the most used features', 'taxonomy features', 'wpcasa' ),
+	        'not_found' 		 		 => _x( 'No feature found', 'taxonomy features', 'wpcasa' )
 		);
 		
 		// Set args and rewrite rules
@@ -217,8 +217,8 @@ class WPSight_Post_Type_Listing {
 	
 		// Set labels and localize them
 		
-		$categories_name	 = apply_filters( 'wpsight_taxonomy_categories_name', __( 'Categories', 'wpsight' ) );
-		$categories_singular = apply_filters( 'wpsight_taxonomy_categories_singular', __( 'Category', 'wpsight' ) );	
+		$categories_name	 = apply_filters( 'wpsight_taxonomy_categories_name', __( 'Categories', 'wpcasa' ) );
+		$categories_singular = apply_filters( 'wpsight_taxonomy_categories_singular', __( 'Category', 'wpcasa' ) );	
 		
 		$categories_labels = array(
 			'name' 			=> $categories_name,
@@ -251,17 +251,17 @@ class WPSight_Post_Type_Listing {
 		// Set post type labels
 
 		$labels = array( 
-		    'name' 				 => _x( 'Listings', 'listing', 'wpsight' ),
-		    'singular_name' 	 => _x( 'Listing', 'listing', 'wpsight' ),
-		    'add_new' 			 => _x( 'Add New', 'listing', 'wpsight' ),
-		    'add_new_item' 		 => _x( 'Add New Listing', 'listing', 'wpsight' ),
-		    'edit_item' 		 => _x( 'Edit Listing', 'listing', 'wpsight' ),
-		    'new_item' 			 => _x( 'New Listing', 'listing', 'wpsight' ),
-		    'view_item' 		 => _x( 'View Listing', 'listing', 'wpsight' ),
-		    'search_items' 		 => _x( 'Search Listings', 'listing', 'wpsight' ),
-		    'not_found' 		 => _x( 'No listings found', 'listing', 'wpsight' ),
-		    'not_found_in_trash' => _x( 'No listings found in Trash', 'listing', 'wpsight' ),
-		    'menu_name' 		 => _x( 'Listings', 'listing', 'wpsight' ),
+		    'name' 				 => _x( 'Listings', 'listing', 'wpcasa' ),
+		    'singular_name' 	 => _x( 'Listing', 'listing', 'wpcasa' ),
+		    'add_new' 			 => _x( 'Add New', 'listing', 'wpcasa' ),
+		    'add_new_item' 		 => _x( 'Add New Listing', 'listing', 'wpcasa' ),
+		    'edit_item' 		 => _x( 'Edit Listing', 'listing', 'wpcasa' ),
+		    'new_item' 			 => _x( 'New Listing', 'listing', 'wpcasa' ),
+		    'view_item' 		 => _x( 'View Listing', 'listing', 'wpcasa' ),
+		    'search_items' 		 => _x( 'Search Listings', 'listing', 'wpcasa' ),
+		    'not_found' 		 => _x( 'No listings found', 'listing', 'wpcasa' ),
+		    'not_found_in_trash' => _x( 'No listings found in Trash', 'listing', 'wpcasa' ),
+		    'menu_name' 		 => _x( 'Listings', 'listing', 'wpcasa' ),
 		);
 		
 		$labels = apply_filters( 'wpsight_post_type_labels_listing', $labels );
@@ -269,8 +269,8 @@ class WPSight_Post_Type_Listing {
 		// Set post type arguments
 		
 		$args = array(
-			'label'               => _x( 'Listings', 'listing', 'wpsight' ),
-			'description'         => _x( 'Searchable listings with detailed information about the corresponding item.', 'listing', 'wpsight' ),
+			'label'               => _x( 'Listings', 'listing', 'wpcasa' ),
+			'description'         => _x( 'Searchable listings with detailed information about the corresponding item.', 'listing', 'wpcasa' ),
 		    'labels' 			  => $labels,
 		    'hierarchical' 		  => false,        
 		    'supports' 			  => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields', 'revisions', 'excerpt' ),
@@ -543,9 +543,9 @@ class WPSight_Post_Type_Listing {
 				postStatus = $('#post_status');
 				status = '<?php echo $post->post_status; ?>';
 				
-				save_expired = '<?php _ex( 'Save as Expired', 'listing post status', 'wpsight' ); ?>';
-				save_preview = '<?php _ex( 'Save as Preview', 'listing post status', 'wpsight' ); ?>';
-				save_pending = '<?php _ex( 'Save as Pending', 'listing post status', 'wpsight' ); ?>';
+				save_expired = '<?php _ex( 'Save as Expired', 'listing post status', 'wpcasa' ); ?>';
+				save_preview = '<?php _ex( 'Save as Preview', 'listing post status', 'wpcasa' ); ?>';
+				save_pending = '<?php _ex( 'Save as Pending', 'listing post status', 'wpcasa' ); ?>';
 
 				<?php if ( ! empty( $display ) ) : ?>
 					$( '#post-status-display' ).html( '<?php echo $display; ?>' );

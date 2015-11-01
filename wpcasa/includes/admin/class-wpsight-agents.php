@@ -60,10 +60,10 @@ class WPSight_Admin_Agents {
 	
 	    <table class="form-table">
 	        <tr>
-	            <th><label for="agent_exclude"><?php _e( 'Agent Update', 'wpsight' ); ?></label></th>
+	            <th><label for="agent_exclude"><?php _e( 'Agent Update', 'wpcasa' ); ?></label></th>
 	            <td>
 	                <input type="checkbox" value="1" name="agent_update" id="agent_update" style="margin-right:5px">
-	                <?php _e( 'Update agent info of all listings created by this user', 'wpsight' ); ?>
+	                <?php _e( 'Update agent info of all listings created by this user', 'wpcasa' ); ?>
 	            </td>
 	        </tr>
 	    </table><?php

@@ -34,9 +34,9 @@ class WPSight_General {
 
 			'details_1' => array(
 				'id'           => 'details_1',
-				'label'        => __( 'Beds', 'wpsight' ),
+				'label'        => __( 'Beds', 'wpcasa' ),
 				'unit'         => '',
-				'data'         => array( '' => __( 'n/d', 'wpsight' ), '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10' ),
+				'data'         => array( '' => __( 'n/d', 'wpcasa' ), '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10' ),
 				'description'  => '',
 				'query_var'    => 'bedrooms',
 				'data_compare' => '>=',
@@ -45,9 +45,9 @@ class WPSight_General {
 			),
 			'details_2' => array(
 				'id'           => 'details_2',
-				'label'        => __( 'Baths', 'wpsight' ),
+				'label'        => __( 'Baths', 'wpcasa' ),
 				'unit'         => '',
-				'data'         => array( '' => __( 'n/d', 'wpsight' ), '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10' ),
+				'data'         => array( '' => __( 'n/d', 'wpcasa' ), '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10' ),
 				'description'  => '',
 				'query_var'    => 'bathrooms',
 				'data_compare' => '>=',
@@ -56,7 +56,7 @@ class WPSight_General {
 			),
 			'details_3' => array(
 				'id'           => 'details_3',
-				'label'        => __( 'Plot Size', 'wpsight' ),
+				'label'        => __( 'Plot Size', 'wpcasa' ),
 				'unit'         => 'm2',
 				'description'  => '',
 				'query_var'    => 'plot_size',
@@ -66,7 +66,7 @@ class WPSight_General {
 			),
 			'details_4' => array(
 				'id'           => 'details_4',
-				'label'        => __( 'Living Area', 'wpsight' ),
+				'label'        => __( 'Living Area', 'wpcasa' ),
 				'unit'         => 'm2',
 				'data'         => false,
 				'description'  => '',
@@ -77,7 +77,7 @@ class WPSight_General {
 			),
 			'details_5' => array(
 				'id'           => 'details_5',
-				'label'        => __( 'Terrace', 'wpsight' ),
+				'label'        => __( 'Terrace', 'wpcasa' ),
 				'unit'         => 'm2',
 				'data'         => false,
 				'description'  => '',
@@ -88,7 +88,7 @@ class WPSight_General {
 			),
 			'details_6' => array(
 				'id'           => 'details_6',
-				'label'        => __( 'Parking', 'wpsight' ),
+				'label'        => __( 'Parking', 'wpcasa' ),
 				'unit'         => '',
 				'data'         => false,
 				'description'  => '',
@@ -99,7 +99,7 @@ class WPSight_General {
 			),
 			'details_7' => array(
 				'id'           => 'details_7',
-				'label'        => __( 'Heating', 'wpsight' ),
+				'label'        => __( 'Heating', 'wpcasa' ),
 				'unit'         => '',
 				'data'         => false,
 				'description'  => '',
@@ -110,7 +110,7 @@ class WPSight_General {
 			),
 			'details_8' => array(
 				'id'           => 'details_8',
-				'label'        => __( 'Built in', 'wpsight' ),
+				'label'        => __( 'Built in', 'wpcasa' ),
 				'unit'         => '',
 				'data'         => false,
 				'description'  => '',
@@ -268,8 +268,8 @@ class WPSight_General {
 	public static function offers() {
 
 		$offers = array(
-			'sale' => __( 'For Sale', 'wpsight' ),
-			'rent' => __( 'For Rent', 'wpsight' )
+			'sale' => __( 'For Sale', 'wpcasa' ),
+			'rent' => __( 'For Rent', 'wpcasa' )
 		);
 
 		return apply_filters( 'wpsight_offers', $offers );
@@ -344,10 +344,10 @@ class WPSight_General {
 
 		$rental_periods = array(
 
-			'rental_period_1' => __( 'per Month', 'wpsight' ),
-			'rental_period_2' => __( 'per Week', 'wpsight' ),
-			'rental_period_3' => __( 'per Year', 'wpsight' ),
-			'rental_period_4' => __( 'per Day', 'wpsight' )
+			'rental_period_1' => __( 'per Month', 'wpcasa' ),
+			'rental_period_2' => __( 'per Week', 'wpcasa' ),
+			'rental_period_3' => __( 'per Year', 'wpcasa' ),
+			'rental_period_4' => __( 'per Day', 'wpcasa' )
 
 		);
 
@@ -469,38 +469,38 @@ class WPSight_General {
 		$statuses = array(
 
 			'draft' => array(
-				'name'  => _x( 'Draft', 'listing post status', 'wpsight' ),
-				'label' => _x( 'Draft', 'listing post status', 'wpsight' )
+				'name'  => _x( 'Draft', 'listing post status', 'wpcasa' ),
+				'label' => _x( 'Draft', 'listing post status', 'wpcasa' )
 			),
 			'publish' => array(
-				'name'  => _x( 'Active', 'listing post status', 'wpsight' ),
-				'label' => _x( 'Active', 'listing post status', 'wpsight' )
+				'name'  => _x( 'Active', 'listing post status', 'wpcasa' ),
+				'label' => _x( 'Active', 'listing post status', 'wpcasa' )
 			),
 			'pending' => array(
-				'name'  => _x( 'Pending', 'listing post status', 'wpsight' ),
-				'label' => _x( 'Pending approval', 'listing post status', 'wpsight' )
+				'name'  => _x( 'Pending', 'listing post status', 'wpcasa' ),
+				'label' => _x( 'Pending approval', 'listing post status', 'wpcasa' )
 			),
 			'preview'  => array(
-				'name'                      => _x( 'Preview', 'listing post status', 'wpsight' ),
-				'label'                     => _x( 'Preview', 'listing post status', 'wpsight' ),
+				'name'                      => _x( 'Preview', 'listing post status', 'wpcasa' ),
+				'label'                     => _x( 'Preview', 'listing post status', 'wpcasa' ),
 				'public'                    => false,
 				'exclude_from_search'       => true,
 				'show_in_admin_all_list'    => false,
 				'show_in_admin_status_list' => false,
-				'label_count'               => _n_noop( 'Preview <span class="count">(%s)</span>', 'Preview <span class="count">(%s)</span>', 'wpsight' )
+				'label_count'               => _n_noop( 'Preview <span class="count">(%s)</span>', 'Preview <span class="count">(%s)</span>', 'wpcasa' )
 			),
 			'pending_payment' => array(
-				'name'                      => _x( 'Pending', 'listing post status', 'wpsight' ),
-				'label'                     => _x( 'Pending payment', 'listing post status', 'wpsight' ),
+				'name'                      => _x( 'Pending', 'listing post status', 'wpcasa' ),
+				'label'                     => _x( 'Pending payment', 'listing post status', 'wpcasa' ),
 				'public'                    => true,
 				'exclude_from_search'       => true,
 				'show_in_admin_all_list'    => true,
 				'show_in_admin_status_list' => true,
-				'label_count'               => _n_noop( 'Pending Payment <span class="count">(%s)</span>', 'Pending Payment <span class="count">(%s)</span>', 'wpsight' )
+				'label_count'               => _n_noop( 'Pending Payment <span class="count">(%s)</span>', 'Pending Payment <span class="count">(%s)</span>', 'wpcasa' )
 			),
 			'trash' => array(
-				'name'  => _x( 'Trash', 'listing post status', 'wpsight' ),
-				'label' => _x( 'Trash', 'listing post status', 'wpsight' )
+				'name'  => _x( 'Trash', 'listing post status', 'wpcasa' ),
+				'label' => _x( 'Trash', 'listing post status', 'wpcasa' )
 			)
 
 		);
@@ -545,99 +545,99 @@ class WPSight_General {
 	public static function currencies() {
 
 		$currencies = array(
-			'aed' => __( 'AED => United Arab Emirates Dirham', 'wpsight'  ),
-			'ang' => __( 'ANG => Netherlands Antillean Guilder', 'wpsight'  ),
-			'ars' => __( 'ARS => Argentine Peso', 'wpsight'  ),
-			'aud' => __( 'AUD => Australian Dollar', 'wpsight'  ),
-			'bdt' => __( 'BDT => Bangladeshi Taka', 'wpsight'  ),
-			'bgn' => __( 'BGN => Bulgarian Lev', 'wpsight'  ),
-			'bhd' => __( 'BHD => Bahraini Dinar', 'wpsight'  ),
-			'bnd' => __( 'BND => Brunei Dollar', 'wpsight'  ),
-			'bob' => __( 'BOB => Bolivian Boliviano', 'wpsight'  ),
-			'brl' => __( 'BRL => Brazilian Real', 'wpsight'  ),
-			'bwp' => __( 'BWP => Botswanan Pula', 'wpsight'  ),
-			'cad' => __( 'CAD => Canadian Dollar', 'wpsight'  ),
-			'chf' => __( 'CHF => Swiss Franc', 'wpsight'  ),
-			'clp' => __( 'CLP => Chilean Peso', 'wpsight'  ),
-			'cny' => __( 'CNY => Chinese Yuan', 'wpsight'  ),
-			'cop' => __( 'COP => Colombian Peso', 'wpsight'  ),
-			'crc' => __( 'CRC => Costa Rican Colon', 'wpsight'  ),
-			'czk' => __( 'CZK => Czech Republic Koruna', 'wpsight'  ),
-			'dkk' => __( 'DKK => Danish Krone', 'wpsight'  ),
-			'dop' => __( 'DOP => Dominican Peso', 'wpsight'  ),
-			'dzd' => __( 'DZD => Algerian Dinar', 'wpsight'  ),
-			'eek' => __( 'EEK => Estonian Kroon', 'wpsight'  ),
-			'egp' => __( 'EGP => Egyptian Pound', 'wpsight'  ),
-			'eur' => __( 'EUR => Euro', 'wpsight'  ),
-			'fjd' => __( 'FJD => Fijian Dollar', 'wpsight'  ),
-			'gbp' => __( 'GBP => British Pound', 'wpsight'  ),
-			'hkd' => __( 'HKD => Hong Kong Dollar', 'wpsight'  ),
-			'hnl' => __( 'HNL => Honduran Lempira', 'wpsight'  ),
-			'hrk' => __( 'HRK => Croatian Kuna', 'wpsight'  ),
-			'huf' => __( 'HUF => Hungarian Forint', 'wpsight'  ),
-			'idr' => __( 'IDR => Indonesian Rupiah', 'wpsight'  ),
-			'ils' => __( 'ILS => Israeli New Sheqel', 'wpsight'  ),
-			'inr' => __( 'INR => Indian Rupee', 'wpsight'  ),
-			'jmd' => __( 'JMD => Jamaican Dollar', 'wpsight'  ),
-			'jod' => __( 'JOD => Jordanian Dinar', 'wpsight'  ),
-			'jpy' => __( 'JPY => Japanese Yen', 'wpsight'  ),
-			'kes' => __( 'KES => Kenyan Shilling', 'wpsight'  ),
-			'krw' => __( 'KRW => South Korean Won', 'wpsight'  ),
-			'kwd' => __( 'KWD => Kuwaiti Dinar', 'wpsight'  ),
-			'kyd' => __( 'KYD => Cayman Islands Dollar', 'wpsight'  ),
-			'kzt' => __( 'KZT => Kazakhstani Tenge', 'wpsight'  ),
-			'lbp' => __( 'LBP => Lebanese Pound', 'wpsight'  ),
-			'lkr' => __( 'LKR => Sri Lankan Rupee', 'wpsight'  ),
-			'ltl' => __( 'LTL => Lithuanian Litas', 'wpsight'  ),
-			'lvl' => __( 'LVL => Latvian Lats', 'wpsight'  ),
-			'mad' => __( 'MAD => Moroccan Dirham', 'wpsight'  ),
-			'mdl' => __( 'MDL => Moldovan Leu', 'wpsight'  ),
-			'mkd' => __( 'MKD => Macedonian Denar', 'wpsight'  ),
-			'mur' => __( 'MUR => Mauritian Rupee', 'wpsight'  ),
-			'mvr' => __( 'MVR => Maldivian Rufiyaa', 'wpsight'  ),
-			'mxn' => __( 'MXN => Mexican Peso', 'wpsight'  ),
-			'myr' => __( 'MYR => Malaysian Ringgit', 'wpsight'  ),
-			'nad' => __( 'NAD => Namibian Dollar', 'wpsight'  ),
-			'ngn' => __( 'NGN => Nigerian Naira', 'wpsight'  ),
-			'nio' => __( 'NIO => Nicaraguan Cordoba', 'wpsight'  ),
-			'nok' => __( 'NOK => Norwegian Krone', 'wpsight'  ),
-			'npr' => __( 'NPR => Nepalese Rupee', 'wpsight'  ),
-			'nzd' => __( 'NZD => New Zealand Dollar', 'wpsight'  ),
-			'omr' => __( 'OMR => Omani Rial', 'wpsight'  ),
-			'pen' => __( 'PEN => Peruvian Nuevo Sol', 'wpsight'  ),
-			'pgk' => __( 'PGK => Papua New Guinean Kina', 'wpsight'  ),
-			'php' => __( 'PHP => Philippine Peso', 'wpsight'  ),
-			'pkr' => __( 'PKR => Pakistani Rupee', 'wpsight'  ),
-			'pln' => __( 'PLN => Polish Zloty', 'wpsight'  ),
-			'pyg' => __( 'PYG => Paraguayan Guarani', 'wpsight'  ),
-			'qar' => __( 'QAR => Qatari Rial', 'wpsight'  ),
-			'ron' => __( 'RON => Romanian Leu', 'wpsight'  ),
-			'rsd' => __( 'RSD => Serbian Dinar', 'wpsight'  ),
-			'rub' => __( 'RUB => Russian Ruble', 'wpsight'  ),
-			'sar' => __( 'SAR => Saudi Riyal', 'wpsight'  ),
-			'scr' => __( 'SCR => Seychellois Rupee', 'wpsight'  ),
-			'sek' => __( 'SEK => Swedish Krona', 'wpsight'  ),
-			'sgd' => __( 'SGD => Singapore Dollar', 'wpsight'  ),
-			'skk' => __( 'SKK => Slovak Koruna', 'wpsight'  ),
-			'sll' => __( 'SLL => Sierra Leonean Leone', 'wpsight'  ),
-			'svc' => __( 'SVC => Salvadoran Colon', 'wpsight'  ),
-			'thb' => __( 'THB => Thai Baht', 'wpsight'  ),
-			'tnd' => __( 'TND => Tunisian Dinar', 'wpsight'  ),
-			'try' => __( 'TRY => Turkish Lira', 'wpsight'  ),
-			'ttd' => __( 'TTD => Trinidad and Tobago Dollar', 'wpsight'  ),
-			'twd' => __( 'TWD => New Taiwan Dollar', 'wpsight'  ),
-			'tzs' => __( 'TZS => Tanzanian Shilling', 'wpsight'  ),
-			'uah' => __( 'UAH => Ukrainian Hryvnia', 'wpsight'  ),
-			'ugx' => __( 'UGX => Ugandan Shilling', 'wpsight'  ),
-			'usd' => __( 'USD => US Dollar', 'wpsight'  ),
-			'uyu' => __( 'UYU => Uruguayan Peso', 'wpsight'  ),
-			'uzs' => __( 'UZS => Uzbekistan Som', 'wpsight'  ),
-			'vef' => __( 'VEF => Venezuelan Bolivar', 'wpsight'  ),
-			'vnd' => __( 'VND => Vietnamese Dong', 'wpsight'  ),
-			'xof' => __( 'XOF => CFA Franc BCEAO', 'wpsight'  ),
-			'yer' => __( 'YER => Yemeni Rial', 'wpsight'  ),
-			'zar' => __( 'ZAR => South African Rand', 'wpsight'  ),
-			'zmk' => __( 'ZMK => Zambian Kwacha', 'wpsight'  )
+			'aed' => __( 'AED => United Arab Emirates Dirham', 'wpcasa' ),
+			'ang' => __( 'ANG => Netherlands Antillean Guilder', 'wpcasa' ),
+			'ars' => __( 'ARS => Argentine Peso', 'wpcasa' ),
+			'aud' => __( 'AUD => Australian Dollar', 'wpcasa' ),
+			'bdt' => __( 'BDT => Bangladeshi Taka', 'wpcasa' ),
+			'bgn' => __( 'BGN => Bulgarian Lev', 'wpcasa' ),
+			'bhd' => __( 'BHD => Bahraini Dinar', 'wpcasa' ),
+			'bnd' => __( 'BND => Brunei Dollar', 'wpcasa' ),
+			'bob' => __( 'BOB => Bolivian Boliviano', 'wpcasa' ),
+			'brl' => __( 'BRL => Brazilian Real', 'wpcasa' ),
+			'bwp' => __( 'BWP => Botswanan Pula', 'wpcasa' ),
+			'cad' => __( 'CAD => Canadian Dollar', 'wpcasa' ),
+			'chf' => __( 'CHF => Swiss Franc', 'wpcasa' ),
+			'clp' => __( 'CLP => Chilean Peso', 'wpcasa' ),
+			'cny' => __( 'CNY => Chinese Yuan', 'wpcasa' ),
+			'cop' => __( 'COP => Colombian Peso', 'wpcasa' ),
+			'crc' => __( 'CRC => Costa Rican Colon', 'wpcasa' ),
+			'czk' => __( 'CZK => Czech Republic Koruna', 'wpcasa' ),
+			'dkk' => __( 'DKK => Danish Krone', 'wpcasa' ),
+			'dop' => __( 'DOP => Dominican Peso', 'wpcasa' ),
+			'dzd' => __( 'DZD => Algerian Dinar', 'wpcasa' ),
+			'eek' => __( 'EEK => Estonian Kroon', 'wpcasa' ),
+			'egp' => __( 'EGP => Egyptian Pound', 'wpcasa' ),
+			'eur' => __( 'EUR => Euro', 'wpcasa' ),
+			'fjd' => __( 'FJD => Fijian Dollar', 'wpcasa' ),
+			'gbp' => __( 'GBP => British Pound', 'wpcasa' ),
+			'hkd' => __( 'HKD => Hong Kong Dollar', 'wpcasa' ),
+			'hnl' => __( 'HNL => Honduran Lempira', 'wpcasa' ),
+			'hrk' => __( 'HRK => Croatian Kuna', 'wpcasa' ),
+			'huf' => __( 'HUF => Hungarian Forint', 'wpcasa' ),
+			'idr' => __( 'IDR => Indonesian Rupiah', 'wpcasa' ),
+			'ils' => __( 'ILS => Israeli New Sheqel', 'wpcasa' ),
+			'inr' => __( 'INR => Indian Rupee', 'wpcasa' ),
+			'jmd' => __( 'JMD => Jamaican Dollar', 'wpcasa' ),
+			'jod' => __( 'JOD => Jordanian Dinar', 'wpcasa' ),
+			'jpy' => __( 'JPY => Japanese Yen', 'wpcasa' ),
+			'kes' => __( 'KES => Kenyan Shilling', 'wpcasa' ),
+			'krw' => __( 'KRW => South Korean Won', 'wpcasa' ),
+			'kwd' => __( 'KWD => Kuwaiti Dinar', 'wpcasa' ),
+			'kyd' => __( 'KYD => Cayman Islands Dollar', 'wpcasa' ),
+			'kzt' => __( 'KZT => Kazakhstani Tenge', 'wpcasa' ),
+			'lbp' => __( 'LBP => Lebanese Pound', 'wpcasa' ),
+			'lkr' => __( 'LKR => Sri Lankan Rupee', 'wpcasa' ),
+			'ltl' => __( 'LTL => Lithuanian Litas', 'wpcasa' ),
+			'lvl' => __( 'LVL => Latvian Lats', 'wpcasa' ),
+			'mad' => __( 'MAD => Moroccan Dirham', 'wpcasa' ),
+			'mdl' => __( 'MDL => Moldovan Leu', 'wpcasa' ),
+			'mkd' => __( 'MKD => Macedonian Denar', 'wpcasa' ),
+			'mur' => __( 'MUR => Mauritian Rupee', 'wpcasa' ),
+			'mvr' => __( 'MVR => Maldivian Rufiyaa', 'wpcasa' ),
+			'mxn' => __( 'MXN => Mexican Peso', 'wpcasa' ),
+			'myr' => __( 'MYR => Malaysian Ringgit', 'wpcasa' ),
+			'nad' => __( 'NAD => Namibian Dollar', 'wpcasa' ),
+			'ngn' => __( 'NGN => Nigerian Naira', 'wpcasa' ),
+			'nio' => __( 'NIO => Nicaraguan Cordoba', 'wpcasa' ),
+			'nok' => __( 'NOK => Norwegian Krone', 'wpcasa' ),
+			'npr' => __( 'NPR => Nepalese Rupee', 'wpcasa' ),
+			'nzd' => __( 'NZD => New Zealand Dollar', 'wpcasa' ),
+			'omr' => __( 'OMR => Omani Rial', 'wpcasa' ),
+			'pen' => __( 'PEN => Peruvian Nuevo Sol', 'wpcasa' ),
+			'pgk' => __( 'PGK => Papua New Guinean Kina', 'wpcasa' ),
+			'php' => __( 'PHP => Philippine Peso', 'wpcasa' ),
+			'pkr' => __( 'PKR => Pakistani Rupee', 'wpcasa' ),
+			'pln' => __( 'PLN => Polish Zloty', 'wpcasa' ),
+			'pyg' => __( 'PYG => Paraguayan Guarani', 'wpcasa' ),
+			'qar' => __( 'QAR => Qatari Rial', 'wpcasa' ),
+			'ron' => __( 'RON => Romanian Leu', 'wpcasa' ),
+			'rsd' => __( 'RSD => Serbian Dinar', 'wpcasa' ),
+			'rub' => __( 'RUB => Russian Ruble', 'wpcasa' ),
+			'sar' => __( 'SAR => Saudi Riyal', 'wpcasa' ),
+			'scr' => __( 'SCR => Seychellois Rupee', 'wpcasa' ),
+			'sek' => __( 'SEK => Swedish Krona', 'wpcasa' ),
+			'sgd' => __( 'SGD => Singapore Dollar', 'wpcasa' ),
+			'skk' => __( 'SKK => Slovak Koruna', 'wpcasa' ),
+			'sll' => __( 'SLL => Sierra Leonean Leone', 'wpcasa' ),
+			'svc' => __( 'SVC => Salvadoran Colon', 'wpcasa' ),
+			'thb' => __( 'THB => Thai Baht', 'wpcasa' ),
+			'tnd' => __( 'TND => Tunisian Dinar', 'wpcasa' ),
+			'try' => __( 'TRY => Turkish Lira', 'wpcasa' ),
+			'ttd' => __( 'TTD => Trinidad and Tobago Dollar', 'wpcasa' ),
+			'twd' => __( 'TWD => New Taiwan Dollar', 'wpcasa' ),
+			'tzs' => __( 'TZS => Tanzanian Shilling', 'wpcasa' ),
+			'uah' => __( 'UAH => Ukrainian Hryvnia', 'wpcasa' ),
+			'ugx' => __( 'UGX => Ugandan Shilling', 'wpcasa' ),
+			'usd' => __( 'USD => US Dollar', 'wpcasa' ),
+			'uyu' => __( 'UYU => Uruguayan Peso', 'wpcasa' ),
+			'uzs' => __( 'UZS => Uzbekistan Som', 'wpcasa' ),
+			'vef' => __( 'VEF => Venezuelan Bolivar', 'wpcasa' ),
+			'vnd' => __( 'VND => Vietnamese Dong', 'wpcasa' ),
+			'xof' => __( 'XOF => CFA Franc BCEAO', 'wpcasa' ),
+			'yer' => __( 'YER => Yemeni Rial', 'wpcasa' ),
+			'zar' => __( 'ZAR => South African Rand', 'wpcasa' ),
+			'zmk' => __( 'ZMK => Zambian Kwacha', 'wpcasa' )
 		);
 
 		return apply_filters( 'wpsight_currencies', $currencies );
@@ -773,10 +773,10 @@ class WPSight_General {
 
 		$spaces = array(
 			'space' => array(
-				'title'       => __( 'Space', 'wpsight' ),
-				'label'       => __( 'Widget Space', 'wpsight' ),
+				'title'       => __( 'Space', 'wpcasa' ),
+				'label'       => __( 'Widget Space', 'wpcasa' ),
 				'key'         => '_space',
-				'description' => __( 'Add some custom content to this page. Then drag the Single Space widget to the Listing Content or Listing Sidebar widget area.', 'wpsight' ),
+				'description' => __( 'Add some custom content to this page. Then drag the Single Space widget to the Listing Content or Listing Sidebar widget area.', 'wpcasa' ),
 				'type'        => 'textarea',
 				'rows'        => 5,
 				'post_type'   => array( wpsight_post_type() )

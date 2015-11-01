@@ -76,7 +76,7 @@ class WPSight_Template {
 				$located = trailingslashit( get_template_directory() ) . $template_name;
 				break;
 			
-				// Check extra folder parent theme next
+				// Check extra folder parent theme
 			} elseif ( file_exists( trailingslashit( get_template_directory() . '/' . WPSIGHT_DOMAIN ) . $template_name ) ) {
 				$located = trailingslashit( get_template_directory() . '/' . WPSIGHT_DOMAIN ) . $template_name;
 				break;
@@ -160,15 +160,15 @@ class WPSight_Template {
 			'orderby' => true,
 			'order'   => true,
 			'labels'  => array(
-				'orderby'     => _x( 'Order by', 'listings panel actions', 'wpsight' ),
-				'date'        => _x( 'Date', 'listings panel actions', 'wpsight' ),
-				'orderby_sep' => _x( 'or', 'listings panel actions', 'wpsight' ),
-				'price'       => _x( 'Price', 'listings panel actions', 'wpsight' ),
-				'order'       => _x( 'Order', 'listings panel actions', 'wpsight' ),
-				'desc'        => _x( 'DESC', 'listings panel actions', 'wpsight' ),
-				'order_sep'   => _x( 'or', 'listings panel actions', 'wpsight' ),
-				'asc'         => _x( 'ASC', 'listings panel actions', 'wpsight' ),
-				'title'       => _x( 'Title', 'listings panel actions', 'wpsight' )
+				'orderby'     => _x( 'Order by', 'listings panel actions', 'wpcasa' ),
+				'date'        => _x( 'Date', 'listings panel actions', 'wpcasa' ),
+				'orderby_sep' => _x( 'or', 'listings panel actions', 'wpcasa' ),
+				'price'       => _x( 'Price', 'listings panel actions', 'wpcasa' ),
+				'order'       => _x( 'Order', 'listings panel actions', 'wpcasa' ),
+				'desc'        => _x( 'DESC', 'listings panel actions', 'wpcasa' ),
+				'order_sep'   => _x( 'or', 'listings panel actions', 'wpcasa' ),
+				'asc'         => _x( 'ASC', 'listings panel actions', 'wpcasa' ),
+				'title'       => _x( 'Title', 'listings panel actions', 'wpcasa' )
 			)
 
 		);
@@ -277,15 +277,15 @@ class WPSight_Template {
 
 		if ( isset( $wpsight_query->found_posts ) ) {
 
-			$title = '<span class="listings-panel-found">' . $wpsight_query->found_posts . '</span>' . ' ' . _n( 'Listing', 'Listings', $wpsight_query->found_posts, 'wpsight' );
+			$title = '<span class="listings-panel-found">' . $wpsight_query->found_posts . '</span>' . ' ' . _n( 'Listing', 'Listings', $wpsight_query->found_posts, 'wpcasa' );
 
 		} elseif ( isset( $wp_query->found_posts ) ) {
 
-			$title = '<span class="listings-panel-found">' . $wp_query->found_posts . '</span>' . ' ' . _n( 'Listing', 'Listings', $wp_query->found_posts, 'wpsight' );
+			$title = '<span class="listings-panel-found">' . $wp_query->found_posts . '</span>' . ' ' . _n( 'Listing', 'Listings', $wp_query->found_posts, 'wpcasa' );
 
 		} else {
 
-			$title = __( 'Listings', 'wpsight' );
+			$title = __( 'Listings', 'wpcasa' );
 
 		}
 
@@ -344,8 +344,8 @@ class WPSight_Template {
 			'end_size'           => 1,
 			'mid_size'           => 4,
 			'prev_next'          => true,
-			'prev_text'          => $arr_prev . __( 'Previous', 'wpsight' ),
-			'next_text'          => __( 'Next', 'wpsight' ) . $arr_next,
+			'prev_text'          => $arr_prev . __( 'Previous', 'wpcasa' ),
+			'next_text'          => __( 'Next', 'wpcasa' ) . $arr_next,
 			'type'               => 'list',
 			'add_args'           => false,
 			'add_fragment'       => '',

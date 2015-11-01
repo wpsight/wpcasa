@@ -1,4 +1,4 @@
-<?php // move stuff
+<?php
 /**
  * WPSight listing functions
  *
@@ -47,6 +47,9 @@ function wpsight_get_listings( $args = array() ) {
  *
  * @since 1.0.0
  */
+function wpsight_listing_teaser( $listing_id = null, $full = false ) {
+	// return WPSight_Listings::listing( $listing_id, $full );
+}
 
 /**
  * wpsight_listing()
@@ -94,38 +97,6 @@ function wpsight_listing_teasers( $args = array(), $template_path = '' ) {
 
 function wpsight_get_listing( $post = null ) {
 	return WPSight_Listings::get_listing( $post );
-}
-
-/**
- * wpsight_get_listings_dashboard()
- *
- * Return listings dashboard content.
- *
- * @param array   $args Array of arguments
- * @uses WPSight_Listings::get_listings_dashboard()
- *
- * @return mixed Dashboard content
- *
- * @since 1.0.0
- */
-
-function wpsight_get_listings_dashboard( $args = array() ) {
-	return WPSight_Listings::get_listings_dashboard( $args );
-}
-
-/**
- * wpsight_listings_dashboard()
- *
- * Echo wpsight_get_listings_dashboard()
- *
- * @param array   $args Array of arguments
- * @uses WPSight_Listings::get_listings_dashboard()
- *
- * @since 1.0.0
- */
-
-function wpsight_listings_dashboard( $args = array() ) {
-	echo wpsight_get_listings_dashboard( $args );
 }
 
 /**

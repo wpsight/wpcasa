@@ -1,9 +1,8 @@
 <?php
 /**
- * wpSight general functions
+ * WPSight general functions
  *
- * @package WPSight
- * @subpackage Functions
+ * @package WPSight \ Functions
  */
  
 /**

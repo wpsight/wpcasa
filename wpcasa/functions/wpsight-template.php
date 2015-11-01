@@ -1,5 +1,11 @@
 <?php
 /**
+ * WPSight template functions
+ *
+ * @package WPSight \ Functions
+ */
+
+/**
  * Load specific template file.
  *
  * @param string|array $template_names Template name (incl. file extension like .php)

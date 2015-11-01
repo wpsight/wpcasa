@@ -2,8 +2,7 @@
 /**
  * WPSight meta box functions
  *
- * @package WPSight
- * @subpackage Functions
+ * @package WPSight \ Functions
  */
 
 /**

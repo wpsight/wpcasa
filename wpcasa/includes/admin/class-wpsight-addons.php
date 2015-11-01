@@ -18,7 +18,7 @@ class WPSight_Addons {
 		if ( false === ( $addons = get_transient( 'wpsight_addons_html' ) ) ) {
 
 			$raw_addons = wp_remote_get(
-				'http://wpcasa.com/plugins/',
+				'http://wpsight.com/wpcasa/downloads/category/add-ons/',
 				array(
 					'timeout'     => 10,
 					'redirection' => 5,
@@ -36,7 +36,7 @@ class WPSight_Addons {
 				$dom->loadHTML( $raw_addons );
 
 				$xpath  = new DOMXPath( $dom );
-				$tags   = $xpath->query('//div[@class="group plugins-list"]');
+				$tags   = $xpath->query('//div[@class="portfolio-wrapper download-wrapper"]');
 				
 				foreach ( $tags as $tag ) {
 					$addons = $tag->ownerDocument->saveXML( $tag );
@@ -53,7 +53,7 @@ class WPSight_Addons {
 
 		<div class="wrap wpsight-addons">
 
-			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Add-Ons', 'wpsight' ); ?></h2>
+			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Add-Ons', 'wpcasa' ); ?></h2>
 
 			<div id="notice" class="updated below-h2"><p>A notice here</p></div>
 			

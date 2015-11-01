@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) )
 	exit;
 
 /**
- * wpSight_Admin class
+ * WPSight_Admin class
  */
 class WPSight_Admin {
 
@@ -50,7 +50,7 @@ class WPSight_Admin {
 
 		$screen = get_current_screen();
 
-		if ( in_array( $screen->id, array( 'edit-listing', 'listing', 'toplevel_page_wpsight-settings', 'wpcasa_page_wpsight-addons' ) ) ) {
+		if ( in_array( $screen->id, array( 'edit-listing', 'listing', 'toplevel_page_wpsight-settings', 'wpcasa_page_wpsight-addons', 'wpcasa_page_wpsight-themes' ) ) ) {
 			
 			wp_enqueue_style( 'wpsight-admin', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin.css', array( 'cmb2-styles' ) );
 			wp_register_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery-tiptip/jquery.tipTip.min.js', array( 'jquery' ), WPSIGHT_VERSION, true );
@@ -66,7 +66,7 @@ class WPSight_Admin {
 	/**
 	 * admin_menu()
 	 *
-	 * Add wpSight settings main and
+	 * Add WPSight settings main and
 	 * sub pages to the admin menu.
 	 *
 	 * @access public
@@ -80,16 +80,19 @@ class WPSight_Admin {
 
 		add_menu_page( WPSIGHT_NAME, WPSIGHT_NAME, 'manage_options', 'wpsight-settings', array( $this->settings_page, 'output' ), 'dashicons-marker' );
 
-		add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Settings', 'wpsight' ),  __( 'Settings', 'wpsight' ) , 'manage_options', 'wpsight-settings', array( $this->settings_page, 'output' ) );
+		add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Settings', 'wpcasa' ),  __( 'Settings', 'wpcasa' ) , 'manage_options', 'wpsight-settings', array( $this->settings_page, 'output' ) );
 
 		if ( apply_filters( 'wpsight_show_addons_page', true ) )
-			add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Addons', 'wpsight' ),  __( 'Addons', 'wpsight' ) , 'manage_options', 'wpsight-addons', array( $this, 'addons_page' ) );
+			add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Add-ons', 'wpcasa' ),  __( 'Add-ons', 'wpcasa' ) , 'manage_options', 'wpsight-addons', array( $this, 'addons_page' ) );
+		
+		if ( apply_filters( 'wpsight_show_themes_page', true ) )
+			add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Themes', 'wpcasa' ),  __( 'Themes', 'wpcasa' ) , 'manage_options', 'wpsight-themes', array( $this, 'themes_page' ) );
 	}
 
 	/**
 	 * addons_page()
 	 *
-	 * Add wpSight addons page to sub menu.
+	 * Add WPSight addons page to sub menu.
 	 *
 	 * @access public
 	 * @since 1.0.0
@@ -97,6 +100,19 @@ class WPSight_Admin {
 	public function addons_page() {
 		$addons = include WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-addons.php';
 		$addons->output();
+	}
+
+	/**
+	 * themes_page()
+	 *
+	 * Add WPSight themes page to sub menu.
+	 *
+	 * @access public
+	 * @since 1.0.0
+	 */
+	public function themes_page() {
+		$themes = include WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-themes.php';
+		$themes->output();
 	}
 
 	/**
@@ -108,7 +124,7 @@ class WPSight_Admin {
 
 	public static function options() {
 
-		$options = array( 'listings' => array( __( 'Listings', 'wpsight' ), (array) wpsight_options_listings() ) );
+		$options = array( 'listings' => array( __( 'Listings', 'wpcasa' ), (array) wpsight_options_listings() ) );
 
 		return apply_filters( 'wpsight_options', $options );
 
@@ -127,28 +143,28 @@ class WPSight_Admin {
 		/** Define data arrays */
 
 		$options_listings = array();
-
+		
 		$options_listings['listings_page'] = array(
-			'name' => __( 'Listings Page', 'wpsight' ),
-			'desc' => __( 'Please select the main search results page with the <code>[wpsight_listings]</code> shortcode.', 'wpsight' ),
+			'name' => __( 'Listings Page', 'wpcasa' ),
+			'desc' => __( 'Please select the main search results page with the <code>[wpsight_listings]</code> shortcode.', 'wpcasa' ),
 			'id'   => 'listings_page',
 			'type' => 'pages'
 		);
 
 		// Check of old 'property_id' options was active
-		$listing_id_default = wpsight_get_option( 'property_id' ) ? wpsight_get_option( 'property_id' ) : __( 'ID-', 'wpsight' );
+		$listing_id_default = wpsight_get_option( 'property_id' ) ? wpsight_get_option( 'property_id' ) : __( 'ID-', 'wpcasa' );
 
 		$options_listings['listing_id'] = array(
-			'name'    => __( 'Listing ID Prefix', 'wpsight' ),
+			'name'    => __( 'Listing ID Prefix', 'wpcasa' ),
 			'id'      => 'listing_id',
-			'desc'    => __( 'The listing ID will be this prefix plus post ID. You can optionally set individual IDs on the listing edit screen.', 'wpsight' ),
+			'desc'    => __( 'The listing ID will be this prefix plus post ID. You can optionally set individual IDs on the listing edit screen.', 'wpcasa' ),
 			'default' => $listing_id_default,
 			'type'    => 'text'
 		);
 
 		$options_listings['measurement_unit'] = array(
-			'name'     => __( 'Measurement Unit', 'wpsight' ),
-			'desc'     => __( 'Please select the general measurement unit. The unit for the listing standard features can be defined separately below.', 'wpsight' ),
+			'name'     => __( 'Measurement Unit', 'wpcasa' ),
+			'desc'     => __( 'Please select the general measurement unit. The unit for the listing standard features can be defined separately below.', 'wpcasa' ),
 			'id'       => 'measurement_unit',
 			'default'  => 'm2',
 			'class'    => 'mini',
@@ -157,54 +173,54 @@ class WPSight_Admin {
 		);
 
 		$options_listings['currency'] = array(
-			'name'    => __( 'Currency', 'wpsight' ),
-			'desc'    => __( 'Please select the currency for the listing prices. If your currency is not listed, please select <code>Other</code>.', 'wpsight' ),
+			'name'    => __( 'Currency', 'wpcasa' ),
+			'desc'    => __( 'Please select the currency for the listing prices. If your currency is not listed, please select <code>Other</code>.', 'wpcasa' ),
 			'id'      => 'currency',
 			'default' => 'usd',
 			'class'   => 'mini',
 			'type'    => 'select',
-			'options' => array_merge( array_filter( wpsight_currencies() ), array( 'other' => __( 'Other', 'wpsight'  ) ) )
+			'options' => array_merge( array_filter( wpsight_currencies() ), array( 'other' => __( 'Other', 'wpcasa'  ) ) )
 		);
 
 		$options_listings['currency_other'] = array(
-			'name'  => __( 'Other Currency', 'wpsight' ) . ' (' . __( 'Abbreviation', 'wpsight' ) . ')',
+			'name'  => __( 'Other Currency', 'wpcasa' ) . ' (' . __( 'Abbreviation', 'wpcasa' ) . ')',
 			'id'    => 'currency_other',
-			'desc'  => __( 'Please insert the abbreviation of your currency (e.g. <code>EUR</code>).', 'wpsight' ),
+			'desc'  => __( 'Please insert the abbreviation of your currency (e.g. <code>EUR</code>).', 'wpcasa' ),
 			'type'  => 'text',
 			'class' => 'hidden'
 		);
 
 		$options_listings['currency_other_ent'] = array(
-			'name'  => __( 'Other Currency', 'wpsight' ) . ' (' . __( 'Symbol', 'wpsight' ) . ')',
+			'name'  => __( 'Other Currency', 'wpcasa' ) . ' (' . __( 'Symbol', 'wpcasa' ) . ')',
 			'id'    => 'currency_other_ent',
-			'desc'  => __( 'Please insert the currency symbol or HTML entity (e.g. <code>&amp;euro;</code>).', 'wpsight' ),
+			'desc'  => __( 'Please insert the currency symbol or HTML entity (e.g. <code>&amp;euro;</code>).', 'wpcasa' ),
 			'type'  => 'text',
 			'class' => 'hidden'
 		);
 
 		$options_listings['currency_symbol'] = array(
-			'name'    => __( 'Currency Symbol', 'wpsight' ),
-			'desc'    => __( 'Please select the position of the currency symbol.', 'wpsight' ),
+			'name'    => __( 'Currency Symbol', 'wpcasa' ),
+			'desc'    => __( 'Please select the position of the currency symbol.', 'wpcasa' ),
 			'id'      => 'currency_symbol',
 			'default' => 'before',
 			'type'    => 'radio',
-			'options' => array( 'before' => __( 'Before the value', 'wpsight' ), 'after' => __( 'After the value', 'wpsight' ) )
+			'options' => array( 'before' => __( 'Before the value', 'wpcasa' ), 'after' => __( 'After the value', 'wpcasa' ) )
 		);
 
 		$options_listings['currency_separator'] = array(
-			'name'    => __( 'Thousands Separator', 'wpsight' ),
-			'desc'    => __( 'Please select the thousands separator for your listing prices.', 'wpsight' ),
+			'name'    => __( 'Thousands Separator', 'wpcasa' ),
+			'desc'    => __( 'Please select the thousands separator for your listing prices.', 'wpcasa' ),
 			'id'      => 'currency_separator',
 			'default' => 'comma',
 			'type'    => 'radio',
-			'options' => array( 'comma' => __( 'Comma (e.g. 1,000,000)', 'wpsight' ), 'dot' => __( 'Period (e.g. 1.000.000)', 'wpsight' ) )
+			'options' => array( 'comma' => __( 'Comma (e.g. 1,000,000)', 'wpcasa' ), 'dot' => __( 'Period (e.g. 1.000.000)', 'wpcasa' ) )
 		);
 
 		/** Toggle standard features */
 
 		$options_listings['listing_features'] = array(
-			'name'     => __( 'Listing Features', 'wpsight' ),
-			'cb_label' => __( 'Please check the box to edit the listing standard features.', 'wpsight' ),
+			'name'     => __( 'Listing Features', 'wpcasa' ),
+			'cb_label' => __( 'Please check the box to edit the listing standard features.', 'wpcasa' ),
 			'id'       => 'listing_features',
 			'default'  => '0',
 			'type'     => 'checkbox'
@@ -217,7 +233,7 @@ class WPSight_Admin {
 		foreach ( wpsight_details() as $feature_id => $value ) {
 
 			$options_listings[$feature_id] = array(
-				'name'    => __( 'Standard Feature', 'wpsight' ) . ' #' . $i,
+				'name'    => __( 'Standard Feature', 'wpcasa' ) . ' #' . $i,
 				'id'      => $feature_id,
 				'desc'    => $value['description'],
 				'default' => array( 'label' => $value['label'], 'unit' => $value['unit'] ),
@@ -232,8 +248,8 @@ class WPSight_Admin {
 		/** Toggle rental periods */
 
 		$options_listings['rental_periods'] = array(
-			'name'     => __( 'Rental Periods', 'wpsight' ),
-			'cb_label' => __( 'Please check the box to edit the rental periods.', 'wpsight' ),
+			'name'     => __( 'Rental Periods', 'wpcasa' ),
+			'cb_label' => __( 'Please check the box to edit the rental periods.', 'wpcasa' ),
 			'id'       => 'rental_periods',
 			'default'  => '0',
 			'type'     => 'checkbox'
@@ -246,7 +262,7 @@ class WPSight_Admin {
 		foreach ( wpsight_rental_periods() as $period_id => $value ) {
 
 			$options_listings[$period_id] = array(
-				'name'    => __( 'Rental Period', 'wpsight' ) . ' #' . $i,
+				'name'    => __( 'Rental Period', 'wpcasa' ) . ' #' . $i,
 				'id'      => $period_id,
 				'default' => $value,
 				'type'    => 'text',
@@ -258,12 +274,20 @@ class WPSight_Admin {
 		}
 
 		$options_listings['date_format'] = array(
-			'name'    => __( 'Date Format', 'wpsight' ),
-			'desc'    => __( 'Please select the date format for the listings table in the admin.', 'wpsight' ),
+			'name'    => __( 'Date Format', 'wpcasa' ),
+			'desc'    => __( 'Please select the date format for the listings table in the admin.', 'wpcasa' ),
 			'id'      => 'date_format',
 			'default' => get_option( 'date_format' ),
 			'type'    => 'select',
 			'options' => array_filter( wpsight_date_formats( true ) )
+		);
+
+		$options_listings['listings_css'] = array(
+			'name'     => __( 'Output CSS', 'wpcasa' ),
+			'cb_label' => __( 'Please uncheck the box to disable the plugin from outputting CSS.', 'wpcasa' ),
+			'id'       => 'listings_css',
+			'default'  => '1',
+			'type'     => 'checkbox'
 		);
 
 		return apply_filters( 'wpsight_options_listings', $options_listings );
@@ -297,7 +321,7 @@ class WPSight_Admin {
 			unset( $views );
 			$_num_posts = (array) wp_count_attachments();
 			$_total_posts = array_sum( $_num_posts ) - $_num_posts['trash'];
-			$views['all'] = '<a href="' . $pagenow . '">' . __( 'All', 'wpsight' ) . ' <span class="count">(' . $_total_posts . ')</span></a>';
+			$views['all'] = '<a href="' . $pagenow . '">' . __( 'All', 'wpcasa' ) . ' <span class="count">(' . $_total_posts . ')</span></a>';
 			$views['found'] = '<a href="' . $pagenow . '?s=' . $_GET['s'] . '" class="current">' . $_GET['s'] . ' <span class="count">(' . $wp_query->found_posts . ')</span></a>';
 		}
 
@@ -319,7 +343,7 @@ class WPSight_Admin {
 		// Replace 'Published' with 'Active'
 		
 		if( isset( $views['publish'] ) )
-			$views['publish'] = str_replace( __( 'Published' ), __( 'Active', 'wpsight' ), $views['publish'] );
+			$views['publish'] = str_replace( __( 'Published' ), __( 'Active', 'wpcasa' ), $views['publish'] );
 
 		if ( empty( $wp_query->query_vars['s'] ) )
 			return $views;
@@ -344,7 +368,7 @@ class WPSight_Admin {
 	 */
 
 	public static function manage_users_columns( $columns ) {
-		$columns['listings_count'] = __( 'Listings', 'wpsight' );
+		$columns['listings_count'] = __( 'Listings', 'wpcasa' );
 		return $columns;
 	}
 

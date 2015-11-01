@@ -27,9 +27,6 @@ class WPSight_Shortcodes {
 		// Include listing teasers shortcode class
 		include_once( 'class-wpsight-shortcode-listing-teasers.php' );
 		
-		// Include favorites shortcode class
-		// include_once( 'class-wpsight-shortcode-favorites.php' );
-		
 		// Enable shortcodes in text widget
 		add_filter( 'widget_text', 'do_shortcode' );
 

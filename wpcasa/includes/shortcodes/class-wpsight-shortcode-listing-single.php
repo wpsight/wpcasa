@@ -42,7 +42,7 @@ class WPSight_Shortcode_Listing_Single {
         // Merge shortcodes atts with defaults and extract
 		extract( shortcode_atts( $defaults, $atts ) );
         
-        // Make sure advanced is emtpy or false, or falls back to default (true)
+        // Make sure full is emtpy or false, or falls back to default (true)
         
         if( ( empty( $full ) || $full === 'false' ) && $full !== 'true' ) {
         	$full = false;

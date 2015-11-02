@@ -3,7 +3,7 @@ body {
 	unicode-bidi: embed;
 }
 
-/* WPSight Listings Archive Title
+/* Listings Archive Title
 ================================================== */
 
 .listings-panel-title {
@@ -28,7 +28,7 @@ body {
 
 
 
-/* WPSight Listings Search
+/* Listings Search
 ================================================== */
 
 .wpsight-listings-search {
@@ -67,7 +67,7 @@ body {
 	right: 0;
 }
 
-/* WPSight Pagination
+/* Pagination
 ================================================== */
 
 .wpsight-pagination li {
@@ -75,7 +75,7 @@ body {
 	margin-right: 0 !important;
 }
 
-/* WPSight Listings Archive
+/* Listings Archive
 ================================================== */
 
 .wpsight-listings .wpsight-listing-left,
@@ -85,7 +85,7 @@ body {
 	margin-left: 30px;
 }
 
-/* WPSight Listing Single
+/* Listing Single
 ================================================== */
 
 .wpsight-listing-title h1,
@@ -93,7 +93,7 @@ body {
 	float: right;
 }
 
-/* WPSight Listing Details
+/* Listing Details
 ================================================== */
 
 .wpsight-listing-details {
@@ -107,7 +107,7 @@ body {
     margin-right: 0;
 }
 
-/* WPSight Listing Summary
+/* Listing Summary
 ================================================== */
 
 .wpsight-listing-summary .listing-details-detail {
@@ -115,7 +115,7 @@ body {
     margin-right: 0;
 }
 
-/* WPSight Listing Info
+/* Listing Info
 ================================================== */
 
 .wpsight-listing-info .alignright .listing-term {
@@ -128,7 +128,7 @@ body {
 	margin-right: 0;
 }
 
-/* WPSight Listing Agent
+/* Listing Agent
 ================================================== */
 
 .wpsight-listing-agent-image {
@@ -141,7 +141,7 @@ body {
 	right: auto;
 }
 
-/* WPSight Listing Actions
+/* Listing Actions
 ================================================== */
 
 .wpsight-listing-title .wpsight-listing-actions {
@@ -162,7 +162,7 @@ body {
 
 }
 
-/* WPSight Listing Teaser (horizontal)
+/* Listing Teaser (horizontal)
 ================================================== */
 
 .wpsight-listing-teaser .wpsight-listing-left {
@@ -204,7 +204,7 @@ body {
 	
 }
 
-/* WPSight Listing Teaser (vertical)
+/* Listing Teaser (vertical)
 ================================================== */
 
 .vertical .wpsight-listing-teaser .wpsight-listing-title .alignleft,

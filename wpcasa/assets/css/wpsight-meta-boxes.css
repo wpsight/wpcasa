@@ -1,3 +1,6 @@
+/* Meta Boxes (main)
+================================================== */
+
 .postbox-container .cmb-row,
 .cmb-repeat-group-wrap .cmb-row {
 	margin-bottom: 0;
@@ -26,7 +29,8 @@
 	margin-bottom: 5px;
 }
 
-/** Sidebar */
+/* Meta Boxes (sidebar)
+================================================== */
 
 .inner-sidebar .cmb-th label,
 #side-sortables .cmb-th label {

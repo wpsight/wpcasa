@@ -3,11 +3,13 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Helpers Class
- *
+ * WPSight_Helpers class
  */
 class WPSight_Helpers {
 
+	/**
+	 * Constructor
+	 */
 	function __construct() {
 		add_filter( 'get_meta_sql', array( $this, 'cast_decimal_precision' ) );
 		add_action( 'init', array( $this, 'check_gallery_upgrade' ) );
@@ -20,6 +22,7 @@ class WPSight_Helpers {
 	 * post type used in the framework.
 	 *
 	 * @return string
+	 *
 	 * @since 1.0.0
 	 */
 	public static function post_type() {
@@ -111,12 +114,12 @@ class WPSight_Helpers {
 	 *
 	 * @param string  $name Key of the wpSight option
 	 * @param bool|string Set (bool) true to return default from options array or string
-	 * @uses  get_option()
-	 * @uses  wpsight_options_defaults()
-	 * @return  bool|string False if no value was found or option value as string
+	 * @uses get_option()
+	 * @uses wpsight_options_defaults()
+	 * @return bool|string False if no value was found or option value as string
+	 *
 	 * @since  1.0.0
 	 */
-
 	public static function get_option( $name, $default = '' ) {
 
 		// Get wpSight options
@@ -132,7 +135,7 @@ class WPSight_Helpers {
 		if ( $default === true ) {
 
 			// Get default options
-			$defaults = wpsight_options_defaults();
+			$defaults = self::options_defaults();
 
 			// When default is set, return it
 
@@ -154,7 +157,6 @@ class WPSight_Helpers {
 
 	}
 
-
 	/**
 	 * add_option()
 	 *
@@ -164,9 +166,9 @@ class WPSight_Helpers {
 	 * @param mixed   $value Value of the option to add
 	 * @uses get_option()
 	 * @uses update_option()
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function add_option( $name, $value ) {
 
 		// Get wpSight options
@@ -188,9 +190,9 @@ class WPSight_Helpers {
 	 * @param string  $name Key of the option to delete
 	 * @uses get_option()
 	 * @uses update_option()
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function delete_option( $name ) {
 
 		// Get wpSight options
@@ -213,13 +215,14 @@ class WPSight_Helpers {
 	 *
 	 * Get array of options with default values
 	 *
+	 * @uses wpsight_options()
 	 * @see wpsight-admin.php
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function options_defaults() {
 
-		// Get wpSight options
+		// Get WPSight options
 		$settings = wpsight_options();
 
 		// Set up $defaults
@@ -260,11 +263,16 @@ class WPSight_Helpers {
 	}
 
 	/**
+	 * get_tax_name()
+	 *
 	 * Helper function to get taxonomy name
+	 *
+	 * @uses get_taxonomies()
+	 * @uses get_query_var()
+	 * @uses get_term_by()
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_tax_name() {
 		global $post;
 
@@ -296,14 +304,20 @@ class WPSight_Helpers {
 	}
 
 	/**
-	 * Helper function to replace
-	 * the_content filter
+	 * format_content()
 	 *
-	 * @param string  $content Content to be formatted
+	 * Helper function to replace the_content filter
+	 *
+	 * @param string $content Content to be formatted
+	 * @uses wptexturize()
+	 * @uses convert_smilies()
+	 * @uses convert_chars()
+	 * @uses wpautop()
+	 * @uses shortcode_unautop()
+	 * @uses do_shortcode()
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function format_content( $content ) {
 
 		if ( ! $content )
@@ -316,45 +330,34 @@ class WPSight_Helpers {
 	}
 
 	/**
-	 * Helper function to convert
-	 * underscores to dashes
+	 * dashes()
+	 *
+	 * Helper function to convert underscores to dashes
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function dashes( $string ) {
-
-		$string = str_replace( '_', '-', $string );
-
-		return $string;
-
+		return str_replace( '_', '-', $string );
 	}
 
-
 	/**
-	 * Helper function to convert
-	 * dashes to underscores
+	 * underscores()
+	 *
+	 * Helper function to convert dashes to underscores
 	 *
 	 * @since 1.0.0
 	 */
-
-
 	public static function underscores( $string ) {
-
-		$string = str_replace( '-', '_', $string );
-
-		return $string;
-
+		return str_replace( '-', '_', $string );
 	}
 
-
 	/**
-	 * Helper function to
-	 * check multi-dimensional arrays
+	 * array_empty()
+	 *
+	 * Helper function to check multi-dimensional arrays
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function array_empty( $mixed ) {
 		if ( is_array( $mixed ) ) {
 			foreach ( $mixed as $value ) {
@@ -369,7 +372,13 @@ class WPSight_Helpers {
 		return true;
 	}
 
-
+	/**
+	 * in_multiarray()
+	 *
+	 * Helper function to check multi-dimensional arrays
+	 *
+	 * @since 1.0.0
+	 */
 	public static function in_multiarray( $elem, $array ) {
 
 		// if the $array is an array or is an object
@@ -406,14 +415,13 @@ class WPSight_Helpers {
 	 *
 	 * Helper function to sort array by position key
 	 *
-	 * @param array   $array Array to be sorted
-	 * @param mixed   $order Sort options
+	 * @param array $array Array to be sorted
+	 * @param mixed $order Sort options
 	 * @see http://docs.php.net/manual/en/function.array-multisort.php
 	 * @return array Sorted array
 	 *
-	 * @since 1.1
+	 * @since 1.0.0
 	 */
-
 	public static function sort_array_by_priority( $array = array(), $order = SORT_NUMERIC ) {
 
 		if ( ! is_array( $array ) )
@@ -446,12 +454,12 @@ class WPSight_Helpers {
 	}
 
 	/**
+	 * implode_array()
+	 *
 	 * Implode an array with the key and value pair
 	 *
 	 * @since 1.0.0
 	 */
-
-
 	public static function implode_array( $glue, $arr ) {
 
 		$arr_keys   = array_keys( $arr );
@@ -465,11 +473,12 @@ class WPSight_Helpers {
 	}
 
 	/**
+	 * explode_array()
+	 *
 	 * Explode string to associative array
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function explode_array( $glue, $str ) {
 
 		$arr  = explode( $glue, $str );
@@ -482,12 +491,22 @@ class WPSight_Helpers {
 	}
 
 	/**
+	 * generate_css()
+	 *
 	 * Helper function to display
 	 * theme_mods CSS
 	 *
-	 * @since 1.2
+	 * @param string $selector CSS selector
+	 * @param string $style CSS style
+	 * @param string $mod_name Name of theme_mod
+	 * @param string $prefix
+	 * @param string $postfix
+	 * @param bool $echo Echo (true) or return (false)
+	 * @uses get_theme_mod()
+	 * @return Inline CSS for theme_mods
+	 *
+	 * @since 1.0.0
 	 */
-
 	public static function generate_css( $selector, $style, $mod_name, $prefix = '', $postfix = '', $echo = false ) {
 
 		$output = '';
@@ -506,12 +525,16 @@ class WPSight_Helpers {
 	}
 
 	/**
+	 * cast_decimal_precision()
+	 *
 	 * Helper function to allow
 	 * DECIMAL precision (hacky)
 	 *
-	 * @since 1.2
+	 * @param string $sql SQL
+	 * @uses WPSight_Helpers::cast_decimal_precision()
+	 *
+	 * @since 1.0.0
 	 */
-
 	public static function cast_decimal_precision( $sql ) {
 
 		$sql['where'] = str_replace( 'DECIMAL', 'DECIMAL(10,2)', $sql['where'] );
@@ -520,12 +543,26 @@ class WPSight_Helpers {
 	}
 
 	/**
+	 * get_the_term_list()
+	 *
 	 * Helper functions to return taxonomy
 	 * terms ordered by hierarchy
 	 *
+	 * @param integer $post_id Post ID of specific listing
+	 * @param string $taxonomy Taxonomy
+	 * @param string $sep Separator between terms
+	 * @param string $term_before String before each term
+	 * @param string $term_after String after each term
+	 * @param bool $linked Link terms to their term archives
+	 * @param bool $reverse Reverse order of terms
+	 * @uses taxonomy_exists()
+	 * @uses get_the_terms()
+	 * @uses self::sort_taxonomies_by_parents()
+	 * @uses self::get_the_term_list_links()
+	 * @return array
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_the_term_list( $post_id, $taxonomy, $sep = '', $term_before = '', $term_after = '', $linked = true, $reverse = false ) {
 
 		// Check taxonomy
@@ -561,13 +598,14 @@ class WPSight_Helpers {
 
 		return $result;
 	}
+
 	/**
-	 *  sort_taxonomies_by_parents()
+	 * sort_taxonomies_by_parents()
 	 *
-	 *  @param   array  $data
-	 *  @param   integer  $parent_id
+	 * @param array $data
+	 * @param integer $parent_id
 	 *
-	 *  @return  array
+	 * @return array
 	 */
 	public static function sort_taxonomies_by_parents( $data, $parent_id = 0 ) {
 
@@ -585,16 +623,19 @@ class WPSight_Helpers {
 
 		return array();
 	}
+
 	/**
-	 *  Returns a list of linked terms
+	 * get_the_term_list_links()
 	 *
-	 *  @param   string  $taxonomy
-	 *  @param   array   $data
-	 *  @param   string  $term_before
-	 *  @param   string  $term_after
-	 *  @param   string  $linked
+	 * Returns a list of linked terms
 	 *
-	 *  @return  array
+	 * @param string $taxonomy
+	 * @param array $data
+	 * @param string $term_before
+	 * @param string $term_after
+	 * @param string $linked
+	 *
+	 * @return  array
 	 */
 	public static function get_the_term_list_links( $taxonomy, $data, $term_before = '', $term_after = '', $linked = 'true' ) {
 
@@ -636,13 +677,17 @@ class WPSight_Helpers {
 	}
 
 	/**
-	 * Helper functions to get
-	 * attachment ID by URL.
+	 * get_attachment_id_by_url()
+	 *
+	 * Helper functions to get attachment ID by URL.
+	 *
+	 * @param string $url Image attachment URL
+	 * @uses WPSight_Helpers::get_attachment_id_by_url()
+	 * @return integer Attachment ID
+	 * @credit https://pippinsplugins.com/retrieve-attachment-id-from-image-url/
 	 *
 	 * @since 1.0.0
-	 * @credit https://pippinsplugins.com/retrieve-attachment-id-from-image-url/
 	 */
-
 	public static function get_attachment_id_by_url( $url ) {
 		global $wpdb;
 
@@ -653,13 +698,18 @@ class WPSight_Helpers {
 	}
 
 	/**
-	 * Helper functions to get
-	 * attachment by URL.
+	 * get_attachment_by_url()
+	 *
+	 * Helper functions to get attachment by URL.
+	 *
+	 * @param string $url Image attachment URL
+	 * @param string|array WordPress image size or custom with and height in array
+	 * @uses WPSight_Helpers::get_attachment_by_url()
+	 * @return string Attachment URL
+	 * @credit https://pippinsplugins.com/retrieve-attachment-id-from-image-url/
 	 *
 	 * @since 1.0.0
-	 * @credit https://pippinsplugins.com/retrieve-attachment-id-from-image-url/
 	 */
-
 	public static function get_attachment_by_url( $url, $size = 'thumbnail' ) {
 		global $wpdb;
 
@@ -677,7 +727,13 @@ class WPSight_Helpers {
 	 * Helper function to run image
 	 * gallery update on all listings.
 	 *
-	 * @return string
+	 * @uses wpsight_get_option()
+	 * @uses get_posts()
+	 * @uses wpsight_post_type()
+	 * @uses get_post_stati()
+	 * @uses wpsight_maybe_update_gallery()
+	 * @uses wpsight_add_option()
+	 *
 	 * @since 1.0.0
 	 */
 	public function check_gallery_upgrade() {
@@ -703,15 +759,23 @@ class WPSight_Helpers {
 	}
 
 	/**
+	 * maybe_update_gallery()
+	 *
 	 * Helper function to update image gallery.
 	 *
 	 * Checks if the gallery is already in the new format (array of IDs and URLs) or the old one (array of IDs)
 	 * If the gallery is empty it uses all images attached to the listing
 	 *
 	 * @param integer $listing_id Post ID of the corresponding listing
+	 * @uses get_post_meta()
+	 * @uses get_posts()
+	 * @uses get_post_meta()
+	 * @uses delete_post_meta()
+	 * @uses update_post_meta()
+	 * @uses wp_get_attachment_image_src()
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function maybe_update_gallery( $listing_id ) {
 
 		$gallery = get_post_meta( $listing_id, '_gallery' );

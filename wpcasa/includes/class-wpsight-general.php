@@ -3,12 +3,13 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * General class
- *
- * General-purpose methods
+ * WPSight_General class
  */
 class WPSight_General {
 
+	/**
+	 * Constructor
+	 */
 	public function __construct( ) {
 		add_filter( 'wpsight_standard_details', array( $this, 'check_standard_details' ), 20 );
 		add_filter( 'init', array( $this, 'listing_query_vars_general' ) );
@@ -21,11 +22,11 @@ class WPSight_General {
 	 * Function that defines the array
 	 * of standard listing details (beds, baths etc.)
 	 *
-	 * @return array
+	 * @uses wpsight_sort_array_by_position()
+	 * @return array $details Array of standard listing details
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function details() {
 
 		// Set standard details
@@ -134,13 +135,16 @@ class WPSight_General {
 	}
 
 	/**
+	 * check_standard_details()
+	 *
 	 * Filter standard details and update if
 	 * label and/or unit have been set on options page
 	 *
+	 * @uses wpsight_get_option()
 	 * @return array Updated standard details
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function check_standard_details( $standard_details ) {
 
 		// Just return originals on reset
@@ -170,16 +174,17 @@ class WPSight_General {
 	 *
 	 * Get specific detail.
 	 *
-	 * @param string  $detail Key of the detail to return
-	 * @param bool    $return Only return specific element of detail array
+	 * @param string $detail Key of the detail to return
+	 * @param bool $return Only return specific element of detail array
+	 * @uses self::details()
 	 * @return array|string|bool
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_detail( $detail, $return = false ) {
 
 		// Get available details
-		$details = wpsight_details();
+		$details = self::details();
 
 		// Return array of specific detail
 
@@ -202,14 +207,15 @@ class WPSight_General {
 	 * in the wpsight_details() array.
 	 *
 	 * @param string  $query_var query_var key
+	 * @uses self::details()
 	 * @return string Key of the detail array element
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_detail_by_query_var( $query_var ) {
 
 		// Get available details
-		$details = wpsight_details();
+		$details = self::details();
 
 		// Get query vars
 		$query_vars = wp_list_pluck( $details, 'query_var' );
@@ -233,14 +239,16 @@ class WPSight_General {
 	 * in the wpsight_details() array.
 	 *
 	 * @param string  $query_var query_var key
+	 * @uses self::details()
+	 * @uses wp_list_pluck()
 	 * @return string Key of the detail array element
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_query_var_by_detail( $detail ) {
 
 		// Get available details
-		$details = wpsight_details();
+		$details = self::details();
 
 		// Get query vars
 		$detail_vars = wp_list_pluck( $details, 'query_var' );
@@ -264,7 +272,6 @@ class WPSight_General {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function offers() {
 
 		$offers = array(
@@ -282,14 +289,15 @@ class WPSight_General {
 	 * Get specific offer.
 	 *
 	 * @param string  $offer Key of the offer to return
+	 * @uses self::offers()
 	 * @return string|bool Label of the offer or false if offer does not exist
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_offer( $offer ) {
 
 		// Get available offers
-		$offers = wpsight_offers();
+		$offers = self::offers();
 
 		// Return label of specific offer
 
@@ -307,9 +315,9 @@ class WPSight_General {
 	 *
 	 * @param string  $offer Key of the offer to return
 	 * @return string|bool Color of the offer or false if offer does not exist
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_offer_color( $offer ) {
 
 		// Set offer colors
@@ -339,7 +347,6 @@ class WPSight_General {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function rental_periods() {
 
 		$rental_periods = array(
@@ -361,14 +368,15 @@ class WPSight_General {
 	 * Get specific rental period.
 	 *
 	 * @param string  $period Key of the period to return
+	 * @uses self::rental_periods()
 	 * @return string|bool Label of the period or false if period does not exist
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_rental_period( $period ) {
 
 		// Get available periods
-		$rental_periods = wpsight_rental_periods();
+		$rental_periods = self::rental_periods();
 
 		// Return label of specific period
 
@@ -389,17 +397,14 @@ class WPSight_General {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function measurements() {
 
 		$measurements = array(
-
 			''      => '',
 			'm2'    => 'm&sup2;',
 			'sqft'  => 'sq ft',
 			'sqyd'  => 'sq yd',
 			'acres' => 'acre(s)'
-
 		);
 
 		return apply_filters( 'wpsight_measurements', $measurements );
@@ -412,14 +417,15 @@ class WPSight_General {
 	 * Get specific measurement unit.
 	 *
 	 * @param string  $measurement Key of the measurement to return
+	 * @uses self::measurements()
 	 * @return string|bool Label of the measurement or false if unit does not exist
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_measurement( $measurement ) {
 
 		// Get available measurements
-		$measurements = wpsight_measurements();
+		$measurements = self::measurements();
 
 		// Return label of specific measurement
 
@@ -440,7 +446,6 @@ class WPSight_General {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function date_formats( $date_i18n = false ) {
 
 		$formats = apply_filters( 'date_formats', array( __( 'F j, Y' ), __( 'j. F Y' ), 'Y-m-d', 'y-m-d', 'm/d/Y', 'm/d/y', 'd/m/Y', 'd/m/y', 'd.m.Y', 'd.m.y' ) );
@@ -461,9 +466,9 @@ class WPSight_General {
 	 * of available post statuses
 	 *
 	 * @return array
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function statuses() {
 
 		$statuses = array(
@@ -516,14 +521,15 @@ class WPSight_General {
 	 *
 	 * @param string  $status Key of the corresponding status
 	 * @param string  $field  Field of the status (default: label)
+	 * @uses self::statuses()
 	 * @return array
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_status( $status, $field = 'label' ) {
 
 		// Get all available statuses
-		$statuses = wpsight_statuses();
+		$statuses = self::statuses();
 
 		if ( isset( $statuses[$status][$field] ) )
 			return $statuses[$status][$field];
@@ -539,9 +545,9 @@ class WPSight_General {
 	 * of available currencies (USD, EUR  etc.)
 	 *
 	 * @return array
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function currencies() {
 
 		$currencies = array(
@@ -650,10 +656,11 @@ class WPSight_General {
 	 * Get 3-letter currency abbreviation.
 	 *
 	 * @param string  $currency 3-letter code of specific currency
+	 * @uses wpsight_get_option()
 	 * @return string 3-letter currency code
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_currency_abbr( $currency = '' ) {
 
 		if ( empty( $currency ) )
@@ -679,10 +686,12 @@ class WPSight_General {
 	 * Get currency entity.
 	 *
 	 * @param string  $currency 3-letter code of specific currency
+	 * @uses wpsight_get_option()
+	 * @uses wpsight_get_currency_abbr()
 	 * @return string Currency entity or 3-letter code
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_currency( $currency = '' ) {
 
 		// Get currency from theme options
@@ -751,9 +760,9 @@ class WPSight_General {
 	 * @param string  $currency 3-letter code of specific currency
 	 * @return string Currency entity or 3-letter code
 	 * @uses wpsight_get_currency()
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function currency( $currency = '' ) {
 		echo wpsight_get_currency( $currency );
 	}
@@ -764,11 +773,11 @@ class WPSight_General {
 	 * Function that defines the array
 	 * of available widget spaces.
 	 *
+	 * @uses wpsight_post_type()
 	 * @return array
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function spaces() {
 
 		$spaces = array(
@@ -788,9 +797,17 @@ class WPSight_General {
 	}
 
 	/**
-	 * @return all custom query vars for listings
+	 * listing_query_vars()
+	 *
+	 * Rreturn all custom query vars for listings
+	 *
+	 * @uses self::listing_query_vars_general()
+	 * @uses self::listing_query_vars_details()
+	 * @uses self::listing_query_vars_taxonomies()
+	 * @return array
+	 *
+	 * @since 1.0.0
 	 */
-
 	public static function listing_query_vars() {
 
 		$vars = array_merge(
@@ -808,9 +825,12 @@ class WPSight_General {
 	 *
 	 * Add general query vars for listings
 	 *
+	 * @uses get_query_var()
+	 * @uses add_query_var()
+	 * @return array
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function listing_query_vars_general() {
 		global $wp;
 
@@ -839,9 +859,14 @@ class WPSight_General {
 	 *
 	 * Add detail query vars for listings
 	 *
+	 * @uses self::details()
+	 * @uses wpsight_get_query_var_by_detail()
+	 * @uses get_query_var()
+	 * @uses add_query_var()
+	 * @return array
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function listing_query_vars_details() {
 		global $wp;
 
@@ -849,7 +874,7 @@ class WPSight_General {
 		$vars = array();
 
 		// Get all listing details
-		$details = wpsight_details();
+		$details = self::details();
 
 		// Loop through details
 
@@ -871,11 +896,15 @@ class WPSight_General {
 	/**
 	 * listing_query_vars_taxonomies()
 	 *
-	 * @return taxonomy query vars for listings
+	 * Return taxonomy query vars for listings
+	 *
+	 * @uses wpsight_post_type()
+	 * @uses get_object_taxonomies()
+	 * @uses get_query_var()
+	 * @return array
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function listing_query_vars_taxonomies() {
 
 		// Set custom vars
@@ -895,10 +924,12 @@ class WPSight_General {
 	 *
 	 * Check if current user can edit the listing ID.
 	 *
+	 * @uses is_user_logged_in()
+	 * @uses current_user_can()
 	 * @return bool True if user is eligible, else false
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function user_can_edit_listing_id() {
 
 		$can = false;
@@ -909,6 +940,5 @@ class WPSight_General {
 		return apply_filters( 'wpsight_user_can_edit_listing_id', $can );
 
 	}
-
 
 }

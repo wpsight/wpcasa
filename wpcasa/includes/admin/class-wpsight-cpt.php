@@ -32,9 +32,7 @@ class WPSight_Admin_CPT {
 		
 		// Manage single actions (buttons on the right)
 		
-		add_action( 'admin_init', array( $this, 'approve_listing' ) );
-		
-		
+		add_action( 'admin_init', array( $this, 'approve_listing' ) );		
 		add_action( 'admin_init', array( $this, 'toggle_sticky' ) );
 		add_action( 'admin_init', array( $this, 'toggle_featured' ) );
 		add_action( 'admin_init', array( $this, 'toggle_unavailable' ) );
@@ -42,7 +40,6 @@ class WPSight_Admin_CPT {
 		// Messages for single and bulk actions
 		
 		add_action( 'admin_notices', array( $this, 'approved_notice' ) );
-
 		add_action( 'admin_notices', array( $this, 'marked_sticky_notice' ) );
 		add_action( 'admin_notices', array( $this, 'marked_featured_notice' ) );
 		add_action( 'admin_notices', array( $this, 'marked_unavailable_notice' ) );
@@ -72,8 +69,7 @@ class WPSight_Admin_CPT {
 	/**
 	 * columns()
 	 *
-	 * Define columns for
-	 * manage_edit-listing_columns filter.
+	 * Define columns for manage_edit-listing_columns filter.
 	 *
 	 * @access public
 	 * @param mixed $columns
@@ -116,6 +112,23 @@ class WPSight_Admin_CPT {
 	 *
 	 * @access public
 	 * @param mixed $column
+	 * @uses wpsight_get_option()
+	 * @uses wpsight_get_listing_offer()
+	 * @uses wpsight_get_offer_color()
+	 * @uses wpsight_get_offer()
+	 * @uses wpsight_listing_id()
+	 * @uses wpsight_listing_price()
+	 * @uses wpsight_get_listing_thumbnail()
+	 * @uses wpsight_is_listing_sticky()
+	 * @uses wpsight_is_listing_featured()
+	 * @uses wpsight_get_listing_terms()
+	 * @uses wpsight_is_listing_not_available()
+	 * @uses current_user_can()
+	 * @uses wpsight_get_listing_summary()
+	 * @uses wpsight_is_listing_pending()
+	 * @uses wpsight_is_listing_expired()
+	 * @uses wpsight_is_listing_sticky()
+	 * @uses wpsight_sort_array_by_priority()
 	 *
 	 * @since 1.0.0
 	 */
@@ -497,7 +510,6 @@ class WPSight_Admin_CPT {
 	 * @uses remove_query_arg()
 	 * @uses add_query_arg()
 	 * @uses wp_redirect()
-	 *
 	 * @return null
 	 *
 	 * @since 1.0.0
@@ -621,7 +633,9 @@ class WPSight_Admin_CPT {
 	 * @access public
 	 * @uses wp_verify_nonce()
 	 * @uses current_user_can()
+	 * @uses wpsight_is_listing_pending()
 	 * @uses wp_update_post()
+	 * @uses wpsight_set_listing_expiry()
 	 * @uses admin_url()
 	 * @uses add_query_arg()
 	 * @uses remove_query_arg()
@@ -670,6 +684,8 @@ class WPSight_Admin_CPT {
 	 *
 	 * Show a notice if we did a bulk action or single approval.
 	 *
+	 * @uses wpsight_post_type()
+	 * @uses wpsight_is_listing_pending()
 	 * @uses get_the_title()
 	 *
 	 * @since 1.0.0
@@ -862,7 +878,7 @@ class WPSight_Admin_CPT {
 	 * @access public
 	 * @uses wp_verify_nonce()
 	 * @uses current_user_can()
-	 * @uses wpsight_is_listing_sticky()
+	 * @uses wpsight_is_listing_featured()
 	 * @uses update_post_meta()
 	 * @uses admin_url()
 	 * @uses add_query_arg()
@@ -978,7 +994,7 @@ class WPSight_Admin_CPT {
 	 * @access public
 	 * @uses wp_verify_nonce()
 	 * @uses current_user_can()
-	 * @uses wpsight_is_listing_sticky()
+	 * @uses wpsight_is_listing_not_available()
 	 * @uses update_post_meta()
 	 * @uses admin_url()
 	 * @uses add_query_arg()
@@ -1087,7 +1103,7 @@ class WPSight_Admin_CPT {
 	}
 
 	/**
-	 * post_updated_messages function.
+	 * post_updated_messages()
 	 *
 	 * @access public
 	 * @param mixed $messages
@@ -1115,7 +1131,7 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * post_updated_messages function.
+	 * bulk_updated_messages()
 	 *
 	 * @access public
 	 * @param mixed $messages
@@ -1146,8 +1162,7 @@ class WPSight_Admin_CPT {
 	/**
 	 * pending_listings_count()
 	 *
-	 * Add pending listings to badge
-	 * in menu label.
+	 * Add pending listings to badge in menu label.
 	 *
 	 * @access public
 	 * @uses wpsight_post_type()

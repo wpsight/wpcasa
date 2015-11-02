@@ -10,7 +10,8 @@
  *
  * Output formatted listing query
  *
- * @param array   $args Array of query arguments
+ * @param array $args Array of query arguments
+ * @param string $template_path Custom template path
  * @uses WPSight_Listings::listings()
  *
  * @since 1.0.0
@@ -25,9 +26,8 @@ function wpsight_listings( $args = array(), $template_path = '' ) {
  *
  * Return listings WP_Query
  *
- * @param array   $args Array of query arguments
+ * @param array $args Array of query arguments
  * @uses WPSight_Listings::get_listings()
- *
  * @return object $result WP_Query object
  *
  * @since 1.0.0
@@ -43,12 +43,12 @@ function wpsight_get_listings( $args = array() ) {
  * Output formatted single listing teaser.
  *
  * @param integer|object $teaser_id Post or listing ID or WP_Post object
- * @uses WPSight_Listings::listing_teaser()
+ * @uses WPSight_Listings::listing()
  *
  * @since 1.0.0
  */
-function wpsight_listing_teaser( $listing_id = null, $full = false ) {
-	// return WPSight_Listings::listing( $listing_id, $full );
+function wpsight_listing_teaser( $listing_id = null ) {
+	return WPSight_Listings::listing( $listing_id, false );
 }
 
 /**
@@ -58,8 +58,8 @@ function wpsight_listing_teaser( $listing_id = null, $full = false ) {
  * archive teaser if $full is (bool) false.
  *
  * @param integer|object $listing_id Post or listing ID or WP_Post object
- * @param bool    $full       Set true to show entire listing or false to show archive teaser
- * @uses WPSight_Listings::listing
+ * @param bool $full Set true to show entire listing or false to show archive teaser
+ * @uses WPSight_Listings::listing()
  *
  * @since 1.0.0
  */
@@ -72,7 +72,8 @@ function wpsight_listing( $listing_id = null, $full = true ) {
  *
  * Output list of listing teasers.
  *
- * @param array   $args Array of query arguments
+ * @param array $args Array of query arguments
+ * @param string $template_path Custom template path
  * @uses WPSight_Listings::listing_teasers()
  *
  * @since 1.0.0
@@ -89,7 +90,6 @@ function wpsight_listing_teasers( $args = array(), $template_path = '' ) {
  *
  * @param string|object $post Post or listing ID or WP_Post object
  * @uses WPSight_Listings::wpsight_get_listing()
- *
  * @return object WP_Post object
  *
  * @since 1.0.0
@@ -105,10 +105,8 @@ function wpsight_get_listing( $post = null ) {
  * Return listings offer (e.g. sale, rent).
  *
  * @param integer $post_id Post ID
- * @param bool    $label   Optionally return offer key
- *
+ * @param bool $label Optionally return offer key
  * @uses WPSight_Listings::get_listing_offer()
- *
  * @return string Offer label or key
  *
  * @since 1.0.0
@@ -124,7 +122,7 @@ function wpsight_get_listing_offer( $post_id = '', $label = true ) {
  * Echo wpsight_get_listing_offer().
  *
  * @param integer $post_id Post ID
- * @param bool    $label   Optionally return offer key
+ * @param bool $label Optionally return offer key
  * @uses WPSight_Listings::get_listing_offer()
  *
  * @since 1.0.0
@@ -139,11 +137,9 @@ function wpsight_listing_offer( $post_id = '', $label = true ) {
  *
  * Return specific detail value of a listing.
  *
- * @param string  $detail  wpsight_details() key
+ * @param string $detail wpsight_details() key
  * @param integer $post_id Post ID
- *
  * @uses WPSight_Listings::get_listing_detail()
- *
  * @return string|false Listing detail value or false if empty
  *
  * @since 1.0.0
@@ -158,9 +154,9 @@ function wpsight_get_listing_detail( $detail, $post_id = '' ) {
  *
  * Echo wpsight_get_listing_detail().
  *
- * @param string  $detail  wpsight_details() key
+ * @param string $detail wpsight_details() key
  * @param integer $post_id Post ID
- * @uses wpsight_get_listing_detail
+ * @uses wpsight_get_listing_detail()
  *
  * @since 1.0.0
  */
@@ -174,12 +170,10 @@ function wpsight_listing_detail( $detail, $post_id = '' ) {
  *
  * Return listings details.
  *
- * @param integer $post_id   Post ID
- * @param array   $details   Array of details (keys from wpsight_details())
+ * @param integer $post_id Post ID
+ * @param array $details Array of details (keys from wpsight_details())
  * @param string|bool $formatted CSS class for container or false to return array
- *
  * @uses WPSight_Listings::get_listing_details()
- *
  * @return string|array Formatted details or unformatted array
  *
  * @since 1.0.0
@@ -194,9 +188,9 @@ function wpsight_get_listing_details( $post_id = '', $details = false, $formatte
  *
  * Echo formatted listing details or print_r if array/unformatted.
  *
- * @param integer $post_id   Post ID
- * @param array   $details   Array of details (keys from wpsight_details())
- * @param bool    $formatted Function returns array if false
+ * @param integer $post_id Post ID
+ * @param array $details Array of details (keys from wpsight_details())
+ * @param bool $formatted Function returns array if false
  * @uses wpsight_get_listing_details()
  *
  * @since 1.0.0
@@ -221,11 +215,10 @@ function wpsight_listing_details( $post_id = '', $details = false, $formatted = 
  *
  * Return specific set of listings details.
  *
- * @param integer $post_id   Post ID
- * @param array   $details   Array of details (keys from wpsight_details())
- * @param bool    $formatted Function returns array if false
+ * @param integer $post_id Post ID
+ * @param array $details Array of details (keys from wpsight_details())
+ * @param bool $formatted Function returns array if false
  * @uses WPSight_Listings::get_listing_summary()
- *
  * @return string|array Formatted details or unformatted array
  *
  * @since 1.0.0
@@ -240,8 +233,8 @@ function wpsight_get_listing_summary( $post_id = '', $details = false, $formatte
  *
  * Echo listing summary or print_r if array.
  *
- * @param integer $post_id   Post ID
- * @param array   $details   Array of details (keys from wpsight_details())
+ * @param integer $post_id Post ID
+ * @param array $details Array of details (keys from wpsight_details())
  * @param string|bool $formatted CSS class for wrap or function returns array if false
  * @uses wpsight_get_listing_summary()
  *
@@ -249,6 +242,7 @@ function wpsight_get_listing_summary( $post_id = '', $details = false, $formatte
  */
 
 function wpsight_listing_summary( $post_id = '', $details = false, $formatted = 'wpsight-listing-summary' ) {
+
 	$listing_summary = wpsight_get_listing_summary( $post_id, $details, $formatted );
 
 	// Only echo if not array
@@ -270,10 +264,8 @@ function wpsight_listing_summary( $post_id = '', $details = false, $formatted = 
  * meta box and is saved as custom post meta '_listing_id'.
  *
  * @param integer $post_id Post ID
- * @param string  $prefix  Lising ID prefix
- *
+ * @param string $prefix Lising ID prefix
  * @uses WPSight_Listings::get_listing_id()
- *
  * @return string|bool Listing ID or false if no post ID available
  *
  * @since 1.0.0
@@ -310,9 +302,7 @@ function wpsight_listing_id( $post_id = '', $prefix = '' ) {
  * @param bool    $args['show_currency'] Show currency or not
  * @param bool    $args['show_period']   Show rental period or not
  * @param bool    $args['show_request']  Show 'price on request' or not
- *
  * @uses WPSight_Listings::get_listing_price()
- *
  * @return string|bool Formatted listing price or false
  *
  * @since 1.0.0
@@ -354,9 +344,7 @@ function wpsight_listing_price( $post_id = '', $before = '', $after = '', $args 
  * @param string  $term_after  Content after each term
  * @param bool    $linked      Link terms to their archive pages or not
  * @param bool    $reverse     Begin with lowest leven for hiearachical taxonomies
- *
  * @uses WPSight_Listings::get_listing_terms()
- *
  * @return string|null List of terms or null if taxonomy does not exist
  *
  * @since 1.0.0
@@ -392,12 +380,10 @@ function wpsight_listing_terms( $taxonomy = '', $post_id = '', $sep = '', $term_
  *
  * Return a thumbnail of a specific listing.
  *
- * @param integer $post_id   Post ID
- * @param array   $attr      Array of attributes for the thumbnail (for get_the_post_thumbnail())
+ * @param integer $post_id Post ID
+ * @param array $attr Array of attributes for the thumbnail (for get_the_post_thumbnail())
  * @param string|bool $formatted CSS class of image container div or false to return wp_get_attachment_image_src()
- *
  * @uses WPSight_Listings::get_listing_thumbnail()
- *
  * @return string|array HTML image tag with container div or array (see wp_get_attachment_image_src())
  *
  * @since 1.0.0
@@ -412,8 +398,8 @@ function wpsight_get_listing_thumbnail( $post_id = '', $size = 'thumbnail', $att
  *
  * Echo wpsight_get_listing_thumbnail().
  *
- * @param integer $post_id   Post ID
- * @param array   $attr      Array of attributes for the thumbnail (for get_the_post_thumbnail())
+ * @param integer $post_id Post ID
+ * @param array $attr Array of attributes for the thumbnail (for get_the_post_thumbnail())
  * @param string|bool $formatted CSS class of image container div or false to return wp_get_attachment_image_src()
  * @uses WPSight_Listings::get_listing_thumbnail()
  *
@@ -430,10 +416,8 @@ function wpsight_listing_thumbnail( $post_id = '', $size = 'thumbnail', $attr = 
  * Return a thumbnail URL of a specific listing.
  *
  * @param integer $post_id Post ID
- * @param string  $size    Size of the image (thumbnail, large etc.). Defaults to 'thumbnail'.
- *
+ * @param string $size Size of the image (thumbnail, large etc.). Defaults to 'thumbnail'.
  * @uses WPSight_Listings::get_listing_thumbnail_url
- *
  * @return string URL of the thumbnail
  *
  * @since 1.0.0
@@ -449,8 +433,7 @@ function wpsight_get_listing_thumbnail_url( $post_id = '', $size = 'thumbnail' )
  * Echo wpsight_get_listing_thumbnail_url().
  *
  * @param integer $post_id Post ID
- * @param string  $size    Size of the image (thumbnail, large etc.). Defaults to 'thumbnail'.
- *
+ * @param string $size Size of the image (thumbnail, large etc.). Defaults to 'thumbnail'.
  * @uses WPSight_Listings::get_listing_thumbnail_url()
  *
  * @since 1.0.0
@@ -468,7 +451,6 @@ function wpsight_listing_thumbnail_url( $post_id = '', $size = 'thumbnail' ) {
  *
  * @param integer $post_id Post ID of the corresponding listing (defaults to current post)
  * @uses WPSight_Listings::is_listing_sticky()
- *
  * @return bool $result True if _listing_sticky has value, else false
  *
  * @since 1.0.0
@@ -486,7 +468,6 @@ function wpsight_is_listing_sticky( $post_id = '' ) {
  *
  * @param integer $post_id Post ID of the corresponding listing (defaults to current post)
  * @uses WPSight_Listings::is_listing_featured()
- *
  * @return bool $result True if _listing_featured has value, else false
  *
  * @since 1.0.0
@@ -504,7 +485,6 @@ function wpsight_is_listing_featured( $post_id = '' ) {
  *
  * @param integer $post_id Post ID of the corresponding listing (defaults to current post)
  * @uses WPSight_Listings::is_listing_not_available()
- *
  * @return bool $result True if _listing_not_available has value, else false
  *
  * @since 1.0.0
@@ -521,7 +501,6 @@ function wpsight_is_listing_not_available( $post_id = '' ) {
  * status 'pending' or 'pending_payment'.
  *
  * @param WPSight_Listings::is_listing_pending()
- *
  * @return bool True if post status is 'pending' or 'pending_payment', else false
  *
  * @since 1.0.0
@@ -538,7 +517,6 @@ function wpsight_is_listing_pending( $post_id = '' ) {
  *
  * @param integer $post_id Post ID of the corresponding listing
  * @uses WPSight_Listings::is_listing_expired()
- *
  * @return bool True if post status is 'expired', else false
  *
  * @since 1.0.0
@@ -549,12 +527,13 @@ function wpsight_is_listing_expired( $post_id = '' ) {
 }
 
 /**
- * True if an the user can edit a listing.
+ * wpsight_user_can_edit_listing()
  *
  * @param integer $listing_id
  * @uses WPSight_Listings::user_can_edit_listing()
+ * @return bool True if an the user can edit a listing
  *
- * @return bool
+ * @since 1.0.0
  */
 
 function wpsight_user_can_edit_listing( $listing_id ) {
@@ -567,12 +546,11 @@ function wpsight_user_can_edit_listing( $listing_id ) {
  * Delete old expired listing previews if number of days
  * have passed after last modification and status is preview.
  *
- * @param int     $days Number of days after that previews are deleted
- * @uses WPSight_Listings::delete_listing_previews()
- *
- * @return array|bool Array of post IDs, false if no previews deleted
- *
  * ##### FUNCTION CALLED BY CRON ####
+ *
+ * @param int $days Number of days after that previews are deleted
+ * @uses WPSight_Listings::delete_listing_previews()
+ * @return array|bool Array of post IDs, false if no previews deleted
  * @see /includes/class-wpsight-post-types.php
  *
  * @since 1.0.0
@@ -587,10 +565,9 @@ function wpsight_delete_listing_previews( $days = '' ) {
  *
  *  Perform a search in various listings fields for given string
  *
- *  @param  string  $search
- *  @uses   WPSight_Listings::search_listing_id()
- *
- *  @return  mixed Array of post IDs, false if no previews deleted
+ *  @param string $search
+ *  @uses WPSight_Listings::search_listing_id()
+ *  @return mixed Array of post IDs, false if no previews deleted
  *
  *  @since 1.0.0
  */

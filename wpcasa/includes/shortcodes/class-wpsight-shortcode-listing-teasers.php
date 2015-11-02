@@ -6,9 +6,7 @@ if ( ! defined( 'ABSPATH' ) )
 class WPSight_Shortcode_Listing_Teasers {
 	
 	/**
-	 * __construct()
-	 *
-	 * @access public
+	 * Constructor
 	 */
 	public function __construct() {		
 		add_shortcode( 'wpsight_listing_teasers', array( $this, 'shortcode_listing_teasers' ) );
@@ -24,12 +22,10 @@ class WPSight_Shortcode_Listing_Teasers {
 	 * @uses wpsight_listing_teasers()
 	 * @uses sanitize_html_class()
 	 * @uses wp_kses_allowed_html()
-	 *
 	 * @return string $output Entire shortcode output
 	 *
 	 * @since 1.0.0
 	 */
-
     public function shortcode_listing_teasers( $atts ) {
 
 		$defaults = array(

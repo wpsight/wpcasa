@@ -3,17 +3,12 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * WPSight_API API
- *
- * This API class handles API requests.
+ * WPSight_API class
  */
 class WPSight_API {
 
 	/**
-	 * __construct function.
-	 *
-	 * @access public
-	 * @return void
+	 * Constructor
 	 */
 	public function __construct() {
 		add_filter( 'query_vars', array( $this, 'add_query_vars'), 0 );
@@ -21,10 +16,11 @@ class WPSight_API {
 	}
 
 	/**
-	 * add_query_vars function.
+	 * add_query_vars()
 	 *
 	 * @access public
-	 * @return void
+	 *
+	 * @since 1.0.0
 	 */
 	public function add_query_vars( $vars ) {
 		$vars[] = 'wpsight-api';
@@ -32,20 +28,22 @@ class WPSight_API {
 	}
 
 	/**
-	 * add_endpoint function.
+	 * add_endpoint()
 	 *
 	 * @access public
-	 * @return void
+	 *
+	 * @since 1.0.0
 	 */
 	public function add_endpoint() {
 		add_rewrite_endpoint( 'wpsight-api', EP_ALL );
 	}
 
 	/**
-	 * API request - Trigger any API requests (handy for third party plugins/gateways).
+	 * api_requests()
 	 *
 	 * @access public
-	 * @return void
+	 *
+	 * @since 1.0.0
 	 */
 	public function api_requests() {
 		global $wp;

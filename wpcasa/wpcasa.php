@@ -2,13 +2,13 @@
 /*
 Plugin Name: WPCasa
 Plugin URI: http://wpcasa.com
-Description: WPCasa is a flexible WordPress solution to create professional real estate websites and manage property listings with ease.
+Description: Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
 Version: 1.0.0-beta
 Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 4.0
-Tested up to: 4.3
-Text Domain: wpsight
+Tested up to: 4.3.1
+Text Domain: wpcasa
 Domain Path: /languages
 
 	Copyright: 2015 Simon Rimkus
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require __DIR__ . '/vendor/autoload.php';
 
 /**
- * wpSight class.
+ * WPSight_Framework class
  */
 class WPSight_Framework {
 
@@ -81,9 +81,8 @@ class WPSight_Framework {
 		include( WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin.php' );
 
 		// Only instantiate admin class when in admin area
-		if ( is_admin() ) {
+		if ( is_admin() )
 			$this->admin = new WPSight_Admin();
-		}
 		
 		// Init classes
 		$this->post_types = new WPSight_Post_Type_Listing();
@@ -97,8 +96,7 @@ class WPSight_Framework {
 		
 		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array( $this->post_types, 'register_post_type_listing' ), 10 );		
 		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), create_function( "", "include_once( 'includes/class-wpsight-install.php' );" ), 10 );
-		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), 'flush_rewrite_rules', 15 );
-		
+		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), 'flush_rewrite_rules', 15 );		
 		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array( $this, 'activation' ) );
 
 		// Actions
@@ -107,20 +105,38 @@ class WPSight_Framework {
 		add_action( 'switch_theme', array( $this->post_types, 'register_post_type_listing' ), 10 );
 		add_action( 'switch_theme', 'flush_rewrite_rules', 15 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
-
+		
+		// Init action for add-ons to hook in
 		do_action_ref_array( 'wpsight_init', array( &$this ) );
 
 	}
 
 	/**
-	 * Localization
+	 * load_plugin_textdomain()
+	 *
+	 * Set up the text domain for the plugin
+	 * and load language files.
+	 *
+	 * @uses plugin_basename()
+	 * @uses load_plugin_textdomain()
+	 *
+	 * @since 1.0.0
 	 */
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain( 'wpcasa', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**
-	 * Register and enqueue scripts and css
+	 * frontend_scripts()
+	 *
+	 * Register and enqueue scripts and css.
+	 *
+	 * @uses wp_enqueue_script()
+	 * @uses wp_localize_script()
+	 * @uses wp_enqueue_style()
+	 * @uses wpsight_get_option()
+	 *
+	 * @since 1.0.0
 	 */
 	public function frontend_scripts() {
 		
@@ -205,7 +221,7 @@ class WPSight_Framework {
  *  wpsight()
  *
  *  The main function responsible for returning the one true wpsight Instance to functions everywhere.
- *  Use this function like you would a global variable, except without needing to declare the global.
+ *  Use this function like you would use a global variable, except without needing to declare the global.
  *
  *  Example: <?php $wpsight = wpsight(); ?>
  *

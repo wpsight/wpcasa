@@ -6,9 +6,7 @@ if ( ! defined( 'ABSPATH' ) )
 class WPSight_Shortcodes {
 
 	/**
-	 * __construct()
-	 *
-	 * @access public
+	 * Constructor
 	 */
 	public function __construct() {
 		

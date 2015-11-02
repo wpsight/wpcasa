@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) )
 	exit;
 
 /**
- * wpSight_Meta_Boxes class
+ * WPSight_Meta_Boxes class
  */
 class WPSight_Meta_Boxes {
 
@@ -39,12 +39,15 @@ class WPSight_Meta_Boxes {
 	}
 
 	/**
-	 *  Make sure CMB2 works in unusual environments such as symlinking the plugin
+	 * cmb2_meta_box_url()
 	 *
-	 *  @see https://github.com/WebDevStudios/CMB2/issues/432
+	 * Make sure CMB2 works in unusual environments such as symlinking the plugin
 	 *
-	 *  @param   string  $url
-	 *  @return  string
+	 * @param string $url
+	 * @return string
+	 * @see https://github.com/WebDevStudios/CMB2/issues/432
+	 *
+	 * @since 1.0.0
 	 */
 	public function cmb2_meta_box_url( $url ) {
 		return plugins_url( 'cmb2/', $url );
@@ -52,6 +55,8 @@ class WPSight_Meta_Boxes {
 
 	/**
 	 * admin_enqueue_scripts()
+	 *
+	 * Enqueue meta box CSS on corresponding admin pages.
 	 *
 	 * @access public
 	 * @uses get_current_screen()
@@ -73,12 +78,17 @@ class WPSight_Meta_Boxes {
 	 * sent to cmb2_admin_init filter of Custom Meta Box API.
 	 *
 	 * @access public
+	 * @uses wpsight_meta_boxes()
+	 * @uses new_cmb2_box()
+	 * @uses $cmb->add_field()
+	 * @uses $cmb->add_group_field()
 	 * @return array
 	 * @see /functions/wpsight-meta-boxes.php
 	 *
 	 * @since 1.0.0
 	 */
 	public function admin_meta_boxes( ) {
+
 		$meta_boxes = wpsight_meta_boxes();
 
 		foreach ( $meta_boxes as $metabox ) {			
@@ -104,7 +114,7 @@ class WPSight_Meta_Boxes {
 	 *
 	 * @access public
 	 * @param integer $post_id
-	 * @param mixed   $post
+	 * @param mixed $post
 	 * @uses wpsight_post_type()
 	 * @uses get_post_meta()
 	 * @uses update_post_meta()
@@ -168,7 +178,7 @@ class WPSight_Meta_Boxes {
 	 *
 	 * @access public
 	 * @param integer $post_id
-	 * @param mixed   $post
+	 * @param mixed $post
 	 * @uses update_post_meta()
 	 * @uses apply_filters()
 	 * @uses wpSight_Geocode::has_location_data()
@@ -195,10 +205,11 @@ class WPSight_Meta_Boxes {
 	}
 
 	/**
+	 * maybe_generate_geolocation_data()
+	 *
 	 * Generate location data if a post is saved
 	 *
-	 * @param int     $post_id
-	 * @param array   $post
+	 * @since 1.0.0
 	 */
 	public function maybe_generate_geolocation_data( $meta_id, $object_id, $meta_key, $_meta_value ) {
 		if ( '_map_address' !== $meta_key || wpsight_post_type() !== get_post_type( $object_id ) ) {
@@ -212,7 +223,7 @@ class WPSight_Meta_Boxes {
 	 *
 	 * Rename and update some post meta to
 	 * ensure backwards compability with
-	 * older wpCasa versions.
+	 * older WPCasa versions.
 	 *
 	 * @access public
 	 * @uses get_the_id()
@@ -276,7 +287,6 @@ class WPSight_Meta_Boxes {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function meta_boxes() {
 
 		// Merge all meta box arrays
@@ -307,13 +317,11 @@ class WPSight_Meta_Boxes {
 	 *
 	 * @uses wpsight_sort_array_by_priority()
 	 * @uses wpsight_post_type()
-	 *
 	 * @return array $meta_box Meta box array with fields
 	 * @see wpsight_meta_boxes()
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function meta_box_listing_attributes() {
 
 		// Set meta box fields
@@ -355,13 +363,11 @@ class WPSight_Meta_Boxes {
 	 *
 	 * @uses wpsight_sort_array_by_priority()
 	 * @uses wpsight_post_type()
-	 *
 	 * @return array $meta_box Meta box array with fields
 	 * @see wpsight_meta_boxes()
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function meta_box_listing_images() {
 
 		// Set meta box fields
@@ -401,17 +407,16 @@ class WPSight_Meta_Boxes {
 	 *
 	 * Create listing price meta box
 	 *
+	 * @uses wpsight_get_currency()
 	 * @uses wpsight_offers()
 	 * @uses wpsight_rental_periods()
 	 * @uses wpsight_sort_array_by_priority()
 	 * @uses wpsight_post_type()
-	 *
 	 * @return array $meta_box Meta box array with fields
 	 * @see wpsight_meta_boxes()
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function meta_box_listing_price() {
 
 		// Set meta box fields
@@ -469,15 +474,14 @@ class WPSight_Meta_Boxes {
 	 *
 	 * @uses wpsight_user_can_edit_listing_id()
 	 * @uses wpsight_measurements()
+	 * @uses wpsight_details()
 	 * @uses wpsight_sort_array_by_priority()
 	 * @uses wpsight_post_type()
-	 *
 	 * @return array $meta_box Meta box array with fields
 	 * @see wpsight_meta_boxes()
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function meta_box_listing_details() {
 
 		// Set meta box fields
@@ -570,13 +574,11 @@ class WPSight_Meta_Boxes {
 	 *
 	 * @uses wpsight_sort_array_by_priority()
 	 * @uses wpsight_post_type()
-	 *
 	 * @return array $meta_box Meta box array with fields
 	 * @see wpsight_meta_boxes()
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function meta_box_listing_location() {
 
 		// Create map fields
@@ -636,15 +638,15 @@ class WPSight_Meta_Boxes {
 	 *
 	 * Create listing agent box
 	 *
+	 * @uses wp_get_current_user()
+	 * @uses get_user_meta()
 	 * @uses wpsight_sort_array_by_priority()
 	 * @uses wpsight_post_type()
-	 *
 	 * @return array $meta_box Meta box array with fields
 	 * @see wpsight_meta_boxes()
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function meta_box_listing_agent() {
 
 		// Set meta box fields
@@ -727,9 +729,17 @@ class WPSight_Meta_Boxes {
 	}
 
 	/**
-	 *  Register meta boxes on user profiles
+	 * meta_box_user()
 	 *
-	 *  @return  void
+	 * Create agent info meta box on user profile page
+	 *
+	 * @uses current_user_can()
+	 * @uses wpsight_sort_array_by_priority()
+	 * @uses wpsight_post_type()
+	 * @return array $meta_box Meta box array with fields
+	 * @see wpsight_meta_boxes()
+	 *
+	 * @since 1.0.0
 	 */
 	public static function meta_box_user() {
 
@@ -778,14 +788,12 @@ class WPSight_Meta_Boxes {
 	 * @uses wpsight_spaces()
 	 * @uses wpsight_sort_array_by_priority()
 	 * @uses wpsight_post_type()
-	 *
 	 * @return array $meta_box Meta box array with fields
 	 * @see wpsight_meta_boxes()
 	 * @see /functions/wpsight-general.php => L768
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function meta_box_spaces() {
 
 		$meta_boxes = array();

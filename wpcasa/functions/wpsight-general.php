@@ -11,8 +11,9 @@
  * Function that defines the array
  * of standard listing details (beds, baths etc.)
  *
- * @return array
  * @uses WPSight_General::details()
+ * @return array
+ *
  * @since 1.0.0
  */
 
@@ -23,12 +24,13 @@ function wpsight_details() {
 /**
  * wpsight_get_detail()
  *
- * Get specific detail.
+ * Get specific listing detail.
  *
  * @param string $detail Key of the detail to return
  * @param bool $return Only return specific element of detail array
- * @return array|string|bool
  * @uses WPSight_General::get_detail()
+ * @return array|string|bool
+ *
  * @since 1.0.0
  */
 
@@ -43,8 +45,9 @@ function wpsight_get_detail( $detail, $return = false ) {
  * in the wpsight_details() array.
  *
  * @param string $query_var query_var key
- * @return string Key of the detail array element
  * @uses WPSight_General::get_detail()
+ * @return string Key of the detail array element
+ *
  * @since 1.0.0
  */
 
@@ -59,8 +62,9 @@ function wpsight_get_detail_by_query_var( $query_var ) {
  * in the wpsight_details() array.
  *
  * @param string $query_var query_var key
- * @return string Key of the detail array element
  * @uses WPSight_General::get_query_var_by_detail()
+ * @return string Key of the detail array element
+ *
  * @since 1.0.0
  */
 
@@ -74,8 +78,9 @@ function wpsight_get_query_var_by_detail( $detail ) {
  * Function that defines the array
  * of available listing offers (sale, rent etc.)
  *
- * @return array
  * @uses WPSight_General::offers()
+ * @return array
+ *
  * @since 1.0.0
  */
 
@@ -89,8 +94,9 @@ function wpsight_offers() {
  * Get specific offer.
  *
  * @param string $offer Key of the offer to return
- * @return string|bool Label of the offer or false if offer does not exist
  * @uses WPSight_General::get_offer()
+ * @return string|bool Label of the offer or false if offer does not exist
+ *
  * @since 1.0.0
  */
 
@@ -105,6 +111,7 @@ function wpsight_get_offer( $offer ) {
  *
  * @param string $offer Key of the offer to return
  * @uses wpsight_get_offer()
+ *
  * @since 1.0.0
  */
 
@@ -119,6 +126,7 @@ function wpsight_offer( $offer ) {
  *
  * @param string $offer Key of the offer to return
  * @uses wpsight_get_offer_color()
+ *
  * @since 1.0.0
  */
 
@@ -132,8 +140,9 @@ function wpsight_offer_color( $offer ) {
  * Get specific offer color used for labels etc.
  *
  * @param string $offer Key of the offer to return
- * @return string|bool Color of the offer or false if offer does not exist
  * @uses WPSight_General::get_offer_color()
+ * @return string|bool Color of the offer or false if offer does not exist
+ *
  * @since 1.0.0
  */
 
@@ -147,8 +156,9 @@ function wpsight_get_offer_color( $offer ) {
  * Function that defines the array
  * of available rental periods (monthly etc.)
  *
- * @return array
  * @uses WPSight_General::rental_periods()
+ * @return array
+ *
  * @since 1.0.0
  */
 
@@ -162,8 +172,9 @@ function wpsight_rental_periods() {
  * Get specific rental period.
  *
  * @param string $period Key of the period to return
- * @return string|bool Label of the period or false if period does not exist
  * @uses WPSight_General::get_rental_period()
+ * @return string|bool Label of the period or false if period does not exist
+ *
  * @since 1.0.0
  */
 
@@ -177,8 +188,9 @@ function wpsight_get_rental_period( $period ) {
  * Function that defines the array
  * of available measurement units (m2,  etc.)
  *
- * @return array
  * @uses WPSight_General::measurements()
+ * @return array
+ *
  * @since 1.0.0
  */
 
@@ -192,8 +204,9 @@ function wpsight_measurements() {
  * Get specific measurement unit.
  *
  * @param string $measurement Key of the measurement to return
- * @return string|bool Label of the measurement or false if unit does not exist
  * @uses return WPSight_General::get_measurement()
+ * @return string|bool Label of the measurement or false if unit does not exist
+ *
  * @since 1.0.0
  */
 
@@ -207,8 +220,8 @@ function wpsight_get_measurement( $measurement ) {
  * Function that defines the array
  * of available date formats.
  *
- * @return array
  * @uses return WPSight_General::date_formats()
+ * @return array
  *
  * @since 1.0.0
  */
@@ -223,8 +236,9 @@ function wpsight_date_formats( $date_i18n = false ) {
  * Function that defines the array
  * of available post statuses
  *
- * @return array
  * @uses WPSight_General::statuses()
+ * @return array
+ *
  * @since 1.0.0
  */
 
@@ -239,8 +253,9 @@ function wpsight_statuses() {
  *
  * @param string $status Key of the corresponding status
  * @param string $field Field of the status (default: label)
- * @return array
  * @uses WPSight_General::get_status()
+ * @return array
+ *
  * @since 1.0.0
  */
 
@@ -254,9 +269,10 @@ function wpsight_get_status( $status, $field = 'label' ) {
  * Function that defines the array
  * of available currencies (USD, EUR  etc.)
  *
- * @return array
- * @since 1.0.0
  * @uses WPSight_General::currencies()
+ * @return array
+ *
+ * @since 1.0.0
  */
 
 function wpsight_currencies() {
@@ -269,8 +285,9 @@ function wpsight_currencies() {
  * Get 3-letter currency abbreviation.
  *
  * @param string $currency 3-letter code of specific currency
+ * @uses WPSight_General::get_currency_abbr()
  * @return string 3-letter currency code
- * @uses WPSight_General::get_currency_abbr
+ *
  * @since 1.0.0
  */
 
@@ -284,8 +301,9 @@ function wpsight_get_currency_abbr( $currency = '' ) {
  * Get currency entity.
  *
  * @param string $currency 3-letter code of specific currency
- * @return string Currency entity or 3-letter code
  * @uses WPSight_General::get_currency()
+ * @return string Currency entity or 3-letter code
+ *
  * @since 1.0.0
  */
 
@@ -299,8 +317,9 @@ function wpsight_get_currency( $currency = '' ) {
  * Echo wpsight_get_currency().
  *
  * @param string $currency 3-letter code of specific currency
- * @return string Currency entity or 3-letter code
  * @uses wpsight_get_currency()
+ * @return string Currency entity or 3-letter code
+ *
  * @since 1.0.0
  */
 
@@ -314,8 +333,9 @@ function wpsight_currency( $currency = '' ) {
  * Function that defines the array
  * of available widget spaces.
  *
+ * @uses WPSight_General::spaces()
  * @return array
- * @uses WPSight_General::spaces
+ *
  * @since 1.0.0
  */
  
@@ -328,8 +348,9 @@ function wpsight_spaces() {
  * 
  * Return all custom query vars for listings
  *
+ * @uses WPSight_General::listing_query_vars()
  * @return array
- * @uses  WPSight_General::listing_query_vars()
+ *
  * @since 1.0.0
  */
  
@@ -342,8 +363,9 @@ function wpsight_listing_query_vars() {
  *
  * Check if current user can edit the listing ID.
  *
- * @return bool True if user is eligible, else false
  * @uses WPSight_General::user_can_edit_listing_id
+ * @return bool True if user is eligible, else false
+ *
  * @since 1.0.0
  */
 

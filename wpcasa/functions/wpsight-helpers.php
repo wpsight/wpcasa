@@ -12,8 +12,10 @@
  * post type used in the framework.
  *
  * @return string
+ *
  * @since 1.0.0
  */
+
 function wpsight_post_type() {
 	return WPSight_Helpers::post_type();
 }
@@ -29,6 +31,7 @@ function wpsight_post_type() {
  *
  * @since 1.0.0
  */
+
 function wpsight_is_listing_single() {
 	return WPSight_Helpers::is_listing_single();
 }
@@ -39,13 +42,12 @@ function wpsight_is_listing_single() {
  * Helper function that checks if
  * we are on a listing agent archive page.
  *
- * @uses wpsight_post_type()
- * @uses is_admin()
- * @uses $query->is_main_query()
+ * @uses WPSight_Helpers::is_listing_agent_archive()
  * @return bool
  *
  * @since 1.0.0
  */
+
 function wpsight_is_listing_agent_archive( $query = null ) {
 	return WPSight_Helpers::is_listing_agent_archive( $query );
 }
@@ -56,9 +58,7 @@ function wpsight_is_listing_agent_archive( $query = null ) {
  * Helper function that checks if
  * we are on a listing archive page.
  *
- * @uses wpsight_post_type()
- * @uses is_admin()
- * @uses $query->is_main_query()
+ * @uses WPSight_Helpers::is_listing_archive()
  * @return bool
  *
  * @since 1.0.0
@@ -72,11 +72,11 @@ function wpsight_is_listing_archive( $query = null ) {
  *
  * Return theme option value.
  * 
- * @param 	string $name Key of the wpSight option
+ * @param 	string $name Key of the WPSight option
  * @param 	bool|string Set (bool) true to return default from options array or string
- * @uses 	get_option()
- * @uses 	wpsight_options_defaults()
+ * @uses 	WPSight_Helpers::get_option()
  * @return 	bool|string False if no value was found or option value as string
+ *
  * @since 	1.0.0
  */
 
@@ -92,12 +92,12 @@ if ( ! function_exists( 'wpsight_get_option' ) ) {
 /**
  * wpsight_add_option()
  *
- * Add a specific wpSight option
+ * Add a specific WPSight option
  *
  * @param string $name Key of the option to add
  * @param mixed $value Value of the option to add
- * @uses get_option()
- * @uses update_option()
+ * @uses WPSight_Helpers::add_option()
+ *
  * @since 1.0.0
  */
 
@@ -113,11 +113,11 @@ if ( ! function_exists( 'wpsight_add_option' ) ) {
 /**
  * wpsight_delete_option()
  *
- * Delete a specific wpSight option
+ * Delete a specific WPSight option
  *
  * @param string $name Key of the option to delete
- * @uses get_option()
- * @uses update_option()
+ * @uses WPSight_Helpers::delete_option()
+ *
  * @since 1.0.0
  */
 
@@ -135,7 +135,9 @@ if ( ! function_exists( 'wpsight_delete_option' ) ) {
  *
  * Get array of options with default values
  *
+ * @uses WPSight_Helpers::options_defaults()
  * @see wpsight-admin.php
+ *
  * @since 1.0.0
  */
 
@@ -144,7 +146,11 @@ function wpsight_options_defaults() {
 }
 
 /**
+ * wpsight_get_tax_name()
+ *
  * Helper function to get taxonomy name
+ *
+ * @uses WPSight_Helpers::get_tax_name()
  *
  * @since 1.0.0
  */
@@ -159,10 +165,12 @@ if ( ! function_exists( 'wpsight_get_tax_name' ) ) {
 }
 
 /**
- * Helper function to replace
- * the_content filter
+ * wpsight_format_content()
+ *
+ * Helper function to replace the_content filter
  *
  * @param string $content Content to be formatted
+ * @uses WPSight_Helpers::format_content()
  *
  * @since 1.0.0
  */
@@ -177,8 +185,11 @@ if ( ! function_exists( 'wpsight_format_content' ) ) {
 }
 
 /**
- * Helper function to convert
- * underscores to dashes
+ * wpsight_dashes()
+ *
+ * Helper function to convert underscores to dashes
+ *
+ * @uses WPSight_Helpers::dashes()
  *
  * @since 1.0.0
  */
@@ -193,8 +204,11 @@ if ( ! function_exists( 'wpsight_dashes' ) ) {
 }
 
 /**
- * Helper function to convert
- * dashes to underscores
+ * wpsight_underscores()
+ *
+ * Helper function to convert dashes to underscores
+ *
+ * @uses WPSight_Helpers::underscores()
  *
  * @since 1.0.0
  */
@@ -209,8 +223,11 @@ if ( ! function_exists( 'wpsight_underscores' ) ) {
 }
 
 /**
- * Helper function to
- * check multi-dimensional arrays
+ * array_empty()
+ *
+ * Helper function to check multi-dimensional arrays
+ *
+ * @uses WPSight_Helpers::array_empty()
  *
  * @since 1.0.0
  */
@@ -218,11 +235,21 @@ if ( ! function_exists( 'wpsight_underscores' ) ) {
 // Make function pluggable/overwritable
 if ( ! function_exists( 'array_empty' ) ) {
 
-	function array_empty( $mixed ) {
+	function wpsight_array_empty( $mixed ) {
 	   	return WPSight_Helpers::array_empty( $mixed );
 	}
 
 }
+
+/**
+ * in_multiarray()
+ *
+ * Helper function to check multi-dimensional arrays
+ *
+ * @uses WPSight_Helpers::in_multiarray()
+ *
+ * @since 1.0.0
+ */
 
 // Make function pluggable/overwritable
 if ( ! function_exists( 'in_multiarray' ) ) {
@@ -240,10 +267,11 @@ if ( ! function_exists( 'in_multiarray' ) ) {
  *
  * @param array $array Array to be sorted
  * @param mixed $order Sort options
+ * @uses WPSight_Helpers::sort_array_by_priority()
  * @see http://docs.php.net/manual/en/function.array-multisort.php
  * @return array Sorted array
  *
- * @since 1.1
+ * @since 1.0.0
  */
 
 function wpsight_sort_array_by_priority( $array = array(), $order = SORT_NUMERIC ) {
@@ -257,7 +285,11 @@ function wpsight_sort_array_by_position( $array = array(), $order = SORT_NUMERIC
 }
 
 /**
+ * wpsight_implode_array()
+ *
  * Implode an array with the key and value pair
+ *
+ * @uses WPSight_Helpers::implode_array()
  *
  * @since 1.0.0
  */
@@ -272,7 +304,11 @@ if ( ! function_exists( 'wpsight_implode_array' ) ) {
 }
 
 /**
+ * wpsight_explode_array()
+ *
  * Explode string to associative array
+ *
+ * @uses WPSight_Helpers::explode_array()
  *
  * @since 1.0.0
  */
@@ -287,10 +323,19 @@ if ( ! function_exists( 'wpsight_explode_array' ) ) {
 }
 
 /**
- * Helper function to display
- * theme_mods CSS
+ * wpsight_generate_css()
  *
- * @since 1.2
+ * Helper function to display theme_mods CSS
+ *
+ * @param string $selector CSS selector
+ * @param string $style CSS style
+ * @param string $mod_name Name of theme_mod
+ * @param string $prefix
+ * @param string $postfix
+ * @param bool $echo Echo (true) or return (false)
+ * @uses WPSight_Helpers::generate_css()
+ *
+ * @since 1.0.0
  */
  
 function wpsight_generate_css( $selector, $style, $mod_name, $prefix = '', $postfix = '', $echo = false ) {
@@ -298,10 +343,15 @@ function wpsight_generate_css( $selector, $style, $mod_name, $prefix = '', $post
 }
 
 /**
+ * wpsight_cast_decimal_precision()
+ *
  * Helper function to allow
  * DECIMAL precision (hacky)
  *
- * @since 1.2
+ * @param string $sql SQL
+ * @uses WPSight_Helpers::cast_decimal_precision()
+ *
+ * @since 1.0.0
  */
 
 function wpsight_cast_decimal_precision( $sql ) {
@@ -311,6 +361,15 @@ function wpsight_cast_decimal_precision( $sql ) {
 /**
  * Helper functions to return taxonomy
  * terms ordered by hierarchy
+ *
+ * @param integer $post_id Post ID of specific listing
+ * @param string $taxonomy Taxonomy
+ * @param string $sep Separator between terms
+ * @param string $term_before String before each term
+ * @param string $term_after String after each term
+ * @param bool $linked Link terms to their term archives
+ * @param bool $reverse Reverse order of terms
+ * @uses WPSight_Helpers::get_the_term_list()
  *
  * @since 1.0.0
  */
@@ -343,11 +402,15 @@ if ( ! function_exists( 'wpsight_get_the_term_list_links' ) ) {
 }
 
 /**
- * Helper functions to get
- * attachment ID by URL.
+ * wpsight_get_attachment_id_by_url()
+ *
+ * Helper functions to get attachment ID by URL.
+ *
+ * @param string $url Image attachment URL
+ * @uses WPSight_Helpers::get_attachment_id_by_url()
+ * @credit https://pippinsplugins.com/retrieve-attachment-id-from-image-url/
  *
  * @since 1.0.0
- * @credit https://pippinsplugins.com/retrieve-attachment-id-from-image-url/
  */
 
 // Make function pluggable/overwritable
@@ -360,11 +423,16 @@ if ( ! function_exists( 'wpsight_get_attachment_id_by_url' ) ) {
 }
 
 /**
- * Helper functions to get
- * attachment by URL.
+ * wpsight_get_attachment_by_url()
+ *
+ * Helper functions to get attachment by URL.
+ *
+ * @param string $url Image attachment URL
+ * @param string|array WordPress image size or custom with and height in array
+ * @uses WPSight_Helpers::get_attachment_by_url()
+ * @credit https://pippinsplugins.com/retrieve-attachment-id-from-image-url/
  *
  * @since 1.0.0
- * @credit https://pippinsplugins.com/retrieve-attachment-id-from-image-url/
  */
 
 // Make function pluggable/overwritable
@@ -377,9 +445,13 @@ if ( ! function_exists( 'wpsight_get_attachment_by_url' ) ) {
 }
 
 /**
+ * wpsight_maybe_update_gallery()
+ *
  * Helper function to update image gallery.
  *
  * @param integer $listing_id Post ID of the corresponding listing
+ * @uses WPSight_Helpers::maybe_update_gallery()
+ *
  * @since 1.0.0
  */
 

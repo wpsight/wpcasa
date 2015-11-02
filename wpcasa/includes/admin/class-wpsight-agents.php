@@ -31,6 +31,10 @@ class WPSight_Admin_Agents {
 	 * Add custom user profile fields
 	 * using user_contactmethods filter hook.
 	 *
+	 * @param array $fields WordPress user contact methods
+	 * @uses wpsight_profile_contact_fields()
+	 * @return array $fields Updated contact methods
+	 *
 	 * @since 1.0.0
 	 */
 	public function profile_contact_fields( $fields ) {
@@ -49,7 +53,7 @@ class WPSight_Admin_Agents {
 	 * Add update agent data in listings option to profile
 	 *
 	 * @param object $user The WP_User object of the user being edited
-	 * @uses get_the_author_meta()
+	 * @uses current_user_can()
 	 *
 	 * @since 1.0.0
 	 */
@@ -79,6 +83,9 @@ class WPSight_Admin_Agents {
 	 *
 	 * @param interger $user_id The user ID of the user being edited
 	 * @uses current_user_can()
+	 * @uses wpsight_post_type()
+	 * @uses wpsight_get_user_posts_by_type()
+	 * @uses wp_get_attachment_url()
 	 * @uses update_user_meta()
 	 *
 	 * @since 1.0.0
@@ -143,6 +150,11 @@ class WPSight_Admin_Agents {
 	 * by the current user if he does not have
 	 * 'read_private_listings' capability.
 	 *
+	 * @param object WP_Query
+	 * @uses get_current_screen()
+	 * @uses current_user_can()
+	 * @uses get_current_user_id()
+	 *
 	 * @since 1.0.0
 	 */
 	public function media_library_restrict( $wp_query ) {
@@ -162,6 +174,8 @@ class WPSight_Admin_Agents {
 	 * by the current user if he does not have
 	 * 'read_private_listings' capability.
 	 *
+	 * @param object WP_Query
+	 * @uses current_user_can()
 	 * @author Damir Calusic
 	 * @see https://wordpress.org/plugins/wp-users-media/
 	 *

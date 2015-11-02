@@ -4,15 +4,14 @@ if ( ! defined( 'ABSPATH' ) )
 	exit;
 
 /**
- * Search class
+ * WPSight_Search class
  */
 class WPSight_Search {
 
 	/**
 	 * Constructor
 	 */
-	public function __construct() {
-		
+	public function __construct() {		
 		add_action( 'pre_get_posts', array( $this, 'taxonomy_query_vars' ) );
 		add_action( 'init', array( $this, 'search_cookie' ) );
 	}
@@ -31,7 +30,6 @@ class WPSight_Search {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function taxonomy_query_vars( $query ) {
 		
 		// Stop if no listing tax or not main query
@@ -62,6 +60,7 @@ class WPSight_Search {
 		}
 		
 	}
+
 	/**
 	 * search_cookie()
 	 *
@@ -117,12 +116,11 @@ class WPSight_Search {
 	 * @uses wpsight_get_search_fields()
 	 * @uses wpsight_get_search_field()
 	 * @uses sanitize_html_class()
-	 *
+	 * @uses wpsight_get_template()
 	 * @return array $search Return formatted search form fields
 	 *
 	 * @since 1.0.0
-	 */
-	 
+	 */	 
 	public static function get_search( $args = array(), $search_fields = array() ) {
 		
 		// Set defaults
@@ -200,8 +198,7 @@ class WPSight_Search {
 	 * @return array $fields Array of search form fields
 	 *
 	 * @since 1.0.0
-	 */
-	 
+	 */	 
 	public static function get_search_fields( $fields = array() ) {
 		
 		// Get listing details
@@ -209,22 +206,19 @@ class WPSight_Search {
 		
 		// Set default form fields
 		
-		$defaults = array(
-			
+		$defaults = array(			
 			'keyword' => array(
 				'label' 		=> __( 'Keyword or Listing ID', 'wpcasa' ) . '&hellip;',
 				'type' 			=> 'text',
 				'class'			=> 'width-3-4',
 		    	'priority'		=> 10
-			),
-			
+			),			
 			'submit' => array(
 				'label' 		=> __( 'Search', 'wpcasa' ),
 				'type' 			=> 'submit',
 				'class'			=> 'width-1-4',
 		    	'priority'		=> 20
 			),
-
 			'offer' => array(
 				'label' 		=> __( 'Offer', 'wpcasa' ),
 				'key'			=> '_price_offer',
@@ -234,7 +228,6 @@ class WPSight_Search {
 				'class'			=> 'width-1-5',
 		    	'priority'		=> 30
 			),
-
 			'location' => array(
 				'data' 			=> array(
 					// wp_dropdown_categories() options
@@ -249,7 +242,6 @@ class WPSight_Search {
 				'class'			=> 'width-1-5',
 		    	'priority'		=> 40
 			),
-
 			'listing-type' => array(
 				'data' 			=> array(
 					// wp_dropdown_categories() options
@@ -264,7 +256,6 @@ class WPSight_Search {
 				'class'			=> 'width-1-5',
 		    	'priority'		=> 50
 			),
-
 			$details['details_1']['id'] => array(
 				'label' 		=> $details['details_1']['label'],
 				'key'			=> '_details_1',
@@ -274,7 +265,6 @@ class WPSight_Search {
 				'class'			=> 'width-1-5',
 		    	'priority'		=> 60
 			),
-
 			$details['details_2']['id'] => array(
 				'label' 		=> $details['details_2']['label'],
 				'key'			=> '_details_2',
@@ -283,8 +273,7 @@ class WPSight_Search {
 				'data_compare' 	=> '>=',
 				'class'			=> 'width-1-5',
 		    	'priority'		=> 70
-			)
-			
+			)			
 		);
 		
 		// Set $defaults when $fields is empty
@@ -307,12 +296,10 @@ class WPSight_Search {
 	 * @uses wpsight_get_search_fields()
 	 * @uses wpsight_get_query_var_by_detail()
 	 * @uses wpsight_cookie_query()
-	 *
 	 * @return array|string|bool $fields[$key] Array or HTML markup of specific search form field or false if key does not exist
 	 *
 	 * @since 1.0.0
-	 */
-	 
+	 */	 
 	public static function get_search_field( $field, $formatted = false ) {
 
 		// Get all search fields
@@ -383,11 +370,12 @@ class WPSight_Search {
 	 * Return query saved in cookie.
 	 *
 	 * @param string $field Key of specific field
+	 * @uses wpsight_explode_array()
+	 * @uses wpsight_get_query_var_by_detail()
 	 * @return array|string Array of field vars or value of specific field
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function cookie_query( $field = false ) {
 		
 		if( ! isset( $_COOKIE[WPSIGHT_COOKIE_SEARCH_QUERY] ) )

@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) )
 	exit;
 
 /**
- * wpSight_Post_Type_Listing class
+ * WPSight_Post_Type_Listing class
  */
 class WPSight_Post_Type_Listing {
 
@@ -64,7 +64,6 @@ class WPSight_Post_Type_Listing {
  	 * @uses register_taxonomy()
  	 * @uses wpsight_post_type()
  	 * @uses register_post_type()
- 	 * @uses wpsight_post_type()
  	 *
  	 * @since 1.0.0
 	 */
@@ -329,7 +328,6 @@ class WPSight_Post_Type_Listing {
  	 *
  	 * @access public
  	 * @param object $query WP_Query of the corresponding loop
- 	 *
  	 * @uses $query->is_main_query()
  	 * @uses wpsight_is_listing_archive()
  	 * @uses current_filter()
@@ -379,7 +377,6 @@ class WPSight_Post_Type_Listing {
  	 *
  	 * @access public
  	 * @param object $query WP_Query of the corresponding loop
- 	 *
  	 * @uses $query->is_main_query()
  	 * @uses wpsight_is_listing_archive()
  	 * @uses current_filter()
@@ -432,7 +429,7 @@ class WPSight_Post_Type_Listing {
 	 * If a listing is called on the front end,
 	 * check if we need to create geolocation data
 	 * to ensure backwards compatibiliy with older
-	 * wpCasa versions.
+	 * WPCasa versions.
  	 *
  	 * @access public
  	 * @uses wpsight_is_listing_single()
@@ -463,8 +460,6 @@ class WPSight_Post_Type_Listing {
 	 * @access public
 	 * @param int $post_id Post ID of the corresponding entry
 	 * @param object WP_Post object
-	 * @see https://codex.wordpress.org/Plugin_API/Action_Reference/wp_insert_post
-	 *
 	 * @uses wpsight_post_type()
 	 * @uses add_post_meta()
 	 *
@@ -492,7 +487,6 @@ class WPSight_Post_Type_Listing {
 	public function delete_listing_previews() {
 		
 		// Delete old listing previews if desired
-
 		if ( apply_filters( 'wpsight_delete_listing_previews', true ) )
 			wpsight_delete_listing_previews();
 		
@@ -506,6 +500,7 @@ class WPSight_Post_Type_Listing {
 	 *
 	 * @access public
 	 * @uses wpsight_post_type()
+	 * @uses wpsight_statuses()
 	 *
 	 * @since 1.0.0
 	 */
@@ -585,6 +580,8 @@ class WPSight_Post_Type_Listing {
 	 * wpsight_print_query_vars()
 	 *
 	 * Add print to query vars.
+	 *
+	 * @return array
  	 *
  	 * @since 1.0.0
 	 */
@@ -606,8 +603,7 @@ class WPSight_Post_Type_Listing {
  	 *
  	 * @since 1.0.0
 	 */	
-	function wpsight_print_redirect() {
-	    
+	function wpsight_print_redirect() {	    
 	    global $wp, $wp_query;
 	    
 	    if( isset( $wp->query_vars['print'] ) && absint( $wp->query_vars['print'] ) ) {

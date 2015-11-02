@@ -29,7 +29,6 @@ function wpsight_search( $args = array(), $search_fields = array() ) {
  * @param array $args Search form arguments
  * @param array $search_fields Array of search fields
  * @uses return WPSight_Search::get_search()
- *
  * @return array $search Return formatted search form fields
  *
  * @since 1.0.0
@@ -46,7 +45,6 @@ function wpsight_get_search( $args = array(), $search_fields = array() ) {
  *
  * @param array $fields Array of search fields (empty array by default)
  * @uses WPSight_Search::get_search_fields()
- *
  * @return array $fields Array of search form fields
  *
  * @since 1.0.0
@@ -64,7 +62,6 @@ function wpsight_get_search_fields( $fields = array() ) {
  * @param string $field Key of the search field
  * @param bool $formatted Set false to return search field array or true for formatted markup (defaults to false)
  * @uses WPSight_Search::get_search_field()
- *
  * @return array|string|bool $fields[$key] Array or HTML markup of specific search form field or false if key does not exist
  *
  * @since 1.0.0

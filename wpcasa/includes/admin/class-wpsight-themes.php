@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) )
 if ( ! class_exists( 'WPSight_Themes' ) ) :
 
 /**
- * WPSight_Addons Class
+ * WPSight_Themes Class
  */
 class WPSight_Themes {
 

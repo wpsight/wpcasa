@@ -4,15 +4,12 @@ if ( ! defined( 'ABSPATH' ) )
 	exit;
 
 /**
- * WPSight_Install
+ * WPSight_Install class
  */
 class WPSight_Install {
 
 	/**
-	 * __construct function.
-	 *
-	 * @access public
-	 * @return void
+	 * Constructor
 	 */
 	public function __construct() {
 		$this->init_user_roles();
@@ -23,10 +20,16 @@ class WPSight_Install {
 	}
 
 	/**
-	 * Init user roles
+	 * init_user_roles()
+	 *
+	 * Create custom agent roles.
 	 *
 	 * @access public
-	 * @return void
+	 * @uses wpsight_agent_roles()
+	 * @uses $wp_roles->add_cap()
+	 * @uses add_role()
+	 *
+	 * @since 1.0.0
 	 */
 	public function init_user_roles() {
 		global $wp_roles;
@@ -62,16 +65,23 @@ class WPSight_Install {
 	}
 
 	/**
-	 * Setup cron jobs
+	 * cron()
+	 *
+	 * Setup custom cron jobs
+	 *
+	 * @uses wp_clear_scheduled_hook()
+	 * @uses wp_schedule_event()
+	 *
+	 * @since 1.0.0
 	 */
 	public function cron() {
 		
-		// Handle delete previews cron
-		
+		// Handle delete previews cron		
 		wp_clear_scheduled_hook( 'wpsight_delete_listing_previews' );
 		wp_schedule_event( time(), 'daily', 'wpsight_delete_listing_previews' );
 
 	}
+
 }
 
 new WPSight_Install();

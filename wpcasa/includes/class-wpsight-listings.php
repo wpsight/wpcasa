@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) )
 	exit;
 
 /**
- * Listings class
+ * WPSight_Listings class
  */
 class WPSight_Listings {
 
@@ -18,10 +18,10 @@ class WPSight_Listings {
 	 * @uses wpsight_get_listings()
 	 * @uses wpsight_get_template()
 	 * @uses wpsight_get_template_part()
+	 * @uses wp_reset_query()
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function listings( $args = array(), $template_path = '' ) {
 		global $wpsight_query;
 
@@ -64,7 +64,7 @@ class WPSight_Listings {
 	 *
 	 * Return listings WP_Query
 	 *
-	 * @param array   $args Array of query arguments
+	 * @param array $args Array of query arguments
 	 * @uses get_query_var()
 	 * @uses wpsight_listing_query_vars()
 	 * @uses wp_parse_args()
@@ -74,12 +74,10 @@ class WPSight_Listings {
 	 * @uses wpsight_get_query_var_by_detail()
 	 * @uses get_object_taxonomies()
 	 * @uses wpsight_get_search_field()
-	 *
 	 * @return object $result WP_Query object
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listings( $args = array() ) {
 		global $wpdb;
 
@@ -404,10 +402,12 @@ class WPSight_Listings {
 	 * archive teaser if $full is (bool) false.
 	 *
 	 * @param integer|object $listing_id Post or listing ID or WP_Post object
-	 * @param bool    $full       Set true to show entire listing or false to show archive teaser
+	 * @param bool $full Set true to show entire listing or false to show archive teaser
 	 * @uses wpsight_get_listing()
+	 * @uses setup_postdata()
 	 * @uses wpsight_get_template()
 	 * @uses wpsight_get_template_part()
+	 * @uses wp_reset_postdata()
 	 *
 	 * @since 1.0.0
 	 */
@@ -441,15 +441,12 @@ class WPSight_Listings {
 		
 			// Reset post data
 			wp_reset_postdata();
-		
-			// Else show no listing template
+
 		} else {
-		
 			// Get template for no listings
 			wpsight_get_template_part( 'listing', 'no' );
 		}
 	}
-
 
 	/**
 	 * listing_teasers()
@@ -458,13 +455,14 @@ class WPSight_Listings {
 	 *
 	 * @param array $args Array of query arguments
 	 * @param string $template_path Template path for wpsight_get_template()
+	 * @uses get_query_var()
 	 * @uses wpsight_get_listings()
+	 * @uses wpsight_get_template()
 	 * @uses wpsight_listing_teaser()
 	 * @uses wp_reset_query()
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function listing_teasers( $args = array(), $template_path = '' ) {
 		global $wpsight_query;
 		
@@ -508,10 +506,8 @@ class WPSight_Listings {
 			wpsight_get_template( 'listing-teasers-after.php', $args, $template_path );
 
 		} else {
-
 			// Get template for no listings
 			wpsight_get_template( 'listings-no.php', $args, $template_path );
-
 		}
 
 		// Reset query
@@ -525,13 +521,13 @@ class WPSight_Listings {
 	 * Return single listing post object.
 	 *
 	 * @param string|object $post Post or listing ID or WP_Post object
+	 * @uses wpsight_post_type()
 	 * @uses get_post()
-	 *
+	 * @uses wp_reset_query()
 	 * @return object WP_Post object
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing( $post = null ) {
 		global $wpdb;
 
@@ -565,6 +561,7 @@ class WPSight_Listings {
 		}
 
 		return apply_filters( 'wpsight_get_listing', $post );
+
 	}
 
 	/**
@@ -573,17 +570,14 @@ class WPSight_Listings {
 	 * Return listings offer (e.g. sale, rent).
 	 *
 	 * @param integer $post_id Post ID
-	 * @param bool    $label   Optionally return offer key
-	 *
+	 * @param bool $label Optionally return offer key
 	 * @uses get_the_ID()
 	 * @uses get_post_meta()
 	 * @uses wpsight_offers()
-	 *
 	 * @return string Offer label or key
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_offer( $post_id = '', $label = true ) {
 
 		// Use global post ID if not defined
@@ -622,15 +616,13 @@ class WPSight_Listings {
 	 *
 	 * @param string  $detail  wpsight_details() key
 	 * @param integer $post_id Post ID
-	 *
 	 * @uses get_the_ID()
+	 * @uses get_post_meta()
 	 * @uses wpsight_get_detail()
-	 *
 	 * @return string|false Listing detail value or false if empty
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_detail( $detail, $post_id = '' ) {
 
 		if ( empty( $detail ) )
@@ -672,10 +664,9 @@ class WPSight_Listings {
 	 *
 	 * Return listings details.
 	 *
-	 * @param integer $post_id   Post ID
-	 * @param array   $details   Array of details (keys from wpsight_details())
+	 * @param integer $post_id Post ID
+	 * @param array $details Array of details (keys from wpsight_details())
 	 * @param string|bool $formatted CSS class for container or false to return array
-	 *
 	 * @uses get_the_ID()
 	 * @uses get_post_custom()
 	 * @uses wpsight_details()
@@ -684,12 +675,10 @@ class WPSight_Listings {
 	 * @uses wpsight_get_detail()
 	 * @uses wpsight_get_measurement()
 	 * @uses sanitize_html_class()
-	 *
 	 * @return string|array Formatted details or unformatted array
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_details( $post_id = '', $details = false, $formatted = 'wpsight-listing-details' ) {
 
 		if ( ! $post_id )
@@ -760,16 +749,14 @@ class WPSight_Listings {
 	 *
 	 * Return specific set of listings details.
 	 *
-	 * @param integer $post_id   Post ID
-	 * @param array   $details   Array of details (keys from wpsight_details())
-	 * @param bool    $formatted Function returns array if false
+	 * @param integer $post_id Post ID
+	 * @param array $details Array of details (keys from wpsight_details())
+	 * @param bool $formatted Function returns array if false
 	 * @uses wpsight_get_listing_details()
-	 *
 	 * @return string|array Formatted details or unformatted array
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_summary( $post_id = '', $details = false, $formatted = 'wpsight-listing-summary' ) {
 
 		// Define set of details
@@ -793,15 +780,12 @@ class WPSight_Listings {
 	 *
 	 * @param integer $post_id Post ID
 	 * @param string  $prefix  Lising ID prefix
-	 *
 	 * @uses get_the_ID()
 	 * @uses get_post_meta()
-	 *
 	 * @return string|bool Listing ID or false if no post ID available
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_id( $post_id = '', $prefix = 'ID-' ) {
 
 		// Check if custom post ID
@@ -843,19 +827,16 @@ class WPSight_Listings {
 	 * @param bool    $args['show_currency'] Show currency or not
 	 * @param bool    $args['show_period']   Show rental period or not
 	 * @param bool    $args['show_request']  Show 'price on request' or not
-	 *
 	 * @uses get_the_ID()
 	 * @uses get_post_custom()
 	 * @uses wpsight_get_option()
 	 * @uses wpsight_get_currency()
 	 * @uses wpsight_get_currency_abbr()
 	 * @uses wpsight_get_rental_period()
-	 *
 	 * @return string|bool Formatted listing price or false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_price( $post_id = '', $before = '', $after = '', $args = array() ) {
 
 		// Check if custom post ID
@@ -1041,16 +1022,13 @@ class WPSight_Listings {
 	 * @param string  $term_after  Content after each term
 	 * @param bool    $linked      Link terms to their archive pages or not
 	 * @param bool    $reverse     Begin with lowest leven for hiearachical taxonomies
-	 *
 	 * @uses get_the_ID()
 	 * @uses is_taxonomy_hierarchical()
 	 * @uses wpsight_get_the_term_list()
-	 *
 	 * @return string|null List of terms or null if taxonomy does not exist
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_terms( $taxonomy = '', $post_id = '', $sep = '', $term_before = '', $term_after = '', $linked = true, $reverse = false ) {
 
 		// Set default post ID
@@ -1077,7 +1055,6 @@ class WPSight_Listings {
 	 * @param integer $post_id   Post ID
 	 * @param array   $attr      Array of attributes for the thumbnail (for get_the_post_thumbnail())
 	 * @param string|bool $formatted CSS class of image container div or false to return wp_get_attachment_image_src()
-	 *
 	 * @uses get_the_ID()
 	 * @uses get_the_title()
 	 * @uses wp_parse_args()
@@ -1086,12 +1063,10 @@ class WPSight_Listings {
 	 * @uses sanitize_html_class()
 	 * @uses get_post_thumbnail_id()
 	 * @uses wp_get_attachment_image_src()
-	 *
 	 * @return string|array HTML image tag with container div or array (see wp_get_attachment_image_src())
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_thumbnail( $post_id = '', $size = 'thumbnail', $attr = '', $default = '', $formatted = 'wpsight-listing-thumbnail' ) {
 
 		// Set default post ID
@@ -1139,15 +1114,12 @@ class WPSight_Listings {
 	 * Return a thumbnail URL of a specific listing.
 	 *
 	 * @param integer $post_id Post ID
-	 * @param string  $size    Size of the image (thumbnail, large etc.). Defaults to 'thumbnail'.
-	 *
-	 * @uses wpsight_get_listing_thumbnail
-	 *
+	 * @param string $size Size of the image (thumbnail, large etc.). Defaults to 'thumbnail'.
+	 * @uses wpsight_get_listing_thumbnail()
 	 * @return string URL of the thumbnail
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_thumbnail_url( $post_id = '', $size = 'thumbnail' ) {
 
 		// Get attachment
@@ -1168,12 +1140,10 @@ class WPSight_Listings {
 	 * @param integer $post_id Post ID of the corresponding listing (defaults to current post)
 	 * @uses get_the_ID()
 	 * @uses get_post_meta()
-	 *
 	 * @return bool $result True if _listing_sticky has value, else false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function is_listing_sticky( $post_id = '' ) {
 
 		// Set default post ID
@@ -1195,14 +1165,12 @@ class WPSight_Listings {
 	 * (custom field '_listing_featured').
 	 *
 	 * @param integer $post_id Post ID of the corresponding listing (defaults to current post)
-	 * @uses result()
+	 * @uses get_the_ID()
 	 * @uses get_post_meta()
-	 *
 	 * @return bool $result True if _listing_featured has value, else false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function is_listing_featured( $post_id = '' ) {
 
 		// Set default post ID
@@ -1228,12 +1196,10 @@ class WPSight_Listings {
 	 * @uses get_post_meta()
 	 * @uses update_post_meta()
 	 * @uses delete_post_meta()
-	 *
 	 * @return bool $result True if _listing_not_available has value, else false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function is_listing_not_available( $post_id = '' ) {
 
 		// Set default post ID
@@ -1270,12 +1236,10 @@ class WPSight_Listings {
 	 * @param integer $post_id Post ID of the corresponding listing
 	 * @uses get_the_ID()
 	 * @uses get_post_status()
-	 *
 	 * @return bool True if post status is 'pending' or 'pending_payment', else false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function is_listing_pending( $post_id = '' ) {
 
 		// Set default post ID
@@ -1300,12 +1264,10 @@ class WPSight_Listings {
 	 * @param integer $post_id Post ID of the corresponding listing
 	 * @uses get_the_ID()
 	 * @uses get_post_status()
-	 *
 	 * @return bool True if post status is 'expired', else false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function is_listing_expired( $post_id = '' ) {
 
 		// Set default post ID
@@ -1321,22 +1283,30 @@ class WPSight_Listings {
 	}
 
 	/**
+	 * user_can_edit_listing()
+	 *
 	 * True if an the user can edit a listing.
 	 *
+	 * @param integer $post_id Post ID of specific listing
+	 * @uses get_post()
+	 * @uses is_user_logged_in()
+	 * @uses current_user_can()
 	 * @return bool
+	 *
+	 * @since 1.0.0
 	 */
-	public static function user_can_edit_listing( $listing_id ) {
+	public static function user_can_edit_listing( $post_id ) {
 
 		$can_edit = true;
-		$listing  = get_post( $listing_id );
+		$listing  = get_post( $post_id );
 
 		if ( ! is_user_logged_in() ) {
 			$can_edit = false;
-		} elseif ( ! current_user_can( 'edit_listing', $listing_id ) ) {
+		} elseif ( ! current_user_can( 'edit_listing', $post_id ) ) {
 			$can_edit = false;
 		}
 
-		return apply_filters( 'wpsight_user_can_edit_listing', $can_edit, $listing_id );
+		return apply_filters( 'wpsight_user_can_edit_listing', $can_edit, $post_id );
 	}
 
 	/**
@@ -1345,22 +1315,20 @@ class WPSight_Listings {
 	 * Delete old expired listing previews if number of days
 	 * have passed after last modification and status is preview.
 	 *
-	 * @param int     $days Number of days after that previews are deleted
+	 * ##### FUNCTION CALLED BY CRON ####
+	 *
+	 * @param int $days Number of days after that previews are deleted
 	 * @uses $wpdb->prepare()
 	 * @uses $wpdb->get_col()
 	 * @uses current_time()
 	 * @uses strtotime()
 	 * @uses date()
 	 * @uses wp_trash_post()
-	 *
 	 * @return array|bool Array of post IDs, false if no previews deleted
-	 *
-	 * ##### FUNCTION CALLED BY CRON ####
 	 * @see /includes/class-wpsight-post-types.php
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function delete_listing_previews( $days = '' ) {
 		global $wpdb;
 
@@ -1393,17 +1361,17 @@ class WPSight_Listings {
 		return false;
 
 	}
+
 	/**
 	 *  search_listing_id()
 	 *
 	 *  Perform a search in various listings fields for given string
 	 *
-	 *  @param  string  $search
-	 *  @uses   wpsight_get_option()
-	 *  @uses   wpsight_post_type()
-	 *  @uses   WP_Query()
-	 *  @uses   wp_list_pluck()
-	 *
+	 *  @param string $search
+	 *  @uses wpsight_get_option()
+	 *  @uses wpsight_post_type()
+	 *  @uses WP_Query()
+	 *  @uses wp_list_pluck()
 	 *  @return  mixed Array of post IDs, false if no previews deleted
 	 *
 	 *  @since 1.0.0

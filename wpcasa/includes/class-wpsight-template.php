@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) )
 	exit;
 
 /**
- * Search class
+ * WPSight_Template class
  */
 class WPSight_Template {
 
@@ -29,19 +29,16 @@ class WPSight_Template {
 	 *  /wp-content/plugins/  WPSIGHT_DOMAIN (e.g. wpcasa) / templates / $template_name
 	 *
 	 * @param string|array $template_names Template name (incl. file extension like .php)
-	 * @param string  $template_path  Custom template path for plugins and addons (default: '')
-	 * @param bool    $load           Call load_template() if true or return template path if false
-	 *
+	 * @param string $template_path Custom template path for plugins and addons (default: '')
+	 * @param bool $load Call load_template() if true or return template path if false
 	 * @uses trailingslashit()
 	 * @uses get_stylesheet_directory()
 	 * @uses get_template_directory()
 	 * @uses wpsight_get_templates_dir()
-	 *
 	 * @return string $located Absolute path to template file (if $load is false)
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function locate_template( $template_names, $args = array(), $template_path = '', $load = false, $require_once = false ) {
 		global $post, $wp_query, $wpdb;
 
@@ -112,18 +109,19 @@ class WPSight_Template {
 	}
 
 	/**
+	 * get_template_part()
+	 *
 	 * Load specific template part.
 	 *
-	 * @param string  $slug          The slug name for the generic template
-	 * @param string  $name          The name of the specialized template
-	 * @param string  $template_path Custom template path for plugins and addons (default: '')
-	 * @param bool    $load          Call load_template() if true or return template path if false
-	 *
+	 * @param string $slug The slug name for the generic template
+	 * @param string $name The name of the specialized template
+	 * @param string $template_path Custom template path for plugins and addons (default: '')
+	 * @param bool $load Call load_template() if true or return template path if false
+	 * @uses self::locate_template()
 	 * @return string $located Absolute path to template file (if $load is false)
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_template_part( $slug, $name = null, $args = array(), $template_path = '', $load = true, $require_once = false ) {
 
 		// Execute code for this part
@@ -139,7 +137,7 @@ class WPSight_Template {
 		$templates = apply_filters( 'wpsight_get_template_part', $templates, $slug, $name, $args, $template_path, $load, $require_once );
 
 		// Return the part that is found
-		return wpsight_locate_template( $templates, $args, $template_path, $load, $require_once );
+		return self::locate_template( $templates, $args, $template_path, $load, $require_once );
 	}
 
 	/**
@@ -147,11 +145,12 @@ class WPSight_Template {
 	 *
 	 * Return orderby options for listing pages
 	 *
-	 * @param array   $args Array of arguments
+	 * @param array $args Array of arguments
+	 * @uses wpsight_get_template()
 	 * @return string|bool $orderby HTML output or false if empty
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_orderby( $args = array() ) {
 
 		$defaults = array(
@@ -203,10 +202,11 @@ class WPSight_Template {
 	 *
 	 * Return formatted listings control panel (with title and order options)
 	 *
+	 * @uses wpsight_get_template()
 	 * @return string|bool HTML markup of listings panel or false if empty
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_panel( $args = array() ) {
 
 		$output = false;
@@ -234,11 +234,13 @@ class WPSight_Template {
 	 * Return formatted single listing
 	 * title with title actions.
 	 *
+	 * @uses get_the_ID()
+	 * @uses get_the_title()
+	 * @uses wpsight_listing_actions()
 	 * @return string HTML markup of listing title
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_title( $post_id = '', $actions = array() ) {
 
 		// Use global post ID if not defined
@@ -271,22 +273,15 @@ class WPSight_Template {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_archive_title() {
 		global $wp_query, $wpsight_query;
 
 		if ( isset( $wpsight_query->found_posts ) ) {
-
 			$title = '<span class="listings-panel-found">' . $wpsight_query->found_posts . '</span>' . ' ' . _n( 'Listing', 'Listings', $wpsight_query->found_posts, 'wpcasa' );
-
 		} elseif ( isset( $wp_query->found_posts ) ) {
-
 			$title = '<span class="listings-panel-found">' . $wp_query->found_posts . '</span>' . ' ' . _n( 'Listing', 'Listings', $wp_query->found_posts, 'wpcasa' );
-
 		} else {
-
 			$title = __( 'Listings', 'wpcasa' );
-
 		}
 
 		return apply_filters( 'wpsight_get_archive_title', $title );
@@ -298,12 +293,16 @@ class WPSight_Template {
 	 *
 	 * Return formatted listings pagination
 	 *
-	 * @param int     $max_num_pages max_num_pages parameter of corresponding query
-	 * @param array   $args          paginate_links() arguments
+	 * @param int $max_num_pages max_num_pages parameter of corresponding query
+	 * @param array $args paginate_links() arguments
+	 * @uses get_query_var()
+	 * @uses is_rtl()
+	 * @uses get_pagenum_link()
+	 * @uses wp_parse_args()
 	 * @return string|bool HTML markup of listings pagination or false if empty
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_pagination( $max_num_pages = '', $args = array() ) {
 
 		// Check for max_num_pages
@@ -374,11 +373,19 @@ class WPSight_Template {
 	 *
 	 * Get listing/post classes.
 	 *
-	 * @param string  $class
-	 * @param mixed   $post_id
+	 * @param string $class
+	 * @param mixed $post_id
+	 * @uses get_the_ID()
+	 * @uses get_post()
+	 * @uses wpsight_post_type()
+	 * @uses wpsight_is_listing_sticky()
+	 * @uses wpsight_is_listing_featured()
+	 * @uses wpsight_is_listing_expired()
+	 * @uses wpsight_is_listing_not_available()
 	 * @return bool|array
+	 *
+	 * @since 1.0.0
 	 */
-
 	public static function get_listing_class( $class = '', $post_id = false ) {
 
 		if ( $post_id === false )
@@ -428,12 +435,10 @@ class WPSight_Template {
 	 * @uses get_the_ID()
 	 * @uses add_query_arg()
 	 * @uses wpsight_sort_array_by_position()
-	 *
 	 * @return array Array of listing actions
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_actions( $post_id = '' ) {
 
 		// Use global post ID if not defined
@@ -442,7 +447,6 @@ class WPSight_Template {
 			$post_id = get_the_ID();
 
 		$actions = array(
-
 			'print' => array(
 				'label'    => __( 'Print', 'wpcasa' ),
 				'name'     => false,
@@ -455,7 +459,6 @@ class WPSight_Template {
 				'priority' => 20,
 				'callback' => false
 			)
-
 		);
 
 		// Apply filter, sort and return array
@@ -463,12 +466,21 @@ class WPSight_Template {
 
 	}
 	/**
-	 *  Return link to listing actions
+	 * listing_actions()
 	 *
-	 *  @param   string  $post_id
-	 *  @param   array  $actions
+	 * Return listing actions
 	 *
-	 *  @return  string
+	 * @param integer $post_id
+	 * @param array $actions
+	 * @uses get_the_ID()
+	 * @uses post_password_required()
+	 * @uses get_post_status()
+	 * @uses wpsight_get_listing_actions()
+	 * @uses wp_parse_args()
+	 * @uses call_user_func()
+	 * @return string
+	 *
+	 * @since 1.0.0
 	 */
 	public static function listing_actions( $post_id = '', $actions = array() ) {
 

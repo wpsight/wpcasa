@@ -6,9 +6,7 @@ if ( ! defined( 'ABSPATH' ) )
 class WPSight_Shortcode_Listing_Single {
 
 	/**
-	 * __construct()
-	 *
-	 * @access public
+	 * Constructor
 	 */
 	public function __construct() {		
 		add_shortcode( 'wpsight_listing', array( $this, 'shortcode_listing_single' ) );
@@ -22,7 +20,6 @@ class WPSight_Shortcode_Listing_Single {
 	 * @param array $atts Shortcode attributes
 	 * @uses wpsight_listing()
 	 * @uses wp_kses_allowed_html()
-	 *
 	 * @return string $output Entire shortcode output
 	 *
 	 * @since 1.0.0

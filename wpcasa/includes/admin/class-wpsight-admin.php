@@ -95,6 +95,7 @@ class WPSight_Admin {
 	 * Add WPSight addons page to sub menu.
 	 *
 	 * @access public
+	 *
 	 * @since 1.0.0
 	 */
 	public function addons_page() {
@@ -108,6 +109,7 @@ class WPSight_Admin {
 	 * Add WPSight themes page to sub menu.
 	 *
 	 * @access public
+	 *
 	 * @since 1.0.0
 	 */
 	public function themes_page() {
@@ -116,12 +118,16 @@ class WPSight_Admin {
 	}
 
 	/**
+	 * options()
+	 *
 	 * Merge option tabs and
 	 * return wpsight_options_listings()
 	 *
-	 * @since 1.0
+	 * @uses wpsight_options_listings()
+	 * @return array $options
+	 *
+	 * @since 1.0.0
 	 */
-
 	public static function options() {
 
 		$options = array( 'listings' => array( __( 'Listings', 'wpcasa' ), (array) wpsight_options_listings() ) );
@@ -130,14 +136,22 @@ class WPSight_Admin {
 
 	}
 
-
 	/**
+	 * options_listings()
+	 *
 	 * Create theme options array
 	 * Listings options
 	 *
-	 * @since 0.8
+	 * @uses wpsight_get_option()
+	 * @uses wpsight_measurements()
+	 * @uses wpsight_currencies()
+	 * @uses wpsight_details()
+	 * @uses wpsight_rental_periods()
+	 * @uses wpsight_date_formats()
+	 * @return array $options_listings
+	 *
+	 * @since 1.0.0
 	 */
-
 	public static function options_listings() {
 
 		/** Define data arrays */
@@ -295,11 +309,18 @@ class WPSight_Admin {
 	}
 
 	/**
+	 * media_custom_views()
+	 *
 	 * Media library views
 	 *
-	 * @since 1.2
+	 * @param array $views Incoming views
+	 * @uses $wpdb->prepare()
+	 * @uses $wpdb->get_col()
+	 * @uses wp_count_attachments()
+	 * @return array $views Updated views
+	 *
+	 * @since 1.0.0
 	 */
-
 	public static function media_custom_views( $views ) {
 
 		global $wpdb, $wp_query, $pagenow;
@@ -329,11 +350,17 @@ class WPSight_Admin {
 	}
 
 	/**
+	 * listings_custom_views()
+	 *
 	 * Listing views
 	 *
-	 * @since 1.2
+	 * @param array $views Incoming views
+	 * @uses $wpdb->prepare()
+	 * @uses $wpdb->get_col()
+	 * @return array $views Updated views
+	 *
+	 * @since 1.0.0
 	 */
-
 	public static function listings_custom_views( $views ) {
 		global $wpdb, $wp_query, $pagenow;
 
@@ -361,26 +388,33 @@ class WPSight_Admin {
 	}
 
 	/**
-	 * Show listing count
-	 * in user list
+	 * manage_users_columns()
 	 *
-	 * @since 1.2
+	 * Add column for number of listings of a user.
+	 *
+	 * @param array $columns Incoming columns
+	 * @return array $columns Updated columns
+	 *
+	 * @since 1.0.0
 	 */
-
 	public static function manage_users_columns( $columns ) {
 		$columns['listings_count'] = __( 'Listings', 'wpcasa' );
 		return $columns;
 	}
 
 	/**
-	 *  Show number of listings the user has
+	 * manage_users_custom_column()
 	 *
-	 *  @param   string  $value
-	 *  @param   string  $column_name
-	 *  @param   int  $user_id
-	 *  @uses  count_user_posts()
+	 * Show number of listings the user has
 	 *
-	 *  @return  string new value
+	 * @param string $value
+	 * @param string $column_name
+	 * @param int $user_id
+	 * @uses count_user_posts()
+	 * @uses wpsight_post_type()
+	 * @return string new value
+	 *
+	 * @since 1.0.0
 	 */
 	public static function manage_users_custom_column( $value, $column_name, $user_id ) {
 

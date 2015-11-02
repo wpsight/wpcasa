@@ -12,7 +12,6 @@
  * @param string $template_path Custom template path for plugins and addons (default: '')
  * @param bool $load Call load_template() if true or return template path if false
  * @uses wpsight_locate_template()
- * 
  * @return string $located Absolute path to template file (if $load is false)
  *
  * @since 1.0.0
@@ -45,9 +44,7 @@ function wpsight_get_template( $template_names, $args = array(), $template_path 
  * @param string|array $template_names Template name (incl. file extension like .php)
  * @param string $template_path Custom template path for plugins and addons (default: '')
  * @param bool $load Call load_template() if true or return template path if false
- *
  * @uses WPSight_Template::locate_template()
- *
  * @return string $located Absolute path to template file (if $load is false)
  *
  * @since 1.0.0
@@ -64,7 +61,6 @@ function wpsight_locate_template( $template_names, $args = array(), $template_pa
  * @param string $name The name of the specialized template
  * @param string $template_path Custom template path for plugins and addons (default: '')
  * @param bool $load Call load_template() if true or return template path if false
- * 
  * @return string $located Absolute path to template file (if $load is false)
  *
  * @since 1.0.0
@@ -110,6 +106,8 @@ function wpsight_get_templates_url() {
  * Echo wpsight_get_orderby()
  *
  * @param array $args Array of arguments
+ * @uses wpsight_get_orderby()
+ *
  * @since 1.0.0
  */
  
@@ -124,6 +122,7 @@ function wpsight_orderby( $args = array() ) {
  *
  * @param array $args Array of arguments
  * @return string|bool $orderby HTML output or false if empty
+ *
  * @since 1.0.0
  */
  
@@ -136,7 +135,10 @@ function wpsight_get_orderby( $args = array() ) {
  *
  * Return formatted listings control panel (with title and order options)
  *
+ * @param array $args Array of arguments
+ * @uses WPSight_Template::get_panel()
  * @return string|bool HTML markup of listings panel or false if empty
+ *
  * @since 1.0.0
  */
 
@@ -148,6 +150,9 @@ function wpsight_get_panel( $args = array() ) {
  * wpsight_panel()
  *
  * Echo wpsight_get_panel()
+ *
+ * @param array $args Array of arguments
+ * @uses wpsight_get_panel()
  *
  * @since 1.0.0
  */
@@ -162,6 +167,9 @@ function wpsight_panel( $args = array() ) {
  * Return formatted single listing
  * title with title actions.
  *
+ * @param integer $post_id Post ID of specific listing
+ * @param array $actions Array of listing title actions
+ * @uses WPSight_Template::get_listing_title()
  * @return string HTML markup of listing title
  *
  * @since 1.0.0
@@ -176,6 +184,10 @@ function wpsight_get_listing_title( $post_id = '', $actions = array() ) {
  *
  * Echo wpsight_get_listing_title()
  *
+ * @param integer $post_id Post ID of specific listing
+ * @param array $actions Array of listing title actions
+ * @uses wpsight_get_listing_title()
+ *
  * @since 1.0.0
  */
 
@@ -188,6 +200,7 @@ function wpsight_listing_title( $post_id = '', $actions = array() ) {
  *
  * Return formatted listings archive title
  *
+ * @uses WPSight_Template::get_archive_title()
  * @return string Listings archive title for the given query
  *
  * @since 1.0.0
@@ -201,6 +214,8 @@ function wpsight_get_archive_title() {
  * wpsight_archive_title()
  *
  * Echo wpsight_get_archive_title()
+ *
+ * @uses wpsight_get_archive_title()
  *
  * @since 1.0.0
  */
@@ -216,7 +231,9 @@ function wpsight_archive_title() {
  *
  * @param int $max_num_pages max_num_pages parameter of corresponding query
  * @param array $args paginate_links() arguments
+ * @uses WPSight_Template::get_pagination()
  * @return string|bool HTML markup of pagination or false if empty
+ *
  * @since 1.0.0
  */
 
@@ -231,6 +248,8 @@ function wpsight_get_pagination( $max_num_pages = '', $args = array() ) {
  *
  * @param int $max_num_pages max_num_pages parameter of corresponding query
  * @param array $args paginate_links() arguments
+ * @uses wpsight_get_pagination()
+ *
  * @since 1.0.0
  */
 
@@ -243,15 +262,16 @@ function wpsight_pagination( $max_num_pages, $args = array() ) {
  *
  * Display listing/post classes.
  *
- * @param string $class
+ * @param string $class Additional CSS class
  * @param mixed $post_id
+ * @uses wpsight_get_listing_class()
+ *
+ * @since 1.0.0
  */
 
 function wpsight_listing_class( $class = '', $post_id = false ) {
-
 	// Separates classes with a space
 	echo 'class="' . join( ' ', wpsight_get_listing_class( $class, $post_id ) ) . '"';
-
 }
 
 /**
@@ -261,6 +281,8 @@ function wpsight_listing_class( $class = '', $post_id = false ) {
  *
  * @param string $class
  * @param mixed $post_id
+ * @uses WPSight_Template::get_listing_class()
+ *
  * @return bool|array
  */
 
@@ -273,8 +295,8 @@ function wpsight_get_listing_class( $class = '', $post_id = false ) {
  *
  * Get listing actions (save, print etc.) array.
  *
+ * @param integer $post_id Post ID of specific listing
  * @uses WPSight_Template::get_listing_actions()
- *
  * @return array Array of listing actions
  *
  * @since 1.0.0
@@ -287,12 +309,12 @@ function wpsight_get_listing_actions( $post_id = '' ) {
 /**
  *  Return link to listing actions
  *
- *  @param   string  $post_id
- *  @param   array  $actions
- *  
+ *  @param string $post_id
+ *  @param array $actions
  *  @uses WPSight_Template::listing_actions()
+ *  @return string
  *
- *  @return  string
+ * @since 1.0.0
  */
 function wpsight_listing_actions( $post_id = '', $actions = array() ) {
 	echo WPSight_Template::listing_actions( $post_id, $actions );

@@ -3,12 +3,13 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Agents Class
- *
- * This class sets up agents.
+ * WPSight_Agents Class
  */
 class WPSight_Agents {
 
+	/**
+	 * Constructor
+	 */
 	function __construct() {
 		add_filter( 'pre_get_posts', array( $this, 'author_listings' ) );
 	}
@@ -48,7 +49,6 @@ class WPSight_Agents {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function agent_roles() {
 
 		$roles = array(
@@ -121,11 +121,14 @@ class WPSight_Agents {
 	 *
 	 * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
 	 * @param string|array $size Size of the image (WordPress sizes or custom width and height in array)
+	 * @uses wpsight_get_attachment_id_by_url()
+	 * @uses wp_get_attachment_image_src()
+	 * @uses wpsight_get_listing_agent_name()
+	 * @uses wpsight_get_agent_image()
 	 * @return string|bool $agent_image HTML image tag of the listing agent image or false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_agent_image( $post = null, $size = array( 75, 75 ) ) {
 
 		$agent_image   		= '';
@@ -169,11 +172,13 @@ class WPSight_Agents {
 	 *
 	 * @param integer $user User ID of corresponding agent (required)
 	 * @param string|array $size Size of the image (WordPress sizes or custom width and height in array)
+	 * @uses get_user_meta()
+	 * @uses wp_get_attachment_image_src()
+	 * @uses get_userdata()
 	 * @return string|bool $agent_image HTML image tag of the listing agent image or false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_agent_image( $user_id, $size = array( 75, 75 ) ) {
 		
 		// Get image ID from user meta
@@ -212,7 +217,6 @@ class WPSight_Agents {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_agent_name( $post = null ) {
 
 		$agent_name = '';
@@ -240,11 +244,12 @@ class WPSight_Agents {
 	 *
 	 * @param integer $user_id User ID of corresponding agent (required)
 	 * @param string $name The name type to be returned (defaults to display_name)
+	 * @uses get_userdata()
+	 * @uses get_user_meta()
 	 * @return string|bool $agent_name Agent name or false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_agent_name( $user_id, $name = 'display_name' ) {
 
 		$agent_name = '';
@@ -279,7 +284,6 @@ class WPSight_Agents {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_agent_company( $post = null ) {
 
 		$agent_company = '';
@@ -306,11 +310,11 @@ class WPSight_Agents {
 	 * Return company of a specific agent.
 	 *
 	 * @param integer $user_id User ID of corresponding agent (required)
+	 * @uses get_user_meta()
 	 * @return string|bool $agent_company Agent company or false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_agent_company( $user_id ) {
 
 		$agent_company = '';
@@ -335,11 +339,11 @@ class WPSight_Agents {
 	 * current or a specific listing.
 	 *
 	 * @param integer|object $post Post ID or object of required listing (defaults to null = current listing)
+	 * @uses wpsight_format_content()
 	 * @return string|bool $agent_description Agent description of the listing agent or false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_agent_description( $post = null ) {
 
 		$agent_description = '';
@@ -361,11 +365,12 @@ class WPSight_Agents {
 	 * Return description of a specific agent.
 	 *
 	 * @param integer $user_id User ID of corresponding agent (required)
+	 * @uses get_user_meta()
+	 * @uses wpsight_format_content()
 	 * @return string|bool $agent_description Agent description or false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_agent_description( $user_id ) {
 		
 		// Get agent description from user meta
@@ -390,7 +395,6 @@ class WPSight_Agents {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_agent_website( $post = null ) {
 
 		$agent_website = '';
@@ -417,11 +421,11 @@ class WPSight_Agents {
 	 * Return website of a specific agent.
 	 *
 	 * @param integer $user_id User ID of corresponding agent (required)
+	 * @uses get_userdata()
 	 * @return string|bool $agent_website Agent website or false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_agent_website( $user_id ) {
 
 		// Get agent website from user data
@@ -448,7 +452,6 @@ class WPSight_Agents {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_agent_phone( $post = null ) {
 
 		$agent_phone = '';
@@ -470,11 +473,11 @@ class WPSight_Agents {
 	 * Return phone a specific agent.
 	 *
 	 * @param integer $user_id User ID of corresponding agent (required)
+	 * @uses get_user_meta()
 	 * @return string|bool $agent_phone Agent phone or false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_agent_phone( $user_id ) {
 		
 		// Get agent description from user meta
@@ -500,7 +503,6 @@ class WPSight_Agents {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_agent_twitter( $post = null, $return = 'user' ) {
 
 		$agent_twitter = '';
@@ -533,11 +535,11 @@ class WPSight_Agents {
 	 *
 	 * @param integer $user_id User ID of corresponding agent (required)
 	 * @param string  $return Return Twitter user or URL (defaults to 'user' - can be 'url')
+	 * @uses get_user_meta()
 	 * @return string|bool $agent_twitter Agent twitter or false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_agent_twitter( $user_id, $return = 'user' ) {
 
 		// Get agent twitter from user meta
@@ -568,13 +570,11 @@ class WPSight_Agents {
 	 * current or a specific listing.
 	 *
 	 * @param integer|object $post   Post ID or object of required listing (defaults to null = current listing)
-	 * @param string  $return Return Twitter user or URL (defaults to 'user' - can be 'url')
-	 *
+	 * @param string  $return Return Facebook user or URL (defaults to 'user' - can be 'url')
 	 * @return string|bool $agent_facebook Agent facebook of the listing agent or false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_agent_facebook( $post = null, $return = 'user' ) {
 
 		$agent_facebook = '';
@@ -601,13 +601,12 @@ class WPSight_Agents {
 	 * Return facebook of a specific agent.
 	 *
 	 * @param integer $user_id User ID of corresponding agent (required)
-	 * @param string  $return Return Twitter user or URL (defaults to 'user' - can be 'url')
-	 *
+	 * @param string  $return Return Facebook user or URL (defaults to 'user' - can be 'url')
+	 * @uses get_user_meta()
 	 * @return string|bool $agent_facebook Agent facebook or false
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_agent_facebook( $user_id, $return = 'user' ) {
 
 		// Get agent twitter from user meta
@@ -634,12 +633,12 @@ class WPSight_Agents {
 	 *
 	 * @param integer|object $post    Post ID or object of required listing (defaults to null = current listing)
 	 * @param integer $user_id User ID of the corresponding agent (defaults to post_author)
-	 *
+	 * @uses get_author_posts_url()
+	 * @uses add_query_arg()
 	 * @return string $agent_archive Author posts URL with additional query arg "listings=1"
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_listing_agent_archive( $post = null, $user_id = false ) {
 
 		$agent_archive = '';
@@ -664,11 +663,12 @@ class WPSight_Agents {
 	 * Get archive link of a specific agent.
 	 *
 	 * @param integer $user_id User ID of corresponding agent (required)
+	 * @uses get_author_posts_url()
+	 * @uses add_query_arg()
 	 * @return string $agent_archive Author posts URL with additional query arg "listings=1"
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function get_agent_archive( $user_id ) {
 
 		// Add listings=1 to get_author_posts_url()
@@ -692,7 +692,6 @@ class WPSight_Agents {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public static function author_listings( $query ) {
 
 		if ( wpsight_is_listing_agent_archive( $query ) )
@@ -707,10 +706,14 @@ class WPSight_Agents {
 	 *
 	 * @param integer $user_id ID of the corresponding user
 	 * @param string $post_type Post type
+	 * @uses get_post_types()
+	 * @uses get_current_user_id()
+	 * @uses get_posts_by_author_sql()
+	 * @uses $wpdb->get_col()
 	 * @return array $post_ids Array of post IDs
+	 *
 	 * @since 1.0.0
-	 */
-	
+	 */	
 	public static function get_user_posts_by_type( $user_id = false, $post_type = 'post' ) {
 		global $wpdb;
 		
@@ -741,9 +744,9 @@ class WPSight_Agents {
 	 * Return user contact fields
 	 *
 	 * @return array $fields Array of contact fields
+	 *
 	 * @since 1.0.0
 	 */
-
 	public static function profile_contact_fields() {
 
 		$fields = array(

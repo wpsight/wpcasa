@@ -26,7 +26,6 @@ function wpsight_meta_boxes() {
  * Create listing attributes meta box
  *
  * @uses WPSight_Meta_Boxes::meta_box_listing_attributes()
- *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
  *
@@ -43,7 +42,6 @@ function wpsight_meta_box_listing_attributes() {
  * Create listing images meta box
  *
  * @uses WPSight_Meta_Boxes::meta_box_listing_images()
- *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
  *
@@ -60,7 +58,6 @@ function wpsight_meta_box_listing_images() {
  * Create listing price meta box
  *
  * @uses WPSight_Meta_Boxes::meta_box_listing_price()
- *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
  *
@@ -77,7 +74,6 @@ function wpsight_meta_box_listing_price() {
  * Create listing details meta box
  *
  * @uses WPSight_Meta_Boxes::meta_box_listing_details()
- *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
  *
@@ -94,7 +90,6 @@ function wpsight_meta_box_listing_details() {
  * Create listing location meta box
  *
  * @uses WPSight_Meta_Boxes::meta_box_listing_location()
- *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
  *
@@ -111,7 +106,6 @@ function wpsight_meta_box_listing_location() {
  * Create listing agent box
  *
  * @uses WPSight_Meta_Boxes::meta_box_user()
- *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
  *
@@ -128,7 +122,6 @@ function wpsight_meta_box_user() {
  * Create listing agent box
  *
  * @uses WPSight_Meta_Boxes::meta_box_listing_agent()
- *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
  *
@@ -145,7 +138,6 @@ function wpsight_meta_box_listing_agent() {
  * Create listing spaces box(es)
  *
  * @uses WPSight_Meta_Boxes::meta_box_spaces()
- *
  * @return array $meta_box Meta box array with fields
  * @see wpsight_meta_boxes()
  * @see /functions/wpsight-general.php => L768

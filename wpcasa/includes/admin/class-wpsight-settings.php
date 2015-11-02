@@ -73,6 +73,7 @@ class WPSight_Admin_Settings {
 	 * @uses $this->init_settings()
 	 * @uses settings_fields()
 	 * @uses flush_rewrite_rules()
+	 * @uses wpsight_options_defaults()
 	 * @uses update_option()
 	 * @uses wpsight_get_option()
 	 * @uses do_action()

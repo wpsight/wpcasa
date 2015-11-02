@@ -12,7 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * @author Mike Jolley
  */
-
 class WPSight_Geocode {
 
 	/**
@@ -36,6 +35,8 @@ class WPSight_Geocode {
 	 *
 	 * @param integer $listing_id Post ID of the corresponding listing
 	 * @param array $values Form field values
+	 * @uses self::get_location_data()
+	 * @uses self::save_location_data()
 	 *
 	 * @since 1.0.0
 	 */
@@ -56,6 +57,9 @@ class WPSight_Geocode {
 	 *
 	 * @param integer $listing_id Post ID of the corresponding listing
 	 * @param string $new_location Changed locaction
+	 * @uses self::get_location_data()
+	 * @uses self::clear_location_data()
+	 * @uses self::save_location_data()
 	 *
 	 * @since 1.0.0
 	 */
@@ -76,6 +80,7 @@ class WPSight_Geocode {
 	 * (post meta 'geolocated') or not.
 	 *
 	 * @param integer $listing_id Post ID of the corresponding listing
+	 * @uses get_post_meta()
 	 * @return bool True if custom field has value, false if not
 	 *
 	 * @since 1.0.0
@@ -91,6 +96,8 @@ class WPSight_Geocode {
 	 *
 	 * @param integer $listing_id Post ID of the corresponding listing
 	 * @param string $location The location in question
+	 * @uses self::get_location_data()
+	 * @uses self::save_location_data()
 	 *
 	 * @since 1.0.0
 	 */
@@ -106,6 +113,7 @@ class WPSight_Geocode {
 	 * deleting corresponding post meta.
 	 *
 	 * @param integer $listing_id Post ID of the corresponding listing
+	 * @uses delete_post_meta()
 	 *
 	 * @since 1.0.0
 	 */
@@ -133,6 +141,7 @@ class WPSight_Geocode {
 	 *
 	 * @param integer $listing_id Post ID of the corresponding listing
 	 * @param array $address_data Array of location data
+	 * @uses update_post_meta()
 	 *
 	 * @since 1.0.0
 	 */
@@ -161,6 +170,10 @@ class WPSight_Geocode {
 	 * Get Location Data from Google. Based on code by Eyal Fitoussi.
 	 *
 	 * @param string $raw_address
+	 * @uses get_transient()
+	 * @uses wp_remote_get()
+	 * @uses wp_remote_retrieve_body()
+	 * @uses json_decode()
 	 * @return array location data
 	 *
 	 * @since 1.0.0

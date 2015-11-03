@@ -107,8 +107,8 @@ class WPSight_Admin_Agents {
 			$logo_id 	= '';
 			$logo_url 	= '';
 			
-			if( isset( $_POST['agent_logo_id']['cmb-field-0'] ) ) {				
-				$logo_id 	= absint( $_POST['agent_logo_id']['cmb-field-0'] );
+			if( isset( $_POST['agent_logo_id'] ) ) {				
+				$logo_id 	= absint( $_POST['agent_logo_id'] );
 				$logo_url 	= wp_get_attachment_url( $logo_id );
 			}
 			
@@ -126,7 +126,7 @@ class WPSight_Admin_Agents {
 				'_agent_logo_id'		=> $logo_id
 			);
 			
-			$agent_options = apply_filters( 'profile_agent_update_save_options', $agent_options, $user_id );
+			$agent_options = apply_filters( 'wpsight_profile_agent_update_save_options', $agent_options, $user_id );
 			
 			// Loop through user listings
 			

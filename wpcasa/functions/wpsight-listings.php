@@ -43,12 +43,12 @@ function wpsight_get_listings( $args = array() ) {
  * Output formatted single listing teaser.
  *
  * @param integer|object $teaser_id Post or listing ID or WP_Post object
- * @uses WPSight_Listings::listing()
+ * @uses WPSight_Listings::listing_teaser()
  *
  * @since 1.0.0
  */
 function wpsight_listing_teaser( $listing_id = null ) {
-	return WPSight_Listings::listing( $listing_id, false );
+	return WPSight_Listings::listing_teaser( $listing_id );
 }
 
 /**

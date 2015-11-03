@@ -446,6 +446,45 @@ class WPSight_Listings {
 			// Get template for no listings
 			wpsight_get_template_part( 'listing', 'no' );
 		}
+
+	}
+	
+	/**
+	 * listing_teaser()
+	 *
+	 * Output formatted single listing teaser.
+	 *
+	 * @param integer|object $listing_id Post or listing ID or WP_Post object
+	 * @uses wpsight_get_listing()
+	 * @uses setup_postdata()
+	 * @uses wpsight_get_template()
+	 * @uses wpsight_get_template_part()
+	 * @uses wp_reset_postdata()
+	 *
+	 * @since 1.0.0
+	 */
+	public static function listing_teaser( $listing_id = null ) {		
+		global $listing;
+		
+		$listing = wpsight_get_listing( $listing_id );
+		
+		// Show listing if found
+		if ( $listing ) {
+		
+			// Set up post data for required listing
+			setup_postdata( $GLOBALS['post'] =& $listing );
+		
+			// Get listing teaser template
+			wpsight_get_template_part( 'listing', 'teaser' );
+		
+			// Reset post data
+			wp_reset_postdata();
+
+		} else {
+			// Get template for no listings
+			wpsight_get_template_part( 'listing', 'no' );
+		}
+
 	}
 
 	/**

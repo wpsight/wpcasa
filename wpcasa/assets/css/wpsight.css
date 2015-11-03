@@ -557,6 +557,11 @@
 	padding-bottom: 30px;
 }
 
+.wpsight-listing-teaser-sc .wpsight-listing-teaser {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+
 .wpsight-listing-teaser .wpsight-listing-left {
 	float: left;
 	margin-right: 20px;

@@ -13,7 +13,8 @@ class WPSight_Meta_Boxes {
 	 */
 	public function __construct() {
 
-		add_filter( 'cmb2_meta_box_url', array( $this, 'cmb2_meta_box_url' ) );
+		// Uncomment the following line if necessary
+		// add_filter( 'cmb2_meta_box_url', array( $this, 'cmb2_meta_box_url' ) );
 
 		// Enqueue scripts
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
@@ -750,17 +751,18 @@ class WPSight_Meta_Boxes {
 
 		$fields = array(
 			array(
-				'name'     => __( 'Agent Info', 'wpcasa' ),
-				'desc'     => __( 'These settings let you change how your agent profile will appear in listings.', 'wpcasa' ),
-				'id'       =>  'agent_title',
-				'type'     => 'title'
+				'name'     		=> __( 'Agent Info', 'wpcasa' ),
+				'desc'     		=> __( 'These settings let you change how your agent profile will appear in listings.', 'wpcasa' ),
+				'id'       		=>  'agent_title',
+				'type'     		=> 'title'
 			),
 			array(
-				'name'      => __( 'Agent Image', 'wpcasa' ),
-				'id'        => 'agent_logo',
-				'type'      => 'file',
-				'desc'      => false,
-				'priority'  => 10
+				'name'      	=> __( 'Agent Image', 'wpcasa' ),
+				'id'        	=> 'agent_logo',
+				'type'      	=> 'file',
+				'preview_size' => array( 150, 150 ),
+				'desc'      	=> false,
+				'priority'  	=> 10
 			),
 		);
 

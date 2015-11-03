@@ -17,6 +17,8 @@ class WPSight_Addons {
 
 		if ( false === ( $addons = get_transient( 'wpsight_addons_html' ) ) ) {
 
+			/*
+			
 			$raw_addons = wp_remote_get(
 				'http://wpsight.com/wpcasa/downloads/category/add-ons/',
 				array(
@@ -46,18 +48,21 @@ class WPSight_Addons {
 				$addons = wp_kses_post( $addons );
 
 				if ( $addons ) {
-					// set_transient( 'wpsight_addons_html', $addons, 60*60*24*7 ); // Cached for a week
+					set_transient( 'wpsight_addons_html', $addons, 60*60*24*7 ); // Cached for a week
 				}
 			}
+			
+			*/
+			
 		} ?>
 
 		<div class="wrap wpsight-addons">
 
 			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Add-Ons', 'wpcasa' ); ?></h2>
 
-			<div id="notice" class="updated below-h2"><p>A notice here</p></div>
+			<div id="notice" class="updated below-h2"><p>#TODO Shows a list of available add-ons</p></div>
 			
-			<?php echo $addons; ?>
+			<?php // echo $addons; ?>
 			
 		</div>
 		<?php

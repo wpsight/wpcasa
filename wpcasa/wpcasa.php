@@ -202,8 +202,22 @@ class WPSight_Framework {
 		
 		$options = array(
 			'listings_page' => $page_id,
-			'listings_css'	=> '1'
+			'listing_id'			=> __( 'ID-', 'wpcasa' ),
+			'measurement_unit'		=> 'm2',
+			'currency'				=> 'usd',
+			'currency_symbol'		=> 'before',
+			'currency_separator'	=> 'comma',
+			'date_format'			=> get_option( 'date_format' ),
+			'listings_css'			=> '1'
 		);
+		
+		// Add default standard features
+		foreach ( wpsight_details() as $option => $value )
+			$options[ $option ] = array( 'label' => $value['label'], 'unit' => $value['unit'] );
+		
+		// Add default rental periods
+		foreach ( wpsight_rental_periods() as $option => $value )
+			$options[ $option ] = $value;
 		
 		foreach( $options as $option => $value ) {
 			

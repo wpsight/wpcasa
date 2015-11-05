@@ -40,6 +40,12 @@ class WPSight_Framework {
 		
 		if ( ! defined( 'WPSIGHT_DOMAIN' ) )
 			define( 'WPSIGHT_DOMAIN', 'wpcasa' );
+		
+		if ( ! defined( 'WPSIGHT_SHOP_URL' ) )
+			define( 'WPSIGHT_SHOP_URL', 'http://wpsight.com/wpcasa' );
+
+		if ( ! defined( 'WPSIGHT_AUTHOR' ) )
+			define( 'WPSIGHT_AUTHOR', 'WPSight' );
 
 		define( 'WPSIGHT_VERSION', '1.0.0-beta' );
 		define( 'WPSIGHT_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );

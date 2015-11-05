@@ -14,7 +14,7 @@ class WPSight_Meta_Boxes {
 	public function __construct() {
 
 		// Uncomment the following line if necessary
-		// add_filter( 'cmb2_meta_box_url', array( $this, 'cmb2_meta_box_url' ) );
+		add_filter( 'cmb2_meta_box_url', array( $this, 'cmb2_meta_box_url' ) );
 
 		// Enqueue scripts
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
@@ -747,7 +747,7 @@ class WPSight_Meta_Boxes {
 		// Set meta box fields for users
 
 		if ( ! current_user_can( 'edit_user' ) )
-			return array();
+			return;
 
 		$fields = array(
 			array(
@@ -760,7 +760,7 @@ class WPSight_Meta_Boxes {
 				'name'      	=> __( 'Agent Image', 'wpcasa' ),
 				'id'        	=> 'agent_logo',
 				'type'      	=> 'file',
-				'preview_size' => array( 150, 150 ),
+				'preview_size'	=> array( 150, 150 ),
 				'desc'      	=> false,
 				'priority'  	=> 10
 			),

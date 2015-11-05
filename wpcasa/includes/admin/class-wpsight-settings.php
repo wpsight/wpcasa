@@ -86,6 +86,8 @@ class WPSight_Admin_Settings {
 
 		<div class="wrap wpsight-settings-wrap">
 		
+			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Settings', 'wpcasa' ); ?></h2>
+		
 			<form method="post" action="options.php">
 
 				<?php settings_fields( $this->settings_group ); ?>

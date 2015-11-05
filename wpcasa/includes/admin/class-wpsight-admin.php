@@ -15,11 +15,13 @@ class WPSight_Admin {
 
 		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-cpt.php';
 		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-settings.php';
+		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-licenses.php';
 		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-agents.php';
 
-		$this->cpt           = new WPSight_Admin_CPT();
-		$this->settings_page = new WPSight_Admin_Settings();
-		$this->agents        = new WPSight_Admin_Agents();
+		$this->cpt				= new WPSight_Admin_CPT();
+		$this->settings_page	= new WPSight_Admin_Settings();
+		$this->license_page		= new WPSight_Admin_Licenses();
+		$this->agents			= new WPSight_Admin_Agents();
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ), 12 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
@@ -29,6 +31,7 @@ class WPSight_Admin {
 		add_filter( 'views_edit-property', array( $this, 'listings_custom_views' ) );
 		add_filter( 'manage_users_columns', array( $this, 'manage_users_columns' ) );
 		add_action( 'manage_users_custom_column', array( $this, 'manage_users_custom_column' ), 10, 3 );
+
 	}
 
 	/**
@@ -87,8 +90,11 @@ class WPSight_Admin {
 		
 		if ( apply_filters( 'wpsight_show_themes_page', true ) )
 			add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Themes', 'wpcasa' ),  __( 'Themes', 'wpcasa' ) , 'manage_options', 'wpsight-themes', array( $this, 'themes_page' ) );
+		
+		if ( apply_filters( 'wpsight_show_licenses_page', true ) )
+			add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Licenses', 'wpcasa' ),  __( 'Licenses', 'wpcasa' ) , 'manage_options', 'wpsight-licenses', array( $this->license_page, 'output' ) );
 	}
-
+	
 	/**
 	 * addons_page()
 	 *
@@ -129,13 +135,32 @@ class WPSight_Admin {
 	 * @since 1.0.0
 	 */
 	public static function options() {
-
-		$options = array( 'listings' => array( __( 'Listings', 'wpcasa' ), (array) wpsight_options_listings() ) );
-
-		return apply_filters( 'wpsight_options', $options );
-
+		return apply_filters( 'wpsight_options', array( 'listings' => array( __( 'Listings', 'wpcasa' ), (array) self::options_listings() ) ) );
 	}
+	
+	/**
+	 * licenses()
+	 *
+	 * Create license array
+	 *
+	 * @return array $licenses
+	 *
+	 * @since 1.0.0
+	 */
+	public static function licenses() {
 
+		$licenses = array();
+		
+		$licenses['premium_support'] = array(
+			'name' => __( 'Premium Support', 'wpcasa' ),
+			'desc' => __( 'To receive premium support please enter your support package license key.', 'wpcasa' ),
+			'id'   => 'premium_support'
+		);
+		
+		return apply_filters( 'wpsight_licenses', $licenses );
+	
+	}
+	
 	/**
 	 * options_listings()
 	 *
@@ -153,8 +178,6 @@ class WPSight_Admin {
 	 * @since 1.0.0
 	 */
 	public static function options_listings() {
-
-		/** Define data arrays */
 
 		$options_listings = array();
 		
@@ -427,4 +450,149 @@ class WPSight_Admin {
 		return $user_listings_links;
 
 	}
+	
+	/**
+	 * activate_license()
+	 *
+	 * Activate a specific license.
+	 *
+	 * @uses get_option()
+	 * @uses urlencode()
+	 * @uses home_url()
+	 * @uses wp_remote_post()
+	 * @uses is_wp_error()
+	 * @uses wp_remote_retrieve_body()
+	 * @uses json_decode()
+	 * @uses update_option()
+	 *
+	 * @since 1.0.0
+	 */
+	public static function activate_license( $id = '', $item = '' ) {
+		
+		$licenses = get_option( 'wpsight_licenses' );
+	
+		// retrieve the license from the database
+		$license = trim( $licenses[ $id ] );
+	
+		// data to send in our API request
+		$api_params = array(
+			'edd_action'=> 'activate_license',
+			'license' 	=> $license,
+			'item_name' => urlencode( $item ),
+			'url'       => home_url()
+		);
+	
+		// Call the custom API.
+		$response = wp_remote_post( WPSIGHT_SHOP_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
+	
+		// make sure the response came back okay
+		if ( is_wp_error( $response ) )
+			return false;
+	
+		// decode the license data
+		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
+	
+		// $license_data->license will be either "active" or "inactive"				
+		update_option( 'wpsight_' . $id . '_status', $license_data->license );
+
+	}
+	
+	/**
+	 * deactivate_license()
+	 *
+	 * Deactivate a specific license.
+	 *
+	 * @uses get_option()
+	 * @uses urlencode()
+	 * @uses home_url()
+	 * @uses wp_remote_post()
+	 * @uses is_wp_error()
+	 * @uses wp_remote_retrieve_body()
+	 * @uses json_decode()
+	 * @uses delete_option()
+	 *
+	 * @since 1.0.0
+	 */
+	public static function deactivate_license( $id = '', $item = '' ) {
+		
+		$licenses = get_option( 'wpsight_licenses' );
+	
+		// retrieve the license from the database
+		$license = trim( $licenses[ $id ] );	
+	
+		// data to send in our API request
+		$api_params = array(
+			'edd_action'=> 'deactivate_license',
+			'license' 	=> $license,
+			'item_name' => urlencode( $item ),
+			'url'       => home_url()
+		);
+	
+		// Call the custom API.
+		$response = wp_remote_post( WPSIGHT_SHOP_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
+	
+		// make sure the response came back okay
+		if ( is_wp_error( $response ) )
+			return false;
+	
+		// decode the license data
+		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
+	
+		// $license_data->license will be either "deactivated" or "failed"
+		if( $license_data->license == 'deactivated' )
+			delete_option( 'wpsight_' . $id . '_status' );
+
+	}
+	
+	/**
+	 * check_license()
+	 *
+	 * Check a specific license.
+	 *
+	 * @uses get_option()
+	 * @uses urlencode()
+	 * @uses home_url()
+	 * @uses wp_remote_post()
+	 * @uses is_wp_error()
+	 * @uses wp_remote_retrieve_body()
+	 * @uses json_decode()
+	 * @uses delete_option()
+	 * @return string valid|invalid
+	 *
+	 * @since 1.0.0
+	 */
+	public static function check_license( $id = '', $item = '' ) {
+	
+		$licenses = get_option( 'wpsight_licenses' );
+	
+		// retrieve the license from the database
+		$license = isset( $licenses[ $id ] ) ? trim( $licenses[ $id ] ) : false;
+	
+		$api_params = array(
+			'edd_action'=> 'check_license',
+			'license'	=> $license,
+			'item_name' => urlencode( $item ),
+			'url'       => home_url()
+		);
+	
+		// Call the custom API.
+		$response = wp_remote_post( WPSIGHT_SHOP_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
+	
+		if ( is_wp_error( $response ) )
+			return false;
+	
+		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
+	
+		if( $license_data->license == 'valid' ) {
+			return 'valid';
+		} else {
+			delete_option( 'wpsight_' . $id . '_status' );
+			return 'invalid';
+		}
+
+	}
+
 }
+
+if( ! class_exists( 'EDD_SL_Plugin_Updater' ) )
+	include( dirname( __FILE__ ) . '/EDD_SL_Plugin_Updater.php' );

@@ -529,6 +529,7 @@ class WPSight_Meta_Boxes {
 						'type'      => 'select',
 						'options'   => $value['data'],
 						'desc'      => $value['description'],
+						'dashboard'	=> $value['dashboard'],
 						'priority'  => $prio
 					);
 
@@ -539,6 +540,7 @@ class WPSight_Meta_Boxes {
 						'id'        => '_' . $detail,
 						'type'      => 'text',
 						'desc'      => $value['description'],
+						'dashboard'	=> $value['dashboard'],
 						'priority'  => $prio
 					);
 

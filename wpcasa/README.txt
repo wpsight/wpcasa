@@ -1,114 +1,134 @@
-=== Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: http://example.com/
-Tags: comments, spam
-Requires at least: 3.0.1
-Tested up to: 3.4
+=== WPCasa ===
+Contributors: wpsight, jancbeck, simonrimkus
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZRR56U2VTPZAQ
+Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
+Requires at least: 4.0
+Tested up to: 4.3.1
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+WPCasa is a WordPress solution that provides an intuitive way to manage property listings and create first-class real estate websites. No coding required.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+* Website: [wpcasa.com](https://wpcasa.com)
+* Demo: [demo.wpcasa.com](http://demo.wpcasa.com)
+* Documentation: [docs.wpcasa.com](http://docs.wpcasa.com)
+* Add-Ons: [wpcasa.com/add-ons](https://wpcasa.com/add-ons)
+* Themes: [wpcasa.com/themes](https://wpcasa.com/themes)
+* Github: [github.com/wpsight/wpcasa](https://github.com/wpsight/wpcasa)
 
-A few notes about the sections above:
+= Easy as WordPress =
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+WPCasa fully integrates with the familiar and easy-to-use interface that ships with WordPress. You'll be a PRO.
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+= Flexible & Extendable =
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+With our custom themes and add-ons you can modularly create a powerful real estate tool tailored to your special needs.
+
+= Advanced Property Search =
+
+The heart of a real estate website is a decent search. Using the advanced filters your clients will find any listing in seconds.
+
+= Intuitive Listing Editor =
+
+Adding property details, locations, image galleries and more is a breeze using our intuitive WPCasa listing editor.
+
+= Works Out of the Box =
+
+Using the existing shortcodes or the powerful template system you can use WPCasa with any WordPress theme out there.
+
+= Admin Property Management =
+
+You can manage great numbers of listings using the well-organized property list with filters and bulk actions.
+
+= Developer Friendly =
+
+WPCasa comes with readable & well-documented code with loads of actions, filters and templates for developers to hook in.
+
+= Translation Ready =
+
+The real estate business is international. And so is WPCasa. The framework and all our add-ons and themes are translation-ready.
+
+= Other Features =
+
+* Handy shortcodes
+* Template system
+* Theme compatibility
+* Comprehensive plugin settings
+* Custom agent user roles
+* Google Maps integration
+* Listing print view
+* Responsive elements
+* schema.org mirco formats
+* Extensive functions API
+* RTL CSS
+
+= Custom Post Type =
+
+* Listings (listing)
+
+= Custom Taxonomies =
+
+* Locations (location)
+* Listing Types (listing-type)
+* Features (feature)
+* Categories (listing-category)
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+= Automatic Installation =
 
-e.g.
+Automatic installation is the easiest way to install WPCasa. Log into your WordPress admin and go to _WP-Admin > Plugins > Add New_.
 
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+Then type "WPCasa" in the search field and click _Install Now_ once you've found the plugin.
+
+= Manual Installation =
+
+If you prefer to install the plugin manually, you need to download it to your local computer and upload the unzipped plugin folder to the `/wp-content/plugins/` directory of your WordPress installation. Then activate the plugin on _WP-Admin > Plugins_.
+
+= Getting Started =
+
+Once you have installed and activated WPCasa you will find a new page called "Listings" with the `[wpsight_listings]` shortcode. Add your listings on _WP-Admin > Listings > Add New_ and they will be listed on that page.
+
+For more information about how to get started please [read our documentation](http://docs.wpcasa.com).
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= Which shortcodes are included?
 
-An answer to that question.
+* `[wpsight_listings]`: Displays a list of your latest properites
+* `[wpsight_listings_search]`: Displays the property search form
+* `[wpsight_listing]`: Displays a single listing
+* `[wpsight_listing_teasers]`: Displays a list of property teasers
+* `[wpsight_listing_teaser]`: Displays a single property teaser
 
-= What about foo bar? =
+For more information about shortcodes please [read our documentation](http://docs.wpcasa.com/shortcodes).
 
-Answer to foo bar dilemma.
+= Where can I change currency, measurements etc.?
+
+You can fit general plugin settings to your needs on _WP-Admin > WPCasa > Settings > [tab] Listings_. Things like listing ID prefix, measurement unit, currency, standard listing features, rental periods and more can be set here.
+
+= Is WPCasa free? =
+
+Yes, the core features are free. Additionally we offer free and paid add-ons and themes exclusively built for WPCasa.
+
+= How can I contribute? =
+
+If you find WPCasa an interesting project, please feel free to have a look at our [Github repo](https://github.com/wpsight/wpcasa).
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets 
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png` 
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. Listings archive
+2. Single listing
+3. Property search form
+4. Listing teasers
+5. Plugin settings
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
-
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
-
-== Upgrade Notice ==
-
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+= 1.0.0 =
+* Initial release

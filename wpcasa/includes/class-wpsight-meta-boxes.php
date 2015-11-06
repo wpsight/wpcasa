@@ -92,13 +92,15 @@ class WPSight_Meta_Boxes {
 
 		$meta_boxes = wpsight_meta_boxes();
 
-		foreach ( $meta_boxes as $metabox ) {			
-			$cmb = new_cmb2_box( $metabox );
-		    foreach ( $metabox['fields'] as $field ) {
-		    	$field_id = $cmb->add_field( $field );
-		    	if ( 'group' == $field['type'] ) {
-		    		foreach ( $field['fields'] as $key => $value ) {
-		    			$cmb->add_group_field( $field_id, $field );
+		foreach ( $meta_boxes as $metabox ) {
+			if( $metabox ) {
+				$cmb = new_cmb2_box( $metabox );
+		    	foreach ( $metabox['fields'] as $field ) {
+		    		$field_id = $cmb->add_field( $field );
+		    		if ( 'group' == $field['type'] ) {
+		    			foreach ( $field['fields'] as $key => $value ) {
+		    				$cmb->add_group_field( $field_id, $field );
+		    			}
 		    		}
 		    	}
 		    }

@@ -143,9 +143,12 @@ class WPSight_Framework {
 		// Enqueue jQuery
 		wp_enqueue_script( 'jquery' );
 		
-		wp_enqueue_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery-tiptip/jquery.tipTip.min.js', array( 'jquery' ), WPSIGHT_VERSION, true );
+		// Script debugging?
+		$suffix = SCRIPT_DEBUG ? '' : '.min';
+		
+		wp_enqueue_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 		wp_enqueue_script( 'jquery-cookie', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.cookie.js', array( 'jquery' ), WPSIGHT_VERSION, true );
-		wp_enqueue_script( 'wpsight-listings-search', WPSIGHT_PLUGIN_URL . '/assets/js/listings-search.js', array( 'jquery' ), WPSIGHT_VERSION, true );
+		wp_enqueue_script( 'wpsight-listings-search', WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-listings-search.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 		
 		// Localize scripts
 	
@@ -158,10 +161,10 @@ class WPSight_Framework {
 		
 		if( true == apply_filters( 'wpsight_css', true ) && wpsight_get_option( 'listings_css' ) ) {
 
-			wp_enqueue_style( 'wpsight', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight.css' );
+			wp_enqueue_style( 'wpsight', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight' . $suffix . '.css' );
 			
 			if ( is_rtl() )
-				wp_enqueue_style( 'wpsight-rtl', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-rtl.css' );
+				wp_enqueue_style( 'wpsight-rtl', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-rtl' . $suffix . '.css' );
 		
 		}
 

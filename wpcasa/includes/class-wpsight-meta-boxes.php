@@ -66,9 +66,12 @@ class WPSight_Meta_Boxes {
 	 * @since 1.0.0
 	 */
 	public function admin_enqueue_scripts() {
+		
+		// Script debugging?
+		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
 		if ( in_array( get_current_screen()->id, array( 'edit-listing', 'listing' ) ) )
-			wp_enqueue_style( 'wpsight-meta-boxes', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-meta-boxes.css' );
+			wp_enqueue_style( 'wpsight-meta-boxes', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-meta-boxes' . $suffix . '.css' );
 
 	}
 

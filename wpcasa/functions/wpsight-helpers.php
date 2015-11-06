@@ -1,85 +1,81 @@
 <?php
 /**
- * WPSight helper functions
- *
- * @package WPSight \ Functions
+ *	WPSight helper functions
+ *	
+ *	@package WPSight \ Functions
  */
 
 /**
- * wpsight_post_type()
- *
- * Helper function that returns the
- * post type used in the framework.
- *
- * @return string
- *
- * @since 1.0.0
+ *	wpsight_post_type()
+ *	
+ *	Helper function that returns the
+ *	post type used in the framework.
+ *	
+ *	@return	string
+ *	
+ *	@since 1.0.0
  */
-
 function wpsight_post_type() {
 	return WPSight_Helpers::post_type();
 }
 
 /**
- * wpsight_is_listing_single()
- *
- * Helper function that checks if
- * we are on a single listing page.
- *
- * @uses wpsight_post_type()
- * @return bool
- *
- * @since 1.0.0
+ *	wpsight_is_listing_single()
+ *	
+ *	Helper function that checks if
+ *	we are on a single listing page.
+ *	
+ *	@uses	wpsight_post_type()
+ *	@return	bool
+ *	
+ *	@since 1.0.0
  */
-
 function wpsight_is_listing_single() {
 	return WPSight_Helpers::is_listing_single();
 }
 
 /**
- * wpsight_is_listing_agent_archive()
- *
- * Helper function that checks if
- * we are on a listing agent archive page.
- *
- * @uses WPSight_Helpers::is_listing_agent_archive()
- * @return bool
- *
- * @since 1.0.0
+ *	wpsight_is_listing_agent_archive()
+ *	
+ *	Helper function that checks if
+ *	we are on a listing agent archive page.
+ *	
+ *	@uses	WPSight_Helpers::is_listing_agent_archive()
+ *	@return	bool
+ *	
+ *	@since 1.0.0
  */
-
 function wpsight_is_listing_agent_archive( $query = null ) {
 	return WPSight_Helpers::is_listing_agent_archive( $query );
 }
 
 /**
- * wpsight_is_listing_archive()
- *
- * Helper function that checks if
- * we are on a listing archive page.
- *
- * @uses WPSight_Helpers::is_listing_archive()
- * @return bool
- *
- * @since 1.0.0
+ *	wpsight_is_listing_archive()
+ *	
+ *	Helper function that checks if
+ *	we are on a listing archive page.
+ *	
+ *	@uses	WPSight_Helpers::is_listing_archive()
+ *	@return	bool
+ *	
+ *	@since 1.0.0
  */
 function wpsight_is_listing_archive( $query = null ) {
 	return WPSight_Helpers::is_listing_archive( $query );
 }
 
 /**
- * wpsight_get_option()
- *
- * Return theme option value.
- * 
- * @param 	string $name Key of the WPSight option
- * @param 	bool|string Set (bool) true to return default from options array or string
- * @uses 	WPSight_Helpers::get_option()
- * @return 	bool|string False if no value was found or option value as string
- *
- * @since 	1.0.0
+ *	wpsight_get_option()
+ *	
+ *	Return theme option value.
+ *	
+ *	@param 	string		$name Key of the WPSight option
+ *	@param 	bool|string	Set (bool) true to return default from options array or string
+ *	@uses 	WPSight_Helpers::get_option()
+ *	@return bool|string	False if no value was found or option value as string
+ *	
+ *	@since 	1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_get_option' ) ) {
 
@@ -90,17 +86,16 @@ if ( ! function_exists( 'wpsight_get_option' ) ) {
 }
 
 /**
- * wpsight_add_option()
- *
- * Add a specific WPSight option
- *
- * @param string $name Key of the option to add
- * @param mixed $value Value of the option to add
- * @uses WPSight_Helpers::add_option()
- *
- * @since 1.0.0
+ *	wpsight_add_option()
+ *	
+ *	Add a specific WPSight option
+ *	
+ *	@param	string	$name	Key of the option to add
+ *	@param	mixed	$value	Value of the option to add
+ *	@uses	WPSight_Helpers::add_option()
+ *	
+ *	@since 1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_add_option' ) ) {
 
@@ -111,16 +106,15 @@ if ( ! function_exists( 'wpsight_add_option' ) ) {
 }
 
 /**
- * wpsight_delete_option()
- *
- * Delete a specific WPSight option
- *
- * @param string $name Key of the option to delete
- * @uses WPSight_Helpers::delete_option()
- *
- * @since 1.0.0
+ *	wpsight_delete_option()
+ *	
+ *	Delete a specific WPSight option
+ *	
+ *	@param	string	$name	Key of the option to delete
+ *	@uses	WPSight_Helpers::delete_option()
+ *	
+ *	@since 1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_delete_option' ) ) {
 
@@ -131,30 +125,28 @@ if ( ! function_exists( 'wpsight_delete_option' ) ) {
 }
 
 /**
- * wpsight_options_defaults()
- *
- * Get array of options with default values
- *
- * @uses WPSight_Helpers::options_defaults()
- * @see wpsight-admin.php
- *
- * @since 1.0.0
+ *	wpsight_options_defaults()
+ *	
+ *	Get array of options with default values
+ *	
+ *	@uses	WPSight_Helpers::options_defaults()
+ *	@see	wpsight-admin.php
+ *	
+ *	@since 1.0.0
  */
-
 function wpsight_options_defaults() {
 	return WPSight_Helpers::options_defaults();
 }
 
 /**
- * wpsight_get_tax_name()
- *
- * Helper function to get taxonomy name
- *
- * @uses WPSight_Helpers::get_tax_name()
- *
- * @since 1.0.0
+ *	wpsight_get_tax_name()
+ *	
+ *	Helper function to get taxonomy name
+ *	
+ *	@uses	WPSight_Helpers::get_tax_name()
+ *	
+ *	@since 1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_get_tax_name' ) ) {
 
@@ -165,16 +157,15 @@ if ( ! function_exists( 'wpsight_get_tax_name' ) ) {
 }
 
 /**
- * wpsight_format_content()
- *
- * Helper function to replace the_content filter
- *
- * @param string $content Content to be formatted
- * @uses WPSight_Helpers::format_content()
- *
- * @since 1.0.0
+ *	wpsight_format_content()
+ *	
+ *	Helper function to replace the_content filter
+ *	
+ *	@param	string	$content	Content to be formatted
+ *	@uses	WPSight_Helpers::format_content()
+ *	
+ *	@since 1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_format_content' ) ) {
 
@@ -185,15 +176,14 @@ if ( ! function_exists( 'wpsight_format_content' ) ) {
 }
 
 /**
- * wpsight_dashes()
- *
- * Helper function to convert underscores to dashes
- *
- * @uses WPSight_Helpers::dashes()
- *
- * @since 1.0.0
+ *	wpsight_dashes()
+ *	
+ *	Helper function to convert underscores to dashes
+ *	
+ *	@uses	WPSight_Helpers::dashes()
+ *	
+ *	@since 1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_dashes' ) ) {
 
@@ -204,15 +194,14 @@ if ( ! function_exists( 'wpsight_dashes' ) ) {
 }
 
 /**
- * wpsight_underscores()
- *
- * Helper function to convert dashes to underscores
- *
- * @uses WPSight_Helpers::underscores()
- *
- * @since 1.0.0
+ *	wpsight_underscores()
+ *	
+ *	Helper function to convert dashes to underscores
+ *	
+ *	@uses	WPSight_Helpers::underscores()
+ *	
+ *	@since 1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_underscores' ) ) {
 
@@ -223,15 +212,14 @@ if ( ! function_exists( 'wpsight_underscores' ) ) {
 }
 
 /**
- * array_empty()
- *
- * Helper function to check multi-dimensional arrays
- *
- * @uses WPSight_Helpers::array_empty()
- *
- * @since 1.0.0
+ *	array_empty()
+ *	
+ *	Helper function to check multi-dimensional arrays
+ *	
+ *	@uses	WPSight_Helpers::array_empty()
+ *	
+ *	@since 1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'array_empty' ) ) {
 
@@ -242,15 +230,14 @@ if ( ! function_exists( 'array_empty' ) ) {
 }
 
 /**
- * in_multiarray()
- *
- * Helper function to check multi-dimensional arrays
- *
- * @uses WPSight_Helpers::in_multiarray()
- *
- * @since 1.0.0
+ *	in_multiarray()
+ *	
+ *	Helper function to check multi-dimensional arrays
+ *	
+ *	@uses	WPSight_Helpers::in_multiarray()
+ *	
+ *	@since 1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'in_multiarray' ) ) {
 
@@ -261,39 +248,36 @@ if ( ! function_exists( 'in_multiarray' ) ) {
 }
 
 /**
- * wpsight_sort_array_by_priority()
- *
- * Helper function to sort array by position key
- *
- * @param array $array Array to be sorted
- * @param mixed $order Sort options
- * @uses WPSight_Helpers::sort_array_by_priority()
- * @see http://docs.php.net/manual/en/function.array-multisort.php
- * @return array Sorted array
- *
- * @since 1.0.0
+ *	wpsight_sort_array_by_priority()
+ *	
+ *	Helper function to sort array by position key
+ *	
+ *	@param	array	$array	Array to be sorted
+ *	@param	mixed	$order	Sort options
+ *	@uses	WPSight_Helpers::sort_array_by_priority()
+ *	@see	http://docs.php.net/manual/en/function.array-multisort.php
+ *	@return	array	Sorted array
+ *	
+ *	@since 1.0.0
  */
-
 function wpsight_sort_array_by_priority( $array = array(), $order = SORT_NUMERIC ) {
 	return WPSight_Helpers::sort_array_by_priority( $array, $order );
 }
 
 // Ensure backwards compatibility with wpsight_sort_array_by_position()
-
 function wpsight_sort_array_by_position( $array = array(), $order = SORT_NUMERIC ) {
 	return wpsight_sort_array_by_priority( $array, $order );
 }
 
 /**
- * wpsight_implode_array()
- *
- * Implode an array with the key and value pair
- *
- * @uses WPSight_Helpers::implode_array()
- *
- * @since 1.0.0
+ *	wpsight_implode_array()
+ *	
+ *	Implode an array with the key and value pair
+ *	
+ *	@uses	WPSight_Helpers::implode_array()
+ *	
+ *	@since 1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_implode_array' ) ) {
 
@@ -304,15 +288,14 @@ if ( ! function_exists( 'wpsight_implode_array' ) ) {
 }
 
 /**
- * wpsight_explode_array()
- *
- * Explode string to associative array
- *
- * @uses WPSight_Helpers::explode_array()
- *
- * @since 1.0.0
+ *	wpsight_explode_array()
+ *	
+ *	Explode string to associative array
+ *	
+ *	@uses	WPSight_Helpers::explode_array()
+ *	
+ *	@since 1.0.0
  */
- 
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_explode_array' ) ) {
 
@@ -323,57 +306,54 @@ if ( ! function_exists( 'wpsight_explode_array' ) ) {
 }
 
 /**
- * wpsight_generate_css()
- *
- * Helper function to display theme_mods CSS
- *
- * @param string $selector CSS selector
- * @param string $style CSS style
- * @param string $mod_name Name of theme_mod
- * @param string $prefix
- * @param string $postfix
- * @param bool $echo Echo (true) or return (false)
- * @uses WPSight_Helpers::generate_css()
- *
- * @since 1.0.0
+ *	wpsight_generate_css()
+ *	
+ *	Helper function to display theme_mods CSS
+ *	
+ *	@param	string	$selector	CSS selector
+ *	@param	string	$style		CSS style
+ *	@param	string	$mod_name	Name of theme_mod
+ *	@param	string	$prefix
+ *	@param	string	$postfix
+ *	@param	bool	$echo		Echo (true) or return (false)
+ *	@uses WPSight_Helpers::generate_css()
+ *	
+ *	@since 1.0.0
  */
- 
 function wpsight_generate_css( $selector, $style, $mod_name, $prefix = '', $postfix = '', $echo = false ) {
 	return WPSight_Helpers::generate_css( $selector, $style, $mod_name, $prefix, $postfix, $echo );
 }
 
 /**
- * wpsight_cast_decimal_precision()
- *
- * Helper function to allow
- * DECIMAL precision (hacky)
- *
- * @param string $sql SQL
- * @uses WPSight_Helpers::cast_decimal_precision()
- *
- * @since 1.0.0
+ *	wpsight_cast_decimal_precision()
+ *	
+ *	Helper function to allow
+ *	DECIMAL precision (hacky)
+ *	
+ *	@param	string	$sql	SQL
+ *	@uses	WPSight_Helpers::cast_decimal_precision()
+ *	
+ *	@since 1.0.0
  */
-
 function wpsight_cast_decimal_precision( $sql ) {
 	return WPSight_Helpers::cast_decimal_precision( $sql );
 }
 
 /**
- * Helper functions to return taxonomy
- * terms ordered by hierarchy
- *
- * @param integer $post_id Post ID of specific listing
- * @param string $taxonomy Taxonomy
- * @param string $sep Separator between terms
- * @param string $term_before String before each term
- * @param string $term_after String after each term
- * @param bool $linked Link terms to their term archives
- * @param bool $reverse Reverse order of terms
- * @uses WPSight_Helpers::get_the_term_list()
- *
- * @since 1.0.0
+ *	Helper functions to return taxonomy
+ *	terms ordered by hierarchy
+ *	
+ *	@param	integer	$post_id Post ID of specific listing
+ *	@param	string	$taxonomy Taxonomy
+ *	@param	string	$sep Separator between terms
+ *	@param	string	$term_before String before each term
+ *	@param	string	$term_after String after each term
+ *	@param	bool	$linked Link terms to their term archives
+ *	@param	bool	$reverse Reverse order of terms
+ *	@uses	WPSight_Helpers::get_the_term_list()
+ *	
+ *	@since 1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_get_the_term_list' ) ) {
 
@@ -382,7 +362,6 @@ if ( ! function_exists( 'wpsight_get_the_term_list' ) ) {
 	}
 
 }
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_sort_taxonomies_by_parents' ) ) {
 
@@ -391,7 +370,6 @@ if ( ! function_exists( 'wpsight_sort_taxonomies_by_parents' ) ) {
 	}
 
 }
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_get_the_term_list_links' ) ) {
 
@@ -402,17 +380,16 @@ if ( ! function_exists( 'wpsight_get_the_term_list_links' ) ) {
 }
 
 /**
- * wpsight_get_attachment_id_by_url()
- *
- * Helper functions to get attachment ID by URL.
- *
- * @param string $url Image attachment URL
- * @uses WPSight_Helpers::get_attachment_id_by_url()
- * @credit https://pippinsplugins.com/retrieve-attachment-id-from-image-url/
- *
- * @since 1.0.0
+ *	wpsight_get_attachment_id_by_url()
+ *	
+ *	Helper functions to get attachment ID by URL.
+ *	
+ *	@param	string	$url	Image attachment URL
+ *	@uses	WPSight_Helpers::get_attachment_id_by_url()
+ *	@credit	https://pippinsplugins.com/retrieve-attachment-id-from-image-url/
+ *	
+ *	@since 1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_get_attachment_id_by_url' ) ) {
 
@@ -423,18 +400,17 @@ if ( ! function_exists( 'wpsight_get_attachment_id_by_url' ) ) {
 }
 
 /**
- * wpsight_get_attachment_by_url()
- *
- * Helper functions to get attachment by URL.
- *
- * @param string $url Image attachment URL
- * @param string|array WordPress image size or custom with and height in array
- * @uses WPSight_Helpers::get_attachment_by_url()
- * @credit https://pippinsplugins.com/retrieve-attachment-id-from-image-url/
- *
- * @since 1.0.0
+ *	wpsight_get_attachment_by_url()
+ *	
+ *	Helper functions to get attachment by URL.
+ *	
+ *	@param	string			$url	Image attachment URL
+ *	@param	string|array	WordPress image size or custom with and height in array
+ *	@uses WPSight_Helpers::get_attachment_by_url()
+ *	@credit https://pippinsplugins.com/retrieve-attachment-id-from-image-url/
+ *	
+ *	@since 1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_get_attachment_by_url' ) ) {
 
@@ -445,16 +421,15 @@ if ( ! function_exists( 'wpsight_get_attachment_by_url' ) ) {
 }
 
 /**
- * wpsight_maybe_update_gallery()
- *
- * Helper function to update image gallery.
- *
- * @param integer $listing_id Post ID of the corresponding listing
- * @uses WPSight_Helpers::maybe_update_gallery()
- *
- * @since 1.0.0
+ *	wpsight_maybe_update_gallery()
+ *	
+ *	Helper function to update image gallery.
+ *	
+ *	@param	integer	$listing_id	Post ID of the corresponding listing
+ *	@uses	WPSight_Helpers::maybe_update_gallery()
+ *	
+ *	@since 1.0.0
  */
-
 // Make function pluggable/overwritable
 if ( ! function_exists( 'wpsight_maybe_update_gallery' ) ) {
 	

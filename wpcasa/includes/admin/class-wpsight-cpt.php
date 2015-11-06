@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) )
 	exit;
 
 /**
- * WPSight_Admin_CPT class
+ *	WPSight_Admin_CPT class
  */
 class WPSight_Admin_CPT {
 
 	/**
-	 * Constructor
+	 *	Constructor
 	 */
 	public function __construct() {
 
@@ -67,14 +67,14 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * columns()
-	 *
-	 * Define columns for manage_edit-listing_columns filter.
-	 *
-	 * @access public
-	 * @param mixed $columns
-	 *
-	 * @since 1.0.0
+	 *	columns()
+	 *	
+	 *	Define columns for manage_edit-listing_columns filter.
+	 *	
+	 *	@access	public
+	 *	@param	mixed	$columns
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function columns( $columns ) {
 		
@@ -105,32 +105,32 @@ class WPSight_Admin_CPT {
 	}
 
 	/**
-	 * custom_columns()
-	 *
-	 * Define custom columns for
-	 * manage_listing_posts_custom_column action.
-	 *
-	 * @access public
-	 * @param mixed $column
-	 * @uses wpsight_get_option()
-	 * @uses wpsight_get_listing_offer()
-	 * @uses wpsight_get_offer_color()
-	 * @uses wpsight_get_offer()
-	 * @uses wpsight_listing_id()
-	 * @uses wpsight_listing_price()
-	 * @uses wpsight_get_listing_thumbnail()
-	 * @uses wpsight_is_listing_sticky()
-	 * @uses wpsight_is_listing_featured()
-	 * @uses wpsight_get_listing_terms()
-	 * @uses wpsight_is_listing_not_available()
-	 * @uses current_user_can()
-	 * @uses wpsight_get_listing_summary()
-	 * @uses wpsight_is_listing_pending()
-	 * @uses wpsight_is_listing_expired()
-	 * @uses wpsight_is_listing_sticky()
-	 * @uses wpsight_sort_array_by_priority()
-	 *
-	 * @since 1.0.0
+	 *	custom_columns()
+	 *	
+	 *	Define custom columns for
+	 *	manage_listing_posts_custom_column action.
+	 *	
+	 *	@access	public
+	 *	@param	mixed	$column
+	 *	@uses	wpsight_get_option()
+	 *	@uses	wpsight_get_listing_offer()
+	 *	@uses	wpsight_get_offer_color()
+	 *	@uses	wpsight_get_offer()
+	 *	@uses	wpsight_listing_id()
+	 *	@uses	wpsight_listing_price()
+	 *	@uses	wpsight_get_listing_thumbnail()
+	 *	@uses	wpsight_is_listing_sticky()
+	 *	@uses	wpsight_is_listing_featured()
+	 *	@uses	wpsight_get_listing_terms()
+	 *	@uses	wpsight_is_listing_not_available()
+	 *	@uses	current_user_can()
+	 *	@uses	wpsight_get_listing_summary()
+	 *	@uses	wpsight_is_listing_pending()
+	 *	@uses	wpsight_is_listing_expired()
+	 *	@uses	wpsight_is_listing_sticky()
+	 *	@uses	wpsight_sort_array_by_priority()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function custom_columns( $column ) {
 		global $post;
@@ -187,7 +187,7 @@ class WPSight_Admin_CPT {
 							echo $post->post_title;							
 						}
 						
-						if ( $post->post_status !== 'trash' ) {
+						if ( $post->post_status !== 'trash' && class_exists( 'WPSight_Featured_Listings' ) ) {
 						
 							// Display sticky
 						
@@ -406,16 +406,16 @@ class WPSight_Admin_CPT {
 	}
 
 	/**
-	 * sortable_columns()
-	 *
-	 * Define some sortable columns for
-	 * manage_edit-listing_sortable_columns filter.
-	 *
-	 * @access public
-	 * @param mixed $columns
-	 * @uses wp_parse_args()
-	 *
-	 * @since 1.0.0
+	 *	sortable_columns()
+	 *	
+	 *	Define some sortable columns for
+	 *	manage_edit-listing_sortable_columns filter.
+	 *	
+	 *	@access	public
+	 *	@param	mixed	$columns
+	 *	@uses	wp_parse_args()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function sortable_columns( $columns ) {
 
@@ -431,14 +431,14 @@ class WPSight_Admin_CPT {
 	}
 
 	/**
-	 * sort_columns()
-	 *
-	 * Make sortable colums sort.
-	 *
-	 * @access public
-	 * @param mixed $vars
-	 *
-	 * @since 1.0.0
+	 *	sort_columns()
+	 *	
+	 *	Make sortable colums sort.
+	 *	
+	 *	@access	public
+	 *	@param	mixed	$vars
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function sort_columns( $vars ) {
 
@@ -465,15 +465,15 @@ class WPSight_Admin_CPT {
 	}
 
 	/**
-	 * add_bulk_actions()
-	 *
-	 * Add our custom bulk actions
-	 * to WordPress dropdown.
-	 *
-	 * @access public
-	 * @uses wpsight_post_type()
-	 *
-	 * @since 1.0.0
+	 *	add_bulk_actions()
+	 *	
+	 *	Add our custom bulk actions
+	 *	to WordPress dropdown.
+	 *	
+	 *	@access	public
+	 *	@uses	wpsight_post_type()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function add_bulk_actions() {
 		global $post_type, $wp_post_types;
@@ -496,23 +496,23 @@ class WPSight_Admin_CPT {
 	}
 
 	/**
-	 * do_bulk_actions()
-	 *
-	 * Execute our custom bulk actions
-	 * if selected in WordPress dropdown.
-	 *
-	 * @access public
-	 * @uses _get_list_table()
-	 * @uses $wp_list_table->current_action()
-	 * @uses check_admin_referer()
-	 * @uses wp_update_post()
-	 * @uses admin_url()
-	 * @uses remove_query_arg()
-	 * @uses add_query_arg()
-	 * @uses wp_redirect()
-	 * @return null
-	 *
-	 * @since 1.0.0
+	 *	do_bulk_actions()
+	 *	
+	 *	Execute our custom bulk actions
+	 *	if selected in WordPress dropdown.
+	 *	
+	 *	@access	public
+	 *	@uses	_get_list_table()
+	 *	@uses	$wp_list_table->current_action()
+	 *	@uses	check_admin_referer()
+	 *	@uses	wp_update_post()
+	 *	@uses	admin_url()
+	 *	@uses	remove_query_arg()
+	 *	@uses	add_query_arg()
+	 *	@uses	wp_redirect()
+	 *	@return	null
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function do_bulk_actions() {
 
@@ -626,22 +626,22 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * approve_listing()
-	 *
-	 * Approve a single listing with action button.
-	 *
-	 * @access public
-	 * @uses wp_verify_nonce()
-	 * @uses current_user_can()
-	 * @uses wpsight_is_listing_pending()
-	 * @uses wp_update_post()
-	 * @uses wpsight_set_listing_expiry()
-	 * @uses admin_url()
-	 * @uses add_query_arg()
-	 * @uses remove_query_arg()
-	 * @uses wp_redirect()
-	 *
-	 * @since 1.0.0
+	 *	approve_listing()
+	 *	
+	 *	Approve a single listing with action button.
+	 *	
+	 *	@access	public
+	 *	@uses	wp_verify_nonce()
+	 *	@uses	current_user_can()
+	 *	@uses	wpsight_is_listing_pending()
+	 *	@uses	wp_update_post()
+	 *	@uses	wpsight_set_listing_expiry()
+	 *	@uses	admin_url()
+	 *	@uses	add_query_arg()
+	 *	@uses	remove_query_arg()
+	 *	@uses	wp_redirect()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function approve_listing() {
 		
@@ -680,15 +680,15 @@ class WPSight_Admin_CPT {
 	}
 
 	/**
-	 * approved_notice()
-	 *
-	 * Show a notice if we did a bulk action or single approval.
-	 *
-	 * @uses wpsight_post_type()
-	 * @uses wpsight_is_listing_pending()
-	 * @uses get_the_title()
-	 *
-	 * @since 1.0.0
+	 *	approved_notice()
+	 *	
+	 *	Show a notice if we did a bulk action or single approval.
+	 *	
+	 *	@uses	wpsight_post_type()
+	 *	@uses	wpsight_is_listing_pending()
+	 *	@uses	get_the_title()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function approved_notice() {
 		global $post_type, $pagenow;
@@ -755,21 +755,21 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * toggle_sticky()
-	 *
-	 * Mark a single listing sticky with action button.
-	 *
-	 * @access public
-	 * @uses wp_verify_nonce()
-	 * @uses current_user_can()
-	 * @uses wpsight_is_listing_sticky()
-	 * @uses update_post_meta()
-	 * @uses admin_url()
-	 * @uses add_query_arg()
-	 * @uses remove_query_arg()
-	 * @uses wp_redirect()
-	 *
-	 * @since 1.0.0
+	 *	toggle_sticky()
+	 *	
+	 *	Mark a single listing sticky with action button.
+	 *	
+	 *	@access	public
+	 *	@uses	wp_verify_nonce()
+	 *	@uses	current_user_can()
+	 *	@uses	wpsight_is_listing_sticky()
+	 *	@uses	update_post_meta()
+	 *	@uses	admin_url()
+	 *	@uses	add_query_arg()
+	 *	@uses	remove_query_arg()
+	 *	@uses	wp_redirect()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function toggle_sticky() {
 		
@@ -796,15 +796,15 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * marked_sticky_notice()
-	 *
-	 * Show a notice if we marked a single or multiple listings sticky.
-	 *
-	 * @uses wpsight_post_type()
-	 * @uses get_the_title()
-	 * @uses wpsight_is_listing_sticky()
-	 *
-	 * @since 1.0.0
+	 *	marked_sticky_notice()
+	 *	
+	 *	Show a notice if we marked a single or multiple listings sticky.
+	 *	
+	 *	@uses	wpsight_post_type()
+	 *	@uses	get_the_title()
+	 *	@uses	wpsight_is_listing_sticky()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function marked_sticky_notice() {
 		global $post_type, $pagenow;
@@ -871,21 +871,21 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * toggle_featured()
-	 *
-	 * Mark a single listing featured with action button.
-	 *
-	 * @access public
-	 * @uses wp_verify_nonce()
-	 * @uses current_user_can()
-	 * @uses wpsight_is_listing_featured()
-	 * @uses update_post_meta()
-	 * @uses admin_url()
-	 * @uses add_query_arg()
-	 * @uses remove_query_arg()
-	 * @uses wp_redirect()
-	 *
-	 * @since 1.0.0
+	 *	toggle_featured()
+	 *	
+	 *	Mark a single listing featured with action button.
+	 *	
+	 *	@access	public
+	 *	@uses	wp_verify_nonce()
+	 *	@uses	current_user_can()
+	 *	@uses	wpsight_is_listing_featured()
+	 *	@uses	update_post_meta()
+	 *	@uses	admin_url()
+	 *	@uses	add_query_arg()
+	 *	@uses	remove_query_arg()
+	 *	@uses	wp_redirect()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function toggle_featured() {
 		
@@ -912,15 +912,15 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * marked_featured_notice()
-	 *
-	 * Show a notice if we marked a single or multiple listings featured.
-	 *
-	 * @uses wpsight_post_type()
-	 * @uses get_the_title()
-	 * @uses wpsight_is_listing_featured()
-	 *
-	 * @since 1.0.0
+	 *	marked_featured_notice()
+	 *	
+	 *	Show a notice if we marked a single or multiple listings featured.
+	 *	
+	 *	@uses	wpsight_post_type()
+	 *	@uses	get_the_title()
+	 *	@uses	wpsight_is_listing_featured()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function marked_featured_notice() {
 		global $post_type, $pagenow;
@@ -987,21 +987,21 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * toggle_unavailable()
-	 *
-	 * Mark a single listing unavailable with action button.
-	 *
-	 * @access public
-	 * @uses wp_verify_nonce()
-	 * @uses current_user_can()
-	 * @uses wpsight_is_listing_not_available()
-	 * @uses update_post_meta()
-	 * @uses admin_url()
-	 * @uses add_query_arg()
-	 * @uses remove_query_arg()
-	 * @uses wp_redirect()
-	 *
-	 * @since 1.0.0
+	 *	toggle_unavailable()
+	 *	
+	 *	Mark a single listing unavailable with action button.
+	 *	
+	 *	@access	public
+	 *	@uses	wp_verify_nonce()
+	 *	@uses	current_user_can()
+	 *	@uses	wpsight_is_listing_not_available()
+	 *	@uses	update_post_meta()
+	 *	@uses	admin_url()
+	 *	@uses	add_query_arg()
+	 *	@uses	remove_query_arg()
+	 *	@uses	wp_redirect()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function toggle_unavailable() {
 		
@@ -1028,15 +1028,15 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * marked_unavailable_notice()
-	 *
-	 * Show a notice if we marked a single or multiple listings not available.
-	 *
-	 * @uses wpsight_post_type()
-	 * @uses get_the_title()
-	 * @uses wpsight_is_listing_not_available()
-	 *
-	 * @since 1.0.0
+	 *	marked_unavailable_notice()
+	 *	
+	 *	Show a notice if we marked a single or multiple listings not available.
+	 *	
+	 *	@uses	wpsight_post_type()
+	 *	@uses	get_the_title()
+	 *	@uses	wpsight_is_listing_not_available()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function marked_unavailable_notice() {
 		global $post_type, $pagenow;
@@ -1103,11 +1103,12 @@ class WPSight_Admin_CPT {
 	}
 
 	/**
-	 * post_updated_messages()
+	 *	post_updated_messages()
+	 *	
+	 *	@access	public
+	 *	@param	mixed	$messages
 	 *
-	 * @access public
-	 * @param mixed $messages
-	 * @return void
+	 *	@since 1.0.0
 	 */
 	public function post_updated_messages( $messages ) {
 		global $post, $post_ID, $wp_post_types;
@@ -1131,11 +1132,12 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * bulk_updated_messages()
+	 *	bulk_updated_messages()
+	 *	
+	 *	@access	public
+	 *	@param	mixed	$messages
 	 *
-	 * @access public
-	 * @param mixed $messages
-	 * @return void
+	 *	@since 1.0.0
 	 */
 	public function bulk_updated_messages( $messages ) {
 		global $post, $post_ID, $wp_post_types;
@@ -1160,14 +1162,14 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * pending_listings_count()
-	 *
-	 * Add pending listings to badge in menu label.
-	 *
-	 * @access public
-	 * @uses wpsight_post_type()
-	 *
-	 * @since 1.0.0
+	 *	pending_listings_count()
+	 *	
+	 *	Add pending listings to badge in menu label.
+	 *	
+	 *	@access	public
+	 *	@uses	wpsight_post_type()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function pending_listings_count() {
 		global $menu;
@@ -1191,16 +1193,16 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * parse_query_listing_offers()
-	 *
-	 * Parse the query and limit listings
-	 * to desired listing offer.
-	 *
-	 * @access public
-	 * @param object $query WP_Query object
-	 * @uses wpsight_post_type()
-	 *
-	 * @since 1.0.0
+	 *	parse_query_listing_offers()
+	 *	
+	 *	Parse the query and limit listings
+	 *	to desired listing offer.
+	 *	
+	 *	@access	public
+	 *	@param	object	$query	WP_Query object
+	 *	@uses	wpsight_post_type()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function parse_query_listing_offers( $query ) {	
 	    global $pagenow, $typenow;
@@ -1225,15 +1227,15 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * restrict_listing_offers()
-	 *
-	 * Add filter by offer (sale, rent etc.) to let
-	 * users browse by wpsight_offers().
-	 *
-	 * @access public
-	 * @uses wpsight_post_type()
-	 *
-	 * @since 1.0.0
+	 *	restrict_listing_offers()
+	 *	
+	 *	Add filter by offer (sale, rent etc.) to let
+	 *	users browse by wpsight_offers().
+	 *	
+	 *	@access	public
+	 *	@uses	wpsight_post_type()
+	 *	
+	 *	@since 1.0.0
 	 */
 	function restrict_listing_offers() {	
 	    global $wpdb, $typenow;
@@ -1257,18 +1259,18 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * restrict_listing_taxonomy()
-	 *
-	 * Add filter by taxonomy to let
-	 * users browse by specific taxonomies.
-	 *
-	 * @access public
-	 * @uses wpsight_post_type()
-	 * @uses get_object_taxonomies()
-	 * @uses get_terms()
-	 * @uses wp_dropdown_categories()
-	 *
-	 * @since 1.0.0
+	 *	restrict_listing_taxonomy()
+	 *	
+	 *	Add filter by taxonomy to let
+	 *	users browse by specific taxonomies.
+	 *	
+	 *	@access	public
+	 *	@uses	wpsight_post_type()
+	 *	@uses	get_object_taxonomies()
+	 *	@uses	get_terms()
+	 *	@uses	wp_dropdown_categories()
+	 *	
+	 *	@since 1.0.0
 	 */
 	function restrict_listing_taxonomy() {	
 	    global $typenow;
@@ -1301,16 +1303,16 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * restrict_listing_author()
-	 *
-	 * Add filter by author to let
-	 * users browse by specific agents.
-	 *
-	 * @access public
-	 * @uses wpsight_post_type()
-	 * @uses wp_dropdown_users()
-	 *
-	 * @since 1.0.0
+	 *	restrict_listing_author()
+	 *	
+	 *	Add filter by author to let
+	 *	users browse by specific agents.
+	 *	
+	 *	@access	public
+	 *	@uses	wpsight_post_type()
+	 *	@uses	wp_dropdown_users()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function restrict_listing_author() {	
 		global $typenow;
@@ -1329,17 +1331,17 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * parse_request_listing_id()
-	 *
-	 * Let users search listings by listing ID
-	 * on admin listings page.
-	 *
-	 * @access public
-	 * @param object $query WP_Query object
-	 * @uses $wpdb->prepare()
-	 * @uses $wpdb->get_col()
-	 *
-	 * @since 1.0.0
+	 *	parse_request_listing_id()
+	 *	
+	 *	Let users search listings by listing ID
+	 *	on admin listings page.
+	 *	
+	 *	@access	public
+	 *	@param	object	$query	WP_Query object
+	 *	@uses	$wpdb->prepare()
+	 *	@uses	$wpdb->get_col()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function parse_request_listing_id( $query ) {
 	    global $wpdb, $pagenow;
@@ -1368,17 +1370,17 @@ class WPSight_Admin_CPT {
 	}
 	
 	/**
-	 * parse_request_listing_id_media()
-	 *
-	 * Let users search listings by listing ID
-	 * on admin media library page.
-	 *
-	 * @access public
-	 * @param object $query WP_Query object
-	 * @uses $wpdb->prepare()
-	 * @uses $wpdb->get_col()
-	 *
-	 * @since 1.0.0
+	 *	parse_request_listing_id_media()
+	 *	
+	 *	Let users search listings by listing ID
+	 *	on admin media library page.
+	 *	
+	 *	@access	public
+	 *	@param	object	$query	WP_Query object
+	 *	@uses	$wpdb->prepare()
+	 *	@uses	$wpdb->get_col()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function parse_request_listing_id_media( $query ) {
 	    global $wpdb, $pagenow;

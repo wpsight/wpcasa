@@ -3,12 +3,12 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * WPSight_Admin_Settings class
+ *	WPSight_Admin_Settings class
  */
 class WPSight_Admin_Settings {
 
 	/**
-	 * Constructor
+	 *	Constructor
 	 */
 	public function __construct() {
 		$this->settings_group = WPSIGHT_DOMAIN;
@@ -17,41 +17,42 @@ class WPSight_Admin_Settings {
 	}
 
 	/**
-	 * init_settings()
-	 *
-	 * @access protected
-	 * @uses get_editable_roles()
-	 * @uses apply_filters()
-	 * @uses wpsight_options()
-	 *
-	 * @since 1.0.0
+	 *	init_settings()
+	 *	
+	 *	@access	protected
+	 *	@uses	get_editable_roles()
+	 *	@uses	apply_filters()
+	 *	@uses	wpsight_options()
+	 *	
+	 *	@since 1.0.0
 	 */
 	protected function init_settings() {
+
 		// Prepare roles option
 		$roles         = get_editable_roles();
 		$account_roles = array();
 
 		foreach ( $roles as $key => $role ) {
-			if ( $key == 'administrator' ) {
+			if ( $key == 'administrator' )
 				continue;
-			}
 			$account_roles[ $key ] = $role['name'];
 		}
 
 		$this->settings = apply_filters( 'wpsight_settings', wpsight_options() );
+
 	}
 
 	/**
-	 * register_settings()
-	 *
-	 * @access public
-	 * @uses $this->init_settings()
-	 * @uses get_option()
-	 * @uses add_option()
-	 * @uses wpsight_options_defaults()
-	 * @uses register_setting()
-	 *
-	 * @since 1.0.0
+	 *	register_settings()
+	 *	
+	 *	@access	public
+	 *	@uses	$this->init_settings()
+	 *	@uses	get_option()
+	 *	@uses	add_option()
+	 *	@uses	wpsight_options_defaults()
+	 *	@uses	register_setting()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function register_settings() {
 
@@ -67,19 +68,19 @@ class WPSight_Admin_Settings {
 	}
 
 	/**
-	 * output()
-	 *
-	 * @access public
-	 * @uses $this->init_settings()
-	 * @uses settings_fields()
-	 * @uses flush_rewrite_rules()
-	 * @uses wpsight_options_defaults()
-	 * @uses update_option()
-	 * @uses wpsight_get_option()
-	 * @uses do_action()
-	 * @uses submit_button()
-	 *
-	 * @since 1.0.0
+	 *	output()
+	 *	
+	 *	@access	public
+	 *	@uses	$this->init_settings()
+	 *	@uses	settings_fields()
+	 *	@uses	flush_rewrite_rules()
+	 *	@uses	wpsight_options_defaults()
+	 *	@uses	update_option()
+	 *	@uses	wpsight_get_option()
+	 *	@uses	do_action()
+	 *	@uses	submit_button()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function output() {
 		$this->init_settings(); ?>

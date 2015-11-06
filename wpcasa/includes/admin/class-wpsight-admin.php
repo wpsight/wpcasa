@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) )
 	exit;
 
 /**
- * WPSight_Admin class
+ *	WPSight_Admin class
  */
 class WPSight_Admin {
 
 	/**
-	 * Constructor
+	 *	Constructor
 	 */
 	public function __construct() {
 
@@ -35,18 +35,18 @@ class WPSight_Admin {
 	}
 
 	/**
-	 * admin_enqueue_scripts()
-	 *
-	 * Enqueue scripts and styles used
-	 * on WordPress admin pages.
-	 *
-	 * @access public
-	 * @uses get_current_screen()
-	 * @uses wp_enqueue_style()
-	 * @uses wp_register_script()
-	 * @uses wp_enqueue_script()
-	 *
-	 * @since 1.0.0
+	 *	admin_enqueue_scripts()
+	 *	
+	 *	Enqueue scripts and styles used
+	 *	on WordPress admin pages.
+	 *	
+	 *	@access	public
+	 *	@uses	get_current_screen()
+	 *	@uses	wp_enqueue_style()
+	 *	@uses	wp_register_script()
+	 *	@uses	wp_enqueue_script()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function admin_enqueue_scripts() {
 		global $wp_scripts;
@@ -67,17 +67,17 @@ class WPSight_Admin {
 	}
 
 	/**
-	 * admin_menu()
-	 *
-	 * Add WPSight settings main and
-	 * sub pages to the admin menu.
-	 *
-	 * @access public
-	 * @uses add_menu_page()
-	 * @uses add_submenu_page()
-	 * @uses apply_filters()
-	 *
-	 * @since 1.0.0
+	 *	admin_menu()
+	 *	
+	 *	Add WPSight settings main and
+	 *	sub pages to the admin menu.
+	 *	
+	 *	@access	public
+	 *	@uses	add_menu_page()
+	 *	@uses	add_submenu_page()
+	 *	@uses	apply_filters()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function admin_menu() {
 
@@ -96,13 +96,13 @@ class WPSight_Admin {
 	}
 	
 	/**
-	 * addons_page()
-	 *
-	 * Add WPSight addons page to sub menu.
-	 *
-	 * @access public
-	 *
-	 * @since 1.0.0
+	 *	addons_page()
+	 *	
+	 *	Add WPSight addons page to sub menu.
+	 *	
+	 *	@access	public
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function addons_page() {
 		$addons = include WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-addons.php';
@@ -110,13 +110,13 @@ class WPSight_Admin {
 	}
 
 	/**
-	 * themes_page()
-	 *
-	 * Add WPSight themes page to sub menu.
-	 *
-	 * @access public
-	 *
-	 * @since 1.0.0
+	 *	themes_page()
+	 *	
+	 *	Add WPSight themes page to sub menu.
+	 *	
+	 *	@access	public
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function themes_page() {
 		$themes = include WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-themes.php';
@@ -124,28 +124,28 @@ class WPSight_Admin {
 	}
 
 	/**
-	 * options()
-	 *
-	 * Merge option tabs and
-	 * return wpsight_options_listings()
-	 *
-	 * @uses wpsight_options_listings()
-	 * @return array $options
-	 *
-	 * @since 1.0.0
+	 *	options()
+	 *	
+	 *	Merge option tabs and
+	 *	return wpsight_options_listings()
+	 *	
+	 *	@uses	wpsight_options_listings()
+	 *	@return	array	$options
+	 *	
+	 *	@since 1.0.0
 	 */
 	public static function options() {
 		return apply_filters( 'wpsight_options', array( 'listings' => array( __( 'Listings', 'wpcasa' ), (array) self::options_listings() ) ) );
 	}
 	
 	/**
-	 * licenses()
-	 *
-	 * Create license array
-	 *
-	 * @return array $licenses
-	 *
-	 * @since 1.0.0
+	 *	licenses()
+	 *	
+	 *	Create license array
+	 *	
+	 *	@return	array	$licenses
+	 *	
+	 *	@since 1.0.0
 	 */
 	public static function licenses() {
 
@@ -162,20 +162,20 @@ class WPSight_Admin {
 	}
 	
 	/**
-	 * options_listings()
-	 *
-	 * Create theme options array
-	 * Listings options
-	 *
-	 * @uses wpsight_get_option()
-	 * @uses wpsight_measurements()
-	 * @uses wpsight_currencies()
-	 * @uses wpsight_details()
-	 * @uses wpsight_rental_periods()
-	 * @uses wpsight_date_formats()
-	 * @return array $options_listings
-	 *
-	 * @since 1.0.0
+	 *	options_listings()
+	 *	
+	 *	Create theme options array
+	 *	Listings options
+	 *	
+	 *	@uses	wpsight_get_option()
+	 *	@uses	wpsight_measurements()
+	 *	@uses	wpsight_currencies()
+	 *	@uses	wpsight_details()
+	 *	@uses	wpsight_rental_periods()
+	 *	@uses	wpsight_date_formats()
+	 *	@return	array	$options_listings
+	 *	
+	 *	@since 1.0.0
 	 */
 	public static function options_listings() {
 
@@ -332,17 +332,17 @@ class WPSight_Admin {
 	}
 
 	/**
-	 * media_custom_views()
-	 *
-	 * Media library views
-	 *
-	 * @param array $views Incoming views
-	 * @uses $wpdb->prepare()
-	 * @uses $wpdb->get_col()
-	 * @uses wp_count_attachments()
-	 * @return array $views Updated views
-	 *
-	 * @since 1.0.0
+	 *	media_custom_views()
+	 *	
+	 *	Media library views
+	 *	
+	 *	@param	array	$views	Incoming views
+	 *	@uses	$wpdb->prepare()
+	 *	@uses	$wpdb->get_col()
+	 *	@uses	wp_count_attachments()
+	 *	@return	array	$views	Updated views
+	 *	
+	 *	@since 1.0.0
 	 */
 	public static function media_custom_views( $views ) {
 
@@ -373,16 +373,16 @@ class WPSight_Admin {
 	}
 
 	/**
-	 * listings_custom_views()
-	 *
-	 * Listing views
-	 *
-	 * @param array $views Incoming views
-	 * @uses $wpdb->prepare()
-	 * @uses $wpdb->get_col()
-	 * @return array $views Updated views
-	 *
-	 * @since 1.0.0
+	 *	listings_custom_views()
+	 *	
+	 *	Listing views
+	 *	
+	 *	@param	array	$views	Incoming views
+	 *	@uses	$wpdb->prepare()
+	 *	@uses	$wpdb->get_col()
+	 *	@return	array	$views	Updated views
+	 *	
+	 *	@since 1.0.0
 	 */
 	public static function listings_custom_views( $views ) {
 		global $wpdb, $wp_query, $pagenow;
@@ -411,14 +411,14 @@ class WPSight_Admin {
 	}
 
 	/**
-	 * manage_users_columns()
-	 *
-	 * Add column for number of listings of a user.
-	 *
-	 * @param array $columns Incoming columns
-	 * @return array $columns Updated columns
-	 *
-	 * @since 1.0.0
+	 *	 manage_users_columns()
+	 *	
+	 *	 Add column for number of listings of a user.
+	 *	
+	 *	 @param		array	$columns	Incoming columns
+	 *	 @return	array	$columns	Updated columns
+	 *	
+	 *	 @since 1.0.0
 	 */
 	public static function manage_users_columns( $columns ) {
 		$columns['listings_count'] = __( 'Listings', 'wpcasa' );
@@ -426,18 +426,18 @@ class WPSight_Admin {
 	}
 
 	/**
-	 * manage_users_custom_column()
-	 *
-	 * Show number of listings the user has
-	 *
-	 * @param string $value
-	 * @param string $column_name
-	 * @param int $user_id
-	 * @uses count_user_posts()
-	 * @uses wpsight_post_type()
-	 * @return string new value
-	 *
-	 * @since 1.0.0
+	 *	manage_users_custom_column()
+	 *	
+	 *	Show number of listings the user has
+	 *	
+	 *	@param	string	$value
+	 *	@param	string	$column_name
+	 *	@param	int		$user_id
+	 *	@uses	count_user_posts()
+	 *	@uses	wpsight_post_type()
+	 *	@return	string	new value
+	 *	
+	 *	@since 1.0.0
 	 */
 	public static function manage_users_custom_column( $value, $column_name, $user_id ) {
 
@@ -452,20 +452,20 @@ class WPSight_Admin {
 	}
 	
 	/**
-	 * activate_license()
-	 *
-	 * Activate a specific license.
-	 *
-	 * @uses get_option()
-	 * @uses urlencode()
-	 * @uses home_url()
-	 * @uses wp_remote_post()
-	 * @uses is_wp_error()
-	 * @uses wp_remote_retrieve_body()
-	 * @uses json_decode()
-	 * @uses update_option()
-	 *
-	 * @since 1.0.0
+	 *	activate_license()
+	 *	
+	 *	Activate a specific license.
+	 *	
+	 *	@uses	get_option()
+	 *	@uses	urlencode()
+	 *	@uses	home_url()
+	 *	@uses	wp_remote_post()
+	 *	@uses	is_wp_error()
+	 *	@uses	wp_remote_retrieve_body()
+	 *	@uses	json_decode()
+	 *	@uses	update_option()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public static function activate_license( $id = '', $item = '' ) {
 		
@@ -498,20 +498,20 @@ class WPSight_Admin {
 	}
 	
 	/**
-	 * deactivate_license()
-	 *
-	 * Deactivate a specific license.
-	 *
-	 * @uses get_option()
-	 * @uses urlencode()
-	 * @uses home_url()
-	 * @uses wp_remote_post()
-	 * @uses is_wp_error()
-	 * @uses wp_remote_retrieve_body()
-	 * @uses json_decode()
-	 * @uses delete_option()
-	 *
-	 * @since 1.0.0
+	 *	deactivate_license()
+	 *	
+	 *	Deactivate a specific license.
+	 *	
+	 *	@uses	get_option()
+	 *	@uses	urlencode()
+	 *	@uses	home_url()
+	 *	@uses	wp_remote_post()
+	 *	@uses	is_wp_error()
+	 *	@uses	wp_remote_retrieve_body()
+	 *	@uses	json_decode()
+	 *	@uses	delete_option()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public static function deactivate_license( $id = '', $item = '' ) {
 		
@@ -545,21 +545,21 @@ class WPSight_Admin {
 	}
 	
 	/**
-	 * check_license()
-	 *
-	 * Check a specific license.
-	 *
-	 * @uses get_option()
-	 * @uses urlencode()
-	 * @uses home_url()
-	 * @uses wp_remote_post()
-	 * @uses is_wp_error()
-	 * @uses wp_remote_retrieve_body()
-	 * @uses json_decode()
-	 * @uses delete_option()
-	 * @return string valid|invalid
-	 *
-	 * @since 1.0.0
+	 *	check_license()
+	 *	
+	 *	Check a specific license.
+	 *	
+	 *	@uses	get_option()
+	 *	@uses	urlencode()
+	 *	@uses	home_url()
+	 *	@uses	wp_remote_post()
+	 *	@uses	is_wp_error()
+	 *	@uses	wp_remote_retrieve_body()
+	 *	@uses	json_decode()
+	 *	@uses	delete_option()
+	 *	@return	string	valid|invalid
+	 *	
+	 *	@since 1.0.0
 	 */
 	public static function check_license( $id = '', $item = '' ) {
 	

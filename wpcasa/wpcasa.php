@@ -29,7 +29,7 @@ require __DIR__ . '/vendor/autoload.php';
 class WPSight_Framework {
 
 	/**
-	 * Constructor - get the plugin hooked in and ready
+	 *	Constructor - get the plugin hooked in and ready
 	 */
 	public function __construct() {
 
@@ -40,12 +40,6 @@ class WPSight_Framework {
 		
 		if ( ! defined( 'WPSIGHT_DOMAIN' ) )
 			define( 'WPSIGHT_DOMAIN', 'wpcasa' );
-		
-		if ( ! defined( 'WPSIGHT_SHOP_URL' ) )
-			define( 'WPSIGHT_SHOP_URL', 'http://wpsight.com/wpcasa' );
-
-		if ( ! defined( 'WPSIGHT_AUTHOR' ) )
-			define( 'WPSIGHT_AUTHOR', 'WPSight' );
 
 		define( 'WPSIGHT_VERSION', '1.0.0-beta' );
 		define( 'WPSIGHT_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
@@ -118,31 +112,31 @@ class WPSight_Framework {
 	}
 
 	/**
-	 * load_plugin_textdomain()
-	 *
-	 * Set up the text domain for the plugin
-	 * and load language files.
-	 *
-	 * @uses plugin_basename()
-	 * @uses load_plugin_textdomain()
-	 *
-	 * @since 1.0.0
+	 *	load_plugin_textdomain()
+	 *	
+	 *	Set up the text domain for the plugin
+	 *	and load language files.
+	 *	
+	 *	@uses	plugin_basename()
+	 *	@uses	load_plugin_textdomain()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain( 'wpcasa', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**
-	 * frontend_scripts()
-	 *
-	 * Register and enqueue scripts and css.
-	 *
-	 * @uses wp_enqueue_script()
-	 * @uses wp_localize_script()
-	 * @uses wp_enqueue_style()
-	 * @uses wpsight_get_option()
-	 *
-	 * @since 1.0.0
+	 *	frontend_scripts()
+	 *	
+	 *	Register and enqueue scripts and css.
+	 *	
+	 *	@uses	wp_enqueue_script()
+	 *	@uses	wp_localize_script()
+	 *	@uses	wp_enqueue_style()
+	 *	@uses	wpsight_get_option()
+	 *	
+	 *	@since 1.0.0
 	 */
 	public function frontend_scripts() {
 		
@@ -174,19 +168,19 @@ class WPSight_Framework {
 	}
 	
 	/**
-	 * activation()
-	 *
-	 * Callback for register_activation_hook
-	 * to create a default listings page with
-	 * the [wpsight_listings] shortcode and
-	 * to create some default options to be
-	 * used by this plugin.
-	 *
-	 * @uses wpsight_get_option()
-	 * @uses wp_insert_post()
-	 * @uses wpsight_add_option()
-	 *
-	 * @since 1.0.0
+	 *	activation()
+	 *	
+	 *	Callback for register_activation_hook
+	 *	to create a default listings page with
+	 *	the [wpsight_listings] shortcode and
+	 *	to create some default options to be
+	 *	used by this plugin.
+	 *	
+	 *	@uses	wpsight_get_option()
+	 *	@uses	wp_insert_post()
+	 *	@uses	wpsight_add_option()
+	 *	
+	 *	@since 1.0.0
 	 */
 	
 	public function activation() {

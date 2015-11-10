@@ -89,7 +89,7 @@ class WPSight_Admin {
 		add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Settings', 'wpcasa' ),  __( 'Settings', 'wpcasa' ) , 'manage_options', 'wpsight-settings', array( $this->settings_page, 'output' ) );
 
 		if ( apply_filters( 'wpsight_show_addons_page', true ) )
-			add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Add-ons', 'wpcasa' ),  __( 'Add-ons', 'wpcasa' ) , 'manage_options', 'wpsight-addons', array( $this, 'addons_page' ) );
+			add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Add-Ons', 'wpcasa' ),  __( 'Add-Ons', 'wpcasa' ) , 'manage_options', 'wpsight-addons', array( $this, 'addons_page' ) );
 		
 		if ( apply_filters( 'wpsight_show_themes_page', true ) )
 			add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Themes', 'wpcasa' ),  __( 'Themes', 'wpcasa' ) , 'manage_options', 'wpsight-themes', array( $this, 'themes_page' ) );

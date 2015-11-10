@@ -132,7 +132,7 @@ class WPSight_General {
 		);
 
 		// Apply filter to array
-		$details = apply_filters( 'wpsight_wpcasa_standard_details', $details );
+		$details = apply_filters( 'wpsight_standard_details', $details );
 
 		// Sort array by position
 		$details = wpsight_sort_array_by_position( $details );

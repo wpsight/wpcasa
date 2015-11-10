@@ -1,0 +1,1739 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCasa\n"
+"POT-Creation-Date: 2015-11-10 12:38+0100\n"
+"PO-Revision-Date: 2015-11-10 12:39+0100\n"
+"Last-Translator: \n"
+"Language-Team: WPSight <support@wpsight.com>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: wpcasa.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: includes/admin/EDD_SL_Plugin_Updater.php:180
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+"Eine neue Version von %1$s ist erhältlich. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">Siehe Details der Version %3$s</a>."
+
+#: includes/admin/EDD_SL_Plugin_Updater.php:187
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+"Eine neue Version von %1$s ist erhältlich. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">Siehe Details der Version %3$s</a> oder <a href="
+"\"%4$s\">jetzt aktualisieren</a>."
+
+#: includes/admin/EDD_SL_Plugin_Updater.php:325
+msgid "You do not have permission to install plugin updates"
+msgstr "Sie haben zur Zeit nicht die Erlaubnis Plugin-Updates zu installieren"
+
+#: includes/admin/EDD_SL_Plugin_Updater.php:325
+msgid "Error"
+msgstr "Fehler"
+
+#: includes/admin/class-wpsight-addons.php:61
+#: includes/admin/class-wpsight-admin.php:92
+msgid "Add-Ons"
+msgstr "Erweiterungen"
+
+#: includes/admin/class-wpsight-admin.php:89
+#: includes/admin/class-wpsight-settings.php:90
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: includes/admin/class-wpsight-admin.php:95
+#: includes/admin/class-wpsight-themes.php:61
+msgid "Themes"
+msgstr "Themes"
+
+#: includes/admin/class-wpsight-admin.php:98
+#: includes/admin/class-wpsight-licenses.php:35
+msgid "Licenses"
+msgstr "Lizenzen"
+
+#: includes/admin/class-wpsight-admin.php:141
+#: includes/admin/class-wpsight-admin.php:427
+#: includes/admin/class-wpsight-cpt.php:1180
+#: includes/class-wpsight-template.php:284
+msgid "Listings"
+msgstr "Anzeigen"
+
+#: includes/admin/class-wpsight-admin.php:158
+msgid "Premium Support"
+msgstr "Premium-Support"
+
+#: includes/admin/class-wpsight-admin.php:159
+msgid ""
+"To receive premium support please enter your support package license key."
+msgstr ""
+"Für Premium-Support geben Sie bitte einen gültigen Lizenzschlüssel ein."
+
+#: includes/admin/class-wpsight-admin.php:188
+msgid "Listings Page"
+msgstr "Anzeigenseite"
+
+#: includes/admin/class-wpsight-admin.php:189
+msgid ""
+"Please select the main search results page with the "
+"<code>[wpsight_listings]</code> shortcode."
+msgstr ""
+"Bitte wählen Sie die Hauptsuchergebnisseite mit dem "
+"<code>[wpsight_listings]</code>-Shortcode."
+
+#: includes/admin/class-wpsight-admin.php:195 wpcasa.php:208
+msgid "ID-"
+msgstr "ID-"
+
+#: includes/admin/class-wpsight-admin.php:198
+msgid "Listing ID Prefix"
+msgstr "Anzeige-ID Präfix"
+
+#: includes/admin/class-wpsight-admin.php:200
+msgid ""
+"The listing ID will be this prefix plus post ID. You can optionally set "
+"individual IDs on the listing edit screen."
+msgstr ""
+"Die Anzeige-ID setzt ich aus dem Präfix und der Post-ID zusammen. Die IDs "
+"können individuell angepasst werden."
+
+#: includes/admin/class-wpsight-admin.php:206
+msgid "Measurement Unit"
+msgstr "Maßeinheit"
+
+#: includes/admin/class-wpsight-admin.php:207
+msgid ""
+"Please select the general measurement unit. The unit for the listing "
+"standard features can be defined separately below."
+msgstr ""
+"Bitte wählen Sie die allgemeine Maßeinheit. Die Einheit für bestimmte "
+"Anzeigendetails kann weiter unten separat gewählt werden."
+
+#: includes/admin/class-wpsight-admin.php:216
+msgid "Currency"
+msgstr "Währung"
+
+#: includes/admin/class-wpsight-admin.php:217
+msgid ""
+"Please select the currency for the listing prices. If your currency is not "
+"listed, please select <code>Other</code>."
+msgstr ""
+"Bitte wählen Sie die Währung für Anzeigenpreise. Sollte Ihre Wähung nicht "
+"aufgeführt sein, wählen Sie <code>Andere</code>."
+
+#: includes/admin/class-wpsight-admin.php:222
+msgid "Other"
+msgstr "Andere"
+
+#: includes/admin/class-wpsight-admin.php:226
+#: includes/admin/class-wpsight-admin.php:234
+msgid "Other Currency"
+msgstr "Andere Währung"
+
+#: includes/admin/class-wpsight-admin.php:226
+msgid "Abbreviation"
+msgstr "Abkürzung"
+
+#: includes/admin/class-wpsight-admin.php:228
+msgid ""
+"Please insert the abbreviation of your currency (e.g. <code>EUR</code>)."
+msgstr ""
+"Bitte geben Sie die Abkürzung für Ihre Währung ein (z. B. <code>EUR</code>)."
+
+#: includes/admin/class-wpsight-admin.php:234
+msgid "Symbol"
+msgstr "Symbol"
+
+#: includes/admin/class-wpsight-admin.php:236
+msgid ""
+"Please insert the currency symbol or HTML entity (e.g. <code>&amp;euro;</"
+"code>)."
+msgstr ""
+"Bitte geben Sie das Währungssymbol oder HTML-Entity (z. B. <code>&amp;euro;</"
+"code>) ein."
+
+#: includes/admin/class-wpsight-admin.php:242
+msgid "Currency Symbol"
+msgstr "Währungssymbol"
+
+#: includes/admin/class-wpsight-admin.php:243
+msgid "Please select the position of the currency symbol."
+msgstr "Bitte wählen Sie die Position des Währungssymbols."
+
+#: includes/admin/class-wpsight-admin.php:247
+msgid "Before the value"
+msgstr "Vor dem Wert"
+
+#: includes/admin/class-wpsight-admin.php:247
+msgid "After the value"
+msgstr "Hinter dem Wert"
+
+#: includes/admin/class-wpsight-admin.php:251
+msgid "Thousands Separator"
+msgstr "Tausendertrennzeichen"
+
+#: includes/admin/class-wpsight-admin.php:252
+msgid "Please select the thousands separator for your listing prices."
+msgstr "Bitte wählen Sie das Tausendertrennzeichen für Ihre Anzeigenpreise."
+
+#: includes/admin/class-wpsight-admin.php:256
+msgid "Comma (e.g. 1,000,000)"
+msgstr "Komma (z. B. 1,000,000)"
+
+#: includes/admin/class-wpsight-admin.php:256
+msgid "Period (e.g. 1.000.000)"
+msgstr "Punkt (z. B. 1.000.000)"
+
+#: includes/admin/class-wpsight-admin.php:262
+msgid "Listing Features"
+msgstr "Anzeigendetails"
+
+#: includes/admin/class-wpsight-admin.php:263
+msgid "Please check the box to edit the listing standard features."
+msgstr "Für die Bearbeitung der Anzeigendetails setzen Sie bitte den Haken."
+
+#: includes/admin/class-wpsight-admin.php:276
+msgid "Standard Feature"
+msgstr "Standarddetail"
+
+#: includes/admin/class-wpsight-admin.php:291
+msgid "Rental Periods"
+msgstr "Mietperioden"
+
+#: includes/admin/class-wpsight-admin.php:292
+msgid "Please check the box to edit the rental periods."
+msgstr "Für die Bearbeitung der Mietperioden setzen Sie bitte den Haken."
+
+#: includes/admin/class-wpsight-admin.php:305
+msgid "Rental Period"
+msgstr "Mietperiode"
+
+#: includes/admin/class-wpsight-admin.php:317
+msgid "Date Format"
+msgstr "Datumsformat"
+
+#: includes/admin/class-wpsight-admin.php:318
+msgid "Please select the date format for the listings table in the admin."
+msgstr "Bitte wählen Sie das Datumsformat für die Übersicht im Admin-Bereich."
+
+#: includes/admin/class-wpsight-admin.php:326
+msgid "Output CSS"
+msgstr "CSS einbinden"
+
+#: includes/admin/class-wpsight-admin.php:327
+msgid "Please uncheck the box to disable the plugin from outputting CSS."
+msgstr ""
+"Bitte setzen Sie den Haken, um das Plugin am Einbinden von CSS zu hindern."
+
+#: includes/admin/class-wpsight-admin.php:371
+msgid "All"
+msgstr "Alle"
+
+#: includes/admin/class-wpsight-admin.php:399
+msgid "Published"
+msgstr "Veröffentlichte"
+
+#: includes/admin/class-wpsight-admin.php:399
+msgid "Active"
+msgstr "Aktive"
+
+#: includes/admin/class-wpsight-agents.php:67
+msgid "Agent Update"
+msgstr "Agenteninfo"
+
+#: includes/admin/class-wpsight-agents.php:70
+msgid "Update agent info of all listings created by this user"
+msgstr "Die Agenteninfo aller dieses Agenten erstellten Anzeigen aktualisieren"
+
+#: includes/admin/class-wpsight-cpt.php:91
+#: includes/class-wpsight-meta-boxes.php:440
+#: includes/class-wpsight-search.php:223
+msgid "Offer"
+msgstr "Angebot"
+
+#: includes/admin/class-wpsight-cpt.php:92
+msgid "ID"
+msgstr "ID"
+
+#: includes/admin/class-wpsight-cpt.php:93
+#: includes/class-wpsight-template.php:280
+#: includes/class-wpsight-template.php:282
+msgid "Listing"
+msgstr "Anzeige"
+
+#: includes/admin/class-wpsight-cpt.php:94
+#: includes/class-wpsight-meta-boxes.php:432
+msgid "Price"
+msgstr "Preis"
+
+#: includes/admin/class-wpsight-cpt.php:95
+msgid "Posted"
+msgstr "Erstellt"
+
+#: includes/admin/class-wpsight-cpt.php:98
+msgid "Expires"
+msgstr "Läuft aus"
+
+#: includes/admin/class-wpsight-cpt.php:100
+msgid "Status"
+msgstr "Status"
+
+#: includes/admin/class-wpsight-cpt.php:101
+msgid "Actions"
+msgstr "Aktionen"
+
+#: includes/admin/class-wpsight-cpt.php:185
+#: includes/admin/class-wpsight-cpt.php:249
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: includes/admin/class-wpsight-cpt.php:195
+msgid "Sticky"
+msgstr "Sticky"
+
+#: includes/admin/class-wpsight-cpt.php:200
+msgid "Featured"
+msgstr "Featured"
+
+#: includes/admin/class-wpsight-cpt.php:235
+msgid "Item is currently not available"
+msgstr "Dieses Objekt ist zur Zeit nicht verfügbar"
+
+#: includes/admin/class-wpsight-cpt.php:255
+#: includes/admin/class-wpsight-cpt.php:398
+msgid "View"
+msgstr "Ansehen"
+
+#: includes/admin/class-wpsight-cpt.php:305
+msgid "by a guest"
+msgstr "von einem Gastnutzer"
+
+#: includes/admin/class-wpsight-cpt.php:305
+#, php-format
+msgid "by %s"
+msgstr "von %s"
+
+#: includes/admin/class-wpsight-cpt.php:340
+#: includes/admin/class-wpsight-cpt.php:486
+#: includes/admin/class-wpsight-cpt.php:487
+msgid "Approve"
+msgstr "Bestätigen"
+
+#: includes/admin/class-wpsight-cpt.php:340
+#: includes/admin/class-wpsight-cpt.php:489
+#: includes/admin/class-wpsight-cpt.php:490
+msgid "Unapprove"
+msgstr "Ablehnen"
+
+#: includes/admin/class-wpsight-cpt.php:348
+msgid "Mark available"
+msgstr "Objekt verfügbar"
+
+#: includes/admin/class-wpsight-cpt.php:348
+msgid "Mark unavailable"
+msgstr "Objekt nicht verfügbar"
+
+#: includes/admin/class-wpsight-cpt.php:356
+msgid "Trash"
+msgstr "Entfernen"
+
+#: includes/admin/class-wpsight-cpt.php:366
+msgid "Restore"
+msgstr "Wiederherstellen"
+
+#: includes/admin/class-wpsight-cpt.php:734
+#, php-format
+msgid "%s have been approved"
+msgstr "%s wurden genehmigt"
+
+#: includes/admin/class-wpsight-cpt.php:739
+#, php-format
+msgid "%s are now pending approval"
+msgstr "%s warten nun auf Bestätigung"
+
+#: includes/admin/class-wpsight-cpt.php:746
+#, php-format
+msgid "%s has been approved"
+msgstr "%s wurde bestätigt"
+
+#: includes/admin/class-wpsight-cpt.php:748
+#, php-format
+msgid "%s is now pending approval"
+msgstr "%s wartet nun auf Bestätigung"
+
+#: includes/admin/class-wpsight-cpt.php:850
+#, php-format
+msgid "%s are now sticky"
+msgstr "%s sind nun sticky"
+
+#: includes/admin/class-wpsight-cpt.php:855
+#, php-format
+msgid "%s are no longer sticky"
+msgstr "%s sind nicht mehr sticky"
+
+#: includes/admin/class-wpsight-cpt.php:862
+#, php-format
+msgid "%s is now sticky"
+msgstr "%s ist jetzt sticky"
+
+#: includes/admin/class-wpsight-cpt.php:864
+#, php-format
+msgid "%s is no longer sticky"
+msgstr "%s ist nicht mehr sticky"
+
+#: includes/admin/class-wpsight-cpt.php:966
+#, php-format
+msgid "%s are now featured"
+msgstr "%s sind jetzt featured"
+
+#: includes/admin/class-wpsight-cpt.php:971
+#, php-format
+msgid "%s are no longer featured"
+msgstr "%s sind nicht mehr featured"
+
+#: includes/admin/class-wpsight-cpt.php:978
+#, php-format
+msgid "%s is now featured"
+msgstr "%s ist jetzt featured"
+
+#: includes/admin/class-wpsight-cpt.php:980
+#, php-format
+msgid "%s is no longer featured"
+msgstr "%s ist nicht mehr featured"
+
+#: includes/admin/class-wpsight-cpt.php:1082
+#, php-format
+msgid "%s are no longer available"
+msgstr "%s sind nicht mehr verfügbar"
+
+#: includes/admin/class-wpsight-cpt.php:1087
+#, php-format
+msgid "%s are now available"
+msgstr "%s sind jetzt verfügbar"
+
+#: includes/admin/class-wpsight-cpt.php:1094
+#, php-format
+msgid "%s is no longer available"
+msgstr "%s ist nicht mehr verfügbar"
+
+#: includes/admin/class-wpsight-cpt.php:1096
+#, php-format
+msgid "%s is now available"
+msgstr "%s ist jetzt verfügbar"
+
+#: includes/admin/class-wpsight-cpt.php:1118
+#, php-format
+msgid "%s updated. <a href=\"%s\">View</a>"
+msgstr "%s wurde aktualisiert. <a href=\"%s\">Ansehen</a>"
+
+#: includes/admin/class-wpsight-cpt.php:1119
+msgid "Custom field updated."
+msgstr "Benutzerdefiniertes Feld wurde aktualisiert."
+
+#: includes/admin/class-wpsight-cpt.php:1120
+msgid "Custom field deleted."
+msgstr "Benutzerdefiniertes Feld wurde gelöscht."
+
+#: includes/admin/class-wpsight-cpt.php:1121
+#, php-format
+msgid "%s updated."
+msgstr "%s wurde aktualisiert."
+
+#: includes/admin/class-wpsight-cpt.php:1122
+#, php-format
+msgid "%s restored to revision from %s"
+msgstr "%s als Revision wiederhergestellt von %s"
+
+#: includes/admin/class-wpsight-cpt.php:1123
+#, php-format
+msgid "%s published. <a href=\"%s\">View</a>"
+msgstr "%s wurde veröffentlicht. <a href=\"%s\">Ansehen</a>"
+
+#: includes/admin/class-wpsight-cpt.php:1124
+#, php-format
+msgid "%s saved."
+msgstr "%s wurde gespeichert."
+
+#: includes/admin/class-wpsight-cpt.php:1125
+#, php-format
+msgid "%s submitted. <a target=\"_blank\" href=\"%s\">Preview</a>"
+msgstr "%s wurde übermittelt. <a target=\"_blank\" href=\"%s\">Vorschau</a>"
+
+#: includes/admin/class-wpsight-cpt.php:1126
+#, php-format
+msgid ""
+"%s scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview</a>"
+msgstr ""
+"%s geplant für: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Vorschau</a>"
+
+#: includes/admin/class-wpsight-cpt.php:1127
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G:i"
+
+#: includes/admin/class-wpsight-cpt.php:1128
+#, php-format
+msgid "%s draft updated. <a target=\"_blank\" href=\"%s\">Preview</a>"
+msgstr ""
+"%s Entwurf wurde aktualisiert. <a target=\"_blank\" href=\"%s\">Vorschau</a>"
+
+#: includes/admin/class-wpsight-cpt.php:1154
+#, php-format
+msgid "%s listing updated."
+msgid_plural "%s listings updated."
+msgstr[0] "%s Anzeige wurden aktualisiert."
+msgstr[1] "%s Anzeigen wurden aktualisiert."
+
+#: includes/admin/class-wpsight-cpt.php:1155
+#, php-format
+msgid "%s listing not updated, somebody is editing it."
+msgid_plural "%s listings not updated, somebody is editing them."
+msgstr[0] "%s Anzeige wurde nicht aktualisiert, weil sie jemand bearbeitet."
+msgstr[1] "%s Anzeigen wurde nicht aktualisiert, weil sie jemand bearbeitet."
+
+#: includes/admin/class-wpsight-cpt.php:1156
+#, php-format
+msgid "%s listing permanently deleted."
+msgid_plural "%s listings permanently deleted."
+msgstr[0] "%s Anzeige wurde unwiderruflich gelöscht."
+msgstr[1] "%s Anzeigen wurde unwiderruflich gelöscht."
+
+#: includes/admin/class-wpsight-cpt.php:1157
+#, php-format
+msgid "%s listing moved to the Trash."
+msgid_plural "%s listings moved to the Trash."
+msgstr[0] "%s Anzeige in den Papierkorb gelegt."
+msgstr[1] "%s Anzeigen in den Papierkorb gelegt."
+
+#: includes/admin/class-wpsight-cpt.php:1158
+#, php-format
+msgid "%s listing restored from the Trash."
+msgid_plural "%s listings restored from the Trash."
+msgstr[0] "%s Anzeige wurde aus dem Papierkorb wiederhergestellt."
+msgstr[1] "%s Anzeigen wurde aus dem Papierkorb wiederhergestellt."
+
+#: includes/admin/class-wpsight-cpt.php:1249
+msgid "Offers"
+msgstr "Angebote"
+
+#: includes/admin/class-wpsight-cpt.php:1256
+msgid "Not Available"
+msgstr "Nicht verfügbar"
+
+#: includes/admin/class-wpsight-cpt.php:1325
+msgid "Agents"
+msgstr "Agenten"
+
+#: includes/admin/class-wpsight-licenses.php:58
+msgid "active"
+msgstr "aktiv"
+
+#: includes/admin/class-wpsight-licenses.php:65
+msgid "Deactivate License"
+msgstr "Lizenzschlüssel deaktivieren"
+
+#: includes/admin/class-wpsight-licenses.php:68
+msgid "Activate License"
+msgstr "Lizenzschlüssel aktivieren"
+
+#: includes/admin/class-wpsight-settings.php:110
+msgid "Settings reset."
+msgstr "Einstellungen wurden zurückgesetzt."
+
+#: includes/admin/class-wpsight-settings.php:115
+msgid "Settings saved."
+msgstr "Einstellungen wurden gespeichert."
+
+#: includes/admin/class-wpsight-settings.php:188
+msgctxt "plugin settings"
+msgid "Select page"
+msgstr "Seite wählen"
+
+#: includes/admin/class-wpsight-settings.php:263
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: includes/admin/class-wpsight-settings.php:271
+msgid "Restore Defaults"
+msgstr "Zurücksetzen"
+
+#: includes/admin/class-wpsight-settings.php:271
+msgid "Are you sure?"
+msgstr "Sind Sie sicher?"
+
+#: includes/class-wpsight-agents.php:58
+msgctxt "agent role"
+msgid "Listing Admin"
+msgstr "Anzeigen-Admin"
+
+#: includes/class-wpsight-agents.php:87
+msgctxt "agent role"
+msgid "Listing Agent"
+msgstr "Anzeigen-Agent"
+
+#: includes/class-wpsight-agents.php:103
+msgctxt "agent role"
+msgid "Listing Subscriber"
+msgstr "Anzeigen-Abonnent"
+
+#: includes/class-wpsight-agents.php:754
+#: includes/class-wpsight-meta-boxes.php:672
+msgid "Company"
+msgstr "Agentur"
+
+#: includes/class-wpsight-agents.php:757
+msgid "Phone"
+msgstr "Telefon"
+
+#: includes/class-wpsight-general.php:38
+msgid "Beds"
+msgstr "Schlafzimmer"
+
+#: includes/class-wpsight-general.php:40 includes/class-wpsight-general.php:52
+msgid "n/d"
+msgstr "k. A."
+
+#: includes/class-wpsight-general.php:50
+msgid "Baths"
+msgstr "Badezimmer"
+
+#: includes/class-wpsight-general.php:62
+msgid "Plot Size"
+msgstr "Grundstück"
+
+#: includes/class-wpsight-general.php:73
+msgid "Living Area"
+msgstr "Wohnfläche"
+
+#: includes/class-wpsight-general.php:85
+msgid "Terrace"
+msgstr "Terrasse"
+
+#: includes/class-wpsight-general.php:97
+msgid "Parking"
+msgstr "Parkplatz"
+
+#: includes/class-wpsight-general.php:109
+msgid "Heating"
+msgstr "Heizung"
+
+#: includes/class-wpsight-general.php:121
+msgid "Built in"
+msgstr "Baujahr"
+
+#: includes/class-wpsight-general.php:286
+msgid "For Sale"
+msgstr "Zum Verkauf"
+
+#: includes/class-wpsight-general.php:287
+msgid "For Rent"
+msgstr "Zur Miete"
+
+#: includes/class-wpsight-general.php:362
+msgid "per Month"
+msgstr "pro Monat"
+
+#: includes/class-wpsight-general.php:363
+msgid "per Week"
+msgstr "pro Woche"
+
+#: includes/class-wpsight-general.php:364
+msgid "per Year"
+msgstr "pro Jahr"
+
+#: includes/class-wpsight-general.php:365
+msgid "per Day"
+msgstr "pro Tag"
+
+#: includes/class-wpsight-general.php:459
+msgid "F j, Y"
+msgstr "F j, Y"
+
+#: includes/class-wpsight-general.php:459
+msgid "j. F Y"
+msgstr "j. F Y"
+
+#: includes/class-wpsight-general.php:485
+#: includes/class-wpsight-general.php:486
+msgctxt "listing post status"
+msgid "Draft"
+msgstr "Entwurf"
+
+#: includes/class-wpsight-general.php:489
+#: includes/class-wpsight-general.php:490
+msgctxt "listing post status"
+msgid "Active"
+msgstr "Aktiv"
+
+#: includes/class-wpsight-general.php:493
+#: includes/class-wpsight-general.php:506
+msgctxt "listing post status"
+msgid "Pending"
+msgstr "Ausstehend"
+
+#: includes/class-wpsight-general.php:494
+msgctxt "listing post status"
+msgid "Pending approval"
+msgstr "Freigabe ausstehend"
+
+#: includes/class-wpsight-general.php:497
+#: includes/class-wpsight-general.php:498
+msgctxt "listing post status"
+msgid "Preview"
+msgstr "Vorschau"
+
+#: includes/class-wpsight-general.php:503
+#, php-format
+msgid "Preview <span class=\"count\">(%s)</span>"
+msgid_plural "Preview <span class=\"count\">(%s)</span>"
+msgstr[0] "Vorschau <span class=\"count\">(%s)</span>"
+msgstr[1] "Vorschau <span class=\"count\">(%s)</span>"
+
+#: includes/class-wpsight-general.php:507
+msgctxt "listing post status"
+msgid "Pending payment"
+msgstr "Bezahlung ausstehend"
+
+#: includes/class-wpsight-general.php:512
+#, php-format
+msgid "Pending Payment <span class=\"count\">(%s)</span>"
+msgid_plural "Pending Payment <span class=\"count\">(%s)</span>"
+msgstr[0] "Bezahlung ausstehend <span class=\"count\">(%s)</span>"
+msgstr[1] "Bezahlung ausstehend <span class=\"count\">(%s)</span>"
+
+#: includes/class-wpsight-general.php:515
+#: includes/class-wpsight-general.php:516
+msgctxt "listing post status"
+msgid "Trash"
+msgstr "Papierkorb"
+
+#: includes/class-wpsight-general.php:562
+msgid "AED => United Arab Emirates Dirham"
+msgstr "AED => United Arab Emirates Dirham"
+
+#: includes/class-wpsight-general.php:563
+msgid "ANG => Netherlands Antillean Guilder"
+msgstr "ANG => Netherlands Antillean Guilder"
+
+#: includes/class-wpsight-general.php:564
+msgid "ARS => Argentine Peso"
+msgstr "ARS => Argentine Peso"
+
+#: includes/class-wpsight-general.php:565
+msgid "AUD => Australian Dollar"
+msgstr "AUD => Australian Dollar"
+
+#: includes/class-wpsight-general.php:566
+msgid "BDT => Bangladeshi Taka"
+msgstr "BDT => Bangladeshi Taka"
+
+#: includes/class-wpsight-general.php:567
+msgid "BGN => Bulgarian Lev"
+msgstr "BGN => Bulgarian Lev"
+
+#: includes/class-wpsight-general.php:568
+msgid "BHD => Bahraini Dinar"
+msgstr "BHD => Bahraini Dinar"
+
+#: includes/class-wpsight-general.php:569
+msgid "BND => Brunei Dollar"
+msgstr "BND => Brunei Dollar"
+
+#: includes/class-wpsight-general.php:570
+msgid "BOB => Bolivian Boliviano"
+msgstr "BOB => Bolivian Boliviano"
+
+#: includes/class-wpsight-general.php:571
+msgid "BRL => Brazilian Real"
+msgstr "BRL => Brazilian Real"
+
+#: includes/class-wpsight-general.php:572
+msgid "BWP => Botswanan Pula"
+msgstr "BWP => Botswanan Pula"
+
+#: includes/class-wpsight-general.php:573
+msgid "CAD => Canadian Dollar"
+msgstr "CAD => Canadian Dollar"
+
+#: includes/class-wpsight-general.php:574
+msgid "CHF => Swiss Franc"
+msgstr "CHF => Swiss Franc"
+
+#: includes/class-wpsight-general.php:575
+msgid "CLP => Chilean Peso"
+msgstr "CLP => Chilean Peso"
+
+#: includes/class-wpsight-general.php:576
+msgid "CNY => Chinese Yuan"
+msgstr "CNY => Chinese Yuan"
+
+#: includes/class-wpsight-general.php:577
+msgid "COP => Colombian Peso"
+msgstr "COP => Colombian Peso"
+
+#: includes/class-wpsight-general.php:578
+msgid "CRC => Costa Rican Colon"
+msgstr "CRC => Costa Rican Colon"
+
+#: includes/class-wpsight-general.php:579
+msgid "CZK => Czech Republic Koruna"
+msgstr "CZK => Czech Republic Koruna"
+
+#: includes/class-wpsight-general.php:580
+msgid "DKK => Danish Krone"
+msgstr "DKK => Danish Krone"
+
+#: includes/class-wpsight-general.php:581
+msgid "DOP => Dominican Peso"
+msgstr "DOP => Dominican Peso"
+
+#: includes/class-wpsight-general.php:582
+msgid "DZD => Algerian Dinar"
+msgstr "DZD => Algerian Dinar"
+
+#: includes/class-wpsight-general.php:583
+msgid "EEK => Estonian Kroon"
+msgstr "EEK => Estonian Kroon"
+
+#: includes/class-wpsight-general.php:584
+msgid "EGP => Egyptian Pound"
+msgstr "EGP => Egyptian Pound"
+
+#: includes/class-wpsight-general.php:585
+msgid "EUR => Euro"
+msgstr "EUR => Euro"
+
+#: includes/class-wpsight-general.php:586
+msgid "FJD => Fijian Dollar"
+msgstr "FJD => Fijian Dollar"
+
+#: includes/class-wpsight-general.php:587
+msgid "GBP => British Pound"
+msgstr "GBP => British Pound"
+
+#: includes/class-wpsight-general.php:588
+msgid "HKD => Hong Kong Dollar"
+msgstr "HKD => Hong Kong Dollar"
+
+#: includes/class-wpsight-general.php:589
+msgid "HNL => Honduran Lempira"
+msgstr "HNL => Honduran Lempira"
+
+#: includes/class-wpsight-general.php:590
+msgid "HRK => Croatian Kuna"
+msgstr "HRK => Croatian Kuna"
+
+#: includes/class-wpsight-general.php:591
+msgid "HUF => Hungarian Forint"
+msgstr "HUF => Hungarian Forint"
+
+#: includes/class-wpsight-general.php:592
+msgid "IDR => Indonesian Rupiah"
+msgstr "IDR => Indonesian Rupiah"
+
+#: includes/class-wpsight-general.php:593
+msgid "ILS => Israeli New Sheqel"
+msgstr "ILS => Israeli New Sheqel"
+
+#: includes/class-wpsight-general.php:594
+msgid "INR => Indian Rupee"
+msgstr "INR => Indian Rupee"
+
+#: includes/class-wpsight-general.php:595
+msgid "JMD => Jamaican Dollar"
+msgstr "JMD => Jamaican Dollar"
+
+#: includes/class-wpsight-general.php:596
+msgid "JOD => Jordanian Dinar"
+msgstr "JOD => Jordanian Dinar"
+
+#: includes/class-wpsight-general.php:597
+msgid "JPY => Japanese Yen"
+msgstr "JPY => Japanese Yen"
+
+#: includes/class-wpsight-general.php:598
+msgid "KES => Kenyan Shilling"
+msgstr "KES => Kenyan Shilling"
+
+#: includes/class-wpsight-general.php:599
+msgid "KRW => South Korean Won"
+msgstr "KRW => South Korean Won"
+
+#: includes/class-wpsight-general.php:600
+msgid "KWD => Kuwaiti Dinar"
+msgstr "KWD => Kuwaiti Dinar"
+
+#: includes/class-wpsight-general.php:601
+msgid "KYD => Cayman Islands Dollar"
+msgstr "KYD => Cayman Islands Dollar"
+
+#: includes/class-wpsight-general.php:602
+msgid "KZT => Kazakhstani Tenge"
+msgstr "KZT => Kazakhstani Tenge"
+
+#: includes/class-wpsight-general.php:603
+msgid "LBP => Lebanese Pound"
+msgstr "LBP => Lebanese Pound"
+
+#: includes/class-wpsight-general.php:604
+msgid "LKR => Sri Lankan Rupee"
+msgstr "LKR => Sri Lankan Rupee"
+
+#: includes/class-wpsight-general.php:605
+msgid "LTL => Lithuanian Litas"
+msgstr "LTL => Lithuanian Litas"
+
+#: includes/class-wpsight-general.php:606
+msgid "LVL => Latvian Lats"
+msgstr "LVL => Latvian Lats"
+
+#: includes/class-wpsight-general.php:607
+msgid "MAD => Moroccan Dirham"
+msgstr "MAD => Moroccan Dirham"
+
+#: includes/class-wpsight-general.php:608
+msgid "MDL => Moldovan Leu"
+msgstr "MDL => Moldovan Leu"
+
+#: includes/class-wpsight-general.php:609
+msgid "MKD => Macedonian Denar"
+msgstr "MKD => Macedonian Denar"
+
+#: includes/class-wpsight-general.php:610
+msgid "MUR => Mauritian Rupee"
+msgstr "MUR => Mauritian Rupee"
+
+#: includes/class-wpsight-general.php:611
+msgid "MVR => Maldivian Rufiyaa"
+msgstr "MVR => Maldivian Rufiyaa"
+
+#: includes/class-wpsight-general.php:612
+msgid "MXN => Mexican Peso"
+msgstr "MXN => Mexican Peso"
+
+#: includes/class-wpsight-general.php:613
+msgid "MYR => Malaysian Ringgit"
+msgstr "MYR => Malaysian Ringgit"
+
+#: includes/class-wpsight-general.php:614
+msgid "NAD => Namibian Dollar"
+msgstr "NAD => Namibian Dollar"
+
+#: includes/class-wpsight-general.php:615
+msgid "NGN => Nigerian Naira"
+msgstr "NGN => Nigerian Naira"
+
+#: includes/class-wpsight-general.php:616
+msgid "NIO => Nicaraguan Cordoba"
+msgstr "NIO => Nicaraguan Cordoba"
+
+#: includes/class-wpsight-general.php:617
+msgid "NOK => Norwegian Krone"
+msgstr "NOK => Norwegian Krone"
+
+#: includes/class-wpsight-general.php:618
+msgid "NPR => Nepalese Rupee"
+msgstr "NPR => Nepalese Rupee"
+
+#: includes/class-wpsight-general.php:619
+msgid "NZD => New Zealand Dollar"
+msgstr "NZD => New Zealand Dollar"
+
+#: includes/class-wpsight-general.php:620
+msgid "OMR => Omani Rial"
+msgstr "OMR => Omani Rial"
+
+#: includes/class-wpsight-general.php:621
+msgid "PEN => Peruvian Nuevo Sol"
+msgstr "PEN => Peruvian Nuevo Sol"
+
+#: includes/class-wpsight-general.php:622
+msgid "PGK => Papua New Guinean Kina"
+msgstr "PGK => Papua New Guinean Kina"
+
+#: includes/class-wpsight-general.php:623
+msgid "PHP => Philippine Peso"
+msgstr "PHP => Philippine Peso"
+
+#: includes/class-wpsight-general.php:624
+msgid "PKR => Pakistani Rupee"
+msgstr "PKR => Pakistani Rupee"
+
+#: includes/class-wpsight-general.php:625
+msgid "PLN => Polish Zloty"
+msgstr "PLN => Polish Zloty"
+
+#: includes/class-wpsight-general.php:626
+msgid "PYG => Paraguayan Guarani"
+msgstr "PYG => Paraguayan Guarani"
+
+#: includes/class-wpsight-general.php:627
+msgid "QAR => Qatari Rial"
+msgstr "QAR => Qatari Rial"
+
+#: includes/class-wpsight-general.php:628
+msgid "RON => Romanian Leu"
+msgstr "RON => Romanian Leu"
+
+#: includes/class-wpsight-general.php:629
+msgid "RSD => Serbian Dinar"
+msgstr "RSD => Serbian Dinar"
+
+#: includes/class-wpsight-general.php:630
+msgid "RUB => Russian Ruble"
+msgstr "RUB => Russian Ruble"
+
+#: includes/class-wpsight-general.php:631
+msgid "SAR => Saudi Riyal"
+msgstr "SAR => Saudi Riyal"
+
+#: includes/class-wpsight-general.php:632
+msgid "SCR => Seychellois Rupee"
+msgstr "SCR => Seychellois Rupee"
+
+#: includes/class-wpsight-general.php:633
+msgid "SEK => Swedish Krona"
+msgstr "SEK => Swedish Krona"
+
+#: includes/class-wpsight-general.php:634
+msgid "SGD => Singapore Dollar"
+msgstr "SGD => Singapore Dollar"
+
+#: includes/class-wpsight-general.php:635
+msgid "SKK => Slovak Koruna"
+msgstr "SKK => Slovak Koruna"
+
+#: includes/class-wpsight-general.php:636
+msgid "SLL => Sierra Leonean Leone"
+msgstr "SLL => Sierra Leonean Leone"
+
+#: includes/class-wpsight-general.php:637
+msgid "SVC => Salvadoran Colon"
+msgstr "SVC => Salvadoran Colon"
+
+#: includes/class-wpsight-general.php:638
+msgid "THB => Thai Baht"
+msgstr "THB => Thai Baht"
+
+#: includes/class-wpsight-general.php:639
+msgid "TND => Tunisian Dinar"
+msgstr "TND => Tunisian Dinar"
+
+#: includes/class-wpsight-general.php:640
+msgid "TRY => Turkish Lira"
+msgstr "TRY => Turkish Lira"
+
+#: includes/class-wpsight-general.php:641
+msgid "TTD => Trinidad and Tobago Dollar"
+msgstr "TTD => Trinidad and Tobago Dollar"
+
+#: includes/class-wpsight-general.php:642
+msgid "TWD => New Taiwan Dollar"
+msgstr "TWD => New Taiwan Dollar"
+
+#: includes/class-wpsight-general.php:643
+msgid "TZS => Tanzanian Shilling"
+msgstr "TZS => Tanzanian Shilling"
+
+#: includes/class-wpsight-general.php:644
+msgid "UAH => Ukrainian Hryvnia"
+msgstr "UAH => Ukrainian Hryvnia"
+
+#: includes/class-wpsight-general.php:645
+msgid "UGX => Ugandan Shilling"
+msgstr "UGX => Ugandan Shilling"
+
+#: includes/class-wpsight-general.php:646
+msgid "USD => US Dollar"
+msgstr "USD => US Dollar"
+
+#: includes/class-wpsight-general.php:647
+msgid "UYU => Uruguayan Peso"
+msgstr "UYU => Uruguayan Peso"
+
+#: includes/class-wpsight-general.php:648
+msgid "UZS => Uzbekistan Som"
+msgstr "UZS => Uzbekistan Som"
+
+#: includes/class-wpsight-general.php:649
+msgid "VEF => Venezuelan Bolivar"
+msgstr "VEF => Venezuelan Bolivar"
+
+#: includes/class-wpsight-general.php:650
+msgid "VND => Vietnamese Dong"
+msgstr "VND => Vietnamese Dong"
+
+#: includes/class-wpsight-general.php:651
+msgid "XOF => CFA Franc BCEAO"
+msgstr "XOF => CFA Franc BCEAO"
+
+#: includes/class-wpsight-general.php:652
+msgid "YER => Yemeni Rial"
+msgstr "YER => Yemeni Rial"
+
+#: includes/class-wpsight-general.php:653
+msgid "ZAR => South African Rand"
+msgstr "ZAR => South African Rand"
+
+#: includes/class-wpsight-general.php:654
+msgid "ZMK => Zambian Kwacha"
+msgstr "ZMK => Zambian Kwacha"
+
+#: includes/class-wpsight-general.php:793
+msgid "Space"
+msgstr "Space"
+
+#: includes/class-wpsight-general.php:794
+msgid "Widget Space"
+msgstr "Widget-Space"
+
+#: includes/class-wpsight-general.php:796
+msgid ""
+"Add some custom content to this page. Then drag the Single Space widget to "
+"the Listing Content or Listing Sidebar widget area."
+msgstr ""
+"Hier kann einer Anzeige individueller Inhalt hinzugefügt werden, der dann "
+"mit dem Space-Widget auf der Objektseite angezeigt werden kann."
+
+#: includes/class-wpsight-geocode.php:222
+msgid "No results found"
+msgstr "Keine Ergebnisse gefunden"
+
+#: includes/class-wpsight-geocode.php:227
+msgid "Query limit reached"
+msgstr "Abfragenlimit erreicht"
+
+#: includes/class-wpsight-geocode.php:234
+#: includes/class-wpsight-geocode.php:239
+#: includes/class-wpsight-geocode.php:246
+msgid "Geocoding error"
+msgstr "Geocoding-Fehler"
+
+#: includes/class-wpsight-listings.php:894
+msgid "Sold"
+msgstr "Verkauft"
+
+#: includes/class-wpsight-listings.php:895
+msgid "Rented"
+msgstr "Vermietet"
+
+#: includes/class-wpsight-listings.php:896
+msgid "Price on request"
+msgstr "Preis auf Anfrage"
+
+#: includes/class-wpsight-meta-boxes.php:337
+msgid "Availability"
+msgstr "Verfügbarkeit"
+
+#: includes/class-wpsight-meta-boxes.php:340
+msgid "Item not available"
+msgstr "Objekt nicht verfügbar"
+
+#: includes/class-wpsight-meta-boxes.php:341
+msgid "The item is currently not available as it has been sold or rented."
+msgstr ""
+"Das Objekt ist zur Zeit nicht verfügbar, da es verkauft oder vermietet wurde."
+
+#: includes/class-wpsight-meta-boxes.php:354
+msgid "Listing Attributes"
+msgstr "Eigenschaften"
+
+#: includes/class-wpsight-meta-boxes.php:383
+msgid "Images"
+msgstr "Bilder"
+
+#: includes/class-wpsight-meta-boxes.php:400
+msgid "Listing Images"
+msgstr "Anzeigenbilder"
+
+#: includes/class-wpsight-meta-boxes.php:435
+msgid "No currency symbols or thousands separators"
+msgstr "Keine Währungssymbole oder Tausendertrennzeichen"
+
+#: includes/class-wpsight-meta-boxes.php:449
+msgid "Period"
+msgstr "Mietdauer"
+
+#: includes/class-wpsight-meta-boxes.php:452
+msgid "None"
+msgstr "Keine"
+
+#: includes/class-wpsight-meta-boxes.php:465
+msgid "Listing Price"
+msgstr "Anzeigenpreis"
+
+#: includes/class-wpsight-meta-boxes.php:497
+msgid "Listing ID"
+msgstr "Anzeigen-ID"
+
+#: includes/class-wpsight-meta-boxes.php:567
+msgid "Listing Details"
+msgstr "Anzeigendetails"
+
+#: includes/class-wpsight-meta-boxes.php:596
+msgid "Address"
+msgstr "Adresse"
+
+#: includes/class-wpsight-meta-boxes.php:599
+msgid ""
+"e.g. <code>Marbella, Spain</code> or <code>Platz der Republik 1, 10557 "
+"Berlin</code>"
+msgstr ""
+"z. B. <code>Marbella, Spain</code> oder <code>Platz der Republik 1, 10557 "
+"Berlin</code>"
+
+#: includes/class-wpsight-meta-boxes.php:604
+msgid "Public Note"
+msgstr "Öffentliche Notiz"
+
+#: includes/class-wpsight-meta-boxes.php:607
+msgid "e.g. <code>Location is not the exact address of the listing</code>"
+msgstr "z. B. <code>Standort ist nicht exakte Adresse des Objektes</code>"
+
+#: includes/class-wpsight-meta-boxes.php:611
+msgid "Secret Note"
+msgstr "Geheime Notiz"
+
+#: includes/class-wpsight-meta-boxes.php:614
+msgid "Will not be displayed on the website (e.g. complete address)"
+msgstr "Wird nicht auf der Website angezeigt (z. B. komplette Adresse)"
+
+#: includes/class-wpsight-meta-boxes.php:618
+msgid "Listings Map"
+msgstr "Übersichtskarte"
+
+#: includes/class-wpsight-meta-boxes.php:621
+msgid "Exclude from general listings map"
+msgstr "Dieses Objekt von der Übersichtskarte ausschließen"
+
+#: includes/class-wpsight-meta-boxes.php:633
+msgid "Listing Location"
+msgstr "Anzeigenstandort"
+
+#: includes/class-wpsight-meta-boxes.php:664
+msgid "Name"
+msgstr "Name"
+
+#: includes/class-wpsight-meta-boxes.php:680
+msgid "Description"
+msgstr "Beschreibung"
+
+#: includes/class-wpsight-meta-boxes.php:688
+#: templates/listing-single-agent.php:42
+msgid "Website"
+msgstr "Website"
+
+#: includes/class-wpsight-meta-boxes.php:696
+#: templates/listing-single-agent.php:46
+msgid "Twitter"
+msgstr "Twitter"
+
+#: includes/class-wpsight-meta-boxes.php:704
+#: templates/listing-single-agent.php:50
+msgid "Facebook"
+msgstr "Facebook"
+
+#: includes/class-wpsight-meta-boxes.php:712
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/class-wpsight-meta-boxes.php:728
+msgid "Listing Agent"
+msgstr "Anzeigenagent"
+
+#: includes/class-wpsight-meta-boxes.php:761
+#: includes/class-wpsight-meta-boxes.php:783
+msgid "Agent Info"
+msgstr "Agent"
+
+#: includes/class-wpsight-meta-boxes.php:762
+msgid ""
+"These settings let you change how your agent profile will appear in listings."
+msgstr "Hier können agentenspezifische Einstellungen gemacht werden."
+
+#: includes/class-wpsight-meta-boxes.php:767
+msgid "Agent Image"
+msgstr "Profilbild"
+
+#: includes/class-wpsight-post-types.php:77
+msgid "Locations"
+msgstr "Standorte"
+
+#: includes/class-wpsight-post-types.php:78
+#: includes/class-wpsight-search.php:235
+msgid "Location"
+msgstr "Standort"
+
+#: includes/class-wpsight-post-types.php:83
+msgctxt "taxonomy locations"
+msgid "Locations"
+msgstr "Standorte"
+
+#: includes/class-wpsight-post-types.php:84
+msgctxt "taxonomy locations"
+msgid "All Locations"
+msgstr "Alle Standorte"
+
+#: includes/class-wpsight-post-types.php:85
+msgctxt "taxonomy locations"
+msgid "Edit Location"
+msgstr "Standort bearbeiten"
+
+#: includes/class-wpsight-post-types.php:86
+msgctxt "taxonomy locations"
+msgid "View Location"
+msgstr "Standort ansehen"
+
+#: includes/class-wpsight-post-types.php:87
+msgctxt "taxonomy locations"
+msgid "Update Location"
+msgstr "Standort aktualisieren"
+
+#: includes/class-wpsight-post-types.php:88
+msgctxt "taxonomy locations"
+msgid "Add New Location"
+msgstr "Standort hinzufügen"
+
+#: includes/class-wpsight-post-types.php:89
+msgctxt "taxonomy locations"
+msgid "New Location Name"
+msgstr "Neuer Standortname"
+
+#: includes/class-wpsight-post-types.php:90
+msgctxt "taxonomy locations"
+msgid "Parent Location"
+msgstr "Übergeordneter Standort"
+
+#: includes/class-wpsight-post-types.php:91
+msgctxt "taxonomy locations"
+msgid "Parent Location:"
+msgstr "Übergeordneter Standort:"
+
+#: includes/class-wpsight-post-types.php:92
+msgctxt "taxonomy locations"
+msgid "Search locations"
+msgstr "Standorte durchsuchen"
+
+#: includes/class-wpsight-post-types.php:93
+msgctxt "taxonomy locations"
+msgid "Popular Locations"
+msgstr "Meist verwendete Standorte"
+
+#: includes/class-wpsight-post-types.php:94
+msgctxt "taxonomy locations"
+msgid "Separate locations with commas"
+msgstr "Standorte durch Kommas trennen"
+
+#: includes/class-wpsight-post-types.php:95
+msgctxt "taxonomy locations"
+msgid "Add or remove locations"
+msgstr "Standorte hinzufügen oder entfernen"
+
+#: includes/class-wpsight-post-types.php:96
+msgctxt "taxonomy locations"
+msgid "Choose from the most used locations"
+msgstr "Aus meist verwendeten Standorten wählen"
+
+#: includes/class-wpsight-post-types.php:97
+msgctxt "taxonomy locations"
+msgid "No location found"
+msgstr "Kein Standort gefunden"
+
+#: includes/class-wpsight-post-types.php:125
+msgid "Listing Types"
+msgstr "Objekttypen"
+
+#: includes/class-wpsight-post-types.php:126
+msgid "Listing Type"
+msgstr "Objekttyp"
+
+#: includes/class-wpsight-post-types.php:131
+msgctxt "taxonomy types"
+msgid "Listing Types"
+msgstr "Objekttypen"
+
+#: includes/class-wpsight-post-types.php:132
+msgctxt "taxonomy types"
+msgid "All Listing Types"
+msgstr "Alle Objekttypen"
+
+#: includes/class-wpsight-post-types.php:133
+msgctxt "taxonomy types"
+msgid "Edit Listing Type"
+msgstr "Objekttyp bearbeiten"
+
+#: includes/class-wpsight-post-types.php:134
+msgctxt "taxonomy types"
+msgid "View Listing Type"
+msgstr "Objekttyp ansehen"
+
+#: includes/class-wpsight-post-types.php:135
+msgctxt "taxonomy types"
+msgid "Update Listing Type"
+msgstr "Objekttyp aktualisieren"
+
+#: includes/class-wpsight-post-types.php:136
+msgctxt "taxonomy types"
+msgid "Add New Listing Type"
+msgstr "Objekttyp hinzufügen"
+
+#: includes/class-wpsight-post-types.php:137
+msgctxt "taxonomy types"
+msgid "New Listing Type Name"
+msgstr "Neuer Objekttypname"
+
+#: includes/class-wpsight-post-types.php:138
+msgctxt "taxonomy types"
+msgid "Parent Listing Type"
+msgstr "Übergeordneter Objekttyp"
+
+#: includes/class-wpsight-post-types.php:139
+msgctxt "taxonomy types"
+msgid "Parent Listing Type:"
+msgstr "Übergeordneter Objekttyp:"
+
+#: includes/class-wpsight-post-types.php:140
+msgctxt "taxonomy types"
+msgid "Search listing types"
+msgstr "Objekttypen durchsuchen"
+
+#: includes/class-wpsight-post-types.php:141
+msgctxt "taxonomy types"
+msgid "Popular Listing Types"
+msgstr "Meist verwendete Objekttypen"
+
+#: includes/class-wpsight-post-types.php:142
+msgctxt "taxonomy types"
+msgid "Separate listing types with commas"
+msgstr "Objekttypen durch Kommas trennen"
+
+#: includes/class-wpsight-post-types.php:143
+msgctxt "taxonomy types"
+msgid "Add or remove listing types"
+msgstr "Objekttypen hinzufügen oder entfernen"
+
+#: includes/class-wpsight-post-types.php:144
+msgctxt "taxonomy types"
+msgid "Choose from the most used listing types"
+msgstr "Aus meist verwendeten Objekttypen wählen"
+
+#: includes/class-wpsight-post-types.php:145
+msgctxt "taxonomy types"
+msgid "No listing type found"
+msgstr "Kein Objekttyp gefunden"
+
+#: includes/class-wpsight-post-types.php:172
+msgid "Features"
+msgstr "Eigenschaften"
+
+#: includes/class-wpsight-post-types.php:173
+msgid "Feature"
+msgstr "Eigenschaft"
+
+#: includes/class-wpsight-post-types.php:178
+msgctxt "taxonomy features"
+msgid "Features"
+msgstr "Eigenschaften"
+
+#: includes/class-wpsight-post-types.php:179
+msgctxt "taxonomy features"
+msgid "All Features"
+msgstr "Alle Eigenschaften"
+
+#: includes/class-wpsight-post-types.php:180
+msgctxt "taxonomy features"
+msgid "Edit Feature"
+msgstr "Eigenschaft bearbeiten"
+
+#: includes/class-wpsight-post-types.php:181
+msgctxt "taxonomy features"
+msgid "View Feature"
+msgstr "Eigenschaft ansehen"
+
+#: includes/class-wpsight-post-types.php:182
+msgctxt "taxonomy features"
+msgid "Update Feature"
+msgstr "Eigenschaft aktualisieren"
+
+#: includes/class-wpsight-post-types.php:183
+msgctxt "taxonomy features"
+msgid "Add New Feature"
+msgstr "Eigenschaft hinzufügen"
+
+#: includes/class-wpsight-post-types.php:184
+msgctxt "taxonomy features"
+msgid "New Feature Name"
+msgstr "Neuer Eigenschaftenname"
+
+#: includes/class-wpsight-post-types.php:185
+msgctxt "taxonomy features"
+msgid "Parent Feature"
+msgstr "Übergeordnete Eigenschaft"
+
+#: includes/class-wpsight-post-types.php:186
+msgctxt "taxonomy features"
+msgid "Parent Feature:"
+msgstr "Übergeordnete Eigenschaft:"
+
+#: includes/class-wpsight-post-types.php:187
+msgctxt "taxonomy features"
+msgid "Search features"
+msgstr "Eigenschaften durchsuchen"
+
+#: includes/class-wpsight-post-types.php:188
+msgctxt "taxonomy features"
+msgid "Popular Features"
+msgstr "Meist verwendete Eigenschaften"
+
+#: includes/class-wpsight-post-types.php:189
+msgctxt "taxonomy features"
+msgid "Separate features with commas"
+msgstr "Eigenschaften durch Kommas trennen"
+
+#: includes/class-wpsight-post-types.php:190
+msgctxt "taxonomy features"
+msgid "Add or remove features"
+msgstr "Eigenschaften hinzufügen oder entfernen"
+
+#: includes/class-wpsight-post-types.php:191
+msgctxt "taxonomy features"
+msgid "Choose from the most used features"
+msgstr "Aus meist verwendeten Eigenschaften wählen"
+
+#: includes/class-wpsight-post-types.php:192
+msgctxt "taxonomy features"
+msgid "No feature found"
+msgstr "Keine Eigenschaft gefunden"
+
+#: includes/class-wpsight-post-types.php:219
+msgid "Categories"
+msgstr "Kategorien"
+
+#: includes/class-wpsight-post-types.php:220
+msgid "Category"
+msgstr "Kategorie"
+
+#: includes/class-wpsight-post-types.php:253
+#: includes/class-wpsight-post-types.php:263
+#: includes/class-wpsight-post-types.php:271
+msgctxt "listing"
+msgid "Listings"
+msgstr "Anzeigen"
+
+#: includes/class-wpsight-post-types.php:254
+msgctxt "listing"
+msgid "Listing"
+msgstr "Anzeige"
+
+#: includes/class-wpsight-post-types.php:255
+msgctxt "listing"
+msgid "Add New"
+msgstr "Neue Anzeige"
+
+#: includes/class-wpsight-post-types.php:256
+msgctxt "listing"
+msgid "Add New Listing"
+msgstr "Neue Anzeige erstellen"
+
+#: includes/class-wpsight-post-types.php:257
+msgctxt "listing"
+msgid "Edit Listing"
+msgstr "Anzeige bearbeiten"
+
+#: includes/class-wpsight-post-types.php:258
+msgctxt "listing"
+msgid "New Listing"
+msgstr "Anzeige erstellen"
+
+#: includes/class-wpsight-post-types.php:259
+msgctxt "listing"
+msgid "View Listing"
+msgstr "Anzeige ansehen"
+
+#: includes/class-wpsight-post-types.php:260
+msgctxt "listing"
+msgid "Search Listings"
+msgstr "Anzeigen durchsuchen"
+
+#: includes/class-wpsight-post-types.php:261
+msgctxt "listing"
+msgid "No listings found"
+msgstr "Keine Anzeigen gefunden"
+
+#: includes/class-wpsight-post-types.php:262
+msgctxt "listing"
+msgid "No listings found in Trash"
+msgstr "Keine Anzeigen im Papierkorb gefunden"
+
+#: includes/class-wpsight-post-types.php:272
+msgctxt "listing"
+msgid ""
+"Searchable listings with detailed information about the corresponding item."
+msgstr ""
+"Suchbare Anzeigen mit detaillierten Informationen über das jeweilige Objekt."
+
+#: includes/class-wpsight-post-types.php:541
+msgctxt "listing post status"
+msgid "Save as Expired"
+msgstr "Als abgelaufen speichen"
+
+#: includes/class-wpsight-post-types.php:542
+msgctxt "listing post status"
+msgid "Save as Preview"
+msgstr "Als Vorschau speichern"
+
+#: includes/class-wpsight-post-types.php:543
+msgctxt "listing post status"
+msgid "Save as Pending"
+msgstr "Als ausstehend speichern"
+
+#: includes/class-wpsight-search.php:134
+msgid "Advanced Search"
+msgstr "Erweiterte Suche"
+
+#: includes/class-wpsight-search.php:135
+msgid "Reset Search"
+msgstr "Zurücksetzen"
+
+#: includes/class-wpsight-search.php:211
+msgid "Keyword or Listing ID"
+msgstr "Stickwort oder Anzeige-ID"
+
+#: includes/class-wpsight-search.php:217
+msgid "Search"
+msgstr "Suchen"
+
+#: includes/class-wpsight-search.php:249
+msgid "Type"
+msgstr "Objekttyp"
+
+#: includes/class-wpsight-template.php:162
+msgctxt "listings panel actions"
+msgid "Order by"
+msgstr "Ordnen"
+
+#: includes/class-wpsight-template.php:163
+msgctxt "listings panel actions"
+msgid "Date"
+msgstr "Datum"
+
+#: includes/class-wpsight-template.php:164
+#: includes/class-wpsight-template.php:168
+msgctxt "listings panel actions"
+msgid "or"
+msgstr "oder"
+
+#: includes/class-wpsight-template.php:165
+msgctxt "listings panel actions"
+msgid "Price"
+msgstr "Preis"
+
+#: includes/class-wpsight-template.php:166
+msgctxt "listings panel actions"
+msgid "Order"
+msgstr "Ordnen"
+
+#: includes/class-wpsight-template.php:167
+msgctxt "listings panel actions"
+msgid "DESC"
+msgstr "ab"
+
+#: includes/class-wpsight-template.php:169
+msgctxt "listings panel actions"
+msgid "ASC"
+msgstr "auf"
+
+#: includes/class-wpsight-template.php:170
+msgctxt "listings panel actions"
+msgid "Title"
+msgstr "Titel"
+
+#: includes/class-wpsight-template.php:346
+msgid "Previous"
+msgstr "Zurück"
+
+#: includes/class-wpsight-template.php:347
+msgid "Next"
+msgstr "Vor"
+
+#: includes/class-wpsight-template.php:451
+msgid "Print"
+msgstr "Druckversion"
+
+#: templates/listing-archive-description.php:7 templates/listing-print.php:64
+#: templates/listing-single-description.php:13
+msgid "This property is currently not available."
+msgstr "Dieses Objekt ist zur Zeit nicht verfügbar."
+
+#: templates/listing-no.php:3
+msgid "Sorry, but no listing matches your criteria."
+msgstr "Leider entspricht kein Objekt Ihren Suchkriterien."
+
+#: templates/listing-print.php:27
+msgctxt "listing print"
+msgid "Back to Listing"
+msgstr "Zurück zur Anzeige"
+
+#: templates/listing-print.php:31
+msgctxt "listing print"
+msgid "Print Now"
+msgstr "Jetzt drucken"
+
+#: templates/listing-single-agent.php:61
+msgid "My Listings"
+msgstr "Meine Anzeigen"
+
+#: templates/listing-single.php:14
+msgid "This listing has expired."
+msgstr "Diese Anzeige ist abgelaufen."
+
+#: templates/listings-no.php:3
+msgid "Sorry, but no listing matches your search criteria."
+msgstr "Leider entspricht kein Objekt Ihren Suchkriterien."
+
+#: wpcasa.php:194
+msgctxt "listings page title"
+msgid "Listings"
+msgstr "Immobilien"
+
+#. Plugin Name of the plugin/theme
+msgid "WPCasa"
+msgstr "WPCasa"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpcasa.com"
+msgstr "http://wpcasa.com"
+
+#. Description of the plugin/theme
+msgid ""
+"Flexible WordPress plugin to create professional real estate websites and "
+"manage property listings with ease."
+msgstr ""
+"Flexibles WordPress-Plugin für die Erstellung von Immobilien-Websites und "
+"die bequeme Verwaltung von Objekten."
+
+#. Author of the plugin/theme
+msgid "WPSight"
+msgstr "WPSight"
+
+#. Author URI of the plugin/theme
+msgid "http://wpsight.com"
+msgstr "http://wpsight.com"

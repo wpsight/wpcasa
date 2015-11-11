@@ -54,9 +54,10 @@ class WPSight_Admin {
 		// Script debugging?
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		$screen = get_current_screen();
+		$screen		= get_current_screen();		
+		$post_type	= wpsight_post_type();
 
-		if ( in_array( $screen->id, array( 'edit-listing', 'listing', 'toplevel_page_wpsight-settings', 'wpcasa_page_wpsight-addons', 'wpcasa_page_wpsight-themes' ) ) ) {
+		if ( in_array( $screen->id, array( 'edit-' . $post_type, $post_type, 'toplevel_page_wpsight-settings', 'wpcasa_page_wpsight-addons', 'wpcasa_page_wpsight-themes' ) ) ) {
 			
 			wp_enqueue_style( 'wpsight-admin', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin' . $suffix . '.css', array( 'cmb2-styles' ) );
 			wp_register_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), WPSIGHT_VERSION, true );

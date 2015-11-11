@@ -652,6 +652,9 @@ class WPSight_Admin_CPT {
 			// Get post ID
 			$post_id = absint( $_GET['approve_listing'] );
 			
+			// Get post type
+			$post_type = wpsight_post_type();
+			
 			// Check if listing is currently approved or not
 			$status = wpsight_is_listing_pending( $post_id ) ? 'publish' : 'pending';
 			
@@ -671,7 +674,7 @@ class WPSight_Admin_CPT {
 				wpsight_set_listing_expiry( $post_id );
 			
 			// Add approved listing to URL and redirect to list
-			wp_redirect( remove_query_arg( 'approve_listing', add_query_arg( 'approved_listings', $post_id, admin_url( 'edit.php?post_type=listing' ) ) ) );
+			wp_redirect( remove_query_arg( 'approve_listing', add_query_arg( 'approved_listings', $post_id, admin_url( 'edit.php?post_type=' . $post_type ) ) ) );
 
 			exit;
 
@@ -780,6 +783,9 @@ class WPSight_Admin_CPT {
 			// Get post ID
 			$post_id = absint( $_GET['toggle_sticky'] );
 			
+			// Get post type
+			$post_type = wpsight_post_type();
+			
 			// Check if listing is currently sticky or not
 			$mark = wpsight_is_listing_sticky( $post_id ) ? '0' : '1';
 
@@ -787,7 +793,7 @@ class WPSight_Admin_CPT {
 			update_post_meta( $post_id, '_listing_sticky', $mark );
 			
 			// Add marked listing to URL and redirect to list
-			wp_redirect( remove_query_arg( 'toggle_sticky', add_query_arg( 'listings_marked_sticky', $post_id, admin_url( 'edit.php?post_type=listing' ) ) ) );
+			wp_redirect( remove_query_arg( 'toggle_sticky', add_query_arg( 'listings_marked_sticky', $post_id, admin_url( 'edit.php?post_type=' . $post_type ) ) ) );
 
 			exit;
 
@@ -896,6 +902,9 @@ class WPSight_Admin_CPT {
 			// Get post ID
 			$post_id = absint( $_GET['toggle_featured'] );
 			
+			// Get post type
+			$post_type = wpsight_post_type();
+			
 			// Check if listing is currently featured or not
 			$mark = wpsight_is_listing_featured( $post_id ) ? '0' : '1';
 			
@@ -903,7 +912,7 @@ class WPSight_Admin_CPT {
 			update_post_meta( $post_id, '_listing_featured', $mark );
 			
 			// Add marked listing to URL and redirect to list
-			wp_redirect( remove_query_arg( 'toggle_featured', add_query_arg( 'listings_marked_featured', $post_id, admin_url( 'edit.php?post_type=listing' ) ) ) );
+			wp_redirect( remove_query_arg( 'toggle_featured', add_query_arg( 'listings_marked_featured', $post_id, admin_url( 'edit.php?post_type=' . $post_type ) ) ) );
 
 			exit;
 
@@ -1012,6 +1021,9 @@ class WPSight_Admin_CPT {
 			// Get post ID
 			$post_id = absint( $_GET['toggle_unavailable'] );
 			
+			// Get post type
+			$post_type = wpsight_post_type();
+			
 			// Check if listing is currently unavailable or not
 			$mark = wpsight_is_listing_not_available( $post_id ) ? '0' : '1';
 			
@@ -1019,7 +1031,7 @@ class WPSight_Admin_CPT {
 			update_post_meta( $post_id, '_listing_not_available', $mark );
 			
 			// Add marked listing to URL and redirect to list
-			wp_redirect( remove_query_arg( 'toggle_unavailable', add_query_arg( 'listings_marked_unavailable', $post_id, admin_url( 'edit.php?post_type=listing' ) ) ) );
+			wp_redirect( remove_query_arg( 'toggle_unavailable', add_query_arg( 'listings_marked_unavailable', $post_id, admin_url( 'edit.php?post_type=' . $post_type ) ) ) );
 
 			exit;
 
@@ -1112,20 +1124,22 @@ class WPSight_Admin_CPT {
 	 */
 	public function post_updated_messages( $messages ) {
 		global $post, $post_ID, $wp_post_types;
+		
+		$post_type = wpsight_post_type();
 
-		$messages['listing'] = array(
+		$messages[ $post_type ] = array(
 			0 => '',
-			1 => sprintf( __( '%s updated. <a href="%s">View</a>', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name, esc_url( get_permalink( $post_ID ) ) ),
+			1 => sprintf( __( '%s updated. <a href="%s">View</a>', 'wpcasa' ), $wp_post_types[ $post_type ]->labels->singular_name, esc_url( get_permalink( $post_ID ) ) ),
 			2 => __( 'Custom field updated.', 'wpcasa' ),
 			3 => __( 'Custom field deleted.', 'wpcasa' ),
-			4 => sprintf( __( '%s updated.', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name ),
-			5 => isset( $_GET['revision'] ) ? sprintf( __( '%s restored to revision from %s', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name, wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-			6 => sprintf( __( '%s published. <a href="%s">View</a>', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name, esc_url( get_permalink( $post_ID ) ) ),
-			7 => sprintf( __( '%s saved.', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name ),
-			8 => sprintf( __( '%s submitted. <a target="_blank" href="%s">Preview</a>', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name, esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
-			9 => sprintf( __( '%s scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview</a>', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name,
+			4 => sprintf( __( '%s updated.', 'wpcasa' ), $wp_post_types[ $post_type ]->labels->singular_name ),
+			5 => isset( $_GET['revision'] ) ? sprintf( __( '%s restored to revision from %s', 'wpcasa' ), $wp_post_types[ $post_type ]->labels->singular_name, wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6 => sprintf( __( '%s published. <a href="%s">View</a>', 'wpcasa' ), $wp_post_types[ $post_type ]->labels->singular_name, esc_url( get_permalink( $post_ID ) ) ),
+			7 => sprintf( __( '%s saved.', 'wpcasa' ), $wp_post_types[ $post_type ]->labels->singular_name ),
+			8 => sprintf( __( '%s submitted. <a target="_blank" href="%s">Preview</a>', 'wpcasa' ), $wp_post_types[ $post_type ]->labels->singular_name, esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+			9 => sprintf( __( '%s scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview</a>', 'wpcasa' ), $wp_post_types[ $post_type ]->labels->singular_name,
 			  date_i18n( __( 'M j, Y @ G:i', 'wpcasa' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
-			10 => sprintf( __( '%s draft updated. <a target="_blank" href="%s">Preview</a>', 'wpcasa' ), $wp_post_types['listing']->labels->singular_name, esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+			10 => sprintf( __( '%s draft updated. <a target="_blank" href="%s">Preview</a>', 'wpcasa' ), $wp_post_types[ $post_type ]->labels->singular_name, esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
 		);
 
 		return $messages;
@@ -1150,7 +1164,9 @@ class WPSight_Admin_CPT {
 			'untrashed' => isset( $_REQUEST['untrashed'] ) ? absint( $_REQUEST['untrashed'] ) : 0
 		);
 		
-		$messages['listing'] = array(
+		$post_type = wpsight_post_type();
+		
+		$messages[ $post_type ] = array(
 			'updated'   => _n( '%s listing updated.', '%s listings updated.', $bulk_counts['updated'], 'wpcasa' ),
 			'locked'    => _n( '%s listing not updated, somebody is editing it.', '%s listings not updated, somebody is editing them.', $bulk_counts['locked'], 'wpcasa' ),
 			'deleted'   => _n( '%s listing permanently deleted.', '%s listings permanently deleted.', $bulk_counts['deleted'], 'wpcasa' ),

@@ -1281,8 +1281,10 @@ class WPSight_Admin_CPT {
 	    $filters = get_object_taxonomies( $typenow, 'objects' );
 	    
 		foreach( $filters as $tax_obj ) {
+			
+			$terms = get_terms( $tax_obj->name );
 				               
-		    if( ! empty( get_terms( $tax_obj->name ) )) {
+		    if( ! empty( $terms ) ) {
 		    		              
 		    	wp_dropdown_categories(
 		    		array(

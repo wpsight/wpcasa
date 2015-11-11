@@ -102,16 +102,6 @@ class WPSight_Admin_Agents {
 			// Get all listings created by this user
 			$user_listings = wpsight_get_user_posts_by_type( $user_id, wpsight_post_type() );
 			
-			// Prepare logo field
-			
-			$logo_id 	= '';
-			$logo_url 	= '';
-			
-			if( isset( $_POST['agent_logo_id'] ) ) {				
-				$logo_id 	= absint( $_POST['agent_logo_id'] );
-				$logo_url 	= wp_get_attachment_url( $logo_id );
-			}
-			
 			// Map listing agent options with profile info
 			
 			$agent_options = array(
@@ -122,8 +112,8 @@ class WPSight_Admin_Agents {
 				'_agent_website'		=> esc_url_raw( $_POST['url'] ),
 				'_agent_twitter'		=> sanitize_text_field( $_POST['twitter'] ),
 				'_agent_facebook'		=> sanitize_text_field( $_POST['facebook'] ),
-				'_agent_logo'			=> $logo_url,
-				'_agent_logo_id'		=> $logo_id
+				'_agent_logo'			=> sanitize_text_field( $_POST['agent_logo'] ),
+				'_agent_logo_id'		=> sanitize_text_field( $_POST['agent_logo_id'] )
 			);
 			
 			$agent_options = apply_filters( 'wpsight_profile_agent_update_save_options', $agent_options, $user_id );

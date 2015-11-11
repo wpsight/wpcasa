@@ -604,6 +604,36 @@ class WPSight_Listings {
 	}
 
 	/**
+	 * get_listing_price_raw()
+	 *
+	 * Return listings price without formatting.
+	 *
+	 * @param integer $post_id Post ID
+	 * @uses get_the_ID()
+	 * @uses get_post_meta()
+	 * @return string Listing price meta value
+	 *
+	 * @since 1.0.0
+	 */
+	public static function get_listing_price_raw( $post_id = '' ) {
+
+		// Use global post ID if not defined
+
+		if ( ! $post_id )
+			$post_id = get_the_ID();
+
+		// Get listing price
+		$price_raw = get_post_meta( $post_id, '_price', true );
+
+		if ( empty( $price_raw ) )
+			$price_raw = false;
+
+		// Return listing price
+		return apply_filters( 'get_listing_price_raw', $price_raw, $post_id );
+
+	}
+	
+	/**
 	 * get_listing_offer()
 	 *
 	 * Return listings offer (e.g. sale, rent).
@@ -627,24 +657,67 @@ class WPSight_Listings {
 		// Get listing offer
 		$offer = get_post_meta( $post_id, '_price_offer', true );
 
-		// False if no value
-		if ( empty( $offer ) )
-			return false;
+		if ( ! empty( $offer ) ) {
 
-		// Return label if desired
-
-		if ( $label === true ) {
-
-			// Get all offers
-			$offers = wpsight_offers();
-
-			// Set offer label
-			$offer = $offers[$offer];
-
+			// Return label if desired
+			
+			if ( $label === true ) {			
+				// Get all offers
+				$offers = wpsight_offers();			
+				// Set offer label
+				$offer = $offers[ $offer ];			
+			}
+		
+		} else {			
+			$offer = false;			
 		}
 
 		// Return offer key or label
 		return apply_filters( 'wpsight_get_listing_offer', $offer, $post_id, $label );
+
+	}
+	
+	/**
+	 * get_listing_period()
+	 *
+	 * Return listings rental period.
+	 *
+	 * @param integer $post_id Post ID
+	 * @param bool $label Optionally return period key
+	 * @uses get_the_ID()
+	 * @uses get_post_meta()
+	 * @uses wpsight_rental_periods()
+	 * @return string Period label or key
+	 *
+	 * @since 1.0.0
+	 */
+	public static function get_listing_period( $post_id = '', $label = true ) {
+
+		// Use global post ID if not defined
+
+		if ( ! $post_id )
+			$post_id = get_the_ID();
+
+		// Get listing offer
+		$period = get_post_meta( $post_id, '_price_period', true );
+
+		if ( ! empty( $period ) ) {
+
+			// Return label if desired
+			
+			if ( $label === true ) {			
+				// Get all periods
+				$periods = wpsight_rental_periods();			
+				// Set period label
+				$period = $$periods[ $period ];			
+			}
+		
+		} else {			
+			$period = false;			
+		}
+
+		// Return period key or label
+		return apply_filters( 'wpsight_get_listing_period', $period, $post_id, $label );
 
 	}
 
@@ -682,17 +755,16 @@ class WPSight_Listings {
 		// Get listing detail value
 		$listing_detail = get_post_meta( $post_id, '_' . $detail, true );
 
-		// If no value, return false
+		if ( $listing_detail ) {
 
-		if ( ! $listing_detail )
-			return false;
-
-		// Check if value is data key
-
-		$detail_get = wpsight_get_detail( $detail );
-
-		if ( ! empty( $detail_get['data'] ) )
-			$listing_detail = $detail_get['data'][$listing_detail];
+			// Check if value is data key			
+			$detail_get = wpsight_get_detail( $detail );			
+			if ( ! empty( $detail_get['data'] ) )
+				$listing_detail = $detail_get['data'][$listing_detail];
+			
+		} else {
+			$listing_detail = false;
+		}
 
 		return apply_filters( 'wpsight_get_listing_detail', $listing_detail, $detail, $post_id );
 
@@ -909,14 +981,11 @@ class WPSight_Listings {
 
 		$args = wp_parse_args( $args, $defauts );
 
-		// Get custom fields
+		// Get price info
 
-		$post_meta      = get_post_custom( $post_id );
-
-		$listing_price  = isset( $post_meta['_price'][0] ) ? $post_meta['_price'][0] : false;
-		$listing_offer  = isset( $post_meta['_price_offer'][0] ) ? $post_meta['_price_offer'][0] : false;
-		$listing_period = isset( $post_meta['_price_period'][0] ) ? $post_meta['_price_period'][0] : false;
-		$listing_item   = isset( $post_meta['_price_sold_rented'][0] ) ? $post_meta['_price_sold_rented'][0] : false;
+		$listing_price  = self::get_listing_price_raw( $post_id );
+		$listing_offer  = self::get_listing_offer( $post_id, false );
+		$listing_period = self::get_listing_period( $post_id, false );
 
 		// Return false if no price
 
@@ -927,15 +996,6 @@ class WPSight_Listings {
 			} else {
 				return false;
 			}
-
-			// Check if listing is available
-
-		} elseif ( ! empty( $listing_item ) ) {
-
-			// When listing is not available
-			$listing_price = '<span class="listing-price-sold-rented">' . ( $listing_offer == 'sale' ) ? $listing_price_labels['sold'] : $listing_price_labels['rented'] . '</span><!-- .listing-price-sold-rented -->';
-
-			// If there's a price and listing item is available, format it
 
 		} else {
 
@@ -991,7 +1051,7 @@ class WPSight_Listings {
 			// Create price markup and place currency before or after value
 
 			if ( $currency_symbol == 'after' ) {
-				$listing_price_symbol  = '<span class="listing-price-value" itemprop="price" content="'. $post_meta['_price'][0] .'">' . $listing_price . '</span><!-- .listing-price-value -->';
+				$listing_price_symbol  = '<span class="listing-price-value" itemprop="price" content="'. esc_attr( wpsight_get_listing_price_raw( $post_id ) ) .'">' . $listing_price . '</span><!-- .listing-price-value -->';
 
 				// Optionally add currency symbol
 
@@ -1005,7 +1065,7 @@ class WPSight_Listings {
 				if ( $args['show_currency'] == true )
 					$listing_price_symbol  = '<span class="listing-price-symbol">' . wpsight_get_currency() . '</span><!-- .listing-price-symbol -->';
 
-				$listing_price_symbol .= '<span class="listing-price-value" itemprop="price" content="'. $post_meta['_price'][0] .'">' . $listing_price . '</span><!-- .listing-price-value -->';
+				$listing_price_symbol .= '<span class="listing-price-value" itemprop="price" content="'. esc_attr( wpsight_get_listing_price_raw( $post_id ) ) .'">' . $listing_price . '</span><!-- .listing-price-value -->';
 
 			} // endif $currency_symbol
 

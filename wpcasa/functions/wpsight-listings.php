@@ -96,6 +96,35 @@ function wpsight_get_listing( $post = null ) {
 }
 
 /**
+ *	wpsight_get_listing_price_raw()
+ *	
+ *	Return listings price without formatting.
+ *
+ *	@param integer $post_id Post ID
+ *	@uses WPSight_Listings::get_listing_price_raw()
+ *	@return string Listing price meta value
+ *	
+ *	@since 1.0.0
+ */
+function wpsight_get_listing_price_raw( $post_id = '' ) {
+	return WPSight_Listings::get_listing_price_raw( $post_id );
+}
+
+/**
+ *	wpsight_listing_price_raw()
+ *	
+ *	Echo wpsight_get_listing_price_raw().
+ *	
+ *	@param	integer	$post_id	Post ID
+ *	@uses	wpsight_get_listing_price_raw()
+ *	
+ *	@since 1.0.0
+ */
+function wpsight_listing_price_raw( $post_id = '' ) {
+	echo wpsight_get_listing_price_raw( $post_id );
+}
+
+/**
  *	wpsight_get_listing_offer()
  *	
  *	Return listings offer (e.g. sale, rent).
@@ -118,12 +147,43 @@ function wpsight_get_listing_offer( $post_id = '', $label = true ) {
  *	
  *	@param	integer	$post_id	Post ID
  *	@param	bool	$label		Optionally return offer key
- *	@uses	WPSight_Listings::get_listing_offer()
+ *	@uses	wpsight_get_listing_offer()
  *	
  *	@since 1.0.0
  */
 function wpsight_listing_offer( $post_id = '', $label = true ) {
 	echo wpsight_get_listing_offer( $post_id, $label );
+}
+
+/**
+ *	wpsight_get_listing_period()
+ *	
+ *	Return listings rental period.
+ *	
+ *	@param	integer	$post_id	Post ID
+ *	@param	bool	$label		Optionally return period key
+ *	@uses	WPSight_Listings::get_listing_period()
+ *	@return	string	Period label or key
+ *	
+ *	@since 1.0.0
+ */
+function wpsight_get_listing_period( $post_id = '', $label = true ) {
+	return WPSight_Listings::get_listing_period( $post_id, $label );
+}
+
+/**
+ *	wpsight_listing_period()
+ *	
+ *	Echo wpsight_get_listing_period().
+ *	
+ *	@param	integer	$post_id	Post ID
+ *	@param	bool	$label		Optionally return period key
+ *	@uses	wpsight_get_listing_period()
+ *	
+ *	@since 1.0.0
+ */
+function wpsight_listing_period( $post_id = '', $label = true ) {
+	echo wpsight_get_listing_period( $post_id, $label );
 }
 
 /**

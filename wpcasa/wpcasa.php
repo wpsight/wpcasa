@@ -40,6 +40,13 @@ class WPSight_Framework {
 		
 		if ( ! defined( 'WPSIGHT_DOMAIN' ) )
 			define( 'WPSIGHT_DOMAIN', 'wpcasa' );
+		
+		// #TODO Set to real shop URL
+		if ( ! defined( 'WPSIGHT_SHOP_URL' ) )
+			define( 'WPSIGHT_SHOP_URL', 'http://wpsight.com/wpcasa' );
+
+		if ( ! defined( 'WPSIGHT_AUTHOR' ) )
+			define( 'WPSIGHT_AUTHOR', 'WPSight' );
 
 		define( 'WPSIGHT_VERSION', '1.0.0-beta2' );
 		define( 'WPSIGHT_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
@@ -245,12 +252,10 @@ class WPSight_Framework {
  *  @return  object $wpsight
  */
 function wpsight() {
-
 	global $wpsight;
 	
-	if ( !isset( $wpsight ) ){
+	if ( ! isset( $wpsight ) )
 		$wpsight = new WPSight_Framework();
-	}
 	
 	return $wpsight;
 }

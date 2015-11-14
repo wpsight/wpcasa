@@ -748,9 +748,8 @@ class WPSight_Helpers {
 				'fields'      => 'ids'
 			) );
 
-			foreach ( $listings as $listing_id ) {
-				wpsight_maybe_update_gallery( $listing_id );
-			}
+			foreach ( $listings as $listing_id )
+				self::maybe_update_gallery( $listing_id );
 			
 			// save the option for future checks
 			wpsight_add_option( 'cmb2_gallery_upgraded', true );

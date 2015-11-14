@@ -726,7 +726,7 @@ class WPSight_Agents {
 		$user_id = $user_id === false ? get_current_user_id() : absint( $user_id );
 		
 		// Author SQL
-		$where = get_posts_by_author_sql( $post_type, TRUE, $user_id );
+		$where = get_posts_by_author_sql( $post_type, true, $user_id, false );
 		
 		// Set SQL query
 		$query = "SELECT ID FROM $wpdb->posts $where";

@@ -88,6 +88,17 @@ class WPSight_Admin_Settings {
 		<div class="wrap wpsight-settings-wrap">
 		
 			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Settings', 'wpcasa' ); ?></h2>
+			
+			<?php
+				if ( isset( $_POST['reset'] ) ) {
+					flush_rewrite_rules();
+					update_option( $this->settings_name, wpsight_options_defaults() );
+					echo '<div class="updated fade wpsight-updated"><p>' . __( 'Settings reset.', 'wpcasa' ) . '</p></div>';
+				} elseif ( isset( $_GET['settings-updated'] ) ) {
+					flush_rewrite_rules();
+					echo '<div class="updated fade wpsight-updated"><p>' . __( 'Settings saved.', 'wpcasa' ) . '</p></div>';
+				}
+			?>
 		
 			<form method="post" action="options.php">
 
@@ -102,19 +113,6 @@ class WPSight_Admin_Settings {
 			    </h2>
 
 				<?php
-					
-					if ( isset( $_POST['reset'] ) ) {
-
-						flush_rewrite_rules();
-						update_option( $this->settings_name, wpsight_options_defaults() );
-						echo '<div class="updated fade wpsight-updated"><p>' . __( 'Settings reset.', 'wpcasa' ) . '</p></div>';
-
-					} elseif ( isset( $_GET['settings-updated'] ) ) {
-
-						flush_rewrite_rules();
-						echo '<div class="updated fade wpsight-updated"><p>' . __( 'Settings saved.', 'wpcasa' ) . '</p></div>';
-
-					}
 
 					foreach ( $this->settings as $key => $section ) {
 
@@ -160,7 +158,7 @@ class WPSight_Admin_Settings {
 								break;
 								case "textarea" :
 
-									?><textarea id="setting-<?php echo $option_css; ?>" class="large-text" cols="50" rows="3" name="<?php echo $option_id; ?>" <?php echo implode( ' ', $attributes ); ?> <?php echo $placeholder; ?>><?php echo esc_textarea( $value ); ?></textarea><?php
+									?><textarea id="setting-<?php echo $option_css; ?>" cols="100" rows="8" name="<?php echo $option_id; ?>" <?php echo implode( ' ', $attributes ); ?> <?php echo $placeholder; ?>><?php echo esc_textarea( $value ); ?></textarea><?php
 
 									if ( $option_desc )
 										echo ' <p class="description">' . $option_desc . '</p>';

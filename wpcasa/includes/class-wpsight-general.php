@@ -11,7 +11,8 @@ class WPSight_General {
 	 * Constructor
 	 */
 	public function __construct( ) {
-		add_filter( 'wpsight_standard_details', array( $this, 'check_standard_details' ), 20 );
+		add_filter( 'wpsight_details', array( $this, 'check_standard_details' ), 20 );
+		add_filter( 'wpsight_rental_periods', array( $this, 'check_rental_periods' ), 20 );
 		add_filter( 'init', array( $this, 'listing_query_vars_general' ) );
 		add_filter( 'init', array( $this, 'listing_query_vars_details' ) );
 	}
@@ -132,7 +133,7 @@ class WPSight_General {
 		);
 
 		// Apply filter to array
-		$details = apply_filters( 'wpsight_standard_details', $details );
+		$details = apply_filters( 'wpsight_details', $details );
 
 		// Sort array by position
 		$details = wpsight_sort_array_by_position( $details );
@@ -167,8 +168,8 @@ class WPSight_General {
 			$standard_details_option = wpsight_get_option( $detail );
 
 			if ( ! empty( $standard_details_option ) ) {
-				$standard_details[$detail]['label'] = $standard_details_option['label'];
-				$standard_details[$detail]['unit'] = $standard_details_option['unit'];
+				$standard_details[ $detail ]['label'] = $standard_details_option['label'];
+				$standard_details[ $detail ]['unit'] = $standard_details_option['unit'];
 			}
 
 		}
@@ -201,8 +202,8 @@ class WPSight_General {
 
 		// Only return specific detail element
 
-		if ( isset( $details[$detail][$return] ) )
-			return $details[$detail][$return];
+		if ( isset( $details[ $detail ][ $return ] ) )
+			return $details[ $detail ][ $return ];
 
 		return false;
 
@@ -233,7 +234,7 @@ class WPSight_General {
 
 		// If no query var set, use array key
 
-		if ( $result === false && isset( $query_vars[$query_var] ) )
+		if ( $result === false && isset( $query_vars[ $query_var ] ) )
 			return $query_var;
 
 		return $result;
@@ -263,8 +264,8 @@ class WPSight_General {
 
 		// Check if query var in array
 
-		if ( isset( $detail_vars[$detail] ) && $detail_vars[$detail] !== false )
-			return $detail_vars[$detail];
+		if ( isset( $detail_vars[ $detail ] ) && $detail_vars[$detail] !== false )
+			return $detail_vars[ $detail ];
 
 		return $detail;
 
@@ -309,8 +310,8 @@ class WPSight_General {
 
 		// Return label of specific offer
 
-		if ( isset( $offers[$offer] ) )
-			return $offers[$offer];
+		if ( isset( $offers[ $offer ] ) )
+			return $offers[ $offer ];
 
 		return false;
 
@@ -339,7 +340,7 @@ class WPSight_General {
 		$colors = apply_filters( 'wpsight_offer_colors', $colors );
 
 		// Set color of specific offer
-		$color = isset( $colors[$offer] ) ? $colors[$offer] : false;
+		$color = isset( $colors[ $offer ] ) ? $colors[ $offer ] : false;
 
 		return apply_filters( 'wpsight_get_offer_color', $color );
 
@@ -371,6 +372,39 @@ class WPSight_General {
 	}
 
 	/**
+	 * check_rental_periods()
+	 *
+	 * Filter rental periods and update if
+	 * label has been set on options page
+	 *
+	 * @uses wpsight_get_option()
+	 * @return array Updated rental periods
+	 *
+	 * @since 1.0.0
+	 */
+	public static function check_rental_periods( $rental_periods ) {
+
+		// Just return originals on reset
+
+		if ( isset( $_POST['reset'] ) )
+			return $rental_periods;
+
+		// Loop through details and check against database
+
+		foreach ( $rental_periods as $period => $value ) {
+
+			$rental_periods_option = wpsight_get_option( $period );
+
+			if ( ! empty( $rental_periods_option ) )
+				$rental_periods[ $period ] = $rental_periods_option;
+
+		}
+
+		return $rental_periods;
+
+	}
+
+	/**
 	 * get_rental_period()
 	 *
 	 * Get specific rental period.
@@ -388,8 +422,8 @@ class WPSight_General {
 
 		// Return label of specific period
 
-		if ( isset( $rental_periods[$period] ) )
-			return $rental_periods[$period];
+		if ( isset( $rental_periods[ $period ] ) )
+			return $rental_periods[ $period ];
 
 		return false;
 
@@ -437,8 +471,8 @@ class WPSight_General {
 
 		// Return label of specific measurement
 
-		if ( isset( $measurements[$measurement] ) )
-			return $measurements[$measurement];
+		if ( isset( $measurements[ $measurement ] ) )
+			return $measurements[ $measurement ];
 
 		return false;
 
@@ -539,8 +573,8 @@ class WPSight_General {
 		// Get all available statuses
 		$statuses = self::statuses();
 
-		if ( isset( $statuses[$status][$field] ) )
-			return $statuses[$status][$field];
+		if ( isset( $statuses[ $status ][ $field ] ) )
+			return $statuses[ $status ][ $field ];
 
 		return false;
 

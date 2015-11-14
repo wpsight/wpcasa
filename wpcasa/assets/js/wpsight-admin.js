@@ -62,5 +62,7 @@ jQuery(document).ready(function($) {
 		evt.preventDefault();
 	
 	});
+	
+	$('.wpsight-addons .type-download a, .wpsight-themes .type-download a').attr('target','_blank');
 
 });

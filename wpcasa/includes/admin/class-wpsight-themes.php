@@ -16,11 +16,9 @@ class WPSight_Themes {
 	public function output() {
 
 		if ( false === ( $themes = get_transient( 'wpsight_themes_html' ) ) ) {
-			
-			/*
 
 			$raw_themes = wp_remote_get(
-				'http://wpsight.com/wpcasa/downloads/category/themes/',
+				WPSIGHT_SHOP_URL . '/downloads/category/themes/',
 				array(
 					'timeout'     => 10,
 					'redirection' => 5,
@@ -47,23 +45,15 @@ class WPSight_Themes {
 
 				$themes = wp_kses_post( $themes );
 
-				if ( $themes ) {
+				if ( $themes )
 					set_transient( 'wpsight_themes_html', $themes, 60*60*24*7 ); // Cached for a week
-				}
 			}
-			
-			*/
 
 		} ?>
 
 		<div class="wrap wpsight-themes">
-
-			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Themes', 'wpcasa' ); ?></h2>
-
-			<div id="notice" class="updated below-h2"><p>#TODO Shows a list of available themes</p></div>
-			
-			<?php // echo $themes; ?>
-			
+			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Themes', 'wpcasa' ); ?></h2>			
+			<?php echo $themes; ?>
 		</div>
 		<?php
 	}

@@ -308,53 +308,53 @@ th.column-listing_actions {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.column-listing_title i.icon-view:before,
-.column-listing_actions i.icon-view:before {
+.column-listing_title i.wpsight-addons .icon-view:before,
+.column-listing_actions i.wpsight-addons .icon-view:before {
 	content: "\f504";
 }
 
-.column-listing_title i.icon-edit:before {
+.column-listing_title i.wpsight-addons .icon-edit:before {
 	content: "\f464";
 }
 
-.column-listing_actions i.icon-approve:before {
+.column-listing_actions i.wpsight-addons .icon-approve:before {
 	content: "\f147";
 	font-weight: bold;
 }
 
-.column-listing_actions i.icon-expire:before {
+.column-listing_actions i.wpsight-addons .icon-expire:before {
 	content: "\f469";
 }
 
-.column-listing_actions i.icon-unavailable:before {
+.column-listing_actions i.wpsight-addons .icon-unavailable:before {
 	content: "\f160";
 }
 
-.column-listing_actions i.icon-sticky:before {
+.column-listing_actions i.wpsight-addons .icon-sticky:before {
 	content: "\f173";
 }
 
-.column-listing_actions i.icon-featured:before {
+.column-listing_actions i.wpsight-addons .icon-featured:before {
 	content: "\f313";
 }
 
-.column-listing_actions i.icon-delete:before {
+.column-listing_actions i.wpsight-addons .icon-delete:before {
 	content: "\f158";
 }
 
-.column-listing_actions i.icon-untrash:before {
+.column-listing_actions i.wpsight-addons .icon-untrash:before {
 	content: "\f310";
 }
 
-.column-listing_title i.icon-home:before {
+.column-listing_title i.wpsight-addons .icon-home:before {
 	content: "\f102";
 }
 
-.column-listing_actions .listing-approved i.icon-approve,
-.column-listing_actions .listing-expired i.icon-expire,
-.column-listing_actions .listing-not-available i.icon-unavailable,
-.column-listing_actions .listing-sticky i.icon-sticky,
-.column-listing_actions .listing-featured i.icon-featured {
+.column-listing_actions .listing-approved i.wpsight-addons .icon-approve,
+.column-listing_actions .listing-expired i.wpsight-addons .icon-expire,
+.column-listing_actions .listing-not-available i.wpsight-addons .icon-unavailable,
+.column-listing_actions .listing-sticky i.wpsight-addons .icon-sticky,
+.column-listing_actions .listing-featured i.wpsight-addons .icon-featured {
 	color: #0074a2;
 }
 
@@ -679,6 +679,10 @@ th.column-listing_actions {
 /* Add-Ons Page
 ================================================== */
 
+.download-wrapper {
+	padding-top: 20px;
+}
+
 .download-wrapper .column {
 	float: left;
 	margin: 0 8px 16px;
@@ -686,8 +690,6 @@ th.column-listing_actions {
 	width: 48.5%;
 	width: -webkit-calc( 50% - 8px );
 	width: calc( 50% - 8px );
-	background-color: #fff;
-	border: 1px solid #dedede;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -728,11 +730,637 @@ th.column-listing_actions {
 	}
 }
 
-.download-wrapper .column img {
-	max-width: 100%;
-	height: auto;
+.download-wrapper .type-download {
+	background-color: #fff;
+	border: 1px solid #dedede;
+	min-height: 170px;
+	position: relative;
+	padding: 20px;
 }
 
-.download-wrapper .column .download-meta {
+.download-wrapper .type-download h3 {
+	margin-top: 3px;
+}
+
+.download-wrapper .type-download .download-featured-icon {
+	color: #fff;
+	display: block;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 128px;
+	height: 128px;
+	margin: 0 20px 20px 0;
+}
+
+.download-wrapper .type-download .download-featured-icon span.icon {
+	font-size: 48px;
+	line-height: 120px;
+	height: 120px;
+	text-align: center;
+	width: 100%;
+}
+
+.download-wrapper .type-download .download-featured-icon span.free {
 	display: none;
+}
+
+.download-wrapper .type-download.download_category-add-ons .entry-header {
+	margin-left: 148px;
+}
+
+.download-wrapper .type-download .post-featured-image {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.download-wrapper .type-download .post-featured-image img {
+	height: auto;
+	max-width: 100%;
+}
+
+.download-wrapper .type-download .download-meta-price-details a {
+	background-color: #5e798e;
+	border-radius: 3px;
+	color: #fff;
+	display: inline-block;
+	font-weight: 400;
+	padding: 2px 6px;
+	text-decoration: none;
+}
+
+@media only screen and (max-width: 960px) {
+
+	.download-wrapper .type-download .download-featured-icon {
+		left: auto;
+		margin: 0 0 20px;
+		position: relative;
+		top: auto;
+		width: 100%;
+	}
+	
+	.download-wrapper .type-download .entry-header {
+		margin-bottom: 10px;
+		margin-left: 0;
+	}
+
+}
+
+/* Feather Icon Font
+================================================== */
+
+@charset "UTF-8";
+ 
+@font-face {
+  font-family: "feather";
+  src:url("../fonts/feather-webfont.eot");
+  src:url("../fonts/feather-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/feather-webfont.woff") format("woff"),
+    url("../fonts/feather-webfont.ttf") format("truetype"),
+    url("../fonts/feather-webfont.svg#feather") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* CSS Class Mapping Method */
+ 
+.wpsight-addons [class*="icon-"] {
+  display: inline-block;
+  font-family: "feather";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wpsight-addons .icon-eye:before {
+  content: "\e000";
+}
+
+.wpsight-addons .icon-paper-clip:before {
+  content: "\e001";
+}
+
+.wpsight-addons .icon-mail:before {
+  content: "\e002";
+}
+
+.wpsight-addons .icon-mail:before {
+  content: "\e002";
+}
+
+.wpsight-addons .icon-toggle:before {
+  content: "\e003";
+}
+
+.wpsight-addons .icon-layout:before {
+  content: "\e004";
+}
+
+.wpsight-addons .icon-link:before {
+  content: "\e005";
+}
+
+.wpsight-addons .icon-bell:before {
+  content: "\e006";
+}
+
+.wpsight-addons .icon-lock:before {
+  content: "\e007";
+}
+
+.wpsight-addons .icon-unlock:before {
+  content: "\e008";
+}
+
+.wpsight-addons .icon-ribbon:before {
+  content: "\e009";
+}
+
+.wpsight-addons .icon-image:before {
+  content: "\e010";
+}
+
+.wpsight-addons .icon-signal:before {
+  content: "\e011";
+}
+
+.wpsight-addons .icon-target:before {
+  content: "\e012";
+}
+
+.wpsight-addons .icon-clipboard:before {
+  content: "\e013";
+}
+
+.wpsight-addons .icon-clock:before {
+  content: "\e014";
+}
+
+.wpsight-addons .icon-clock:before {
+  content: "\e014";
+}
+
+.wpsight-addons .icon-watch:before {
+  content: "\e015";
+}
+
+.wpsight-addons .icon-air-play:before {
+  content: "\e016";
+}
+
+.wpsight-addons .icon-camera:before {
+  content: "\e017";
+}
+
+.wpsight-addons .icon-video:before {
+  content: "\e018";
+}
+
+.wpsight-addons .icon-disc:before {
+  content: "\e019";
+}
+
+.wpsight-addons .icon-printer:before {
+  content: "\e020";
+}
+
+.wpsight-addons .icon-monitor:before {
+  content: "\e021";
+}
+
+.wpsight-addons .icon-server:before {
+  content: "\e022";
+}
+
+.wpsight-addons .icon-cog:before {
+  content: "\e023";
+}
+
+.wpsight-addons .icon-heart:before {
+  content: "\e024";
+}
+
+.wpsight-addons .icon-paragraph:before {
+  content: "\e025";
+}
+
+.wpsight-addons .icon-align-justify:before {
+  content: "\e026";
+}
+
+.wpsight-addons .icon-align-left:before {
+  content: "\e027";
+}
+
+.wpsight-addons .icon-align-center:before {
+  content: "\e028";
+}
+
+.wpsight-addons .icon-align-right:before {
+  content: "\e029";
+}
+
+.wpsight-addons .icon-book:before {
+  content: "\e030";
+}
+
+.wpsight-addons .icon-layers:before {
+  content: "\e031";
+}
+
+.wpsight-addons .icon-stack:before {
+  content: "\e032";
+}
+
+.wpsight-addons .icon-stack-2:before {
+  content: "\e033";
+}
+
+.wpsight-addons .icon-paper:before {
+  content: "\e034";
+}
+
+.wpsight-addons .icon-paper-stack:before {
+  content: "\e035";
+}
+
+.wpsight-addons .icon-search:before {
+  content: "\e036";
+}
+
+.wpsight-addons .icon-zoom-in:before {
+  content: "\e037";
+}
+
+.wpsight-addons .icon-zoom-out:before {
+  content: "\e038";
+}
+
+.wpsight-addons .icon-reply:before {
+  content: "\e039";
+}
+
+.wpsight-addons .icon-circle-plus:before {
+  content: "\e040";
+}
+
+.wpsight-addons .icon-circle-minus:before {
+  content: "\e041";
+}
+
+.wpsight-addons .icon-circle-check:before {
+  content: "\e042";
+}
+
+.wpsight-addons .icon-circle-cross:before {
+  content: "\e043";
+}
+
+.wpsight-addons .icon-square-plus:before {
+  content: "\e044";
+}
+
+.wpsight-addons .icon-square-minus:before {
+  content: "\e045";
+}
+
+.wpsight-addons .icon-square-check:before {
+  content: "\e046";
+}
+
+.wpsight-addons .icon-square-cross:before {
+  content: "\e047";
+}
+
+.wpsight-addons .icon-microphone:before {
+  content: "\e048";
+}
+
+.wpsight-addons .icon-record:before {
+  content: "\e049";
+}
+
+.wpsight-addons .icon-skip-back:before {
+  content: "\e050";
+}
+
+.wpsight-addons .icon-rewind:before {
+  content: "\e051";
+}
+
+.wpsight-addons .icon-play:before {
+  content: "\e052";
+}
+
+.wpsight-addons .icon-pause:before {
+  content: "\e053";
+}
+
+.wpsight-addons .icon-stop:before {
+  content: "\e054";
+}
+
+.wpsight-addons .icon-fast-forward:before {
+  content: "\e055";
+}
+
+.wpsight-addons .icon-skip-forward:before {
+  content: "\e056";
+}
+
+.wpsight-addons .icon-shuffle:before {
+  content: "\e057";
+}
+
+.wpsight-addons .icon-repeat:before {
+  content: "\e058";
+}
+
+.wpsight-addons .icon-folder:before {
+  content: "\e059";
+}
+
+.wpsight-addons .icon-umbrella:before {
+  content: "\e060";
+}
+
+.wpsight-addons .icon-moon:before {
+  content: "\e061";
+}
+
+.wpsight-addons .icon-thermometer:before {
+  content: "\e062";
+}
+
+.wpsight-addons .icon-drop:before {
+  content: "\e063";
+}
+
+.wpsight-addons .icon-sun:before {
+  content: "\e064";
+}
+
+.wpsight-addons .icon-cloud:before {
+  content: "\e065";
+}
+
+.wpsight-addons .icon-cloud-upload:before {
+  content: "\e066";
+}
+
+.wpsight-addons .icon-cloud-download:before {
+  content: "\e067";
+}
+
+.wpsight-addons .icon-upload:before {
+  content: "\e068";
+}
+
+.wpsight-addons .icon-download:before {
+  content: "\e069";
+}
+
+.wpsight-addons .icon-location:before {
+  content: "\e070";
+}
+
+.wpsight-addons .icon-location-2:before {
+  content: "\e071";
+}
+
+.wpsight-addons .icon-map:before {
+  content: "\e072";
+}
+
+.wpsight-addons .icon-battery:before {
+  content: "\e073";
+}
+
+.wpsight-addons .icon-head:before {
+  content: "\e074";
+}
+
+.wpsight-addons .icon-briefcase:before {
+  content: "\e075";
+}
+
+.wpsight-addons .icon-speech-bubble:before {
+  content: "\e076";
+}
+
+.wpsight-addons .icon-anchor:before {
+  content: "\e077";
+}
+
+.wpsight-addons .icon-globe:before {
+  content: "\e078";
+}
+
+.wpsight-addons .icon-box:before {
+  content: "\e079";
+}
+
+.wpsight-addons .icon-reload:before {
+  content: "\e080";
+}
+
+.wpsight-addons .icon-share:before {
+  content: "\e081";
+}
+
+.wpsight-addons .icon-marquee:before {
+  content: "\e082";
+}
+
+.wpsight-addons .icon-marquee-plus:before {
+  content: "\e083";
+}
+
+.wpsight-addons .icon-marquee-minus:before {
+  content: "\e084";
+}
+
+.wpsight-addons .icon-tag:before {
+  content: "\e085";
+}
+
+.wpsight-addons .icon-power:before {
+  content: "\e086";
+}
+
+.wpsight-addons .icon-command:before {
+  content: "\e087";
+}
+
+.wpsight-addons .icon-alt:before {
+  content: "\e088";
+}
+
+.wpsight-addons .icon-esc:before {
+  content: "\e089";
+}
+
+.wpsight-addons .icon-bar-graph:before {
+  content: "\e090";
+}
+
+.wpsight-addons .icon-bar-graph-2:before {
+  content: "\e091";
+}
+
+.wpsight-addons .icon-pie-graph:before {
+  content: "\e092";
+}
+
+.wpsight-addons .icon-star:before {
+  content: "\e093";
+}
+
+.wpsight-addons .icon-arrow-left:before {
+  content: "\e094";
+}
+
+.wpsight-addons .icon-arrow-right:before {
+  content: "\e095";
+}
+
+.wpsight-addons .icon-arrow-up:before {
+  content: "\e096";
+}
+
+.wpsight-addons .icon-arrow-down:before {
+  content: "\e097";
+}
+
+.wpsight-addons .icon-volume:before {
+  content: "\e098";
+}
+
+.wpsight-addons .icon-mute:before {
+  content: "\e099";
+}
+
+.wpsight-addons .icon-content-right:before {
+  content: "\e100";
+}
+
+.wpsight-addons .icon-content-left:before {
+  content: "\e101";
+}
+
+.wpsight-addons .icon-grid:before {
+  content: "\e102";
+}
+
+.wpsight-addons .icon-grid-2:before {
+  content: "\e103";
+}
+
+.wpsight-addons .icon-columns:before {
+  content: "\e104";
+}
+
+.wpsight-addons .icon-loader:before {
+  content: "\e105";
+}
+
+.wpsight-addons .icon-bag:before {
+  content: "\e106";
+}
+
+.wpsight-addons .icon-ban:before {
+  content: "\e107";
+}
+
+.wpsight-addons .icon-flag:before {
+  content: "\e108";
+}
+
+.wpsight-addons .icon-trash:before {
+  content: "\e109";
+}
+
+.wpsight-addons .icon-expand:before {
+  content: "\e110";
+}
+
+.wpsight-addons .icon-contract:before {
+  content: "\e111";
+}
+
+.wpsight-addons .icon-maximize:before {
+  content: "\e112";
+}
+
+.wpsight-addons .icon-minimize:before {
+  content: "\e113";
+}
+
+.wpsight-addons .icon-plus:before {
+  content: "\e114";
+}
+
+.wpsight-addons .icon-minus:before {
+  content: "\e115";
+}
+
+.wpsight-addons .icon-check:before {
+  content: "\e116";
+}
+
+.wpsight-addons .icon-cross:before {
+  content: "\e117";
+}
+
+.wpsight-addons .icon-move:before {
+  content: "\e118";
+}
+
+.wpsight-addons .icon-delete:before {
+  content: "\e119";
+}
+
+.wpsight-addons .icon-menu:before {
+  content: "\e120";
+}
+
+.wpsight-addons .icon-archive:before {
+  content: "\e121";
+}
+
+.wpsight-addons .icon-inbox:before {
+  content: "\e122";
+}
+
+.wpsight-addons .icon-outbox:before {
+  content: "\e123";
+}
+
+.wpsight-addons .icon-file:before {
+  content: "\e124";
+}
+
+.wpsight-addons .icon-file-add:before {
+  content: "\e125";
+}
+
+.wpsight-addons .icon-file-subtract:before {
+  content: "\e126";
+}
+
+.wpsight-addons .icon-help:before {
+  content: "\e127";
+}
+
+.wpsight-addons .icon-open:before {
+  content: "\e128";
+}
+
+.wpsight-addons .icon-ellipsis:before {
+  content: "\e129";
 }

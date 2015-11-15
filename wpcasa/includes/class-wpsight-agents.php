@@ -12,6 +12,7 @@ class WPSight_Agents {
 	 */
 	function __construct() {
 		add_filter( 'pre_get_posts', array( $this, 'author_listings' ) );
+		add_filter( 'get_avatar' , array( $this, 'agent_avatar' ), 1, 5 );
 	}
 
 	/**
@@ -696,6 +697,44 @@ class WPSight_Agents {
 
 		if ( wpsight_is_listing_agent_archive( $query ) )
 			$query->set( 'post_type', array( wpsight_post_type() ) );
+
+	}
+	
+	/**
+	 * author_avatar()
+	 *
+	 * Filter get_avatar to optionally
+	 * replace avatar with custom agent image.
+	 *
+	 * @param mixed $avatar Image tag for the user's avatar
+	 * @param integer|string $id_or_email A user ID, email address, or comment object
+	 * @param integer $size Square avatar width and height in pixels to retrieve
+	 * @param string $alt Alternative text to use in the avatar image tag
+	 * @uses get_user_by()
+	 * @uses self::get_agent_image()
+	 *
+	 * @since 1.0.0
+	 */
+	function agent_avatar( $avatar, $id_or_email, $size, $default, $alt ) {
+
+	    $user = false;
+	
+	    if ( is_numeric( $id_or_email ) ) {
+	        $id = (int) $id_or_email;
+	        $user = get_user_by( 'id' , $id );
+	    } elseif ( is_object( $id_or_email ) ) {	
+	        if ( ! empty( $id_or_email->user_id ) ) {
+	            $id = (int) $id_or_email->user_id;
+	            $user = get_user_by( 'id' , $id );
+	        }	
+	    } else {
+	        $user = get_user_by( 'email', $id_or_email );	
+	    }
+	
+	    if ( $user && is_object( $user ) && self::get_agent_image( $user->ID ) )
+			$avatar = self::get_agent_image( $user->ID, array( $size, $size ) );
+	
+	    return apply_filters( 'wpsight_agent_avatar', $avatar, $user->ID, $size );
 
 	}
 	

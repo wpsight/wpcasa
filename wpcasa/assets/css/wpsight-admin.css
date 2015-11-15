@@ -676,7 +676,7 @@ th.column-listing_actions {
 	color: #ccc;
 }
 
-/* Add-Ons Page
+/* Add-Ons / Themes Page
 ================================================== */
 
 .download-wrapper {
@@ -777,16 +777,6 @@ th.column-listing_actions {
 .download-wrapper .type-download .post-featured-image img {
 	height: auto;
 	max-width: 100%;
-}
-
-.download-wrapper .type-download .download-meta-price-details a {
-	background-color: #5e798e;
-	border-radius: 3px;
-	color: #fff;
-	display: inline-block;
-	font-weight: 400;
-	padding: 2px 6px;
-	text-decoration: none;
 }
 
 @media only screen and (max-width: 960px) {

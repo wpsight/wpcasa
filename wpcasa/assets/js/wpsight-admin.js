@@ -64,5 +64,6 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('.wpsight-addons .type-download a, .wpsight-themes .type-download a').attr('target','_blank');
+	$('.download-wrapper .type-download .download-meta-price-details a').addClass('button');
 
 });

@@ -308,53 +308,53 @@ th.column-listing_actions {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.column-listing_title i.wpsight-addons .icon-view:before,
-.column-listing_actions i.wpsight-addons .icon-view:before {
+.column-listing_title i.icon-view:before,
+.column-listing_actions i.icon-view:before {
 	content: "\f504";
 }
 
-.column-listing_title i.wpsight-addons .icon-edit:before {
+.column-listing_title i.icon-edit:before {
 	content: "\f464";
 }
 
-.column-listing_actions i.wpsight-addons .icon-approve:before {
+.column-listing_actions i.icon-approve:before {
 	content: "\f147";
 	font-weight: bold;
 }
 
-.column-listing_actions i.wpsight-addons .icon-expire:before {
+.column-listing_actions i.icon-expire:before {
 	content: "\f469";
 }
 
-.column-listing_actions i.wpsight-addons .icon-unavailable:before {
+.column-listing_actions i.icon-unavailable:before {
 	content: "\f160";
 }
 
-.column-listing_actions i.wpsight-addons .icon-sticky:before {
+.column-listing_actions i.icon-sticky:before {
 	content: "\f173";
 }
 
-.column-listing_actions i.wpsight-addons .icon-featured:before {
+.column-listing_actions i.icon-featured:before {
 	content: "\f313";
 }
 
-.column-listing_actions i.wpsight-addons .icon-delete:before {
+.column-listing_actions i.icon-delete:before {
 	content: "\f158";
 }
 
-.column-listing_actions i.wpsight-addons .icon-untrash:before {
+.column-listing_actions i.icon-untrash:before {
 	content: "\f310";
 }
 
-.column-listing_title i.wpsight-addons .icon-home:before {
+.column-listing_title i.icon-home:before {
 	content: "\f102";
 }
 
-.column-listing_actions .listing-approved i.wpsight-addons .icon-approve,
-.column-listing_actions .listing-expired i.wpsight-addons .icon-expire,
-.column-listing_actions .listing-not-available i.wpsight-addons .icon-unavailable,
-.column-listing_actions .listing-sticky i.wpsight-addons .icon-sticky,
-.column-listing_actions .listing-featured i.wpsight-addons .icon-featured {
+.column-listing_actions .listing-approved i.icon-approve,
+.column-listing_actions .listing-expired i.icon-expire,
+.column-listing_actions .listing-not-available i.icon-unavailable,
+.column-listing_actions .listing-sticky i.icon-sticky,
+.column-listing_actions .listing-featured i.icon-featured {
 	color: #0074a2;
 }
 

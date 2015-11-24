@@ -7,7 +7,9 @@ global $listing;
 $lat  = get_post_meta( $listing->ID, '_geolocation_lat', true );
 $long = get_post_meta( $listing->ID, '_geolocation_long', true );
 
-if( $lat && $long ) { ?>
+$hide = get_post_meta( $listing->ID, '_map_hide', true );
+
+if( $lat && $long && ! $hide ) { ?>
 
 	<div class="wpsight-listing-section wpsight-listing-section-location">
 		

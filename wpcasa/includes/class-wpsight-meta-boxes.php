@@ -349,7 +349,7 @@ class WPSight_Meta_Boxes {
 		);
 
 		// Apply filter and order fields by priority
-		$fields = wpsight_sort_array_by_priority( apply_filters( 'self::meta_box_listing_attributes_fields', $fields ) );
+		$fields = wpsight_sort_array_by_priority( apply_filters( 'wpsight_meta_box_listing_attributes_fields', $fields ) );
 
 		// Set meta box
 
@@ -362,7 +362,7 @@ class WPSight_Meta_Boxes {
 			'fields'   => $fields
 		);
 
-		return apply_filters( 'self::meta_box_listing_attributes', $meta_box );
+		return apply_filters( 'wpsight_meta_box_listing_attributes', $meta_box );
 
 	}
 
@@ -395,7 +395,7 @@ class WPSight_Meta_Boxes {
 		);
 
 		// Apply filter and order fields by priority
-		$fields = wpsight_sort_array_by_priority( apply_filters( 'self::meta_box_listing_images_fields', $fields ) );
+		$fields = wpsight_sort_array_by_priority( apply_filters( 'wpsight_meta_box_listing_images_fields', $fields ) );
 
 		// Set meta box
 
@@ -408,7 +408,7 @@ class WPSight_Meta_Boxes {
 			'fields'   => $fields
 		);
 
-		return apply_filters( 'self::meta_box_listing_images', $meta_box );
+		return apply_filters( 'wpsight_meta_box_listing_images', $meta_box );
 
 	}
 
@@ -460,7 +460,7 @@ class WPSight_Meta_Boxes {
 		);
 
 		// Apply filter and order fields by priority
-		$fields = wpsight_sort_array_by_priority( apply_filters( 'self::meta_box_listing_price_fields', $fields ) );
+		$fields = wpsight_sort_array_by_priority( apply_filters( 'wpsight_meta_box_listing_price_fields', $fields ) );
 
 		// Set meta box
 
@@ -473,7 +473,7 @@ class WPSight_Meta_Boxes {
 			'fields'   => $fields
 		);
 
-		return apply_filters( 'self::meta_box_listing_price', $meta_box );
+		return apply_filters( 'wpsight_meta_box_listing_price', $meta_box );
 
 	}
 
@@ -562,7 +562,7 @@ class WPSight_Meta_Boxes {
 		} // end foreach
 
 		// Apply filter and order fields by priority
-		$fields = wpsight_sort_array_by_priority( apply_filters( 'self::meta_box_listing_details_fields', $fields ) );
+		$fields = wpsight_sort_array_by_priority( apply_filters( 'wpsight_meta_box_listing_details_fields', $fields ) );
 
 		// Set meta box
 
@@ -575,7 +575,7 @@ class WPSight_Meta_Boxes {
 			'fields'   => $fields
 		);
 
-		return apply_filters( 'self::meta_box_listing_details', $meta_box );
+		return apply_filters( 'wpsight_meta_box_listing_details', $meta_box );
 
 	}
 
@@ -618,17 +618,17 @@ class WPSight_Meta_Boxes {
 				'desc'      => __( 'Will not be displayed on the website (e.g. complete address)', 'wpcasa' ),
 				'priority'  => 50
 			),
-			'exclude' => array(
-				'name'      => __( 'Listings Map', 'wpcasa' ),
-				'id'        => '_map_exclude',
+			'hide' => array(
+				'name'      => __( 'Hide Map', 'wpcasa' ),
+				'id'        => '_map_hide',
 				'type'      => 'checkbox',
-				'desc'		=> __( 'Exclude from general listings map', 'wpcasa' ),
+				'desc'		=> __( 'Hide map for this listing', 'wpcasa' ),
 				'priority'  => 60
 			)
 		);
 
 		// Apply filter and order fields by priority
-		$fields = wpsight_sort_array_by_priority( apply_filters( 'self::meta_box_listing_location_fields', $fields ) );
+		$fields = wpsight_sort_array_by_priority( apply_filters( 'wpsight_meta_box_listing_location_fields', $fields ) );
 
 		// Create meta box
 
@@ -641,7 +641,7 @@ class WPSight_Meta_Boxes {
 			'fields'   => $fields
 		);
 
-		return apply_filters( 'self::meta_box_listing_location', $meta_box );
+		return apply_filters( 'wpsight_meta_box_listing_location', $meta_box );
 
 	}
 
@@ -688,13 +688,21 @@ class WPSight_Meta_Boxes {
 				'default'   => get_user_meta( wp_get_current_user()->ID, 'description', true ),
 				'priority'  => 30
 			),
+			'phone' => array(
+				'name'      => __( 'Phone', 'wpcasa' ),
+				'id'        => '_agent_phone',
+				'type'      => 'text',
+				'desc'      => false,
+				'default'   => get_user_meta( wp_get_current_user()->ID, 'phone', true ),
+				'priority'  => 40
+			),
 			'website' => array(
 				'name'      => __( 'Website', 'wpcasa' ),
 				'id'        => '_agent_website',
 				'type'      => 'text_url',
 				'desc'      => false,
 				'default'   => wp_get_current_user()->user_url,
-				'priority'  => 40
+				'priority'  => 50
 			),
 			'twitter' => array(
 				'name'      => __( 'Twitter', 'wpcasa' ),
@@ -702,7 +710,7 @@ class WPSight_Meta_Boxes {
 				'type'      => 'text',
 				'desc'      => false,
 				'default'   => get_user_meta( wp_get_current_user()->ID, 'twitter', true ),
-				'priority'  => 50
+				'priority'  => 60
 			),
 			'facebook' => array(
 				'name'      => __( 'Facebook', 'wpcasa' ),
@@ -710,7 +718,7 @@ class WPSight_Meta_Boxes {
 				'type'      => 'text',
 				'desc'      => false,
 				'default'   => get_user_meta( wp_get_current_user()->ID, 'facebook', true ),
-				'priority'  => 60
+				'priority'  => 70
 			),
 			'logo' => array(
 				'name'      => __( 'Logo', 'wpcasa' ),
@@ -719,12 +727,12 @@ class WPSight_Meta_Boxes {
 				'desc'      => false,
 				'preview_size' => array( 75, 75 ),
 				'default'   => get_user_meta( wp_get_current_user()->ID, 'agent_logo', true ),
-				'priority'  => 70
+				'priority'  => 80
 			)
 		);
 
 		// Apply filter and order fields by priority
-		$fields = wpsight_sort_array_by_priority( apply_filters( 'self::meta_box_listing_agent_fields', $fields ) );
+		$fields = wpsight_sort_array_by_priority( apply_filters( 'wpsight_meta_box_listing_agent_fields', $fields ) );
 
 		// Set meta box
 
@@ -737,7 +745,7 @@ class WPSight_Meta_Boxes {
 			'fields'       => $fields
 		);
 
-		return apply_filters( 'self::meta_box_listing_agent', $meta_box );
+		return apply_filters( 'wpsight_meta_box_listing_agent', $meta_box );
 
 	}
 

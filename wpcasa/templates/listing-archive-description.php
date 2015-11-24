@@ -9,7 +9,11 @@
 	<?php endif; ?>
 
 	<div class="wpsight-listing-description" itemprop="description">
-		<?php echo apply_filters( 'wpsight_listing_description', wpsight_format_content( get_the_content() ) ); ?>
+		<?php if( has_excerpt() ) : ?>
+			<?php echo apply_filters( 'wpsight_listing_description', wpsight_format_content( get_the_excerpt() ) ); ?>
+		<?php else : ?>	
+			<?php echo apply_filters( 'wpsight_listing_description', wpsight_format_content( get_the_content() ) ); ?>
+		<?php endif; ?>
 	</div>
 	
 	<?php do_action( 'wpsight_listing_archive_description_after' ); ?>

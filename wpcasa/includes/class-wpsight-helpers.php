@@ -834,4 +834,26 @@ class WPSight_Helpers {
 
 	}
 
+	/**
+	 * user_can_edit_listing_id()
+	 *
+	 * Check if current user can edit the listing ID.
+	 *
+	 * @uses is_user_logged_in()
+	 * @uses current_user_can()
+	 * @return bool True if user is eligible, else false
+	 *
+	 * @since 1.0.0
+	 */
+	public static function user_can_edit_listing_id() {
+
+		$can = false;
+
+		if ( is_user_logged_in() )
+			$can = current_user_can( 'edit_listing_id' );
+
+		return apply_filters( 'wpsight_user_can_edit_listing_id', $can );
+
+	}
+
 }

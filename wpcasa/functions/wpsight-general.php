@@ -172,6 +172,20 @@ function wpsight_get_rental_period( $period ) {
 }
 
 /**
+ *	wpsight_rental_period()
+ *	
+ *	Echo wpsight_get_rental_period()
+ *	
+ *	@param	string		$period	Key of the period to return
+ *	@uses	wpsight_get_rental_period()
+ *	
+ *	@since 1.0.0
+ */
+function wpsight_rental_period( $period ) {
+    echo wpsight_get_rental_period( $period );
+}
+
+/**
  *	wpsight_measurements()
  *	
  *	Function that defines the array
@@ -192,13 +206,27 @@ function wpsight_measurements() {
  *	Get specific measurement unit.
  *	
  *	@param	string		$measurement	Key of the measurement to return
- *	@uses	return WPSight_General::get_measurement()
+ *	@uses	WPSight_General::get_measurement()
  *	@return	string|bool	Label of the measurement or false if unit does not exist
  *	
  *	@since 1.0.0
  */
 function wpsight_get_measurement( $measurement ) {
     return WPSight_General::get_measurement( $measurement );
+}
+
+/**
+ *	wpsight_measurement()
+ *	
+ *	Echo wpsight_get_measurement()
+ *	
+ *	@param	string		$measurement	Key of the measurement to return
+ *	@uses	wpsight_get_measurement()
+ *	
+ *	@since 1.0.0
+ */
+function wpsight_measurement( $measurement ) {
+    echo wpsight_get_measurement( $measurement );
 }
 
 /**
@@ -334,18 +362,4 @@ function wpsight_spaces() {
  */
 function wpsight_listing_query_vars() {
 	return WPSight_General::listing_query_vars();
-}
-
-/**
- *	wpsight_user_can_edit_listing_id()
- *	
- *	Check if current user can edit the listing ID.
- *	
- *	@uses	WPSight_General::user_can_edit_listing_id
- *	@return	bool True if user is eligible, else false
- *	
- *	@since 1.0.0
- */
-function wpsight_user_can_edit_listing_id() {
-	return WPSight_General::user_can_edit_listing_id();
 }

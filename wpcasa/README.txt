@@ -128,7 +128,16 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 4. Listing teasers
 5. Plugin settings
 
+== Upgrade Notice ==
+
+
+
 == Changelog ==
 
 = 1.0.0 =
 * Initial release
+
+== Upgrade Notice ==
+
+= 1.0.0 =
+Initial release

@@ -442,11 +442,11 @@ class WPSight_General {
 	public static function measurements() {
 
 		$measurements = array(
-			''      => '',
-			'm2'    => 'm&sup2;',
-			'sqft'  => 'sq ft',
-			'sqyd'  => 'sq yd',
-			'acres' => 'acre(s)'
+			''		=> '',
+			'm2'	=> 'm&sup2;',
+			'sqft'	=> 'sq ft',
+			'sqyd'	> 'sq yd',
+			'acres'	=> 'acre(s)'
 		);
 
 		return apply_filters( 'wpsight_measurements', $measurements );
@@ -516,38 +516,38 @@ class WPSight_General {
 		$statuses = array(
 
 			'draft' => array(
-				'name'  => _x( 'Draft', 'listing post status', 'wpcasa' ),
-				'label' => _x( 'Draft', 'listing post status', 'wpcasa' )
+				'name'	=> _x( 'Draft', 'listing post status', 'wpcasa' ),
+				'label'	=> _x( 'Draft', 'listing post status', 'wpcasa' )
 			),
 			'publish' => array(
-				'name'  => _x( 'Active', 'listing post status', 'wpcasa' ),
-				'label' => _x( 'Active', 'listing post status', 'wpcasa' )
+				'name'	=> _x( 'Active', 'listing post status', 'wpcasa' ),
+				'label'	=> _x( 'Active', 'listing post status', 'wpcasa' )
 			),
 			'pending' => array(
-				'name'  => _x( 'Pending', 'listing post status', 'wpcasa' ),
-				'label' => _x( 'Pending approval', 'listing post status', 'wpcasa' )
+				'name'	=> _x( 'Pending', 'listing post status', 'wpcasa' ),
+				'label'	=> _x( 'Pending approval', 'listing post status', 'wpcasa' )
 			),
-			'preview'  => array(
-				'name'                      => _x( 'Preview', 'listing post status', 'wpcasa' ),
-				'label'                     => _x( 'Preview', 'listing post status', 'wpcasa' ),
-				'public'                    => false,
-				'exclude_from_search'       => true,
-				'show_in_admin_all_list'    => false,
-				'show_in_admin_status_list' => false,
-				'label_count'               => _n_noop( 'Preview <span class="count">(%s)</span>', 'Preview <span class="count">(%s)</span>', 'wpcasa' )
+			'preview' => array(
+				'name'						=> _x( 'Preview', 'listing post status', 'wpcasa' ),
+				'label'						=> _x( 'Preview', 'listing post status', 'wpcasa' ),
+				'public'					=> false,
+				'exclude_from_search'		=> true,
+				'show_in_admin_all_list'	=> false,
+				'show_in_admin_status_list'	=> false,
+				'label_count'				=> _n_noop( 'Preview <span class="count">(%s)</span>', 'Preview <span class="count">(%s)</span>', 'wpcasa' )
 			),
 			'pending_payment' => array(
-				'name'                      => _x( 'Pending', 'listing post status', 'wpcasa' ),
-				'label'                     => _x( 'Pending payment', 'listing post status', 'wpcasa' ),
-				'public'                    => true,
-				'exclude_from_search'       => true,
-				'show_in_admin_all_list'    => true,
-				'show_in_admin_status_list' => true,
-				'label_count'               => _n_noop( 'Pending Payment <span class="count">(%s)</span>', 'Pending Payment <span class="count">(%s)</span>', 'wpcasa' )
+				'name'						=> _x( 'Pending', 'listing post status', 'wpcasa' ),
+				'label'						=> _x( 'Pending payment', 'listing post status', 'wpcasa' ),
+				'public'					=> true,
+				'exclude_from_search'		=> true,
+				'show_in_admin_all_list'	=> true,
+				'show_in_admin_status_list'	=> true,
+				'label_count'				=> _n_noop( 'Pending Payment <span class="count">(%s)</span>', 'Pending Payment <span class="count">(%s)</span>', 'wpcasa' )
 			),
 			'trash' => array(
-				'name'  => _x( 'Trash', 'listing post status', 'wpcasa' ),
-				'label' => _x( 'Trash', 'listing post status', 'wpcasa' )
+				'name'	=> _x( 'Trash', 'listing post status', 'wpcasa' ),
+				'label'	=> _x( 'Trash', 'listing post status', 'wpcasa' )
 			)
 
 		);
@@ -821,20 +821,13 @@ class WPSight_General {
 	 * @since 1.0.0
 	 */
 	public static function spaces() {
-
-		$spaces = array(
-			'space' => array(
-				'title'       => __( 'Space', 'wpcasa' ),
-				'label'       => __( 'Widget Space', 'wpcasa' ),
-				'key'         => '_space',
-				'description' => __( 'Add some custom content to this page. Then drag the Single Space widget to the Listing Content or Listing Sidebar widget area.', 'wpcasa' ),
-				'type'        => 'textarea',
-				'rows'        => 5,
-				'post_type'   => array( wpsight_post_type() )
-			)
-		);
-
-		return apply_filters( 'wpsight_spaces', $spaces );
+		
+		/**
+		 * Spaces are empty by default but can
+		 * be create using the wpsight_spaces
+		 * filter hook in add-ons or themes.
+		 */
+		return apply_filters( 'wpsight_spaces', array() );
 
 	}
 
@@ -958,28 +951,6 @@ class WPSight_General {
 			$vars[$k] = get_query_var( $k );
 
 		return $vars;
-
-	}
-
-	/**
-	 * user_can_edit_listing_id()
-	 *
-	 * Check if current user can edit the listing ID.
-	 *
-	 * @uses is_user_logged_in()
-	 * @uses current_user_can()
-	 * @return bool True if user is eligible, else false
-	 *
-	 * @since 1.0.0
-	 */
-	public static function user_can_edit_listing_id() {
-
-		$can = false;
-
-		if ( is_user_logged_in() )
-			$can = current_user_can( 'edit_listing_id' );
-
-		return apply_filters( 'wpsight_user_can_edit_listing_id', $can );
 
 	}
 

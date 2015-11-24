@@ -36,7 +36,6 @@ class WPSight_Shortcode_Listing_Teasers {
 			'posts_per_page'	=> get_query_var( 'nr' ) ? get_query_var( 'nr' ) : get_option( 'posts_per_page' ),
 			'orderby'			=> get_query_var( 'orderby' ) ? get_query_var( 'orderby' ) : 'date',
 			'order'				=> get_query_var( 'order' ) ? get_query_var( 'order' ) : 'DESC',
-			'featured'			=> get_query_var( 'featured' ) ? get_query_var( 'featured' ) : null,
 			'class'				=> '', // additional css class
 			'orientation'		=> 'horizontal', // can be vertical
 			'show_panel'		=> false, // can be false

@@ -76,13 +76,8 @@ function wpsight_is_listing_archive( $query = null ) {
  *	
  *	@since 	1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_get_option' ) ) {
-
-	function wpsight_get_option( $name, $default = '' ) {
-		return WPSight_Helpers::get_option( $name, $default );
-	}
-
+function wpsight_get_option( $name, $default = '' ) {
+	return WPSight_Helpers::get_option( $name, $default );
 }
 
 /**
@@ -96,13 +91,8 @@ if ( ! function_exists( 'wpsight_get_option' ) ) {
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_add_option' ) ) {
-
-	function wpsight_add_option( $name, $value ) {
-		return WPSight_Helpers::add_option( $name, $value );    
-	}
-
+function wpsight_add_option( $name, $value ) {
+	return WPSight_Helpers::add_option( $name, $value );    
 }
 
 /**
@@ -115,13 +105,8 @@ if ( ! function_exists( 'wpsight_add_option' ) ) {
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_delete_option' ) ) {
-
-	function wpsight_delete_option( $name ) {
-		return WPSight_Helpers::delete_option( $name );
-	}
-
+function wpsight_delete_option( $name ) {
+	return WPSight_Helpers::delete_option( $name );
 }
 
 /**
@@ -147,13 +132,8 @@ function wpsight_options_defaults() {
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_get_tax_name' ) ) {
-
-	function wpsight_get_tax_name() {	
-		return WPSight_Helpers::get_tax_name();
-	}
-
+function wpsight_get_tax_name() {	
+	return WPSight_Helpers::get_tax_name();
 }
 
 /**
@@ -166,13 +146,8 @@ if ( ! function_exists( 'wpsight_get_tax_name' ) ) {
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_format_content' ) ) {
-
-	function wpsight_format_content( $content ) {
-		return WPSight_Helpers::format_content( $content );
-	}
-
+function wpsight_format_content( $content ) {
+	return WPSight_Helpers::format_content( $content );
 }
 
 /**
@@ -184,13 +159,8 @@ if ( ! function_exists( 'wpsight_format_content' ) ) {
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_dashes' ) ) {
-
-	function wpsight_dashes( $string ) {
-		return WPSight_Helpers::dashes( $string );
-	}
-
+function wpsight_dashes( $string ) {
+	return WPSight_Helpers::dashes( $string );
 }
 
 /**
@@ -202,13 +172,8 @@ if ( ! function_exists( 'wpsight_dashes' ) ) {
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_underscores' ) ) {
-
-	function wpsight_underscores( $string ) {
-		return WPSight_Helpers::underscores( $string );
-	}
-
+function wpsight_underscores( $string ) {
+	return WPSight_Helpers::underscores( $string );
 }
 
 /**
@@ -220,17 +185,12 @@ if ( ! function_exists( 'wpsight_underscores' ) ) {
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'array_empty' ) ) {
-
-	function wpsight_array_empty( $mixed ) {
-	   	return WPSight_Helpers::array_empty( $mixed );
-	}
-
+function wpsight_array_empty( $mixed ) {
+   	return WPSight_Helpers::array_empty( $mixed );
 }
 
 /**
- *	in_multiarray()
+ *	wpsight_in_multiarray()
  *	
  *	Helper function to check multi-dimensional arrays
  *	
@@ -238,13 +198,8 @@ if ( ! function_exists( 'array_empty' ) ) {
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'in_multiarray' ) ) {
-
-	function in_multiarray( $elem, $array ) {
-		return WPSight_Helpers::in_multiarray( $elem, $array );
-	}
-
+function wpsight_in_multiarray( $elem, $array ) {
+	return WPSight_Helpers::in_multiarray( $elem, $array );
 }
 
 /**
@@ -278,13 +233,8 @@ function wpsight_sort_array_by_position( $array = array(), $order = SORT_NUMERIC
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_implode_array' ) ) {
-
-	function wpsight_implode_array( $glue, $arr ) {
-		return WPSight_Helpers::implode_array( $glue, $arr );
-	}
-
+function wpsight_implode_array( $glue, $arr ) {
+	return WPSight_Helpers::implode_array( $glue, $arr );
 }
 
 /**
@@ -296,13 +246,8 @@ if ( ! function_exists( 'wpsight_implode_array' ) ) {
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_explode_array' ) ) {
-
-	function wpsight_explode_array( $glue, $str ) {
-		return WPSight_Helpers::explode_array( $glue, $str );
-	}
-
+function wpsight_explode_array( $glue, $str ) {
+	return WPSight_Helpers::explode_array( $glue, $str );
 }
 
 /**
@@ -354,29 +299,16 @@ function wpsight_cast_decimal_precision( $sql ) {
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_get_the_term_list' ) ) {
-
-	function wpsight_get_the_term_list( $post_id, $taxonomy, $sep = '', $term_before = '', $term_after = '', $linked = true, $reverse = false ) {
-		return WPSight_Helpers::get_the_term_list( $post_id, $taxonomy, $sep, $term_before, $term_after, $linked, $reverse );
-	}
-
+function wpsight_get_the_term_list( $post_id, $taxonomy, $sep = '', $term_before = '', $term_after = '', $linked = true, $reverse = false ) {
+	return WPSight_Helpers::get_the_term_list( $post_id, $taxonomy, $sep, $term_before, $term_after, $linked, $reverse );
 }
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_sort_taxonomies_by_parents' ) ) {
 
-	function wpsight_sort_taxonomies_by_parents( $data, $parent_id = 0 ) {
-		return WPSight_Helpers::get_the_term_list( $data, $parent_id );
-	}
-
+function wpsight_sort_taxonomies_by_parents( $data, $parent_id = 0 ) {
+	return WPSight_Helpers::get_the_term_list( $data, $parent_id );
 }
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_get_the_term_list_links' ) ) {
 
-	function wpsight_get_the_term_list_links( $taxonomy, $data, $term_before = '', $term_after = '', $linked = 'true' ) {
-		return WPSight_Helpers::get_the_term_list_links( $taxonomy, $data, $term_before, $term_after, $linked );
-	}
-
+function wpsight_get_the_term_list_links( $taxonomy, $data, $term_before = '', $term_after = '', $linked = 'true' ) {
+	return WPSight_Helpers::get_the_term_list_links( $taxonomy, $data, $term_before, $term_after, $linked );
 }
 
 /**
@@ -390,13 +322,8 @@ if ( ! function_exists( 'wpsight_get_the_term_list_links' ) ) {
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_get_attachment_id_by_url' ) ) {
-
-	function wpsight_get_attachment_id_by_url( $url ) {
-		return WPSight_Helpers::get_attachment_id_by_url( $url );
-	}
-
+function wpsight_get_attachment_id_by_url( $url ) {
+	return WPSight_Helpers::get_attachment_id_by_url( $url );
 }
 
 /**
@@ -411,13 +338,8 @@ if ( ! function_exists( 'wpsight_get_attachment_id_by_url' ) ) {
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_get_attachment_by_url' ) ) {
-
-	function wpsight_get_attachment_by_url( $url, $size = 'thumbnail' ) {
-		return WPSight_Helpers::get_attachment_by_url( $url, $size );
-	}
-
+function wpsight_get_attachment_by_url( $url, $size = 'thumbnail' ) {
+	return WPSight_Helpers::get_attachment_by_url( $url, $size );
 }
 
 /**
@@ -430,11 +352,20 @@ if ( ! function_exists( 'wpsight_get_attachment_by_url' ) ) {
  *	
  *	@since 1.0.0
  */
-// Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_maybe_update_gallery' ) ) {
-	
-	function wpsight_maybe_update_gallery( $listing_id ) {
-		return WPSight_Helpers::maybe_update_gallery( $listing_id );
-	}
+function wpsight_maybe_update_gallery( $listing_id ) {
+	return WPSight_Helpers::maybe_update_gallery( $listing_id );
+}
 
+/**
+ *	wpsight_user_can_edit_listing_id()
+ *	
+ *	Check if current user can edit the listing ID.
+ *	
+ *	@uses	WPSight_Helpers::user_can_edit_listing_id
+ *	@return	bool True if user is eligible, else false
+ *	
+ *	@since 1.0.0
+ */
+function wpsight_user_can_edit_listing_id() {
+	return WPSight_Helpers::user_can_edit_listing_id();
 }

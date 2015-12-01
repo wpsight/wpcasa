@@ -80,7 +80,7 @@ class WPSight_Helpers {
 	}
 
 	/**
-	 * is_listing_archive()
+	 * is_listings_archive()
 	 *
 	 * Helper function that checks if
 	 * we are on a listing archive page.
@@ -92,7 +92,7 @@ class WPSight_Helpers {
 	 *
 	 * @since 1.0.0
 	 */
-	public static function is_listing_archive( $query = null ) {
+	public static function is_listings_archive( $query = null ) {
 		global $wp_query;
 
 		if ( $query === null )
@@ -103,7 +103,7 @@ class WPSight_Helpers {
 		if ( is_tax( get_object_taxonomies( wpsight_post_type() ) ) || wpsight_is_listing_agent_archive( $query ) )
 			$is = true;
 
-		return apply_filters( 'wpsight_is_listing_archive', $is, $query );
+		return apply_filters( 'wpsight_is_listings_archive', $is, $query );
 
 	}
 

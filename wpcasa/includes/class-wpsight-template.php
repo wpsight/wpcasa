@@ -422,7 +422,7 @@ class WPSight_Template {
 			$classes = array_merge( $classes, $class );
 		}
 
-		return apply_filters( 'get_listing_class', get_post_class( $classes, $post->ID ), $post_id, $class, $classes );
+		return apply_filters( 'wpsight_get_listing_class', get_post_class( $classes, $post->ID ), $post_id, $class, $classes );
 
 	}
 
@@ -555,7 +555,7 @@ class WPSight_Template {
 
 		}
 
-		return $output;
+		return apply_filters( 'wpsight_listing_actions', $output );
 
 	}
 

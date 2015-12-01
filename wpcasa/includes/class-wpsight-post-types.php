@@ -329,7 +329,7 @@ class WPSight_Post_Type_Listing {
  	 * @access public
  	 * @param object $query WP_Query of the corresponding loop
  	 * @uses $query->is_main_query()
- 	 * @uses wpsight_is_listing_archive()
+ 	 * @uses wpsight_is_listings_archive()
  	 * @uses current_filter()
  	 * @uses wpsight_listings()
  	 *
@@ -344,7 +344,7 @@ class WPSight_Post_Type_Listing {
 			
 		// Only on listing archives
 		
-		if( wpsight_is_listing_archive() ) {
+		if( wpsight_is_listings_archive() ) {
 			
 			// Remove original output
 		

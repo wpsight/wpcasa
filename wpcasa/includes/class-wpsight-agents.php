@@ -734,7 +734,7 @@ class WPSight_Agents {
 	    if ( $user && is_object( $user ) && self::get_agent_image( $user->ID ) )
 			$avatar = self::get_agent_image( $user->ID, array( $size, $size ) );
 	
-	    return apply_filters( 'wpsight_agent_avatar', $avatar, $user->ID, $size );
+	    return apply_filters( 'wpsight_agent_avatar', $avatar, $user, $size );
 
 	}
 	

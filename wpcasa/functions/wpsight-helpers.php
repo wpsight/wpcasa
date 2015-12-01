@@ -50,18 +50,18 @@ function wpsight_is_listing_agent_archive( $query = null ) {
 }
 
 /**
- *	wpsight_is_listing_archive()
+ *	wpsight_is_listings_archive()
  *	
  *	Helper function that checks if
  *	we are on a listing archive page.
  *	
- *	@uses	WPSight_Helpers::is_listing_archive()
+ *	@uses	WPSight_Helpers::is_listings_archive()
  *	@return	bool
  *	
  *	@since 1.0.0
  */
-function wpsight_is_listing_archive( $query = null ) {
-	return WPSight_Helpers::is_listing_archive( $query );
+function wpsight_is_listings_archive( $query = null ) {
+	return WPSight_Helpers::is_listings_archive( $query );
 }
 
 /**

@@ -37,15 +37,15 @@ More add-ons are currently in the making. If you are missing an add-on or are a 
 ## Themes
 To hit the ground running have a look at our WordPress themes exclusively built for WPCasa to unfold the great potential of the framework.
 
-* [STAGE](https://wpsight.com/wpcasa/downloads/wpcasa-stage/): STAGE is the perfect starting point for your custom WPCasa theme. It was creating using a lightweight yet powerful CSS framework and comes with many great features built right in.
-* [Twenty Fifteen](https://wpsight.com/wpcasa/downloads/wpcasa-twentyfifteen/) (FREE): If you like the Twenty Fifteen WordPress standard theme and you want to use WPCasa, this theme might be your solution.
+* [STAGE](https://wpcasa.com/downloads/wpcasa-stage/): STAGE is the perfect starting point for your custom WPCasa theme. It was creating using a lightweight yet powerful CSS framework and comes with many great features built right in.
+* [Twenty Fifteen](https://wpcasa.com/downloads/wpcasa-twentyfifteen/) (FREE): If you like the Twenty Fifteen WordPress standard theme and you want to use WPCasa, this theme might be your solution.
 * Many more to come...
 
 If you're a developer and would like to talk about creating themes for WPCasa, don't hesitate and [get in touch](https://wpcasa.com/contact).
 
 ## Support
 
-For help and documentation please feel free to visit our [support center](https://wpcasa.com/support).
+For help and documentation please feel free to visit our [support center](https://wpcasa.com/support) and our [knowledge base](http://docs.wpsight.com/).
 
 ## Contribution
 

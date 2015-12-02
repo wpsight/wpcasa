@@ -1,5 +1,5 @@
 # WPCasa Real Estate #
-[![Plugin](https://img.shields.io/badge/wp.org-v1.0.0-blue.svg?style=flat-square)](https://wordpress.org/plugins/wpcasa/) [![WordPress](https://img.shields.io/wordpress/v/akismet.svg?style=flat-square)](https://codex.wordpress.org/) [![License](https://img.shields.io/badge/license-GPL%202.0%2B-lightgrey.svg?style=flat-square)](https://github.com/wpsight/wpcasa/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-GPL%202.0%2B-lightgrey.svg?style=flat-square)](https://github.com/wpsight/wpcasa/blob/master/LICENSE)
 
 WPCasa is a flexible WordPress solution to create professional real estate websites and manage property listings with ease. Please find more information at [wpcasa.com](https://wpcasa.com).
 
@@ -20,27 +20,28 @@ Please feel free to visit our [demo site](http://demo.wpcasa.com/) where you can
 ## Add-Ons
 Optionally use add-ons built for WPCasa to customize and/or extend the functionality of your real estate website to your special needs.
 
-* [Featured Listings](https://wpcasa.com/add-ons/wpcasa-featured-listings): Feature listings by visually highlighting them and/or making them sticky
-* [Expire Listings](https://wpcasa.com/add-ons/wpcasa-expire-listings): Automatically expire listings after a defined number of days
-* [Favorites](https://wpcasa.com/add-ons/wpcasa-favorites): Let users save their favorite listings and compare them on a single page
-* [Dashboard](https://wpcasa.com/add-ons/wpcasa-dashboard): Let agents submit and manage listings from the front end
-* [Listing Labels](https://wpcasa.com/add-ons/wpcasa-listing-labels): Feature specific listings by visually highlighting with a label
-* [Admin Map UI](https://wpcasa.com/add-ons/wpcasa-admin-map-ui): Set listing location by a click and make map settings in listing editor
-* [Listings Map](https://wpcasa.com/add-ons/wpcasa-listings-map): Show all listings as markers on a central Google Map
-* [List Agents](https://wpcasa.com/add-ons/wpcasa-list-agents): Display a list of agents using a shortocde
+* [Advanced Search](https://wpcasa.com/downloads/wpcasa-advanced-search/) (FREE): Display an expandable area with advanced options in property search form.
+* [Admin Map UI](https://wpcasa.com/downloads/wpcasa-admin-map-ui/): Set the listing location by a click or drag & drop on the map and make individual map settings in the listing editor.
+* [Listing Labels](https://wpcasa.com/downloads/wpcasa-listing-labels/): Feature specific listings by visually highlighting them with a label.
+* [Featured Listings](https://wpcasa.com/downloads/wpcasa-featured-listings/): Feature specific listings by visually highlighting them and/or making them sticky.
+* [Favorites](https://wpcasa.com/downloads/wpcasa-favorites/): Let users save their favorite listings and compare them on a single page.
+* [Ninja Forms](https://wpcasa.com/downloads/wpcasa-ninja-forms/) (FREE): Add support for Ninja Forms to attach property details to the contact email sent from listing pages.
+* [Dashboard](https://wpcasa.com/downloads/wpcasa-dashboard/): Let listing agents submit and manage property listings from the front end.
+* [Listings Map](https://wpcasa.com/downloads/wpcasa-listings-map/) (FREE): Show all listings as markers on a central Google Map using a shortcode.
+* [Expire Listings](https://wpcasa.com/downloads/wpcasa-expire-listings/): Expire listings manually or automatically after a number of days that can be defined in the add-on settings.
+* [Currency Converter](https://wpcasa.com/downloads/wpcasa-currency-converter/): Let users select their preferred currency and display all listing prices accordingly.
+* [List Agents](https://wpcasa.com/downloads/wpcasa-list-agents/) (FREE): Display a list of agents on one page using a shortocde.
 
 More add-ons are currently in the making. If you are missing an add-on or are a developer and would like to talk about creating add-ons for WPCasa, don't hesitate and [get in touch](https://wpcasa.com/contact).
 
 ## Themes
 To hit the ground running have a look at our WordPress themes exclusively built for WPCasa to unfold the great potential of the framework.
 
-* TODO themes list
+* [STAGE](https://wpsight.com/wpcasa/downloads/wpcasa-stage/): STAGE is the perfect starting point for your custom WPCasa theme. It was creating using a lightweight yet powerful CSS framework and comes with many great features built right in.
+* [Twenty Fifteen](https://wpsight.com/wpcasa/downloads/wpcasa-twentyfifteen/) (FREE): If you like the Twenty Fifteen WordPress standard theme and you want to use WPCasa, this theme might be your solution.
+* Many more to come...
 
 If you're a developer and would like to talk about creating themes for WPCasa, don't hesitate and [get in touch](https://wpcasa.com/contact).
-
-## Screenshots
-
-TODO screenshots
 
 ## Support
 

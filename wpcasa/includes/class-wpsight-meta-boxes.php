@@ -14,7 +14,7 @@ class WPSight_Meta_Boxes {
 	public function __construct() {
 
 		// Uncomment the following line if necessary
-		add_filter( 'cmb2_meta_box_url', array( $this, 'cmb2_meta_box_url' ) );
+		// add_filter( 'cmb2_meta_box_url', array( $this, 'cmb2_meta_box_url' ) );
 
 		// Enqueue scripts
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );

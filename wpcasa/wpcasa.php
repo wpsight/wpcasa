@@ -41,14 +41,13 @@ class WPSight_Framework {
 		if ( ! defined( 'WPSIGHT_DOMAIN' ) )
 			define( 'WPSIGHT_DOMAIN', 'wpcasa' );
 		
-		// #TODO Set to real shop URL
 		if ( ! defined( 'WPSIGHT_SHOP_URL' ) )
-			define( 'WPSIGHT_SHOP_URL', 'http://wpsight.com/wpcasa' );
+			define( 'WPSIGHT_SHOP_URL', 'https://wpcasa.com' );
 
 		if ( ! defined( 'WPSIGHT_AUTHOR' ) )
 			define( 'WPSIGHT_AUTHOR', 'WPSight' );
 
-		define( 'WPSIGHT_VERSION', '1.0.0-beta2' );
+		define( 'WPSIGHT_VERSION', '1.0.0' );
 		define( 'WPSIGHT_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 		

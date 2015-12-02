@@ -1,5 +1,5 @@
 # WPCasa Real Estate #
-[![License](https://img.shields.io/badge/license-GPL%202.0%2B-lightgrey.svg?style=flat-square)](https://github.com/wpsight/wpcasa/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-GPL%202.0%2B-lightgrey.svg?style=flat-square)](https://github.com/wpsight/wpcasa/blob/master/wpcasa/LICENSE)
 
 WPCasa is a flexible WordPress solution to create professional real estate websites and manage property listings with ease. Please find more information at [wpcasa.com](https://wpcasa.com).
 

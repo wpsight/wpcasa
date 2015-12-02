@@ -16,7 +16,7 @@ WPCasa is a WordPress solution that provides an intuitive way to manage property
 
 * Website: [wpcasa.com](https://wpcasa.com)
 * Demo: [demo.wpcasa.com](http://demo.wpcasa.com)
-* Documentation: [docs.wpcasa.com](http://docs.wpcasa.com)
+* Documentation: [docs.wpcasa.com](http://docs.wpsight.com/)
 * Add-Ons: [wpcasa.com/add-ons](https://wpcasa.com/add-ons)
 * Themes: [wpcasa.com/themes](https://wpcasa.com/themes)
 * Github: [github.com/wpsight/wpcasa](https://github.com/wpsight/wpcasa)
@@ -94,7 +94,7 @@ If you prefer to install the plugin manually, you need to download it to your lo
 
 Once you have installed and activated WPCasa you will find a new page called "Listings" with the `[wpsight_listings]` shortcode. Add your listings on _WP-Admin > Listings > Add New_ and they will be listed on that page.
 
-For more information about how to get started please [read our documentation](http://docs.wpcasa.com).
+For more information about how to get started please [read our documentation](http://docs.wpsight.com/).
 
 == Frequently Asked Questions ==
 
@@ -106,7 +106,7 @@ For more information about how to get started please [read our documentation](ht
 * `[wpsight_listing_teasers]`: Displays a list of property teasers
 * `[wpsight_listing_teaser]`: Displays a single property teaser
 
-For more information about shortcodes please [read our documentation](http://docs.wpcasa.com/shortcodes).
+For more information about shortcodes please [read our documentation](http://docs.wpsight.com/article/shortcodes/).
 
 = Where can I change currency, measurements etc.?
 
@@ -124,13 +124,10 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 
 1. Listings archive
 2. Single listing
-3. Property search form
-4. Listing teasers
-5. Plugin settings
-
-== Upgrade Notice ==
-
-
+3. Listing teasers
+4. Property search form (horizontal)
+5. Property search form (vertical)
+6. Plugin settings
 
 == Changelog ==
 

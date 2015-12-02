@@ -520,6 +520,17 @@
 
 }
 
+@media (max-width: 599px) {
+
+	.wpsight-listing-agent-image {
+		float: none;
+		margin: 0 0 20px 0;
+		text-align: center;
+		width: 100%;
+	}
+
+}
+
 /* Listing Actions
 ================================================== */
 

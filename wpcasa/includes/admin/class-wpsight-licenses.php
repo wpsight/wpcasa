@@ -71,7 +71,7 @@ class WPSight_Admin_Licenses {
 									<?php endif; ?>									
 									<br />
 									<p class="description">
-										<?php echo esc_attr( $license['desc'] ); ?>
+										<?php echo wp_kses_post( $license['desc'] ); ?>
 									</p>
 								</td>
 							</tr>						

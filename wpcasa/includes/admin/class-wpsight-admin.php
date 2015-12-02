@@ -155,10 +155,10 @@ class WPSight_Admin {
 
 		$licenses = array();
 		
-		$licenses['premium_support'] = array(
-			'name' => __( 'Premium Support', 'wpcasa' ),
-			'desc' => __( 'To receive premium support please enter your support package license key.', 'wpcasa' ),
-			'id'   => 'premium_support'
+		$licenses['support_package'] = array(
+			'name' => __( 'Support Package', 'wpcasa' ),
+			'desc' => __( 'To receive support for a free product please enter your support package license key. <a href="https://wpcasa.com/support/package/" target="_blank">More information&hellip;</a>', 'wpcasa' ),
+			'id'   => 'support_package'
 		);
 		
 		return apply_filters( 'wpsight_licenses', $licenses );

@@ -3,7 +3,7 @@
 Plugin Name: WPCasa
 Plugin URI: http://wpcasa.com
 Description: Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
-Version: 1.0.0-beta2
+Version: 1.0.0
 Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 4.0
@@ -253,6 +253,13 @@ class WPSight_Framework {
 function wpsight() {
 	global $wpsight;
 	
+	// Don't activate plugin add-ons if theme still active
+	
+	if( wp_get_theme()->template == 'wpcasa' ) {
+		remove_all_actions( 'wpsight_init' );
+		return false;
+	}
+	
 	if ( ! isset( $wpsight ) )
 		$wpsight = new WPSight_Framework();
 	
@@ -260,3 +267,26 @@ function wpsight() {
 }
 
 wpsight();
+
+/**
+ *	wpsight_admin_notice_wpcasa()
+ *	
+ *	Make sure users first deactivate
+ *	the old WPCasa theme version.
+ *	Display error message if it is
+ *	still activated.
+ *	
+ *	@uses	wp_get_theme()
+ *	
+ *	@since 1.0.0
+ */
+add_action( 'admin_notices', 'wpsight_admin_notice_wpcasa' );
+
+function wpsight_admin_notice_wpcasa() {
+	
+	if( wp_get_theme()->template != 'wpcasa' )
+		return;
+	
+	echo '<div class="error"><p>' . __( 'Please make sure to <strong>deactivate the old WPCasa theme</strong> in order to use the plugin version. For more information about how to switch please <a href="http://docs.wpsight.com/article/switching-from-theme-version/" target="_blank">read our docs</a>.', 'wpcasa' ) . '</p></div>';
+	
+}

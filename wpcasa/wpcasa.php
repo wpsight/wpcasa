@@ -287,6 +287,6 @@ function wpsight_admin_notice_wpcasa() {
 	if( wp_get_theme()->template != 'wpcasa' )
 		return;
 	
-	echo '<div class="error"><p>' . __( 'Please make sure to <strong>deactivate the old WPCasa theme</strong> in order to use the plugin version. For more information about how to switch please <a href="http://docs.wpsight.com/article/switching-from-theme-version/" target="_blank">read our docs</a>.', 'wpcasa' ) . '</p></div>';
+	echo '<div class="error"><p>' . __( 'Please make sure to <strong>deactivate the WPCasa theme</strong> in order to use the WPCasa plugin version. For more information about how to switch please <a href="http://docs.wpsight.com/article/switching-from-theme-version/" target="_blank">read our docs</a>.', 'wpcasa' ) . '</p></div>';
 	
 }

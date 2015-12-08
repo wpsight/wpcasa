@@ -198,7 +198,7 @@ class WPSight_General {
 		// Return array of specific detail
 
 		if ( $return === false )
-			return $details[$detail];
+			return $details[ $detail ];
 
 		// Only return specific detail element
 
@@ -264,7 +264,7 @@ class WPSight_General {
 
 		// Check if query var in array
 
-		if ( isset( $detail_vars[ $detail ] ) && $detail_vars[$detail] !== false )
+		if ( isset( $detail_vars[ $detail ] ) && $detail_vars[ $detail ] !== false )
 			return $detail_vars[ $detail ];
 
 		return $detail;

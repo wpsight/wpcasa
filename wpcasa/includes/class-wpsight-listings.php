@@ -127,14 +127,16 @@ class WPSight_Listings {
 		// Make sure nr arg works too
 		if ( ! empty( $args['nr'] ) )
 			$args['posts_per_page'] = intval( $args['nr'] );
-
+		
+		// Make sure offset is intval or empty
+		$args['offset'] = ! empty( $args['offset'] ) ? absint( $args['offset'] ) : '';
 
 		$query_args = array(
 			'p'                   => absint( $args['p'] ),
 			'post__in'            => $args['post__in'],
 			'post_type'           => wpsight_post_type(),
 			'ignore_sticky_posts' => $args['ignore_sticky_posts'],
-			'offset'              => absint( $args['offset'] ),
+			'offset'              => $args['offset'],
 			'posts_per_page'      => intval( $args['posts_per_page'] ),
 			'orderby'             => $args['orderby'],
 			'order'               => $args['order'],

@@ -102,11 +102,13 @@ class WPSight_Meta_Boxes {
 			if( $metabox ) {
 				$cmb = new_cmb2_box( $metabox );
 		    	foreach ( $metabox['fields'] as $field ) {
-		    		$field_id = $cmb->add_field( $field );
 		    		if ( 'group' == $field['type'] ) {
-		    			foreach ( $field['fields'] as $key => $value ) {
-		    				$cmb->add_group_field( $field_id, $field );
+			    		$group_field_id = $cmb->add_field( $field );
+		    			foreach ( $field['group_fields'] as $group_field ) {
+		    				$cmb->add_group_field( $group_field_id, $group_field );
 		    			}
+		    		} else {
+			    		$cmb->add_field( $field );
 		    		}
 		    	}
 		    }

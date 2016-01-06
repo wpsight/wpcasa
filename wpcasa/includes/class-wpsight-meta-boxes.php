@@ -604,6 +604,7 @@ class WPSight_Meta_Boxes {
 				'type'      => 'text',
 				'desc'      => __( 'e.g. <code>Marbella, Spain</code> or <code>Platz der Republik 1, 10557 Berlin</code>', 'wpcasa' ),
 				'class'     => 'map-search',
+				'dashboard'	=> true,
 				'priority'  => 10
 			),
 			'note' => array(
@@ -611,6 +612,7 @@ class WPSight_Meta_Boxes {
 				'id'        => '_map_note',
 				'type'      => 'text',
 				'desc'      => __( 'e.g. <code>Location is not the exact address of the listing</code>', 'wpcasa' ),
+				'dashboard'	=> true,
 				'priority'  => 40
 			),
 			'secret' => array(
@@ -618,6 +620,7 @@ class WPSight_Meta_Boxes {
 				'id'        => '_map_secret',
 				'type'      => 'textarea',
 				'desc'      => __( 'Will not be displayed on the website (e.g. complete address)', 'wpcasa' ),
+				'dashboard'	=> true,
 				'priority'  => 50
 			),
 			'hide' => array(
@@ -625,6 +628,7 @@ class WPSight_Meta_Boxes {
 				'id'        => '_map_hide',
 				'type'      => 'checkbox',
 				'desc'		=> __( 'Hide map for this listing', 'wpcasa' ),
+				'dashboard'	=> true,
 				'priority'  => 60
 			)
 		);

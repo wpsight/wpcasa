@@ -192,8 +192,8 @@ class WPSight_Meta_Boxes {
 	 * @param mixed $post
 	 * @uses update_post_meta()
 	 * @uses apply_filters()
-	 * @uses wpSight_Geocode::has_location_data()
-	 * @uses wpSight_Geocode::generate_location_data()
+	 * @uses WPSight_Geocode::has_location_data()
+	 * @uses WPSight_Geocode::generate_location_data()
 	 * @uses sanitize_text_field()
 	 *
 	 * @since 1.0.0
@@ -209,8 +209,8 @@ class WPSight_Meta_Boxes {
 
 		if ( update_post_meta( $post_id, '_map_address', sanitize_text_field( $value[0] ) ) ) {
 			// Location data will be updated by maybe_generate_geolocation_data method
-		} elseif ( apply_filters( 'wpsight_geolocation_enabled', true ) && ! wpSight_Geocode::has_location_data( $post_id ) ) {
-			wpSight_Geocode::generate_location_data( $post_id, sanitize_text_field( $value[0] ) );
+		} elseif ( apply_filters( 'wpsight_geolocation_enabled', true ) && ! WPSight_Geocode::has_location_data( $post_id ) ) {
+			WPSight_Geocode::generate_location_data( $post_id, sanitize_text_field( $value[0] ) );
 		}
 
 	}

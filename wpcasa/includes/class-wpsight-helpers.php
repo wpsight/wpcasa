@@ -122,13 +122,16 @@ class WPSight_Helpers {
 	 */
 	public static function get_option( $name, $default = '' ) {
 
-		// Get wpSight options
+		// Get WPSight options
 		$options = get_option( WPSIGHT_DOMAIN );
+		
+		// Set return
+		$return = false;
 
 		// When option is set, return it
 
 		if ( isset( $options[$name] ) )
-			return $options[$name];
+			$return = $options[$name];
 
 		// Option is not set, but default is true
 
@@ -140,20 +143,20 @@ class WPSight_Helpers {
 			// When default is set, return it
 
 			if ( isset( $defaults[$name] ) )
-				return $defaults[$name];
+				$return = $defaults[$name];
 
 			// If no default, return false
-			return false;
+			$return = false;
 
 		}
 
 		// When default is not empty, return it
 
 		if ( ! empty( $default ) )
-			return $default;
+			$return = $default;
 
 		// If nothing matches, return false
-		return false;
+		return apply_filters( 'wpsight_get_option', $return, $name, $default );
 
 	}
 

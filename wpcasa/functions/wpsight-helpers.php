@@ -20,6 +20,20 @@ function wpsight_post_type() {
 }
 
 /**
+ *	wpsight_taxonomies()
+ *	
+ *	Helper function that returns the
+ *	taxonomies used in the framework.
+ *	
+ *	@return	array
+ *	
+ *	@since 1.0.0
+ */
+function wpsight_taxonomies( $output = 'objects' ) {
+	return WPSight_Helpers::taxonomies( $output );
+}
+
+/**
  *	wpsight_is_listing_single()
  *	
  *	Helper function that checks if

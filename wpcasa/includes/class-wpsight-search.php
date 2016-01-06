@@ -23,7 +23,7 @@ class WPSight_Search {
 	 * taxonomy archive pages.
 	 *
 	 * @uses wpsight_post_type()
-	 * @uses get_object_taxonomies()
+	 * @uses wpsight_taxonomies()
 	 * @uses is_tax()
 	 * @uses $query->is_main_query()
 	 * @uses $query->set()
@@ -34,7 +34,7 @@ class WPSight_Search {
 		
 		// Stop if no listing tax or not main query
 		
-		if( ! is_tax( get_object_taxonomies( wpsight_post_type() ) ) || ! $query->is_main_query() )
+		if( ! is_tax( wpsight_taxonomies( 'names' ) ) || ! $query->is_main_query() )
 			return;
 			
 		// Only allow order vars	

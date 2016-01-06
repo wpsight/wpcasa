@@ -72,7 +72,7 @@ class WPSight_Listings {
 	 * @uses is_user_logged_in()
 	 * @uses wpsight_details()
 	 * @uses wpsight_get_query_var_by_detail()
-	 * @uses get_object_taxonomies()
+	 * @uses wpsight_taxonomies()
 	 * @uses wpsight_get_search_field()
 	 * @return object $result WP_Query object
 	 *
@@ -266,7 +266,7 @@ class WPSight_Listings {
 
 		// Set tax query for listing taxonomies
 
-		foreach ( get_object_taxonomies( wpsight_post_type() ) as $k ) {
+		foreach ( wpsight_taxonomies( 'names' ) as $k ) {
 
 			if ( ! empty( $args[$k] ) ) {
 
@@ -823,10 +823,12 @@ class WPSight_Listings {
 					$listing_details .= '<span class="listing-' . wpsight_dashes( $detail ) . ' listing-details-detail" title="' . wpsight_get_detail( $detail, 'label' ) . '">';
 
 					$listing_details .= '<span class="listing-details-label">' . wpsight_get_detail( $detail, 'label' ) . ':</span> ';
-					$listing_details .= '<span class="listing-details-value">' . wpsight_get_listing_detail( $detail, $post_id ) . '</span>';
+					$listing_details .= '<span class="listing-details-value">' . wpsight_get_listing_detail( $detail, $post_id );
 
 					if ( wpsight_get_detail( $detail, 'unit' ) )
 						$listing_details .= ' ' . wpsight_get_measurement( wpsight_get_detail( $detail, 'unit' ) );
+					
+					$listing_details .= '</span>';
 
 					$listing_details .= '</span><!-- .listing-' . wpsight_dashes( $detail ) . ' -->' . "\n";
 

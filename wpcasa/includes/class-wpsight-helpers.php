@@ -30,6 +30,34 @@ class WPSight_Helpers {
 	}
 
 	/**
+	 * taxonomies()
+	 *
+	 * Helper function that returns the
+	 * taxonomies used in the framework.
+	 *
+	 * @return array
+	 *
+	 * @since 1.0.2
+	 */
+	public static function taxonomies( $output = 'objects' ) {
+		
+		// Set framework taxonomies
+
+		$taxonomies = array(
+			'location'			=> get_taxonomy( 'location' ),
+			'feature'			=> get_taxonomy( 'feature' ),
+			'listing-type'		=> get_taxonomy( 'listing-type' ),
+			'listing-category'	=> get_taxonomy( 'listing-category' )
+		);
+		
+		if( 'names' == $output )
+			$taxonomies = array_keys( $taxonomies );
+		
+		return apply_filters( 'wpsight_taxonomies', $taxonomies, $output );
+
+	}
+
+	/**
 	 * is_listing_single()
 	 *
 	 * Helper function that checks if
@@ -100,7 +128,7 @@ class WPSight_Helpers {
 
 		$is = false;
 
-		if ( is_tax( get_object_taxonomies( wpsight_post_type() ) ) || wpsight_is_listing_agent_archive( $query ) )
+		if ( is_tax( wpsight_taxonomies( 'names' ) ) || wpsight_is_listing_agent_archive( $query ) )
 			$is = true;
 
 		return apply_filters( 'wpsight_is_listings_archive', $is, $query );

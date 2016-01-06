@@ -1282,7 +1282,7 @@ class WPSight_Admin_CPT {
 	 *	
 	 *	@access	public
 	 *	@uses	wpsight_post_type()
-	 *	@uses	get_object_taxonomies()
+	 *	@uses	wpsight_taxonomies()
 	 *	@uses	get_terms()
 	 *	@uses	wp_dropdown_categories()
 	 *	
@@ -1294,7 +1294,7 @@ class WPSight_Admin_CPT {
 		if( $typenow != wpsight_post_type() )
 			return;
 	    
-	    $filters = get_object_taxonomies( $typenow, 'objects' );
+	    $filters = wpsight_taxonomies();
 	    
 		foreach( $filters as $tax_obj ) {
 			

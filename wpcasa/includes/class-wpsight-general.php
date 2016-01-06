@@ -934,7 +934,7 @@ class WPSight_General {
 	 * Return taxonomy query vars for listings
 	 *
 	 * @uses wpsight_post_type()
-	 * @uses get_object_taxonomies()
+	 * @uses wpsight_taxonomies()
 	 * @uses get_query_var()
 	 * @return array
 	 *
@@ -947,7 +947,7 @@ class WPSight_General {
 
 		// Loop through taxonomies
 
-		foreach ( get_object_taxonomies( wpsight_post_type() ) as $k )
+		foreach ( wpsight_taxonomies( 'names' ) as $k )
 			$vars[$k] = get_query_var( $k );
 
 		return $vars;

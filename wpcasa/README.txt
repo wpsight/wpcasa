@@ -98,7 +98,7 @@ For more information about how to get started please [read our documentation](ht
 
 == Frequently Asked Questions ==
 
-= Which shortcodes are included?
+= Which shortcodes are included? =
 
 * `[wpsight_listings]`: Displays a list of your latest properites
 * `[wpsight_listings_search]`: Displays the property search form
@@ -108,7 +108,7 @@ For more information about how to get started please [read our documentation](ht
 
 For more information about shortcodes please [read our documentation](http://docs.wpsight.com/article/shortcodes/).
 
-= Where can I change currency, measurements etc.?
+= Where can I change currency, measurements etc.? =
 
 You can fit general plugin settings to your needs on _WP-Admin > WPCasa > Settings > [tab] Listings_. Things like listing ID prefix, measurement unit, currency, standard listing features, rental periods and more can be set here.
 

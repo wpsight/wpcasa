@@ -131,6 +131,12 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 
 == Changelog ==
 
+= 1.0.2 =
+* Add wpsight_get_option filter hook
+* Make location fields visible in dashboard
+* Add helper function wpsight_taxonomies()
+* Correct WPSight_Geocode class name
+
 = 1.0.1 =
 * Fix custom query pagination (offset must be set or empty string)
 * Fix CMB2 group fields handling through wpsight_meta_boxes filter
@@ -140,5 +146,5 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 
 == Upgrade Notice ==
 
-= 1.0.1 =
-Fixed pagination in WordPress 4.4 and CMB2 group fields
+= 1.0.2 =
+Maintenance release with minor fixes and improvements

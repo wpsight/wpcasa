@@ -158,30 +158,30 @@ class WPSight_Helpers {
 
 		// When option is set, return it
 
-		if ( isset( $options[$name] ) )
-			$return = $options[$name];
+		if ( isset( $options[ $name ] ) ) {
+			
+			$return = $options[ $name ];
 
-		// Option is not set, but default is true
+		} else {
 
-		if ( $default === true ) {
+			// Option is not set, but default is true
+			
+			if ( $default === true ) {
+			
+				// Get default options
+				$defaults = self::options_defaults();
+			
+				// When default is set, return it, else false
+				$return = isset( $defaults[ $name ] ) ? $defaults[ $name ] : false;
+			
+			} elseif ( ! empty( $default ) ) {
+				
+				// When default is not empty, return it
+				$return = $default;
 
-			// Get default options
-			$defaults = self::options_defaults();
-
-			// When default is set, return it
-
-			if ( isset( $defaults[$name] ) )
-				$return = $defaults[$name];
-
-			// If no default, return false
-			$return = false;
-
+			}
+		
 		}
-
-		// When default is not empty, return it
-
-		if ( ! empty( $default ) )
-			$return = $default;
 
 		// If nothing matches, return false
 		return apply_filters( 'wpsight_get_option', $return, $name, $default );

@@ -3,8 +3,8 @@ Contributors: wpsight, jancbeck, simonrimkus
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZRR56U2VTPZAQ
 Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
 Requires at least: 4.0
-Tested up to: 4.4
-Stable tag: 1.0.2
+Tested up to: 4.4.1
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -131,6 +131,12 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 
 == Changelog ==
 
+= 1.0.3 =
+* Hide listing label when label is empty
+* Hide rental periods when label is empty
+* Fix default handling in wpsight_get_option()
+* Minor code cosmetics
+
 = 1.0.2 =
 * Add wpsight_get_option filter hook
 * Make location fields visible in dashboard
@@ -146,5 +152,5 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 
 == Upgrade Notice ==
 
-= 1.0.2 =
-Maintenance release with minor fixes and improvements
+= 1.0.3 =
+Fixes a bug with default values from settings (e.g. currency) and add some minor improvements.

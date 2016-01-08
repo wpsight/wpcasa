@@ -273,7 +273,7 @@ class WPSight_Admin {
 
 		foreach ( wpsight_details() as $feature_id => $value ) {
 
-			$options_listings[$feature_id] = array(
+			$options_listings[ $feature_id ] = array(
 				'name'    => __( 'Standard Feature', 'wpcasa' ) . ' #' . $i,
 				'id'      => $feature_id,
 				'desc'    => $value['description'],
@@ -302,7 +302,7 @@ class WPSight_Admin {
 
 		foreach ( wpsight_rental_periods() as $period_id => $value ) {
 
-			$options_listings[$period_id] = array(
+			$options_listings[ $period_id ] = array(
 				'name'    => __( 'Rental Period', 'wpcasa' ) . ' #' . $i,
 				'id'      => $period_id,
 				'default' => $value,

@@ -730,6 +730,7 @@ class WPSight_Listings {
 	 *
 	 * @param string  $detail  wpsight_details() key
 	 * @param integer $post_id Post ID
+	 * @uses wpsight_get_option()
 	 * @uses get_the_ID()
 	 * @uses get_post_meta()
 	 * @uses wpsight_get_detail()
@@ -740,6 +741,13 @@ class WPSight_Listings {
 	public static function get_listing_detail( $detail, $post_id = '' ) {
 
 		if ( empty( $detail ) )
+			return;
+		
+		// Check if label is settings is empty
+
+		$option = wpsight_get_option( $detail );
+		
+		if( empty( $option['label'] ) )
 			return;
 
 		// Use global post ID if not defined
@@ -1028,8 +1036,6 @@ class WPSight_Listings {
 
 					// Get thousands separator
 					$listing_price_format = wpsight_get_option( 'currency_separator', true );
-
-					$listing_price_format = 'dot';
 
 					// Add thousands separators
 

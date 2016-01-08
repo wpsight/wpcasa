@@ -455,7 +455,7 @@ class WPSight_Meta_Boxes {
 				'name'      => __( 'Period', 'wpcasa' ),
 				'id'        => '_price_period',
 				'type'      => 'select',
-				'options'   => array_merge( array( '' => __( 'None', 'wpcasa' ) ), wpsight_rental_periods() ),
+				'options'   => array_merge( array( '' => __( 'None', 'wpcasa' ) ), array_filter( wpsight_rental_periods() ) ),
 				'dashboard' => true,
 				'priority'  => 30
 			)

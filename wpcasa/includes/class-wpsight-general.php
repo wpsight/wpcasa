@@ -391,14 +391,8 @@ class WPSight_General {
 
 		// Loop through details and check against database
 
-		foreach ( $rental_periods as $period => $value ) {
-
-			$rental_periods_option = wpsight_get_option( $period );
-
-			if ( ! empty( $rental_periods_option ) )
-				$rental_periods[ $period ] = $rental_periods_option;
-
-		}
+		foreach ( $rental_periods as $period => $value )
+			$rental_periods[ $period ] = wpsight_get_option( $period );
 
 		return $rental_periods;
 

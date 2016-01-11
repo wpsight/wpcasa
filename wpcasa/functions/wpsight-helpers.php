@@ -29,8 +29,12 @@ function wpsight_post_type() {
  *	
  *	@since 1.0.0
  */
-function wpsight_taxonomies( $output = 'objects' ) {
-	return WPSight_Helpers::taxonomies( $output );
+if( ! function_exists( 'wpsight_taxonomies' ) ) {
+	
+	function wpsight_taxonomies( $output = 'objects' ) {
+		return WPSight_Helpers::taxonomies( $output );
+	}
+
 }
 
 /**

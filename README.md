@@ -37,6 +37,7 @@ More add-ons are currently in the making. If you are missing an add-on or are a 
 ## Themes
 To hit the ground running have a look at our WordPress themes exclusively built for WPCasa to unfold the great potential of the framework.
 
+* [Sylt](https://wpcasa.com/downloads/wpcasa-sylt/): Sylt for WPCasa is a truly elegant and versatile real estate WordPress theme with a powerful home page template, infinite color options, flexible widiget areas and many handy tools.
 * [Bahia](https://wpcasa.com/downloads/wpcasa-bahia/): Bahia is ready to use solution for WPCasa with a great design and a lot of handy tools. Infinite color options, custom header image, home page template and useful widgets and more.
 * [Elviria](https://wpcasa.com/downloads/wpcasa-elviria/): The Elviria theme is turn-key solution to use WPCasa with a professional design and a lot of handy tools. Accent color option, home page templates and custom widgets to name a few.
 * [upTown](https://wpcasa.com/downloads/uptown/) (FREE): upTown is a simple and clean personal blog theme. Use it in combination with WPCasa to easily build a fully-featured real estate website.

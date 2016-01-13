@@ -161,5 +161,5 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 
 == Upgrade Notice ==
 
-= 1.0.3.1 =
-Hotfix to avoid fatal error with wpsight_taxonomies() in v1.0.3 and some themes.
+= 1.0.4 =
+Fixes some gallery issues with the dashboard add-on and adds missing string in German translation.

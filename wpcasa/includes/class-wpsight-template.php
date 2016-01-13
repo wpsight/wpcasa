@@ -277,9 +277,9 @@ class WPSight_Template {
 		global $wp_query, $wpsight_query;
 
 		if ( isset( $wpsight_query->found_posts ) ) {
-			$title = '<span class="listings-panel-found">' . $wpsight_query->found_posts . '</span>' . ' ' . _n( 'Listing', 'Listings', $wpsight_query->found_posts, 'wpcasa' );
+			$title = '<span class="listings-panel-found">' . $wpsight_query->found_posts . '</span>' . ' ' . _nx( 'Listing', 'Listings', intval( $wpsight_query->found_posts ), 'archive title', 'wpcasa' );			
 		} elseif ( isset( $wp_query->found_posts ) ) {
-			$title = '<span class="listings-panel-found">' . $wp_query->found_posts . '</span>' . ' ' . _n( 'Listing', 'Listings', $wp_query->found_posts, 'wpcasa' );
+			$title = '<span class="listings-panel-found">' . $wp_query->found_posts . '</span>' . ' ' . _nx( 'Listing', 'Listings', intval( $wp_query->found_posts ), 'archive title', 'wpcasa' );
 		} else {
 			$title = __( 'Listings', 'wpcasa' );
 		}

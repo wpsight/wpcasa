@@ -770,7 +770,7 @@ class WPSight_Helpers {
 	public function check_gallery_upgrade() {
 
 		// run the upgrade only once per site
-		if ( false === wpsight_get_option( 'cmb2_gallery_upgraded', false ) ) {
+		if ( false === wpsight_get_option( 'wpsight_gallery_upgraded', false ) ) {
 
 			$listings = get_posts( array( 
 				'no_paging'   => true, 
@@ -783,7 +783,8 @@ class WPSight_Helpers {
 				self::maybe_update_gallery( $listing_id );
 			
 			// save the option for future checks
-			wpsight_add_option( 'cmb2_gallery_upgraded', true );
+			wpsight_add_option( 'wpsight_gallery_upgraded', true );
+
 		}
 		
 	}
@@ -807,58 +808,59 @@ class WPSight_Helpers {
 	 * @since 1.0.0
 	 */
 	public static function maybe_update_gallery( $listing_id ) {
-
-		$gallery = get_post_meta( $listing_id, '_gallery' );
+		
+		// Check if gallery has already been imported
 		$gallery_imported = get_post_meta( $listing_id, '_gallery_imported', true );
-
-		if ( $gallery_imported ) {
-			return false;
-		}
-
-		// 1. if the first and only element in the array is not numberic we asume the format is correct
-		if ( ! empty( $gallery[0] ) && 1 === count( $gallery ) && ! is_numeric( $gallery[0] )) {
-			return false;
-		}
-
-		// 2. if there isn't at least one element in the array use all attachment images as defaults
-		if ( empty( $gallery ) ) {
+		
+		if( ! $gallery_imported ) {
+		
+			// Check existing gallery
+			$gallery = get_post_meta( $listing_id, '_gallery', true );
 			
-			// Get all image attachments of the listing
-			$gallery = get_posts(
+			// Get all image attachments
+			
+			$attachments = get_posts(
 				array(
 					'post_type'      => 'attachment',
 					'posts_per_page' => -1,
 					'post_parent'    => $listing_id,
 					'post_mime_type' => 'image',
 					'orderby'        => 'menu_order',
-					'fields'         => 'ids',
-					'post__not_in'   => array( absint( get_post_meta( $listing_id, '_agent_logo_id', true ) ) )
+					'fields'         => 'ids'
 				)
 			);
-		}	
-		
-		// delete duplicate keys
-		delete_post_meta( $listing_id, '_gallery' );
-		
-		// prevent future checks
-		update_post_meta( $listing_id, '_gallery_imported', true );
-
-		if ( ! empty( $gallery )) {
-			$gallery_ids = array();
 			
-			foreach ( $gallery as $attachment_id ) {
-				$image_src = wp_get_attachment_image_src( $attachment_id, 'full' );
-
-				// check if the attachment exists
-				if ( isset($image_src[0])) {
-					// the new format expects $attachment_id as key and URL as value
-					$gallery_ids[$attachment_id] = $image_src[0];
+			/**
+			 * If still no gallery is available and it
+			 * hasn't been imported yet, but there are
+			 * attachments, create gallery custom fields
+			 * with attachment IDs.
+			 */
+			
+			if( ! $gallery && $attachments ) {
+				
+				$gallery_ids = array();
+			
+				foreach ( $attachments as $attachment_id ) {
+				
+					$image_src = wp_get_attachment_image_src( $attachment_id, 'full' );
+				
+					// check if the attachment exists
+					if ( isset( $image_src[0] ) ) {
+						// the new format expects $attachment_id as key and URL as value
+						$gallery_ids[ $attachment_id ] = $image_src[0];
+					}
 				}
+				
+				if ( ! empty( $gallery_ids ) ) {
+					return update_post_meta( $listing_id, '_gallery', $gallery_ids );
+				}
+			
 			}
-			if ( ! empty( $gallery_ids )) {
-				return update_post_meta( $listing_id, '_gallery', $gallery_ids );
-			}
-
+			
+			// prevent future checks
+			update_post_meta( $listing_id, '_gallery_imported', true );
+		
 		}
 		
 		return false;

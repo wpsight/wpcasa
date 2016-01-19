@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
 Requires at least: 4.0
 Tested up to: 4.4.1
-Stable tag: 1.0.4
+Stable tag: 1.0.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -132,6 +132,9 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 
 == Changelog ==
 
+= 1.0.4.1 =
+* Add wpsight_profile_agent_update_post_meta filter for WPCasa Polylang
+
 = 1.0.4 =
 * Improve maybe_update_gallery()
 * Add missing string in German translation
@@ -161,5 +164,5 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 
 == Upgrade Notice ==
 
-= 1.0.4 =
-Fixes some gallery issues with the dashboard add-on and adds missing string in German translation.
+= 1.0.4.1 =
+* Small improvement for the WPCasa Polylang add-on

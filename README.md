@@ -31,6 +31,7 @@ Optionally use add-ons built for WPCasa to customize and/or extend the functiona
 * [Expire Listings](https://wpcasa.com/downloads/wpcasa-expire-listings/): Expire listings manually or automatically after a number of days that can be defined in the add-on settings.
 * [Currency Converter](https://wpcasa.com/downloads/wpcasa-currency-converter/): Let users select their preferred currency and display all listing prices accordingly.
 * [List Agents](https://wpcasa.com/downloads/wpcasa-list-agents/) (FREE): Display a list of agents on one page using a shortocde.
+* [Polylang](https://wpcasa.com/downloads/wpcasa-polylang/) (FREE): Adds support for Polylang to manage properties in multiple languages.
 
 More add-ons are currently in the making. If you are missing an add-on or are a developer and would like to talk about creating add-ons for WPCasa, don't hesitate and [get in touch](https://wpcasa.com/contact).
 

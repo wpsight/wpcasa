@@ -95,9 +95,9 @@ class WPSight_Admin_Agents {
 	    if ( ! current_user_can( 'listing_admin' ) && ! current_user_can( 'administrator' ) )
 	        return false;
 	        
-		$_POST['agent_update'] = isset( $_POST['agent_update'] ) ? $_POST['agent_update'] : false;
+		$agent_update = isset( $_POST['agent_update'] ) ? $_POST['agent_update'] : false;
 		
-		if( $_POST['agent_update'] ) {
+		if( $agent_update ) {
 			
 			// Get all listings created by this user
 			$user_listings = wpsight_get_user_posts_by_type( $user_id, wpsight_post_type() );
@@ -105,15 +105,15 @@ class WPSight_Admin_Agents {
 			// Map listing agent options with profile info
 			
 			$agent_options = array(
-				'_agent_name'			=> sanitize_text_field( $_POST['display_name'] ),
-				'_agent_company'		=> sanitize_text_field( $_POST['company'] ),
-				'_agent_phone'			=> sanitize_text_field( $_POST['phone'] ),
-				'_agent_description'	=> trim( $_POST['description'] ),
-				'_agent_website'		=> esc_url_raw( $_POST['url'] ),
-				'_agent_twitter'		=> sanitize_text_field( $_POST['twitter'] ),
-				'_agent_facebook'		=> sanitize_text_field( $_POST['facebook'] ),
-				'_agent_logo'			=> sanitize_text_field( $_POST['agent_logo'] ),
-				'_agent_logo_id'		=> sanitize_text_field( $_POST['agent_logo_id'] )
+				'_agent_name'			=> isset( $_POST['display_name'] ) ? 	sanitize_text_field( $_POST['display_name'] ) : '',
+				'_agent_company'		=> isset( $_POST['company'] ) ? 		sanitize_text_field( $_POST['company'] ) : '',
+				'_agent_phone'			=> isset( $_POST['phone'] ) ? 			sanitize_text_field( $_POST['phone'] ) : '',
+				'_agent_description'	=> isset( $_POST['description'] ) ? 	wp_kses_post( $_POST['description'] ) : '',
+				'_agent_website'		=> isset( $_POST['url'] ) ? 			esc_url_raw( $_POST['url'] ) : '',
+				'_agent_twitter'		=> isset( $_POST['twitter'] ) ? 		sanitize_text_field( $_POST['twitter'] ) : '',
+				'_agent_facebook'		=> isset( $_POST['facebook'] ) ? 		sanitize_text_field( $_POST['facebook'] ) : '',
+				'_agent_logo'			=> isset( $_POST['agent_logo'] ) ? 		sanitize_text_field( $_POST['agent_logo'] ) : '',
+				'_agent_logo_id'		=> isset( $_POST['agent_logo_id'] ) ? 	sanitize_text_field( $_POST['agent_logo_id'] ) : ''
 			);
 			
 			$agent_options = apply_filters( 'wpsight_profile_agent_update_save_options', $agent_options, $user_id );
@@ -124,8 +124,15 @@ class WPSight_Admin_Agents {
 				
 				// Loop through listing agent options
 				
-				foreach( (array) $agent_options as $option => $getpost )
+				foreach( (array) $agent_options as $option => $getpost ) {
+					
+					// Add filter before actually saving the data
+					$getpost = apply_filters( 'wpsight_profile_agent_update_post_meta', $getpost, $option, $post_id, $agent_options );
+
+					// Update post meta
 					update_post_meta( $post_id, $option, $getpost );
+
+				}
 
 			}
 			

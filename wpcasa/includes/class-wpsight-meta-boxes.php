@@ -20,7 +20,7 @@ class WPSight_Meta_Boxes {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
 
 		// Add custom meta boxes
-		add_action( 'cmb2_admin_init', array( $this, 'admin_meta_boxes' ) );
+		add_action( 'cmb2_init', array( $this, 'admin_meta_boxes' ) );
 
 		// Set default listing ID
 		add_action( 'wp_insert_post', array( $this, 'admin_listing_id_default' ), null, 2 );
@@ -307,7 +307,7 @@ class WPSight_Meta_Boxes {
 			'listing_attributes' => self::meta_box_listing_attributes(),
 			'listing_price'      => self::meta_box_listing_price(),
 			'listing_details'    => self::meta_box_listing_details(),
-			// 'listing_images'     => self::meta_box_listing_images(),
+			'listing_images'     => self::meta_box_listing_images(),
 			'listing_location'   => self::meta_box_listing_location(),
 			'listing_agent'      => self::meta_box_listing_agent(),
 			'user'      		 => self::meta_box_user()

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
 Requires at least: 4.0
 Tested up to: 4.4.1
-Stable tag: 1.0.4.1
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,13 @@ WPCasa comes with readable & well-documented code with loads of actions, filters
 = Translation Ready =
 
 The real estate business is international. And so is WPCasa. The framework and all our add-ons and themes are translation-ready.
+
+= Translations =
+
+* de_DE: Simon Rimkus (WPSight)
+* es_ES: Simon Rimkus (WPSight)
+
+POT file with text strings is included. If you would like to add a translation and see your name here, please [get in touch](https://wpcasa.com/contact/).
 
 = Other Features =
 
@@ -131,6 +138,9 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 7. Property Management
 
 == Changelog ==
+
+= 1.0.5 =
+* Add Spanish language files
 
 = 1.0.4.1 =
 * Add wpsight_profile_agent_update_post_meta filter for WPCasa Polylang

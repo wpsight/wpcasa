@@ -52,6 +52,13 @@ If you're a developer and would like to talk about creating themes for WPCasa, d
 
 For help and documentation please feel free to visit our [support center](https://wpcasa.com/support) and our [knowledge base](http://docs.wpsight.com/).
 
+## Translations
+
+* de_DE: Simon Rimkus (WPSight)
+* es_ES: Simon Rimkus (WPSight)
+
+POT file with text strings is included. If you would like to add a translation and see your name here, please [get in touch](https://wpcasa.com/contact/).
+
 ## Contribution
 
 You are warmly welcome to contribute to WPCasa. No matter if you find a typo or a bug, if you want to suggest a cool new feature or if you want to help us to translate WPCasa... we would like to hear you. Here's how you could get started.

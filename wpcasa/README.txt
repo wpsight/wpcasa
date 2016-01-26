@@ -55,8 +55,8 @@ The real estate business is international. And so is WPCasa. The framework and a
 
 = Translations =
 
-* de_DE: Simon Rimkus (WPSight)
-* es_ES: Simon Rimkus (WPSight)
+* German (de_DE): Simon Rimkus (WPSight)
+* Spanish (es_ES): Simon Rimkus (WPSight)
 
 POT file with text strings is included. If you would like to add a translation and see your name here, please [get in touch](https://wpcasa.com/contact/).
 

@@ -95,25 +95,7 @@ class WPSight_Meta_Boxes {
 	 * @since 1.0.0
 	 */
 	public function admin_meta_boxes( ) {
-
-		$meta_boxes = wpsight_meta_boxes();
-
-		foreach ( $meta_boxes as $metabox ) {
-			if( $metabox ) {
-				$cmb = new_cmb2_box( $metabox );
-		    	foreach ( $metabox['fields'] as $field ) {
-		    		if ( 'group' == $field['type'] ) {
-			    		$group_field_id = $cmb->add_field( $field );
-		    			foreach ( $field['group_fields'] as $group_field ) {
-		    				$cmb->add_group_field( $group_field_id, $group_field );
-		    			}
-		    		} else {
-			    		$cmb->add_field( $field );
-		    		}
-		    	}
-		    }
-		}	
-
+		array_map( 'new_cmb2_box', wpsight_meta_boxes());
 	}
 
 	/**
@@ -771,9 +753,6 @@ class WPSight_Meta_Boxes {
 	public static function meta_box_user() {
 
 		// Set meta box fields for users
-
-		if ( ! current_user_can( 'edit_user' ) )
-			return;
 
 		$fields = array(
 			array(

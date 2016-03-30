@@ -4,7 +4,7 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Project-Id-Version: WPCasa\n"
 "POT-Creation-Date: 2016-03-10 07:24+0500\n"
-"PO-Revision-Date: 2016-03-10 07:34+0500\n"
+"PO-Revision-Date: 2016-03-30 03:02+0500\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -188,7 +188,7 @@ msgstr ""
 
 #: includes/admin/class-wpsight-admin.php:263
 msgid "Listing Features"
-msgstr ""
+msgstr "Особенности"
 
 #: includes/admin/class-wpsight-admin.php:264
 msgid "Please check the box to edit the listing standard features."
@@ -250,7 +250,7 @@ msgstr ""
 #: includes/class-wpsight-meta-boxes.php:446
 #: includes/class-wpsight-search.php:223
 msgid "Offer"
-msgstr ""
+msgstr "Предложение"
 
 #: includes/admin/class-wpsight-cpt.php:92
 msgid "ID"
@@ -288,7 +288,7 @@ msgstr "Изменить"
 
 #: includes/admin/class-wpsight-cpt.php:195
 msgid "Sticky"
-msgstr ""
+msgstr "Прилеплен"
 
 #: includes/admin/class-wpsight-cpt.php:200
 msgid "Featured"
@@ -316,13 +316,13 @@ msgstr ""
 #: includes/admin/class-wpsight-cpt.php:486
 #: includes/admin/class-wpsight-cpt.php:487
 msgid "Approve"
-msgstr ""
+msgstr "Утвердить"
 
 #: includes/admin/class-wpsight-cpt.php:340
 #: includes/admin/class-wpsight-cpt.php:489
 #: includes/admin/class-wpsight-cpt.php:490
 msgid "Unapprove"
-msgstr ""
+msgstr "Отменить одобрение"
 
 #: includes/admin/class-wpsight-cpt.php:348
 msgid "Mark available"
@@ -334,7 +334,7 @@ msgstr ""
 
 #: includes/admin/class-wpsight-cpt.php:356
 msgid "Trash"
-msgstr ""
+msgstr "Мусор"
 
 #: includes/admin/class-wpsight-cpt.php:366
 msgid "Restore"
@@ -516,11 +516,11 @@ msgstr[2] ""
 
 #: includes/admin/class-wpsight-cpt.php:1265
 msgid "Offers"
-msgstr ""
+msgstr "Предложения"
 
 #: includes/admin/class-wpsight-cpt.php:1272
 msgid "Not Available"
-msgstr ""
+msgstr "Не Доступно"
 
 #: includes/admin/class-wpsight-cpt.php:1343
 msgid "Agents"
@@ -1108,7 +1108,7 @@ msgstr ""
 
 #: includes/class-wpsight-listings.php:980
 msgid "Price on request"
-msgstr ""
+msgstr "Цена по запросу"
 
 #: includes/class-wpsight-meta-boxes.php:343
 msgid "Availability"
@@ -1508,7 +1508,7 @@ msgstr "Категория"
 #: includes/class-wpsight-post-types.php:271
 msgctxt "listing"
 msgid "Listings"
-msgstr ""
+msgstr "Объявления"
 
 #: includes/class-wpsight-post-types.php:254
 msgctxt "listing"
@@ -1543,17 +1543,17 @@ msgstr ""
 #: includes/class-wpsight-post-types.php:260
 msgctxt "listing"
 msgid "Search Listings"
-msgstr ""
+msgstr "Поиск объявлений"
 
 #: includes/class-wpsight-post-types.php:261
 msgctxt "listing"
 msgid "No listings found"
-msgstr ""
+msgstr "Не найдено"
 
 #: includes/class-wpsight-post-types.php:262
 msgctxt "listing"
 msgid "No listings found in Trash"
-msgstr ""
+msgstr "В Корзине объявления не найдены"
 
 #: includes/class-wpsight-post-types.php:272
 msgctxt "listing"
@@ -1586,7 +1586,7 @@ msgstr "Очистить поиск"
 
 #: includes/class-wpsight-search.php:211
 msgid "Keyword or Listing ID"
-msgstr ""
+msgstr "Ключевое слово или номер объявления"
 
 #: includes/class-wpsight-search.php:217
 msgid "Search"
@@ -2166,7 +2166,7 @@ msgstr ""
 #: wpcasa.php:200
 msgctxt "listings page title"
 msgid "Listings"
-msgstr ""
+msgstr "Объявления"
 
 #: wpcasa.php:290
 msgid ""

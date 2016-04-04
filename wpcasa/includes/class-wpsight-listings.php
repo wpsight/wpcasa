@@ -370,8 +370,8 @@ class WPSight_Listings {
 		$exclude_unavailable = $wpdb->get_col( $wpdb->prepare( "
 		    SELECT DISTINCT post_id FROM {$wpdb->postmeta}
 		    WHERE ( meta_key = '%s' OR meta_key = '%s' )
-		    AND meta_value = '%s'
-		", '_price_sold_rented', '_listing_not_available', '1' ) );
+		    AND ( meta_value = '%s' OR meta_value = '%s' )
+		", '_price_sold_rented', '_listing_not_available', '1', 'on' ) );
 
 		if ( ! empty( $exclude_unavailable ) && apply_filters( 'wpsight_exclude_unavailable', false ) == true )
 			$query_args['post__not_in'] = $exclude_unavailable;

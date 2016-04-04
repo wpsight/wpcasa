@@ -12,66 +12,12 @@ class WPSight_Admin_Agents {
 	 */
 	public function __construct() {
 		
-		add_filter( 'user_contactmethods', array( $this, 'profile_contact_fields' ) );
-		
-		add_action( 'show_user_profile', array( $this, 'profile_agent_update' ) );
-		add_action( 'edit_user_profile', array( $this, 'profile_agent_update' ) );
-		
 		add_action( 'personal_options_update', array( $this, 'profile_agent_update_save' ) );
 		add_action( 'edit_user_profile_update', array( $this, 'profile_agent_update_save' ) );
 		
 		add_action( 'pre_get_posts', array( $this, 'filter_media_files' ) );
 		add_filter( 'wp_count_attachments', array( $this, 'recount_attachments' ) );
 
-	}
-	
-	/**
-	 *	profile_contact_fields()
-	 *	
-	 *	Add custom user profile fields
-	 *	using user_contactmethods filter hook.
-	 *	
-	 *	@param	array	$fields	WordPress user contact methods
-	 *	@uses	wpsight_profile_contact_fields()
-	 *	@return	array	$fields	Updated contact methods
-	 *	
-	 *	@since 1.0.0
-	 */
-	public function profile_contact_fields( $fields ) {
-		
-		// Add custom fields
-		
-		foreach( wpsight_profile_contact_fields() as $k => $v )
-			$fields[$k]	= $v['label'];
-		
-		return apply_filters( 'wpsight_do_profile_contact_fields', $fields );
-	}
-	
-	/**
-	 *	profile_agent_update()
-	 *	
-	 *	Add update agent data in listings option to profile
-	 *	
-	 *	@param	object	$user	The WP_User object of the user being edited
-	 *	@uses current_user_can()
-	 *	
-	 *	@since 1.0.0
-	 */
-	public function profile_agent_update( $user ) {
-		
-		if ( ! current_user_can( 'listing_admin' ) && ! current_user_can( 'administrator' ) )
-	        return false; ?>
-	
-	    <table class="form-table">
-	        <tr>
-	            <th><label for="agent_exclude"><?php _e( 'Agent Update', 'wpcasa' ); ?></label></th>
-	            <td>
-	                <input type="checkbox" value="1" name="agent_update" id="agent_update" style="margin-right:5px">
-	                <?php _e( 'Update agent info of all listings created by this user', 'wpcasa' ); ?>
-	            </td>
-	        </tr>
-	    </table><?php
-	    
 	}
 	
 	/**
@@ -136,6 +82,11 @@ class WPSight_Admin_Agents {
 
 			}
 			
+			// Remove update value to let checkbox unchecked
+
+			update_user_meta( $user_id, 'agent_update', '' );
+			$_POST['agent_update'] = '';
+			
 		}
 	
 	}
@@ -159,7 +110,7 @@ class WPSight_Admin_Agents {
 	    if ( 'upload' != get_current_screen()->id )
 	    	return;
 		    
-		if( current_user_can( 'edit_listings' ) && ! current_user_can( 'read_private_listings' ) )
+		if( current_user_can( 'edit_listings' ) && ! current_user_can( 'read_private_listings' ) && $wp_query->query['post_type'] === 'attachment' )
 			$wp_query->set( 'author', get_current_user_id() );
 
 	}

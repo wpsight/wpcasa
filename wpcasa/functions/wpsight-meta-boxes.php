@@ -99,14 +99,30 @@ function wpsight_meta_box_listing_location() {
  *	
  *	Create listing agent box
  *	
- *	@uses	WPSight_Meta_Boxes::meta_box_user()
+ *	@uses	WPSight_Meta_Boxes::meta_box_user_agent()
  *	@return	array	$meta_box	Meta box array with fields
  *	@see	wpsight_meta_boxes()
  *	
  *	@since 1.0.0
  */
 function wpsight_meta_box_user() {
-    return WPSight_Meta_Boxes::meta_box_user();
+	_deprecated_function( __FUNCTION__, '1.0.6', 'wpsight_meta_box_user_agent()' );
+    return WPSight_Meta_Boxes::meta_box_user_agent();
+}
+
+/**
+ *	wpsight_meta_box_user_agent()
+ *	
+ *	Create listing agent box
+ *	
+ *	@uses	WPSight_Meta_Boxes::meta_box_user_agent()
+ *	@return	array	$meta_box	Meta box array with fields
+ *	@see	wpsight_meta_boxes()
+ *	
+ *	@since 1.0.6
+ */
+function wpsight_meta_box_user_agent() {
+    return WPSight_Meta_Boxes::meta_box_user_agent();
 }
 
 /**

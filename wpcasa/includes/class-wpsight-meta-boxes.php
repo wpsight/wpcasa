@@ -95,7 +95,25 @@ class WPSight_Meta_Boxes {
 	 * @since 1.0.0
 	 */
 	public function admin_meta_boxes( ) {
-		array_map( 'new_cmb2_box', wpsight_meta_boxes());
+
+		$meta_boxes = wpsight_meta_boxes();
+
+		foreach ( $meta_boxes as $metabox ) {
+			if( $metabox ) {
+				$cmb = new_cmb2_box( $metabox );
+				foreach ( $metabox['fields'] as $field ) {
+					if ( 'group' == $field['type'] ) {
+						$group_field_id = $cmb->add_field( $field );
+						foreach ( $field['group_fields'] as $group_field ) {
+							$cmb->add_group_field( $group_field_id, $group_field );
+						}
+					} else {
+						$cmb->add_field( $field );
+					}
+				}
+			}
+		}	
+
 	}
 
 	/**
@@ -286,19 +304,18 @@ class WPSight_Meta_Boxes {
 		// Merge all meta box arrays
 
 		$meta_boxes = array(
-			'listing_attributes' => self::meta_box_listing_attributes(),
-			'listing_price'      => self::meta_box_listing_price(),
-			'listing_details'    => self::meta_box_listing_details(),
-			// 'listing_images'     => self::meta_box_listing_images(),
-			'listing_location'   => self::meta_box_listing_location(),
-			'listing_agent'      => self::meta_box_listing_agent(),
-			'user'      		 => self::meta_box_user()
+			'listing_attributes'	=> self::meta_box_listing_attributes(),
+			'listing_price'			=> self::meta_box_listing_price(),
+			'listing_details'		=> self::meta_box_listing_details(),
+			'listing_location'		=> self::meta_box_listing_location(),
+			'listing_agent'			=> self::meta_box_listing_agent(),
+			'user_agent'			=> self::meta_box_user_agent()
 		);
 
 		// Add custom spaces if any
 
 		foreach ( wpsight_meta_box_spaces() as $key => $space )
-			$meta_boxes[$key] = $space;
+			$meta_boxes[ $key ] = $space;
 
 		return apply_filters( 'wpsight_meta_boxes', $meta_boxes );
 
@@ -736,54 +753,89 @@ class WPSight_Meta_Boxes {
 		return apply_filters( 'wpsight_meta_box_listing_agent', $meta_box );
 
 	}
-
+	
 	/**
-	 * meta_box_user()
-	 *
-	 * Create agent info meta box on user profile page
-	 *
-	 * @uses current_user_can()
-	 * @uses wpsight_sort_array_by_priority()
-	 * @uses wpsight_post_type()
-	 * @return array $meta_box Meta box array with fields
-	 * @see wpsight_meta_boxes()
-	 *
-	 * @since 1.0.0
+	 *	meta_box_user_agent()
+	 *	
+	 *	Create user agent meta box
+	 *	
+	 *	@param	array	$meta_boxes
+	 *	@uses	wpsight_sort_array_by_priority()
+	 *	@return	array
+	 *	@see	wpsight_meta_boxes()
+	 *	
+	 *	@since 1.1.0
 	 */
-	public static function meta_box_user() {
+	public static function meta_box_user_agent() {
 
-		// Set meta box fields for users
+		// Set meta box fields
 
 		$fields = array(
-			array(
-				'name'     		=> __( 'Agent Info', 'wpcasa' ),
-				'desc'     		=> __( 'These settings let you change how your agent profile will appear in listings.', 'wpcasa' ),
-				'id'       		=>  'agent_title',
-				'type'     		=> 'title'
+			'general_title' => array(
+				'id'        => 'general_title',
+				'name'      => __( 'Agent Information', 'wpcasa' ),
+				'desc'		=> __( 'Apart from the default WordPress profile information above you can add additional agent details here.', 'wpcasa' ),
+				'type'      => 'title',
+				'show_on_cb'=> array( 'WPSight_Meta_Boxes', 'meta_box_field_only_admin' ),
+				'priority'  => 5
 			),
-			array(
-				'name'      	=> __( 'Agent Image', 'wpcasa' ),
-				'id'        	=> 'agent_logo',
-				'type'      	=> 'file',
-				'preview_size'	=> array( 150, 150 ),
-				'desc'      	=> false,
-				'priority'  	=> 10
+			'agent_logo'	=> array(
+				'id'        => 'agent_logo',
+				'name'      => __( 'Image', 'wpcasa' ),
+				'type'      => 'file',
+				'priority'  => 10
 			),
+			'company'		=> array(
+				'id'        => 'company',
+				'name'      => __( 'Company', 'wpcasa' ),
+				'type'      => 'text',
+				'priority'  => 20
+			),
+			'phone'			=> array(
+				'id'        => 'phone',
+				'name'      => __( 'Phone', 'wpcasa' ),
+				'type'      => 'text',
+				'priority'  => 30
+			),
+			'facebook'		=> array(
+				'id'        => 'facebook',
+				'name'      => __( 'Facebook', 'wpcasa' ),
+				'type'      => 'text',
+				'priority'  => 40
+			),
+			'twitter'		=> array(
+				'id'        => 'twitter',
+				'name'      => __( 'Twitter', 'wpcasa' ),
+				'type'      => 'text',
+				'priority'  => 50
+			),
+			'agent_update'	=> array(
+				'name'      => __( 'Agent Update', 'wpcasa' ),
+				'id'        => 'agent_update',
+				'type'      => 'checkbox',
+				'show_on_cb'=> array( 'WPSight_Meta_Boxes', 'meta_box_field_only_admin' ),
+				'label_cb'  => __( 'Agent Update', 'wpcasa' ),
+				'desc'      => __( 'Update agent info of all listings created by this user', 'wpcasa' ),
+				'priority'  => 60
+			)
 		);
 
 		// Apply filter and order fields by priority
-		$fields = wpsight_sort_array_by_priority( apply_filters( 'wpsight_meta_box_user_fields', $fields ) );
+		$fields = wpsight_sort_array_by_priority( apply_filters( 'wpsight_meta_box_user_agent_fields', $fields ) );
 
 		// Set meta box
 
 		$meta_box = array(
-			'id'           => 'user_listing_agent',
-			'title'        => __( 'Agent Info', 'wpcasa' ),
-			'object_types' => array( 'user' ),
-			'fields'       => $fields
+			'id'            => 'wpsight_agent',
+			'title'			=> __( 'Agent', 'wpcasa' ),
+			'object_types'  => array( 'user' ),
+			'context'       => 'normal',
+			'priority'      => 'high',
+			'show_names'    => true,
+			'fields'		=> $fields
 		);
-
-		return apply_filters( 'wpsight_meta_box_user', $meta_box );
+		
+		return apply_filters( 'wpsight_meta_box_agent', $meta_box );
 
 	}
 
@@ -806,62 +858,115 @@ class WPSight_Meta_Boxes {
 		$meta_boxes = array();
 
 		// Loop through existing spaces
-
+		
 		foreach ( wpsight_spaces() as $key => $space ) {
-
+		
 			// Check if multiple fields
-
+		
 			if ( ! isset( $space['fields'] ) || empty( $space['fields'] ) ) {
-
+		
 				// If not, set one field
-
+		
 				$fields = array(
 					$key => array(
-						'name' => $space['label'],
-						'id'   => $space['key'],
-						'type' => $space['type'],
-						'desc' => $space['description'],
-						'rows' => $space['rows']
+						'name'	=> $space['label'],
+						'id'	=> $space['key'],
+						'type'	=> $space['type'],
+						'desc'	=> $space['description'],
+						'rows'	=> $space['rows']
 					)
 				);
-
+		
 			} else {
-
+		
 				// If yes, set meta box fields
-
+		
 				$fields = $space['fields'];
-
+		
 				// Set info field as description
-
+		
 				if ( isset( $space['description'] ) && ! empty( $space['description'] ) )
 					$fields['description'] = array(
-						'id'       => $space['key'] . '_desc',
-						'name'     => $space['description'],
-						'type'     => 'title',
-						'priority' => 9999
+						'id'		=> $space['key'] . '_desc',
+						'name'		=> $space['description'],
+						'type'		=> 'title',
+						'priority'	=> 0
 					);
-
+		
 			}
-
+		
 			// Apply filter and order fields by priority
-			$fields = wpsight_sort_array_by_priority( apply_filters( 'wpsight_meta_box_spaces_fields', $fields ) );
-
+			$fields = wpsight_sort_array_by_priority( apply_filters( 'wpsight_meta_box_spaces_fields', $fields, $space ) );
+		
 			// Set meta box
-
-			$meta_boxes[$key] = array(
-				'id'           => $key,
-				'title'        => $space['title'],
-				'object_types' => $space['post_type'],
-				'context'      => 'normal',
-				'priority'     => 'high',
-				'fields'       => $fields
-
+		
+			$meta_boxes[ $key ] = array(
+				'id'			=> $key,
+				'title'			=> $space['title'],
+				'object_types'	=> array( $space['post_type'] ),
+				'context'		=> 'normal',
+				'priority'		=> 'high',
+				'fields'		=> $fields
+		
 			);
-
+		
 		} // endforeach
-
+		
 		return apply_filters( 'wpsight_meta_box_spaces', $meta_boxes );
 
+	}
+	
+	/**
+	 *	show_username()
+	 *
+	 *	Callback function to show username on
+	 *	profile pages in readonly field
+	 *	(e.g. used in dashboard add-on).
+	 *	
+	 *	@access	public
+	 *	@param	$field_args	array
+	 *	@param	$field		object	CMB2_Field
+	 *	@return string
+	 *
+	 *	@since	1.1.0
+	 */
+	public static function show_username( $field_args, $field ) {
+		
+		$object_id = $field->object_id;
+		$user_data = get_userdata( $object_id );
+		
+		return is_user_logged_in() ? $user_data->user_login : '';
+
+	}
+	
+	/**
+	 *	meta_box_field_only_front_end()
+	 *	
+	 *	Callback function to show meta box fields
+	 *	only on front end.
+	 *
+	 *	@access	public
+	 *	@return	bool
+	 *	
+	 *	@since 1.1.0
+	 */
+	public static function meta_box_field_only_front_end( $meta_box_field ) {
+		return apply_filters( 'wpsight_meta_box_field_only_front_end', ! is_admin(), $meta_box_field );
+	}
+	
+	/**
+	 *	meta_box_field_only_admin()
+	 *	
+	 *	Callback function to show meta box fields
+	 *	only in admin area.
+	 *
+	 *	@access	public
+	 *	@return	bool
+	 *	
+	 *	@since 1.1.0
+	 */
+	public static function meta_box_field_only_admin( $meta_box_field ) {
+		return apply_filters( 'meta_box_field_only_admin', is_admin(), $meta_box_field );
 	}
 
 }

@@ -56,6 +56,8 @@ For help and documentation please feel free to visit our [support center](https:
 
 * German (de_DE): Simon Rimkus (WPSight)
 * Spanish (es_ES): Simon Rimkus (WPSight)
+* Portuguese (pt_BR): [Walter Barcelos](http://walterbarcelos.com)
+* Russian (ru_RU): [Systemo](http://systemo.biz)
 
 POT file with text strings is included. If you would like to add a translation and see your name here, please [get in touch](https://wpcasa.com/contact/).
 

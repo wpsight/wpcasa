@@ -142,7 +142,13 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 == Changelog ==
 
 = 1.0.6 =
-* TODO
+* Add Brazilian Portuguese language files
+* Fix typo in German language files
+* Make sure $_GET values in listings search are escaped correctly
+* Make sure wpsight_exclude_unavailable filter works correctly
+* Make sure default rental periods are set correctly
+* Rebuild custom agent profiles fields using CMB2 meta boxes
+* Minor updates in German and Spanish language files
 
 = 1.0.5 =
 * Add Spanish language files

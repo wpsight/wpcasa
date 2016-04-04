@@ -3,11 +3,11 @@
 Plugin Name: WPCasa
 Plugin URI: https://wpcasa.com
 Description: Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
-Version: 1.0.5.1
+Version: 1.0.6
 Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 4.0
-Tested up to: 4.4.1
+Tested up to: 4.5
 Text Domain: wpcasa
 Domain Path: /languages
 
@@ -47,7 +47,7 @@ class WPSight_Framework {
 		if ( ! defined( 'WPSIGHT_AUTHOR' ) )
 			define( 'WPSIGHT_AUTHOR', 'WPSight' );
 
-		define( 'WPSIGHT_VERSION', '1.0.5.1' );
+		define( 'WPSIGHT_VERSION', '1.0.6' );
 		define( 'WPSIGHT_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 		
@@ -210,7 +210,7 @@ class WPSight_Framework {
 		// Add some default options
 		
 		$options = array(
-			'listings_page' => $page_id,
+			'listings_page'			=> $page_id,
 			'listing_id'			=> __( 'ID-', 'wpcasa' ),
 			'measurement_unit'		=> 'm2',
 			'currency'				=> 'usd',

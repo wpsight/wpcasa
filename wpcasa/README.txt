@@ -142,6 +142,7 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 == Changelog ==
 
 = 1.0.6 =
+* Tested up to WordPress 4.5
 * Add Brazilian Portuguese language files
 * Fix typo in German language files
 * Make sure $_GET values in listings search are escaped correctly

@@ -905,11 +905,12 @@ class WPSight_Listings {
 	 * @param string  $prefix  Lising ID prefix
 	 * @uses get_the_ID()
 	 * @uses get_post_meta()
+	 * @uses wpsight_get_option()
 	 * @return string|bool Listing ID or false if no post ID available
 	 *
 	 * @since 1.0.0
 	 */
-	public static function get_listing_id( $post_id = '', $prefix = 'ID-' ) {
+	public static function get_listing_id( $post_id = '', $prefix = '' ) {
 
 		// Check if custom post ID
 
@@ -922,17 +923,19 @@ class WPSight_Listings {
 			return false;
 
 		// Check if post meta listing ID available
-
-		if ( $listing_id = get_post_meta( $post_id, '_listing_id', true ) )
-			return $listing_id;
-
-		// Check if deprecated property ID available
-
-		if ( $property_id = get_post_meta( $post_id, '_property_id', true ) )
-			return $property_id;
-
-		// Combine post ID with prefix
-		$listing_id = $prefix . $post_id;
+		$listing_id = get_post_meta( $post_id, '_listing_id', true );
+		
+		if( empty( $listing_id ) ) {
+		
+			// Get listing ID prefix
+			
+			if( empty( $prefix ) )
+				$prefix = wpsight_get_option( 'listing_id' );
+			
+			// Combine post ID with prefix
+			$listing_id = $prefix . $post_id;
+		
+		}
 
 		// Return default listing ID
 		return apply_filters( 'wpsight_get_listing_id', $listing_id );

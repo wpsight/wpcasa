@@ -318,7 +318,7 @@ function wpsight_listing_summary( $post_id = '', $details = false, $formatted = 
  *	
  *	@since 1.0.0
  */
-function wpsight_get_listing_id( $post_id = '', $prefix = 'ID-' ) {
+function wpsight_get_listing_id( $post_id = '', $prefix = '' ) {
 	return WPSight_Listings::get_listing_id( $post_id, $prefix );
 }
 

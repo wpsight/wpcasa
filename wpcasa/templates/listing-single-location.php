@@ -22,7 +22,6 @@ if( $lat && $long && ! $hide ) { ?>
 		      max-width: none;
 	      }
 	    </style>
-	    <script src="https://maps.googleapis.com/maps/api/js"></script>
 	    <?php
 		    
 		    // Set map default options

@@ -17,36 +17,19 @@ Please feel free to visit our [demo site](http://demo.wpcasa.com/) where you can
 * **Extend with Add-Ons**: Using our custom add-ons you can connect WPCasa to third party services, change or extend the functionality and customize things to your needs.
 * **Style with Themes**: If you want to start with a turn-key real estate website with a first-class design, browse our collection of WordPress themes exclusively built for WPCasa.
 
-## Add-Ons
-Optionally use add-ons built for WPCasa to customize and/or extend the functionality of your real estate website to your special needs.
-
-* [Advanced Search](https://wpcasa.com/downloads/wpcasa-advanced-search/) (FREE): Display an expandable area with advanced options in property search form.
-* [Admin Map UI](https://wpcasa.com/downloads/wpcasa-admin-map-ui/): Set the listing location by a click or drag & drop on the map and make individual map settings in the listing editor.
-* [Listing Labels](https://wpcasa.com/downloads/wpcasa-listing-labels/): Feature specific listings by visually highlighting them with a label.
-* [Featured Listings](https://wpcasa.com/downloads/wpcasa-featured-listings/): Feature specific listings by visually highlighting them and/or making them sticky.
-* [Favorites](https://wpcasa.com/downloads/wpcasa-favorites/): Let users save their favorite listings and compare them on a single page.
-* [Ninja Forms](https://wpcasa.com/downloads/wpcasa-ninja-forms/) (FREE): Add support for Ninja Forms to attach property details to the contact email sent from listing pages.
-* [Dashboard](https://wpcasa.com/downloads/wpcasa-dashboard/): Let listing agents submit and manage property listings from the front end.
-* [Listings Map](https://wpcasa.com/downloads/wpcasa-listings-map/) (FREE): Show all listings as markers on a central Google Map using a shortcode.
-* [Expire Listings](https://wpcasa.com/downloads/wpcasa-expire-listings/): Expire listings manually or automatically after a number of days that can be defined in the add-on settings.
-* [Currency Converter](https://wpcasa.com/downloads/wpcasa-currency-converter/): Let users select their preferred currency and display all listing prices accordingly.
-* [List Agents](https://wpcasa.com/downloads/wpcasa-list-agents/) (FREE): Display a list of agents on one page using a shortocde.
-* [Polylang](https://wpcasa.com/downloads/wpcasa-polylang/) (FREE): Adds support for Polylang to manage properties in multiple languages.
-
-More add-ons are currently in the making. If you are missing an add-on or are a developer and would like to talk about creating add-ons for WPCasa, don't hesitate and [get in touch](https://wpcasa.com/contact).
-
 ## Themes
 To hit the ground running have a look at our WordPress themes exclusively built for WPCasa to unfold the great potential of the framework.
 
-* [Sylt](https://wpcasa.com/downloads/wpcasa-sylt/): Sylt for WPCasa is a truly elegant and versatile real estate WordPress theme with a powerful home page template, infinite color options, flexible widiget areas and many handy tools.
-* [Bahia](https://wpcasa.com/downloads/wpcasa-bahia/): Bahia is ready to use solution for WPCasa with a great design and a lot of handy tools. Infinite color options, custom header image, home page template and useful widgets and more.
-* [Elviria](https://wpcasa.com/downloads/wpcasa-elviria/): The Elviria theme is turn-key solution to use WPCasa with a professional design and a lot of handy tools. Accent color option, home page templates and custom widgets to name a few.
-* [upTown](https://wpcasa.com/downloads/uptown/) (FREE): upTown is a simple and clean personal blog theme. Use it in combination with WPCasa to easily build a fully-featured real estate website.
-* [STAGE](https://wpcasa.com/downloads/wpcasa-stage/): STAGE is the perfect starting point for your custom WPCasa theme. It was creating using a lightweight yet powerful CSS framework and comes with many great features built right in.
-* [Twenty Fifteen](https://wpcasa.com/downloads/wpcasa-twentyfifteen/) (FREE): If you like the Twenty Fifteen WordPress standard theme and you want to use WPCasa, this theme might be your solution.
-* Many more to come...
+[Browse themes now](https://wpcasa.com/downloads/category/themes/)
 
 If you're a developer and would like to talk about creating themes for WPCasa, don't hesitate and [get in touch](https://wpcasa.com/contact).
+
+## Add-Ons
+Optionally use add-ons built for WPCasa to customize and/or extend the functionality of your real estate website to your special needs.
+
+[Browse add-ons now](https://wpcasa.com/downloads/category/add-ons/)
+
+More add-ons are currently in the making. If you are missing an add-on or are a developer and would like to talk about creating add-ons for WPCasa, don't hesitate and [get in touch](https://wpcasa.com/contact).
 
 ## Support
 

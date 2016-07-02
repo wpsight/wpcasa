@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCasa\n"
-"POT-Creation-Date: 2016-04-04 14:03+0200\n"
-"PO-Revision-Date: 2016-04-04 14:08+0200\n"
+"POT-Creation-Date: 2016-07-02 14:40+0200\n"
+"PO-Revision-Date: 2016-07-02 14:40+0200\n"
 "Last-Translator: \n"
 "Language-Team: WPCasa <mail@wpcasa.com>\n"
 "Language: de_DE\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: wpcasa.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -70,7 +70,7 @@ msgid "Licenses"
 msgstr "Lizenzen"
 
 #: includes/admin/class-wpsight-admin.php:142
-#: includes/admin/class-wpsight-admin.php:428
+#: includes/admin/class-wpsight-admin.php:435
 #: includes/admin/class-wpsight-cpt.php:1196
 #: includes/class-wpsight-template.php:284
 msgid "Listings"
@@ -102,7 +102,7 @@ msgstr ""
 "Bitte wählen Sie die Hauptsuchergebnisseite mit dem "
 "<code>[wpsight_listings]</code>-Shortcode."
 
-#: includes/admin/class-wpsight-admin.php:196 wpcasa.php:214
+#: includes/admin/class-wpsight-admin.php:196 wpcasa.php:226
 msgid "ID-"
 msgstr "ID-"
 
@@ -246,15 +246,28 @@ msgid "Please uncheck the box to disable the plugin from outputting CSS."
 msgstr ""
 "Bitte setzen Sie den Haken, um das Plugin am Einbinden von CSS zu hindern."
 
-#: includes/admin/class-wpsight-admin.php:372
+#: includes/admin/class-wpsight-admin.php:335
+msgid "Google Maps API"
+msgstr "Google Maps API"
+
+#: includes/admin/class-wpsight-admin.php:336
+#, php-format
+msgid ""
+"If necessary, please enter your Google Maps API key (<a href=\"%s\" target="
+"\"_blank\">register here</a>)."
+msgstr ""
+"Falls erforderlich, geben Sie bitte Ihren Google Maps API-Schlüssel ein (<a "
+"href=\"%s\" target=\"_blank\">hier registrieren</a>)."
+
+#: includes/admin/class-wpsight-admin.php:379
 msgid "All"
 msgstr "Alle"
 
-#: includes/admin/class-wpsight-admin.php:400
+#: includes/admin/class-wpsight-admin.php:407
 msgid "Published"
 msgstr "Veröffentlichte"
 
-#: includes/admin/class-wpsight-admin.php:400
+#: includes/admin/class-wpsight-admin.php:407
 msgid "Active"
 msgstr "Aktive"
 
@@ -1094,29 +1107,29 @@ msgstr "ZAR => South African Rand"
 msgid "ZMK => Zambian Kwacha"
 msgstr "ZMK => Zambian Kwacha"
 
-#: includes/class-wpsight-geocode.php:222
+#: includes/class-wpsight-geocode.php:235
 msgid "No results found"
 msgstr "Keine Ergebnisse gefunden"
 
-#: includes/class-wpsight-geocode.php:227
+#: includes/class-wpsight-geocode.php:240
 msgid "Query limit reached"
 msgstr "Abfragenlimit erreicht"
 
-#: includes/class-wpsight-geocode.php:234
-#: includes/class-wpsight-geocode.php:239
-#: includes/class-wpsight-geocode.php:246
+#: includes/class-wpsight-geocode.php:247
+#: includes/class-wpsight-geocode.php:252
+#: includes/class-wpsight-geocode.php:259
 msgid "Geocoding error"
 msgstr "Geocoding-Fehler"
 
-#: includes/class-wpsight-listings.php:978
+#: includes/class-wpsight-listings.php:981
 msgid "Sold"
 msgstr "Verkauft"
 
-#: includes/class-wpsight-listings.php:979
+#: includes/class-wpsight-listings.php:982
 msgid "Rented"
 msgstr "Vermietet"
 
-#: includes/class-wpsight-listings.php:980
+#: includes/class-wpsight-listings.php:983
 msgid "Price on request"
 msgstr "Preis auf Anfrage"
 
@@ -1715,12 +1728,12 @@ msgstr "Diese Anzeige ist abgelaufen."
 msgid "Sorry, but no listing matches your search criteria."
 msgstr "Leider entspricht kein Objekt Ihren Suchkriterien."
 
-#: wpcasa.php:200
+#: wpcasa.php:212
 msgctxt "listings page title"
 msgid "Listings"
 msgstr "Immobilien"
 
-#: wpcasa.php:290
+#: wpcasa.php:302
 msgid ""
 "Please make sure to <strong>deactivate the WPCasa theme</strong> in order to "
 "use the WPCasa plugin version. For more information about how to switch "

@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WPCasa\n"
-"POT-Creation-Date: 2016-01-13 06:01+0100\n"
+"POT-Creation-Date: 2016-07-02 14:42+0200\n"
 "PO-Revision-Date: 2015-11-10 09:05+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: wpcasa.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -64,7 +64,7 @@ msgid "Licenses"
 msgstr ""
 
 #: includes/admin/class-wpsight-admin.php:142
-#: includes/admin/class-wpsight-admin.php:428
+#: includes/admin/class-wpsight-admin.php:435
 #: includes/admin/class-wpsight-cpt.php:1196
 #: includes/class-wpsight-template.php:284
 msgid "Listings"
@@ -91,7 +91,7 @@ msgid ""
 "<code>[wpsight_listings]</code> shortcode."
 msgstr ""
 
-#: includes/admin/class-wpsight-admin.php:196 wpcasa.php:214
+#: includes/admin/class-wpsight-admin.php:196 wpcasa.php:226
 msgid "ID-"
 msgstr ""
 
@@ -225,28 +225,31 @@ msgstr ""
 msgid "Please uncheck the box to disable the plugin from outputting CSS."
 msgstr ""
 
-#: includes/admin/class-wpsight-admin.php:372
+#: includes/admin/class-wpsight-admin.php:335
+msgid "Google Maps API"
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:336
+#, php-format
+msgid ""
+"If necessary, please enter your Google Maps API key (<a href=\"%s\" target="
+"\"_blank\">register here</a>)."
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:379
 msgid "All"
 msgstr ""
 
-#: includes/admin/class-wpsight-admin.php:400
+#: includes/admin/class-wpsight-admin.php:407
 msgid "Published"
 msgstr ""
 
-#: includes/admin/class-wpsight-admin.php:400
+#: includes/admin/class-wpsight-admin.php:407
 msgid "Active"
 msgstr ""
 
-#: includes/admin/class-wpsight-agents.php:67
-msgid "Agent Update"
-msgstr ""
-
-#: includes/admin/class-wpsight-agents.php:70
-msgid "Update agent info of all listings created by this user"
-msgstr ""
-
 #: includes/admin/class-wpsight-cpt.php:91
-#: includes/class-wpsight-meta-boxes.php:446
+#: includes/class-wpsight-meta-boxes.php:445
 #: includes/class-wpsight-search.php:223
 msgid "Offer"
 msgstr ""
@@ -260,7 +263,7 @@ msgid "Listing"
 msgstr ""
 
 #: includes/admin/class-wpsight-cpt.php:94
-#: includes/class-wpsight-meta-boxes.php:438
+#: includes/class-wpsight-meta-boxes.php:437
 msgid "Price"
 msgstr ""
 
@@ -573,12 +576,14 @@ msgid "Listing Subscriber"
 msgstr ""
 
 #: includes/class-wpsight-agents.php:793
-#: includes/class-wpsight-meta-boxes.php:682
+#: includes/class-wpsight-meta-boxes.php:681
+#: includes/class-wpsight-meta-boxes.php:790
 msgid "Company"
 msgstr ""
 
 #: includes/class-wpsight-agents.php:796
-#: includes/class-wpsight-meta-boxes.php:698
+#: includes/class-wpsight-meta-boxes.php:697
+#: includes/class-wpsight-meta-boxes.php:796
 msgid "Phone"
 msgstr ""
 
@@ -642,599 +647,614 @@ msgstr ""
 msgid "per Day"
 msgstr ""
 
-#: includes/class-wpsight-general.php:487
+#: includes/class-wpsight-general.php:493
 msgid "F j, Y"
 msgstr ""
 
-#: includes/class-wpsight-general.php:487
+#: includes/class-wpsight-general.php:493
 msgid "j. F Y"
 msgstr ""
 
-#: includes/class-wpsight-general.php:513
-#: includes/class-wpsight-general.php:514
+#: includes/class-wpsight-general.php:519
+#: includes/class-wpsight-general.php:520
 msgctxt "listing post status"
 msgid "Draft"
 msgstr ""
 
-#: includes/class-wpsight-general.php:517
-#: includes/class-wpsight-general.php:518
+#: includes/class-wpsight-general.php:523
+#: includes/class-wpsight-general.php:524
 msgctxt "listing post status"
 msgid "Active"
 msgstr ""
 
-#: includes/class-wpsight-general.php:521
-#: includes/class-wpsight-general.php:534
+#: includes/class-wpsight-general.php:527
+#: includes/class-wpsight-general.php:540
 msgctxt "listing post status"
 msgid "Pending"
 msgstr ""
 
-#: includes/class-wpsight-general.php:522
+#: includes/class-wpsight-general.php:528
 msgctxt "listing post status"
 msgid "Pending approval"
 msgstr ""
 
-#: includes/class-wpsight-general.php:525
-#: includes/class-wpsight-general.php:526
+#: includes/class-wpsight-general.php:531
+#: includes/class-wpsight-general.php:532
 msgctxt "listing post status"
 msgid "Preview"
 msgstr ""
 
-#: includes/class-wpsight-general.php:531
+#: includes/class-wpsight-general.php:537
 #, php-format
 msgid "Preview <span class=\"count\">(%s)</span>"
 msgid_plural "Preview <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-wpsight-general.php:535
+#: includes/class-wpsight-general.php:541
 msgctxt "listing post status"
 msgid "Pending payment"
 msgstr ""
 
-#: includes/class-wpsight-general.php:540
+#: includes/class-wpsight-general.php:546
 #, php-format
 msgid "Pending Payment <span class=\"count\">(%s)</span>"
 msgid_plural "Pending Payment <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-wpsight-general.php:543
-#: includes/class-wpsight-general.php:544
+#: includes/class-wpsight-general.php:549
+#: includes/class-wpsight-general.php:550
 msgctxt "listing post status"
 msgid "Trash"
 msgstr ""
 
-#: includes/class-wpsight-general.php:590
+#: includes/class-wpsight-general.php:596
 msgid "AED => United Arab Emirates Dirham"
 msgstr ""
 
-#: includes/class-wpsight-general.php:591
+#: includes/class-wpsight-general.php:597
 msgid "ANG => Netherlands Antillean Guilder"
 msgstr ""
 
-#: includes/class-wpsight-general.php:592
+#: includes/class-wpsight-general.php:598
 msgid "ARS => Argentine Peso"
 msgstr ""
 
-#: includes/class-wpsight-general.php:593
+#: includes/class-wpsight-general.php:599
 msgid "AUD => Australian Dollar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:594
+#: includes/class-wpsight-general.php:600
 msgid "BDT => Bangladeshi Taka"
 msgstr ""
 
-#: includes/class-wpsight-general.php:595
+#: includes/class-wpsight-general.php:601
 msgid "BGN => Bulgarian Lev"
 msgstr ""
 
-#: includes/class-wpsight-general.php:596
+#: includes/class-wpsight-general.php:602
 msgid "BHD => Bahraini Dinar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:597
+#: includes/class-wpsight-general.php:603
 msgid "BND => Brunei Dollar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:598
+#: includes/class-wpsight-general.php:604
 msgid "BOB => Bolivian Boliviano"
 msgstr ""
 
-#: includes/class-wpsight-general.php:599
+#: includes/class-wpsight-general.php:605
 msgid "BRL => Brazilian Real"
 msgstr ""
 
-#: includes/class-wpsight-general.php:600
+#: includes/class-wpsight-general.php:606
 msgid "BWP => Botswanan Pula"
 msgstr ""
 
-#: includes/class-wpsight-general.php:601
+#: includes/class-wpsight-general.php:607
 msgid "CAD => Canadian Dollar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:602
+#: includes/class-wpsight-general.php:608
 msgid "CHF => Swiss Franc"
 msgstr ""
 
-#: includes/class-wpsight-general.php:603
+#: includes/class-wpsight-general.php:609
 msgid "CLP => Chilean Peso"
 msgstr ""
 
-#: includes/class-wpsight-general.php:604
+#: includes/class-wpsight-general.php:610
 msgid "CNY => Chinese Yuan"
 msgstr ""
 
-#: includes/class-wpsight-general.php:605
+#: includes/class-wpsight-general.php:611
 msgid "COP => Colombian Peso"
 msgstr ""
 
-#: includes/class-wpsight-general.php:606
+#: includes/class-wpsight-general.php:612
 msgid "CRC => Costa Rican Colon"
 msgstr ""
 
-#: includes/class-wpsight-general.php:607
+#: includes/class-wpsight-general.php:613
 msgid "CZK => Czech Republic Koruna"
 msgstr ""
 
-#: includes/class-wpsight-general.php:608
+#: includes/class-wpsight-general.php:614
 msgid "DKK => Danish Krone"
 msgstr ""
 
-#: includes/class-wpsight-general.php:609
+#: includes/class-wpsight-general.php:615
 msgid "DOP => Dominican Peso"
 msgstr ""
 
-#: includes/class-wpsight-general.php:610
+#: includes/class-wpsight-general.php:616
 msgid "DZD => Algerian Dinar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:611
+#: includes/class-wpsight-general.php:617
 msgid "EEK => Estonian Kroon"
 msgstr ""
 
-#: includes/class-wpsight-general.php:612
+#: includes/class-wpsight-general.php:618
 msgid "EGP => Egyptian Pound"
 msgstr ""
 
-#: includes/class-wpsight-general.php:613
+#: includes/class-wpsight-general.php:619
 msgid "EUR => Euro"
 msgstr ""
 
-#: includes/class-wpsight-general.php:614
+#: includes/class-wpsight-general.php:620
 msgid "FJD => Fijian Dollar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:615
+#: includes/class-wpsight-general.php:621
 msgid "GBP => British Pound"
 msgstr ""
 
-#: includes/class-wpsight-general.php:616
+#: includes/class-wpsight-general.php:622
 msgid "HKD => Hong Kong Dollar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:617
+#: includes/class-wpsight-general.php:623
 msgid "HNL => Honduran Lempira"
 msgstr ""
 
-#: includes/class-wpsight-general.php:618
+#: includes/class-wpsight-general.php:624
 msgid "HRK => Croatian Kuna"
 msgstr ""
 
-#: includes/class-wpsight-general.php:619
+#: includes/class-wpsight-general.php:625
 msgid "HUF => Hungarian Forint"
 msgstr ""
 
-#: includes/class-wpsight-general.php:620
+#: includes/class-wpsight-general.php:626
 msgid "IDR => Indonesian Rupiah"
 msgstr ""
 
-#: includes/class-wpsight-general.php:621
+#: includes/class-wpsight-general.php:627
 msgid "ILS => Israeli New Sheqel"
 msgstr ""
 
-#: includes/class-wpsight-general.php:622
+#: includes/class-wpsight-general.php:628
 msgid "INR => Indian Rupee"
 msgstr ""
 
-#: includes/class-wpsight-general.php:623
+#: includes/class-wpsight-general.php:629
 msgid "JMD => Jamaican Dollar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:624
+#: includes/class-wpsight-general.php:630
 msgid "JOD => Jordanian Dinar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:625
+#: includes/class-wpsight-general.php:631
 msgid "JPY => Japanese Yen"
 msgstr ""
 
-#: includes/class-wpsight-general.php:626
+#: includes/class-wpsight-general.php:632
 msgid "KES => Kenyan Shilling"
 msgstr ""
 
-#: includes/class-wpsight-general.php:627
+#: includes/class-wpsight-general.php:633
 msgid "KRW => South Korean Won"
 msgstr ""
 
-#: includes/class-wpsight-general.php:628
+#: includes/class-wpsight-general.php:634
 msgid "KWD => Kuwaiti Dinar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:629
+#: includes/class-wpsight-general.php:635
 msgid "KYD => Cayman Islands Dollar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:630
+#: includes/class-wpsight-general.php:636
 msgid "KZT => Kazakhstani Tenge"
 msgstr ""
 
-#: includes/class-wpsight-general.php:631
+#: includes/class-wpsight-general.php:637
 msgid "LBP => Lebanese Pound"
 msgstr ""
 
-#: includes/class-wpsight-general.php:632
+#: includes/class-wpsight-general.php:638
 msgid "LKR => Sri Lankan Rupee"
 msgstr ""
 
-#: includes/class-wpsight-general.php:633
+#: includes/class-wpsight-general.php:639
 msgid "LTL => Lithuanian Litas"
 msgstr ""
 
-#: includes/class-wpsight-general.php:634
+#: includes/class-wpsight-general.php:640
 msgid "LVL => Latvian Lats"
 msgstr ""
 
-#: includes/class-wpsight-general.php:635
+#: includes/class-wpsight-general.php:641
 msgid "MAD => Moroccan Dirham"
 msgstr ""
 
-#: includes/class-wpsight-general.php:636
+#: includes/class-wpsight-general.php:642
 msgid "MDL => Moldovan Leu"
 msgstr ""
 
-#: includes/class-wpsight-general.php:637
+#: includes/class-wpsight-general.php:643
 msgid "MKD => Macedonian Denar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:638
+#: includes/class-wpsight-general.php:644
 msgid "MUR => Mauritian Rupee"
 msgstr ""
 
-#: includes/class-wpsight-general.php:639
+#: includes/class-wpsight-general.php:645
 msgid "MVR => Maldivian Rufiyaa"
 msgstr ""
 
-#: includes/class-wpsight-general.php:640
+#: includes/class-wpsight-general.php:646
 msgid "MXN => Mexican Peso"
 msgstr ""
 
-#: includes/class-wpsight-general.php:641
+#: includes/class-wpsight-general.php:647
 msgid "MYR => Malaysian Ringgit"
 msgstr ""
 
-#: includes/class-wpsight-general.php:642
+#: includes/class-wpsight-general.php:648
 msgid "NAD => Namibian Dollar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:643
+#: includes/class-wpsight-general.php:649
 msgid "NGN => Nigerian Naira"
 msgstr ""
 
-#: includes/class-wpsight-general.php:644
+#: includes/class-wpsight-general.php:650
 msgid "NIO => Nicaraguan Cordoba"
 msgstr ""
 
-#: includes/class-wpsight-general.php:645
+#: includes/class-wpsight-general.php:651
 msgid "NOK => Norwegian Krone"
 msgstr ""
 
-#: includes/class-wpsight-general.php:646
+#: includes/class-wpsight-general.php:652
 msgid "NPR => Nepalese Rupee"
 msgstr ""
 
-#: includes/class-wpsight-general.php:647
+#: includes/class-wpsight-general.php:653
 msgid "NZD => New Zealand Dollar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:648
+#: includes/class-wpsight-general.php:654
 msgid "OMR => Omani Rial"
 msgstr ""
 
-#: includes/class-wpsight-general.php:649
+#: includes/class-wpsight-general.php:655
 msgid "PEN => Peruvian Nuevo Sol"
 msgstr ""
 
-#: includes/class-wpsight-general.php:650
+#: includes/class-wpsight-general.php:656
 msgid "PGK => Papua New Guinean Kina"
 msgstr ""
 
-#: includes/class-wpsight-general.php:651
+#: includes/class-wpsight-general.php:657
 msgid "PHP => Philippine Peso"
 msgstr ""
 
-#: includes/class-wpsight-general.php:652
+#: includes/class-wpsight-general.php:658
 msgid "PKR => Pakistani Rupee"
 msgstr ""
 
-#: includes/class-wpsight-general.php:653
+#: includes/class-wpsight-general.php:659
 msgid "PLN => Polish Zloty"
 msgstr ""
 
-#: includes/class-wpsight-general.php:654
+#: includes/class-wpsight-general.php:660
 msgid "PYG => Paraguayan Guarani"
 msgstr ""
 
-#: includes/class-wpsight-general.php:655
+#: includes/class-wpsight-general.php:661
 msgid "QAR => Qatari Rial"
 msgstr ""
 
-#: includes/class-wpsight-general.php:656
+#: includes/class-wpsight-general.php:662
 msgid "RON => Romanian Leu"
 msgstr ""
 
-#: includes/class-wpsight-general.php:657
+#: includes/class-wpsight-general.php:663
 msgid "RSD => Serbian Dinar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:658
+#: includes/class-wpsight-general.php:664
 msgid "RUB => Russian Ruble"
 msgstr ""
 
-#: includes/class-wpsight-general.php:659
+#: includes/class-wpsight-general.php:665
 msgid "SAR => Saudi Riyal"
 msgstr ""
 
-#: includes/class-wpsight-general.php:660
+#: includes/class-wpsight-general.php:666
 msgid "SCR => Seychellois Rupee"
 msgstr ""
 
-#: includes/class-wpsight-general.php:661
+#: includes/class-wpsight-general.php:667
 msgid "SEK => Swedish Krona"
 msgstr ""
 
-#: includes/class-wpsight-general.php:662
+#: includes/class-wpsight-general.php:668
 msgid "SGD => Singapore Dollar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:663
+#: includes/class-wpsight-general.php:669
 msgid "SKK => Slovak Koruna"
 msgstr ""
 
-#: includes/class-wpsight-general.php:664
+#: includes/class-wpsight-general.php:670
 msgid "SLL => Sierra Leonean Leone"
 msgstr ""
 
-#: includes/class-wpsight-general.php:665
+#: includes/class-wpsight-general.php:671
 msgid "SVC => Salvadoran Colon"
 msgstr ""
 
-#: includes/class-wpsight-general.php:666
+#: includes/class-wpsight-general.php:672
 msgid "THB => Thai Baht"
 msgstr ""
 
-#: includes/class-wpsight-general.php:667
+#: includes/class-wpsight-general.php:673
 msgid "TND => Tunisian Dinar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:668
+#: includes/class-wpsight-general.php:674
 msgid "TRY => Turkish Lira"
 msgstr ""
 
-#: includes/class-wpsight-general.php:669
+#: includes/class-wpsight-general.php:675
 msgid "TTD => Trinidad and Tobago Dollar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:670
+#: includes/class-wpsight-general.php:676
 msgid "TWD => New Taiwan Dollar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:671
+#: includes/class-wpsight-general.php:677
 msgid "TZS => Tanzanian Shilling"
 msgstr ""
 
-#: includes/class-wpsight-general.php:672
+#: includes/class-wpsight-general.php:678
 msgid "UAH => Ukrainian Hryvnia"
 msgstr ""
 
-#: includes/class-wpsight-general.php:673
+#: includes/class-wpsight-general.php:679
 msgid "UGX => Ugandan Shilling"
 msgstr ""
 
-#: includes/class-wpsight-general.php:674
+#: includes/class-wpsight-general.php:680
 msgid "USD => US Dollar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:675
+#: includes/class-wpsight-general.php:681
 msgid "UYU => Uruguayan Peso"
 msgstr ""
 
-#: includes/class-wpsight-general.php:676
+#: includes/class-wpsight-general.php:682
 msgid "UZS => Uzbekistan Som"
 msgstr ""
 
-#: includes/class-wpsight-general.php:677
+#: includes/class-wpsight-general.php:683
 msgid "VEF => Venezuelan Bolivar"
 msgstr ""
 
-#: includes/class-wpsight-general.php:678
+#: includes/class-wpsight-general.php:684
 msgid "VND => Vietnamese Dong"
 msgstr ""
 
-#: includes/class-wpsight-general.php:679
+#: includes/class-wpsight-general.php:685
 msgid "XOF => CFA Franc BCEAO"
 msgstr ""
 
-#: includes/class-wpsight-general.php:680
+#: includes/class-wpsight-general.php:686
 msgid "YER => Yemeni Rial"
 msgstr ""
 
-#: includes/class-wpsight-general.php:681
+#: includes/class-wpsight-general.php:687
 msgid "ZAR => South African Rand"
 msgstr ""
 
-#: includes/class-wpsight-general.php:682
+#: includes/class-wpsight-general.php:688
 msgid "ZMK => Zambian Kwacha"
 msgstr ""
 
-#: includes/class-wpsight-geocode.php:222
+#: includes/class-wpsight-geocode.php:235
 msgid "No results found"
 msgstr ""
 
-#: includes/class-wpsight-geocode.php:227
+#: includes/class-wpsight-geocode.php:240
 msgid "Query limit reached"
 msgstr ""
 
-#: includes/class-wpsight-geocode.php:234
-#: includes/class-wpsight-geocode.php:239
-#: includes/class-wpsight-geocode.php:246
+#: includes/class-wpsight-geocode.php:247
+#: includes/class-wpsight-geocode.php:252
+#: includes/class-wpsight-geocode.php:259
 msgid "Geocoding error"
 msgstr ""
 
-#: includes/class-wpsight-listings.php:978
+#: includes/class-wpsight-listings.php:981
 msgid "Sold"
 msgstr ""
 
-#: includes/class-wpsight-listings.php:979
+#: includes/class-wpsight-listings.php:982
 msgid "Rented"
 msgstr ""
 
-#: includes/class-wpsight-listings.php:980
+#: includes/class-wpsight-listings.php:983
 msgid "Price on request"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:343
+#: includes/class-wpsight-meta-boxes.php:342
 msgid "Availability"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:346
+#: includes/class-wpsight-meta-boxes.php:345
 msgid "Item not available"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:347
+#: includes/class-wpsight-meta-boxes.php:346
 msgid "The item is currently not available as it has been sold or rented."
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:360
+#: includes/class-wpsight-meta-boxes.php:359
 msgid "Listing Attributes"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:389
+#: includes/class-wpsight-meta-boxes.php:388
 msgid "Images"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:406
+#: includes/class-wpsight-meta-boxes.php:405
 msgid "Listing Images"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:441
+#: includes/class-wpsight-meta-boxes.php:440
 msgid "No currency symbols or thousands separators"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:455
+#: includes/class-wpsight-meta-boxes.php:454
 msgid "Period"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:458
+#: includes/class-wpsight-meta-boxes.php:457
 #: vendor/webdevstudios/cmb2/includes/CMB2_Field.php:978
 #: vendor/webdevstudios/cmb2/includes/CMB2_Field.php:982
 #: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:216
 msgid "None"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:471
+#: includes/class-wpsight-meta-boxes.php:470
 msgid "Listing Price"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:503
+#: includes/class-wpsight-meta-boxes.php:502
 msgid "Listing ID"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:573
+#: includes/class-wpsight-meta-boxes.php:572
 msgid "Listing Details"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:602
+#: includes/class-wpsight-meta-boxes.php:601
 msgid "Address"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:605
+#: includes/class-wpsight-meta-boxes.php:604
 msgid ""
 "e.g. <code>Marbella, Spain</code> or <code>Platz der Republik 1, 10557 "
 "Berlin</code>"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:611
+#: includes/class-wpsight-meta-boxes.php:610
 msgid "Public Note"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:614
+#: includes/class-wpsight-meta-boxes.php:613
 msgid "e.g. <code>Location is not the exact address of the listing</code>"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:619
+#: includes/class-wpsight-meta-boxes.php:618
 msgid "Secret Note"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:622
+#: includes/class-wpsight-meta-boxes.php:621
 msgid "Will not be displayed on the website (e.g. complete address)"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:627
+#: includes/class-wpsight-meta-boxes.php:626
 msgid "Hide Map"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:630
+#: includes/class-wpsight-meta-boxes.php:629
 msgid "Hide map for this listing"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:643
+#: includes/class-wpsight-meta-boxes.php:642
 msgid "Listing Location"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:674
+#: includes/class-wpsight-meta-boxes.php:673
 msgid "Name"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:690
+#: includes/class-wpsight-meta-boxes.php:689
 #: vendor/webdevstudios/cmb2/example-functions.php:434
 msgid "Description"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:706
+#: includes/class-wpsight-meta-boxes.php:705
 #: templates/listing-single-agent.php:42
 msgid "Website"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:714
+#: includes/class-wpsight-meta-boxes.php:713
+#: includes/class-wpsight-meta-boxes.php:808
 #: templates/listing-single-agent.php:46
 msgid "Twitter"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:722
+#: includes/class-wpsight-meta-boxes.php:721
+#: includes/class-wpsight-meta-boxes.php:802
 #: templates/listing-single-agent.php:50
 msgid "Facebook"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:730
+#: includes/class-wpsight-meta-boxes.php:729
 msgid "Logo"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:747
+#: includes/class-wpsight-meta-boxes.php:746
 msgid "Listing Agent"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:780
-#: includes/class-wpsight-meta-boxes.php:802
-msgid "Agent Info"
+#: includes/class-wpsight-meta-boxes.php:776
+msgid "Agent Information"
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:781
+#: includes/class-wpsight-meta-boxes.php:777
 msgid ""
-"These settings let you change how your agent profile will appear in listings."
+"Apart from the default WordPress profile information above you can add "
+"additional agent details here."
 msgstr ""
 
-#: includes/class-wpsight-meta-boxes.php:786
-msgid "Agent Image"
+#: includes/class-wpsight-meta-boxes.php:784
+msgid "Image"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:813
+#: includes/class-wpsight-meta-boxes.php:817
+msgid "Agent Update"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:818
+msgid "Update agent info of all listings created by this user"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:830
+msgid "Agent"
 msgstr ""
 
 #: includes/class-wpsight-post-types.php:77
@@ -2154,12 +2174,12 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: wpcasa.php:200
+#: wpcasa.php:212
 msgctxt "listings page title"
 msgid "Listings"
 msgstr ""
 
-#: wpcasa.php:290
+#: wpcasa.php:302
 msgid ""
 "Please make sure to <strong>deactivate the WPCasa theme</strong> in order to "
 "use the WPCasa plugin version. For more information about how to switch "

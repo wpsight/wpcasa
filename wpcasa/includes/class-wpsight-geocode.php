@@ -191,17 +191,30 @@ class WPSight_Geocode {
 		$transient_name              = 'geocode_' . md5( $raw_address );
 		$geocoded_address            = get_transient( $transient_name );
 		$jm_geocode_over_query_limit = get_transient( 'jm_geocode_over_query_limit' );
+		
+		$api_key = wpsight_get_option( 'google_maps_api_key' );
 
 		// Query limit reached - don't geocode for a while
 
-		if ( $jm_geocode_over_query_limit && false === $geocoded_address )
+		if ( ! $api_key && $jm_geocode_over_query_limit && false === $geocoded_address )
 			return false;
 
 		try {
 			if ( false === $geocoded_address || empty( $geocoded_address->results[0] ) ) {
+				
+				// Set geocoding API URL				
+				$api_url = sprintf( 'https://maps.googleapis.com/maps/api/geocode/json?address=%s&region=%s', $raw_address, apply_filters( 'wpsight_geolocation_region_cctld', '', $raw_address ) );
+				
+				// Optionally add API key
+				$api_url_key = $api_key ? add_query_arg( array( 'key' => $api_key ), $api_url ) : $api_url;
+				
+				// Apply filter
+				$api_url_key = apply_filters( 'wpsight_google_maps_geocoding_endpoint', $api_url_key, $api_url, $raw_address, $api_key );
+
+				// Get result for raw address
 
 				$result = wp_remote_get(
-					apply_filters( 'wpsight_geolocation_endpoint', "http://maps.googleapis.com/maps/api/geocode/json?address=" . $raw_address . "&sensor=false&region=" . apply_filters( 'wpsight_geolocation_region_cctld', '', $raw_address ), $raw_address ),
+					apply_filters( 'wpsight_geolocation_endpoint', $api_url_key, $raw_address ),
 					array(
 						'timeout'     => 5,
 					    'redirection' => 1,

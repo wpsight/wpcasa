@@ -330,6 +330,13 @@ class WPSight_Admin {
 			'default'  => '1',
 			'type'     => 'checkbox'
 		);
+		
+		$options_listings['google_maps_api_key'] = array(
+			'name'  => __( 'Google Maps API', 'wpcasa' ),
+			'desc'	=> sprintf( __( 'If necessary, please enter your Google Maps API key (<a href="%s" target="_blank">register here</a>).', 'wpcasa' ), 'https://developers.google.com/maps/documentation/javascript/get-api-key' ),
+			'id'    => 'google_maps_api_key',
+			'type'  => 'text'
+		);
 
 		return apply_filters( 'wpsight_options_listings', $options_listings );
 

@@ -3,11 +3,11 @@
 Plugin Name: WPCasa
 Plugin URI: https://wpcasa.com
 Description: Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
-Version: 1.0.6
+Version: 1.0.6.1
 Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 4.0
-Tested up to: 4.5
+Tested up to: 4.5.3
 Text Domain: wpcasa
 Domain Path: /languages
 
@@ -47,7 +47,7 @@ class WPSight_Framework {
 		if ( ! defined( 'WPSIGHT_AUTHOR' ) )
 			define( 'WPSIGHT_AUTHOR', 'WPSight' );
 
-		define( 'WPSIGHT_VERSION', '1.0.6' );
+		define( 'WPSIGHT_VERSION', '1.0.6.1' );
 		define( 'WPSIGHT_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 		
@@ -164,6 +164,18 @@ class WPSight_Framework {
 		);
 		
 		wp_localize_script( 'wpsight-listings-search', 'wpsight_localize', $data );
+		
+		// Enqueue Google Maps (optionally with API key)
+		
+		if( true == apply_filters( 'wpsight_google_maps', true ) ) {
+			
+			$api_key = wpsight_get_option( 'google_maps_api_key' );
+			
+			$api_url = $api_key ? add_query_arg( array( 'key' => $api_key ), '//maps.googleapis.com/maps/api/js' ) : '//maps.googleapis.com/maps/api/js';
+		
+			wp_enqueue_script( 'wpsight-map-googleapi', apply_filters( 'wpsight_google_maps_endpoint', esc_url( $api_url ), $api_key ), null, WPSIGHT_VERSION );
+		
+		}		
 		
 		if( true == apply_filters( 'wpsight_css', true ) && wpsight_get_option( 'listings_css' ) ) {
 

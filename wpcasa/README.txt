@@ -3,8 +3,8 @@ Contributors: wpsight, jancbeck, simonrimkus
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZRR56U2VTPZAQ
 Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
 Requires at least: 4.0
-Tested up to: 4.5.2
-Stable tag: 1.0.6
+Tested up to: 4.5.3
+Stable tag: 1.0.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,7 @@ WPCasa is a **real estate** WordPress solution that provides an intuitive way to
 * Themes: [wpcasa.com/themes](https://wpcasa.com/themes)
 * Github: [github.com/wpsight/wpcasa](https://github.com/wpsight/wpcasa)
 
-> Have a look at our latest theme [WPCasa London](https://wpcasa.com/downloads/wpcasa-london/).
+> Have a look at our latest theme [WPCasa Oslo](https://wpcasa.com/downloads/wpcasa-oslo/).
 
 = Easy as WordPress =
 

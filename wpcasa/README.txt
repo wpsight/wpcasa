@@ -142,6 +142,10 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 
 == Changelog ==
 
+= 1.0.6.1 =
+* Tested up to WordPress 4.5.3
+* Added option to enter Google Maps API key
+
 = 1.0.6 =
 * Tested up to WordPress 4.5
 * Add Brazilian Portuguese language files

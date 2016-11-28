@@ -24,7 +24,7 @@ class WPSight_Search {
 	 *
 	 * @uses wpsight_post_type()
 	 * @uses wpsight_taxonomies()
-	 * @uses is_tax()
+	 * @uses $query->is_tax()
 	 * @uses $query->is_main_query()
 	 * @uses $query->set()
 	 *

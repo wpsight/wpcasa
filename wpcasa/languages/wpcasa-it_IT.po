@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2017-02-01 08:55+0100\n"
-"MIME-Version: 1.0\n"
+"MIME-Version: 1.0.1\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -560,7 +560,7 @@ msgstr "Stampa ora"
 #: templates/listing-print.php:27
 msgctxt "listing print"
 msgid "Back to Listing"
-msgstr "Tona agli annunci"
+msgstr "Torna agli annunci"
 
 #: templates/listing-no.php:3
 msgid "Sorry, but no listing matches your criteria."
@@ -1098,7 +1098,7 @@ msgstr "Disponibilità"
 
 #: includes/class-wpsight-listings.php:983
 msgid "Price on request"
-msgstr "Contattaci per conoscere il costo"
+msgstr "Trattativa riservata"
 
 #: includes/class-wpsight-listings.php:982
 msgid "Rented"

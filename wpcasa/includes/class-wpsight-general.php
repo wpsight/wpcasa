@@ -790,7 +790,7 @@ class WPSight_General {
 		if ( empty( $currency_ent ) )
 			$currency_ent = ' ' . $currency . ' ';
 
-		return apply_filters( 'wpsight_get_currency', $currency_ent );
+		return apply_filters( 'wpsight_get_currency', $currency_ent, $currency );
 
 	}
 

@@ -235,7 +235,7 @@ class WPSight_Search {
 			    	'show_option_none' 	=> __( 'Location', 'wpcasa' ),
 			    	'option_none_value' => '',
 			    	'hierarchical'		=> 1,
-			    	'orderby'         	=> 'ID',
+			    	'orderby'         	=> 'name',
 					'order'           	=> 'ASC'
 				),
 				'type' 			=> 'taxonomy_select',
@@ -249,7 +249,7 @@ class WPSight_Search {
 			    	'show_option_none' 	=> __( 'Type', 'wpcasa' ),
 			    	'option_none_value' => '',
 			    	'hierarchical'		=> 1,
-			    	'orderby'         	=> 'ID', 
+			    	'orderby'         	=> 'name', 
 					'order'           	=> 'ASC'
 				),
 				'type' 			=> 'taxonomy_select',

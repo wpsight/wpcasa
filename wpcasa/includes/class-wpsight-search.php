@@ -24,7 +24,7 @@ class WPSight_Search {
 	 *
 	 * @uses wpsight_post_type()
 	 * @uses wpsight_taxonomies()
-	 * @uses is_tax()
+	 * @uses $query->is_tax()
 	 * @uses $query->is_main_query()
 	 * @uses $query->set()
 	 *
@@ -34,7 +34,7 @@ class WPSight_Search {
 		
 		// Stop if no listing tax or not main query
 		
-		if( ! is_tax( wpsight_taxonomies( 'names' ) ) || ! $query->is_main_query() )
+		if( ! $query->is_tax( wpsight_taxonomies( 'names' ) ) || ! $query->is_main_query() )
 			return;
 			
 		// Only allow order vars	

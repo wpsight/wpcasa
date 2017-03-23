@@ -1,0 +1,2199 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Project-Id-Version: WPCasa\n"
+"POT-Creation-Date: 2016-03-10 07:24+0500\n"
+"PO-Revision-Date: 2016-03-30 03:02+0500\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: wpcasa.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: Systemo <s@systemo.biz>\n"
+"Language: ru_RU\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/admin/EDD_SL_Plugin_Updater.php:180
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+
+#: includes/admin/EDD_SL_Plugin_Updater.php:187
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+
+#: includes/admin/EDD_SL_Plugin_Updater.php:325
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: includes/admin/EDD_SL_Plugin_Updater.php:325
+msgid "Error"
+msgstr "Ошибка"
+
+#: includes/admin/class-wpsight-addons.php:55
+#: includes/admin/class-wpsight-admin.php:93
+msgid "Add-Ons"
+msgstr "Дополнения"
+
+#: includes/admin/class-wpsight-admin.php:90
+#: includes/admin/class-wpsight-settings.php:90
+msgid "Settings"
+msgstr "Настройки"
+
+#: includes/admin/class-wpsight-admin.php:96
+#: includes/admin/class-wpsight-themes.php:55
+msgid "Themes"
+msgstr "Темы"
+
+#: includes/admin/class-wpsight-admin.php:99
+#: includes/admin/class-wpsight-licenses.php:35
+msgid "Licenses"
+msgstr "Лицензии"
+
+#: includes/admin/class-wpsight-admin.php:142
+#: includes/admin/class-wpsight-admin.php:428
+#: includes/admin/class-wpsight-cpt.php:1196
+#: includes/class-wpsight-template.php:284
+msgid "Listings"
+msgstr "Объявления"
+
+#: includes/admin/class-wpsight-admin.php:159
+msgid "Support Package"
+msgstr "Пакет поддержки"
+
+#: includes/admin/class-wpsight-admin.php:160
+msgid ""
+"To receive support for a free product please enter your support package "
+"license key. <a href=\"https://wpcasa.com/support/package/\" target=\"_blank"
+"\">More information&hellip;</a>"
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:189
+msgid "Listings Page"
+msgstr "Страница списка"
+
+#: includes/admin/class-wpsight-admin.php:190
+msgid ""
+"Please select the main search results page with the "
+"<code>[wpsight_listings]</code> shortcode."
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:196 wpcasa.php:214
+msgid "ID-"
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:199
+msgid "Listing ID Prefix"
+msgstr "Листинг ID Приставка"
+
+#: includes/admin/class-wpsight-admin.php:201
+msgid ""
+"The listing ID will be this prefix plus post ID. You can optionally set "
+"individual IDs on the listing edit screen."
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:207
+msgid "Measurement Unit"
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:208
+msgid ""
+"Please select the general measurement unit. The unit for the listing "
+"standard features can be defined separately below."
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:217
+msgid "Currency"
+msgstr "Валюта"
+
+#: includes/admin/class-wpsight-admin.php:218
+msgid ""
+"Please select the currency for the listing prices. If your currency is not "
+"listed, please select <code>Other</code>."
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:223
+msgid "Other"
+msgstr "Прочее"
+
+#: includes/admin/class-wpsight-admin.php:227
+#: includes/admin/class-wpsight-admin.php:235
+msgid "Other Currency"
+msgstr "Название валюты"
+
+#: includes/admin/class-wpsight-admin.php:227
+msgid "Abbreviation"
+msgstr "Сокращение"
+
+#: includes/admin/class-wpsight-admin.php:229
+msgid ""
+"Please insert the abbreviation of your currency (e.g. <code>EUR</code>)."
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:235
+msgid "Symbol"
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:237
+msgid ""
+"Please insert the currency symbol or HTML entity (e.g. <code>&amp;euro;</"
+"code>)."
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:243
+msgid "Currency Symbol"
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:244
+msgid "Please select the position of the currency symbol."
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:248
+msgid "Before the value"
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:248
+msgid "After the value"
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:252
+msgid "Thousands Separator"
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:253
+msgid "Please select the thousands separator for your listing prices."
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:257
+msgid "Comma (e.g. 1,000,000)"
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:257
+msgid "Period (e.g. 1.000.000)"
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:263
+msgid "Listing Features"
+msgstr "Особенности"
+
+#: includes/admin/class-wpsight-admin.php:264
+msgid "Please check the box to edit the listing standard features."
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:277
+msgid "Standard Feature"
+msgstr "Стандартная Особенность"
+
+#: includes/admin/class-wpsight-admin.php:292
+msgid "Rental Periods"
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:293
+msgid "Please check the box to edit the rental periods."
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:306
+msgid "Rental Period"
+msgstr "Срок аренды"
+
+#: includes/admin/class-wpsight-admin.php:318
+msgid "Date Format"
+msgstr "Формат даты"
+
+#: includes/admin/class-wpsight-admin.php:319
+msgid "Please select the date format for the listings table in the admin."
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:327
+msgid "Output CSS"
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:328
+msgid "Please uncheck the box to disable the plugin from outputting CSS."
+msgstr ""
+
+#: includes/admin/class-wpsight-admin.php:372
+msgid "All"
+msgstr "Все элементы"
+
+#: includes/admin/class-wpsight-admin.php:400
+msgid "Published"
+msgstr "Опубликован"
+
+#: includes/admin/class-wpsight-admin.php:400
+msgid "Active"
+msgstr "Активный"
+
+#: includes/admin/class-wpsight-agents.php:67
+msgid "Agent Update"
+msgstr ""
+
+#: includes/admin/class-wpsight-agents.php:70
+msgid "Update agent info of all listings created by this user"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:91
+#: includes/class-wpsight-meta-boxes.php:446
+#: includes/class-wpsight-search.php:223
+msgid "Offer"
+msgstr "Предложение"
+
+#: includes/admin/class-wpsight-cpt.php:92
+msgid "ID"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:93
+msgid "Listing"
+msgstr "Список"
+
+#: includes/admin/class-wpsight-cpt.php:94
+#: includes/class-wpsight-meta-boxes.php:438
+msgid "Price"
+msgstr "Цена"
+
+#: includes/admin/class-wpsight-cpt.php:95
+msgid "Posted"
+msgstr "Запись"
+
+#: includes/admin/class-wpsight-cpt.php:98
+msgid "Expires"
+msgstr "Истекает"
+
+#: includes/admin/class-wpsight-cpt.php:100
+msgid "Status"
+msgstr "Статус"
+
+#: includes/admin/class-wpsight-cpt.php:101
+msgid "Actions"
+msgstr "Действия"
+
+#: includes/admin/class-wpsight-cpt.php:185
+#: includes/admin/class-wpsight-cpt.php:249
+msgid "Edit"
+msgstr "Изменить"
+
+#: includes/admin/class-wpsight-cpt.php:195
+msgid "Sticky"
+msgstr "Прилеплен"
+
+#: includes/admin/class-wpsight-cpt.php:200
+msgid "Featured"
+msgstr "Лучшее"
+
+#: includes/admin/class-wpsight-cpt.php:235
+msgid "Item is currently not available"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:255
+#: includes/admin/class-wpsight-cpt.php:398
+msgid "View"
+msgstr "Просмотр"
+
+#: includes/admin/class-wpsight-cpt.php:305
+msgid "by a guest"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:305
+#, php-format
+msgid "by %s"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:340
+#: includes/admin/class-wpsight-cpt.php:486
+#: includes/admin/class-wpsight-cpt.php:487
+msgid "Approve"
+msgstr "Утвердить"
+
+#: includes/admin/class-wpsight-cpt.php:340
+#: includes/admin/class-wpsight-cpt.php:489
+#: includes/admin/class-wpsight-cpt.php:490
+msgid "Unapprove"
+msgstr "Отменить одобрение"
+
+#: includes/admin/class-wpsight-cpt.php:348
+msgid "Mark available"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:348
+msgid "Mark unavailable"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:356
+msgid "Trash"
+msgstr "Мусор"
+
+#: includes/admin/class-wpsight-cpt.php:366
+msgid "Restore"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:737
+#, php-format
+msgid "%s have been approved"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:742
+#, php-format
+msgid "%s are now pending approval"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:749
+#, php-format
+msgid "%s has been approved"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:751
+#, php-format
+msgid "%s is now pending approval"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:856
+#, php-format
+msgid "%s are now sticky"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:861
+#, php-format
+msgid "%s are no longer sticky"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:868
+#, php-format
+msgid "%s is now sticky"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:870
+#, php-format
+msgid "%s is no longer sticky"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:975
+#, php-format
+msgid "%s are now featured"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:980
+#, php-format
+msgid "%s are no longer featured"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:987
+#, php-format
+msgid "%s is now featured"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:989
+#, php-format
+msgid "%s is no longer featured"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1094
+#, php-format
+msgid "%s are no longer available"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1099
+#, php-format
+msgid "%s are now available"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1106
+#, php-format
+msgid "%s is no longer available"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1108
+#, php-format
+msgid "%s is now available"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1132
+#, php-format
+msgid "%s updated. <a href=\"%s\">View</a>"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1133
+msgid "Custom field updated."
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1134
+msgid "Custom field deleted."
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1135
+#, php-format
+msgid "%s updated."
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1136
+#, php-format
+msgid "%s restored to revision from %s"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1137
+#, php-format
+msgid "%s published. <a href=\"%s\">View</a>"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1138
+#, php-format
+msgid "%s saved."
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1139
+#, php-format
+msgid "%s submitted. <a target=\"_blank\" href=\"%s\">Preview</a>"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1140
+#, php-format
+msgid ""
+"%s scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview</a>"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1141
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1142
+#, php-format
+msgid "%s draft updated. <a target=\"_blank\" href=\"%s\">Preview</a>"
+msgstr ""
+
+#: includes/admin/class-wpsight-cpt.php:1170
+#, php-format
+msgid "%s listing updated."
+msgid_plural "%s listings updated."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: includes/admin/class-wpsight-cpt.php:1171
+#, php-format
+msgid "%s listing not updated, somebody is editing it."
+msgid_plural "%s listings not updated, somebody is editing them."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: includes/admin/class-wpsight-cpt.php:1172
+#, php-format
+msgid "%s listing permanently deleted."
+msgid_plural "%s listings permanently deleted."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: includes/admin/class-wpsight-cpt.php:1173
+#, php-format
+msgid "%s listing moved to the Trash."
+msgid_plural "%s listings moved to the Trash."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: includes/admin/class-wpsight-cpt.php:1174
+#, php-format
+msgid "%s listing restored from the Trash."
+msgid_plural "%s listings restored from the Trash."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: includes/admin/class-wpsight-cpt.php:1265
+msgid "Offers"
+msgstr "Предложения"
+
+#: includes/admin/class-wpsight-cpt.php:1272
+msgid "Not Available"
+msgstr "Не Доступно"
+
+#: includes/admin/class-wpsight-cpt.php:1343
+msgid "Agents"
+msgstr "Агенты"
+
+#: includes/admin/class-wpsight-licenses.php:58
+msgid "active"
+msgstr ""
+
+#: includes/admin/class-wpsight-licenses.php:65
+msgid "Deactivate License"
+msgstr ""
+
+#: includes/admin/class-wpsight-licenses.php:68
+msgid "Activate License"
+msgstr ""
+
+#: includes/admin/class-wpsight-settings.php:96
+msgid "Settings reset."
+msgstr ""
+
+#: includes/admin/class-wpsight-settings.php:99
+msgid "Settings saved."
+msgstr ""
+
+#: includes/admin/class-wpsight-settings.php:186
+msgctxt "plugin settings"
+msgid "Select page"
+msgstr ""
+
+#: includes/admin/class-wpsight-settings.php:261
+msgid "Save Changes"
+msgstr ""
+
+#: includes/admin/class-wpsight-settings.php:269
+msgid "Restore Defaults"
+msgstr ""
+
+#: includes/admin/class-wpsight-settings.php:269
+msgid "Are you sure?"
+msgstr "Вы уверены?"
+
+#: includes/class-wpsight-agents.php:59
+msgctxt "agent role"
+msgid "Listing Admin"
+msgstr ""
+
+#: includes/class-wpsight-agents.php:88
+msgctxt "agent role"
+msgid "Listing Agent"
+msgstr ""
+
+#: includes/class-wpsight-agents.php:104
+msgctxt "agent role"
+msgid "Listing Subscriber"
+msgstr ""
+
+#: includes/class-wpsight-agents.php:793
+#: includes/class-wpsight-meta-boxes.php:682
+msgid "Company"
+msgstr "Компания"
+
+#: includes/class-wpsight-agents.php:796
+#: includes/class-wpsight-meta-boxes.php:698
+msgid "Phone"
+msgstr "Телефон"
+
+#: includes/class-wpsight-general.php:39
+msgid "Beds"
+msgstr "Кровати"
+
+#: includes/class-wpsight-general.php:41 includes/class-wpsight-general.php:53
+msgid "n/d"
+msgstr ""
+
+#: includes/class-wpsight-general.php:51
+msgid "Baths"
+msgstr "Ванны"
+
+#: includes/class-wpsight-general.php:63
+msgid "Plot Size"
+msgstr "Площадь"
+
+#: includes/class-wpsight-general.php:74
+msgid "Living Area"
+msgstr "Жилая площадь"
+
+#: includes/class-wpsight-general.php:86
+msgid "Terrace"
+msgstr "Терраса"
+
+#: includes/class-wpsight-general.php:98
+msgid "Parking"
+msgstr "Парковка"
+
+#: includes/class-wpsight-general.php:110
+msgid "Heating"
+msgstr "Отопление"
+
+#: includes/class-wpsight-general.php:122
+msgid "Built in"
+msgstr "Построено в"
+
+#: includes/class-wpsight-general.php:287
+msgid "For Sale"
+msgstr "Продажа"
+
+#: includes/class-wpsight-general.php:288
+msgid "For Rent"
+msgstr "Аренда"
+
+#: includes/class-wpsight-general.php:363
+msgid "per Month"
+msgstr "в месяц"
+
+#: includes/class-wpsight-general.php:364
+msgid "per Week"
+msgstr "за Неделю"
+
+#: includes/class-wpsight-general.php:365
+msgid "per Year"
+msgstr "за Год"
+
+#: includes/class-wpsight-general.php:366
+msgid "per Day"
+msgstr "за День"
+
+#: includes/class-wpsight-general.php:487
+msgid "F j, Y"
+msgstr ""
+
+#: includes/class-wpsight-general.php:487
+msgid "j. F Y"
+msgstr ""
+
+#: includes/class-wpsight-general.php:513
+#: includes/class-wpsight-general.php:514
+msgctxt "listing post status"
+msgid "Draft"
+msgstr ""
+
+#: includes/class-wpsight-general.php:517
+#: includes/class-wpsight-general.php:518
+msgctxt "listing post status"
+msgid "Active"
+msgstr ""
+
+#: includes/class-wpsight-general.php:521
+#: includes/class-wpsight-general.php:534
+msgctxt "listing post status"
+msgid "Pending"
+msgstr ""
+
+#: includes/class-wpsight-general.php:522
+msgctxt "listing post status"
+msgid "Pending approval"
+msgstr ""
+
+#: includes/class-wpsight-general.php:525
+#: includes/class-wpsight-general.php:526
+msgctxt "listing post status"
+msgid "Preview"
+msgstr ""
+
+#: includes/class-wpsight-general.php:531
+#, php-format
+msgid "Preview <span class=\"count\">(%s)</span>"
+msgid_plural "Preview <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: includes/class-wpsight-general.php:535
+msgctxt "listing post status"
+msgid "Pending payment"
+msgstr ""
+
+#: includes/class-wpsight-general.php:540
+#, php-format
+msgid "Pending Payment <span class=\"count\">(%s)</span>"
+msgid_plural "Pending Payment <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: includes/class-wpsight-general.php:543
+#: includes/class-wpsight-general.php:544
+msgctxt "listing post status"
+msgid "Trash"
+msgstr ""
+
+#: includes/class-wpsight-general.php:590
+msgid "AED => United Arab Emirates Dirham"
+msgstr ""
+
+#: includes/class-wpsight-general.php:591
+msgid "ANG => Netherlands Antillean Guilder"
+msgstr ""
+
+#: includes/class-wpsight-general.php:592
+msgid "ARS => Argentine Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:593
+msgid "AUD => Australian Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:594
+msgid "BDT => Bangladeshi Taka"
+msgstr ""
+
+#: includes/class-wpsight-general.php:595
+msgid "BGN => Bulgarian Lev"
+msgstr ""
+
+#: includes/class-wpsight-general.php:596
+msgid "BHD => Bahraini Dinar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:597
+msgid "BND => Brunei Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:598
+msgid "BOB => Bolivian Boliviano"
+msgstr ""
+
+#: includes/class-wpsight-general.php:599
+msgid "BRL => Brazilian Real"
+msgstr ""
+
+#: includes/class-wpsight-general.php:600
+msgid "BWP => Botswanan Pula"
+msgstr ""
+
+#: includes/class-wpsight-general.php:601
+msgid "CAD => Canadian Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:602
+msgid "CHF => Swiss Franc"
+msgstr ""
+
+#: includes/class-wpsight-general.php:603
+msgid "CLP => Chilean Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:604
+msgid "CNY => Chinese Yuan"
+msgstr ""
+
+#: includes/class-wpsight-general.php:605
+msgid "COP => Colombian Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:606
+msgid "CRC => Costa Rican Colon"
+msgstr ""
+
+#: includes/class-wpsight-general.php:607
+msgid "CZK => Czech Republic Koruna"
+msgstr ""
+
+#: includes/class-wpsight-general.php:608
+msgid "DKK => Danish Krone"
+msgstr ""
+
+#: includes/class-wpsight-general.php:609
+msgid "DOP => Dominican Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:610
+msgid "DZD => Algerian Dinar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:611
+msgid "EEK => Estonian Kroon"
+msgstr ""
+
+#: includes/class-wpsight-general.php:612
+msgid "EGP => Egyptian Pound"
+msgstr ""
+
+#: includes/class-wpsight-general.php:613
+msgid "EUR => Euro"
+msgstr ""
+
+#: includes/class-wpsight-general.php:614
+msgid "FJD => Fijian Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:615
+msgid "GBP => British Pound"
+msgstr ""
+
+#: includes/class-wpsight-general.php:616
+msgid "HKD => Hong Kong Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:617
+msgid "HNL => Honduran Lempira"
+msgstr ""
+
+#: includes/class-wpsight-general.php:618
+msgid "HRK => Croatian Kuna"
+msgstr ""
+
+#: includes/class-wpsight-general.php:619
+msgid "HUF => Hungarian Forint"
+msgstr ""
+
+#: includes/class-wpsight-general.php:620
+msgid "IDR => Indonesian Rupiah"
+msgstr ""
+
+#: includes/class-wpsight-general.php:621
+msgid "ILS => Israeli New Sheqel"
+msgstr ""
+
+#: includes/class-wpsight-general.php:622
+msgid "INR => Indian Rupee"
+msgstr ""
+
+#: includes/class-wpsight-general.php:623
+msgid "JMD => Jamaican Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:624
+msgid "JOD => Jordanian Dinar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:625
+msgid "JPY => Japanese Yen"
+msgstr ""
+
+#: includes/class-wpsight-general.php:626
+msgid "KES => Kenyan Shilling"
+msgstr ""
+
+#: includes/class-wpsight-general.php:627
+msgid "KRW => South Korean Won"
+msgstr ""
+
+#: includes/class-wpsight-general.php:628
+msgid "KWD => Kuwaiti Dinar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:629
+msgid "KYD => Cayman Islands Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:630
+msgid "KZT => Kazakhstani Tenge"
+msgstr ""
+
+#: includes/class-wpsight-general.php:631
+msgid "LBP => Lebanese Pound"
+msgstr ""
+
+#: includes/class-wpsight-general.php:632
+msgid "LKR => Sri Lankan Rupee"
+msgstr ""
+
+#: includes/class-wpsight-general.php:633
+msgid "LTL => Lithuanian Litas"
+msgstr ""
+
+#: includes/class-wpsight-general.php:634
+msgid "LVL => Latvian Lats"
+msgstr ""
+
+#: includes/class-wpsight-general.php:635
+msgid "MAD => Moroccan Dirham"
+msgstr ""
+
+#: includes/class-wpsight-general.php:636
+msgid "MDL => Moldovan Leu"
+msgstr ""
+
+#: includes/class-wpsight-general.php:637
+msgid "MKD => Macedonian Denar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:638
+msgid "MUR => Mauritian Rupee"
+msgstr ""
+
+#: includes/class-wpsight-general.php:639
+msgid "MVR => Maldivian Rufiyaa"
+msgstr ""
+
+#: includes/class-wpsight-general.php:640
+msgid "MXN => Mexican Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:641
+msgid "MYR => Malaysian Ringgit"
+msgstr ""
+
+#: includes/class-wpsight-general.php:642
+msgid "NAD => Namibian Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:643
+msgid "NGN => Nigerian Naira"
+msgstr ""
+
+#: includes/class-wpsight-general.php:644
+msgid "NIO => Nicaraguan Cordoba"
+msgstr ""
+
+#: includes/class-wpsight-general.php:645
+msgid "NOK => Norwegian Krone"
+msgstr ""
+
+#: includes/class-wpsight-general.php:646
+msgid "NPR => Nepalese Rupee"
+msgstr ""
+
+#: includes/class-wpsight-general.php:647
+msgid "NZD => New Zealand Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:648
+msgid "OMR => Omani Rial"
+msgstr ""
+
+#: includes/class-wpsight-general.php:649
+msgid "PEN => Peruvian Nuevo Sol"
+msgstr ""
+
+#: includes/class-wpsight-general.php:650
+msgid "PGK => Papua New Guinean Kina"
+msgstr ""
+
+#: includes/class-wpsight-general.php:651
+msgid "PHP => Philippine Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:652
+msgid "PKR => Pakistani Rupee"
+msgstr ""
+
+#: includes/class-wpsight-general.php:653
+msgid "PLN => Polish Zloty"
+msgstr ""
+
+#: includes/class-wpsight-general.php:654
+msgid "PYG => Paraguayan Guarani"
+msgstr ""
+
+#: includes/class-wpsight-general.php:655
+msgid "QAR => Qatari Rial"
+msgstr ""
+
+#: includes/class-wpsight-general.php:656
+msgid "RON => Romanian Leu"
+msgstr ""
+
+#: includes/class-wpsight-general.php:657
+msgid "RSD => Serbian Dinar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:658
+msgid "RUB => Russian Ruble"
+msgstr ""
+
+#: includes/class-wpsight-general.php:659
+msgid "SAR => Saudi Riyal"
+msgstr ""
+
+#: includes/class-wpsight-general.php:660
+msgid "SCR => Seychellois Rupee"
+msgstr ""
+
+#: includes/class-wpsight-general.php:661
+msgid "SEK => Swedish Krona"
+msgstr ""
+
+#: includes/class-wpsight-general.php:662
+msgid "SGD => Singapore Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:663
+msgid "SKK => Slovak Koruna"
+msgstr ""
+
+#: includes/class-wpsight-general.php:664
+msgid "SLL => Sierra Leonean Leone"
+msgstr ""
+
+#: includes/class-wpsight-general.php:665
+msgid "SVC => Salvadoran Colon"
+msgstr ""
+
+#: includes/class-wpsight-general.php:666
+msgid "THB => Thai Baht"
+msgstr ""
+
+#: includes/class-wpsight-general.php:667
+msgid "TND => Tunisian Dinar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:668
+msgid "TRY => Turkish Lira"
+msgstr ""
+
+#: includes/class-wpsight-general.php:669
+msgid "TTD => Trinidad and Tobago Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:670
+msgid "TWD => New Taiwan Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:671
+msgid "TZS => Tanzanian Shilling"
+msgstr ""
+
+#: includes/class-wpsight-general.php:672
+msgid "UAH => Ukrainian Hryvnia"
+msgstr ""
+
+#: includes/class-wpsight-general.php:673
+msgid "UGX => Ugandan Shilling"
+msgstr ""
+
+#: includes/class-wpsight-general.php:674
+msgid "USD => US Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:675
+msgid "UYU => Uruguayan Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:676
+msgid "UZS => Uzbekistan Som"
+msgstr ""
+
+#: includes/class-wpsight-general.php:677
+msgid "VEF => Venezuelan Bolivar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:678
+msgid "VND => Vietnamese Dong"
+msgstr ""
+
+#: includes/class-wpsight-general.php:679
+msgid "XOF => CFA Franc BCEAO"
+msgstr ""
+
+#: includes/class-wpsight-general.php:680
+msgid "YER => Yemeni Rial"
+msgstr ""
+
+#: includes/class-wpsight-general.php:681
+msgid "ZAR => South African Rand"
+msgstr ""
+
+#: includes/class-wpsight-general.php:682
+msgid "ZMK => Zambian Kwacha"
+msgstr ""
+
+#: includes/class-wpsight-geocode.php:222
+msgid "No results found"
+msgstr ""
+
+#: includes/class-wpsight-geocode.php:227
+msgid "Query limit reached"
+msgstr ""
+
+#: includes/class-wpsight-geocode.php:234
+#: includes/class-wpsight-geocode.php:239
+#: includes/class-wpsight-geocode.php:246
+msgid "Geocoding error"
+msgstr ""
+
+#: includes/class-wpsight-listings.php:978
+msgid "Sold"
+msgstr ""
+
+#: includes/class-wpsight-listings.php:979
+msgid "Rented"
+msgstr ""
+
+#: includes/class-wpsight-listings.php:980
+msgid "Price on request"
+msgstr "Цена по запросу"
+
+#: includes/class-wpsight-meta-boxes.php:343
+msgid "Availability"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:346
+msgid "Item not available"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:347
+msgid "The item is currently not available as it has been sold or rented."
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:360
+msgid "Listing Attributes"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:389
+msgid "Images"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:406
+msgid "Listing Images"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:441
+msgid "No currency symbols or thousands separators"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:455
+msgid "Period"
+msgstr "Период"
+
+#: includes/class-wpsight-meta-boxes.php:458
+#: vendor/webdevstudios/cmb2/includes/CMB2_Field.php:978
+#: vendor/webdevstudios/cmb2/includes/CMB2_Field.php:982
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:216
+msgid "None"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:471
+msgid "Listing Price"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:503
+msgid "Listing ID"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:573
+msgid "Listing Details"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:602
+msgid "Address"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:605
+msgid ""
+"e.g. <code>Marbella, Spain</code> or <code>Platz der Republik 1, 10557 "
+"Berlin</code>"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:611
+msgid "Public Note"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:614
+msgid "e.g. <code>Location is not the exact address of the listing</code>"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:619
+msgid "Secret Note"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:622
+msgid "Will not be displayed on the website (e.g. complete address)"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:627
+msgid "Hide Map"
+msgstr "Скрыть карту"
+
+#: includes/class-wpsight-meta-boxes.php:630
+msgid "Hide map for this listing"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:643
+msgid "Listing Location"
+msgstr "Регион"
+
+#: includes/class-wpsight-meta-boxes.php:674
+msgid "Name"
+msgstr "Наименование"
+
+#: includes/class-wpsight-meta-boxes.php:690
+#: vendor/webdevstudios/cmb2/example-functions.php:434
+msgid "Description"
+msgstr "Описание"
+
+#: includes/class-wpsight-meta-boxes.php:706
+#: templates/listing-single-agent.php:42
+msgid "Website"
+msgstr "Сайт"
+
+#: includes/class-wpsight-meta-boxes.php:714
+#: templates/listing-single-agent.php:46
+msgid "Twitter"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:722
+#: templates/listing-single-agent.php:50
+msgid "Facebook"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:730
+msgid "Logo"
+msgstr "Логотип"
+
+#: includes/class-wpsight-meta-boxes.php:747
+msgid "Listing Agent"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:780
+#: includes/class-wpsight-meta-boxes.php:802
+msgid "Agent Info"
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:781
+msgid ""
+"These settings let you change how your agent profile will appear in listings."
+msgstr ""
+
+#: includes/class-wpsight-meta-boxes.php:786
+msgid "Agent Image"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:77
+msgid "Locations"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:78
+#: includes/class-wpsight-search.php:235
+msgid "Location"
+msgstr "Местоположение"
+
+#: includes/class-wpsight-post-types.php:83
+msgctxt "taxonomy locations"
+msgid "Locations"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:84
+msgctxt "taxonomy locations"
+msgid "All Locations"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:85
+msgctxt "taxonomy locations"
+msgid "Edit Location"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:86
+msgctxt "taxonomy locations"
+msgid "View Location"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:87
+msgctxt "taxonomy locations"
+msgid "Update Location"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:88
+msgctxt "taxonomy locations"
+msgid "Add New Location"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:89
+msgctxt "taxonomy locations"
+msgid "New Location Name"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:90
+msgctxt "taxonomy locations"
+msgid "Parent Location"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:91
+msgctxt "taxonomy locations"
+msgid "Parent Location:"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:92
+msgctxt "taxonomy locations"
+msgid "Search locations"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:93
+msgctxt "taxonomy locations"
+msgid "Popular Locations"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:94
+msgctxt "taxonomy locations"
+msgid "Separate locations with commas"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:95
+msgctxt "taxonomy locations"
+msgid "Add or remove locations"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:96
+msgctxt "taxonomy locations"
+msgid "Choose from the most used locations"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:97
+msgctxt "taxonomy locations"
+msgid "No location found"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:125
+msgid "Listing Types"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:126
+msgid "Listing Type"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:131
+msgctxt "taxonomy types"
+msgid "Listing Types"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:132
+msgctxt "taxonomy types"
+msgid "All Listing Types"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:133
+msgctxt "taxonomy types"
+msgid "Edit Listing Type"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:134
+msgctxt "taxonomy types"
+msgid "View Listing Type"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:135
+msgctxt "taxonomy types"
+msgid "Update Listing Type"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:136
+msgctxt "taxonomy types"
+msgid "Add New Listing Type"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:137
+msgctxt "taxonomy types"
+msgid "New Listing Type Name"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:138
+msgctxt "taxonomy types"
+msgid "Parent Listing Type"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:139
+msgctxt "taxonomy types"
+msgid "Parent Listing Type:"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:140
+msgctxt "taxonomy types"
+msgid "Search listing types"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:141
+msgctxt "taxonomy types"
+msgid "Popular Listing Types"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:142
+msgctxt "taxonomy types"
+msgid "Separate listing types with commas"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:143
+msgctxt "taxonomy types"
+msgid "Add or remove listing types"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:144
+msgctxt "taxonomy types"
+msgid "Choose from the most used listing types"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:145
+msgctxt "taxonomy types"
+msgid "No listing type found"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:172
+msgid "Features"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:173
+msgid "Feature"
+msgstr "Особенность"
+
+#: includes/class-wpsight-post-types.php:178
+msgctxt "taxonomy features"
+msgid "Features"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:179
+msgctxt "taxonomy features"
+msgid "All Features"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:180
+msgctxt "taxonomy features"
+msgid "Edit Feature"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:181
+msgctxt "taxonomy features"
+msgid "View Feature"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:182
+msgctxt "taxonomy features"
+msgid "Update Feature"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:183
+msgctxt "taxonomy features"
+msgid "Add New Feature"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:184
+msgctxt "taxonomy features"
+msgid "New Feature Name"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:185
+msgctxt "taxonomy features"
+msgid "Parent Feature"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:186
+msgctxt "taxonomy features"
+msgid "Parent Feature:"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:187
+msgctxt "taxonomy features"
+msgid "Search features"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:188
+msgctxt "taxonomy features"
+msgid "Popular Features"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:189
+msgctxt "taxonomy features"
+msgid "Separate features with commas"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:190
+msgctxt "taxonomy features"
+msgid "Add or remove features"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:191
+msgctxt "taxonomy features"
+msgid "Choose from the most used features"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:192
+msgctxt "taxonomy features"
+msgid "No feature found"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:219
+msgid "Categories"
+msgstr "Категории"
+
+#: includes/class-wpsight-post-types.php:220
+msgid "Category"
+msgstr "Категория"
+
+#: includes/class-wpsight-post-types.php:253
+#: includes/class-wpsight-post-types.php:263
+#: includes/class-wpsight-post-types.php:271
+msgctxt "listing"
+msgid "Listings"
+msgstr "Объявления"
+
+#: includes/class-wpsight-post-types.php:254
+msgctxt "listing"
+msgid "Listing"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:255
+msgctxt "listing"
+msgid "Add New"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:256
+msgctxt "listing"
+msgid "Add New Listing"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:257
+msgctxt "listing"
+msgid "Edit Listing"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:258
+msgctxt "listing"
+msgid "New Listing"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:259
+msgctxt "listing"
+msgid "View Listing"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:260
+msgctxt "listing"
+msgid "Search Listings"
+msgstr "Поиск объявлений"
+
+#: includes/class-wpsight-post-types.php:261
+msgctxt "listing"
+msgid "No listings found"
+msgstr "Не найдено"
+
+#: includes/class-wpsight-post-types.php:262
+msgctxt "listing"
+msgid "No listings found in Trash"
+msgstr "В Корзине объявления не найдены"
+
+#: includes/class-wpsight-post-types.php:272
+msgctxt "listing"
+msgid ""
+"Searchable listings with detailed information about the corresponding item."
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:541
+msgctxt "listing post status"
+msgid "Save as Expired"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:542
+msgctxt "listing post status"
+msgid "Save as Preview"
+msgstr ""
+
+#: includes/class-wpsight-post-types.php:543
+msgctxt "listing post status"
+msgid "Save as Pending"
+msgstr ""
+
+#: includes/class-wpsight-search.php:134
+msgid "Advanced Search"
+msgstr "Расширенный Поиск"
+
+#: includes/class-wpsight-search.php:135
+msgid "Reset Search"
+msgstr "Очистить поиск"
+
+#: includes/class-wpsight-search.php:211
+msgid "Keyword or Listing ID"
+msgstr "Ключевое слово или номер объявления"
+
+#: includes/class-wpsight-search.php:217
+msgid "Search"
+msgstr "Поиск"
+
+#: includes/class-wpsight-search.php:249
+msgid "Type"
+msgstr "Тип"
+
+#: includes/class-wpsight-template.php:162
+msgctxt "listings panel actions"
+msgid "Order by"
+msgstr "Сортировать по"
+
+#: includes/class-wpsight-template.php:163
+msgctxt "listings panel actions"
+msgid "Date"
+msgstr ""
+
+#: includes/class-wpsight-template.php:164
+#: includes/class-wpsight-template.php:168
+msgctxt "listings panel actions"
+msgid "or"
+msgstr ""
+
+#: includes/class-wpsight-template.php:165
+msgctxt "listings panel actions"
+msgid "Price"
+msgstr ""
+
+#: includes/class-wpsight-template.php:166
+msgctxt "listings panel actions"
+msgid "Order"
+msgstr ""
+
+#: includes/class-wpsight-template.php:167
+msgctxt "listings panel actions"
+msgid "DESC"
+msgstr ""
+
+#: includes/class-wpsight-template.php:169
+msgctxt "listings panel actions"
+msgid "ASC"
+msgstr ""
+
+#: includes/class-wpsight-template.php:170
+msgctxt "listings panel actions"
+msgid "Title"
+msgstr ""
+
+#: includes/class-wpsight-template.php:280
+#: includes/class-wpsight-template.php:282
+msgctxt "archive title"
+msgid "Listing"
+msgid_plural "Listings"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: includes/class-wpsight-template.php:346
+msgid "Previous"
+msgstr "Предыдущий"
+
+#: includes/class-wpsight-template.php:347
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:115
+msgid "Next"
+msgstr "Далее"
+
+#: includes/class-wpsight-template.php:451
+msgid "Print"
+msgstr "Печать"
+
+#: templates/listing-archive-description.php:7 templates/listing-print.php:64
+#: templates/listing-single-description.php:13
+msgid "This property is currently not available."
+msgstr ""
+
+#: templates/listing-no.php:3
+msgid "Sorry, but no listing matches your criteria."
+msgstr ""
+
+#: templates/listing-print.php:27
+msgctxt "listing print"
+msgid "Back to Listing"
+msgstr ""
+
+#: templates/listing-print.php:31
+msgctxt "listing print"
+msgid "Print Now"
+msgstr ""
+
+#: templates/listing-single-agent.php:61
+msgid "My Listings"
+msgstr "Мои Списки"
+
+#: templates/listing-single.php:14
+msgid "This listing has expired."
+msgstr ""
+
+#: templates/listings-no.php:3
+msgid "Sorry, but no listing matches your search criteria."
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:82
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:244
+msgid "Test Metabox"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:93
+#: vendor/webdevstudios/cmb2/example-functions.php:380
+msgid "Test Text"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:94
+#: vendor/webdevstudios/cmb2/example-functions.php:106
+#: vendor/webdevstudios/cmb2/example-functions.php:114
+#: vendor/webdevstudios/cmb2/example-functions.php:122
+#: vendor/webdevstudios/cmb2/example-functions.php:131
+#: vendor/webdevstudios/cmb2/example-functions.php:139
+#: vendor/webdevstudios/cmb2/example-functions.php:153
+#: vendor/webdevstudios/cmb2/example-functions.php:160
+#: vendor/webdevstudios/cmb2/example-functions.php:168
+#: vendor/webdevstudios/cmb2/example-functions.php:185
+#: vendor/webdevstudios/cmb2/example-functions.php:194
+#: vendor/webdevstudios/cmb2/example-functions.php:202
+#: vendor/webdevstudios/cmb2/example-functions.php:209
+#: vendor/webdevstudios/cmb2/example-functions.php:216
+#: vendor/webdevstudios/cmb2/example-functions.php:230
+#: vendor/webdevstudios/cmb2/example-functions.php:243
+#: vendor/webdevstudios/cmb2/example-functions.php:256
+#: vendor/webdevstudios/cmb2/example-functions.php:268
+#: vendor/webdevstudios/cmb2/example-functions.php:277
+#: vendor/webdevstudios/cmb2/example-functions.php:285
+#: vendor/webdevstudios/cmb2/example-functions.php:294
+#: vendor/webdevstudios/cmb2/example-functions.php:301
+#: vendor/webdevstudios/cmb2/example-functions.php:315
+#: vendor/webdevstudios/cmb2/example-functions.php:381
+#: vendor/webdevstudios/cmb2/example-functions.php:476
+#: vendor/webdevstudios/cmb2/example-functions.php:484
+#: vendor/webdevstudios/cmb2/example-functions.php:491
+#: vendor/webdevstudios/cmb2/example-functions.php:498
+#: vendor/webdevstudios/cmb2/example-functions.php:505
+#: vendor/webdevstudios/cmb2/example-functions.php:512
+#: vendor/webdevstudios/cmb2/example-functions.php:519
+#: vendor/webdevstudios/cmb2/example-functions.php:557
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:256
+msgid "field description (optional)"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:105
+msgid "Test Text Small"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:113
+msgid "Test Text Medium"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:121
+msgid "Website URL"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:130
+msgid "Test Text Email"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:138
+msgid "Test Time"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:145
+#: vendor/webdevstudios/cmb2/example-functions.php:146
+msgid "Time zone"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:152
+msgid "Test Date Picker"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:159
+msgid "Test Date Picker (UNIX timestamp)"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:167
+msgid "Test Date/Time Picker Combo (UNIX timestamp)"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:184
+msgid "Test Money"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:193
+msgid "Test Color Picker"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:201
+msgid "Test Text Area"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:208
+msgid "Test Text Area Small"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:215
+msgid "Test Text Area for Code"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:222
+msgid "Test Title Weeeee"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:223
+msgid "This is a title description"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:229
+msgid "Test Select"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:235
+#: vendor/webdevstudios/cmb2/example-functions.php:248
+#: vendor/webdevstudios/cmb2/example-functions.php:260
+msgid "Option One"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:236
+#: vendor/webdevstudios/cmb2/example-functions.php:249
+#: vendor/webdevstudios/cmb2/example-functions.php:261
+msgid "Option Two"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:237
+#: vendor/webdevstudios/cmb2/example-functions.php:250
+#: vendor/webdevstudios/cmb2/example-functions.php:262
+msgid "Option Three"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:242
+msgid "Test Radio inline"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:255
+msgid "Test Radio"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:267
+msgid "Test Taxonomy Radio"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:276
+msgid "Test Taxonomy Select"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:284
+msgid "Test Taxonomy Multi Checkbox"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:293
+msgid "Test Checkbox"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:300
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:255
+msgid "Test Multi Checkbox"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:306
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:261
+msgid "Check One"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:307
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:262
+msgid "Check Two"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:308
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:263
+msgid "Check Three"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:314
+msgid "Test wysiwyg"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:322
+msgid "Test Image"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:323
+msgid "Upload an image or enter a URL."
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:329
+msgid "Multiple Files"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:330
+msgid "Upload or add multiple images/attachments."
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:337
+msgid "oEmbed"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:338
+msgid ""
+"Enter a youtube, twitter, or instagram URL. Supports services listed at <a "
+"href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/"
+"Embeds</a>."
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:371
+msgid "About Page Metabox"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:402
+msgid "Repeating Field Group"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:410
+msgid "Generates reusable form entries"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:412
+msgid "Entry {#}"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:413
+msgid "Add Another Entry"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:414
+msgid "Remove Entry"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:427
+msgid "Entry Title"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:435
+msgid "Write a short description for this entry"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:441
+msgid "Entry Image"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:447
+msgid "Image Caption"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:468
+msgid "User Profile Metabox"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:475
+msgid "Extra Info"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:483
+msgid "Avatar"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:490
+msgid "Facebook URL"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:497
+msgid "Twitter URL"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:504
+msgid "Google+ URL"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:511
+msgid "Linkedin URL"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:518
+msgid "User Field"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:541
+msgid "Theme Options Metabox"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:556
+msgid "Site Background Color"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2.php:120
+msgid "Metabox configuration is required to have an ID parameter"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2.php:332
+msgid "Click to toggle"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Ajax.php:40
+msgid "Please Try Again"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Ajax.php:135
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:811
+msgid "Remove Embed"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Ajax.php:139
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:812
+#, php-format
+msgid "No oEmbed Results Found for %s. View more info at"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Field.php:955
+msgid "Add Group"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Field.php:956
+msgid "Remove Group"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:86
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:119
+msgid "Clear"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:87
+msgid "Default"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:88
+msgid "Select Color"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:89
+msgid "Current Color"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:109
+msgctxt "Valid formatDate string for jquery-ui datepicker"
+msgid "mm/dd/yy"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:110
+msgid "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:111
+msgid "Su, Mo, Tu, We, Th, Fr, Sa"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:112
+msgid "Sun, Mon, Tue, Wed, Thu, Fri, Sat"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:113
+msgid ""
+"January, February, March, April, May, June, July, August, September, "
+"October, November, December"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:114
+msgid "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:116
+msgid "Prev"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:117
+msgid "Today"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:118
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:128
+msgid "Done"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:122
+msgid "Choose Time"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:123
+msgid "Time"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:124
+msgid "Hour"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:125
+msgid "Minute"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:126
+msgid "Second"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:127
+msgid "Now"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:129
+msgctxt ""
+"Valid formatting string, as per http://trentrichardson.com/examples/"
+"timepicker/"
+msgid "hh:mm TT"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:135
+msgid "Use this file"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:136
+msgid "Use these files"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:137
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:1004
+msgid "Remove Image"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:138
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:357
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:1023
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:155
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:163
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:760
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:785
+msgid "Remove"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:139
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:1018
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:761
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:786
+msgid "File:"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:140
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:1021
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:759
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:784
+msgid "Download"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:141
+msgid "Select / Deselect All"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:298
+msgid "Add Row"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:749
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:797
+msgid "No terms"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:864
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:736
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:762
+msgid "Add or Upload Files"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:926
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:772
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:787
+msgid "Add or Upload File"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/helper-functions.php:250
+msgid "Save"
+msgstr ""
+
+#: wpcasa.php:200
+msgctxt "listings page title"
+msgid "Listings"
+msgstr "Объявления"
+
+#: wpcasa.php:290
+msgid ""
+"Please make sure to <strong>deactivate the WPCasa theme</strong> in order to "
+"use the WPCasa plugin version. For more information about how to switch "
+"please <a href=\"http://docs.wpsight.com/article/switching-from-theme-"
+"version/\" target=\"_blank\">read our docs</a>."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WPCasa"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wpcasa.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Flexible WordPress plugin to create professional real estate websites and "
+"manage property listings with ease."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WPSight"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://wpsight.com"
+msgstr ""

@@ -711,7 +711,7 @@ class WPSight_Listings {
 				// Get all periods
 				$periods = wpsight_rental_periods();			
 				// Set period label
-				$period = $$periods[ $period ];			
+				$period = $periods[ $period ];			
 			}
 		
 		} else {			

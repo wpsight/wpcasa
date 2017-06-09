@@ -404,7 +404,7 @@ class WPSight_Admin {
 		// Replace 'Published' with 'Active'
 		
 		if( isset( $views['publish'] ) )
-			$views['publish'] = str_replace( __( 'Published' ), __( 'Active', 'wpcasa' ), $views['publish'] );
+			$views['publish'] = str_replace( __( 'Published', 'wpcasa' ), __( 'Active', 'wpcasa' ), $views['publish'] );
 
 		if ( empty( $wp_query->query_vars['s'] ) )
 			return $views;

@@ -305,6 +305,7 @@ class WPSight_Meta_Boxes {
 
 		$meta_boxes = array(
 			'listing_attributes'	=> self::meta_box_listing_attributes(),
+			'listing_images'		=> self::meta_box_images(),
 			'listing_price'			=> self::meta_box_listing_price(),
 			'listing_details'		=> self::meta_box_listing_details(),
 			'listing_location'		=> self::meta_box_listing_location(),

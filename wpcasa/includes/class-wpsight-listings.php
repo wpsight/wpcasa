@@ -1084,24 +1084,26 @@ class WPSight_Listings {
 
 			// Create price markup and place currency before or after value
 
-			if ( $currency_symbol == 'after' ) {
-				$listing_price_symbol  = '<span class="listing-price-value" itemprop="price" content="'. esc_attr( wpsight_get_listing_price_raw( $post_id ) ) .'">' . $listing_price . '</span><!-- .listing-price-value -->';
-
-				// Optionally add currency symbol
-
-				if ( $args['show_currency'] == true )
+			if ( $args['show_currency'] == true && ( $currency_symbol == 'before' || $currency_symbol == 'before_space' ) ) {
+				
+				if ( $currency_symbol == 'before' ) {
 					$listing_price_symbol .= '<span class="listing-price-symbol">' . wpsight_get_currency() . '</span><!-- .listing-price-symbol -->';
+				} elseif ( $currency_symbol == 'before_space' ) {
+					$listing_price_symbol .= '<span class="listing-price-symbol">' . wpsight_get_currency() . '&nbsp;</span><!-- .listing-price-symbol -->';
+				}
 
-			} else {
-
-				// Optionally add currency symbol
-
-				if ( $args['show_currency'] == true )
-					$listing_price_symbol  = '<span class="listing-price-symbol">' . wpsight_get_currency() . '</span><!-- .listing-price-symbol -->';
-
+			}
+			
 				$listing_price_symbol .= '<span class="listing-price-value" itemprop="price" content="'. esc_attr( wpsight_get_listing_price_raw( $post_id ) ) .'">' . $listing_price . '</span><!-- .listing-price-value -->';
-
-			} // endif $currency_symbol
+			if ( $args['show_currency'] == true && ( $currency_symbol == 'after' || $currency_symbol == 'after_space' ) ) {
+				
+				if ( $currency_symbol == 'after' ) {
+					$listing_price_symbol .= '<span class="listing-price-symbol">' . wpsight_get_currency() . '</span><!-- .listing-price-symbol -->';
+				} elseif ( $currency_symbol == 'after_space' ) {
+					$listing_price_symbol .= '<span class="listing-price-symbol">&nbsp;' . wpsight_get_currency() . '</span><!-- .listing-price-symbol -->';
+				}
+				
+			}
 
 			// Add currency for microformat
 			$listing_price_symbol .= '<meta itemprop="priceCurrency" content="' . wpsight_get_currency_abbr() . '" />';
@@ -1455,6 +1457,7 @@ class WPSight_Listings {
 	 * @uses $wpdb->get_col()
 	 * @uses current_time()
 	 * @uses strtotime()
+
 	 * @uses date()
 	 * @uses wp_trash_post()
 	 * @return array|bool Array of post IDs, false if no previews deleted

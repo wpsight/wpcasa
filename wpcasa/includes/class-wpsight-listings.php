@@ -177,6 +177,7 @@ class WPSight_Listings {
 			$query_args['orderby'] = array( 'price' => $query_args['order'] );
 
 		}
+		
 		// Set meta query for offer (sale, rent)
 
 		if ( ! empty( $args['offer'] ) ) {
@@ -201,6 +202,24 @@ class WPSight_Listings {
 				);
 
 			}
+
+		}
+		
+		// Set meta query for availability
+		
+		if ( ! empty( $args['availability'] ) && $args['availability'] != 'all' ) {
+
+			if( $args['availability'] == 'unavailable' )
+				$args['availability'] = 1;
+			elseif( $args['availability'] == 'available' )
+				$args['availability'] = 0;
+
+			$query_args['meta_query']['availability'] = array(
+				'key'     => '_listing_not_available',
+				'value'   => $args['availability'],
+				'compare' => '='
+			);
+				
 
 		}
 

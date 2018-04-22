@@ -36,6 +36,7 @@ class WPSight_Shortcode_Listings {
 			'posts_per_page'	=> get_query_var( 'nr' ) ? get_query_var( 'nr' ) : get_option( 'posts_per_page' ),
 			'orderby'			=> get_query_var( 'orderby' ) ? get_query_var( 'orderby' ) : 'date',
 			'order'				=> get_query_var( 'order' ) ? get_query_var( 'order' ) : 'DESC',
+			'availability'		=> 'all', // can be all, available or unavailable
 			'show_panel'		=> true, // can be false
 			'show_paging'		=> true // can be false
         );

@@ -1,0 +1,2253 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Project-Id-Version: WPCasa\n"
+"POT-Creation-Date: 2016-07-02 14:42+0200\n"
+"PO-Revision-Date: 2018-04-20 20:40+0200\n"
+"Language-Team: https://www.jmsupport.sk/\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: wpcasa.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: sk_SK\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/admin/EDD_SL_Plugin_Updater.php:180
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+"K dispozícii je nová verzia %1$s. <a target=\"_blank\" class=\"thickbox\" "
+"href=\"%2$s\">Zobraziť detaily %3$s verzie</a>."
+
+#: includes/admin/EDD_SL_Plugin_Updater.php:187
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+"K dispozícii je nová verzia%1$s. <a target=\"_blank\" class=\"thickbox\" "
+"href=\"%2$s\">Zobraziť detaily%3$s verzie</a , alebo <a href=\"%4$s"
+"\">aktualizovať teraz</a> ."
+
+#: includes/admin/EDD_SL_Plugin_Updater.php:325
+msgid "You do not have permission to install plugin updates"
+msgstr "Nemáte oprávnenie na aktualizáciu pluginu"
+
+#: includes/admin/EDD_SL_Plugin_Updater.php:325
+msgid "Error"
+msgstr "Chyba"
+
+#: includes/admin/class-wpsight-addons.php:55
+#: includes/admin/class-wpsight-admin.php:93
+msgid "Add-Ons"
+msgstr "Rozšírenia"
+
+#: includes/admin/class-wpsight-admin.php:90
+#: includes/admin/class-wpsight-settings.php:90
+msgid "Settings"
+msgstr "Nastavenia"
+
+#: includes/admin/class-wpsight-admin.php:96
+#: includes/admin/class-wpsight-themes.php:55
+msgid "Themes"
+msgstr "Témy"
+
+#: includes/admin/class-wpsight-admin.php:99
+#: includes/admin/class-wpsight-licenses.php:35
+msgid "Licenses"
+msgstr "Licencie"
+
+#: includes/admin/class-wpsight-admin.php:142
+#: includes/admin/class-wpsight-admin.php:435
+#: includes/admin/class-wpsight-cpt.php:1196
+#: includes/class-wpsight-template.php:284
+msgid "Listings"
+msgstr "Ponuky"
+
+#: includes/admin/class-wpsight-admin.php:159
+msgid "Support Package"
+msgstr "Support balíček"
+
+#: includes/admin/class-wpsight-admin.php:160
+msgid ""
+"To receive support for a free product please enter your support package "
+"license key. <a href=\"https://wpcasa.com/support/package/\" target=\"_blank"
+"\">More information&hellip;</a>"
+msgstr "Zadajte licenčný kľúč"
+
+#: includes/admin/class-wpsight-admin.php:189
+msgid "Listings Page"
+msgstr "Stránka ponúk"
+
+#: includes/admin/class-wpsight-admin.php:190
+msgid ""
+"Please select the main search results page with the "
+"<code>[wpsight_listings]</code> shortcode."
+msgstr ""
+"Vyberte stránku, na ktorej sa zobrazia výsledky vyhľadávania pre "
+"kód<code>[wpsight_listings]</code>."
+
+#: includes/admin/class-wpsight-admin.php:196 wpcasa.php:226
+msgid "ID-"
+msgstr "ID-"
+
+#: includes/admin/class-wpsight-admin.php:199
+msgid "Listing ID Prefix"
+msgstr "Predpona ID ponuky"
+
+#: includes/admin/class-wpsight-admin.php:201
+msgid ""
+"The listing ID will be this prefix plus post ID. You can optionally set "
+"individual IDs on the listing edit screen."
+msgstr ""
+"ID ponuky bude tvoriť táto predpona + ID príspevku. Pri editovaní ponuky "
+"máte možnosť nastaviť individuálne ID."
+
+#: includes/admin/class-wpsight-admin.php:207
+msgid "Measurement Unit"
+msgstr "Merná jednotka"
+
+#: includes/admin/class-wpsight-admin.php:208
+msgid ""
+"Please select the general measurement unit. The unit for the listing "
+"standard features can be defined separately below."
+msgstr ""
+"Vyberte všeobecnú mernú jednotku. Jednotku pre štandardné charakteristiky "
+"môžete definovať individuálne nižšie."
+
+#: includes/admin/class-wpsight-admin.php:217
+msgid "Currency"
+msgstr "Mena"
+
+#: includes/admin/class-wpsight-admin.php:218
+msgid ""
+"Please select the currency for the listing prices. If your currency is not "
+"listed, please select <code>Other</code>."
+msgstr ""
+"Vyberte menu pre výpis ceny. Ak vaša mena nie je uvedená, vyberte <code>Iné</"
+"code> ."
+
+#: includes/admin/class-wpsight-admin.php:223
+msgid "Other"
+msgstr "Iné"
+
+#: includes/admin/class-wpsight-admin.php:227
+#: includes/admin/class-wpsight-admin.php:235
+msgid "Other Currency"
+msgstr "Iná mena"
+
+#: includes/admin/class-wpsight-admin.php:227
+msgid "Abbreviation"
+msgstr "Skratka"
+
+#: includes/admin/class-wpsight-admin.php:229
+msgid ""
+"Please insert the abbreviation of your currency (e.g. <code>EUR</code>)."
+msgstr "Vložte prosím skratku mena (napríklad <code>EUR</code> )."
+
+#: includes/admin/class-wpsight-admin.php:235
+msgid "Symbol"
+msgstr "Značka"
+
+#: includes/admin/class-wpsight-admin.php:237
+msgid ""
+"Please insert the currency symbol or HTML entity (e.g. <code>&amp;euro;</"
+"code>)."
+msgstr ""
+"Vložte symbol meny alebo HTML entity (napríklad <code>&amp;amp;euro;</"
+"code> )."
+
+#: includes/admin/class-wpsight-admin.php:243
+msgid "Currency Symbol"
+msgstr "Symbol meny"
+
+#: includes/admin/class-wpsight-admin.php:244
+msgid "Please select the position of the currency symbol."
+msgstr "Vyberte pozíciu symbolu meny."
+
+#: includes/admin/class-wpsight-admin.php:248
+msgid "Before the value"
+msgstr "Pred hodnotou"
+
+#: includes/admin/class-wpsight-admin.php:248
+msgid "After the value"
+msgstr "Po hodnote"
+
+#: includes/admin/class-wpsight-admin.php:252
+msgid "Thousands Separator"
+msgstr "Oddeľovač tisícov"
+
+#: includes/admin/class-wpsight-admin.php:253
+msgid "Please select the thousands separator for your listing prices."
+msgstr "Vyberte si oddeľovač tisícov pre cenu ponuky."
+
+#: includes/admin/class-wpsight-admin.php:257
+msgid "Comma (e.g. 1,000,000)"
+msgstr "Čiarkou (napr. 1,000,000)"
+
+#: includes/admin/class-wpsight-admin.php:257
+msgid "Period (e.g. 1.000.000)"
+msgstr "Medzerou (napr. 1 000 000)"
+
+#: includes/admin/class-wpsight-admin.php:263
+msgid "Listing Features"
+msgstr "Vlastnosti ponuky"
+
+#: includes/admin/class-wpsight-admin.php:264
+msgid "Please check the box to edit the listing standard features."
+msgstr "Zaškrtnite políčko, ak chcete upraviť štandardné charakteristiky."
+
+#: includes/admin/class-wpsight-admin.php:277
+msgid "Standard Feature"
+msgstr "Štandardná charakteristika"
+
+#: includes/admin/class-wpsight-admin.php:292
+msgid "Rental Periods"
+msgstr "Typy cien"
+
+#: includes/admin/class-wpsight-admin.php:293
+msgid "Please check the box to edit the rental periods."
+msgstr "Zaškrtnite políčko upraviť typy cien."
+
+#: includes/admin/class-wpsight-admin.php:306
+msgid "Rental Period"
+msgstr "Typ ceny"
+
+#: includes/admin/class-wpsight-admin.php:318
+msgid "Date Format"
+msgstr "Formát dátumu"
+
+#: includes/admin/class-wpsight-admin.php:319
+msgid "Please select the date format for the listings table in the admin."
+msgstr "Vyberte formát dátumu pre prehľad nehnuteľností v administrácií."
+
+#: includes/admin/class-wpsight-admin.php:327
+msgid "Output CSS"
+msgstr "CSS výstup"
+
+#: includes/admin/class-wpsight-admin.php:328
+msgid "Please uncheck the box to disable the plugin from outputting CSS."
+msgstr "Vypnúť CSS výstup tohto pluginu."
+
+#: includes/admin/class-wpsight-admin.php:335
+msgid "Google Maps API"
+msgstr "Google mapy API"
+
+#: includes/admin/class-wpsight-admin.php:336
+#, php-format
+msgid ""
+"If necessary, please enter your Google Maps API key (<a href=\"%s\" target="
+"\"_blank\">register here</a>)."
+msgstr ""
+"V prípade potreby zadajte kľúč API pre služby Google mapy ( <a href=\"%s\" "
+"target=\"_blank\">zaregistrujte sa tu</a> )."
+
+#: includes/admin/class-wpsight-admin.php:379
+msgid "All"
+msgstr "Všetko"
+
+#: includes/admin/class-wpsight-admin.php:407
+msgid "Published"
+msgstr "Zverejnené"
+
+#: includes/admin/class-wpsight-admin.php:407
+msgid "Active"
+msgstr "Aktívne"
+
+#: includes/admin/class-wpsight-cpt.php:91
+#: includes/class-wpsight-meta-boxes.php:445
+#: includes/class-wpsight-search.php:223
+msgid "Offer"
+msgstr "Ponuka"
+
+#: includes/admin/class-wpsight-cpt.php:92
+msgid "ID"
+msgstr "ID"
+
+#: includes/admin/class-wpsight-cpt.php:93
+msgid "Listing"
+msgstr "Ponuka"
+
+#: includes/admin/class-wpsight-cpt.php:94
+#: includes/class-wpsight-meta-boxes.php:437
+msgid "Price"
+msgstr "Cena"
+
+#: includes/admin/class-wpsight-cpt.php:95
+msgid "Posted"
+msgstr "Pridané"
+
+#: includes/admin/class-wpsight-cpt.php:98
+msgid "Expires"
+msgstr "Platná do"
+
+#: includes/admin/class-wpsight-cpt.php:100
+msgid "Status"
+msgstr "Stav"
+
+#: includes/admin/class-wpsight-cpt.php:101
+msgid "Actions"
+msgstr "Akcie"
+
+#: includes/admin/class-wpsight-cpt.php:185
+#: includes/admin/class-wpsight-cpt.php:249
+msgid "Edit"
+msgstr "Upraviť"
+
+#: includes/admin/class-wpsight-cpt.php:195
+msgid "Sticky"
+msgstr "Top"
+
+#: includes/admin/class-wpsight-cpt.php:200
+msgid "Featured"
+msgstr "Odporúčané"
+
+#: includes/admin/class-wpsight-cpt.php:235
+msgid "Item is currently not available"
+msgstr "Položka momentálne nie je k dispozícii"
+
+#: includes/admin/class-wpsight-cpt.php:255
+#: includes/admin/class-wpsight-cpt.php:398
+msgid "View"
+msgstr "Zobraziť"
+
+#: includes/admin/class-wpsight-cpt.php:305
+msgid "by a guest"
+msgstr "napísal hosť"
+
+#: includes/admin/class-wpsight-cpt.php:305
+#, php-format
+msgid "by %s"
+msgstr "od %s"
+
+#: includes/admin/class-wpsight-cpt.php:340
+#: includes/admin/class-wpsight-cpt.php:486
+#: includes/admin/class-wpsight-cpt.php:487
+msgid "Approve"
+msgstr "Schváliť"
+
+#: includes/admin/class-wpsight-cpt.php:340
+#: includes/admin/class-wpsight-cpt.php:489
+#: includes/admin/class-wpsight-cpt.php:490
+msgid "Unapprove"
+msgstr "Neschváliť"
+
+#: includes/admin/class-wpsight-cpt.php:348
+msgid "Mark available"
+msgstr "Označte dostupné"
+
+#: includes/admin/class-wpsight-cpt.php:348
+msgid "Mark unavailable"
+msgstr "Označiť nie je k dispozícii"
+
+#: includes/admin/class-wpsight-cpt.php:356
+msgid "Trash"
+msgstr "Kôš"
+
+#: includes/admin/class-wpsight-cpt.php:366
+msgid "Restore"
+msgstr "Obnoviť"
+
+#: includes/admin/class-wpsight-cpt.php:737
+#, php-format
+msgid "%s have been approved"
+msgstr "%s boli schválené"
+
+#: includes/admin/class-wpsight-cpt.php:742
+#, php-format
+msgid "%s are now pending approval"
+msgstr "%s už čakajú na schválenie"
+
+#: includes/admin/class-wpsight-cpt.php:749
+#, php-format
+msgid "%s has been approved"
+msgstr "%s bolo schválené"
+
+#: includes/admin/class-wpsight-cpt.php:751
+#, php-format
+msgid "%s is now pending approval"
+msgstr "%s už čaká na schválenie"
+
+#: includes/admin/class-wpsight-cpt.php:856
+#, php-format
+msgid "%s are now sticky"
+msgstr "%s sú teraz top"
+
+#: includes/admin/class-wpsight-cpt.php:861
+#, php-format
+msgid "%s are no longer sticky"
+msgstr "%s už nie sú top"
+
+#: includes/admin/class-wpsight-cpt.php:868
+#, php-format
+msgid "%s is now sticky"
+msgstr "%s je teraz top"
+
+#: includes/admin/class-wpsight-cpt.php:870
+#, php-format
+msgid "%s is no longer sticky"
+msgstr "%s už nie je top"
+
+#: includes/admin/class-wpsight-cpt.php:975
+#, php-format
+msgid "%s are now featured"
+msgstr "%s sú teraz odporúčané"
+
+#: includes/admin/class-wpsight-cpt.php:980
+#, php-format
+msgid "%s are no longer featured"
+msgstr "%s už nie sú odporúčané"
+
+#: includes/admin/class-wpsight-cpt.php:987
+#, php-format
+msgid "%s is now featured"
+msgstr "%s je teraz odporúčané"
+
+#: includes/admin/class-wpsight-cpt.php:989
+#, php-format
+msgid "%s is no longer featured"
+msgstr "%s už nie je  odporúčané"
+
+#: includes/admin/class-wpsight-cpt.php:1094
+#, php-format
+msgid "%s are no longer available"
+msgstr "%s už nie sú k dispozícii"
+
+#: includes/admin/class-wpsight-cpt.php:1099
+#, php-format
+msgid "%s are now available"
+msgstr "%s sú teraz k dispozícii"
+
+#: includes/admin/class-wpsight-cpt.php:1106
+#, php-format
+msgid "%s is no longer available"
+msgstr "%s už nie je k dispozícii"
+
+#: includes/admin/class-wpsight-cpt.php:1108
+#, php-format
+msgid "%s is now available"
+msgstr "%s je k dispozícii"
+
+#: includes/admin/class-wpsight-cpt.php:1132
+#, php-format
+msgid "%s updated. <a href=\"%s\">View</a>"
+msgstr "%s aktualizované. <a href=\"%s\">Zobraziť</a>"
+
+#: includes/admin/class-wpsight-cpt.php:1133
+msgid "Custom field updated."
+msgstr "Vlastné pole aktualizované."
+
+#: includes/admin/class-wpsight-cpt.php:1134
+msgid "Custom field deleted."
+msgstr "Vlastné pole odstránené."
+
+#: includes/admin/class-wpsight-cpt.php:1135
+#, php-format
+msgid "%s updated."
+msgstr "%s aktualizované."
+
+#: includes/admin/class-wpsight-cpt.php:1136
+#, php-format
+msgid "%s restored to revision from %s"
+msgstr "%s obnovené z revízie %s"
+
+#: includes/admin/class-wpsight-cpt.php:1137
+#, php-format
+msgid "%s published. <a href=\"%s\">View</a>"
+msgstr "%s zverejnené. <a href=\"%s\">Zobraziť</a>"
+
+#: includes/admin/class-wpsight-cpt.php:1138
+#, php-format
+msgid "%s saved."
+msgstr "%s uložené."
+
+#: includes/admin/class-wpsight-cpt.php:1139
+#, php-format
+msgid "%s submitted. <a target=\"_blank\" href=\"%s\">Preview</a>"
+msgstr "%s potvrdené. <a target=\"_blank\" href=\"%s\">Náhľad</a>"
+
+#: includes/admin/class-wpsight-cpt.php:1140
+#, php-format
+msgid ""
+"%s scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview</a>"
+msgstr ""
+"%s naplánované pre: <strong>%1$s</strong> . <a target=\"_blank\" href=\"%2$s"
+"\">Náhľad</a>"
+
+#: includes/admin/class-wpsight-cpt.php:1141
+msgid "M j, Y @ G:i"
+msgstr "j. F Y, G:i"
+
+#: includes/admin/class-wpsight-cpt.php:1142
+#, php-format
+msgid "%s draft updated. <a target=\"_blank\" href=\"%s\">Preview</a>"
+msgstr "%s návrh aktualizovaný. <a target=\"_blank\" href=\"%s\">Náhľad</a>"
+
+#: includes/admin/class-wpsight-cpt.php:1170
+#, php-format
+msgid "%s listing updated."
+msgid_plural "%s listings updated."
+msgstr[0] "%s. ponuka aktualizovaná."
+msgstr[1] "%s. ponuky aktualizované."
+msgstr[2] "%s. ponúk aktualizovaných."
+
+#: includes/admin/class-wpsight-cpt.php:1171
+#, php-format
+msgid "%s listing not updated, somebody is editing it."
+msgid_plural "%s listings not updated, somebody is editing them."
+msgstr[0] "%s ponuka nie je aktualizovaná, niekto ju upravuje."
+msgstr[1] "%s ponuky nie sú aktualizované, niekto ich upravuje."
+msgstr[2] "%s ponúk nebolo aktualizovaných, niekto ich upravuje."
+
+#: includes/admin/class-wpsight-cpt.php:1172
+#, php-format
+msgid "%s listing permanently deleted."
+msgid_plural "%s listings permanently deleted."
+msgstr[0] "%s ponuka bola natrvalo vymazaná."
+msgstr[1] "%s ponuky boli natrvalo vymazané."
+msgstr[2] "%s ponúk bolo natrvalo vymazaných."
+
+#: includes/admin/class-wpsight-cpt.php:1173
+#, php-format
+msgid "%s listing moved to the Trash."
+msgid_plural "%s listings moved to the Trash."
+msgstr[0] "%s ponuka bola presunutá do koša."
+msgstr[1] "%s ponuky boli presunuté do koša."
+msgstr[2] "%s ponúk bolo presunutých do koša."
+
+#: includes/admin/class-wpsight-cpt.php:1174
+#, php-format
+msgid "%s listing restored from the Trash."
+msgid_plural "%s listings restored from the Trash."
+msgstr[0] "%s ponuka bola obnovená z koša."
+msgstr[1] "%s ponuky bolo obnovené z koša."
+msgstr[2] "%s ponúk bola obnovených z koša."
+
+#: includes/admin/class-wpsight-cpt.php:1265
+msgid "Offers"
+msgstr "Ponuky"
+
+#: includes/admin/class-wpsight-cpt.php:1272
+msgid "Not Available"
+msgstr "Nedostupné"
+
+#: includes/admin/class-wpsight-cpt.php:1343
+msgid "Agents"
+msgstr "Makléri"
+
+#: includes/admin/class-wpsight-licenses.php:58
+msgid "active"
+msgstr "aktívne"
+
+#: includes/admin/class-wpsight-licenses.php:65
+msgid "Deactivate License"
+msgstr "Deaktivovať licenciu"
+
+#: includes/admin/class-wpsight-licenses.php:68
+msgid "Activate License"
+msgstr "Aktivácia licencie"
+
+#: includes/admin/class-wpsight-settings.php:96
+msgid "Settings reset."
+msgstr "Nastavenia obnovené."
+
+#: includes/admin/class-wpsight-settings.php:99
+msgid "Settings saved."
+msgstr "Nastavenia uložené."
+
+#: includes/admin/class-wpsight-settings.php:186
+msgctxt "plugin settings"
+msgid "Select page"
+msgstr "Vybrať stranu"
+
+#: includes/admin/class-wpsight-settings.php:261
+msgid "Save Changes"
+msgstr "Uložiť zmeny"
+
+#: includes/admin/class-wpsight-settings.php:269
+msgid "Restore Defaults"
+msgstr "Obnoviť východzie"
+
+#: includes/admin/class-wpsight-settings.php:269
+msgid "Are you sure?"
+msgstr "Ste si istý/-á?"
+
+#: includes/class-wpsight-agents.php:59
+msgctxt "agent role"
+msgid "Listing Admin"
+msgstr "Hlavný maklér"
+
+#: includes/class-wpsight-agents.php:88
+msgctxt "agent role"
+msgid "Listing Agent"
+msgstr "Maklér"
+
+#: includes/class-wpsight-agents.php:104
+msgctxt "agent role"
+msgid "Listing Subscriber"
+msgstr "Ponuka Odberateľ"
+
+#: includes/class-wpsight-agents.php:793
+#: includes/class-wpsight-meta-boxes.php:681
+#: includes/class-wpsight-meta-boxes.php:790
+msgid "Company"
+msgstr "Pobočka"
+
+#: includes/class-wpsight-agents.php:796
+#: includes/class-wpsight-meta-boxes.php:697
+#: includes/class-wpsight-meta-boxes.php:796
+msgid "Phone"
+msgstr "Telefón"
+
+#: includes/class-wpsight-general.php:39
+msgid "Beds"
+msgstr "Počet lôžok"
+
+#: includes/class-wpsight-general.php:41 includes/class-wpsight-general.php:53
+msgid "n/d"
+msgstr "neurčené"
+
+#: includes/class-wpsight-general.php:51
+msgid "Baths"
+msgstr "Kúpelne"
+
+#: includes/class-wpsight-general.php:63
+msgid "Plot Size"
+msgstr "Plocha pozemku"
+
+#: includes/class-wpsight-general.php:74
+msgid "Living Area"
+msgstr "Obytná plocha"
+
+#: includes/class-wpsight-general.php:86
+msgid "Terrace"
+msgstr "Terasa"
+
+#: includes/class-wpsight-general.php:98
+msgid "Parking"
+msgstr "Parkovanie"
+
+#: includes/class-wpsight-general.php:110
+msgid "Heating"
+msgstr "Kúrenie"
+
+#: includes/class-wpsight-general.php:122
+msgid "Built in"
+msgstr "Postavené v"
+
+#: includes/class-wpsight-general.php:287
+msgid "For Sale"
+msgstr "Na predaj"
+
+#: includes/class-wpsight-general.php:288
+msgid "For Rent"
+msgstr "Na prenájom"
+
+#: includes/class-wpsight-general.php:363
+msgid "per Month"
+msgstr "/mesiac"
+
+#: includes/class-wpsight-general.php:364
+msgid "per Week"
+msgstr "/týždeň"
+
+#: includes/class-wpsight-general.php:365
+msgid "per Year"
+msgstr "/rok"
+
+#: includes/class-wpsight-general.php:366
+msgid "per Day"
+msgstr "/deň"
+
+#: includes/class-wpsight-general.php:493
+msgid "F j, Y"
+msgstr "j. F Y"
+
+#: includes/class-wpsight-general.php:493
+msgid "j. F Y"
+msgstr "j. F Y"
+
+#: includes/class-wpsight-general.php:519
+#: includes/class-wpsight-general.php:520
+msgctxt "listing post status"
+msgid "Draft"
+msgstr "Koncept"
+
+#: includes/class-wpsight-general.php:523
+#: includes/class-wpsight-general.php:524
+msgctxt "listing post status"
+msgid "Active"
+msgstr "Aktívne"
+
+#: includes/class-wpsight-general.php:527
+#: includes/class-wpsight-general.php:540
+msgctxt "listing post status"
+msgid "Pending"
+msgstr "Čaká"
+
+#: includes/class-wpsight-general.php:528
+msgctxt "listing post status"
+msgid "Pending approval"
+msgstr "Čaká na schválenie"
+
+#: includes/class-wpsight-general.php:531
+#: includes/class-wpsight-general.php:532
+msgctxt "listing post status"
+msgid "Preview"
+msgstr "Náhľad"
+
+#: includes/class-wpsight-general.php:537
+#, php-format
+msgid "Preview <span class=\"count\">(%s)</span>"
+msgid_plural "Preview <span class=\"count\">(%s)</span>"
+msgstr[0] "Náhľad <span class=\"count\">(%s)</span>"
+msgstr[1] "Náhľady <span class=\"count\">(%s)</span>"
+msgstr[2] "Náhľadov <span class=\"count\">(%s)</span>"
+
+#: includes/class-wpsight-general.php:541
+msgctxt "listing post status"
+msgid "Pending payment"
+msgstr "Čaká na platbu"
+
+#: includes/class-wpsight-general.php:546
+#, php-format
+msgid "Pending Payment <span class=\"count\">(%s)</span>"
+msgid_plural "Pending Payment <span class=\"count\">(%s)</span>"
+msgstr[0] "Čakajúce platby <span class=\"count\">(%s)</span>"
+msgstr[1] "Čakajú na platbu<span class=\"count\">(%s)</span>"
+msgstr[2] "Čaká na platbu<span class=\"count\">(%s)</span>"
+
+#: includes/class-wpsight-general.php:549
+#: includes/class-wpsight-general.php:550
+msgctxt "listing post status"
+msgid "Trash"
+msgstr "Kôš"
+
+#: includes/class-wpsight-general.php:596
+msgid "AED => United Arab Emirates Dirham"
+msgstr "Spojené Arabské Emiráty Dirham"
+
+#: includes/class-wpsight-general.php:597
+msgid "ANG => Netherlands Antillean Guilder"
+msgstr ""
+
+#: includes/class-wpsight-general.php:598
+msgid "ARS => Argentine Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:599
+msgid "AUD => Australian Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:600
+msgid "BDT => Bangladeshi Taka"
+msgstr ""
+
+#: includes/class-wpsight-general.php:601
+msgid "BGN => Bulgarian Lev"
+msgstr ""
+
+#: includes/class-wpsight-general.php:602
+msgid "BHD => Bahraini Dinar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:603
+msgid "BND => Brunei Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:604
+msgid "BOB => Bolivian Boliviano"
+msgstr ""
+
+#: includes/class-wpsight-general.php:605
+msgid "BRL => Brazilian Real"
+msgstr ""
+
+#: includes/class-wpsight-general.php:606
+msgid "BWP => Botswanan Pula"
+msgstr ""
+
+#: includes/class-wpsight-general.php:607
+msgid "CAD => Canadian Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:608
+msgid "CHF => Swiss Franc"
+msgstr ""
+
+#: includes/class-wpsight-general.php:609
+msgid "CLP => Chilean Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:610
+msgid "CNY => Chinese Yuan"
+msgstr ""
+
+#: includes/class-wpsight-general.php:611
+msgid "COP => Colombian Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:612
+msgid "CRC => Costa Rican Colon"
+msgstr ""
+
+#: includes/class-wpsight-general.php:613
+msgid "CZK => Czech Republic Koruna"
+msgstr "Kč => Česká koruna"
+
+#: includes/class-wpsight-general.php:614
+msgid "DKK => Danish Krone"
+msgstr "DKK => Dánska koruna"
+
+#: includes/class-wpsight-general.php:615
+msgid "DOP => Dominican Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:616
+msgid "DZD => Algerian Dinar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:617
+msgid "EEK => Estonian Kroon"
+msgstr ""
+
+#: includes/class-wpsight-general.php:618
+msgid "EGP => Egyptian Pound"
+msgstr ""
+
+#: includes/class-wpsight-general.php:619
+msgid "EUR => Euro"
+msgstr "EUR => Euro"
+
+#: includes/class-wpsight-general.php:620
+msgid "FJD => Fijian Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:621
+msgid "GBP => British Pound"
+msgstr "GBP => Britská libra"
+
+#: includes/class-wpsight-general.php:622
+msgid "HKD => Hong Kong Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:623
+msgid "HNL => Honduran Lempira"
+msgstr ""
+
+#: includes/class-wpsight-general.php:624
+msgid "HRK => Croatian Kuna"
+msgstr "HRK => Chorvátska kuna"
+
+#: includes/class-wpsight-general.php:625
+msgid "HUF => Hungarian Forint"
+msgstr "HUF => Maďarský forint"
+
+#: includes/class-wpsight-general.php:626
+msgid "IDR => Indonesian Rupiah"
+msgstr ""
+
+#: includes/class-wpsight-general.php:627
+msgid "ILS => Israeli New Sheqel"
+msgstr ""
+
+#: includes/class-wpsight-general.php:628
+msgid "INR => Indian Rupee"
+msgstr ""
+
+#: includes/class-wpsight-general.php:629
+msgid "JMD => Jamaican Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:630
+msgid "JOD => Jordanian Dinar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:631
+msgid "JPY => Japanese Yen"
+msgstr ""
+
+#: includes/class-wpsight-general.php:632
+msgid "KES => Kenyan Shilling"
+msgstr ""
+
+#: includes/class-wpsight-general.php:633
+msgid "KRW => South Korean Won"
+msgstr ""
+
+#: includes/class-wpsight-general.php:634
+msgid "KWD => Kuwaiti Dinar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:635
+msgid "KYD => Cayman Islands Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:636
+msgid "KZT => Kazakhstani Tenge"
+msgstr ""
+
+#: includes/class-wpsight-general.php:637
+msgid "LBP => Lebanese Pound"
+msgstr ""
+
+#: includes/class-wpsight-general.php:638
+msgid "LKR => Sri Lankan Rupee"
+msgstr ""
+
+#: includes/class-wpsight-general.php:639
+msgid "LTL => Lithuanian Litas"
+msgstr ""
+
+#: includes/class-wpsight-general.php:640
+msgid "LVL => Latvian Lats"
+msgstr ""
+
+#: includes/class-wpsight-general.php:641
+msgid "MAD => Moroccan Dirham"
+msgstr ""
+
+#: includes/class-wpsight-general.php:642
+msgid "MDL => Moldovan Leu"
+msgstr ""
+
+#: includes/class-wpsight-general.php:643
+msgid "MKD => Macedonian Denar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:644
+msgid "MUR => Mauritian Rupee"
+msgstr ""
+
+#: includes/class-wpsight-general.php:645
+msgid "MVR => Maldivian Rufiyaa"
+msgstr ""
+
+#: includes/class-wpsight-general.php:646
+msgid "MXN => Mexican Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:647
+msgid "MYR => Malaysian Ringgit"
+msgstr ""
+
+#: includes/class-wpsight-general.php:648
+msgid "NAD => Namibian Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:649
+msgid "NGN => Nigerian Naira"
+msgstr ""
+
+#: includes/class-wpsight-general.php:650
+msgid "NIO => Nicaraguan Cordoba"
+msgstr ""
+
+#: includes/class-wpsight-general.php:651
+msgid "NOK => Norwegian Krone"
+msgstr ""
+
+#: includes/class-wpsight-general.php:652
+msgid "NPR => Nepalese Rupee"
+msgstr ""
+
+#: includes/class-wpsight-general.php:653
+msgid "NZD => New Zealand Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:654
+msgid "OMR => Omani Rial"
+msgstr ""
+
+#: includes/class-wpsight-general.php:655
+msgid "PEN => Peruvian Nuevo Sol"
+msgstr ""
+
+#: includes/class-wpsight-general.php:656
+msgid "PGK => Papua New Guinean Kina"
+msgstr ""
+
+#: includes/class-wpsight-general.php:657
+msgid "PHP => Philippine Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:658
+msgid "PKR => Pakistani Rupee"
+msgstr ""
+
+#: includes/class-wpsight-general.php:659
+msgid "PLN => Polish Zloty"
+msgstr "PLN => Poľský zlotý"
+
+#: includes/class-wpsight-general.php:660
+msgid "PYG => Paraguayan Guarani"
+msgstr ""
+
+#: includes/class-wpsight-general.php:661
+msgid "QAR => Qatari Rial"
+msgstr ""
+
+#: includes/class-wpsight-general.php:662
+msgid "RON => Romanian Leu"
+msgstr ""
+
+#: includes/class-wpsight-general.php:663
+msgid "RSD => Serbian Dinar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:664
+msgid "RUB => Russian Ruble"
+msgstr ""
+
+#: includes/class-wpsight-general.php:665
+msgid "SAR => Saudi Riyal"
+msgstr ""
+
+#: includes/class-wpsight-general.php:666
+msgid "SCR => Seychellois Rupee"
+msgstr ""
+
+#: includes/class-wpsight-general.php:667
+msgid "SEK => Swedish Krona"
+msgstr ""
+
+#: includes/class-wpsight-general.php:668
+msgid "SGD => Singapore Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:669
+msgid "SKK => Slovak Koruna"
+msgstr ""
+
+#: includes/class-wpsight-general.php:670
+msgid "SLL => Sierra Leonean Leone"
+msgstr ""
+
+#: includes/class-wpsight-general.php:671
+msgid "SVC => Salvadoran Colon"
+msgstr ""
+
+#: includes/class-wpsight-general.php:672
+msgid "THB => Thai Baht"
+msgstr ""
+
+#: includes/class-wpsight-general.php:673
+msgid "TND => Tunisian Dinar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:674
+msgid "TRY => Turkish Lira"
+msgstr ""
+
+#: includes/class-wpsight-general.php:675
+msgid "TTD => Trinidad and Tobago Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:676
+msgid "TWD => New Taiwan Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:677
+msgid "TZS => Tanzanian Shilling"
+msgstr ""
+
+#: includes/class-wpsight-general.php:678
+msgid "UAH => Ukrainian Hryvnia"
+msgstr ""
+
+#: includes/class-wpsight-general.php:679
+msgid "UGX => Ugandan Shilling"
+msgstr ""
+
+#: includes/class-wpsight-general.php:680
+msgid "USD => US Dollar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:681
+msgid "UYU => Uruguayan Peso"
+msgstr ""
+
+#: includes/class-wpsight-general.php:682
+msgid "UZS => Uzbekistan Som"
+msgstr ""
+
+#: includes/class-wpsight-general.php:683
+msgid "VEF => Venezuelan Bolivar"
+msgstr ""
+
+#: includes/class-wpsight-general.php:684
+msgid "VND => Vietnamese Dong"
+msgstr ""
+
+#: includes/class-wpsight-general.php:685
+msgid "XOF => CFA Franc BCEAO"
+msgstr ""
+
+#: includes/class-wpsight-general.php:686
+msgid "YER => Yemeni Rial"
+msgstr ""
+
+#: includes/class-wpsight-general.php:687
+msgid "ZAR => South African Rand"
+msgstr ""
+
+#: includes/class-wpsight-general.php:688
+msgid "ZMK => Zambian Kwacha"
+msgstr ""
+
+#: includes/class-wpsight-geocode.php:235
+msgid "No results found"
+msgstr "Nenájdené žiadne výsledky"
+
+#: includes/class-wpsight-geocode.php:240
+msgid "Query limit reached"
+msgstr "Dosiahnutý limit dopytu"
+
+#: includes/class-wpsight-geocode.php:247
+#: includes/class-wpsight-geocode.php:252
+#: includes/class-wpsight-geocode.php:259
+msgid "Geocoding error"
+msgstr "Chyba geokódovania"
+
+#: includes/class-wpsight-listings.php:981
+msgid "Sold"
+msgstr "Predané"
+
+#: includes/class-wpsight-listings.php:982
+msgid "Rented"
+msgstr "Prenajaté"
+
+#: includes/class-wpsight-listings.php:983
+msgid "Price on request"
+msgstr "Cena na vyžiadanie"
+
+#: includes/class-wpsight-meta-boxes.php:342
+msgid "Availability"
+msgstr "Dostupnosť"
+
+#: includes/class-wpsight-meta-boxes.php:345
+msgid "Item not available"
+msgstr "Položka nie je k dispozícii"
+
+#: includes/class-wpsight-meta-boxes.php:346
+msgid "The item is currently not available as it has been sold or rented."
+msgstr ""
+"Položka momentálne nie je k dispozícii, pretože bola predaná alebo prenajatá."
+
+#: includes/class-wpsight-meta-boxes.php:359
+msgid "Listing Attributes"
+msgstr "Zoznam atribútov"
+
+#: includes/class-wpsight-meta-boxes.php:388
+msgid "Images"
+msgstr "Obrázky"
+
+#: includes/class-wpsight-meta-boxes.php:405
+msgid "Listing Images"
+msgstr "Fotografie"
+
+#: includes/class-wpsight-meta-boxes.php:440
+msgid "No currency symbols or thousands separators"
+msgstr "Zadajte bez symbolu meny"
+
+#: includes/class-wpsight-meta-boxes.php:454
+msgid "Period"
+msgstr "Typ ceny"
+
+#: includes/class-wpsight-meta-boxes.php:457
+#: vendor/webdevstudios/cmb2/includes/CMB2_Field.php:978
+#: vendor/webdevstudios/cmb2/includes/CMB2_Field.php:982
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:216
+msgid "None"
+msgstr "Žiadny"
+
+#: includes/class-wpsight-meta-boxes.php:470
+msgid "Listing Price"
+msgstr "Cena"
+
+#: includes/class-wpsight-meta-boxes.php:502
+msgid "Listing ID"
+msgstr "ID ponuky"
+
+#: includes/class-wpsight-meta-boxes.php:572
+msgid "Listing Details"
+msgstr "Charakteristiky"
+
+#: includes/class-wpsight-meta-boxes.php:601
+msgid "Address"
+msgstr "Adresa"
+
+#: includes/class-wpsight-meta-boxes.php:604
+msgid ""
+"e.g. <code>Marbella, Spain</code> or <code>Platz der Republik 1, 10557 "
+"Berlin</code>"
+msgstr ""
+"napr. <code>Bratislava, Slovensko</code> alebo <code>Májková ulica 3, 81107 "
+"Bratislava</code>"
+
+#: includes/class-wpsight-meta-boxes.php:610
+msgid "Public Note"
+msgstr "Verejná poznámka"
+
+#: includes/class-wpsight-meta-boxes.php:613
+msgid "e.g. <code>Location is not the exact address of the listing</code>"
+msgstr "napr. <code>Poloha nie je presnou adresou </code>"
+
+#: includes/class-wpsight-meta-boxes.php:618
+msgid "Secret Note"
+msgstr "Interná poznámka"
+
+#: includes/class-wpsight-meta-boxes.php:621
+msgid "Will not be displayed on the website (e.g. complete address)"
+msgstr "Na webovej stránke sa nezobrazí (napr. úplná adresa)"
+
+#: includes/class-wpsight-meta-boxes.php:626
+msgid "Hide Map"
+msgstr "Skryť mapu"
+
+#: includes/class-wpsight-meta-boxes.php:629
+msgid "Hide map for this listing"
+msgstr "Skryť mapu pre túto ponuku"
+
+#: includes/class-wpsight-meta-boxes.php:642
+msgid "Listing Location"
+msgstr "Lokalita"
+
+#: includes/class-wpsight-meta-boxes.php:673
+msgid "Name"
+msgstr "Meno"
+
+#: includes/class-wpsight-meta-boxes.php:689
+#: vendor/webdevstudios/cmb2/example-functions.php:434
+msgid "Description"
+msgstr "Popis"
+
+#: includes/class-wpsight-meta-boxes.php:705
+#: templates/listing-single-agent.php:42
+msgid "Website"
+msgstr "Web stránka"
+
+#: includes/class-wpsight-meta-boxes.php:713
+#: includes/class-wpsight-meta-boxes.php:808
+#: templates/listing-single-agent.php:46
+msgid "Twitter"
+msgstr "Twitter"
+
+#: includes/class-wpsight-meta-boxes.php:721
+#: includes/class-wpsight-meta-boxes.php:802
+#: templates/listing-single-agent.php:50
+msgid "Facebook"
+msgstr "Facebook"
+
+#: includes/class-wpsight-meta-boxes.php:729
+msgid "Logo"
+msgstr "Fotografia makléra"
+
+#: includes/class-wpsight-meta-boxes.php:746
+msgid "Listing Agent"
+msgstr "Maklér"
+
+#: includes/class-wpsight-meta-boxes.php:776
+msgid "Agent Information"
+msgstr "Informácie o maklérovi"
+
+#: includes/class-wpsight-meta-boxes.php:777
+msgid ""
+"Apart from the default WordPress profile information above you can add "
+"additional agent details here."
+msgstr "Tu môžete pridať dodatočné informácie o maklérovi."
+
+#: includes/class-wpsight-meta-boxes.php:784
+msgid "Image"
+msgstr "Obrázok"
+
+#: includes/class-wpsight-meta-boxes.php:813
+#: includes/class-wpsight-meta-boxes.php:817
+msgid "Agent Update"
+msgstr "Aktualizovať makléra"
+
+#: includes/class-wpsight-meta-boxes.php:818
+msgid "Update agent info of all listings created by this user"
+msgstr ""
+"Aktualizujte informácie o agentovi na všetkých ponukách vytvorených týmto "
+"užívateľom"
+
+#: includes/class-wpsight-meta-boxes.php:830
+msgid "Agent"
+msgstr "Maklér"
+
+#: includes/class-wpsight-post-types.php:77
+msgid "Locations"
+msgstr "Lokality"
+
+#: includes/class-wpsight-post-types.php:78
+#: includes/class-wpsight-search.php:235
+msgid "Location"
+msgstr "Lokalita"
+
+#: includes/class-wpsight-post-types.php:83
+msgctxt "taxonomy locations"
+msgid "Locations"
+msgstr "Lokality"
+
+#: includes/class-wpsight-post-types.php:84
+msgctxt "taxonomy locations"
+msgid "All Locations"
+msgstr "Všetky lokality"
+
+#: includes/class-wpsight-post-types.php:85
+msgctxt "taxonomy locations"
+msgid "Edit Location"
+msgstr "Upraviť lokalitu"
+
+#: includes/class-wpsight-post-types.php:86
+msgctxt "taxonomy locations"
+msgid "View Location"
+msgstr "Zobraziť lokalitu"
+
+#: includes/class-wpsight-post-types.php:87
+msgctxt "taxonomy locations"
+msgid "Update Location"
+msgstr "Aktualizovať lokalitu"
+
+#: includes/class-wpsight-post-types.php:88
+msgctxt "taxonomy locations"
+msgid "Add New Location"
+msgstr "Pridať novú lokailtu"
+
+#: includes/class-wpsight-post-types.php:89
+msgctxt "taxonomy locations"
+msgid "New Location Name"
+msgstr "Názov novej lokality"
+
+#: includes/class-wpsight-post-types.php:90
+msgctxt "taxonomy locations"
+msgid "Parent Location"
+msgstr "Nadradená lokalita"
+
+#: includes/class-wpsight-post-types.php:91
+msgctxt "taxonomy locations"
+msgid "Parent Location:"
+msgstr "Nadradená lokalita:"
+
+#: includes/class-wpsight-post-types.php:92
+msgctxt "taxonomy locations"
+msgid "Search locations"
+msgstr "Hľadať lokalitu"
+
+#: includes/class-wpsight-post-types.php:93
+msgctxt "taxonomy locations"
+msgid "Popular Locations"
+msgstr "Obľúbené lokality"
+
+#: includes/class-wpsight-post-types.php:94
+msgctxt "taxonomy locations"
+msgid "Separate locations with commas"
+msgstr "Oddeľte lokality čiarkami"
+
+#: includes/class-wpsight-post-types.php:95
+msgctxt "taxonomy locations"
+msgid "Add or remove locations"
+msgstr "Pridať alebo odstrániť lokality"
+
+#: includes/class-wpsight-post-types.php:96
+msgctxt "taxonomy locations"
+msgid "Choose from the most used locations"
+msgstr "Zvoľte z najpoužívanejších lokalít"
+
+#: includes/class-wpsight-post-types.php:97
+msgctxt "taxonomy locations"
+msgid "No location found"
+msgstr "Lokalita nenájdená"
+
+#: includes/class-wpsight-post-types.php:125
+msgid "Listing Types"
+msgstr "Druhy ponúk"
+
+#: includes/class-wpsight-post-types.php:126
+msgid "Listing Type"
+msgstr "Druh"
+
+#: includes/class-wpsight-post-types.php:131
+msgctxt "taxonomy types"
+msgid "Listing Types"
+msgstr "Druhy ponúk"
+
+#: includes/class-wpsight-post-types.php:132
+msgctxt "taxonomy types"
+msgid "All Listing Types"
+msgstr "Všetky druhy"
+
+#: includes/class-wpsight-post-types.php:133
+msgctxt "taxonomy types"
+msgid "Edit Listing Type"
+msgstr "Upraviť druh"
+
+#: includes/class-wpsight-post-types.php:134
+msgctxt "taxonomy types"
+msgid "View Listing Type"
+msgstr "Zobraziť druh"
+
+#: includes/class-wpsight-post-types.php:135
+msgctxt "taxonomy types"
+msgid "Update Listing Type"
+msgstr "Aktualizovať druh"
+
+#: includes/class-wpsight-post-types.php:136
+msgctxt "taxonomy types"
+msgid "Add New Listing Type"
+msgstr "Pridať nový druh"
+
+#: includes/class-wpsight-post-types.php:137
+msgctxt "taxonomy types"
+msgid "New Listing Type Name"
+msgstr "Názov nového druhu"
+
+#: includes/class-wpsight-post-types.php:138
+msgctxt "taxonomy types"
+msgid "Parent Listing Type"
+msgstr "Nadradený druh"
+
+#: includes/class-wpsight-post-types.php:139
+msgctxt "taxonomy types"
+msgid "Parent Listing Type:"
+msgstr "Nadradený druh:"
+
+#: includes/class-wpsight-post-types.php:140
+msgctxt "taxonomy types"
+msgid "Search listing types"
+msgstr "Hľadať druh"
+
+#: includes/class-wpsight-post-types.php:141
+msgctxt "taxonomy types"
+msgid "Popular Listing Types"
+msgstr "Obľúbené druhy ponúk"
+
+#: includes/class-wpsight-post-types.php:142
+msgctxt "taxonomy types"
+msgid "Separate listing types with commas"
+msgstr "Oddeľte druhy ponúk čiarkami"
+
+#: includes/class-wpsight-post-types.php:143
+msgctxt "taxonomy types"
+msgid "Add or remove listing types"
+msgstr "Pridať alebo vymazať druhy ponúk"
+
+#: includes/class-wpsight-post-types.php:144
+msgctxt "taxonomy types"
+msgid "Choose from the most used listing types"
+msgstr "Vyberte si z najpoužívanejších druhov nehnuteľností"
+
+#: includes/class-wpsight-post-types.php:145
+msgctxt "taxonomy types"
+msgid "No listing type found"
+msgstr "Nenájdený žiaden druh"
+
+#: includes/class-wpsight-post-types.php:172
+msgid "Features"
+msgstr "Vlastnosti"
+
+#: includes/class-wpsight-post-types.php:173
+msgid "Feature"
+msgstr "Vlastnosť"
+
+#: includes/class-wpsight-post-types.php:178
+msgctxt "taxonomy features"
+msgid "Features"
+msgstr "Vlastnosti"
+
+#: includes/class-wpsight-post-types.php:179
+msgctxt "taxonomy features"
+msgid "All Features"
+msgstr "Všetky vlastnosti"
+
+#: includes/class-wpsight-post-types.php:180
+msgctxt "taxonomy features"
+msgid "Edit Feature"
+msgstr "Upraviť vlastnosť"
+
+#: includes/class-wpsight-post-types.php:181
+msgctxt "taxonomy features"
+msgid "View Feature"
+msgstr "Zobraziť vlastnosť"
+
+#: includes/class-wpsight-post-types.php:182
+msgctxt "taxonomy features"
+msgid "Update Feature"
+msgstr "Aktualizovať vlastnosť"
+
+#: includes/class-wpsight-post-types.php:183
+msgctxt "taxonomy features"
+msgid "Add New Feature"
+msgstr "Pridať novú vlastnosť"
+
+#: includes/class-wpsight-post-types.php:184
+msgctxt "taxonomy features"
+msgid "New Feature Name"
+msgstr "Nový názov vlastnosti"
+
+#: includes/class-wpsight-post-types.php:185
+msgctxt "taxonomy features"
+msgid "Parent Feature"
+msgstr "Nadradená vlastnosť"
+
+#: includes/class-wpsight-post-types.php:186
+msgctxt "taxonomy features"
+msgid "Parent Feature:"
+msgstr "Nadradená vlastnosť:"
+
+#: includes/class-wpsight-post-types.php:187
+msgctxt "taxonomy features"
+msgid "Search features"
+msgstr "Hľadať vlastnosti"
+
+#: includes/class-wpsight-post-types.php:188
+msgctxt "taxonomy features"
+msgid "Popular Features"
+msgstr "Obľúbené vlastnosti"
+
+#: includes/class-wpsight-post-types.php:189
+msgctxt "taxonomy features"
+msgid "Separate features with commas"
+msgstr "Oddeľte vlastnosti čiarkami"
+
+#: includes/class-wpsight-post-types.php:190
+msgctxt "taxonomy features"
+msgid "Add or remove features"
+msgstr "Pridať alebo vymazať vlastnosti"
+
+#: includes/class-wpsight-post-types.php:191
+msgctxt "taxonomy features"
+msgid "Choose from the most used features"
+msgstr "Vybrať z najpoužívanejších vlastností"
+
+#: includes/class-wpsight-post-types.php:192
+msgctxt "taxonomy features"
+msgid "No feature found"
+msgstr "Neboli nájdené žiadne vlastnosti"
+
+#: includes/class-wpsight-post-types.php:219
+msgid "Categories"
+msgstr "Kategórie"
+
+#: includes/class-wpsight-post-types.php:220
+msgid "Category"
+msgstr "Kategória"
+
+#: includes/class-wpsight-post-types.php:253
+#: includes/class-wpsight-post-types.php:263
+#: includes/class-wpsight-post-types.php:271
+msgctxt "listing"
+msgid "Listings"
+msgstr "Ponuky"
+
+#: includes/class-wpsight-post-types.php:254
+msgctxt "listing"
+msgid "Listing"
+msgstr "Ponuka"
+
+#: includes/class-wpsight-post-types.php:255
+msgctxt "listing"
+msgid "Add New"
+msgstr "Pridať nové"
+
+#: includes/class-wpsight-post-types.php:256
+msgctxt "listing"
+msgid "Add New Listing"
+msgstr "Pridať novú ponuku"
+
+#: includes/class-wpsight-post-types.php:257
+msgctxt "listing"
+msgid "Edit Listing"
+msgstr "Upraviť ponuku"
+
+#: includes/class-wpsight-post-types.php:258
+msgctxt "listing"
+msgid "New Listing"
+msgstr "Nová ponuka"
+
+#: includes/class-wpsight-post-types.php:259
+msgctxt "listing"
+msgid "View Listing"
+msgstr "Zobraziť ponuku"
+
+#: includes/class-wpsight-post-types.php:260
+msgctxt "listing"
+msgid "Search Listings"
+msgstr "Vyhladať ponuky"
+
+#: includes/class-wpsight-post-types.php:261
+msgctxt "listing"
+msgid "No listings found"
+msgstr "Neboli nájdené žiadne ponuky"
+
+#: includes/class-wpsight-post-types.php:262
+msgctxt "listing"
+msgid "No listings found in Trash"
+msgstr "V koši neboli nájdené žiadne ponuky"
+
+#: includes/class-wpsight-post-types.php:272
+msgctxt "listing"
+msgid ""
+"Searchable listings with detailed information about the corresponding item."
+msgstr "Vyhľadávateľné záznamy s podrobnými informáciami o príslušnej položke."
+
+#: includes/class-wpsight-post-types.php:541
+msgctxt "listing post status"
+msgid "Save as Expired"
+msgstr "Uložiť ako expirované"
+
+#: includes/class-wpsight-post-types.php:542
+msgctxt "listing post status"
+msgid "Save as Preview"
+msgstr "Uložiť ako ukážku"
+
+#: includes/class-wpsight-post-types.php:543
+msgctxt "listing post status"
+msgid "Save as Pending"
+msgstr "Uložiť ako čakajúcu"
+
+#: includes/class-wpsight-search.php:134
+msgid "Advanced Search"
+msgstr "Pokročilé vyhľadávanie"
+
+#: includes/class-wpsight-search.php:135
+msgid "Reset Search"
+msgstr "Obnoviť vyhľadávanie"
+
+#: includes/class-wpsight-search.php:211
+msgid "Keyword or Listing ID"
+msgstr "Kľúčové slovo alebo ID"
+
+#: includes/class-wpsight-search.php:217
+msgid "Search"
+msgstr "Hľadať"
+
+#: includes/class-wpsight-search.php:249
+msgid "Type"
+msgstr "Druh"
+
+#: includes/class-wpsight-template.php:162
+msgctxt "listings panel actions"
+msgid "Order by"
+msgstr "Zoradiť podľa"
+
+#: includes/class-wpsight-template.php:163
+msgctxt "listings panel actions"
+msgid "Date"
+msgstr "Dátum"
+
+#: includes/class-wpsight-template.php:164
+#: includes/class-wpsight-template.php:168
+msgctxt "listings panel actions"
+msgid "or"
+msgstr "alebo"
+
+#: includes/class-wpsight-template.php:165
+msgctxt "listings panel actions"
+msgid "Price"
+msgstr "Cena"
+
+#: includes/class-wpsight-template.php:166
+msgctxt "listings panel actions"
+msgid "Order"
+msgstr "Objednať"
+
+#: includes/class-wpsight-template.php:167
+msgctxt "listings panel actions"
+msgid "DESC"
+msgstr "Zostupne"
+
+#: includes/class-wpsight-template.php:169
+msgctxt "listings panel actions"
+msgid "ASC"
+msgstr "Vzostupne"
+
+#: includes/class-wpsight-template.php:170
+msgctxt "listings panel actions"
+msgid "Title"
+msgstr "Nadpis"
+
+#: includes/class-wpsight-template.php:280
+#: includes/class-wpsight-template.php:282
+msgctxt "archive title"
+msgid "Listing"
+msgid_plural "Listings"
+msgstr[0] "Ponuka"
+msgstr[1] "Ponuky"
+msgstr[2] "Ponúk"
+
+#: includes/class-wpsight-template.php:346
+msgid "Previous"
+msgstr "Predchádzajúca"
+
+#: includes/class-wpsight-template.php:347
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:115
+msgid "Next"
+msgstr "Ďalej"
+
+#: includes/class-wpsight-template.php:451
+msgid "Print"
+msgstr "Tlačiť"
+
+#: templates/listing-archive-description.php:7 templates/listing-print.php:64
+#: templates/listing-single-description.php:13
+msgid "This property is currently not available."
+msgstr "Táto ponuka momentálne nie je k dispozícii."
+
+#: templates/listing-no.php:3
+msgid "Sorry, but no listing matches your criteria."
+msgstr "Ľutujeme, ale žiadna ponuka nezodpovedá vašim kritériám."
+
+#: templates/listing-print.php:27
+msgctxt "listing print"
+msgid "Back to Listing"
+msgstr "Späť na zoznam"
+
+#: templates/listing-print.php:31
+msgctxt "listing print"
+msgid "Print Now"
+msgstr "Tlačte teraz"
+
+#: templates/listing-single-agent.php:61
+msgid "My Listings"
+msgstr "Moje ponuky"
+
+#: templates/listing-single.php:14
+msgid "This listing has expired."
+msgstr "Platnosť ponuky vypršala."
+
+#: templates/listings-no.php:3
+msgid "Sorry, but no listing matches your search criteria."
+msgstr "Ľutujeme, ale žiadna ponuka nezodpovedá kritériám vyhľadávania."
+
+#: vendor/webdevstudios/cmb2/example-functions.php:82
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:244
+msgid "Test Metabox"
+msgstr "Test Metabox"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:93
+#: vendor/webdevstudios/cmb2/example-functions.php:380
+msgid "Test Text"
+msgstr "Skúšobný text"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:94
+#: vendor/webdevstudios/cmb2/example-functions.php:106
+#: vendor/webdevstudios/cmb2/example-functions.php:114
+#: vendor/webdevstudios/cmb2/example-functions.php:122
+#: vendor/webdevstudios/cmb2/example-functions.php:131
+#: vendor/webdevstudios/cmb2/example-functions.php:139
+#: vendor/webdevstudios/cmb2/example-functions.php:153
+#: vendor/webdevstudios/cmb2/example-functions.php:160
+#: vendor/webdevstudios/cmb2/example-functions.php:168
+#: vendor/webdevstudios/cmb2/example-functions.php:185
+#: vendor/webdevstudios/cmb2/example-functions.php:194
+#: vendor/webdevstudios/cmb2/example-functions.php:202
+#: vendor/webdevstudios/cmb2/example-functions.php:209
+#: vendor/webdevstudios/cmb2/example-functions.php:216
+#: vendor/webdevstudios/cmb2/example-functions.php:230
+#: vendor/webdevstudios/cmb2/example-functions.php:243
+#: vendor/webdevstudios/cmb2/example-functions.php:256
+#: vendor/webdevstudios/cmb2/example-functions.php:268
+#: vendor/webdevstudios/cmb2/example-functions.php:277
+#: vendor/webdevstudios/cmb2/example-functions.php:285
+#: vendor/webdevstudios/cmb2/example-functions.php:294
+#: vendor/webdevstudios/cmb2/example-functions.php:301
+#: vendor/webdevstudios/cmb2/example-functions.php:315
+#: vendor/webdevstudios/cmb2/example-functions.php:381
+#: vendor/webdevstudios/cmb2/example-functions.php:476
+#: vendor/webdevstudios/cmb2/example-functions.php:484
+#: vendor/webdevstudios/cmb2/example-functions.php:491
+#: vendor/webdevstudios/cmb2/example-functions.php:498
+#: vendor/webdevstudios/cmb2/example-functions.php:505
+#: vendor/webdevstudios/cmb2/example-functions.php:512
+#: vendor/webdevstudios/cmb2/example-functions.php:519
+#: vendor/webdevstudios/cmb2/example-functions.php:557
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:256
+msgid "field description (optional)"
+msgstr "popis poľa (voliteľné)"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:105
+msgid "Test Text Small"
+msgstr "Skúšobný text malý"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:113
+msgid "Test Text Medium"
+msgstr "Skúšobný text stredný"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:121
+msgid "Website URL"
+msgstr "URL stránky"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:130
+msgid "Test Text Email"
+msgstr "Test textového emailu"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:138
+msgid "Test Time"
+msgstr "Test času"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:145
+#: vendor/webdevstudios/cmb2/example-functions.php:146
+msgid "Time zone"
+msgstr "Časová zóna"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:152
+msgid "Test Date Picker"
+msgstr "Test Výber dátumu"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:159
+msgid "Test Date Picker (UNIX timestamp)"
+msgstr "Test Výber dátumu (UNIX časová pečiatka)"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:167
+msgid "Test Date/Time Picker Combo (UNIX timestamp)"
+msgstr "Test Výber dátumu/času (UNIX časová pečiatka)"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:184
+msgid "Test Money"
+msgstr "Test Peniaze"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:193
+msgid "Test Color Picker"
+msgstr "Test Výber farby"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:201
+msgid "Test Text Area"
+msgstr "Test Textarea"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:208
+msgid "Test Text Area Small"
+msgstr "Test Textarea malá"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:215
+msgid "Test Text Area for Code"
+msgstr "Test Textarea pre kód"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:222
+msgid "Test Title Weeeee"
+msgstr "Test Nadpis Weeeee"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:223
+msgid "This is a title description"
+msgstr "Toto je nadpis popisu"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:229
+msgid "Test Select"
+msgstr "Test Výberu"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:235
+#: vendor/webdevstudios/cmb2/example-functions.php:248
+#: vendor/webdevstudios/cmb2/example-functions.php:260
+msgid "Option One"
+msgstr "Možnosť jedna"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:236
+#: vendor/webdevstudios/cmb2/example-functions.php:249
+#: vendor/webdevstudios/cmb2/example-functions.php:261
+msgid "Option Two"
+msgstr "Možnosť dva"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:237
+#: vendor/webdevstudios/cmb2/example-functions.php:250
+#: vendor/webdevstudios/cmb2/example-functions.php:262
+msgid "Option Three"
+msgstr "Možnosť tri"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:242
+msgid "Test Radio inline"
+msgstr "Test rádio inline"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:255
+msgid "Test Radio"
+msgstr "Test rádio"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:267
+msgid "Test Taxonomy Radio"
+msgstr "Test Taxonomy Radio"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:276
+msgid "Test Taxonomy Select"
+msgstr "Test Taxonomy Výberu"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:284
+msgid "Test Taxonomy Multi Checkbox"
+msgstr "Test Taxonomy Multi Checkbox"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:293
+msgid "Test Checkbox"
+msgstr "Test Checkbox"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:300
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:255
+msgid "Test Multi Checkbox"
+msgstr "Test Multi Checkbox"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:306
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:261
+msgid "Check One"
+msgstr "Začiarknite jednu"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:307
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:262
+msgid "Check Two"
+msgstr "Zaškrtnite dve"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:308
+#: vendor/webdevstudios/cmb2/tests/test-cmb-field.php:263
+msgid "Check Three"
+msgstr "Zaškrtnite tri"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:314
+msgid "Test wysiwyg"
+msgstr "Test wysiwyg"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:322
+msgid "Test Image"
+msgstr "Skúšobný obrázok"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:323
+msgid "Upload an image or enter a URL."
+msgstr "Nahrajte obrázok, alebo zadajte jeho URL adresu."
+
+#: vendor/webdevstudios/cmb2/example-functions.php:329
+msgid "Multiple Files"
+msgstr "Viaceré súbory"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:330
+msgid "Upload or add multiple images/attachments."
+msgstr "Nahrajte alebo pridajte viac obrázkov / príloh."
+
+#: vendor/webdevstudios/cmb2/example-functions.php:337
+msgid "oEmbed"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:338
+msgid ""
+"Enter a youtube, twitter, or instagram URL. Supports services listed at <a "
+"href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/"
+"Embeds</a>."
+msgstr ""
+"Zadajte adresu URL služby YouTube, twitter alebo instagram. Podporuje služby "
+"uvedené na <a href=\"http://codex.wordpress.org/Embeds\">http://codex."
+"wordpress.org/Embeds</a> ."
+
+#: vendor/webdevstudios/cmb2/example-functions.php:371
+msgid "About Page Metabox"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:402
+msgid "Repeating Field Group"
+msgstr "Opakovaná skupina poľa"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:410
+msgid "Generates reusable form entries"
+msgstr "Generuje opakovane použiteľné záznamy formulára"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:412
+msgid "Entry {#}"
+msgstr "Záznam"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:413
+msgid "Add Another Entry"
+msgstr "Pridať ďalší záznam"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:414
+msgid "Remove Entry"
+msgstr "Odstrániť údaj"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:427
+msgid "Entry Title"
+msgstr "Názov príspevku"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:435
+msgid "Write a short description for this entry"
+msgstr "Napíšte krátky popis tejto položky"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:441
+msgid "Entry Image"
+msgstr "Vstupný obrázok"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:447
+msgid "Image Caption"
+msgstr "Popisok obrázku"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:468
+msgid "User Profile Metabox"
+msgstr "Profil používateľa Metabox"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:475
+msgid "Extra Info"
+msgstr "Extra"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:483
+msgid "Avatar"
+msgstr "Profilová fotka"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:490
+msgid "Facebook URL"
+msgstr "URL adresa Facebook"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:497
+msgid "Twitter URL"
+msgstr "URL adresa Twitter"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:504
+msgid "Google+ URL"
+msgstr "Google+ URL"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:511
+msgid "Linkedin URL"
+msgstr "LinkedIn URL"
+
+#: vendor/webdevstudios/cmb2/example-functions.php:518
+msgid "User Field"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:541
+msgid "Theme Options Metabox"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/example-functions.php:556
+msgid "Site Background Color"
+msgstr "Farba pozadia stránky"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2.php:120
+msgid "Metabox configuration is required to have an ID parameter"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2.php:332
+msgid "Click to toggle"
+msgstr "Kliknite pre prepnutie"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Ajax.php:40
+msgid "Please Try Again"
+msgstr "Skúste neskôr prosím"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Ajax.php:135
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:811
+msgid "Remove Embed"
+msgstr "Odstrániť vložený prvok"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Ajax.php:139
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:812
+#, php-format
+msgid "No oEmbed Results Found for %s. View more info at"
+msgstr "Neboli nájdené oEmbed Výsledky za%s. Zobraziť viac informácií na"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Field.php:955
+msgid "Add Group"
+msgstr "Pridať skupinu"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Field.php:956
+msgid "Remove Group"
+msgstr "Odstrániť skupinu"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:86
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:119
+msgid "Clear"
+msgstr "Vyčistiť"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:87
+msgid "Default"
+msgstr "Predvolené"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:88
+msgid "Select Color"
+msgstr "Vyberte farbu"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:89
+msgid "Current Color"
+msgstr "Aktuálna farba"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:109
+msgctxt "Valid formatDate string for jquery-ui datepicker"
+msgid "mm/dd/yy"
+msgstr "mm/dd/yy"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:110
+msgid "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+msgstr "Nedeľa, Pondelok, Utorok, Streda, Štvrtok, Piatok, Sobota"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:111
+msgid "Su, Mo, Tu, We, Th, Fr, Sa"
+msgstr "Ne, Po, Ut, St, Št, Pia, So "
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:112
+msgid "Sun, Mon, Tue, Wed, Thu, Fri, Sat"
+msgstr "Ned, Pon, Uto, Str, Štv, Pia, Sob"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:113
+msgid ""
+"January, February, March, April, May, June, July, August, September, "
+"October, November, December"
+msgstr ""
+"Január, Február, Marec, Apríl, Máj, Jún, Júl, August, September, Október, "
+"November, December"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:114
+msgid "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+msgstr "Jan, Feb, Mar, Apr, Máj, Jún, Júl, Aug, Sep, Okt, Nov, Dec"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:116
+msgid "Prev"
+msgstr "Predošlá"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:117
+msgid "Today"
+msgstr "Dnes"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:118
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:128
+msgid "Done"
+msgstr "Hotovo"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:122
+msgid "Choose Time"
+msgstr "Vybrať čas"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:123
+msgid "Time"
+msgstr "Čas"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:124
+msgid "Hour"
+msgstr "Hodina"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:125
+msgid "Minute"
+msgstr "Minúta"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:126
+msgid "Second"
+msgstr "Sekunda"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:127
+msgid "Now"
+msgstr "Teraz"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:129
+msgctxt ""
+"Valid formatting string, as per http://trentrichardson.com/examples/"
+"timepicker/"
+msgid "hh:mm TT"
+msgstr "hh:mm TT"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:135
+msgid "Use this file"
+msgstr "Použiť tento súbor"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:136
+msgid "Use these files"
+msgstr "Použite tieto súbory"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:137
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:1004
+msgid "Remove Image"
+msgstr "Vymazať obrázok"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:138
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:357
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:1023
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:155
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:163
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:760
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:785
+msgid "Remove"
+msgstr "Odstrániť"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:139
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:1018
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:761
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:786
+msgid "File:"
+msgstr "Súbor:"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:140
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:1021
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:759
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:784
+msgid "Download"
+msgstr "Stiahnuť"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_JS.php:141
+msgid "Select / Deselect All"
+msgstr "Vybrať / Zrušiť vštko"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:298
+msgid "Add Row"
+msgstr "Pridať riadok"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:749
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:797
+msgid "No terms"
+msgstr ""
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:864
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:736
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:762
+msgid "Add or Upload Files"
+msgstr "Pridať alebo nahrať súbory"
+
+#: vendor/webdevstudios/cmb2/includes/CMB2_Types.php:926
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:772
+#: vendor/webdevstudios/cmb2/tests/test-cmb-types.php:787
+msgid "Add or Upload File"
+msgstr "Pridať alebo nahrať súbor"
+
+#: vendor/webdevstudios/cmb2/includes/helper-functions.php:250
+msgid "Save"
+msgstr "Uložiť"
+
+#: wpcasa.php:212
+msgctxt "listings page title"
+msgid "Listings"
+msgstr "Ponuky"
+
+#: wpcasa.php:302
+msgid ""
+"Please make sure to <strong>deactivate the WPCasa theme</strong> in order to "
+"use the WPCasa plugin version. For more information about how to switch "
+"please <a href=\"http://docs.wpsight.com/article/switching-from-theme-"
+"version/\" target=\"_blank\">read our docs</a>."
+msgstr ""
+"Prosím, <strong>deaktivujte tému WPCasa,</strong> aby ste mohli používať "
+"verziu doplnku WPCasa. Pre viac informácií o tom, ako prechádzať, prečítajte "
+"<a href=\"http://docs.wpsight.com/article/switching-from-theme-version/\" "
+"target=\"_blank\">si naše dokumenty</a> ."
+
+#. Plugin Name of the plugin/theme
+msgid "WPCasa"
+msgstr "WPCasa"
+
+#. Plugin URI of the plugin/theme
+msgid "https://wpcasa.com"
+msgstr "https://wpcasa.com"
+
+#. Description of the plugin/theme
+msgid ""
+"Flexible WordPress plugin to create professional real estate websites and "
+"manage property listings with ease."
+msgstr ""
+"Flexibilný doplnok WordPress pre vytváranie profesionálnych webových stránok "
+"s nehnuteľnosťami a jednoduchú správu ponúk."
+
+#. Author of the plugin/theme
+msgid "WPSight"
+msgstr "WPSight"
+
+#. Author URI of the plugin/theme
+msgid "http://wpsight.com"
+msgstr "http://wpsight.com"

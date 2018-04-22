@@ -215,13 +215,13 @@ class WPSight_Geocode {
 
 				$result = wp_remote_get(
 					apply_filters( 'wpsight_geolocation_endpoint', $api_url_key, $raw_address ),
-					array(
+					apply_filters( 'wpsight_geolocation_args', array(
 						'timeout'     => 5,
 					    'redirection' => 1,
 					    'httpversion' => '1.1',
 					    'user-agent'  => 'WordPress/' . WPSIGHT_NAME . '-' . WPSIGHT_VERSION . '; ' . get_bloginfo( 'url' ),
 					    'sslverify'   => false
-				    )
+				    ) )
 				);
 
 				$result           = wp_remote_retrieve_body( $result );

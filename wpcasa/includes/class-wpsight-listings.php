@@ -869,6 +869,8 @@ class WPSight_Listings {
 			// Set array of unformatted details
 
 		} else {
+			
+			$listing_details = array();
 
 			foreach ( $details as $detail ) {
 

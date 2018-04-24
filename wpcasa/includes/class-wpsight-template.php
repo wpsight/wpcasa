@@ -393,12 +393,9 @@ class WPSight_Template {
 
 		$post = get_post( $post_id );
 
-		if ( $post->post_type != wpsight_post_type() )
-			return false;
-
 		$classes = array();
 
-		if ( empty( $post ) )
+		if ( empty( $post ) || $post->post_type != wpsight_post_type() )
 			return $classes;
 
 		$classes[] = 'listing';

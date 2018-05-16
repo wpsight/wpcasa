@@ -830,7 +830,7 @@ class WPSight_Listings {
 
 					$listing_details .= '<span class="listing-' . wpsight_dashes( $detail ) . ' listing-details-detail" title="' . wpsight_get_detail( $detail, 'label' ) . '">';
 
-					$listing_details .= '<span class="listing-details-label">' . wpsight_get_detail( $detail, 'label' ) . ':</span> ';
+					$listing_details .= '<span class="listing-details-label">' . wpsight_get_detail( $detail, 'label' ) . '</span> ';
 					$listing_details .= '<span class="listing-details-value">' . wpsight_get_listing_detail( $detail, $post_id );
 
 					if ( wpsight_get_detail( $detail, 'unit' ) )

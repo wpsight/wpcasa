@@ -434,6 +434,13 @@ class WPSight_Listings {
 	 */
 	public static function listing( $listing_id = null, $full = true ) {		
 		global $listing;
+
+        $listing_no = '';
+        $listing_no = apply_filters('listing_no_filter', $listing_no);
+
+        if ( $listing_no == 'listing_no' ) {
+            return;
+        }
 		
 		$listing = wpsight_get_listing( $listing_id );
 		

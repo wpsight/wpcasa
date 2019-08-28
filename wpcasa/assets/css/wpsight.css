@@ -407,6 +407,10 @@
     min-width: 50%;
 }
 
+.wpsight-listing-details .listing-details-label:after {
+    content: ':';
+}
+
 .wpsight-listing-details .listing-details-value {
     display: inline-block;
     word-break: break-all;

@@ -1,6 +1,6 @@
 {
     "require": {
-		"webdevstudios/cmb2": "~2.1"
+        "webdevstudios/cmb2": "~2.1"
     },
     "autoload": {
         "files": ["wpcasa/vendor/webdevstudios/cmb2/init.php"],

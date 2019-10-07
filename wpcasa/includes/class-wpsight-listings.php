@@ -435,10 +435,10 @@ class WPSight_Listings {
 	public static function listing( $listing_id = null, $full = true ) {		
 		global $listing;
 
-		if ( apply_filters('wpsight_listing_single_output', true) != true )
-			return;
-			
-		   $listing = wpsight_get_listing( $listing_id );
+		$listing = wpsight_get_listing( $listing_id );
+
+        if ( apply_filters('wpsight_listing_single_output', true) != true )
+            return;
 		
 		// Show listing if found
 		if ( $listing ) {

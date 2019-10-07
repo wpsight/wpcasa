@@ -85,6 +85,9 @@ class WPSight_Framework {
 		
 		// Include admin class
 		include( WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin.php' );
+        if ( class_exists ('\Elementor\Plugin')  ) { // if elementor active
+            include(WPSIGHT_PLUGIN_DIR . '/includes/elementor/wpcasa-elementor.php');
+        }
 
 		// Only instantiate admin class when in admin area
 		if ( is_admin() )

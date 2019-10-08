@@ -55,8 +55,8 @@ class Widget_Manager {
      * @access private
      */
     private function include_widgets_files() {
-//        include_once( 'widgets/Listings.php' );
-//        include_once( 'widgets/ListingsSearch.php' );
+        include_once( 'widgets/Listings.php' );
+        include_once( 'widgets/ListingsSearch.php' );
         include_once( 'widgets/ListingsCarousel.php' );
 
         include_once( 'widgets/ListingDetails.php' );
@@ -81,8 +81,8 @@ class Widget_Manager {
         $this->include_widgets_files();
 
         // Register Widgets
-//        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Listings() );
-//        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingsSearch() );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Listings() );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingsSearch() );
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ListingsCarousel() );
 
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingDetails() );

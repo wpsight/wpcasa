@@ -73,9 +73,11 @@ class ListingDetails extends Widget_Base {
     }
 
 	protected function render() {
+        global $listing;
         $details_args = [];
         $settings = $this->get_active_settings();
         $listing_id = Widget_Manager::wpsight_get_elementor_global_listing_id();
+        $listing = wpsight_get_listing($listing_id);
 
         foreach ($settings as $index => $item) {
             if ($item == 'yes') {
@@ -86,7 +88,7 @@ class ListingDetails extends Widget_Base {
         echo '<div class="wpsight-listing-section wpsight-listing-section-details">';
         if ($listing_id) {
 //            wpsight_listing_details($listing_id, $details_args, $settings['details_design']);
-            wpsight_get_template( 'listing-single-details.php', array('details' => $details_args, 'formatted' => $settings['details_design'], 'id' => $listing_id) );
+            wpsight_get_template( 'listing-single-details.php', array('details' => $details_args, 'formatted' => $settings['details_design']) );
         } else {
             wpsight_get_template_part('listing', 'no');
         }

@@ -1,6 +1,6 @@
 <?php
 
-namespace WPSight_Berlin\Elementor\Widgets;
+namespace WPSight\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
@@ -182,11 +182,12 @@ class ListingsCarousel extends Widget_Base {
         }
 //       add filter to edit listing card details
         $show_elements = $settings['show_elements'];
+//      define which details have to be shown
         add_filter( 'card_info_filter', function() use ( $show_elements ) {
             return $show_elements;
         });
 
-        wpsight_berlin_listings_carousel( $listings );
+        wpsight_listings_carousel( $listings );
 
 	}
 

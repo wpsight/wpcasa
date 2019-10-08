@@ -1,6 +1,6 @@
 <?php
 
-namespace WPSight_Berlin\Elementor\Widgets;
+namespace WPSight\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
@@ -34,10 +34,12 @@ class ListingFeatures extends Widget_Base {
 	protected function _register_controls() {}
 
 	protected function render() {
+        global $listing;
         $listing_id = get_one_listing_id();
+        $listing = wpsight_get_listing($listing_id);
 
         if ($listing_id) {
-            wpsight_get_template( 'listing-single-features.php', array(  'id' => $listing_id ) );
+            wpsight_get_template( 'listing-single-features.php');
         } else {
             wpsight_get_template_part('listing', 'no');
         }

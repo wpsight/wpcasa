@@ -2,7 +2,6 @@
 namespace WPSight\Elementor;
 
 use ElementorPro\Base\Module_Base;
-use WPSight\Elementor\Widgets\ListingsCarousel;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -63,7 +62,7 @@ class Widget_Manager {
         include_once( 'widgets/ListingFeatures.php' );
         include_once( 'widgets/ListingAgent.php' );
 //        include_once( 'widgets/ListingMap.php' );
-//        include_once( 'widgets/ListingImageSlider.php' );
+        include_once( 'widgets/ListingImageSlider.php' );
 //        include_once( 'widgets/ListingSidebar.php' );
 //        include_once( 'widgets/ListingImageGallery.php' );
 
@@ -83,13 +82,13 @@ class Widget_Manager {
         // Register Widgets
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Listings() );
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingsSearch() );
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new ListingsCarousel() );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingsCarousel() );
 
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingDetails() );
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingFeatures() );
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingAgent() );
 //        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingMap() );
-//        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingImageSlider() );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingImageSlider() );
 //        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingSidebar() );
 //        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingImageGallery() );
     }

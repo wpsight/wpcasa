@@ -1,9 +1,10 @@
 <?php
 
-namespace WPSight_Berlin\Elementor\Widgets;
+namespace WPSight\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
+use WPSight\Elementor\Widget_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -45,10 +46,10 @@ class ListingImageSlider extends Widget_Base {
 	}
 
 	protected function render() {
-	    $listing_id = get_one_listing_id();
+        $listing_id = Widget_Manager::wpsight_get_elementor_global_listing_id();
 
         if ($listing_id) {
-            wpsight_berlin_image_slider($listing_id);
+            wpsight_image_slider($listing_id);
         } else {
             wpsight_get_template_part('listing', 'no');
         }

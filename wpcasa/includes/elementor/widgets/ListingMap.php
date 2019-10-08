@@ -1,6 +1,6 @@
 <?php
 
-namespace WPSight_Berlin\Elementor\Widgets;
+namespace WPSight\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;

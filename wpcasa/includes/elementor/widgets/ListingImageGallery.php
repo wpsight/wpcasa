@@ -1,9 +1,10 @@
 <?php
 
-namespace WPSight_Berlin\Elementor\Widgets;
+namespace WPSight\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
+use WPSight\Elementor\Widget_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -236,9 +237,11 @@ class ListingImageGallery extends Widget_Base {
 
     }
 	protected function render() {
+        global $listing;
         $gallery_args = [];
         $settings = $this->get_active_settings();
-
+        $listing_id = Widget_Manager::wpsight_get_elementor_global_listing_id();
+        $listing = wpsight_get_listing($listing_id);
         foreach ( $settings as $index => $item ) {
             $gallery_args[$index] = $item;
         }

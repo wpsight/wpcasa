@@ -4,6 +4,7 @@ namespace WPSight\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
+use WPSight\Elementor\Widget_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -35,7 +36,7 @@ class ListingFeatures extends Widget_Base {
 
 	protected function render() {
         global $listing;
-        $listing_id = get_one_listing_id();
+        $listing_id = Widget_Manager::wpsight_get_elementor_global_listing_id();
         $listing = wpsight_get_listing($listing_id);
 
         if ($listing_id) {

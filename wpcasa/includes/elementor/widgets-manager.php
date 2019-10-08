@@ -86,7 +86,7 @@ class Widget_Manager {
 
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingDetails() );
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingFeatures() );
-//        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingAgent() );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingAgent() );
 //        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingMap() );
 //        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingImageSlider() );
 //        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\ListingSidebar() );

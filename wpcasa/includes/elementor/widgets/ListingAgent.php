@@ -1,9 +1,10 @@
 <?php
 
-namespace WPSight_Berlin\Elementor\Widgets;
+namespace WPSight\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
+use WPSight\Elementor\Widget_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -126,16 +127,18 @@ class ListingAgent extends Widget_Base {
 	}
 
 	protected function render() {
+        global $listing;
         $agent_args = [];
         $settings = $this->get_active_settings();
-        $listing_id = get_one_listing_id();
+        $listing_id = Widget_Manager::wpsight_get_elementor_global_listing_id();
+        $listing = wpsight_get_listing($listing_id);
 
         foreach ( $settings as $index => $item ) {
             $agent_args[$index] = $item;
         }
 
         if ($listing_id) {
-            wpsight_get_template( 'listing-single-agent.php', array( 'widget_instance' => $agent_args, 'id' => $listing_id ) );
+            wpsight_get_template( 'listing-single-agent.php', array( 'widget_instance' => $agent_args ) );
         } else {
             wpsight_get_template_part('listing', 'no');
         }

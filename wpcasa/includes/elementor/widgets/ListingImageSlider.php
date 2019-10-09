@@ -47,9 +47,18 @@ class ListingImageSlider extends Widget_Base {
 
 	protected function render() {
         $listing_id = Widget_Manager::wpsight_get_elementor_global_listing_id();
+        $current_theme = wp_get_theme();
 
         if ($listing_id) {
-            wpsight_image_slider($listing_id);
+            if (strpos($current_theme->name, 'London') !== false) {
+                wpsight_london_image_slider($listing_id);
+            }
+            if (strpos($current_theme->name, 'Berlin') !== false) {
+                wpsight_berlin_image_slider($listing_id);
+            }
+            if (strpos($current_theme->name, 'Oslo') !== false) {
+                wpsight_oslo_image_slider($listing_id);
+            }
         } else {
             wpsight_get_template_part('listing', 'no');
         }

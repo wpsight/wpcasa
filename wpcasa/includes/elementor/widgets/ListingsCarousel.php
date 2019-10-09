@@ -145,6 +145,7 @@ class ListingsCarousel extends Widget_Base {
 	protected function render() {
         $settings = $this->get_active_settings();
         $taxonomy_filters	= array();
+        $current_theme = wp_get_theme();
 
         foreach( get_object_taxonomies( wpsight_post_type(), 'objects' ) as $key => $taxonomy ) {
             $taxonomy_filters[ $key ] = $settings[$key];
@@ -187,7 +188,18 @@ class ListingsCarousel extends Widget_Base {
             return $show_elements;
         });
 
-        wpsight_listings_carousel( $listings );
+
+        if (strpos($current_theme->name, 'London') !== false) {
+            wpsight_london_listings_carousel( $listings );
+        }
+
+        if (strpos($current_theme->name, 'Berlin') !== false) {
+            wpsight_berlin_listings_carousel( $listings );
+        }
+
+        if (strpos($current_theme->name, 'Oslo') !== false) {
+            wpsight_oslo_listings_carousel( $listings );
+        }
 
 	}
 

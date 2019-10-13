@@ -108,3 +108,20 @@ if ( ! function_exists( 'wpsight_deactivate_license' ) ) {
 	}
 
 }
+
+/**
+ *	wpsight_is_premium()
+ *	
+ *	Check if premium is active.
+ *	
+ *	@since 1.2.0
+ */
+ 
+// Make function pluggable/overwritable
+if ( ! function_exists( 'wpsight_is_premium' ) ) {
+	
+	function wpsight_is_premium() {
+		return WPSight_Admin::is_premium();
+	}
+
+}

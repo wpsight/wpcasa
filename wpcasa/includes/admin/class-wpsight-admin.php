@@ -17,11 +17,13 @@ class WPSight_Admin {
 		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-settings.php';
 		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-licenses.php';
 		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-agents.php';
+		include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin-color-scheme.php';
 
 		$this->cpt				= new WPSight_Admin_CPT();
 		$this->settings_page	= new WPSight_Admin_Settings();
 		$this->license_page		= new WPSight_Admin_Licenses();
 		$this->agents			= new WPSight_Admin_Agents();
+		$this->color_scheme		= new WPSight_Admin_Color_Scheme();
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ), 12 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );

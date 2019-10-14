@@ -26,7 +26,9 @@ class WPCasa_Elementor_Init
      */
 
     public function wpsight_geneva_register_elementor_locations($elementor_theme_manager) {
-        $elementor_theme_manager->register_all_core_location();
+//        $elementor_theme_manager->register_all_core_location();
+
+        $elementor_theme_manager->register_location( 'single' );
     }
 
      public function wpsight_is_built_with_elementor($post_id ) {

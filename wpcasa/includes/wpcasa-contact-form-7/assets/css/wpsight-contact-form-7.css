@@ -1,0 +1,15 @@
+.wpsight-wpcf7 div.wpcf7-response-output {
+	margin: 0;
+}
+
+.wpsight-wpcf7 .wpcf7-text,
+.wpsight-wpcf7 .wpcf7-textarea {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.wpsight-wpcf7 .ajax-loader {
+	box-shadow: none;
+}

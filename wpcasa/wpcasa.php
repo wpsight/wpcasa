@@ -86,6 +86,16 @@ class WPSight_Framework {
 		// Include admin class
 		include( WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin.php' );
 
+        require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+        if ( is_plugin_active( 'wpcasa-contact-form-7/wpcasa-contact-form-7.php' )  ) {
+            deactivate_plugins( '/wpcasa-contact-form-7/wpcasa-contact-form-7.php' );
+        }
+
+        // Include wpcasa contact form 7 class
+        if ( is_plugin_active( 'contact-form-7/contact-form-7.php' )  ) { // if contact form 7 active
+            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-contact-form-7/wpcasa-contact-form-7.php' );
+        }
+
 		// Only instantiate admin class when in admin area
 		if ( is_admin() )
 			$this->admin = new WPSight_Admin();

@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: WPCasa Contact Form 7\n"
+"POT-Creation-Date: 2016-04-16 11:58+0200\n"
+"PO-Revision-Date: 2016-04-16 12:05+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: wpcasa-contact-form-7.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: es_ES\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:37
+msgid "None"
+msgstr "Ninguno"
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:47
+msgid "Listing Form"
+msgstr "Formulario"
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:48
+msgid "Select the form that you want to use on listing pages."
+msgstr "Seleccione el formulario que quiere mostrar en páginas de inmuebles."
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:62
+msgid "Form Display"
+msgstr "Visualización"
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:63
+msgid ""
+"Select where to display the listing form or choose to manually add the form "
+"via shortcode or function."
+msgstr ""
+"Seleccione dónde desea visualizar el formulario o si opta por añadirlo "
+"manualmente a través de un shortcode o función."
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:68
+msgid "At the end"
+msgstr "Al final"
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:69
+msgid "After details"
+msgstr "Después de los detalles"
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:70
+msgid "After description"
+msgstr "Después de la descripción"
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:71
+msgid "After features"
+msgstr "Después de las características"
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:72
+msgid "After location"
+msgstr "Después de la ubicación"
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:73
+msgid "After agent"
+msgstr "Después del agente"
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:74
+msgid "Do not display"
+msgstr "No mostrar"
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:81
+msgid "Form CSS"
+msgstr "Código CSS"
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:82
+msgid "Please uncheck the box to disable the plugin from outputting CSS."
+msgstr ""
+"Por favor, desactive la casilla para que el plugin no genere ningún CSS."
+
+#: includes/admin/class-wpsight-contact-form-7-admin.php:89
+msgid "Contact Form 7"
+msgstr "Contact Form 7"
+
+#: wpcasa-contact-form-7.php:263
+msgid "Your Name"
+msgstr "Su nombre"
+
+#: wpcasa-contact-form-7.php:264 wpcasa-contact-form-7.php:267
+msgid "(required)"
+msgstr "(obligatorio)"
+
+#: wpcasa-contact-form-7.php:266
+msgid "Your Email"
+msgstr "Su Email"
+
+#: wpcasa-contact-form-7.php:269
+msgid "Your Message"
+msgstr "Su Mensaje"
+
+#: wpcasa-contact-form-7.php:271
+msgid "Submit Request"
+msgstr "Enviar solicitud"
+
+#: wpcasa-contact-form-7.php:292
+msgid "Request"
+msgstr "Solicitud"
+
+#: wpcasa-contact-form-7.php:294
+msgid "sent you a message"
+msgstr "le envió un mensaje"
+
+#: wpcasa-contact-form-7.php:294
+msgid "Listing"
+msgstr "Anuncio"
+
+#: wpcasa-contact-form-7.php:334
+msgid "Listing Contact"
+msgstr "Contacto de Anuncio"
+
+#. Plugin Name of the plugin/theme
+msgid "WPCasa Contact Form 7"
+msgstr "WPCasa Contact Form 7"
+
+#. Plugin URI of the plugin/theme
+msgid "https://wpcasa.com/downloads/wpcasa-contact-form-7"
+msgstr "https://wpcasa.com/downloads/wpcasa-contact-form-7"
+
+#. Description of the plugin/theme
+msgid ""
+"Add support for Contact Form 7 to attach property details to the contact "
+"email sent from WPCasa listing pages."
+msgstr ""
+"Añadir soporte para Contact Form 7 para adjuntar detalles de la propiedad a "
+"los emails enviados desde páginas de inmueble de WPCasa."
+
+#. Author of the plugin/theme
+msgid "WPSight"
+msgstr "WPSight"
+
+#. Author URI of the plugin/theme
+msgid "http://wpsight.com"
+msgstr "http://wpsight.com"

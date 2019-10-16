@@ -3,15 +3,15 @@
 Plugin Name: WPCasa
 Plugin URI: https://wpcasa.com
 Description: Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
-Version: 1.0.6.1
+Version: 1.2.0
 Author: WPSight
 Author URI: http://wpsight.com
-Requires at least: 4.0
-Tested up to: 4.6
+Requires at least: 4.0.0
+Tested up to: 4.9
 Text Domain: wpcasa
 Domain Path: /languages
 
-	Copyright: 2015 Simon Rimkus
+	Copyright: 2015 WPSight
 	License: GNU General Public License v2.0 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -32,6 +32,8 @@ class WPSight_Framework {
 	 *	Constructor - get the plugin hooked in and ready
 	 */
 	public function __construct() {
+		
+		global $wp_version;
 
 		// Define constants
 
@@ -47,7 +49,7 @@ class WPSight_Framework {
 		if ( ! defined( 'WPSIGHT_AUTHOR' ) )
 			define( 'WPSIGHT_AUTHOR', 'WPSight' );
 
-		define( 'WPSIGHT_VERSION', '1.0.6.1' );
+		define( 'WPSIGHT_VERSION', '1.2.0' );
 		define( 'WPSIGHT_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 		
@@ -78,6 +80,8 @@ class WPSight_Framework {
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-helpers.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-search.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-meta-boxes.php' );
+		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-gutenberg.php' );
+		//include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-meta-boxes-butterbean.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-template.php' );
 		
 		// Include shortcodes
@@ -91,29 +95,34 @@ class WPSight_Framework {
 			$this->admin = new WPSight_Admin();
 		
 		// Init classes
-		$this->post_types = new WPSight_Post_Type_Listing();
-		$this->agents     = new WPSight_Agents();
-		$this->general    = new WPSight_General();
-		$this->helpers    = new WPSight_Helpers();
-		$this->search     = new WPSight_Search();
-		$this->meta_boxes = new WPSight_Meta_Boxes();
+		$this->post_types	= new WPSight_Post_Type_Listing();
+		$this->agents		= new WPSight_Agents();
+		$this->general		= new WPSight_General();
+		$this->helpers		= new WPSight_Helpers();
+		$this->search		= new WPSight_Search();
+		$this->meta_boxes	= new WPSight_Meta_Boxes();
+		
+		if( version_compare( $wp_version, '5.0', '>=' ) )
+			$this->gutenberg	= new WPSight_Gutenberg();
+			
+		//$this->meta_boxes = new WPSight_Meta_Boxes_Butterbean();
 
 		// Activation
 		
-		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array( $this->post_types, 'register_post_type_listing' ), 10 );		
-		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), function() { include_once( 'includes/class-wpsight-install.php' ); }, 10 );
-		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), 'flush_rewrite_rules', 15 );		
+		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array( $this->post_types, 'register_post_type_listing' ) );		
+		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), 'flush_rewrite_rules' );	
+		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array( $this, 'install' ) );
 		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array( $this, 'activation' ) );
 
 		// Actions
 		
-		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
-		add_action( 'switch_theme', array( $this->post_types, 'register_post_type_listing' ), 10 );
-		add_action( 'switch_theme', 'flush_rewrite_rules', 15 );
-		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
+		add_action( 'plugins_loaded',		array( $this, 'load_plugin_textdomain' ) );
+		add_action( 'switch_theme',			array( $this->post_types, 'register_post_type_listing' ), 10 );
+		add_action( 'switch_theme',			'flush_rewrite_rules', 15 );
+		add_action( 'wp_enqueue_scripts',	array( $this, 'frontend_scripts' ) );
 		
 		// Init action for add-ons to hook in
-		do_action_ref_array( 'wpsight_init', array( &$this ) );
+		do_action_ref_array( 'wpsight_init', array( $this ) );
 
 	}
 
@@ -189,6 +198,23 @@ class WPSight_Framework {
 	}
 	
 	/**
+	 *	install()
+	 *	
+	 *	Callback for register_activation_hook
+	 *	to fire up some stuff to be
+	 *  used upon activation (eg. special user roles).
+	 *	
+	 *	@since 1.1.0
+	 */
+
+	public function install() {
+		
+		include_once 'includes/class-wpsight-install.php';	
+		
+	}
+	
+	
+	/**
 	 *	activation()
 	 *	
 	 *	Callback for register_activation_hook
@@ -250,6 +276,7 @@ class WPSight_Framework {
 		}
 		
 	}
+	
 }
 
 /**

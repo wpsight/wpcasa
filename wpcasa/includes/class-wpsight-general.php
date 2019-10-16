@@ -360,10 +360,10 @@ class WPSight_General {
 
 		$rental_periods = array(
 
-			'rental_period_1' => __( 'per Month', 'wpcasa' ),
+			'rental_period_1' => __( 'per Night', 'wpcasa' ),
 			'rental_period_2' => __( 'per Week', 'wpcasa' ),
-			'rental_period_3' => __( 'per Year', 'wpcasa' ),
-			'rental_period_4' => __( 'per Day', 'wpcasa' )
+			'rental_period_3' => __( 'per Month', 'wpcasa' ),
+			'rental_period_4' => __( 'per Year', 'wpcasa' )
 
 		);
 
@@ -626,6 +626,7 @@ class WPSight_General {
 			'idr' => __( 'IDR => Indonesian Rupiah', 'wpcasa' ),
 			'ils' => __( 'ILS => Israeli New Sheqel', 'wpcasa' ),
 			'inr' => __( 'INR => Indian Rupee', 'wpcasa' ),
+			'isk' => __( 'ISK => Icelandic króna', 'wpcasa' ),
 			'jmd' => __( 'JMD => Jamaican Dollar', 'wpcasa' ),
 			'jod' => __( 'JOD => Jordanian Dinar', 'wpcasa' ),
 			'jpy' => __( 'JPY => Japanese Yen', 'wpcasa' ),
@@ -682,12 +683,20 @@ class WPSight_General {
 			'uzs' => __( 'UZS => Uzbekistan Som', 'wpcasa' ),
 			'vef' => __( 'VEF => Venezuelan Bolivar', 'wpcasa' ),
 			'vnd' => __( 'VND => Vietnamese Dong', 'wpcasa' ),
+			'xcd' => __( 'XCD => East Caribbean Dollar', 'wpcasa' ),
 			'xof' => __( 'XOF => CFA Franc BCEAO', 'wpcasa' ),
 			'yer' => __( 'YER => Yemeni Rial', 'wpcasa' ),
 			'zar' => __( 'ZAR => South African Rand', 'wpcasa' ),
 			'zmk' => __( 'ZMK => Zambian Kwacha', 'wpcasa' )
 		);
-
+		
+//		$currencies = array();
+//		$defaults = wpcasa_sample_currencies();
+//
+//		foreach( $defaults as $c => $n ) {
+//			$currencies[$c] = $n['name'];
+//		}
+			
 		return apply_filters( 'wpsight_currencies', $currencies );
 
 	}
@@ -750,36 +759,51 @@ class WPSight_General {
 			$currency = wpsight_get_currency_abbr( $currency );
 
 			// Create HTML entities
-
-			if ( $currency == 'EUR' ) {
-				$currency_ent = '&euro;';
+			
+			if ( $currency == 'AUD' ) {
+				$currency_ent = 'AU&#36;';
 			}
-			elseif ( $currency == 'USD' ) {
-				$currency_ent = '&#36;';
+			elseif ( $currency == 'BRL' ) {
+				$currency_ent = '&#x52;&#x24;';
 			}
 			elseif ( $currency == 'CAD' ) {
 				$currency_ent = 'C&#36;';
 			}
-			elseif ( $currency == 'GBP' ) {
-				$currency_ent = '&pound;';
-			}
-			elseif ( $currency == 'AUD' ) {
-				$currency_ent = 'AU&#36;';
-			}
-			elseif ( $currency == 'JPY' ) {
-				$currency_ent = '&yen;';
-			}
 			elseif ( $currency == 'CHF' ) {
 				$currency_ent = ' SFr. ';
+			}
+			elseif ( $currency == 'CNY' ) {
+				$currency_ent = '&#xa5;';
+			}
+			elseif ( $currency == 'CZK' ) {
+				$currency_ent = '&#x4b;&#x10d;';
+			}
+			elseif ( $currency == 'HKD' ) {
+				$currency_ent = '&#x24;';
+			}
+			elseif ( $currency == 'EUR' ) {
+				$currency_ent = '&euro;';
+			}
+			elseif ( $currency == 'GBP' ) {
+				$currency_ent = '&pound;';
 			}
 			elseif ( $currency == 'ILS' ) {
 				$currency_ent = '&#8362;';
 			}
+			elseif ( $currency == 'JPY' ) {
+				$currency_ent = '&yen;';
+			}
+			elseif ( $currency == 'RUB' ) {
+				$currency_ent = '&#8381;';
+			}
 			elseif ( $currency == 'THB' ) {
 				$currency_ent = '&#3647;';
 			}
-			elseif ( $currency == 'BRL' ) {
-				$currency_ent = 'R&#36;';
+			elseif ( $currency == 'TRY' ) {
+				$currency_ent = '&#8378;';
+			}
+			elseif ( $currency == 'USD' ) {
+				$currency_ent = '&#36;';
 			}
 
 		} else {
@@ -793,7 +817,7 @@ class WPSight_General {
 		if ( empty( $currency_ent ) )
 			$currency_ent = ' ' . $currency . ' ';
 
-		return apply_filters( 'wpsight_get_currency', $currency_ent, $currency );
+		return apply_filters( 'wpsight_get_currency', $currency_ent );
 
 	}
 

@@ -210,7 +210,7 @@ class WPSight_Listings {
 		if ( ! empty( $args['availability'] ) && $args['availability'] != 'all' ) {
 
 			if( $args['availability'] == 'unavailable' )
-				$args['availability'] = 1;
+				$args['availability'] = 'on';
 			elseif( $args['availability'] == 'available' )
 				$args['availability'] = 0;
 
@@ -219,7 +219,6 @@ class WPSight_Listings {
 				'value'   => $args['availability'],
 				'compare' => '='
 			);
-				
 
 		}
 
@@ -434,11 +433,8 @@ class WPSight_Listings {
 	 */
 	public static function listing( $listing_id = null, $full = true ) {		
 		global $listing;
-
-		if ( apply_filters('wpsight_listing_single_output', true) != true )
-			return;
-			
-		   $listing = wpsight_get_listing( $listing_id );
+		
+		$listing = wpsight_get_listing( $listing_id );
 		
 		// Show listing if found
 		if ( $listing ) {
@@ -852,7 +848,7 @@ class WPSight_Listings {
 
 					$listing_details .= '<span class="listing-' . wpsight_dashes( $detail ) . ' listing-details-detail" title="' . wpsight_get_detail( $detail, 'label' ) . '">';
 
-					$listing_details .= '<span class="listing-details-label">' . wpsight_get_detail( $detail, 'label' ) . '</span> ';
+					$listing_details .= '<span class="listing-details-label">' . wpsight_get_detail( $detail, 'label' ) . ':</span> ';
 					$listing_details .= '<span class="listing-details-value">' . wpsight_get_listing_detail( $detail, $post_id );
 
 					if ( wpsight_get_detail( $detail, 'unit' ) )

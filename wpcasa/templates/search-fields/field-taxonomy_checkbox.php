@@ -3,9 +3,9 @@
 
 <div class="listings-search-field listings-search-field-<?php echo esc_attr( $fields[$field]['type'] ); ?> listings-search-field-<?php echo esc_attr( $field ); ?> <?php echo esc_attr( $class ); ?>">
 	
-	<?php if( ! empty( $fields[$field]['label'] ) ) : ?>
+	<?php /*?><?php if( ! empty( $fields[$field]['label'] ) ) : ?>
 	<label class="checkboxgroup" for="<?php echo esc_attr( $field ); ?>"><?php echo esc_attr( $fields[$field]['label'] ); ?></label>
-	<?php endif; ?>
+	<?php endif; ?><?php */?>
 	
 	<?php $checklist_args = wp_parse_args( $fields[$field]['data'], array( 'hide_empty' => 1 ) ); ?>
 	

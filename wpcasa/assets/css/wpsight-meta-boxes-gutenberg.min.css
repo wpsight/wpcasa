@@ -1,0 +1,15 @@
+/* GUTENBERG MODS
+================================================== */
+.block-editor-page {}
+
+.block-editor-page .edit-post-layout__metaboxes:not(:empty),
+.block-editor-page .edit-post-layout__metaboxes:not(:empty) .edit-post-meta-boxes-area {
+    margin: 0;
+    padding: 0;
+}
+
+.block-editor-page .edit-post-meta-boxes-area #poststuff .stuffbox>h3,
+.block-editor-page .edit-post-meta-boxes-area #poststuff h2.hndle,
+.block-editor-page .edit-post-meta-boxes-area #poststuff h3.hndle {
+    background: #FCFCFC;
+}

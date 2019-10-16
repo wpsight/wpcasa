@@ -19,7 +19,7 @@ class WPSight_Admin_CPT {
 		add_action( 'manage_listing_posts_custom_column', array( $this, 'custom_columns' ), 2 );
 		add_filter( 'manage_edit-listing_sortable_columns', array( $this, 'sortable_columns' ) );
 		add_filter( 'request', array( $this, 'sort_columns' ) );
-		
+
 		// Set custom update messages for listings
 		
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
@@ -84,6 +84,7 @@ class WPSight_Admin_CPT {
 			$columns = array();
 
 		// Unset some default columns
+		//unset( $columns['date'], $columns['author'] );
 		unset( $columns['title'], $columns['date'], $columns['author'] );
 
 		// Define our custom columns
@@ -94,6 +95,7 @@ class WPSight_Admin_CPT {
 		$columns["listing_price"]	= __( 'Price', 'wpcasa' );
 		$columns["listing_posted"]	= __( 'Posted', 'wpcasa' );
 		
+		// #devnote: this should be added by using the filter below, right from the Expire Listings Plugin
 		if( class_exists( 'WPSight_Expire_Listings' ) )
 			$columns["listing_expires"]	= __( 'Expires', 'wpcasa' );
 

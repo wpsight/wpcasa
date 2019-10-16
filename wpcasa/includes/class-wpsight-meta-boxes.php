@@ -67,14 +67,20 @@ class WPSight_Meta_Boxes {
 	 */
 	public function admin_enqueue_scripts() {
 		
+		global $wp_version;
+
 		// Script debugging?
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 		
 		$screen		= get_current_screen();		
 		$post_type	= wpsight_post_type();
+		$screens	= array( 'edit-' . $post_type, $post_type, 'edit-page', 'page', 'edit-post', 'post' );
 
-		if ( in_array( $screen->id, array( 'edit-' . $post_type, $post_type ) ) )
+		if ( in_array( $screen->id, $screens ) )
 			wp_enqueue_style( 'wpsight-meta-boxes', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-meta-boxes' . $suffix . '.css' );
+			
+		if ( version_compare( $wp_version, '5.0', '>=' ) && in_array( $screen->id, $screens ) )
+			wp_enqueue_style( 'wpsight-meta-boxes-gutenberg', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-meta-boxes-gutenberg' . $suffix . '.css' );
 
 	}
 
@@ -444,7 +450,7 @@ class WPSight_Meta_Boxes {
 			'offer' => array(
 				'name'      => __( 'Offer', 'wpcasa' ),
 				'id'        => '_price_offer',
-				'type'      => 'radio',
+				'type'      => 'radio_inline',
 				'options'   => wpsight_offers(),
 				'default'   => 'sale',
 				'dashboard' => true,
@@ -626,6 +632,7 @@ class WPSight_Meta_Boxes {
 				'name'      => __( 'Hide Map', 'wpcasa' ),
 				'id'        => '_map_hide',
 				'type'      => 'checkbox',
+				'label_cb'  => __( 'Hide Map', 'wpcasa' ),
 				'desc'		=> __( 'Hide map for this listing', 'wpcasa' ),
 				'dashboard'	=> true,
 				'priority'  => 60
@@ -940,25 +947,25 @@ class WPSight_Meta_Boxes {
 	}
 	
 	/**
-	 *	meta_box_field_only_front_end()
+	 *	meta_box_field_only_public()
 	 *	
 	 *	Callback function to show meta box fields
-	 *	only on front end.
+	 *	only on public side.
 	 *
 	 *	@access	public
 	 *	@return	bool
 	 *	
 	 *	@since 1.1.0
 	 */
-	public static function meta_box_field_only_front_end( $meta_box_field ) {
-		return apply_filters( 'wpsight_meta_box_field_only_front_end', ! is_admin(), $meta_box_field );
+	public static function meta_box_field_only_public( $meta_box_field ) {
+		return apply_filters( 'wpsight_meta_box_field_only_public', ! is_admin(), $meta_box_field );
 	}
 	
 	/**
 	 *	meta_box_field_only_admin()
 	 *	
 	 *	Callback function to show meta box fields
-	 *	only in admin area.
+	 *	only on admin side.
 	 *
 	 *	@access	public
 	 *	@return	bool
@@ -966,7 +973,7 @@ class WPSight_Meta_Boxes {
 	 *	@since 1.1.0
 	 */
 	public static function meta_box_field_only_admin( $meta_box_field ) {
-		return apply_filters( 'meta_box_field_only_admin', is_admin(), $meta_box_field );
+		return apply_filters( 'wpsight_meta_box_field_only_admin', is_admin(), $meta_box_field );
 	}
 
 }

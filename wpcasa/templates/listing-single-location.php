@@ -2,12 +2,27 @@
 /**
  * Template: Single Listing Location
  */
+ 
 global $listing;
 
 $lat  = get_post_meta( $listing->ID, '_geolocation_lat', true );
 $long = get_post_meta( $listing->ID, '_geolocation_long', true );
 
 $hide = get_post_meta( $listing->ID, '_map_hide', true );
+    
+$map_location = get_post_meta( $listing->ID, '_map_geolocation', true );
+
+if( ! empty( $map_location ) && is_array( $map_location ) ) {
+
+    $map_lat    = isset( $map_location['lat'] ) ? $map_location['lat'] : false;
+    $map_long   = isset( $map_location['long'] ) ? $map_location['long'] : false;
+    
+    if( $map_lat && $map_long ) {
+        $lat    = $map_lat;
+        $long   = $map_long;
+    }
+
+}
 
 if( $lat && $long && ! $hide ) { ?>
 

@@ -1,10 +1,10 @@
-=== WPCasa ===
-Contributors: wpsight, simonrimkus
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZRR56U2VTPZAQ
-Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
-Requires at least: 4.0
-Tested up to: 4.6
-Stable tag: 1.0.6.1
+﻿=== WPCasa ===
+Contributors: wpsight, joehana, simonrimkus, jancbeck
+Donate link: https://www.paypal.me/ANEX
+Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, location, map, listing management, property management, realtor, wpcasa
+Requires at least: 4.0.0
+Tested up to: 4.9
+Stable tag: 1.1.0-dev
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,7 @@ WPCasa is a **real estate** WordPress solution that provides an intuitive way to
 * Themes: [wpcasa.com/themes](https://wpcasa.com/themes)
 * Github: [github.com/wpsight/wpcasa](https://github.com/wpsight/wpcasa)
 
-> Have a look at our latest theme [WPCasa Oslo](https://wpcasa.com/downloads/wpcasa-oslo/).
+> Have a look at our latest theme [WPCasa Madrid](https://wpcasa.com/downloads/wpcasa-madrid/).
 
 = Easy as WordPress =
 
@@ -35,6 +35,10 @@ With our custom themes and add-ons you can modularly create a powerful real esta
 
 The heart of a real estate website is a decent search. Using the advanced filters your clients will find any listing in seconds.
 
+= 100+ Currencies =
+
+No matter where you operate, choose from 100+ currencies worldwide.
+
 = Intuitive Listing Editor =
 
 Adding property details, locations, image galleries and more is a breeze using our intuitive WPCasa listing editor.
@@ -47,19 +51,30 @@ Using the existing shortcodes or the powerful template system you can use WPCasa
 
 You can manage great numbers of listings using the well-organized property list with filters and bulk actions.
 
+= Intuitive Options =
+
+Setup date format, measurement units, listing details and much more via the intuitive and easy-to-understand admin interface
+
 = Developer Friendly =
 
 WPCasa comes with readable & well-documented code with loads of actions, filters and templates for developers to hook in.
 
 = Translation Ready =
 
-The real estate business is international. And so is WPCasa. The framework and all our add-ons and themes are translation-ready.
+The real estate business is international. And so is WPCasa. The framework and all our add-ons and themes are translation-ready and comes with 8 languages on board.
 
 = Translations =
 
-* German (de_DE): Simon Rimkus (WPSight)
-* Spanish (es_ES): Simon Rimkus (WPSight)
-* Portuguese (pt_BR): [Walter Barcelos](http://walterbarcelos.com)
+* German (de_DE): [Simon Rimkus](http://wpsight.com)
+* Spanish (es_ES): [Simon Rimkus](http://wpsight.com)
+* French (fr_FR): [Guido Sommer](https://aiximmo.ch/)
+* Portuguese (pt_BR): [Walter Barcelos](http://walterbarcelos.com), [Leonardo Lima de Vasconcellos](https://www.devhouse.com.br/)
+* Italian (it_IT): [Laura Vanoni](www.simboliweb.it), [Nicola Turato](https://www.linkedin.com/in/nicolaturato), [Andrea Manzato]
+* Dutch (nl_NL): [Dennis Onstenk](http://citymakelaardij.nl)
+* Croatian (hr_HR): [Danijel Cukarić](http://pistacio.hr)
+* Russian (ru_RU): [Systemo](http://systemo.biz)
+* Romanian (ro_RO): [Adrian Mocanu](http://www.bitopia.ro)
+* Slovak (sk_SK): [Jana Mičeková](https://www.jmsupport.sk)
 
 POT file with text strings is included. If you would like to add a translation and see your name here, please [get in touch](https://wpcasa.com/contact/).
 
@@ -120,7 +135,7 @@ For more information about shortcodes please [read our documentation](http://doc
 
 = Where can I change currency, measurements etc.? =
 
-You can fit general plugin settings to your needs on _WP-Admin > WPCasa > Settings > [tab] Listings_. Things like listing ID prefix, measurement unit, currency, standard listing features, rental periods and more can be set here.
+You can fit general plugin settings to your needs on _WP-Admin > WPCasa > Settings > [tab] Listings_. Things like listing ID prefix, measurement unit, currency, standard listing details, rental periods and more can be set here.
 
 = Is WPCasa free? =
 
@@ -140,7 +155,45 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 6. Plugin settings
 7. Property Management
 
+== Contributions ==
+
+This is a list of contributors to WPCasa.
+Many thanks to all of them for contributing and making WPCasa even better.
+
+[Fabian Marz](https://github.com/fabianmarz)
+[Luiz Bills](https://github.com/luizbills)
+[Walter Barcelos](http://walterbarcelos.com)
+[Leonardo Lima de Vasconcellos](https://www.devhouse.com.br/)
+[Laura Vanoni](www.simboliweb.it)
+[Nicola Turato](https://www.linkedin.com/in/nicolaturato)
+[Andrea Manzato]
+[Danijel Cukarić](http://pistacio.hr)
+[Dennis Onstenk](http://citymakelaardij.nl)
+[Systemo](http://systemo.biz)
+[Adrian Mocanu](http://www.bitopia.ro)
+[Jana Mičeková](https://www.jmsupport.sk
+
 == Changelog ==
+
+= 1.2.0 =
+* New - Fully revamped Admin Interface (Options, Infos, License Page,...)
+* Improved - Currency Display - optionally have a space between price and currency
+* Improved - Currency Symbols - now there are even more currency symbols available
+* Added - Additional Currencies like Brazilian Real,...
+* Added - Custom admin color scheme "WPCasa"
+* Added - Translation for Italian
+* Added - Translation for French
+* Added - Translation for Croatian
+* Added - Translation for Dutch
+* Added - Translation for Russian
+* Added - Translation for Romanian
+* Added - Translation for Slovak
+* Fixed - Typo in rental periods
+* Fixed - Default order for listing type and location in search form
+* Fixed - reference conditional tag to correspondending query
+* Fixed - double 'edit_listings' capability
+* Fixed - missing textdomain in WPSight_Admin->listings_custom_views
+* Updated - Translation for Portoguese
 
 = 1.0.6.1 =
 * Tested up to WordPress 4.5.3

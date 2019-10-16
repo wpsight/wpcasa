@@ -18,6 +18,9 @@ class WPSight_Shortcodes {
 		
 		// Include listing shortcode class
 		include_once( 'class-wpsight-shortcode-listing-single.php' );
+				
+		// Include listing map shortcode class
+		include_once( 'class-wpsight-shortcode-listing-single-map.php' );
 		
 		// Include listing teaser shortcode class
 		include_once( 'class-wpsight-shortcode-listing-teaser.php' );

@@ -9,10 +9,10 @@ assignees: igorchernenko92, JoeHana
 
 **Prerequisites**
 Please add a x between the square brackets to what applies.
-[] I've read and tried everything from the [troubleshooting guide](https://docs.wpcasa.com/article/troubleshooting-guide/), but the issue persists.
-[] I've Webdevelopment Experience
-[] I'm new to WordPress
-[] I'm in the process of fixing or have already fixed this bug, and submitting or submitted it as PR.
+- [] I've read and tried everything from the [troubleshooting guide](https://docs.wpcasa.com/article/troubleshooting-guide/), but the issue persists.
+- [] I've Webdevelopment Experience
+- [] I'm new to WordPress
+- [] I'm in the process of fixing or have already fixed this bug, and submitting or submitted it as PR.
 
 **Describe the bug**
 A clear and concise description of what the bug is.

@@ -9,9 +9,9 @@ assignees: JoeHana
 
 ## Prerequisites
 <!-- Please add a x between the square brackets to what applies. -->
-- [] This issue is neither a bug report nor a feature request.
-- [] I've experience in webdevelopment
-- [] I'm new to WordPress
+- [ ] This issue is neither a bug report nor a feature request.
+- [ ] I've experience in webdevelopment
+- [ ] I'm new to WordPress
 
 ## Description
 <!-- A clear and concise description of what this issue is about. -->

@@ -9,10 +9,10 @@ assignees: igorchernenko92, JoeHana
 
 ## Prerequisites
 <!-- Please add a x between the square brackets to what applies. -->
-- [] I've read and tried everything from the [troubleshooting guide](https://docs.wpcasa.com/article/troubleshooting-guide/), but the issue persists.
-- [] I've experience in webdevelopment
-- [] I'm new to WordPress
-- [] I've already fixed/I'm going to fix this bug and have submitted/going to submit it as PR.
+- [ ] I've read and tried everything from the [troubleshooting guide](https://docs.wpcasa.com/article/troubleshooting-guide/), but the issue persists.
+- [ ] I've experience in webdevelopment
+- [ ] I'm new to WordPress
+- [ ] I've already fixed/I'm going to fix this bug and have submitted/going to submit it as PR.
 
 ## Description
 <!-- A clear and concise description of what the bug is and what you would expect to happen. -->

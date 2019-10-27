@@ -981,4 +981,4 @@ class WPSight_Admin {
 }
 
 if( ! class_exists( 'EDD_SL_Plugin_Updater' ) )
-	include( dirname( __FILE__ ) . '/EDD_SL_Plugin_Updater.php' );
+	include(dirname(__FILE__) . '/EDD_SL_Plugin_Updater.php');

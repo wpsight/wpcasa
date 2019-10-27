@@ -3,10 +3,10 @@
         "webdevstudios/cmb2": "~2.1"
     },
     "autoload": {
-        "files": ["wpcasa/vendor/webdevstudios/cmb2/init.php"],
+        "files": ["vendor/webdevstudios/cmb2/init.php"],
         "humanmade/custom-meta-boxes": "dev-master"
     },
     "config": {
-        "vendor-dir": "wpcasa/vendor"
+        "vendor-dir": "vendor"
     }
 }

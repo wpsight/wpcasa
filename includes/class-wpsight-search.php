@@ -12,8 +12,9 @@ class WPSight_Search {
 	 * Constructor
 	 */
 	public function __construct() {		
-		add_action( 'pre_get_posts', array( $this, 'taxonomy_query_vars' ) );
-		add_action( 'init', array( $this, 'search_cookie' ) );
+		add_action( 'pre_get_posts',	array( $this, 'taxonomy_query_vars' ) );
+		add_action( 'init',				array( $this, 'search_cookie' ) );
+		add_action( 'init',				array( $this, 'redirect_by_listing_id' ), 1000 );
 	}
 	
 	/**
@@ -393,6 +394,75 @@ class WPSight_Search {
 			return $cookie_query[$field_var];
 		
 		return false;
+		
+	}
+
+	/**
+	 * redirect_by_listing_id()
+	 *
+	 * Redirects to the single listing page if ID is entered in keywords search field.
+	 *
+	 * @param object $query The query
+	 * @uses wpsight_get_option()
+	 * @uses wpsight_post_type()
+	 * @return object
+	 *
+	 * @since 1.2.0
+	 */
+	public function redirect_by_listing_id( $query ) {
+		
+		global $counter, $wp_query;
+		 
+		// Check search term for listing ID
+		
+		if( ! empty( $_GET['keyword'] ) ) {
+			
+			$prefix = wpsight_get_option( 'listing_id' );
+			
+			// Built ID search query
+			
+			$id_args = array(    
+				'post_type'  => wpsight_post_type(),
+				'meta_query' => array(    	
+					'relation' => 'OR',
+					array(
+						'key' 	  => '_listing_id',
+						'value'   => $_GET['keyword'],
+						'compare' => '='
+					),
+					array(
+						'key' 	  => '_property_id',
+						'value'   => $_GET['keyword'],
+						'compare' => '='
+					),
+					array(
+						'key' 	  => '_listing_id',
+						'value'   => $prefix . $_GET['keyword'],
+						'compare' => '='
+					),
+					array(
+						'key' 	  => '_property_id',
+						'value'   => $prefix . $_GET['keyword'],
+						'compare' => '='
+					)
+				)
+			);
+			
+			// Execute ID search query
+			$id_query = new WP_Query( $id_args );
+			
+			// If only one result, redirect to single listing page
+			
+			if( $id_query->post_count == 1 ) {
+			
+				// Get post ID of single search result
+				$id_post = $id_query->posts[0]->ID;
+				
+				// Redirect to single listing page
+				wp_redirect( get_permalink( $id_post ) ); exit;
+			}					    
+		
+		}
 		
 	}
 

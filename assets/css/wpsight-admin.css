@@ -413,11 +413,13 @@ th.column-listing_actions {
 	-webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.10);
 	-moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.10);
 	text-align: center;
-	code {
-    	background: #999;
-    	padding: 1px;
-    }
 }
+
+#tiptip_content code {
+	background: #999;
+	padding: 1px;
+}
+
 #tiptip_arrow, #tiptip_arrow_inner {
 	position: absolute;
 	border-color: transparent;

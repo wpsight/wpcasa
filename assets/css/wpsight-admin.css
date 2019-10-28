@@ -1962,8 +1962,8 @@ ul#adminmenu>li.current>a.current:after {
 .wpsight-settings-page .notice,
 .wpsight-settings-page .update-nag,
 .wpsight-settings-page #update-nag {
-    width: calc(100% - 260px);
-    margin: 0 0 0 260px !important;
+    width: 100%;
+    margin: 0 !important;
     padding: 1rem 2rem;
     display: inline-block;
     line-height: 1;
@@ -2002,7 +2002,9 @@ ul#adminmenu>li.current>a.current:after {
     border-left: 5px solid rgb(0, 160, 210);
 }
 
-
+.wpsight-settings-page .notice {
+	position: relative;
+}
 
 
 

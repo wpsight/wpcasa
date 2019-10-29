@@ -111,17 +111,6 @@ class WPSight_Admin_Settings {
 
 		$this->init_settings(); ?>
 
-    <?php
-      if ( isset( $_POST['reset'] ) ) {
-        flush_rewrite_rules();
-        update_option( $this->settings_name, wpsight_options_defaults() );
-        echo '<div class="fade notice notice-info"><p>' . __( 'Settings reset.', 'wpcasa' ) . '</p></div>';
-      } elseif ( isset( $_GET['settings-updated'] ) ) {
-        flush_rewrite_rules();
-        echo '<div class="fade notice notice-success"><p>' . __( 'Settings saved.', 'wpcasa' ) . '</p></div>';
-      }
-    ?>
-
 		<div class="wrap wpsight-settings-wrap">
 
         <div class="wpsight-admin-sidebar-back"></div>
@@ -148,11 +137,30 @@ class WPSight_Admin_Settings {
 
         <div class="wpsight-admin-main">
 
+            <?php
+              if ( isset( $_POST['reset'] ) ) {
+                flush_rewrite_rules();
+                update_option( $this->settings_name, wpsight_options_defaults() );
+                echo '<div class="fade notice notice-info"><p>' . __( 'Settings reset.', 'wpcasa' ) . '</p></div>';
+              } elseif ( isset( $_GET['settings-updated'] ) ) {
+                flush_rewrite_rules();
+                echo '<div class="fade notice notice-success"><p>' . __( 'Settings saved.', 'wpcasa' ) . '</p></div>';
+              }
+            ?>
+
+            <div class="wpsight-admin-ui-panel wpsight-admin-main-wrap-btn-toggle">
+                <button class="wpsight-admin-main-btn-toggle">
+                    <span class="wpsight-admin-main-btn-toggle-line"></span>
+                    <span class="wpsight-admin-main-btn-toggle-line"></span>
+                    <span class="wpsight-admin-main-btn-toggle-line"></span>
+                </button>
+            </div>
+
             <div id="settings-overview" class="settings_panel">
 
                 <div class="wpsight-admin-ui-container">
 
-                    <div class="wpsight-admin-ui-grid wpsight-admin-ui-grid-same-height">
+                    <div class="wpsight-admin-ui-grid settings_panel_boxes wpsight-admin-ui-grid-same-height">
 
                         <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-1-3 wpsight-admin-ui-grid-col-same-height">
                             <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-hero wpsight-admin-ui-panel-account">
@@ -176,7 +184,7 @@ class WPSight_Admin_Settings {
 
                     <div class="wpsight-admin-ui-grid">
 
-                        <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-2-3">
+                        <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-2-3 wpsight-admin-ui-panel-wrap-theme">
 
                             <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-theme">
 
@@ -192,24 +200,28 @@ class WPSight_Admin_Settings {
 
                         </div>
 
-                        <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-1-3">
+                        <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-1-3 wpsight-admin-ui-panel-wrap-theme-bar">
 
-            <?php if( wpsight_is_premium() == false ) { ?>
-                                <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-system wpsight-admin-ui-no-padding">
-                                    <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-promo-products.php'; ?>
+                             <div class="wpsight-admin-ui-panel-wrap-theme-bar-item wpsight-admin-ui-panel-wrap-theme-bar-images">
+                                  <?php if( wpsight_is_premium() == false ) { ?>
+                                      <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-auto-height wpsight-admin-ui-panel-system wpsight-admin-ui-no-padding">
+                                          <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-promo-products.php'; ?>
+                                      </div>
+                                  <?php } ?>
+
+                                  <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-auto-height wpsight-admin-ui-panel-system wpsight-admin-ui-no-padding">
+                                      <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-promo-services.php'; ?>
+                                  </div>
+                             </div>
+
+                            <div class="wpsight-admin-ui-panel-wrap-theme-bar-item wpsight-admin-ui-panel-wrap-theme-bar-content">
+                                <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-hero wpsight-admin-ui-panel-system">
+                                    <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-server-info.php'; ?>
                                 </div>
-            <?php } ?>
 
-                            <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-system wpsight-admin-ui-no-padding">
-                                <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-promo-services.php'; ?>
-                            </div>
-
-                            <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-hero wpsight-admin-ui-panel-system">
-                                <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-server-info.php'; ?>
-                            </div>
-
-                            <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-newsletter">
-                              <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-newsletter.php'; ?>
+                                <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-newsletter">
+                                    <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-newsletter.php'; ?>
+                                </div>
                             </div>
 
                         </div>

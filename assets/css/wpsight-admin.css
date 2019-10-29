@@ -1388,6 +1388,33 @@ th.column-listing_actions {
 
 .wpsight-settings-page .wpsight-settings-wrap {}
 
+@media (max-width: 600px) {
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-sidebar-back,
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-sidebar {
+		margin-left: -260px;
+	}
+
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-main {
+			margin-left: 0 !important;
+			width: 100%;
+	}
+}
+
+.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-sidebar-back,
+.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-sidebar,
+.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-main {
+	transition: .6s margin-left ease;
+}
+
+.wpsight-settings-page .wpsight-settings-wrap-hide-navbar .wpsight-admin-sidebar-back,
+.wpsight-settings-page .wpsight-settings-wrap-hide-navbar .wpsight-admin-sidebar {
+		margin-left: 0;
+}
+
+.wpsight-settings-page .wpsight-settings-wrap.wpsight-settings-wrap-hide-navbar .wpsight-admin-main {
+		margin-left: 260px !important;
+}
+
 .wpsight-settings-page .wpsight-settings-wrap input {
 	margin: 0;
 }
@@ -1422,6 +1449,31 @@ th.column-listing_actions {
 .wpsight-settings-page .wpsight-settings-wrap .form-table th {
     width: 400px;
     padding: 2rem 2rem 2rem 0;
+}
+
+@media (max-width: 1200px) {
+	.wpsight-settings-page .wpsight-settings-wrap .form-table th {
+		width: 100%;
+		padding: 1rem 1rem 1rem 0;
+	}
+
+	.wpsight-settings-page .wpsight-settings-wrap .form-table th,
+	.wpsight-settings-page .wpsight-settings-wrap .form-table tr,
+	.wpsight-settings-page .wpsight-settings-wrap .form-table td {
+			display: block;
+			margin: 0;
+	}
+
+	.wpsight-settings-page .wpsight-settings-wrap .form-table td {
+		padding-top: 0;
+		padding-left: 0;
+	}
+}
+
+@media (max-width: 992px) {
+	.wpsight-settings-page .wpsight-settings-wrap .form-table th {
+			padding: 1rem 0;
+	}
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .description {
@@ -1545,11 +1597,20 @@ th.column-listing_actions {
 
 .wpsight-settings-field-measurement-wrap .wpsight-settings-field-text {
     margin-right: 1rem;
+		margin-bottom: 1rem;
 }
 
 .wpsight-settings-field-measurement-wrap .wpsight-settings-field-radio input[type="radio"] + .label-radio {
-    margin: 0 .5rem 0 0;
+    margin: 0 .5rem 1rem 0;
 }
+
+@media (max-width: 1200px) {
+	.wpsight-settings-field-measurement-wrap .wpsight-settings-field-text,
+	.wpsight-settings-field-measurement-wrap .wpsight-settings-field-radio {
+		float: none;
+	}
+}
+
 
 /******************************
  * FIELD: CHECKBOX
@@ -1972,12 +2033,21 @@ ul#adminmenu>li.current>a.current:after {
     font-size: .8rem;
     text-align: left;
     z-index: 1;
-    background-color: #FFF;
     background-color: rgb(255, 234, 179);
     border-left: 5px solid rgb(255, 185, 0);
     border-bottom: 1px solid rgba( 100, 100, 100, .1 );
     box-shadow: none;
     box-sizing: border-box;
+		transition: .6s width ease, .6s margin-left ease;
+}
+
+@media (max-width: 600px) {
+	.wpsight-settings-page .notice,
+	.wpsight-settings-page .update-nag,
+	.wpsight-settings-page #update-nag {
+			width: 100%;
+			margin: 0 !important;
+	}
 }
 
 .wpsight-settings-page .notice.notice-error,
@@ -2003,11 +2073,6 @@ ul#adminmenu>li.current>a.current:after {
     background-color: rgb(179, 237, 255);
     border-left: 5px solid rgb(0, 160, 210);
 }
-
-.wpsight-settings-page .notice {
-	position: relative;
-}
-
 
 
 
@@ -2060,11 +2125,13 @@ ul#adminmenu>li.current>a.current:after {
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel h3 {
     font-size: 1.6rem;
+		line-height: 1.2;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel h3 small {
     font-weight: normal;
     font-size: .8rem;
+		line-height: 1.2;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel h4 {
@@ -2075,7 +2142,7 @@ ul#adminmenu>li.current>a.current:after {
 
 
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading {
-	border-bottom: 1px solid #DDD;
+		border-bottom: 1px solid #DDD;
     margin: 0 0 1rem 0;
     padding: 1rem 0 2rem 0;
     position: relative;
@@ -2099,6 +2166,23 @@ ul#adminmenu>li.current>a.current:after {
     float: right;
 }
 
+@media (max-width: 1200px) {
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading .wpsight-admin-ui-heading-actions {
+			float: none;
+			margin-top: 1rem;
+	}
+
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading .button:first-child {
+			margin-left: 0;
+	}
+}
+
+@media (max-width: 782px) {
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading .wpsight-admin-ui-heading-actions {
+			margin-bottom: -0.5rem;
+	}
+}
+
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading h3 {
     display: inline;
     margin: 0;
@@ -2114,6 +2198,10 @@ ul#adminmenu>li.current>a.current:after {
     padding: 0;
 }
 
+.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-auto-height {
+	min-height: auto;
+}
+
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-hero p {
     font-size: 1rem;
 }
@@ -2121,6 +2209,17 @@ ul#adminmenu>li.current>a.current:after {
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel .button {
     height: 44px;
     line-height: 42px;
+}
+
+@media (max-width: 782px) {
+	.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel .button {
+			margin-bottom: .5rem;
+			margin-left: 0;
+	}
+
+	.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel .button:first-child {
+			margin-right: 1rem;
+	}
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel #wpsight-settings-save {
@@ -2174,15 +2273,121 @@ ul#adminmenu>li.current>a.current:after {
     background-position: 150% 50px;
 }
 
+@media (max-width: 1200px) {
+	.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-account,
+	.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-documentation,
+	.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-support {
+		background-position: 76% 50px;
+	}
+}
+
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-newsletter {
     background: #F9F9F9;
 }
 
 
 
+@media (max-width: 1200px) {
+	.wpsight-admin-ui-panel-wrap-theme-bar-item {
+		width: 50%;
+		float: left;
+	}
+}
 
 
+@media (max-width: 992px) {
+	.wpsight-admin-ui-panel-wrap-theme-bar-item {
+			width: 100%;
+			float: none;
+	}
+
+	.wpsight-admin-main .regular-text {
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 992px) {
+	.wpsight-admin-ui-panel-wrap-theme-bar-item {
+		width: 100%;
+		float: none;
+	}
+
+	.wpsight-admin-main .regular-text {
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 782px) {
+	.wpsight-admin-main .button {
+			padding: 0 10px 1px;
+			margin-bottom: 0
+	}
+
+	.settings_panel .form-table td select {
+		height: 45px !important;
+		padding: .3rem .75rem !important;
+	}
+}
+
+.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-main-wrap-btn-toggle {
+		min-height: auto;
+		display: none;
+}
 
 
+@media (max-width: 600px) {
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-main-wrap-btn-toggle {
+			display: block;
+	}
+}
 
 
+.wpsight-admin-main-btn-toggle {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 38px;
+		height: 28px;
+		position: relative;
+		top: 0;
+		background: none;
+		border: none;
+		outline: none;
+}
+
+.wpsight-admin-main-btn-toggle .wpsight-admin-main-btn-toggle-line {
+		position: relative;
+		height: 3px;
+		width: inherit;
+		transition: .4s all ease;
+		background: #000;
+		border-radius: 10px;
+}
+
+.wpsight-admin-main-btn-toggle .wpsight-admin-main-btn-toggle-line:nth-child(2) {
+		margin: 8px 0;
+}
+
+.wpsight-admin-main-btn-toggle .wpsight-admin-main-btn-toggle-line:nth-child(3) {
+		align-self: flex-start;
+}
+
+
+.wpsight-admin-main-btn-toggle-active .wpsight-admin-main-btn-toggle-line:nth-child(1) {
+		margin-bottom: -3px;
+		transform: rotate(45deg);
+}
+
+.wpsight-admin-main-btn-toggle-active .wpsight-admin-main-btn-toggle-line:nth-child(2) {
+		margin: 0;
+		transform: translate(-100%, 0);
+		opacity: 0;
+}
+
+.wpsight-admin-main-btn-toggle-active .wpsight-admin-main-btn-toggle-line:nth-child(3) {
+		margin-top: -3px;
+		transform: rotate(-45deg);
+}

@@ -6,7 +6,7 @@
 .wpsight-settings-page .wpsight-settings-wrap h6 {
     font-weight: 400;
 }
- 
+
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-container {
     width: 100%;
     float: left;
@@ -52,12 +52,67 @@
     background-repeat: no-repeat;
 }
 
+@media (max-width: 1440px) {
+    .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-panel {
+        padding: 2rem 3rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-panel {
+        min-height: 250px;
+    }
+
+    .wpsight-settings-page .wpsight-settings-wrap .settings_panel .settings_panel_boxes > * {
+        width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-panel {
+        padding: 1rem 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-panel {
+        padding: 1rem;
+    }
+}
+
+/**
+ * WPSIGHT ADMIN UI FRAMEWORK > PANEL > THEME
+ */
+@media (max-width: 1440px) {
+    .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-panel .wpsight-admin-ui-panel-theme-content > *{
+        width: 100%;
+    }
+
+    .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-panel .wpsight-admin-ui-panel-theme-content > *:first-child img{
+        width: 100%;
+        height: auto;
+    }
+
+    .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-panel .wpsight-admin-ui-panel-theme-content > *:last-child{
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-panel-wrap-theme,
+    .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-panel-wrap-theme-bar {
+        width: 100%;
+    }
+}
+
+
 /**
  * WPSIGHT ADMIN UI FRAMEWORK > TABLE STYLES
  */
- 
+
 .wpsight-admin-ui-table {
     width: 100%;
+    text-align: left;
 }
 
 /**
@@ -71,8 +126,14 @@
     line-height: 0;
 }
 
+.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-image a {
+    display: block;
+}
+
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-image img {
     max-width: 100%;
+    width: 100%;
+    height: auto;
 }
 
 /**

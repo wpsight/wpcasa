@@ -1390,7 +1390,9 @@ th.column-listing_actions {
  * WPCasa Settings Page - Base Styles
  **************************************************/
 
-.wpsight-settings-page .wpsight-settings-wrap {}
+.wpsight-settings-page .wpsight-settings-wrap {
+	overflow: hidden;
+}
 
 @media (max-width: 600px) {
 	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-sidebar-back,
@@ -2024,6 +2026,10 @@ input::-moz-focus-outer {
 .wpsight-settings-page ul#adminmenu a.wp-has-current-submenu:after,
 ul#adminmenu>li.current>a.current:after {
     border-right-color: #3b4045;
+}
+
+.wpsight-settings-page .notice {
+	position: relative;
 }
 
 .wpsight-settings-page .notice,

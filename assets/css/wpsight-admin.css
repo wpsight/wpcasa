@@ -1357,6 +1357,10 @@ th.column-listing_actions {
   content: "\e129";
 }
 
+.wpsight-admin-addons {
+  margin-top: 1rem;
+}
+
 
 .wpsight-settings-wrap *,
 .wpsight-settings-wrap *:before,

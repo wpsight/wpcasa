@@ -3,10 +3,7 @@
 <a href="#addons-active" id="addons-active"><?php _e( 'Active', 'wpcasa' ) ?></a>
 <a href="#addons-inactive" id="addons-inactive"><?php _e( 'Inactive', 'wpcasa' ) ?></a>
 
-<br>
-<br>
-
-<div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-1-1">
+<div class="wpsight-admin-ui-grid-col wpsight-admin-addons wpsight-admin-ui-grid-1-1">
 
     <table class="wpsight-admin-ui-table wpsight-admin-ui-table-striped">
 

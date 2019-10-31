@@ -437,10 +437,10 @@ class WPSight_Admin {
 		foreach ( wpsight_details() as $detail_id => $value ) {
 
 			$options_listings[ $detail_id ] = array(
-				'name'		=> __( 'Listing Detail', 'wpcasa' ) . ' #' . $i,
+				'name'		=> __( 'Listing Detail', 'wpcasa' ) . ' #' . $i++,
 				'desc'		=> $value['description'],
 				'id'		=> $detail_id,
-				'position'	=> $position,
+				'position'	=> $position++,
 				'type'		=> 'measurement',
 				'class'		=> '',
 				'default'	=> array(
@@ -449,11 +449,11 @@ class WPSight_Admin {
 				)
 			);
 
-			$i++;
-			$position++;
+//			$i++;
+//			$position++;
 
 		}
-		
+
 		$options_listings['heading_rental_periods'] = array(
 			'name'		=> __( 'Rental Periods', 'wpcasa' ),
 			'id'		=> 'heading_rental_periods',
@@ -479,16 +479,16 @@ class WPSight_Admin {
 		foreach ( wpsight_rental_periods() as $period => $value ) {
 
 			$options_listings[ $period ] = array(
-				'name'		=> __( 'Rental Period', 'wpcasa' ) . ' #' . $i,
+				'name'		=> __( 'Rental Period', 'wpcasa' ) . ' #' . $i++,
 				'id'		=> $period,
-				'position'	=> $position,
+				'position'	=> $position++,
 				'type'		=> 'text',
 				'class'		=> '',
 				'default'	=> $value
 			);
 
-			$i++;
-			$position++;
+//			$i++;
+//			$position++;
 
 		}
 

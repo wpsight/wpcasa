@@ -1390,10 +1390,6 @@ th.column-listing_actions {
  * WPCasa Settings Page - Base Styles
  **************************************************/
 
-.wpsight-settings-page .wpsight-settings-wrap {
-	overflow: hidden;
-}
-
 @media (max-width: 600px) {
 	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-sidebar-back,
 	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-sidebar {
@@ -1403,6 +1399,12 @@ th.column-listing_actions {
 	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-main {
 			margin-left: 0 !important;
 			width: 100%;
+	}
+}
+
+@media (max-width: 992px) {
+	#wpwrap {
+		overflow-x: hidden;
 	}
 }
 

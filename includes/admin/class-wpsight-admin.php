@@ -339,7 +339,7 @@ class WPSight_Admin {
 		
 		$options_listings['measurement_unit'] = array(
 			'name'		=> __( 'Measurement Unit', 'wpcasa' ),
-			'desc'		=> __( 'Please select the general measurement unit. The unit for the listing details can be defined separately below.', 'wpcasa' ),
+			'desc'		=> __( 'Please select the general measurement unit. The unit for the listing details can be defined separately.', 'wpcasa' ),
 			'id'		=> 'measurement_unit',
 			'position'	=> 70,
 			'type'		=> 'radio',

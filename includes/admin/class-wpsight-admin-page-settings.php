@@ -286,46 +286,9 @@ class WPSight_Admin_Settings {
                                                 echo '<tr valign="top" class="setting-' . $option_css . '-tr' . $class . '">';
 
                                                     if( $option_type == 'pageheading' ) {
-
-                                                        echo '<th scope="row" colspan="2">';
-
-                                                            echo '<div class="wpsight-admin-ui-heading">';
-
-                              echo '<div class="wpsight-admin-ui-heading-title">';
-
-                                if ( $option_icon )
-                                  echo '<span class="wpsight-admin-ui-icon"><span class="' . $option_icon . '"></span></span>';
-
-                                echo '<h3>' . $option_name . '</h3>';
-
-                                if ( $option_desc )
-                                  echo '<small> - ' . $option_desc . '</small>';
-
-                              echo '</div>';
-
-                              echo '<div class="wpsight-admin-ui-heading-actions">';
-                                if ( $option_link )
-                                  echo ' <a href="' . $option_link. '" class="button button-primary" target="_blank">' . __( 'View Documentation', 'wpcasa' ) . '</a>';
-
-                                submit_button( __( 'Save Changes', 'wpcasa' ), 'primary', 'wpsight-settings-save', false );
-
-                              echo '</div>';
-
-                                                            echo '</div>';
-
-                                                        echo '</th>';
-
-                        } elseif( $option_type == 'heading' ) {
-
-                                                        echo '<th scope="row" colspan="2">';
-
-                            echo '<h4>' . $option_name . '</h4>';
-
-                            if ( $option_desc )
-                              echo '<i>' . $option_desc . '</i>';
-
-                                                        echo '</th>';
-
+                                                      require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
+                                                    } elseif( $option_type == 'heading' ) {
+                                                        require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
                                                     } else {
 
                                                         echo '<th scope="row">';
@@ -575,7 +538,7 @@ class WPSight_Admin_Settings {
 
                                                 echo '</tr>';
 
-                                            }
+                                            } //endforeach
 
                                             echo '</table>';
 

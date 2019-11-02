@@ -243,9 +243,14 @@ class WPSight_Admin {
 			'name'    => __( 'Currency Symbol', 'wpcasa' ),
 			'desc'    => __( 'Please select the position of the currency symbol.', 'wpcasa' ),
 			'id'      => 'currency_symbol',
-			'default' => 'before',
 			'type'    => 'radio',
-			'options' => array( 'before' => __( 'Before the value', 'wpcasa' ), 'after' => __( 'After the value', 'wpcasa' ) )
+			'options'	=> array(
+				'before'		=> __( 'Before the value', 'wpcasa' ),
+				'after'			=> __( 'After the value', 'wpcasa' ),
+				'before_space'	=> __( 'Before the value (with Space)', 'wpcasa' ),
+				'after_space'	=> __( 'After the value (with Space)', 'wpcasa' )
+			),
+			'default'	=> 'before'
 		);
 
 		$options_listings['currency_separator'] = array(
@@ -606,4 +611,4 @@ class WPSight_Admin {
 }
 
 if( ! class_exists( 'EDD_SL_Plugin_Updater' ) )
-	include(dirname(__FILE__) . '/EDD_SL_Plugin_Updater.php');
+	include( dirname( __FILE__ ) . '/EDD_SL_Plugin_Updater.php' );

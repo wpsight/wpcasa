@@ -32,136 +32,54 @@ class WPSight_Admin_Licenses {
 	public function output() { ?>
 
 		<div class="wrap">
-        
-			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Licenses', 'wpcasa' ); ?> <small>- <?php _e( 'To receive premium support and seamless updates, please activate your licenses here.', 'wpcasa' ); ?></small></h2>
-            
-			<form method="post" action="options.php">
-            
-            	<div class="wpsight-settings-grid">
-                	
-					<?php settings_fields( 'wpsight_licenses' ); ?>				
-                
-					<?php
-					// Get license settings
-					$licenses = get_option( 'wpsight_licenses' );
+			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Licenses', 'wpcasa' ); ?></h2>
+			<form method="post" action="options.php">			
+				<?php settings_fields( 'wpsight_licenses' ); ?>				
+				<table class="form-table">
+					<tbody>
 					
-					foreach( wpsight_licenses() as $id => $license ) :
-									
-						$option_key				= $license['id'];
-						$option_status			= 'wpsight_' . $license['id'] . '_status';
-						$option_value			= isset( $licenses[ $option_key ] ) ? $licenses[ $option_key ] : false;
-						$option_value_status	= get_option( $option_status );
-
-						$license_data			= $this->get_license_data( $license );
-						$license_status			= $option_value_status;
-						
-//						if( isset( $license['section'] ) == 'addons' || empty( $license['section'] ) ) {
-//							echo '</div><h3>Add-Ons</h3><div class="wpsight-settings-grid">';
-//						}
-//						
-//						if( isset( $license['section'] ) == 'services' ) {
-//							echo '</div><h3>Services</h3><div class="wpsight-settings-grid">';
-//						}
-					
-					?>
-					
-					<div class="wpsight-settings-panel">
-						<?php 
-//						echo '<pre>';
-//						var_dump($option_value_status);
-//						var_dump($license_status);
-//						echo '</pre>';
-						?>
-						<div class="wpsight-settings-panel-head">
-                            <?php echo esc_attr( $license['name'] ); ?>
-                            <?php
-//                            if( ! empty( $option_value ) && $option_value_status !== false && $option_value_status == 'valid' ) {
-//								echo '<span class="indicator indicator-valid tips" data-tip="' . __( 'License is valid and active.', 'wpcasa' ) . '"></span>';
-//								//echo '<span class="wpsight-settings-help tips" data-tip="' . __( '', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
-//							} elseif( empty( $option_value ) && $option_value_status === false ) {
-//								echo '<span class="indicator indicator-none"></span>';
-//								echo '<span class="wpsight-settings-help tips" data-tip="' . __( 'Enter License Key here, save and activate.', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
-//							} else {
-//								echo '<span class="indicator indicator-issue"></span>';
-//								echo '<span class="wpsight-settings-help tips" data-tip="' . __( 'Issue with license detected. Activate license, or if expired please consider to renew.', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
-//							}
+						<?php
+							// Get license settings
+							$licenses = get_option( 'wpsight_licenses' );
 							
-							if( $license_status == 'valid' ) {
-								echo '<span class="indicator indicator-valid tips" data-tip="' . __( 'Valid', 'wpcasa' ) . '"></span>';
-								echo '<span class="wpsight-settings-help tips" data-tip="' . sprintf( __( 'Valid until %s', 'wpcasa' ), date_i18n( get_option( 'date_format' ), strtotime( $license_data->expires ) ) ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
-							} elseif( $license_status == 'expired' ) {
-								echo '<span class="indicator indicator-expired tips" data-tip="' . __( 'Expired', 'wpcasa' ) . '"></span>';
-								echo '<span class="wpsight-settings-help tips" data-tip="' . __( 'License is expired. Please consider to re-new.', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
-							} elseif( $license_status == 'inactive' || $license_status == 'site_inactive' ) {
-								echo '<span class="indicator indicator-inactive tips" data-tip="' . __( 'Inactive', 'wpcasa' ) . '"></span>';
-								echo '<span class="wpsight-settings-help tips" data-tip="' . __( 'Activate your license', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
-							} elseif( $license_status == 'item_name_mismatch' ) {
-								echo '<span class="indicator indicator-mismatch tips" data-tip="' . __( 'Mismatch', 'wpcasa' ) . '"></span>';
-								echo '<span class="wpsight-settings-help tips" data-tip="' . __( 'Enter correct license key for this product.', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
-							} else {
-								echo '<span class="indicator"></span>';
-								echo '<span class="wpsight-settings-help tips" data-tip="' . __( 'Enter License Key here, save and activate.', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
-							}
+							foreach( wpsight_licenses() as $id => $license ) :
+						
+								$option_key				= $license['id'];
+								$option_status			= 'wpsight_' . $license['id'] . '_status';
+								$option_value			= isset( $licenses[ $option_key ] ) ? $licenses[ $option_key ] : false;
+								$option_value_status	= get_option( $option_status );
 							
 							?>
-						</div>
-                        
-						<div class="wpsight-settings-panel-body">
-                            
-                            <input id="wpsight_licenses[<?php esc_attr_e( $license['id'] ); ?>]" name="wpsight_licenses[<?php esc_attr_e( $license['id'] ); ?>]" type="text" class="regular-text" value="<?php esc_attr_e( $option_value ); ?>" />
-                            
-                            <?php /*?><?php if( false !== $option_value && ! empty( $option_value ) ) { ?>
-                                <?php if( $option_value_status !== false && $option_value_status == 'valid' ) { ?>
-                                    <input type="submit" class="button-secondary" name="wpsight_<?php esc_attr_e( $license['id'] ); ?>_deactivate" value="<?php _e( 'Deactivate License', 'wpcasa' ); ?>"/>
-                                    <?php wp_nonce_field( 'wpsight_' . $license['id'] . '_deactivate_nonce', 'wpsight_' . $license['id'] . '_deactivate_nonce' ); ?>
-                                <?php } else { ?>
-                                    <input type="submit" class="button-secondary" name="wpsight_<?php esc_attr_e( $license['id'] ); ?>_activate" value="<?php _e( 'Activate License', 'wpcasa' ); ?>"/>
-                                    <?php wp_nonce_field( 'wpsight_' . $license['id'] . '_activate_nonce', 'wpsight_' . $license['id'] . '_activate_nonce' ); ?>
-                                <?php } ?>
-                            <?php } else { ?>
-                            	<input type="submit" class="button-secondary tips" value="<?php _e( 'Activate License', 'wpcasa' ); ?>" disabled="disabled" />	
-                            <?php } ?><?php */?>	
-                            
-                            
-                            <?php /*?><?php if( ! empty( $option_value ) && $option_value_status !== false && $option_value_status == 'valid' ) { ?>
-                                <input type="submit" class="button-secondary" name="wpsight_<?php esc_attr_e( $license['id'] ); ?>_deactivate" value="<?php _e( 'Deactivate License', 'wpcasa' ); ?>"/>
-                                <?php wp_nonce_field( 'wpsight_' . $license['id'] . '_deactivate_nonce', 'wpsight_' . $license['id'] . '_deactivate_nonce' ); ?>
-							<?php } elseif( empty( $option_value ) && $option_value_status === false ) { ?>
-                            	<input type="submit" class="button-secondary tips" value="<?php _e( 'Activate License', 'wpcasa' ); ?>" disabled="disabled" />	
-							<?php } else { ?>
-                                <input type="submit" class="button-secondary" name="wpsight_<?php esc_attr_e( $license['id'] ); ?>_activate" value="<?php _e( 'Activate License', 'wpcasa' ); ?>"/>
-                                <?php wp_nonce_field( 'wpsight_' . $license['id'] . '_activate_nonce', 'wpsight_' . $license['id'] . '_activate_nonce' ); ?>
-								<a href="https://wpcasa.com/account/licenses/" target="_blank" class="button-secondary"><?php _e( 'Renew License', 'wpcasa' ); ?></a>
-							<?php } ?><?php */?>
-                            
-							<?php if( $license_status == 'valid' ) { ?>
-                                <input type="submit" class="button-secondary" name="wpsight_<?php esc_attr_e( $license['id'] ); ?>_deactivate" value="<?php _e( 'Deactivate License', 'wpcasa' ); ?>"/>
-                                <?php wp_nonce_field( 'wpsight_' . $license['id'] . '_deactivate_nonce', 'wpsight_' . $license['id'] . '_deactivate_nonce' ); ?>
-							<?php } elseif( $license_status == 'expired' ) { ?>
-								<a href="https://wpcasa.com/account/licenses/" target="_blank" class="button-secondary"><?php _e( 'Renew License', 'wpcasa' ); ?></a>
-							<?php } elseif( $license_status == 'inactive' || $license_status == 'site_inactive' ) { ?>
-                                <input type="submit" class="button-secondary" name="wpsight_<?php esc_attr_e( $license['id'] ); ?>_activate" value="<?php _e( 'Activate License', 'wpcasa' ); ?>"/>
-                                <?php wp_nonce_field( 'wpsight_' . $license['id'] . '_activate_nonce', 'wpsight_' . $license['id'] . '_activate_nonce' ); ?>
-							<?php } else { ?>
-                            	<span class="tips" data-tip="<?php _e( 'Enter License Key first, then save and then activate.', 'wpcasa' ); ?>">
-                                	<input type="submit" class="button-secondary"  value="<?php _e( 'Activate License', 'wpcasa' ); ?>" disabled="disabled" />
-                                </span>	
-							<?php } ?>
-                            
-                            
-                                                                                									
-						</div>
-						
-					</div>
-                
-                    <?php endforeach; ?>						
-                    
-                </div>
-            			
-				<?php submit_button(); ?>
-                			
+					
+							<tr valign="top">	
+								<th scope="row" valign="top">
+									<?php echo esc_attr( str_replace( WPSIGHT_NAME . ' ', '', $license['name'] ) ); ?>
+									<?php if( false !== $option_value && $option_value_status !== false && $option_value_status == 'valid' ) { ?>
+									   <br /><small style="color:green;">(<?php _e( 'active', 'wpcasa' ); ?>)</small>
+									<?php } ?>
+								</th>
+								<td>
+									<input id="wpsight_licenses[<?php esc_attr_e( $license['id'] ); ?>]" name="wpsight_licenses[<?php esc_attr_e( $license['id'] ); ?>]" type="text" class="regular-text" value="<?php esc_attr_e( $option_value ); ?>" />
+									<?php if( false !== $option_value && ! empty( $option_value ) ) : ?>
+										<?php if( $option_value_status !== false && $option_value_status == 'valid' ) { ?>
+											<input type="submit" class="button-secondary" name="wpsight_<?php esc_attr_e( $license['id'] ); ?>_deactivate" value="<?php _e( 'Deactivate License', 'wpcasa' ); ?>"/>
+											<?php wp_nonce_field( 'wpsight_' . $license['id'] . '_deactivate_nonce', 'wpsight_' . $license['id'] . '_deactivate_nonce' ); ?>
+										<?php } else { ?>
+											<input type="submit" class="button-secondary" name="wpsight_<?php esc_attr_e( $license['id'] ); ?>_activate" value="<?php _e( 'Activate License', 'wpcasa' ); ?>"/>
+											<?php wp_nonce_field( 'wpsight_' . $license['id'] . '_activate_nonce', 'wpsight_' . $license['id'] . '_activate_nonce' ); ?>
+										<?php } ?>
+									<?php endif; ?>									
+									<br />
+									<p class="description">
+										<?php echo wp_kses_post( $license['desc'] ); ?>
+									</p>
+								</td>
+							</tr>						
+						<?php endforeach; ?>						
+					</tbody>
+				</table>	
+				<?php submit_button(); ?>			
 			</form>
-            
 		<?php
 		
 	}
@@ -265,137 +183,6 @@ class WPSight_Admin_Licenses {
 			}
 
 		}
-
-	}
-	
-	/**
-	 *	check_license()
-	 *	
-	 *	Check a specific license.
-	 *	
-	 *	@uses	get_option()
-	 *	@uses	urlencode()
-	 *	@uses	home_url()
-	 *	@uses	wp_remote_post()
-	 *	@uses	is_wp_error()
-	 *	@uses	wp_remote_retrieve_body()
-	 *	@uses	json_decode()
-	 *	@uses	delete_option()
-	 *	@return	string	valid|invalid
-	 *	
-	 *	@since 1.0.0
-	 */
-	public function get_license_response( $key = '', $item = '' ) {
-	
-		$licenses = get_option( 'wpsight_licenses' );
-
-		// retrieve the license from the database
-		$license = isset( $licenses[ $key ] ) ? trim( $licenses[ $key ] ) : false;
-	
-		$api_params = array(
-			'edd_action'=> 'check_license',
-			'license'	=> $license,
-			'item_name' => urlencode( $item ),
-			'url'       => home_url()
-		);
-	
-		// Call the custom API.
-		$response = wp_remote_post( WPSIGHT_SHOP_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
-	
-		if ( is_wp_error( $response ) )
-			return false;
-	
-		return json_decode( wp_remote_retrieve_body( $response ) );
-
-	}
-	
-	/**
-	 * Get Data from API Endpoint
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 */
-	public function get_license_data( $license = null ) {
-		
-		// Set transient name
-		$transient_name = 'wpsight_' . $license['id'] . '_license_data';
-			
-		// Do we have this information in our transients already?
-		$transient = get_transient( $transient_name );
-		
-		// Check transient
-		if( ! empty( $transient ) )
-			return $transient;
-		
-		// Get the Data
-		$data = $this->get_license_response( $license['id'], $license['name'] );
-				
-		// Save the API response so we don't have to call again until tomorrow.
-		set_transient( $transient_name, $data, $this->transient_lifespan() );
-		
-		// Return the data. The function will return here the first time it is run, and then once again, each time the transient expires.
-		return $data;
-	
-	}
-	
-	/**
-	 * If the user is a super admin and debug mode is on, only store transients for a second.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 */
-	public function transient_lifespan() {
-		
-		if( is_super_admin() && WP_DEBUG ) {
-			return 1;
-		} else {
-			return DAY_IN_SECONDS;
-		}
-		
-	}
-	
-	/**
-	 *	check_license()
-	 *	
-	 *	Check a specific license.
-	 *	
-	 *	@uses	get_option()
-	 *	@uses	urlencode()
-	 *	@uses	home_url()
-	 *	@uses	wp_remote_post()
-	 *	@uses	is_wp_error()
-	 *	@uses	wp_remote_retrieve_body()
-	 *	@uses	json_decode()
-	 *	@uses	delete_option()
-	 *	@return	string	valid|invalid
-	 *	
-	 *	@since 1.0.0
-	 */
-	public function check_license( $id = '', $item = '' ) {
-	
-		$licenses = get_option( 'wpsight_licenses' );
-
-		// retrieve the license from the database
-		$license = isset( $licenses[ $id ] ) ? trim( $licenses[ $id ] ) : false;
-	
-		$api_params = array(
-			'edd_action'=> 'check_license',
-			'license'	=> $license,
-			'item_name' => urlencode( $item ),
-			'url'       => home_url()
-		);
-	
-		// Call the custom API.
-		$response = wp_remote_post( WPSIGHT_SHOP_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
-	
-		if ( is_wp_error( $response ) )
-			return false;
-	
-		$license_data	= json_decode( wp_remote_retrieve_body( $response ) );
-		$license		= $license_data->license;
-		
-		if( $license )
-			return $license;
 
 	}
 	

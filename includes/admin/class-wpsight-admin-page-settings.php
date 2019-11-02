@@ -285,10 +285,13 @@ class WPSight_Admin_Settings {
 
                                                 echo '<tr valign="top" class="setting-' . $option_css . '-tr' . $class . '">';
 
-                                                    if( $option_type == 'pageheading' ) {
-                                                      require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
-                                                    } elseif( $option_type == 'heading' ) {
+                                                if( $option_type == 'pageheading' ) {
                                                         require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
+
+
+                                                } elseif( $option_type == 'heading' ) {
+                                                        require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
+
                                                     } else {
 
                                                         echo '<th scope="row">';
@@ -307,7 +310,6 @@ class WPSight_Admin_Settings {
                                                         switch ( $option_type ) {
 
                                                             case "heading" :
-
                                                                 ?>
 
                                                                 <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
@@ -538,7 +540,7 @@ class WPSight_Admin_Settings {
 
                                                 echo '</tr>';
 
-                                            } //endforeach
+                                            }
 
                                             echo '</table>';
 
@@ -764,9 +766,9 @@ class WPSight_Admin_Settings {
 		</script>
 		<?php
 
-//		do_action( 'wpsight_settings_scripts', $this->settings_name );
-//
-//        foreach(get_option( WPSIGHT_DOMAIN ) as $key => $default ) {
+		do_action( 'wpsight_settings_scripts', $this->settings_name );
+
+//		foreach(get_option( WPSIGHT_DOMAIN ) as $key => $default ) {
 //            wpsight_delete_option($key);
 //        }
 //
@@ -789,6 +791,6 @@ class WPSight_Admin_Settings {
 //            wpsight_add_option( $option, $value );
 //
 //        }
-
+//
 	}
 }

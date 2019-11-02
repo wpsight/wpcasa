@@ -5,37 +5,6 @@
  *	@package WPSight \ Functions
  */
 
-
-
-
-
-//TODO: refactor it
-function get_data_ltd($option, $settings_name) {
-    $option['id']			= isset( $option['id'] ) ? $settings_name . '[' . $option['id'] . ']' : '';
-    $option_css			= sanitize_html_class( $settings_name . '_' . $option['id'] );
-
-    $option['name']		= isset( $option['name'] )				? stripslashes ( $option['name'] )					: '';
-    $option['desc']		= isset( $option['desc'] )				? stripslashes ( $option['desc'] )					: '';
-    $option['type']		= isset( $option['type'] )				? $option['type']									: '';
-    $option['icon']		= isset( $option['icon'] )				? $option['icon']									: '';
-    $option['link']		= isset( $option['link'] )				? $option['link']									: '';
-    $option['cb_label']	= isset( $option['cb_label'] )			? $option['cb_label']								: '';
-    $option['options']		= isset( $option['options'] )			? $option['options']								: '';
-
-    $option['placeholder']		= isset( $option['placeholder'] )		? 'placeholder="' . $option['placeholder'] . '"'	: '';
-    //							$class				= isset( $option['class'] )				? 'class="' . $option['class'] . '"'				: '';
-    $option['class']				= isset( $option['class'] )				? ' ' . $option['class']							: '';
-
-    $option['min']				= isset( $option['min'] )				? 'min="' . $option['min'] . '"'					: null;
-    $option['max']				= isset( $option['max'] )				? 'max="' . $option['max'] . '"'					: null;
-    $option['step']				= isset( $option['step'] )				? 'step="' . $option['step'] . '"'					: null;
-
-//    $value				= wpsight_get_option( $option['id'] );
-
-    return $option;
-}
-
-
 /**
  *	wpsight_post_type()
  *	

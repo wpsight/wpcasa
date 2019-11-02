@@ -5,8 +5,8 @@ if (isset($option)) {
 ?>
 
     <th scope="row" colspan="2">
-        <h4> <?php echo $option['name'] ?></h4>
-        <i><?php echo $option['desc'] ?></i>
+        <h4> <?php echo $option_name ?></h4>
+        <i><?php echo $option_desc ?></i>
     </th>
 
 <?php } ?>

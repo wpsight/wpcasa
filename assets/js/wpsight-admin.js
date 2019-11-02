@@ -77,4 +77,63 @@ jQuery(document).ready(function($) {
 		$(".wpsight-settings-wrap").toggleClass("wpsight-settings-wrap-hide-navbar");
 	});
 
+
+	// Working with listing fields
+
+	var workWithListingFields = function () {
+		var totoggle_currency = '.setting-wpcasa_currency_other-tr, .setting-wpcasa_currency_other_ent-tr';
+
+		jQuery('#setting-wpcasa_currency').change(function() {
+			if( jQuery(this).val() == 'other' ) {
+				jQuery(totoggle_currency).fadeIn(150);
+			} else {
+				jQuery(totoggle_currency).fadeOut(150);
+			}
+		});
+
+		var totoggle_details = $(".setting-wpcasa_heading_details-tr ~[class^=setting-wpcasa_details_]");
+
+		jQuery('#setting-wpcasa_listing_features').click(function() {
+			totoggle_details.fadeToggle(150);
+		});
+
+		if (jQuery('#setting-wpcasa_listing_features:checked').val() !== undefined) {
+			totoggle_details.show();
+		}
+
+
+		var totoggle_periods = $(".setting-wpcasa_heading_rental_periods-tr ~[class^=setting-wpcasa_rental_period_]");
+
+		jQuery('#setting-wpcasa_rental_periods').click(function() {
+			totoggle_periods.fadeToggle(150);
+		});
+
+		if (jQuery('#setting-wpcasa_rental_periods:checked').val() !== undefined) {
+			totoggle_periods.show();
+		}
+
+
+		jQuery('.addon-inactive').hide();
+
+		jQuery('#addons-all').click(function(e) {
+			e.preventDefault();
+			jQuery('.addon-active').show();
+			jQuery('.addon-inactive').show();
+		});
+
+		jQuery('#addons-active').click(function(e) {
+			e.preventDefault();
+			jQuery('.addon-active').show();
+			jQuery('.addon-inactive').hide();
+		});
+
+		jQuery('#addons-inactive').click(function(e) {
+			e.preventDefault();
+			jQuery('.addon-active').hide();
+			jQuery('.addon-inactive').show();
+		});
+	};
+
+	workWithListingFields();
+
 });

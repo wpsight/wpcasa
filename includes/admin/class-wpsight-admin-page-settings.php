@@ -693,29 +693,34 @@ class WPSight_Admin_Settings {
 
 		do_action( 'wpsight_settings_scripts', $this->settings_name );
 
-//		foreach(get_option( WPSIGHT_DOMAIN ) as $key => $default ) {
-//            wpsight_delete_option($key);
-//        }
-//
-//        $options = array(
-//            'listings_page'			=> '',
-//            'listing_id'			=> __( 'ID-', 'wpcasa' ),
-//            'measurement_unit'		=> 'm2',
-//            'currency'				=> 'usd',
-//            'currency_symbol'		=> 'before',
-//            'currency_separator'	=> 'comma',
-//            'date_format'			=> get_option( 'date_format' ),
-//            'listings_css'			=> '1'
-//        );
-//
-//        foreach( $options as $option => $value ) {
-//
-//            if( wpsight_get_option( $option ) )
-//                continue;
-//
-//            wpsight_add_option( $option, $value );
-//
-//        }
-//
+		function reset_settings () {
+      foreach(get_option( WPSIGHT_DOMAIN ) as $key => $default ) {
+        wpsight_delete_option($key);
+      }
+
+      $options = array(
+        'listings_page'			=> '',
+        'listing_id'			=> __( 'ID-', 'wpcasa' ),
+        'measurement_unit'		=> 'm2',
+        'currency'				=> 'usd',
+        'currency_symbol'		=> 'before',
+        'currency_separator'	=> 'comma',
+        'date_format'			=> get_option( 'date_format' ),
+        'listings_css'			=> '1'
+      );
+
+      foreach( $options as $option => $value ) {
+
+        if( wpsight_get_option( $option ) )
+          continue;
+
+        wpsight_add_option( $option, $value );
+
+      }
+    }
+
+		if ( isset($_POST['reset']) && ($_POST['reset'] === 'Reset Settings') ) reset_settings();
+
+
 	}
 }

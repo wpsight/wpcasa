@@ -317,215 +317,43 @@ class WPSight_Admin_Settings {
                                                                 </div>
 
                                                                 <?php
-
-                                                            break;
-                                                            case "checkbox" :
-
-                                                                ?>
-
-                                                                <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-                                                                    <div class="switch">
-                                                                        <input id="setting-<?php echo $option_css; ?>" name="<?php echo $option_id; ?>" type="<?php echo $option_type; ?>" value="1" <?php echo implode( ' ', $attributes ); ?> <?php checked( '1', $value ); ?> />
-                                                                        <label for="setting-<?php echo $option_css; ?>" class="label-<?php echo $option_type; ?>"><?php //echo $option_cb_label; ?></label>
-                                                                    </div>
-                                                                </div>
-
-                                                                <?php
-
-                                                            break;
-                                                            case "multicheck" :
-
-                                                                ?>
-
-                                                                <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-
-                                                                    <?php
-
-                                                                    foreach ( $option_options as $key => $name ) {
-
-                                                                        $v = isset( $value[$key] ) ? $value[$key] : '';
-                                                                    ?>
-                                                                    <div class="multicheck">
-                                                                        <input id="setting-<?php echo $option_css; ?>_<?php echo $key; ?>" name="<?php echo $option_id . '[' . $key . ']' ; ?>" type="checkbox" value="1" <?php //echo implode( ' ', $attributes ); ?> <?php checked( '1', $v ); ?> />
-                                                                        <label for="setting-<?php echo $option_css; ?>_<?php echo $key; ?>" class="label-checkbox"><?php echo $name; ?></label>
-                                                                    </div>
-
-                                                                    <?php } ?>
-
-
-                                                                </div>
-
-                                                                <?php
-
-                                                            break;
-                                                            case "textarea" :
-
-                                                                ?>
-
-                                                                <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-                                                                    <textarea id="setting-<?php echo $option_css; ?>" cols="100" rows="8" name="<?php echo $option_id; ?>" <?php echo implode( ' ', $attributes ); ?> <?php echo $placeholder; ?>><?php echo esc_textarea( $value ); ?></textarea>
-                                                                </div>
-
-                                                                <?php
-
-                                                            break;
-                                                            case "select" :
-
-                                                                ?>
-
-                                                                <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-                                                                    <select id="setting-<?php echo $option_css; ?>" class="regular-text" name="<?php echo $option_id; ?>" <?php echo implode( ' ', $attributes ); ?>><?php
-                                                                        foreach( $option_options as $key => $name )
-                                                                            echo '<option value="' . esc_attr( $key ) . '" ' . selected( $value, $key, false ) . '>' . esc_html( $name ) . '</option>'; ?>
-                                                                    </select>
-                                                                </div>
-
-                                                                <?php
-
-                                                            break;
-                                                            case "pages" :
-
-                              $page_args = array(
-                                'sort_order' => 'asc',
-                                'sort_column' => 'post_title',
-                                'hierarchical' => 0
-                              );
-
-                              $get_pages = get_pages( $page_args );
-
-                                                                $pages = array();
-
-                                                                foreach ( $get_pages as $key => $page ) {
-
-                                                                    $pages[$page->ID] = array();
-
-                                                                    $pages[$page->ID]['name'] = $page->post_title;
-                                                                    $pages[$page->ID]['date'] = $page->post_name;
-                              }
-
-//																	echo '<pre>';
-//																	var_dump( $pages );
-//																	echo '</pre>';
-
-                                                                ?>
-
-                                                                <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-                                                                    <select id="setting-<?php echo $option_css; ?>" class="regular-text" name="<?php echo $option_id; ?>" <?php echo implode( ' ', $attributes ); ?>>
-                                                                        <option value=""><?php _ex( 'Select page', 'plugin settings', 'wpcasa' ); ?>&hellip;</option><?php
-                                                                        foreach( $pages as $key => $page )
-                                                                            echo '<option value="' . esc_attr( $key ) . '" ' . selected( $value, $key, false ) . '>' . esc_html( $page['name'] ) . ' <small><i>(' . esc_html( $page['date'] ) . ')<small><i></option>'; ?>
-                                                                    </select>
-                                                                </div>
-
-                                                                <?php
-
-                                                            break;
-                                                            case "password" :
-
-                                                                ?>
-
-                                                                <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-                                                                    <input id="setting-<?php echo $option_css; ?>" class="regular-text" type="<?php echo $option_type; ?>" name="<?php echo $option_id; ?>" value="<?php esc_attr_e( $value ); ?>" <?php echo implode( ' ', $attributes ); ?> <?php echo $placeholder; ?> />
-                                                                </div>
-
-                                                                <?php
-
                                                             break;
 
-                                                            case "measurement" :
-
-                                                                $measurement = $value;
-
-                                                                ?>
-
-                                                                <div class="wpsight-settings-field wpsight-settings-field-text">
-                                                                    <input id="setting-<?php echo $option_css; ?>_label" class="regular-text" type="text" name="<?php echo $option_id . '[label]'; ?>" value="<?php echo esc_attr( $measurement['label'] ); ?>" <?php echo implode( ' ', $attributes ); ?> <?php echo $placeholder; ?> />
-                                                                </div>
-
-                                                                <div class="wpsight-settings-field wpsight-settings-field-radio">
-
-                                                                    <?php
-
-                                                                    foreach ( wpsight_measurements() as $key => $unit ) {
-                                                                        $id = $option_css .'-'. $key;
-
-                                                                    ?>
-
-                                                                    <input id="setting-<?php echo $id; ?>" name="<?php echo esc_attr( $option_id ); ?>[unit]" type="radio" value="<?php echo esc_attr( $key ); ?>" <?php echo implode( ' ', $attributes ); ?> <?php checked( $measurement['unit'], $key ); ?> />
-                                                                    <label for="setting-<?php echo $id; ?>" class="label-radio"><?php if( empty( $unit ) ) { echo 'None'; } else { echo $unit; } ?></label>
-
-                                                                    <?php } ?>
-
-                                                                </div>
-
-                                                                <?php
-
+                                                            case "checkbox" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
                                                             break;
 
-                                                            case "radio" :
-
-                                                                ?>
-
-                                                                <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-
-                                                                    <?php
-
-                                                                    $name = $option_name .'['. $option_id .']';
-
-                                                                    foreach ( $option['options'] as $key => $option ) {
-                                                                        $id = $option_css .'-'. $key;
-
-                                                                        ?>
-
-                                                                        <input id="setting-<?php echo $id; ?>" name="<?php echo esc_attr( $option_id ); ?>" type="<?php echo $option_type; ?>" value="<?php echo esc_attr( $key ); ?>" <?php echo implode( ' ', $attributes ); ?> <?php checked( $value, $key ); ?> />
-                                                                        <label for="setting-<?php echo $id; ?>" class="label-<?php echo $option_type; ?>"><?php echo $option; ?></label>
-
-                                                                    <?php } ?>
-
-                                                                </div>
-
-                                                                <?php
-
+                                                            case "multicheck" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
                                                             break;
 
-                                                            case "range" :
-
-                                                                ?>
-
-                                                                <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-                                                                    <input id="setting-<?php echo $option_css; ?>" class="range-slider__range" type="<?php echo $option_type; ?>" name="<?php echo $option_id; ?>" value="<?php esc_attr_e( $value ); ?>" <?php echo implode( ' ', $attributes ); ?> <?php echo $placeholder; ?> <?php echo $min; ?> <?php echo $max; ?> <?php echo $step; ?> />
-                                                                    <span class="range-slider__value">0</span>
-                                                                </div>
-
-                                                                <?php
-
+                                                            case "textarea" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
                                                             break;
 
-                                                            case "number" :
+                                                            case "select" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
+                                                            break;
 
-                                                                ?>
+                                                            case "pages" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
+                                                            break;
 
-                                                                <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-                                                                    <input id="setting-<?php echo $option_css; ?>" class="regular-text" type="<?php echo $option_type; ?>" name="<?php echo $option_id; ?>" value="<?php esc_attr_e( $value ); ?>" <?php echo implode( ' ', $attributes ); ?> <?php echo $placeholder; ?> />
-                                                                </div>
+                                                            case "password" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
+                                                            break;
 
-                                                                <?php
+                                                            case "measurement" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
+                                                            break;
 
+                                                            case "radio" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
+                                                            break;
+
+                                                            case "range" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
+                                                            break;
+
+                                                            case "number" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
                                                             break;
 
                                                             case "" :
                                                             case "input" :
-                                                            case "text" :
-
-                                                                ?>
-
-                                                                <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-                                                                    <input id="setting-<?php echo $option_css; ?>" class="regular-text" type="text" name="<?php echo $option_id; ?>" value="<?php esc_attr_e( $value ); ?>" <?php echo implode( ' ', $attributes ); ?> <?php echo $placeholder; ?> />
-                                                                </div>
-
-                                                                <?php
-
+                                                            case "text" : require  plugin_dir_path( __FILE__ ) . 'views/option-input-text.php';
                                                             break;
+
                                                             default :
                                                                 do_action( 'wpsight_settings_field_' . $option_type, $option, $attributes, $value, $placeholder );
                                                             break;
@@ -603,15 +431,13 @@ class WPSight_Admin_Settings {
                                         </th>
 
                                         <td>
-
                                             <div class="wpsight-settings-field-wrap wpsight-settings-field-reset-wrap">
                                                 <div class="wpsight-settings-field wpsight-settings-field-reset">
-                                                  <form method="post" action="">
+                                                    <form method="post" action="">
                                                         <input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Reset Settings', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Are you sure?', 'wpcasa' ) ); ?>' );" />
                                                     </form>
                                                 </div>
                                             </div>
-
                                         </td>
 
                                     </tr>
@@ -693,7 +519,8 @@ class WPSight_Admin_Settings {
 
 		do_action( 'wpsight_settings_scripts', $this->settings_name );
 
-		function reset_settings () {
+
+    function reset_settings () {
       foreach(get_option( WPSIGHT_DOMAIN ) as $key => $default ) {
         wpsight_delete_option($key);
       }
@@ -719,8 +546,8 @@ class WPSight_Admin_Settings {
       }
     }
 
-		if ( isset($_POST['reset']) && ($_POST['reset'] === 'Reset Settings') ) reset_settings();
+    if ( isset($_POST['reset']) && ($_POST['reset'] === 'Reset Settings') ) reset_settings();
 
 
-	}
+  }
 }

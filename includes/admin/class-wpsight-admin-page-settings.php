@@ -240,150 +240,78 @@ class WPSight_Admin_Settings {
 
                     foreach ( $this->settings as $key => $section ) {
 
-                        echo '<div id="settings-' . sanitize_title( $key ) . '" class="settings_panel">';
+                        echo '<div id="settings-' . sanitize_title( $key ) . '" class="settings_panel">'; ?>
 
-                            echo '<div class="wpsight-admin-ui-container">';
+                            <div class="wpsight-admin-ui-container">
 
-                                echo '<div class="wpsight-admin-ui-grid">';
+                                <div class="wpsight-admin-ui-grid">
 
-                                    echo '<div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-1-1">';
-                                        echo '<div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-large">';
+                                    <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-1-1">
+                                        <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-large">
 
-                                            echo '<table class="form-table">';
+                                            <table class="form-table">
 
-                                            foreach ( $section[1] as $option ) {
-
-                                                $option_id			= isset( $option['id'] ) ? $this->settings_name . '[' . $option['id'] . ']' : '';
+                                            <?php foreach ( $section[1] as $option ) {
                                                 $option_css			= sanitize_html_class( $this->settings_name . '_' . $option['id'] );
 
                                                 $option_name		= isset( $option['name'] )				? stripslashes ( $option['name'] )					: '';
                                                 $option_desc		= isset( $option['desc'] )				? stripslashes ( $option['desc'] )					: '';
                                                 $option_type		= isset( $option['type'] )				? $option['type']									: '';
-                                                $option_icon		= isset( $option['icon'] )				? $option['icon']									: '';
-                                                $option_link		= isset( $option['link'] )				? $option['link']									: '';
-                                                $option_cb_label	= isset( $option['cb_label'] )			? $option['cb_label']								: '';
-                                                $option_options		= isset( $option['options'] )			? $option['options']								: '';
-
-                                                $placeholder		= isset( $option['placeholder'] )		? 'placeholder="' . $option['placeholder'] . '"'	: '';
-                    //							$class				= isset( $option['class'] )				? 'class="' . $option['class'] . '"'				: '';
                                                 $class				= isset( $option['class'] )				? ' ' . $option['class']							: '';
 
-                                                $min				= isset( $option['min'] )				? 'min="' . $option['min'] . '"'					: null;
-                                                $max				= isset( $option['max'] )				? 'max="' . $option['max'] . '"'					: null;
-                                                $step				= isset( $option['step'] )				? 'step="' . $option['step'] . '"'					: null;
+//                                                $value				= wpsight_get_option( $option['id'] );
+//
+//                                                if( ! isset( $value ) && isset( $option['default'] ) )
+//                                                    $value = $option['default'];
 
-                                                $value				= wpsight_get_option( $option['id'] );
-
-                                                if( ! isset( $value ) && isset( $option['default'] ) )
-                                                    $value = $option['default'];
-
-                                                $attributes = array();
-
-                                                if ( isset( $option['attributes'] ) && is_array( $option['attributes'] ) )
-                                                    foreach ( $option['attributes'] as $attribute_name => $attribute_value )
-                                                        $attributes[] = esc_attr( $attribute_name ) . '="' . esc_attr( $attribute_value ) . '"';
+//                                                $attributes = array();
+//
+//                                                if ( isset( $option['attributes'] ) && is_array( $option['attributes'] ) )
+//                                                    foreach ( $option['attributes'] as $attribute_name => $attribute_value )
+//                                                        $attributes[] = esc_attr( $attribute_name ) . '="' . esc_attr( $attribute_value ) . '"';
 
                                                 echo '<tr valign="top" class="setting-' . $option_css . '-tr' . $class . '">';
 
-                                                if( $option_type == 'pageheading' ) {
+                                                if( ( $option_type == 'pageheading' ) || (  $option_type == 'heading' ) ) {
                                                         require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
+                                                } else { ?>
+
+                                                    <th scope="row">
+
+                                                   <label for="setting-' . $option_css . '"><?php echo $option_name ?></label>
 
 
-                                                } elseif( $option_type == 'heading' ) {
-                                                        require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
+                                                    <p class="description"><?php echo $option_desc ?></p>
+                                                    </th>
+                                                    <td>
+                                                    <div class="wpsight-settings-field-wrap wpsight-settings-field-' . $option_type . '-wrap">
 
-                                                    } else {
 
-                                                        echo '<th scope="row">';
+                                                        <?php echo require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
 
-                                                            echo '<label for="setting-' . $option_css . '">' . $option_name . '</label>';
+                                                      //TODO: why we need it here
+//                                                        do_action( 'wpsight_settings_field_' . $option_type, $option, $attributes, $value, $placeholder );
+                                                        ?>
 
-                                                            if ( $option_desc )
-                                                                echo ' <p class="description">' . $option_desc . '</p>';
+                                                    </div>
+                                                    </td>
+                                                <?php  } ?>
+                                                </tr>
 
-                                                        echo '</th>';
+                                                <?php  } ?>
 
-                                                        echo '<td>';
+                                            </table>
 
-                                                        echo '<div class="wpsight-settings-field-wrap wpsight-settings-field-' . $option_type . '-wrap">';
+                                        </div>
+                                    </div>
 
-                                                        switch ( $option_type ) {
+                                </div>
 
-                                                            case "heading" :
-                                                                ?>
+                            </div>
 
-                                                                <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-                                                                    <h4><?php echo $value; ?></h4>
-                                                                </div>
+                       </div>
 
-                                                                <?php
-                                                            break;
-
-                                                            case "checkbox" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
-                                                            break;
-
-                                                            case "multicheck" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
-                                                            break;
-
-                                                            case "textarea" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
-                                                            break;
-
-                                                            case "select" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
-                                                            break;
-
-                                                            case "pages" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
-                                                            break;
-
-                                                            case "password" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
-                                                            break;
-
-                                                            case "measurement" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
-                                                            break;
-
-                                                            case "radio" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
-                                                            break;
-
-                                                            case "range" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
-                                                            break;
-
-                                                            case "number" : require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
-                                                            break;
-
-                                                            case "" :
-                                                            case "input" :
-                                                            case "text" : require  plugin_dir_path( __FILE__ ) . 'views/option-input-text.php';
-                                                            break;
-
-                                                            default :
-                                                                do_action( 'wpsight_settings_field_' . $option_type, $option, $attributes, $value, $placeholder );
-                                                            break;
-
-                                                        }
-
-                                                        echo '</div>';
-
-                                                        echo '</td>';
-
-                                                    }
-
-                                                echo '</tr>';
-
-                                            }
-
-                                            echo '</table>';
-
-                                        echo '</div>';
-                                    echo '</div>';
-
-                                echo '</div>';
-
-                            echo '</div>';
-
-                        echo '</div>';
-
-                    }
-
-                ?>
+                   <?php  } ?>
 
             </form>
 

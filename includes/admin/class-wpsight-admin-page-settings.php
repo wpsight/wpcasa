@@ -259,24 +259,16 @@ class WPSight_Admin_Settings {
                                                 $option_type		= isset( $option['type'] )				? $option['type']									: '';
                                                 $class				= isset( $option['class'] )				? ' ' . $option['class']							: '';
 
-//                                                $value				= wpsight_get_option( $option['id'] );
-//
-//                                                if( ! isset( $value ) && isset( $option['default'] ) )
-//                                                    $value = $option['default'];
-
-//                                                $attributes = array();
-//
-//                                                if ( isset( $option['attributes'] ) && is_array( $option['attributes'] ) )
-//                                                    foreach ( $option['attributes'] as $attribute_name => $attribute_value )
-//                                                        $attributes[] = esc_attr( $attribute_name ) . '="' . esc_attr( $attribute_value ) . '"';
                                                 ?>
 
                                                 <tr valign="top" class="setting-<?php echo $option_css ?>-tr<?php echo $class ?>">
                                                     <?php
 
-                                                    if( ( $option_type == 'pageheading' ) || (  $option_type == 'heading' ) ) {
+                                                    if( ( $option_type == 'pageheading' ) || ( $option_type == 'heading' ) ) {
                                                         require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
+
                                                     } else { ?>
+
                                                         <th scope="row">
                                                             <label for="setting-' . $option_css . '"><?php echo $option_name ?></label>
                                                             <p class="description"><?php echo $option_desc ?></p>
@@ -285,9 +277,6 @@ class WPSight_Admin_Settings {
                                                             <div class="wpsight-settings-field-wrap wpsight-settings-field-' . $option_type . '-wrap">
 
                                                             <?php require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
-
-                                                              //TODO: why we need it here
-    //                                                        do_action( 'wpsight_settings_field_' . $option_type, $option, $attributes, $value, $placeholder );
                                                             ?>
 
                                                             </div>

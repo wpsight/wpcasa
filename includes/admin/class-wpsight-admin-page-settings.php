@@ -347,7 +347,9 @@ class WPSight_Admin_Settings {
                                         <td>
                                             <div class="wpsight-settings-field-wrap wpsight-settings-field-reset-wrap">
                                                 <div class="wpsight-settings-field wpsight-settings-field-reset">
-                                                    <form method="post" action="">
+
+                                                    <form method="post" action="<?php echo admin_url( 'admin-post.php' ); ?>">
+                                                        <input type="hidden" name="reset_settings" value="reset_settings">
                                                         <input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Reset Settings', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Are you sure?', 'wpcasa' ) ); ?>' );" />
                                                     </form>
                                                 </div>
@@ -460,7 +462,8 @@ class WPSight_Admin_Settings {
       }
     }
 
-    if ( isset($_POST['reset']) && ($_POST['reset'] === 'Reset Settings') ) reset_settings();
+    add_action( 'admin_post_nopriv_reset_settings', 'reset_settings' );
+    add_action( 'admin_post_reset_settings', 'reset_settings' );
 
 
   }

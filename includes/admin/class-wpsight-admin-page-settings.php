@@ -353,7 +353,7 @@ class WPSight_Admin_Settings {
 
                                                     <form method="post" action="<?php echo admin_url( 'admin-post.php' ); ?>">
                                                         <input type="hidden" name="action" value="reset_settings">
-                                                        <?php wp_nonce_field(); ?>
+                                                        <?php wp_nonce_field("reset", "reset_settings"); ?>
                                                         <input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Reset Settings', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Are you sure?', 'wpcasa' ) ); ?>' );" />
                                                     </form>
                                                 </div>
@@ -424,6 +424,7 @@ class WPSight_Admin_Settings {
                             </div>
 
                         </div>
+                        </div>
 
                     </div>
 
@@ -441,7 +442,10 @@ class WPSight_Admin_Settings {
 
   }
     public function reset_settings() {
-        foreach(get_option( WPSIGHT_DOMAIN ) as $key => $default ) {
+
+      check_admin_referer( 'reset', 'reset_settings' );
+
+      foreach(get_option( WPSIGHT_DOMAIN ) as $key => $default ) {
             wpsight_delete_option($key);
         }
 

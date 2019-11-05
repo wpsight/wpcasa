@@ -18,9 +18,7 @@ class WPSight_Admin_Settings {
 		add_action( 'admin_init',			array( $this, 'register_settings' ) );
 		add_filter( 'admin_body_class',		array( $this, 'admin_body_class' ) );
 
-
-        add_action( 'admin_post_nopriv_reset_settings',  array( $this, 'reset_settings' ) );
-        add_action( 'admin_post_reset_settings',  array( $this, 'reset_settings' ) );
+    add_action( 'admin_post_reset_settings',  array( $this, 'reset_settings' ) );
 	}
 
 	/**
@@ -311,6 +309,7 @@ class WPSight_Admin_Settings {
 
                     <div class="wpsight-admin-ui-grid">
 
+
                         <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-1-1">
 
                             <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-large">
@@ -354,6 +353,7 @@ class WPSight_Admin_Settings {
 
                                                     <form method="post" action="<?php echo admin_url( 'admin-post.php' ); ?>">
                                                         <input type="hidden" name="action" value="reset_settings">
+                                                        <?php wp_nonce_field(); ?>
                                                         <input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Reset Settings', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Are you sure?', 'wpcasa' ) ); ?>' );" />
                                                     </form>
                                                 </div>
@@ -464,6 +464,10 @@ class WPSight_Admin_Settings {
             wpsight_add_option( $option, $value );
 
         }
-            wp_die();
+
+        wp_redirect( admin_url("/admin.php?page=wpsight-settings"), 301 );
+        exit;
+
+        wp_die();
     }
 }

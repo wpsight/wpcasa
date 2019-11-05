@@ -116,7 +116,6 @@ class WPSight_Admin_Settings {
 //      if ( isset( $_POST['reset'] ) ) {
 //        flush_rewrite_rules();
 //        update_option( $this->settings_name, wpsight_options_defaults() );
-//        echo 'testtt';
 //        echo '<div class="fade notice notice-info"><p>' . __( 'Settings reset.', 'wpcasa' ) . '</p></div>';
 //      } elseif ( isset( $_GET['settings-updated'] ) ) {
 //        flush_rewrite_rules();
@@ -309,7 +308,6 @@ class WPSight_Admin_Settings {
 
                     <div class="wpsight-admin-ui-grid">
 
-
                         <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-1-1">
 
                             <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-large">
@@ -442,36 +440,11 @@ class WPSight_Admin_Settings {
 
   }
     public function reset_settings() {
-
-      check_admin_referer( 'reset', 'reset_settings' );
-
-      foreach(get_option( WPSIGHT_DOMAIN ) as $key => $default ) {
-            wpsight_delete_option($key);
-        }
-
-        $options = array(
-            'listings_page'			=> '',
-            'listing_id'			=> __( 'ID-', 'wpcasa' ),
-            'measurement_unit'		=> 'm2',
-            'currency'				=> 'usd',
-            'currency_symbol'		=> 'before',
-            'currency_separator'	=> 'comma',
-            'date_format'			=> get_option( 'date_format' ),
-            'listings_css'			=> '1'
-        );
-
-        foreach( $options as $option => $value ) {
-
-            if( wpsight_get_option( $option ) )
-                continue;
-
-            wpsight_add_option( $option, $value );
-
-        }
+        check_admin_referer( 'reset', 'reset_settings' );
+        flush_rewrite_rules();
+        update_option( $this->settings_name, wpsight_options_defaults() );
 
         wp_redirect( admin_url("/admin.php?page=wpsight-settings"), 301 );
         exit;
-
-        wp_die();
     }
 }

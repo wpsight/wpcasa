@@ -18,6 +18,9 @@ class WPSight_Admin_Settings {
 		add_action( 'admin_init',			array( $this, 'register_settings' ) );
 		add_filter( 'admin_body_class',		array( $this, 'admin_body_class' ) );
 
+
+        add_action( 'admin_post_nopriv_reset_settings',  array( $this, 'reset_settings' ) );
+        add_action( 'admin_post_reset_settings',  array( $this, 'reset_settings' ) );
 	}
 
 	/**
@@ -112,14 +115,15 @@ class WPSight_Admin_Settings {
 		$this->init_settings(); ?>
 
     <?php
-      if ( isset( $_POST['reset'] ) ) {
-        flush_rewrite_rules();
-        update_option( $this->settings_name, wpsight_options_defaults() );
-        echo '<div class="fade notice notice-info"><p>' . __( 'Settings reset.', 'wpcasa' ) . '</p></div>';
-      } elseif ( isset( $_GET['settings-updated'] ) ) {
-        flush_rewrite_rules();
-        echo '<div class="fade notice notice-success"><p>' . __( 'Settings saved.', 'wpcasa' ) . '</p></div>';
-      }
+//      if ( isset( $_POST['reset'] ) ) {
+//        flush_rewrite_rules();
+//        update_option( $this->settings_name, wpsight_options_defaults() );
+//        echo 'testtt';
+//        echo '<div class="fade notice notice-info"><p>' . __( 'Settings reset.', 'wpcasa' ) . '</p></div>';
+//      } elseif ( isset( $_GET['settings-updated'] ) ) {
+//        flush_rewrite_rules();
+//        echo '<div class="fade notice notice-success"><p>' . __( 'Settings saved.', 'wpcasa' ) . '</p></div>';
+//      }
     ?>
 
 		<div class="wrap wpsight-settings-wrap">
@@ -349,7 +353,7 @@ class WPSight_Admin_Settings {
                                                 <div class="wpsight-settings-field wpsight-settings-field-reset">
 
                                                     <form method="post" action="<?php echo admin_url( 'admin-post.php' ); ?>">
-                                                        <input type="hidden" name="reset_settings" value="reset_settings">
+                                                        <input type="hidden" name="action" value="reset_settings">
                                                         <input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Reset Settings', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Are you sure?', 'wpcasa' ) ); ?>' );" />
                                                     </form>
                                                 </div>
@@ -435,36 +439,31 @@ class WPSight_Admin_Settings {
 
 		do_action( 'wpsight_settings_scripts', $this->settings_name );
 
-
-    function reset_settings () {
-      foreach(get_option( WPSIGHT_DOMAIN ) as $key => $default ) {
-        wpsight_delete_option($key);
-      }
-
-      $options = array(
-        'listings_page'			=> '',
-        'listing_id'			=> __( 'ID-', 'wpcasa' ),
-        'measurement_unit'		=> 'm2',
-        'currency'				=> 'usd',
-        'currency_symbol'		=> 'before',
-        'currency_separator'	=> 'comma',
-        'date_format'			=> get_option( 'date_format' ),
-        'listings_css'			=> '1'
-      );
-
-      foreach( $options as $option => $value ) {
-
-        if( wpsight_get_option( $option ) )
-          continue;
-
-        wpsight_add_option( $option, $value );
-
-      }
-    }
-
-    add_action( 'admin_post_nopriv_reset_settings', 'reset_settings' );
-    add_action( 'admin_post_reset_settings', 'reset_settings' );
-
-
   }
+    public function reset_settings() {
+        foreach(get_option( WPSIGHT_DOMAIN ) as $key => $default ) {
+            wpsight_delete_option($key);
+        }
+
+        $options = array(
+            'listings_page'			=> '',
+            'listing_id'			=> __( 'ID-', 'wpcasa' ),
+            'measurement_unit'		=> 'm2',
+            'currency'				=> 'usd',
+            'currency_symbol'		=> 'before',
+            'currency_separator'	=> 'comma',
+            'date_format'			=> get_option( 'date_format' ),
+            'listings_css'			=> '1'
+        );
+
+        foreach( $options as $option => $value ) {
+
+            if( wpsight_get_option( $option ) )
+                continue;
+
+            wpsight_add_option( $option, $value );
+
+        }
+            wp_die();
+    }
 }

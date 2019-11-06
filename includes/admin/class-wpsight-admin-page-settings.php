@@ -113,14 +113,10 @@ class WPSight_Admin_Settings {
 		$this->init_settings(); ?>
 
     <?php
-//      if ( isset( $_POST['reset'] ) ) {
-//        flush_rewrite_rules();
-//        update_option( $this->settings_name, wpsight_options_defaults() );
-//        echo '<div class="fade notice notice-info"><p>' . __( 'Settings reset.', 'wpcasa' ) . '</p></div>';
-//      } elseif ( isset( $_GET['settings-updated'] ) ) {
-//        flush_rewrite_rules();
-//        echo '<div class="fade notice notice-success"><p>' . __( 'Settings saved.', 'wpcasa' ) . '</p></div>';
-//      }
+      if ( isset( $_GET['settings-updated'] ) ) {
+        flush_rewrite_rules();
+        echo '<div class="fade notice notice-success"><p>' . __( 'Settings saved.', 'wpcasa' ) . '</p></div>';
+      }
     ?>
 
 		<div class="wrap wpsight-settings-wrap">

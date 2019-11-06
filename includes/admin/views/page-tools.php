@@ -44,7 +44,6 @@
                             <td>
                                 <div class="wpsight-settings-field-wrap wpsight-settings-field-reset-wrap">
                                     <div class="wpsight-settings-field wpsight-settings-field-reset">
-
                                         <form method="post" action="<?php echo admin_url( 'admin-post.php' ); ?>">
                                             <input type="hidden" name="action" value="reset_settings">
                                             <?php wp_nonce_field("reset", "reset_settings"); ?>
@@ -67,7 +66,11 @@
 
                                 <div class="wpsight-settings-field-wrap wpsight-settings-field-reset-wrap">
                                     <div class="wpsight-settings-field wpsight-settings-field-reset">
-                                        <input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Migrate Data', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Do you really want to perform the migration?', 'wpcasa' ) ); ?>' );" />
+                                        <form method="post" action="<?php echo admin_url( 'admin-post.php' ); ?>">
+                                            <input type="hidden" name="action" value="migrate_data">
+                                            <?php wp_nonce_field("migrate", "migrate_data"); ?>
+                                            <input type="submit" class="reset-button button-secondary" name="migrate" value="<?php esc_attr_e( 'Migrate Data', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Do you really want to perform the migration?', 'wpcasa' ) ); ?>' );" />
+                                        </form>
                                     </div>
                                 </div>
 
@@ -86,7 +89,11 @@
 
                                 <div class="wpsight-settings-field-wrap wpsight-settings-field-reset-wrap">
                                     <div class="wpsight-settings-field wpsight-settings-field-reset">
-                                        <input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Delete Data', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Do you really want to perform the migration?', 'wpcasa' ) ); ?>' );" />
+                                        <form method="post" action="<?php echo admin_url( 'admin-post.php' ); ?>">
+                                            <input type="hidden" name="action" value="delete_all_transients">
+                                            <?php wp_nonce_field("delete_transients", "delete_all_transients"); ?>
+                                            <input type="submit" class="reset-button button-secondary" name="delete_transients" value="<?php esc_attr_e( 'Delete Data', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Do you really want to perform the migration?', 'wpcasa' ) ); ?>' );" />
+                                        </form>
                                     </div>
                                 </div>
 
@@ -105,7 +112,11 @@
 
                                 <div class="wpsight-settings-field-wrap wpsight-settings-field-reset-wrap">
                                     <div class="wpsight-settings-field wpsight-settings-field-reset">
-                                        <input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Delete Data', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Do you really want to perform the migration?', 'wpcasa' ) ); ?>' );" />
+                                        <form method="post" action="<?php echo admin_url( 'admin-post.php' ); ?>">
+                                            <input type="hidden" name="action" value="delete_all_data">
+                                            <?php wp_nonce_field("delete_data", "delete_all_data"); ?>
+                                            <input type="submit" class="reset-button button-secondary" name="delete_data" value="<?php esc_attr_e( 'Delete Data', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Do you really want to perform the migration?', 'wpcasa' ) ); ?>' );" />
+                                        </form>
                                     </div>
                                 </div>
 

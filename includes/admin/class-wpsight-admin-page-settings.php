@@ -19,6 +19,9 @@ class WPSight_Admin_Settings {
 		add_filter( 'admin_body_class',		array( $this, 'admin_body_class' ) );
 
         add_action( 'admin_post_reset_settings',  array( $this, 'reset_settings' ) );
+        add_action( 'admin_post_migrate_data',  array( $this, 'migrate_data' ) );
+        add_action( 'admin_post_delete_all_transients',  array( $this, 'delete_all_transients' ) );
+        add_action( 'admin_post_delete_all_data',  array( $this, 'delete_all_data' ) );
 	}
 
 	/**
@@ -116,6 +119,22 @@ class WPSight_Admin_Settings {
       if ( isset( $_GET['settings-updated'] ) ) {
         flush_rewrite_rules();
         echo '<div class="fade notice notice-success"><p>' . __( 'Settings saved.', 'wpcasa' ) . '</p></div>';
+      }
+      elseif ( filter_input( INPUT_GET, 'reset_settings' ) === 'success' ) {
+        flush_rewrite_rules();
+        echo '<div class="fade notice notice-success"><p>' . __( 'Settings reset.', 'wpcasa' ) . '</p></div>';
+      }
+      elseif ( filter_input( INPUT_GET, 'migrate_data' ) === 'success' ) {
+        flush_rewrite_rules();
+        echo '<div class="fade notice notice-success"><p>' . __( 'Migrate data completed successfully.', 'wpcasa' ) . '</p></div>';
+      }
+      elseif ( filter_input( INPUT_GET, 'delete_all_transients' ) === 'success' ) {
+        flush_rewrite_rules();
+        echo '<div class="fade notice notice-success"><p>' . __( 'All transients removed.', 'wpcasa' ) . '</p></div>';
+      }
+      elseif ( filter_input( INPUT_GET, 'delete_all_data' ) === 'success' ) {
+        flush_rewrite_rules();
+        echo '<div class="fade notice notice-success"><p>' . __( 'All data deleted.', 'wpcasa' ) . '</p></div>';
       }
     ?>
 
@@ -313,38 +332,72 @@ class WPSight_Admin_Settings {
         flush_rewrite_rules();
         update_option( $this->settings_name, wpsight_options_defaults() );
 
-        wp_redirect( admin_url("/admin.php?page=wpsight-settings"), 301 );
+        $redirect = add_query_arg( 'reset_settings', 'success', admin_url("/admin.php?page=wpsight-settings") );
+        wp_redirect($redirect, 301);
         exit;
+
     }
 
+    public function migrate_data() {
+        check_admin_referer( 'migrate', 'migrate_data' );
+        flush_rewrite_rules();
 
-    function delete_all_data() {
+
+        $redirect = add_query_arg( 'migrate_data', 'success', admin_url("/admin.php?page=wpsight-settings") );
+        wp_redirect($redirect, 301);
+        exit;
+
+    }
+
+    public function delete_all_transients() {
+      check_admin_referer( 'delete_transients', 'delete_all_transients' );
+      flush_rewrite_rules();
+
+
+      $redirect = add_query_arg( 'delete_all_transients', 'success', admin_url("/admin.php?page=wpsight-settings") );
+      wp_redirect($redirect, 301);
+      exit;
+
+    }
+
+    public function delete_all_data() {
+      check_admin_referer( 'delete_data', 'delete_all_data' );
+
+      function start_delete_all_data() {
         global $wpdb;
 
 //      delete listing posts
         $result = $wpdb->query(
-            $wpdb->prepare("
+          $wpdb->prepare("
             DELETE posts,pt,pm
             FROM wp_posts posts
             LEFT JOIN wp_term_relationships pt ON pt.object_id = posts.ID
             LEFT JOIN wp_postmeta pm ON pm.post_id = posts.ID
             WHERE posts.post_type = %s
             ",
-                'listing'
-            )
+            'listing'
+          )
         );
 
 //      delete listings taxonomy terms
         $taxes = ['feature', 'feature' , 'listing-type', 'location', 'listing-category'];
 
         foreach( $taxes as $tax ) {
-            $terms = get_terms([
-                'taxonomy' => $tax,
-                'hide_empty' => false,
-            ]);
-            foreach ($terms as $term) {
-                wp_delete_term( $term->term_id, $tax );
-            }
+          $terms = get_terms([
+            'taxonomy' => $tax,
+            'hide_empty' => false,
+          ]);
+          foreach ($terms as $term) {
+            wp_delete_term( $term->term_id, $tax );
+          }
         }
+      }
+      start_delete_all_data();
+
+      $redirect = add_query_arg( 'delete_all_data', 'success', admin_url("/admin.php?page=wpsight-settings") );
+      wp_redirect($redirect, 301);
+      exit;
+
     }
+
 }

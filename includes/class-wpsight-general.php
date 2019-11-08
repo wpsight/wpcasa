@@ -778,7 +778,7 @@ class WPSight_General {
 			elseif ( $currency == 'THB' ) {
 				$currency_ent = '&#3647;';
 			}
-			elseif ( $currency == 'BRL' ) {
+            elseif ( $currency == 'BRL' ) {
 				$currency_ent = 'R&#36;';
 			}
 

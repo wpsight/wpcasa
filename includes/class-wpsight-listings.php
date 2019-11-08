@@ -177,7 +177,7 @@ class WPSight_Listings {
 			$query_args['orderby'] = array( 'price' => $query_args['order'] );
 
 		}
-		
+        
 		// Set meta query for offer (sale, rent)
 
 		if ( ! empty( $args['offer'] ) ) {
@@ -204,25 +204,24 @@ class WPSight_Listings {
 			}
 
 		}
-		
-		// Set meta query for availability
+        
+        // Set meta query for availability
 		
 		if ( ! empty( $args['availability'] ) && $args['availability'] != 'all' ) {
-
-			if( $args['availability'] == 'unavailable' )
+            
+ 			if( $args['availability'] == 'unavailable' )
 				$args['availability'] = 1;
 			elseif( $args['availability'] == 'available' )
 				$args['availability'] = 0;
-
-			$query_args['meta_query']['availability'] = array(
+            
+ 			$query_args['meta_query']['availability'] = array(
 				'key'     => '_listing_not_available',
 				'value'   => $args['availability'],
 				'compare' => '='
 			);
 				
-
-		}
-
+ 		}
+        
 		// Set meta query for min (minimum price)
 
 		if ( ! empty( $args['min'] ) ) {
@@ -434,11 +433,12 @@ class WPSight_Listings {
 	 */
 	public static function listing( $listing_id = null, $full = true ) {		
 		global $listing;
-
-		if ( apply_filters('wpsight_listing_single_output', true) != true )
+		
+		// check for single listing output
+        if ( apply_filters('wpsight_listing_single_output', true) != true )
 			return;
 			
-		   $listing = wpsight_get_listing( $listing_id );
+       $listing = wpsight_get_listing( $listing_id );        
 		
 		// Show listing if found
 		if ( $listing ) {
@@ -872,8 +872,8 @@ class WPSight_Listings {
 			// Set array of unformatted details
 
 		} else {
-			
-			$listing_details = array();
+            
+            $listing_details = array();
 
 			foreach ( $details as $detail ) {
 
@@ -1085,8 +1085,7 @@ class WPSight_Listings {
 
 			$listing_price_symbol = '';
 
-			// Create price markup and place currency before or after value
-
+            // Create price markup and place currency before or after value
 			if ( $args['show_currency'] == true && ( $currency_symbol == 'before' || $currency_symbol == 'before_space' ) ) {
 				
 				if ( $currency_symbol == 'before' ) {
@@ -1094,10 +1093,11 @@ class WPSight_Listings {
 				} elseif ( $currency_symbol == 'before_space' ) {
 					$listing_price_symbol .= '<span class="listing-price-symbol">' . wpsight_get_currency() . '&nbsp;</span><!-- .listing-price-symbol -->';
 				}
-
+                
 			}
 			
-				$listing_price_symbol .= '<span class="listing-price-value" itemprop="price" content="'. esc_attr( wpsight_get_listing_price_raw( $post_id ) ) .'">' . $listing_price . '</span><!-- .listing-price-value -->';
+            $listing_price_symbol .= '<span class="listing-price-value" itemprop="price" content="'. esc_attr( wpsight_get_listing_price_raw( $post_id ) ) .'">' . $listing_price . '</span><!-- .listing-price-value -->';
+            
 			if ( $args['show_currency'] == true && ( $currency_symbol == 'after' || $currency_symbol == 'after_space' ) ) {
 				
 				if ( $currency_symbol == 'after' ) {
@@ -1107,7 +1107,7 @@ class WPSight_Listings {
 				}
 				
 			}
-
+            
 			// Add currency for microformat
 			$listing_price_symbol .= '<meta itemprop="priceCurrency" content="' . wpsight_get_currency_abbr() . '" />';
 
@@ -1460,7 +1460,6 @@ class WPSight_Listings {
 	 * @uses $wpdb->get_col()
 	 * @uses current_time()
 	 * @uses strtotime()
-
 	 * @uses date()
 	 * @uses wp_trash_post()
 	 * @return array|bool Array of post IDs, false if no previews deleted

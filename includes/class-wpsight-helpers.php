@@ -601,7 +601,7 @@ class WPSight_Helpers {
 			return;
 
 		$object_terms = get_the_terms( $post_id, $taxonomy );
-		
+
 		// If there are more than one terms, sort them
 
 		if ( is_array( $object_terms ) && count( $object_terms ) > 1 ) {

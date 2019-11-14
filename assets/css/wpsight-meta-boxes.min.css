@@ -1,0 +1,142 @@
+/* CMB2 METABOXES
+================================================== */
+
+/* Meta Boxes (main) */
+.postbox-container .cmb-row,
+.cmb-repeat-group-wrap .cmb-row {
+	margin-bottom: 0;
+}
+
+.cmb-repeat-group-wrap .cmb-row .cmb-row {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+.cmb-repeatable-group .cmb2-upload-button {
+	float: none;
+}
+
+.cmb-type-text input,
+.cmb-type-text-url input {
+	width: 100%;
+}
+
+.cmb-type-textarea textarea {
+	width: 100%;
+}
+
+.cmb-type-select select {
+	min-width: 230px;
+	max-width: 100%;
+}
+
+.postbox-container .cmb2-wrap > .cmb-field-list > .cmb-row.cmb-type-file-list,
+.cmb-repeat-group-wrap .cmb2-wrap > .cmb-field-list > .cmb-row.cmb-type-file-list {
+	padding-bottom: 15px;
+}
+
+.cmb-attach-list li {
+	margin-bottom: 5px;
+}
+
+/* Meta Boxes (sidebar) */
+.inner-sidebar .cmb-th label,
+#side-sortables .cmb-th label {
+	padding-bottom: 0;
+}
+
+.inner-sidebar .cmb-th label:after,
+#side-sortables .cmb-th label:after {
+	border-bottom: 0;
+	padding-top: 0;
+}
+
+.inner-sidebar .cmb-row .cmb2-metabox-description,
+#side-sortables .cmb-row .cmb2-metabox-description {
+	padding-bottom: 0;
+}
+
+.cmb2-element .ui-datepicker select {
+	background-color: rgba(255,255,255,.15);
+	border: 0;
+	color: #fff;
+}
+
+.cmb2-media-status .embed-status,
+.cmb2-media-status .img-status img {
+    background: #eee;
+    border: none;
+    outline: none;
+    box-shadow: inset 0 0 15px rgba(0,0,0,.3), inset 0 0 0 1px rgba(0,0,0,.05);
+    background-image: linear-gradient(45deg,#d0d0d0 25%,transparent 25%,transparent 75%,#d0d0d0 75%,#d0d0d0),linear-gradient(45deg,#d0d0d0 25%,transparent 25%,transparent 75%,#d0d0d0 75%,#d0d0d0);
+    background-position: 0 0,10px 10px;
+    background-size: 20px 20px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    margin: 15px 0 0;
+}
+
+.cmb2-media-status .embed-status .cmb2-remove-file-button,
+.cmb2-media-status .img-status .cmb2-remove-file-button {
+    position: absolute;
+    top: 8px;
+    left: auto;
+    right: -8px;
+    text-indent: -9999px;
+}
+
+/* BUTTERBEAN
+================================================== */
+.butterbean-manager-default {
+    overflow: hidden;
+    background: #fff;
+    background: linear-gradient(90deg,#fafafa 0,#fafafa 220px,#fff 180px,#fff 100%);
+}
+
+.butterbean-manager-default .butterbean-nav {
+    position: relative;
+    float: left;
+    list-style: none;
+    width: 220px;
+    line-height: 1em;
+    margin: 0 0 -1px 0;
+    padding: 0;
+    background-color: #fafafa;
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.butterbean-manager-default .butterbean-content {
+    width: calc(100% - 220px);
+    margin-left: -1px;
+    border-left: 1px solid #eee;
+}
+
+.butterbean-manager-default .butterbean-nav li[aria-selected=true] a {
+    color: #666;
+    background-color: #fff;
+    margin-right: -1px;
+}
+
+.butterbean-manager-default .butterbean-nav .dashicons {
+    margin-right: 10px;
+}
+
+.butterbean-manager-default .butterbean-section {
+    padding: 0 2em 0;
+    box-sizing: border-box;
+}
+
+.butterbean-manager-default .butterbean-control {
+    padding: 2em 0;
+    margin: 0 2em;
+    border-bottom: 1px solid #CCC;
+}
+
+.butterbean-manager-default .butterbean-control:last-child {
+    border-bottom: none;
+}
+
+.butterbean-manager-default .butterbean-label {
+    font-weight: 600;
+}

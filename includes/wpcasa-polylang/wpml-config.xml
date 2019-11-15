@@ -1,0 +1,130 @@
+<wpml-config>
+
+	<custom-fields>
+		
+		<custom-field action="copy">_agent_company</custom-field>
+		<custom-field action="copy">_agent_facebook</custom-field>
+		<custom-field action="copy">_agent_logo</custom-field>
+		<custom-field action="copy">_agent_logo_id</custom-field>
+		<custom-field action="copy">_agent_name</custom-field>
+		<custom-field action="copy">_agent_phone</custom-field>
+		<custom-field action="copy">_agent_twitter</custom-field>
+		<custom-field action="copy">_agent_gplus</custom-field>
+		<custom-field action="copy">_agent_website</custom-field>
+		
+		<custom-field action="copy">_details_1</custom-field>
+		<custom-field action="copy">_details_2</custom-field>
+		<custom-field action="copy">_details_3</custom-field>
+		<custom-field action="copy">_details_4</custom-field>
+		<custom-field action="copy">_details_5</custom-field>
+		<custom-field action="translate">_details_6</custom-field>
+		<custom-field action="translate">_details_7</custom-field>
+		<custom-field action="translate">_details_8</custom-field>
+		<custom-field action="copy">_details_9</custom-field>
+		<custom-field action="copy">_details_10</custom-field>
+		<custom-field action="copy">_details_11</custom-field>
+		<custom-field action="copy">_details_12</custom-field>
+		
+		<custom-field action="copy">_gallery</custom-field>
+		<custom-field action="copy">_gallery_1</custom-field>
+		<custom-field action="copy">_gallery_2</custom-field>
+		<custom-field action="copy">_gallery_3</custom-field>
+		<custom-field action="copy">_gallery_4</custom-field>
+		<custom-field action="copy">_gallery_5</custom-field>
+		<custom-field action="copy">_gallery_6</custom-field>
+		<custom-field action="copy">_gallery_7</custom-field>
+		<custom-field action="copy">_gallery_8</custom-field>
+		<custom-field action="copy">_gallery_9</custom-field>
+		<custom-field action="copy">_gallery_10</custom-field>
+		<custom-field action="copy">_gallery_imported</custom-field>
+		
+		<custom-field action="copy">_geolocated</custom-field>
+		<custom-field action="copy">_geolocation_city</custom-field>
+		<custom-field action="copy">_geolocation_country_long</custom-field>
+		<custom-field action="copy">_geolocation_country_short</custom-field>
+		<custom-field action="copy">_geolocation_formatted_address</custom-field>
+		<custom-field action="copy">_geolocation_lat</custom-field>
+		<custom-field action="copy">_geolocation_long</custom-field>
+		<custom-field action="copy">_geolocation_state_long</custom-field>
+		<custom-field action="copy">_geolocation_state_short</custom-field>
+		
+		<custom-field action="copy">_listing_dashboard</custom-field>
+		<custom-field action="copy">_listing_expires</custom-field>
+		<custom-field action="copy">_listing_featured</custom-field>		
+		<custom-field action="copy">_listing_id</custom-field>
+		<custom-field action="copy">_listing_not_available</custom-field>
+		<custom-field action="copy">_listing_sticky</custom-field>
+		<custom-field action="copy">_listing_label</custom-field>
+		
+		<custom-field action="copy">_map_address</custom-field>
+		<custom-field action="copy">_map_no_streetview</custom-field>
+		<custom-field action="translate">_map_note</custom-field>
+		<custom-field action="copy">_map_type</custom-field>
+		<custom-field action="copy">_map_zoom</custom-field>
+		
+		<custom-field action="copy">_price</custom-field>
+		<custom-field action="copy">_price_offer</custom-field>
+		
+		<custom-field action="translate">_gallery_slide_title</custom-field>
+		<custom-field action="translate">_gallery_slide_description</custom-field>
+		<custom-field action="translate">_gallery_slide_url</custom-field>
+		<custom-field action="translate">_gallery_slide_label</custom-field>
+		
+		<custom-field action="translate">_icon_link_label</custom-field>
+		<custom-field action="translate">_icon_link_desc</custom-field>
+		<custom-field action="translate">_icon_link_url</custom-field>
+		
+		<custom-field action="translate">_cta_1_display</custom-field>
+		<custom-field action="translate">_cta_1_title</custom-field>
+		<custom-field action="translate">_cta_1_description</custom-field>
+		<custom-field action="translate">_cta_1_button_label</custom-field>
+		<custom-field action="translate">_cta_1_button_url</custom-field>
+		
+		<custom-field action="translate">_cta_2_display</custom-field>
+		<custom-field action="translate">_cta_2_title</custom-field>
+		<custom-field action="translate">_cta_2_description</custom-field>
+		<custom-field action="translate">_cta_2_button_label</custom-field>
+		<custom-field action="translate">_cta_2_button_url</custom-field>
+		
+		<custom-field action="translate">_listings_title</custom-field>
+		<custom-field action="translate">_listings_button_label</custom-field>
+		<custom-field action="translate">_listings_button_url</custom-field>
+		
+	</custom-fields>
+
+	<custom-types>
+		<custom-type translate="1">listing</custom-type>
+	</custom-types>
+
+	<taxonomies>
+		<taxonomy translate="1">location</taxonomy>
+		<taxonomy translate="1">feature</taxonomy>
+		<taxonomy translate="1">listing-type</taxonomy>
+		<taxonomy translate="1">listing-category</taxonomy>
+		<taxonomy translate="1">property-type</taxonomy>
+		<taxonomy translate="1">property-category</taxonomy>
+	</taxonomies>
+
+	<admin-texts>
+		<key name="wpcasa">
+			<key name="listing_id" />
+			<key name="favorites_add" />
+			<key name="favorites_see" />
+			<key name="favorites_badge" />
+			<key name="featured_text" />
+			<key name="featured_badge" />
+		</key>
+		<key name="wpsight_bahia_header_top_info" />
+		<key name="wpsight_bahia_header_tagline" />
+		
+		<key name="wpcasa_header_top_info" />
+		
+		<key name="wpcasa_site_top_left" />
+		<key name="wpcasa_site_top_right" />
+		<key name="wpcasa_site_bottom_left" />
+		<key name="wpcasa_site_bottom_right" />
+		
+		<key name="wpcasa_site_bottom_right" />
+	</admin-texts>
+
+</wpml-config>

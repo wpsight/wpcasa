@@ -86,6 +86,16 @@ class WPSight_Framework {
 		// Include admin class
 		include( WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin.php' );
 
+        require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+        if ( is_plugin_active( 'wpcasa-polylang/wpcasa-polylang.php' )  ) {
+            deactivate_plugins( '/wpcasa-polylang/wpcasa-polylang.php' );
+        }
+
+        // Include wpcasa contact form 7 class
+        if ( !is_plugin_active( 'wpcasa-polylang/wpcasa-polylang.php' )  ) {
+            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-polylang/wpcasa-polylang.php' );
+        }
+
 		// Only instantiate admin class when in admin area
 		if ( is_admin() )
 			$this->admin = new WPSight_Admin();

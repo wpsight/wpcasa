@@ -367,12 +367,12 @@ class WPSight_Admin_Settings {
     }
 
     public function delete_all_data() {
-      check_admin_referer( 'delete_data', 'delete_all_data' );
+        check_admin_referer( 'delete_data', 'delete_all_data' );
 
-      function start_delete_all_data() {
+
         global $wpdb;
 
-//      delete listing posts
+        //      delete listing posts
         $result = $wpdb->query(
           $wpdb->prepare("
             DELETE posts,pt,pm
@@ -385,7 +385,7 @@ class WPSight_Admin_Settings {
           )
         );
 
-//      delete listings taxonomy terms
+        //      delete listings taxonomy terms
         $taxes = ['feature', 'feature' , 'listing-type', 'location', 'listing-category'];
 
         foreach( $taxes as $tax ) {
@@ -397,12 +397,11 @@ class WPSight_Admin_Settings {
             wp_delete_term( $term->term_id, $tax );
           }
         }
-      }
-      start_delete_all_data();
 
-      $redirect = add_query_arg( 'delete_all_data', 'success', admin_url("/admin.php?page=wpsight-settings") );
-      wp_redirect($redirect, 301);
-      exit;
+
+        $redirect = add_query_arg( 'delete_all_data', 'success', admin_url("/admin.php?page=wpsight-settings") );
+        wp_redirect($redirect, 301);
+        exit;
 
     }
 

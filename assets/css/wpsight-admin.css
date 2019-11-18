@@ -1447,10 +1447,28 @@ th.column-listing_actions {
 .wpsight-settings-page .wpsight-settings-wrap select {
     padding: .75rem;
     height: 45px;
-    line-height: 45px;
+    line-height: initial !important;
 }
 
+.wpsight-settings-field.wpsight-settings-field-text {
+    margin-bottom: 1rem;
+}
 
+.wpsight-settings-page .wpsight-settings-wrap input[type="text"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="time"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="week"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="month"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="date"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="datetime"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="datetime-local"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="password"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="number"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="tel"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="url"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="email"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="search"] {
+    line-height: initial;
+}
 
 
 

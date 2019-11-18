@@ -2,7 +2,8 @@
 if (isset($option)) {
     $option_name = isset( $option['name'] )	? stripslashes ( $option['name'] )	: '';
     $option_desc = isset( $option['desc'] ) ? stripslashes ( $option['desc'] )  : '';
-    $option_icon = isset( $option['icon'] )	? $option['icon']                   : '';
+    $option_icon = isset( $option['icon'] )	? $option['icon'] : '';
+    $option_link = isset( $option['link'] )	? $option['link'] : "#";
 ?>
 
 <th scope="row" colspan="2">
@@ -14,8 +15,9 @@ if (isset($option)) {
             <h3> <?php echo $option_name ?></h3>
             <small> <?php echo $option_desc  ?></small>
         </div>
+
        <div class="wpsight-admin-ui-heading-actions">
-           <a href="' . $option['$option_link'] . '" class="button button-primary" target="_blank"> <?php echo __('View Documentation', 'wpcasa') ?></a>
+           <a href="<?php echo $option_link; ?>" class="button button-primary" target="_blank"> <?php echo __('View Documentation', 'wpcasa') ?></a>
             <?php submit_button(__('Save Changes', 'wpcasa'), 'primary', 'wpsight-settings-save', false); ?>
         </div>
     </div>

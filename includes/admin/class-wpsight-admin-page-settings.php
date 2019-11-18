@@ -325,8 +325,10 @@ class WPSight_Admin_Settings {
 		<?php
 
 		do_action( 'wpsight_settings_scripts', $this->settings_name );
+        //wp_localize_script( 'wpsight_settings_scripts', 'theme_name', $this->settings_name);
 
   }
+
     public function reset_settings() {
         check_admin_referer( 'reset', 'reset_settings' );
         flush_rewrite_rules();

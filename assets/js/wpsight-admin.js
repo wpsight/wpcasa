@@ -80,7 +80,7 @@ jQuery(document).ready(function($) {
 
 	// Working with listing fields
 
-    //var themeName = theme_name;
+    console.log(settings_name);
 
 	var workWithListingFields = function () {
 		var totoggle_currency = '.setting-wpcasa_currency_other-tr, .setting-wpcasa_currency_other_ent-tr';

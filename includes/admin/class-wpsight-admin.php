@@ -87,7 +87,7 @@ class WPSight_Admin {
             wp_enqueue_style( 'wpsight-admin',					WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin' . $suffix . '.css', array( 'wpsight-admin-ui-framework', 'cmb2-styles' ) );
 
             wp_enqueue_script( 'wpsight_admin_js',				WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-admin' . $suffix . '.js', array( 'jquery', 'jquery-tiptip', 'jquery-ui-datepicker' ), WPSIGHT_VERSION, true );
-
+            wp_localize_script( 'wpsight_admin_js', 'settings_name', $this->settings_page->settings_name);
         }
 
         if ( in_array( $screen->id, array( 'profile', 'user-edit' ) ) )

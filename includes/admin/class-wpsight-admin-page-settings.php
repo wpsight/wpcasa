@@ -127,6 +127,13 @@ class WPSight_Admin_Settings {
       elseif ( filter_input( INPUT_GET, 'migrate_data' ) === 'success' ) {
         flush_rewrite_rules();
         echo '<div class="fade notice notice-success"><p>' . __( 'Migrate data completed successfully.', 'wpcasa' ) . '</p></div>';
+          ?>
+          <script>
+              if(typeof window.history.pushState == 'function') {
+                  window.history.pushState({}, "Hide", '<?php echo $_SERVER['PHP_SELF'] . "?page=wpsight-settings" ;?>');
+              }
+          </script>
+          <?php
       }
       elseif ( filter_input( INPUT_GET, 'delete_all_transients' ) === 'success' ) {
         flush_rewrite_rules();
@@ -325,7 +332,6 @@ class WPSight_Admin_Settings {
 		<?php
 
 		do_action( 'wpsight_settings_scripts', $this->settings_name );
-        //wp_localize_script( 'wpsight_settings_scripts', 'theme_name', $this->settings_name);
 
   }
 

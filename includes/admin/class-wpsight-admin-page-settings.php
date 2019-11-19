@@ -123,25 +123,54 @@ class WPSight_Admin_Settings {
       elseif ( filter_input( INPUT_GET, 'reset_settings' ) === 'success' ) {
         flush_rewrite_rules();
         echo '<div class="fade notice notice-success"><p>' . __( 'Settings reset.', 'wpcasa' ) . '</p></div>';
+        ?>
+
+          <script>
+              if (typeof window.history.pushState == 'function') {
+                  window.history.pushState({}, "Hide", "<?php echo $_SERVER['PHP_SELF'] . '?page=wpsight-settings'; ?>")
+              }
+          </script>
+
+        <?php
       }
       elseif ( filter_input( INPUT_GET, 'migrate_data' ) === 'success' ) {
         flush_rewrite_rules();
         echo '<div class="fade notice notice-success"><p>' . __( 'Migrate data completed successfully.', 'wpcasa' ) . '</p></div>';
-          ?>
+        ?>
+
           <script>
-              if(typeof window.history.pushState == 'function') {
-                  window.history.pushState({}, "Hide", '<?php echo $_SERVER['PHP_SELF'] . "?page=wpsight-settings" ;?>');
+              if (typeof window.history.pushState == 'function') {
+                  window.history.pushState({}, "Hide", "<?php echo $_SERVER['PHP_SELF'] . '?page=wpsight-settings'; ?>")
               }
           </script>
-          <?php
+
+        <?php
       }
       elseif ( filter_input( INPUT_GET, 'delete_all_transients' ) === 'success' ) {
         flush_rewrite_rules();
         echo '<div class="fade notice notice-success"><p>' . __( 'All transients removed.', 'wpcasa' ) . '</p></div>';
+        ?>
+
+          <script>
+              if (typeof window.history.pushState == 'function') {
+                  window.history.pushState({}, "Hide", "<?php echo $_SERVER['PHP_SELF'] . '?page=wpsight-settings'; ?>")
+              }
+          </script>
+
+        <?php
       }
       elseif ( filter_input( INPUT_GET, 'delete_all_data' ) === 'success' ) {
         flush_rewrite_rules();
         echo '<div class="fade notice notice-success"><p>' . __( 'All data deleted.', 'wpcasa' ) . '</p></div>';
+        ?>
+
+          <script>
+              if (typeof window.history.pushState == 'function') {
+                  window.history.pushState({}, "Hide", "<?php echo $_SERVER['PHP_SELF'] . '?page=wpsight-settings'; ?>")
+              }
+          </script>
+
+        <?php
       }
     ?>
 
@@ -332,7 +361,6 @@ class WPSight_Admin_Settings {
 		<?php
 
 		do_action( 'wpsight_settings_scripts', $this->settings_name );
-
   }
 
     public function reset_settings() {

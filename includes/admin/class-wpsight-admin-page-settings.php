@@ -112,256 +112,14 @@ class WPSight_Admin_Settings {
 	 *	@since 1.0.0
 	 */
 	public function output() {
-
-		$this->init_settings(); ?>
-
-    <?php
-      if ( isset( $_GET['settings-updated'] ) ) {
-        flush_rewrite_rules();
-        echo '<div class="fade notice notice-success"><p>' . __( 'Settings saved.', 'wpcasa' ) . '</p></div>';
-      }
-      elseif ( filter_input( INPUT_GET, 'reset_settings' ) === 'success' ) {
-        flush_rewrite_rules();
-        echo '<div class="fade notice notice-success"><p>' . __( 'Settings reset.', 'wpcasa' ) . '</p></div>';
-        ?>
-
-          <script>
-              if (typeof window.history.pushState == 'function') {
-                  window.history.pushState({}, "Hide", "<?php echo $_SERVER['PHP_SELF'] . '?page=wpsight-settings'; ?>")
-              }
-          </script>
-
-        <?php
-      }
-      elseif ( filter_input( INPUT_GET, 'migrate_data' ) === 'success' ) {
-        flush_rewrite_rules();
-        echo '<div class="fade notice notice-success"><p>' . __( 'Migrate data completed successfully.', 'wpcasa' ) . '</p></div>';
-        ?>
-
-          <script>
-              if (typeof window.history.pushState == 'function') {
-                  window.history.pushState({}, "Hide", "<?php echo $_SERVER['PHP_SELF'] . '?page=wpsight-settings'; ?>")
-              }
-          </script>
-
-        <?php
-      }
-      elseif ( filter_input( INPUT_GET, 'delete_all_transients' ) === 'success' ) {
-        flush_rewrite_rules();
-        echo '<div class="fade notice notice-success"><p>' . __( 'All transients removed.', 'wpcasa' ) . '</p></div>';
-        ?>
-
-          <script>
-              if (typeof window.history.pushState == 'function') {
-                  window.history.pushState({}, "Hide", "<?php echo $_SERVER['PHP_SELF'] . '?page=wpsight-settings'; ?>")
-              }
-          </script>
-
-        <?php
-      }
-      elseif ( filter_input( INPUT_GET, 'delete_all_data' ) === 'success' ) {
-        flush_rewrite_rules();
-        echo '<div class="fade notice notice-success"><p>' . __( 'All data deleted.', 'wpcasa' ) . '</p></div>';
-        ?>
-
-          <script>
-              if (typeof window.history.pushState == 'function') {
-                  window.history.pushState({}, "Hide", "<?php echo $_SERVER['PHP_SELF'] . '?page=wpsight-settings'; ?>")
-              }
-          </script>
-
-        <?php
-      }
-    ?>
-
-		<div class="wrap wpsight-settings-wrap">
-
-        <div class="wpsight-admin-sidebar-back"></div>
-        <div class="wpsight-admin-sidebar">
-
-            <div class="wpsight-admin-intro-box">
-                <div class="wpsight-admin-ui-image">
-                    <img src="<?php echo WPSIGHT_PLUGIN_URL . '/assets/img/wpcasa-admin-logo.jpg' ?>" />
-                </div>
-            </div>
-
-            <div class="wpsight-admin-nav nav-tab-wrapper">
-
-                <a href="#settings-overview" id="settings-overview-tab" class="nav-tab"><span class="dashicons dashicons-laptop"></span><?php _e( 'Overview', 'wpcasa' ); ?></a>
-                <?php
-                    foreach ( $this->settings as $key => $section )
-                        echo '<a href="#settings-' . sanitize_title( $key ) . '" id="settings-' . sanitize_title( $key ) . '-tab" class="nav-tab">' . $section[0] . '</a>';
-                ?>
-                <a href="#settings-tools" id="settings-tools-tab" class="nav-tab"><span class="dashicons dashicons-admin-tools"></span><?php _e( 'Tools', 'wpcasa' ); ?></a>
-
-            </div>
-
-        </div>
-
-        <div class="wpsight-admin-main">
-
-            <div class="wpsight-admin-ui-panel wpsight-admin-main-wrap-btn-toggle">
-                <button class="wpsight-admin-main-btn-toggle">
-                    <span class="wpsight-admin-main-btn-toggle-line"></span>
-                    <span class="wpsight-admin-main-btn-toggle-line"></span>
-                    <span class="wpsight-admin-main-btn-toggle-line"></span>
-                </button>
-            </div>
-
-            <div id="settings-overview" class="settings_panel">
-
-                <div class="wpsight-admin-ui-container">
-
-                    <div class="wpsight-admin-ui-grid settings_panel_boxes wpsight-admin-ui-grid-same-height">
-
-                        <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-1-3 wpsight-admin-ui-grid-col-same-height">
-                            <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-hero wpsight-admin-ui-panel-account">
-                              <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-account.php'; ?>
-                            </div>
-                        </div>
-
-                        <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-1-3 wpsight-admin-ui-grid-same-height">
-                            <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-hero wpsight-admin-ui-panel-documentation">
-                              <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-documentation.php'; ?>
-                            </div>
-                        </div>
-
-                        <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-1-3 wpsight-admin-ui-grid-same-height">
-                            <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-hero wpsight-admin-ui-panel-support">
-                              <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-support.php'; ?>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="wpsight-admin-ui-grid">
-
-                        <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-2-3 wpsight-admin-ui-panel-wrap-theme">
-
-                            <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-theme">
-
-                              <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-theme.php'; ?>
-
-                            </div>
-
-                            <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-addons">
-
-                              <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-addons.php'; ?>
-
-                            </div>
-
-                        </div>
-
-                        <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-1-3 wpsight-admin-ui-panel-wrap-theme-bar">
-
-                             <div class="wpsight-admin-ui-panel-wrap-theme-bar-item wpsight-admin-ui-panel-wrap-theme-bar-images">
-                                  <?php if( wpsight_is_premium() == false ) { ?>
-                                      <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-auto-height wpsight-admin-ui-panel-system wpsight-admin-ui-no-padding">
-                                          <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-promo-products.php'; ?>
-                                      </div>
-                                  <?php } ?>
-
-                                  <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-auto-height wpsight-admin-ui-panel-system wpsight-admin-ui-no-padding">
-                                      <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-promo-services.php'; ?>
-                                  </div>
-                             </div>
-
-                            <div class="wpsight-admin-ui-panel-wrap-theme-bar-item wpsight-admin-ui-panel-wrap-theme-bar-content">
-                                <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-hero wpsight-admin-ui-panel-system">
-                                    <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-server-info.php'; ?>
-                                </div>
-
-                                <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-newsletter">
-                                    <?php include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/panel-newsletter.php'; ?>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <form method="post" action="options.php">
-
-                <?php settings_fields( $this->settings_group ); ?>
-
-                <?php
-
-                    foreach ( $this->settings as $key => $section ) {
-
-                        echo '<div id="settings-' . sanitize_title( $key ) . '" class="settings_panel">'; ?>
-
-                            <div class="wpsight-admin-ui-container">
-
-                                <div class="wpsight-admin-ui-grid">
-
-                                    <div class="wpsight-admin-ui-grid-col wpsight-admin-ui-grid-1-1">
-                                        <div class="wpsight-admin-ui-panel wpsight-admin-ui-panel-large">
-
-                                            <table class="form-table">
-
-                                            <?php foreach ( $section[1] as $option ) {
-                                                $option_css			= sanitize_html_class( $this->settings_name . '_' . $option['id'] );
-
-                                                $option_name		= isset( $option['name'] )				? stripslashes ( $option['name'] )					: '';
-                                                $option_desc		= isset( $option['desc'] )				? stripslashes ( $option['desc'] )					: '';
-                                                $option_type		= isset( $option['type'] )				? $option['type']									: '';
-                                                $class				= isset( $option['class'] )				? ' ' . $option['class']							: '';
-
-                                                ?>
-
-                                                <tr valign="top" class="setting-<?php echo $option_css ?>-tr<?php echo $class ?>">
-                                                    <?php
-
-                                                    if( ( $option_type == 'pageheading' ) || ( $option_type == 'heading' ) ) {
-                                                        require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php';
-
-                                                    } else { ?>
-
-                                                        <th scope="row">
-                                                            <label for="setting-' . $option_css . '"><?php echo $option_name ?></label>
-                                                            <p class="description"><?php echo $option_desc ?></p>
-                                                        </th>
-                                                        <td>
-                                                            <div class="wpsight-settings-field-wrap wpsight-settings-field-' . $option_type . '-wrap">
-
-                                                            <?php require  plugin_dir_path( __FILE__ ) . 'views/option-' . $option_type . '.php'; ?>
-
-                                                            </div>
-                                                        </td>
-                                                    <?php  } ?>
-                                                </tr>
-
-                                                <?php  } ?>
-
-                                            </table>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                       </div>
-
-                   <?php  } ?>
-
-            </form>
-
-            <?php require  plugin_dir_path( __FILE__ ) . 'views/page-tools.php'; ?>
-
-        </div>
-
-		</div>
-
-		<?php
+		$this->init_settings();
+        $settings = $this->settings;
+        $settings_group = $this->settings_group;
+
+        include WPSIGHT_PLUGIN_DIR . '/includes/admin/views/settings.php';
 
 		do_action( 'wpsight_settings_scripts', $this->settings_name );
-  }
+    }
 
     public function reset_settings() {
         check_admin_referer( 'reset', 'reset_settings' );
@@ -404,11 +162,9 @@ class WPSight_Admin_Settings {
 
     public function delete_all_data() {
         check_admin_referer( 'delete_data', 'delete_all_data' );
-
-
         global $wpdb;
 
-        //      delete listing posts
+        //delete listing posts
         $result = $wpdb->query(
           $wpdb->prepare("
             DELETE posts,pt,pm
@@ -421,7 +177,7 @@ class WPSight_Admin_Settings {
           )
         );
 
-        //      delete listings taxonomy terms
+        //delete listings taxonomy terms
         $taxes = ['feature', 'feature' , 'listing-type', 'location', 'listing-category'];
 
         foreach( $taxes as $tax ) {
@@ -434,11 +190,8 @@ class WPSight_Admin_Settings {
           }
         }
 
-
         $redirect = add_query_arg( 'delete_all_data', 'success', admin_url("/admin.php?page=wpsight-settings") );
         wp_redirect($redirect, 301);
         exit;
-
     }
-
 }

@@ -1,11 +1,11 @@
 <div id="settings-tools" class="settings_panel">
     <?php
-        $tools_message_array = array (
+        $tools_message_array = [
             'reset_settings' => __( 'Settings reset.', 'wpcasa' ),
             'migrate_data' => __( 'Migrate data completed successfully.' ),
             'delete_all_transients' => __( 'All transients removed.' ),
             'delete_all_data' => __( 'All data deleted.' )
-        );
+        ];
 
         foreach ( $tools_message_array as $key => $message ) {
             if ( filter_input( INPUT_GET, $key ) === 'success' ) {

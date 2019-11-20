@@ -80,37 +80,39 @@ jQuery(document).ready(function($) {
 
 	// Working with listing fields
 
-    console.log(settings_name);
-
 	var workWithListingFields = function () {
-		var totoggle_currency = '.setting-wpcasa_currency_other-tr, .setting-wpcasa_currency_other_ent-tr';
+		var totoggle_currency = '.setting-' + settings_name + '_currency_other-tr, .setting-' + settings_name + '_currency_other_ent-tr';
 
-		jQuery('#setting-wpcasa_currency').change(function() {
-			if( jQuery(this).val() == 'other' ) {
+        if( jQuery('#setting-' + settings_name + '_currency').val() === 'other' ) {
+            jQuery(totoggle_currency).fadeIn(150);
+        }
+
+		jQuery('#setting-' + settings_name + '_currency').change(function() {
+			if( jQuery(this).val() === 'other' ) {
 				jQuery(totoggle_currency).fadeIn(150);
 			} else {
 				jQuery(totoggle_currency).fadeOut(150);
 			}
 		});
 
-		var totoggle_details = $(".setting-wpcasa_heading_details-tr ~[class^=setting-wpcasa_details_]");
+		var totoggle_details = $('.setting' + settings_name + 'heading_details-tr ~[class^=setting' + settings_name + 'details_]');
 
-		jQuery('#setting-wpcasa_listing_features').click(function() {
+		jQuery('#setting' + settings_name + 'listing_features').click(function() {
 			totoggle_details.fadeToggle(150);
 		});
 
-		if (jQuery('#setting-wpcasa_listing_features:checked').val() !== undefined) {
+		if (jQuery('#setting' + settings_name + 'listing_features:checked').val() !== undefined) {
 			totoggle_details.show();
 		}
 
 
-		var totoggle_periods = $(".setting-wpcasa_heading_rental_periods-tr ~[class^=setting-wpcasa_rental_period_]");
+		var totoggle_periods = $('.setting' + settings_name + 'heading_rental_periods-tr ~[class^=setting' + settings_name + 'rental_period_]');
 
-		jQuery('#setting-wpcasa_rental_periods').click(function() {
+		jQuery('#setting' + settings_name + 'rental_periods').click(function() {
 			totoggle_periods.fadeToggle(150);
 		});
 
-		if (jQuery('#setting-wpcasa_rental_periods:checked').val() !== undefined) {
+		if (jQuery('#setting' + settings_name + 'rental_periods:checked').val() !== undefined) {
 			totoggle_periods.show();
 		}
 

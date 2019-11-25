@@ -134,7 +134,26 @@ class WPSight_Admin_Settings {
 
     public function migrate_data() {
         check_admin_referer( 'migrate', 'migrate_data' );
-        flush_rewrite_rules();
+
+        $args = array(
+            'post_type' => 'listing',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => '_map_geolocation',
+                    'compare' => 'NOT EXISTS'
+                ),
+            )
+        );
+        $map_query = new WP_Query( $args );
+
+        while ( $map_query->have_posts() ) : $map_query->the_post();
+            $geo_lat = esc_js( get_post_meta( get_the_id(), '_geolocation_lat', true ) );
+            $geo_lng = esc_js( get_post_meta( get_the_id(), '_geolocation_long', true ) );
+
+            update_post_meta(get_the_id(), '_map_geolocation', array('lat' => $geo_lat, 'long' => $geo_lng));
+        endwhile;
+        wp_reset_query();
 
         $redirect = add_query_arg( 'migrate_data', 'success', admin_url("/admin.php?page=wpsight-settings") );
         wp_redirect($redirect, 301);

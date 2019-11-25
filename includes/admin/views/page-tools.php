@@ -2,7 +2,7 @@
     <?php
         $tools_message_array = [
             'reset_settings' => __( 'Settings reset.', 'wpcasa' ),
-            'migrate_data' => __( 'Migrate data completed successfully.' ),
+            'migrate_data' => __( 'Migrate map data completed successfully.' ),
             'delete_all_transients' => __( 'All transients removed.' ),
             'delete_all_data' => __( 'All data deleted.' )
         ];
@@ -78,8 +78,8 @@
                         <tr valign="top">
 
                             <th scope="row">
-                                <label><?php _e( 'Migrate Data', 'wpcasa' ); ?></label>
-                                <p class="description"><?php _e( 'This will migrate data from the old wpCasa Theme Framework, into the new WPCasa Format. Please make sure to fully backup your site before you proceed. Only use if you have used (or still use) the old wpCasa Theme (or one of its child themes like Ushuaia, Penthouse, Marbella,...) and are now in the process to migrate to the new WPCasa plugin, and dont see your properties.', 'wpcasa' ); ?></p>
+                                <label><?php _e( 'Migrate Map Data', 'wpcasa' ); ?></label>
+                                <p class="description"><?php _e( 'This will migrate data from the old map wpCasa format, into the new WPCasa map Format. Please make sure to fully backup your site before you proceed.', 'wpcasa' ); ?></p>
                             </th>
 
                             <td>

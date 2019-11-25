@@ -21,7 +21,7 @@ class WPSight_Geocode {
 		
 		// Update listing data submitted through front end form
 		add_action( 'wpsight_update_listing_data', array( $this, 'update_location_data' ), 20, 2 );
-		
+
 		// Update location data submitted through post meta
 		add_action( 'wpsight_listing_location_edited', array( $this, 'change_location_data' ), 20, 2 );
 
@@ -336,4 +336,4 @@ class WPSight_Geocode {
 }
 
 // Call wpSight_Geocode class
-new WPSight_Geocode();
+//new WPSight_Geocode();

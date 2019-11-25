@@ -1,0 +1,218 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: WPCasa Listings Map\n"
+"POT-Creation-Date: 2016-06-08 11:22+0200\n"
+"PO-Revision-Date: 2016-06-08 11:30+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: wpcasa-listings-map.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: es_ES\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:39
+msgid "Map Page"
+msgstr "Página del mapa"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:40
+msgid "Please select the page that contains the listings map shortcode."
+msgstr "Por favor, seleccione la página que contiene el shortcode del mapa."
+
+#: includes/admin/class-wpsight-listings-map-admin.php:45
+msgid "Listings Panel"
+msgstr "Panel de listados"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:46
+msgid "Show toggle link in listings panel"
+msgstr "Mostrar enlace en el panel de anuncios"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:47
+msgid ""
+"Will show a link in the listings panel (next to orderby options) and the map "
+"below when clicked."
+msgstr ""
+"Mostrará un enlace en el panel de anuncios (al lado de opciones de "
+"ordenación) y el mapa debajo cuando se hace clic."
+
+#: includes/admin/class-wpsight-listings-map-admin.php:52
+msgid "Link Text"
+msgstr "Texto del enlace"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:53
+msgid "Please enter the text for the listings panel link."
+msgstr "Por favor, introduzca el texto para el enlace del panel de listados."
+
+#: includes/admin/class-wpsight-listings-map-admin.php:56
+#: wpcasa-listings-map.php:157 wpcasa-listings-map.php:231
+msgid "Toggle Map"
+msgstr "Ver Mapa"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:59
+msgid "Number"
+msgstr "Número"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:60
+msgid ""
+"Please enter the maximum number of listings (<code>-1</code> to show all)."
+msgstr ""
+"Por favor, introduzca el número máximo de anuncios ( <code>-1</code> para "
+"mostrar todos)."
+
+#: includes/admin/class-wpsight-listings-map-admin.php:66
+msgid "Width"
+msgstr "Ancho"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:67
+msgid ""
+"Please enter the default width of the map (in <code>px</code> or <code>%</"
+"code>)."
+msgstr ""
+"Por favor, introduzca el ancho predeterminado del mapa (en <code>px</code> o "
+"<code>%</code>."
+
+#: includes/admin/class-wpsight-listings-map-admin.php:73
+msgid "Height"
+msgstr "Alto"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:74
+msgid "Please enter the default height of the map (in <code>px</code>)."
+msgstr ""
+"Por favor, introduzca la altura predeterminada del mapa (en <code>px</code>)."
+
+#: includes/admin/class-wpsight-listings-map-admin.php:80
+msgid "Type"
+msgstr "Tipo"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:81
+msgid "Please select the default map type."
+msgstr "Seleccione el tipo de mapa predeterminado."
+
+#: includes/admin/class-wpsight-listings-map-admin.php:83
+msgid "Roadmap"
+msgstr "Roadmap"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:84
+msgid "Sattelite"
+msgstr "Sattelite"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:85
+msgid "Hybrid"
+msgstr "Hybrid"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:86
+msgid "Terrain"
+msgstr "Terrain"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:93
+msgid "Type Control"
+msgstr "Control tipo"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:94
+msgid "Display type control"
+msgstr "Activar el control de tipo"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:95
+msgid "Let the user change the map type."
+msgstr "Deje al usuario cambiar el tipo de mapa."
+
+#: includes/admin/class-wpsight-listings-map-admin.php:101
+msgid "Style"
+msgstr "Estilo"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:102
+msgid ""
+"Please select the style of the listings map. Styles will only apply to "
+"ROADMAP or TERRAIN map type."
+msgstr ""
+"Por favor, seleccione el estilo del mapa. Estilos sólo se aplicarán a los "
+"tipos de mapa ROADMAP y TERRAIN."
+
+#: includes/admin/class-wpsight-listings-map-admin.php:108
+msgid "Scrollwheel"
+msgstr "Scrollwheel"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:109
+msgid "Enable scroll wheel"
+msgstr "Habilitar rueda de ratón"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:110
+msgid "Let the user change the map zoom using the scrollwheel."
+msgstr ""
+"Deje que el usuario cambie el mapa zoom utilizando la rueda de "
+"desplazamiento."
+
+#: includes/admin/class-wpsight-listings-map-admin.php:115
+msgid "Streetview"
+msgstr "Streetview"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:116
+msgid "Enable streetview"
+msgstr "Habilitar streetview"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:117
+msgid "Let the user activate streetview on the map."
+msgstr "Deje que el usuario active la opción streetview."
+
+#: includes/admin/class-wpsight-listings-map-admin.php:126
+msgid "Map"
+msgstr "Mapa"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:147
+msgid "Listings Map"
+msgstr "Mapa de anuncios"
+
+#: includes/admin/class-wpsight-listings-map-admin.php:150
+msgid "Exclude from listings map"
+msgstr "Excluir del mapa de anuncios"
+
+#: includes/class-wpsight-listings-map-shortcode.php:46
+#: wpcasa-listings-map-functions.php:47
+msgid "Show Map"
+msgstr "Mostrar mapa"
+
+#: includes/class-wpsight-listings-map-styles.php:64
+msgid "Default"
+msgstr "Estándar"
+
+#: templates/listings-map-infobox.php:32
+msgid "View details"
+msgstr "Ver detalles"
+
+#: wpcasa-listings-map.php:216
+msgctxt "listings map page title"
+msgid "Listings Map"
+msgstr "Mapa"
+
+#. Plugin Name of the plugin/theme
+msgid "WPCasa Listings Map"
+msgstr "WPCasa Listings Map"
+
+#. Plugin URI of the plugin/theme
+msgid "https://wpcasa.com/downloads/wpcasa-listings-map"
+msgstr "https://wpcasa.com/downloads/wpcasa-listings-map"
+
+#. Description of the plugin/theme
+msgid ""
+"Show listings as markers on a Google Map. This can be a central map with all "
+"listings or limited to a specific query."
+msgstr ""
+"Ver listados como marcadores en un mapa de Google. Esto puede ser un mapa "
+"central con todos los anuncios o limitado a una consulta específica."
+
+#. Author of the plugin/theme
+msgid "WPSight"
+msgstr "WPSight"
+
+#. Author URI of the plugin/theme
+msgid "http://wpsight.com"
+msgstr "http://wpsight.com"

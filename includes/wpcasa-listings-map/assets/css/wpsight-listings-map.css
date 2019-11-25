@@ -1,0 +1,150 @@
+/* Listings Map
+================================================== */
+
+.map-toggle {
+	display: none;
+	margin-bottom: 40px;
+}
+
+.toggle-map.open + .map-toggle {
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.map-wrap {
+	margin-bottom: 20px;
+}
+
+.map-toggle .map-canvas {
+	margin-bottom: 0;
+}
+
+.map-canvas img {
+	border-radius: 0 !important;
+	box-shadow: none !important;
+}
+
+.map-canvas .infobox-image img {
+	max-width: 100%;
+}
+
+/* Listings Map Infobox
+================================================== */
+
+.wpsight-infobox {
+	background-color: white;
+	font-size: 14px;
+	max-width: 300px;
+	overflow: hidden;
+}
+
+.infobox-image img.wp-post-image {
+	border-radius: 0;
+	box-shadow: none;
+    display: block;
+}
+
+/** Infobox Header */
+
+.infobox-header {
+	padding: 20px 30px 0;
+}
+
+.infobox-header .infobox-title {
+	font-size: 18px;
+	font-weight: normal;
+	line-height: normal;
+	margin: 0;
+	padding: 0;
+}
+
+.infobox-title a.infobox-title-link,
+.infobox-title a.infobox-title-link:hover,
+.infobox-title a.infobox-title-link:visited,
+.infobox-title a.infobox-title-link:focus {
+	color: inherit;
+	text-decoration: none !important;
+}
+
+/** Infobox Content */
+
+.infobox-content {
+	padding: 20px 30px 30px;
+}
+
+.infobox-content p:last-child {
+	margin-bottom: 0;
+}
+
+.infobox-content .wpsight-listing-info {
+	margin-bottom: 15px;
+}
+
+.infobox-content .wpsight-listing-summary {
+	margin-bottom: 0;
+}
+
+/** Infobox Footer */
+
+.infobox-footer {
+	display: none;
+	padding: 30px 30px 35px;
+}
+
+.infobox-footer p:last-child {
+	margin-bottom: 0;
+}
+
+.infobox-footer a.button,
+.infobox-footer a.button:visited,
+.infobox-footer a.button:focus {
+	background-color: #ededed;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	color: inherit;
+	font-size: 12px;
+	margin-bottom: 10px;
+	padding: 10px 15px;
+	text-decoration: none;
+}
+
+/* Infobox fade in and up animation */
+
+.infoBox {
+    -webkit-animation: fadeInUpSmall 250ms; 
+    animation: fadeInUpSmall 250ms;
+}
+
+@-webkit-keyframes fadeInUpSmall {
+    from {
+        opacity: 0;
+        margin-top: 5px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+@keyframes fadeInUpSmall {
+    from {
+        opacity: 0;
+        margin-top: 5px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+/* Listings Map Infobox Close Button
+================================================== */
+
+.infoBox > img {
+    margin: 0 !important;
+    position: absolute !important;
+    top: -1px;
+    right: 0;
+    z-index: 1;
+}

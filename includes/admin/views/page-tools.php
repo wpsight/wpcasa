@@ -2,7 +2,7 @@
     <?php
         $tools_message_array = [
             'reset_settings' => __( 'Settings reset.', 'wpcasa' ),
-            'migrate_data' => __( 'Migrate map data completed successfully.' ),
+//            'migrate_data' => __( 'Migrate map data completed successfully.' ),
             'delete_all_transients' => __( 'All transients removed.' ),
             'delete_all_data' => __( 'All data deleted.' )
         ];
@@ -71,29 +71,6 @@
                                         </form>
                                     </div>
                                 </div>
-                            </td>
-
-                        </tr>
-
-                        <tr valign="top">
-
-                            <th scope="row">
-                                <label><?php _e( 'Migrate Map Data', 'wpcasa' ); ?></label>
-                                <p class="description"><?php _e( 'This will migrate data from the old map wpCasa format, into the new WPCasa map Format. Please make sure to fully backup your site before you proceed.', 'wpcasa' ); ?></p>
-                            </th>
-
-                            <td>
-
-                                <div class="wpsight-settings-field-wrap wpsight-settings-field-reset-wrap">
-                                    <div class="wpsight-settings-field wpsight-settings-field-reset">
-                                        <form method="post" action="<?php echo admin_url( 'admin-post.php' ); ?>">
-                                            <input type="hidden" name="action" value="migrate_data">
-                                            <?php wp_nonce_field("migrate", "migrate_data"); ?>
-                                            <input type="submit" class="reset-button button-secondary" name="migrate" value="<?php esc_attr_e( 'Migrate Data', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Do you really want to perform the migration?', 'wpcasa' ) ); ?>' );" />
-                                        </form>
-                                    </div>
-                                </div>
-
                             </td>
 
                         </tr>

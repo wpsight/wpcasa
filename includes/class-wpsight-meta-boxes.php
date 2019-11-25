@@ -34,10 +34,20 @@ class WPSight_Meta_Boxes {
 		// Update geolocation data
 //		add_action( 'update_post_meta', array( $this, 'maybe_generate_geolocation_data' ), 10, 4 );
 
+        add_action( 'updated_post_meta', array( $this, 'update_map_values' ), 10, 4 );
+
 		// Update some listing post meta data
 		add_action( 'add_meta_boxes_listing', array( $this, 'admin_post_meta_update' ) );
 
 	}
+
+    function update_map_values($meta_id, $post_id, $meta_key='', $meta_value='') {
+        $geo_lat = esc_js( get_post_meta( $post_id, '_map_geolocation', true )['lat'] );
+        $geo_lng = esc_js( get_post_meta( $post_id, '_map_geolocation', true )['long'] );
+
+        update_post_meta( get_the_id(), '_geolocation_lat', $geo_lat );
+        update_post_meta( get_the_id(), '_geolocation_long', $geo_lng );
+    }
 
 	/**
 	 * cmb2_meta_box_url()

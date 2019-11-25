@@ -97,23 +97,23 @@ class WPSight_Framework {
 //        }
 
 //        Map admin ui integration
-        if ( is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
-            deactivate_plugins( '/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
-        }
-
-
-        if ( !is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
-            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
-        }
+//        if ( is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
+//            deactivate_plugins( '/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
+//        }
+//
+//
+//        if ( !is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
+//            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
+//        }
 
 //      listing map integration
-        if ( is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
-            deactivate_plugins( '/wpcasa-listings-map/wpcasa-listings-map.php' );
-        }
-
-        if ( !is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
-            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-listings-map/wpcasa-listings-map.php' );
-        }
+//        if ( is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
+//            deactivate_plugins( '/wpcasa-listings-map/wpcasa-listings-map.php' );
+//        }
+//
+//        if ( !is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
+//            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-listings-map/wpcasa-listings-map.php' );
+//        }
 
 		// Only instantiate admin class when in admin area
 		if ( is_admin() )

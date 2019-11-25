@@ -87,13 +87,23 @@ class WPSight_Framework {
 		include( WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin.php' );
 
         require_once(ABSPATH . 'wp-admin/includes/plugin.php');
-        if ( is_plugin_active( 'wpcasa-polylang/wpcasa-polylang.php' )  ) {
-            deactivate_plugins( '/wpcasa-polylang/wpcasa-polylang.php' );
+        // Include wpcasa polylang
+//        if ( is_plugin_active( 'wpcasa-polylang/wpcasa-polylang.php' )  ) {
+//            deactivate_plugins( '/wpcasa-polylang/wpcasa-polylang.php' );
+//        }
+//
+//        if ( !is_plugin_active( 'wpcasa-polylang/wpcasa-polylang.php' )  ) {
+//            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-polylang/wpcasa-polylang.php' );
+//        }
+
+//        Map admin ui integration
+        if ( is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
+            deactivate_plugins( '/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
         }
 
-        // Include wpcasa contact form 7 class
-        if ( !is_plugin_active( 'wpcasa-polylang/wpcasa-polylang.php' )  ) {
-            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-polylang/wpcasa-polylang.php' );
+
+        if ( !is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
+            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
         }
 
 		// Only instantiate admin class when in admin area

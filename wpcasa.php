@@ -3,7 +3,7 @@
 Plugin Name: WPCasa
 Plugin URI: https://wpcasa.com
 Description: Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
-Version: 1.1.0
+Version: 1.2.0
 Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 4.0
@@ -97,14 +97,14 @@ class WPSight_Framework {
 //        }
 
 //        Map admin ui integration
-//        if ( is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
-//            deactivate_plugins( '/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
-//        }
-//
-//
-//        if ( !is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
-//            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
-//        }
+        if ( is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
+            deactivate_plugins( '/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
+        }
+
+
+        if ( !is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
+            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
+        }
 
 //      listing map integration
 //        if ( is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {

@@ -42,11 +42,14 @@ class WPSight_Meta_Boxes {
 	}
 
     function update_map_values($meta_id, $post_id, $meta_key='', $meta_value='') {
-        $geo_lat = esc_js( get_post_meta( $post_id, '_map_geolocation', true )['lat'] );
-        $geo_lng = esc_js( get_post_meta( $post_id, '_map_geolocation', true )['long'] );
+        if ( get_post_meta( $post_id, '_map_geolocation', true ) != '' ) {
+            $geo_lat = esc_js( get_post_meta( $post_id, '_map_geolocation', true )['lat'] );
+            $geo_lng = esc_js( get_post_meta( $post_id, '_map_geolocation', true )['long'] );
 
-        update_post_meta( get_the_id(), '_geolocation_lat', $geo_lat );
-        update_post_meta( get_the_id(), '_geolocation_long', $geo_lng );
+
+            update_post_meta( get_the_id(), '_geolocation_lat', $geo_lat );
+            update_post_meta( get_the_id(), '_geolocation_long', $geo_lng );
+        }
     }
 
 	/**

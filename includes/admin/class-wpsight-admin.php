@@ -157,9 +157,6 @@ class WPSight_Admin {
      * @return void
      */
     public function add_theme_tab( $tabs ) {
-
-        echo '<button>huhu</button>';
-
         $tabs['wpcasa_themes'] = __( 'WPCasa ', 'wpcasa' ) . '<span class="wpcasa-themes">' . __( 'Themes', 'wpcasa' ) . '</span>' ;
         return $tabs;
     }
@@ -205,16 +202,15 @@ class WPSight_Admin {
      *	@since 1.0.0
      */
     public static function options() {
-
         $options = array(
             'listings' => array(
                 '<span class="dashicons dashicons-admin-multisite"></span>' . __( 'Listings', 'wpcasa' ),
                 (array) self::options_listings()
             ),
-            'search' => array(
-                '<span class="dashicons dashicons-search"></span>' . __( 'Search', 'wpcasa' ),
-                (array) self::options_search()
-            ),
+//            'search' => array(
+//                '<span class="dashicons dashicons-search"></span>' . __( 'Search', 'wpcasa' ),
+//                (array) self::options_search()
+//            ),
             'maps' => array(
                 '<span class="dashicons dashicons-location-alt"></span>' . __( 'Maps', 'wpcasa' ),
                 (array) self::options_maps()

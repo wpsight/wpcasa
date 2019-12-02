@@ -45,6 +45,7 @@ class WPSight_Admin {
 
         add_filter( 'install_plugins_tabs',				array( $this, 'add_addon_tab' ) );
         add_action( 'install_plugins_wpcasa_addons',	array( $this, 'addons_page' ), 10, 1 );
+        add_action( 'install_plugins_wpcasa_recommends',	array( $this, 'recommends_page' ), 10, 1 );
 
 //		add_filter( 'install_themes_tabs',				array( $this, 'add_theme_tab' ) );
 //		add_action( 'install_themes_wpcasa_themes',		array( $this, 'themes_page' ), 10, 1 );
@@ -117,6 +118,9 @@ class WPSight_Admin {
         if ( apply_filters( 'wpsight_show_addons_page', true ) )
             add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Add-Ons', 'wpcasa' ),  __( 'Add-Ons', 'wpcasa' ) , 'manage_options', 'wpsight-addons', array( $this, 'addons_page' ) );
 
+        if ( apply_filters( 'wpsight_show_recommend_page', true ) )
+            add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Recommends', 'wpcasa' ),  __( 'Recommends', 'wpcasa' ) , 'manage_options', 'wpsight-recommends', array( $this, 'recommends_page' ) );
+
         if ( apply_filters( 'wpsight_show_themes_page', true ) )
             add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Themes', 'wpcasa' ),  __( 'Themes', 'wpcasa' ) , 'manage_options', 'wpsight-themes', array( $this, 'themes_page' ) );
 
@@ -148,6 +152,20 @@ class WPSight_Admin {
      */
     public function addons_page() {
         $addons = include WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin-page-addons.php';
+        $addons->output();
+    }
+
+    /**
+     *	recommends_page()
+     *
+     *	Add WPSight recommends page to sub menu.
+     *
+     *	@access	public
+     *
+     *	@since 1.0.0
+     */
+    public function recommends_page() {
+        $addons = include WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin-page-recommends.php';
         $addons->output();
     }
 

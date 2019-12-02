@@ -150,10 +150,10 @@ class WPSight_Listings_Map {
 	 *	@since 1.1.0
 	 */
 	public function panel_map_link() {
-		
-		if( ! wpsight_get_option( 'listings_map_panel' ) )
-			return;
-		
+
+        if( ! wpsight_get_option( 'listings_map_panel' ) )
+            return;
+
 		$link = sprintf( '<div class="listings-panel-action"><a href="#" class="toggle-map">%1$s</a></div>', apply_filters( 'wpsight_listings_panel_map_link_label', wpsight_get_option( 'listings_map_panel_link', __( 'Toggle Map', 'wpcasa-listings-map' ) ) ) );
 		
 		echo apply_filters( 'wpsight_listings_panel_map_link', $link );
@@ -174,8 +174,8 @@ class WPSight_Listings_Map {
 	 *	@since 1.1.0
 	 */
 	public function panel_map( $panel, $query ) {
-		
-		if( isset( $query->post_count ) && $query->post_count >= 1 && wpsight_get_option( 'listings_map_panel' ) ) {
+
+		if( isset( $query->post_count ) && $query->post_count >= 1 ) {
 		
 			$args = array(
 				'map_id'		=> uniqid( 'listings-panel-' ),

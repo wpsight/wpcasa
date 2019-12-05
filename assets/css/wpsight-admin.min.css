@@ -7,19 +7,19 @@
 	.column-listing_expires {
 		width: 160px;
 	}
-	
+
 	.column-listing_status {
 		width: 150px;
 	}
-	
+
 	.column-listing_offer {
 		width: 100px;
 	}
-	
+
 	.column-listing_price {
 		width: 90px;
 	}
-	
+
 	.column-listing_id,
 	.column-listing_actions {
 		width: 70px;
@@ -28,7 +28,7 @@
 }
 
 @media screen and ( max-width: 782px ) {
-	
+
 	.column-listing_posted,
 	.column-listing_expires,
 	.column-listing_status,
@@ -40,21 +40,21 @@
 	.column-listing_actions:before {
 		display: none !important;
 	}
-	
+
 	.column-listing_actions {
 		width: 100px !important;
 	}
-	
+
 	.column-listing_actions,
 	.column-listing_title {
 		display: table-cell !important;
 	}
-	
+
 	.column-listing_title .wpsight-listing-thumbnail {
 		display: block !important;
 		margin-bottom: 15px;
 	}
-	
+
 	.column-listing_title a.button,
 	.column-listing_actions a.button {
 		height: 40px;
@@ -97,7 +97,7 @@ td.column-listing_offer span {
 }
 
 @media screen and ( max-width: 782px ) {
-	
+
 	.column-listing_title .listing-title {
 		font-size: 16px !important;
 		margin-top: 5px;
@@ -413,11 +413,13 @@ th.column-listing_actions {
 	-webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.10);
 	-moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.10);
 	text-align: center;
-	code {
-    	background: #999;
-    	padding: 1px;
-    }
 }
+
+#tiptip_content code {
+	background: #999;
+	padding: 1px;
+}
+
 #tiptip_arrow, #tiptip_arrow_inner {
 	position: absolute;
 	border-color: transparent;
@@ -788,7 +790,7 @@ th.column-listing_actions {
 		top: auto;
 		width: 100%;
 	}
-	
+
 	.download-wrapper .edd_download.download_category-add-ons .entry-header {
 		margin-bottom: 10px;
 		margin-left: 0;
@@ -800,570 +802,574 @@ th.column-listing_actions {
 ================================================== */
 
 @charset "UTF-8";
- 
+
 @font-face {
-  font-family: "feather";
-  src:url("../fonts/feather-webfont.eot");
-  src:url("../fonts/feather-webfont.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/feather-webfont.woff") format("woff"),
-    url("../fonts/feather-webfont.ttf") format("truetype"),
-    url("../fonts/feather-webfont.svg#feather") format("svg");
-  font-weight: 300;
-  font-style: normal;
+	font-family: "feather";
+	src:url("../fonts/feather-webfont.eot");
+	src:url("../fonts/feather-webfont.eot?#iefix") format("embedded-opentype"),
+	url("../fonts/feather-webfont.woff") format("woff"),
+	url("../fonts/feather-webfont.ttf") format("truetype"),
+	url("../fonts/feather-webfont.svg#feather") format("svg");
+	font-weight: 300;
+	font-style: normal;
 }
 
 /* CSS Class Mapping Method */
- 
+
 .wpsight-addons [class*="icon-"] {
-  display: inline-block;
-  font-family: "feather";
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	display: inline-block;
+	font-family: "feather";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .wpsight-addons .icon-eye:before {
-  content: "\e000";
+	content: "\e000";
 }
 
 .wpsight-addons .icon-paper-clip:before {
-  content: "\e001";
+	content: "\e001";
 }
 
 .wpsight-addons .icon-mail:before {
-  content: "\e002";
+	content: "\e002";
 }
 
 .wpsight-addons .icon-mail:before {
-  content: "\e002";
+	content: "\e002";
 }
 
 .wpsight-addons .icon-toggle:before {
-  content: "\e003";
+	content: "\e003";
 }
 
 .wpsight-addons .icon-layout:before {
-  content: "\e004";
+	content: "\e004";
 }
 
 .wpsight-addons .icon-link:before {
-  content: "\e005";
+	content: "\e005";
 }
 
 .wpsight-addons .icon-bell:before {
-  content: "\e006";
+	content: "\e006";
 }
 
 .wpsight-addons .icon-lock:before {
-  content: "\e007";
+	content: "\e007";
 }
 
 .wpsight-addons .icon-unlock:before {
-  content: "\e008";
+	content: "\e008";
 }
 
 .wpsight-addons .icon-ribbon:before {
-  content: "\e009";
+	content: "\e009";
 }
 
 .wpsight-addons .icon-image:before {
-  content: "\e010";
+	content: "\e010";
 }
 
 .wpsight-addons .icon-signal:before {
-  content: "\e011";
+	content: "\e011";
 }
 
 .wpsight-addons .icon-target:before {
-  content: "\e012";
+	content: "\e012";
 }
 
 .wpsight-addons .icon-clipboard:before {
-  content: "\e013";
+	content: "\e013";
 }
 
 .wpsight-addons .icon-clock:before {
-  content: "\e014";
+	content: "\e014";
 }
 
 .wpsight-addons .icon-clock:before {
-  content: "\e014";
+	content: "\e014";
 }
 
 .wpsight-addons .icon-watch:before {
-  content: "\e015";
+	content: "\e015";
 }
 
 .wpsight-addons .icon-air-play:before {
-  content: "\e016";
+	content: "\e016";
 }
 
 .wpsight-addons .icon-camera:before {
-  content: "\e017";
+	content: "\e017";
 }
 
 .wpsight-addons .icon-video:before {
-  content: "\e018";
+	content: "\e018";
 }
 
 .wpsight-addons .icon-disc:before {
-  content: "\e019";
+	content: "\e019";
 }
 
 .wpsight-addons .icon-printer:before {
-  content: "\e020";
+	content: "\e020";
 }
 
 .wpsight-addons .icon-monitor:before {
-  content: "\e021";
+	content: "\e021";
 }
 
 .wpsight-addons .icon-server:before {
-  content: "\e022";
+	content: "\e022";
 }
 
 .wpsight-addons .icon-cog:before {
-  content: "\e023";
+	content: "\e023";
 }
 
 .wpsight-addons .icon-heart:before {
-  content: "\e024";
+	content: "\e024";
 }
 
 .wpsight-addons .icon-paragraph:before {
-  content: "\e025";
+	content: "\e025";
 }
 
 .wpsight-addons .icon-align-justify:before {
-  content: "\e026";
+	content: "\e026";
 }
 
 .wpsight-addons .icon-align-left:before {
-  content: "\e027";
+	content: "\e027";
 }
 
 .wpsight-addons .icon-align-center:before {
-  content: "\e028";
+	content: "\e028";
 }
 
 .wpsight-addons .icon-align-right:before {
-  content: "\e029";
+	content: "\e029";
 }
 
 .wpsight-addons .icon-book:before {
-  content: "\e030";
+	content: "\e030";
 }
 
 .wpsight-addons .icon-layers:before {
-  content: "\e031";
+	content: "\e031";
 }
 
 .wpsight-addons .icon-stack:before {
-  content: "\e032";
+	content: "\e032";
 }
 
 .wpsight-addons .icon-stack-2:before {
-  content: "\e033";
+	content: "\e033";
 }
 
 .wpsight-addons .icon-paper:before {
-  content: "\e034";
+	content: "\e034";
 }
 
 .wpsight-addons .icon-paper-stack:before {
-  content: "\e035";
+	content: "\e035";
 }
 
 .wpsight-addons .icon-search:before {
-  content: "\e036";
+	content: "\e036";
 }
 
 .wpsight-addons .icon-zoom-in:before {
-  content: "\e037";
+	content: "\e037";
 }
 
 .wpsight-addons .icon-zoom-out:before {
-  content: "\e038";
+	content: "\e038";
 }
 
 .wpsight-addons .icon-reply:before {
-  content: "\e039";
+	content: "\e039";
 }
 
 .wpsight-addons .icon-circle-plus:before {
-  content: "\e040";
+	content: "\e040";
 }
 
 .wpsight-addons .icon-circle-minus:before {
-  content: "\e041";
+	content: "\e041";
 }
 
 .wpsight-addons .icon-circle-check:before {
-  content: "\e042";
+	content: "\e042";
 }
 
 .wpsight-addons .icon-circle-cross:before {
-  content: "\e043";
+	content: "\e043";
 }
 
 .wpsight-addons .icon-square-plus:before {
-  content: "\e044";
+	content: "\e044";
 }
 
 .wpsight-addons .icon-square-minus:before {
-  content: "\e045";
+	content: "\e045";
 }
 
 .wpsight-addons .icon-square-check:before {
-  content: "\e046";
+	content: "\e046";
 }
 
 .wpsight-addons .icon-square-cross:before {
-  content: "\e047";
+	content: "\e047";
 }
 
 .wpsight-addons .icon-microphone:before {
-  content: "\e048";
+	content: "\e048";
 }
 
 .wpsight-addons .icon-record:before {
-  content: "\e049";
+	content: "\e049";
 }
 
 .wpsight-addons .icon-skip-back:before {
-  content: "\e050";
+	content: "\e050";
 }
 
 .wpsight-addons .icon-rewind:before {
-  content: "\e051";
+	content: "\e051";
 }
 
 .wpsight-addons .icon-play:before {
-  content: "\e052";
+	content: "\e052";
 }
 
 .wpsight-addons .icon-pause:before {
-  content: "\e053";
+	content: "\e053";
 }
 
 .wpsight-addons .icon-stop:before {
-  content: "\e054";
+	content: "\e054";
 }
 
 .wpsight-addons .icon-fast-forward:before {
-  content: "\e055";
+	content: "\e055";
 }
 
 .wpsight-addons .icon-skip-forward:before {
-  content: "\e056";
+	content: "\e056";
 }
 
 .wpsight-addons .icon-shuffle:before {
-  content: "\e057";
+	content: "\e057";
 }
 
 .wpsight-addons .icon-repeat:before {
-  content: "\e058";
+	content: "\e058";
 }
 
 .wpsight-addons .icon-folder:before {
-  content: "\e059";
+	content: "\e059";
 }
 
 .wpsight-addons .icon-umbrella:before {
-  content: "\e060";
+	content: "\e060";
 }
 
 .wpsight-addons .icon-moon:before {
-  content: "\e061";
+	content: "\e061";
 }
 
 .wpsight-addons .icon-thermometer:before {
-  content: "\e062";
+	content: "\e062";
 }
 
 .wpsight-addons .icon-drop:before {
-  content: "\e063";
+	content: "\e063";
 }
 
 .wpsight-addons .icon-sun:before {
-  content: "\e064";
+	content: "\e064";
 }
 
 .wpsight-addons .icon-cloud:before {
-  content: "\e065";
+	content: "\e065";
 }
 
 .wpsight-addons .icon-cloud-upload:before {
-  content: "\e066";
+	content: "\e066";
 }
 
 .wpsight-addons .icon-cloud-download:before {
-  content: "\e067";
+	content: "\e067";
 }
 
 .wpsight-addons .icon-upload:before {
-  content: "\e068";
+	content: "\e068";
 }
 
 .wpsight-addons .icon-download:before {
-  content: "\e069";
+	content: "\e069";
 }
 
 .wpsight-addons .icon-location:before {
-  content: "\e070";
+	content: "\e070";
 }
 
 .wpsight-addons .icon-location-2:before {
-  content: "\e071";
+	content: "\e071";
 }
 
 .wpsight-addons .icon-map:before {
-  content: "\e072";
+	content: "\e072";
 }
 
 .wpsight-addons .icon-battery:before {
-  content: "\e073";
+	content: "\e073";
 }
 
 .wpsight-addons .icon-head:before {
-  content: "\e074";
+	content: "\e074";
 }
 
 .wpsight-addons .icon-briefcase:before {
-  content: "\e075";
+	content: "\e075";
 }
 
 .wpsight-addons .icon-speech-bubble:before {
-  content: "\e076";
+	content: "\e076";
 }
 
 .wpsight-addons .icon-anchor:before {
-  content: "\e077";
+	content: "\e077";
 }
 
 .wpsight-addons .icon-globe:before {
-  content: "\e078";
+	content: "\e078";
 }
 
 .wpsight-addons .icon-box:before {
-  content: "\e079";
+	content: "\e079";
 }
 
 .wpsight-addons .icon-reload:before {
-  content: "\e080";
+	content: "\e080";
 }
 
 .wpsight-addons .icon-share:before {
-  content: "\e081";
+	content: "\e081";
 }
 
 .wpsight-addons .icon-marquee:before {
-  content: "\e082";
+	content: "\e082";
 }
 
 .wpsight-addons .icon-marquee-plus:before {
-  content: "\e083";
+	content: "\e083";
 }
 
 .wpsight-addons .icon-marquee-minus:before {
-  content: "\e084";
+	content: "\e084";
 }
 
 .wpsight-addons .icon-tag:before {
-  content: "\e085";
+	content: "\e085";
 }
 
 .wpsight-addons .icon-power:before {
-  content: "\e086";
+	content: "\e086";
 }
 
 .wpsight-addons .icon-command:before {
-  content: "\e087";
+	content: "\e087";
 }
 
 .wpsight-addons .icon-alt:before {
-  content: "\e088";
+	content: "\e088";
 }
 
 .wpsight-addons .icon-esc:before {
-  content: "\e089";
+	content: "\e089";
 }
 
 .wpsight-addons .icon-bar-graph:before {
-  content: "\e090";
+	content: "\e090";
 }
 
 .wpsight-addons .icon-bar-graph-2:before {
-  content: "\e091";
+	content: "\e091";
 }
 
 .wpsight-addons .icon-pie-graph:before {
-  content: "\e092";
+	content: "\e092";
 }
 
 .wpsight-addons .icon-star:before {
-  content: "\e093";
+	content: "\e093";
 }
 
 .wpsight-addons .icon-arrow-left:before {
-  content: "\e094";
+	content: "\e094";
 }
 
 .wpsight-addons .icon-arrow-right:before {
-  content: "\e095";
+	content: "\e095";
 }
 
 .wpsight-addons .icon-arrow-up:before {
-  content: "\e096";
+	content: "\e096";
 }
 
 .wpsight-addons .icon-arrow-down:before {
-  content: "\e097";
+	content: "\e097";
 }
 
 .wpsight-addons .icon-volume:before {
-  content: "\e098";
+	content: "\e098";
 }
 
 .wpsight-addons .icon-mute:before {
-  content: "\e099";
+	content: "\e099";
 }
 
 .wpsight-addons .icon-content-right:before {
-  content: "\e100";
+	content: "\e100";
 }
 
 .wpsight-addons .icon-content-left:before {
-  content: "\e101";
+	content: "\e101";
 }
 
 .wpsight-addons .icon-grid:before {
-  content: "\e102";
+	content: "\e102";
 }
 
 .wpsight-addons .icon-grid-2:before {
-  content: "\e103";
+	content: "\e103";
 }
 
 .wpsight-addons .icon-columns:before {
-  content: "\e104";
+	content: "\e104";
 }
 
 .wpsight-addons .icon-loader:before {
-  content: "\e105";
+	content: "\e105";
 }
 
 .wpsight-addons .icon-bag:before {
-  content: "\e106";
+	content: "\e106";
 }
 
 .wpsight-addons .icon-ban:before {
-  content: "\e107";
+	content: "\e107";
 }
 
 .wpsight-addons .icon-flag:before {
-  content: "\e108";
+	content: "\e108";
 }
 
 .wpsight-addons .icon-trash:before {
-  content: "\e109";
+	content: "\e109";
 }
 
 .wpsight-addons .icon-expand:before {
-  content: "\e110";
+	content: "\e110";
 }
 
 .wpsight-addons .icon-contract:before {
-  content: "\e111";
+	content: "\e111";
 }
 
 .wpsight-addons .icon-maximize:before {
-  content: "\e112";
+	content: "\e112";
 }
 
 .wpsight-addons .icon-minimize:before {
-  content: "\e113";
+	content: "\e113";
 }
 
 .wpsight-addons .icon-plus:before {
-  content: "\e114";
+	content: "\e114";
 }
 
 .wpsight-addons .icon-minus:before {
-  content: "\e115";
+	content: "\e115";
 }
 
 .wpsight-addons .icon-check:before {
-  content: "\e116";
+	content: "\e116";
 }
 
 .wpsight-addons .icon-cross:before {
-  content: "\e117";
+	content: "\e117";
 }
 
 .wpsight-addons .icon-move:before {
-  content: "\e118";
+	content: "\e118";
 }
 
 .wpsight-addons .icon-delete:before {
-  content: "\e119";
+	content: "\e119";
 }
 
 .wpsight-addons .icon-menu:before {
-  content: "\e120";
+	content: "\e120";
 }
 
 .wpsight-addons .icon-archive:before {
-  content: "\e121";
+	content: "\e121";
 }
 
 .wpsight-addons .icon-inbox:before {
-  content: "\e122";
+	content: "\e122";
 }
 
 .wpsight-addons .icon-outbox:before {
-  content: "\e123";
+	content: "\e123";
 }
 
 .wpsight-addons .icon-file:before {
-  content: "\e124";
+	content: "\e124";
 }
 
 .wpsight-addons .icon-file-add:before {
-  content: "\e125";
+	content: "\e125";
 }
 
 .wpsight-addons .icon-file-subtract:before {
-  content: "\e126";
+	content: "\e126";
 }
 
 .wpsight-addons .icon-help:before {
-  content: "\e127";
+	content: "\e127";
 }
 
 .wpsight-addons .icon-open:before {
-  content: "\e128";
+	content: "\e128";
 }
 
 .wpsight-addons .icon-ellipsis:before {
-  content: "\e129";
+	content: "\e129";
+}
+
+.wpsight-admin-addons {
+	margin-top: 1rem;
 }
 
 
 .wpsight-settings-wrap *,
 .wpsight-settings-wrap *:before,
 .wpsight-settings-wrap *:after {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-      -ms-box-sizing: border-box;
-       -o-box-sizing: border-box;
-          box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 
@@ -1384,7 +1390,38 @@ th.column-listing_actions {
  * WPCasa Settings Page - Base Styles
  **************************************************/
 
-.wpsight-settings-page .wpsight-settings-wrap {}
+@media (max-width: 600px) {
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-sidebar-back,
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-sidebar {
+		margin-left: -260px;
+	}
+
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-main {
+		margin-left: 0 !important;
+		width: 100%;
+	}
+}
+
+@media (max-width: 992px) {
+	#wpwrap {
+		overflow-x: hidden;
+	}
+}
+
+.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-sidebar-back,
+.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-sidebar,
+.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-main {
+	transition: .6s margin-left ease;
+}
+
+.wpsight-settings-page .wpsight-settings-wrap-hide-navbar .wpsight-admin-sidebar-back,
+.wpsight-settings-page .wpsight-settings-wrap-hide-navbar .wpsight-admin-sidebar {
+	margin-left: 0;
+}
+
+.wpsight-settings-page .wpsight-settings-wrap.wpsight-settings-wrap-hide-navbar .wpsight-admin-main {
+	margin-left: 260px !important;
+}
 
 .wpsight-settings-page .wpsight-settings-wrap input {
 	margin: 0;
@@ -1403,27 +1440,70 @@ th.column-listing_actions {
 .wpsight-settings-page .wpsight-settings-wrap input[type="url"],
 .wpsight-settings-page .wpsight-settings-wrap input[type="email"],
 .wpsight-settings-page .wpsight-settings-wrap input[type="search"] {
-    height: auto;
-    padding: .75rem;
+	height: auto;
+	padding: .75rem;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap select {
-    padding: .75rem;
-    height: 45px;
-    line-height: 45px;
+	padding: .75rem;
+	height: 45px;
+	line-height: initial !important;
 }
 
+.wpsight-settings-field.wpsight-settings-field-text {
+	margin-bottom: 1rem;
+}
 
+.wpsight-settings-page .wpsight-settings-wrap input[type="text"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="time"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="week"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="month"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="date"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="datetime"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="datetime-local"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="password"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="number"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="tel"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="url"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="email"],
+.wpsight-settings-page .wpsight-settings-wrap input[type="search"] {
+	line-height: initial;
+}
 
 
 
 .wpsight-settings-page .wpsight-settings-wrap .form-table th {
-    width: 400px;
-    padding: 2rem 2rem 2rem 0;
+	width: 400px;
+	padding: 2rem 2rem 2rem 0;
+}
+
+@media (max-width: 1200px) {
+	.wpsight-settings-page .wpsight-settings-wrap .form-table th {
+		width: 100%;
+		padding: 1rem 1rem 1rem 0;
+	}
+
+	.wpsight-settings-page .wpsight-settings-wrap .form-table th,
+	.wpsight-settings-page .wpsight-settings-wrap .form-table tr,
+	.wpsight-settings-page .wpsight-settings-wrap .form-table td {
+		display: block;
+		margin: 0;
+	}
+
+	.wpsight-settings-page .wpsight-settings-wrap .form-table td {
+		padding-top: 0;
+		padding-left: 0;
+	}
+}
+
+@media (max-width: 992px) {
+	.wpsight-settings-page .wpsight-settings-wrap .form-table th {
+		padding: 1rem 0;
+	}
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .description {
-    font-weight: normal;
+	font-weight: normal;
 }
 
 
@@ -1432,100 +1512,100 @@ th.column-listing_actions {
  **************************************************/
 
 .wpsight-settings-grid {
-    width: 100%;
-    float: left;
+	width: 100%;
+	float: left;
 }
 
 /**************************************************
  * WPCasa Settings Page - Panel
  **************************************************/
 .wpsight-settings-panel {
-    width: calc(98% - 2px);
-    float: left;
-    background: #fff;
-    margin: 0 2% 2rem 0;
-    border: 1px solid #ddd;                        
+	width: calc(98% - 2px);
+	float: left;
+	background: #fff;
+	margin: 0 2% 2rem 0;
+	border: 1px solid #ddd;
 }
 
 @media screen and (min-width: 781px) {
-    .wpsight-settings-panel {
-        width: calc(48% - 2px);
-    }
+	.wpsight-settings-panel {
+		width: calc(48% - 2px);
+	}
 }
 
 @media screen and (min-width: 1200px) {
-    .wpsight-settings-panel {
-        width: calc(31.33333% - 2px);
-    }
+	.wpsight-settings-panel {
+		width: calc(31.33333% - 2px);
+	}
 }
 
 @media screen and (min-width: 1600px) {
-    .wpsight-settings-panel {
-        width: calc(23% - 2px);
-    }
+	.wpsight-settings-panel {
+		width: calc(23% - 2px);
+	}
 }
 
 .wpsight-settings-panel .wpsight-settings-panel-head {
-    padding: 1rem 2.5rem;
-    border-bottom: 1px solid #ddd;
-    font-weight: 600;
-    letter-spacing: .05rem;
-    background: #f6f6f6;
-    position: relative; 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	padding: 1rem 2.5rem;
+	border-bottom: 1px solid #ddd;
+	font-weight: 600;
+	letter-spacing: .05rem;
+	background: #f6f6f6;
+	position: relative;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .wpsight-settings-panel .wpsight-settings-panel-body {
-    padding: 1.5rem 1rem;    
+	padding: 1.5rem 1rem;
 }
 
 .wpsight-settings-panel .wpsight-settings-panel-body input[type="text"] {
-    width: 100%;
-    margin: 0 0 .5rem 0;    
+	width: 100%;
+	margin: 0 0 .5rem 0;
 }
 
 .wpsight-settings-page .wpsight-admin-license-status {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 40px;
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 40px;
 }
 
 .wpsight-settings-page .indicator {
-    width: 12px;
-    height: 12px;
-    position: absolute;
-    top: calc(50% - 6px);
-    left: calc(50% - 6px);
-    background: #999;
-    border-radius: 16px;
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	top: calc(50% - 6px);
+	left: calc(50% - 6px);
+	background: #999;
+	border-radius: 16px;
 }
 
 .wpsight-settings-page .indicator-valid {
-    background: rgb(0,204,102);
+	background: rgb(0,204,102);
 }
 
 .wpsight-settings-page .indicator-expired {
-    background: rgb(255,51,51);
+	background: rgb(255,51,51);
 }
 
 .wpsight-settings-page .indicator-inactive {
-    background: rgb(255,204,102);
+	background: rgb(255,204,102);
 }
 
 .wpsight-settings-page .indicator-mismatch {
-    background: rgb(255,155,90);
+	background: rgb(255,155,90);
 }
 
 .wpsight-settings-page .wpsight-settings-help {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: calc(50% - 10px);
-    right: 1rem;
-    cursor: help;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: calc(50% - 10px);
+	right: 1rem;
+	cursor: help;
 }
 
 /**************************************************
@@ -1538,100 +1618,109 @@ th.column-listing_actions {
 
 .wpsight-settings-field-measurement-wrap .wpsight-settings-field-text,
 .wpsight-settings-field-measurement-wrap .wpsight-settings-field-radio {
-    float: left;
+	float: left;
 }
 
 .wpsight-settings-field-measurement-wrap .wpsight-settings-field-text {
-    margin-right: 1rem;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
 }
 
 .wpsight-settings-field-measurement-wrap .wpsight-settings-field-radio input[type="radio"] + .label-radio {
-    margin: 0 .5rem 0 0;
+	margin: 0 .5rem 1rem 0;
 }
+
+@media (max-width: 1200px) {
+	.wpsight-settings-field-measurement-wrap .wpsight-settings-field-text,
+	.wpsight-settings-field-measurement-wrap .wpsight-settings-field-radio {
+		float: none;
+	}
+}
+
 
 /******************************
  * FIELD: CHECKBOX
  ******************************/
 
 .wpsight-settings-field-checkbox .switch {
-    width: 80px;
-    position: relative;
-    
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-         -o-user-select: none;
-            user-select: none;
+	width: 80px;
+	position: relative;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
 }
 
 .wpsight-settings-field-checkbox .switch input[type="checkbox"] {
-    display: none;
+	display: none;
 }
 
 .wpsight-settings-field-checkbox .switch .label-checkbox {
-    height: 30px;
-    padding: 0;
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    line-height: 30px;
-    text-align: center;
-    border: 1px solid #ddd;
-    
-    -webkit-border-radius: 2px;
-       -moz-border-radius: 2px;
-        -ms-border-radius: 2px;
-         -o-border-radius: 2px;
-            border-radius: 2px;
-            
-    -webkit-transition: background-color .3s;
-       -moz-transition: background-color .3s;
-        -ms-transition: background-color .3s;
-         -o-transition: background-color .3s;
-            transition: background-color .3s;
+	height: 30px;
+	padding: 0;
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #ddd;
+
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+
+	-webkit-transition: background-color .3s;
+	-moz-transition: background-color .3s;
+	-ms-transition: background-color .3s;
+	-o-transition: background-color .3s;
+	transition: background-color .3s;
 }
 
 .wpsight-settings-field-checkbox .switch .label-checkbox:before {
-    content: "\2713";
-    width: 40px;
-    margin: 0px;
-    display: block;
-    
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 43px;
-    
-    color: #ddd;
-    border: 1px solid #DDD;
-    background: #fff;
-    
-    -webkit-border-radius: 2px;
-       -moz-border-radius: 2px;
-        -ms-border-radius: 2px;
-         -o-border-radius: 2px;
-            border-radius: 2px;
-            
-    -webkit-transition: all .3s; 
-       -moz-transition: all .3s; 
-        -ms-transition: all .3s; 
-         -o-transition: all .3s; 
-            transition: all .3s; 
+	content: "\2713";
+	width: 40px;
+	margin: 0px;
+	display: block;
+
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 43px;
+
+	color: #ddd;
+	border: 1px solid #DDD;
+	background: #fff;
+
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 .wpsight-settings-field-checkbox .switch input[type="checkbox"]:checked + .label-checkbox {
-    background-color: #12AE8F;
+	background-color: #12AE8F;
 }
 
 .wpsight-settings-field-checkbox .switch input[type="checkbox"]:checked + .label-checkbox,
 .wpsight-settings-field-checkbox .switch input[type="checkbox"]:checked + .label-checkbox:before {
-    border-color: #12AE8F;
+	border-color: #12AE8F;
 }
 
 .wpsight-settings-field-checkbox .switch input[type="checkbox"]:checked + .label-checkbox:before {
-    right: 0px;
-    content: "\2713"; 
-    color: #12AE8F;
+	right: 0px;
+	content: "\2713";
+	color: #12AE8F;
 }
 
 /******************************
@@ -1639,88 +1728,88 @@ th.column-listing_actions {
  ******************************/
 
 .wpsight-settings-field-radio input[type="radio"] {
-    display: none;
+	display: none;
 }
 
 .wpsight-settings-field-radio input[type="radio"] + .label-radio {
-    padding: .75rem 1rem .75rem 2.5rem;
-    margin: 0 1rem 1rem 0;
-    display: inline-block;
-    position: relative;
-    
-    border: 1px solid #DDD;
-    
-    -webkit-border-radius: 2px;
-       -moz-border-radius: 2px;
-        -ms-border-radius: 2px;
-         -o-border-radius: 2px;
-            border-radius: 2px;
-    
+	padding: .75rem 1rem .75rem 2.5rem;
+	margin: 0 1rem 1rem 0;
+	display: inline-block;
+	position: relative;
+
+	border: 1px solid #DDD;
+
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+
 	-webkit-transition: all .3s;
-	   -moz-transition: all .3s;
-        -ms-transition: all .3s;
-         -o-transition: all .3s;
-            transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 .wpsight-settings-field-radio input[type="radio"]:checked + .label-radio {
-    background: #12AE8F;
-    border-color: #12AE8F;
-    color: #fff;
+	background: #12AE8F;
+	border-color: #12AE8F;
+	color: #fff;
 }
 
 .wpsight-settings-field-radio input[type="radio"] + .label-radio:before {
-    content: "";
-    width: 18px;
-    height: 18px;
-    border: 1px solid #CCC;
-    position: absolute;
-    border-radius: 100%;
-    left: 1em;
-    top: calc(50% - 9px);
-    
+	content: "";
+	width: 18px;
+	height: 18px;
+	border: 1px solid #CCC;
+	position: absolute;
+	border-radius: 100%;
+	left: 1em;
+	top: calc(50% - 9px);
+
 	-webkit-transition: all .3s;
-	   -moz-transition: all .3s;
-        -ms-transition: all .3s;
-         -o-transition: all .3s;
-            transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 .wpsight-settings-field-radio input[type="radio"]:checked + .label-radio:before {
-    border: 1px solid #FFF;
-    background: #12AE8F;
+	border: 1px solid #FFF;
+	background: #12AE8F;
 }
 
 .wpsight-settings-field-radio input[type="radio"] + .label-radio:after {
-    content: "";
-    width: 12px;
-    height: 12px;
-    background: #FFF;
-    border: 1px solid #12AE8F;
-    position: absolute;
-    left: calc(1em + 3px);
-    top: calc(50% - 6px);
-    border-radius: 100%;
-    
-    -webkit-transform: scale(0);
-       -moz-transform: scale(0);
-        -ms-transform: scale(0);
-         -o-transform: scale(0);
-            transform: scale(0);
-    
+	content: "";
+	width: 12px;
+	height: 12px;
+	background: #FFF;
+	border: 1px solid #12AE8F;
+	position: absolute;
+	left: calc(1em + 3px);
+	top: calc(50% - 6px);
+	border-radius: 100%;
+
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-ms-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+
 	-webkit-transition: all .3s;
-	   -moz-transition: all .3s;
-        -ms-transition: all .3s;
-         -o-transition: all .3s;
-            transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 .wpsight-settings-field-radio input[type="radio"]:checked + .label-radio:after {
-    -webkit-transform: scale(1);
-       -moz-transform: scale(1);
-        -ms-transform: scale(1);
-         -o-transform: scale(1);
-            transform: scale(1);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
 }
 
 /******************************
@@ -1728,93 +1817,93 @@ th.column-listing_actions {
  ******************************/
 
 .wpsight-settings-field-multicheck .multicheck {
-    float: left;
-    margin: 0 0 1rem 0;
+	float: left;
+	margin: 0 0 1rem 0;
 }
 
 .wpsight-settings-field-multicheck input[type="checkbox"] {
-    display: none;
+	display: none;
 }
 
 .wpsight-settings-field-multicheck input[type="checkbox"] + .label-checkbox {
-    padding: .75rem 1rem .75rem 2.5rem;
-    margin: 0 1rem 0 0;
-    display: inline-block;
-    position: relative;
-    
-    border: 1px solid #DDD;
-    
-    -webkit-border-radius: 2px;
-       -moz-border-radius: 2px;
-        -ms-border-radius: 2px;
-         -o-border-radius: 2px;
-            border-radius: 2px;
-    
+	padding: .75rem 1rem .75rem 2.5rem;
+	margin: 0 1rem 0 0;
+	display: inline-block;
+	position: relative;
+
+	border: 1px solid #DDD;
+
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+
 	-webkit-transition: all .3s;
-	   -moz-transition: all .3s;
-        -ms-transition: all .3s;
-         -o-transition: all .3s;
-            transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 .wpsight-settings-field-multicheck input[type="checkbox"]:checked + .label-checkbox {
-    background: #12AE8F;
-    border-color: #12AE8F;
-    color: #fff;
+	background: #12AE8F;
+	border-color: #12AE8F;
+	color: #fff;
 }
 
 .wpsight-settings-field-multicheck input[type="checkbox"] + .label-checkbox:before {
-    content: "";
-    width: 18px;
-    height: 18px;
-    border: 1px solid #CCC;
-    position: absolute;
-    border-radius: 100%;
-    left: 1em;
-    top: calc(50% - 9px);
-    
+	content: "";
+	width: 18px;
+	height: 18px;
+	border: 1px solid #CCC;
+	position: absolute;
+	border-radius: 100%;
+	left: 1em;
+	top: calc(50% - 9px);
+
 	-webkit-transition: all .3s;
-	   -moz-transition: all .3s;
-        -ms-transition: all .3s;
-         -o-transition: all .3s;
-            transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 .wpsight-settings-field-multicheck input[type="checkbox"]:checked + .label-checkbox:before {
-    border: 1px solid #FFF;
-    background: #12AE8F;
+	border: 1px solid #FFF;
+	background: #12AE8F;
 }
 
 .wpsight-settings-field-multicheck input[type="checkbox"] + .label-checkbox:after {
-    content: "";
-    width: 12px;
-    height: 12px;
-    background: #FFF;
-    border: 1px solid #12AE8F;
-    position: absolute;
-    left: calc(1em + 3px);
-    top: calc(50% - 6px);
-    border-radius: 100%;
-    
-    -webkit-transform: scale(0);
-       -moz-transform: scale(0);
-        -ms-transform: scale(0);
-         -o-transform: scale(0);
-            transform: scale(0);
-    
+	content: "";
+	width: 12px;
+	height: 12px;
+	background: #FFF;
+	border: 1px solid #12AE8F;
+	position: absolute;
+	left: calc(1em + 3px);
+	top: calc(50% - 6px);
+	border-radius: 100%;
+
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-ms-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+
 	-webkit-transition: all .3s;
-	   -moz-transition: all .3s;
-        -ms-transition: all .3s;
-         -o-transition: all .3s;
-            transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 }
 
 .wpsight-settings-field-multicheck input[type="checkbox"]:checked + .label-checkbox:after {
-    -webkit-transform: scale(1);
-       -moz-transform: scale(1);
-        -ms-transform: scale(1);
-         -o-transform: scale(1);
-            transform: scale(1);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
 }
 
 /******************************
@@ -1822,92 +1911,92 @@ th.column-listing_actions {
  ******************************/
 
 .wpsight-settings-field-range {
-    width: 100%;
+	width: 100%;
 }
 
 .wpsight-settings-field-range .range-slider__range {
-    -webkit-appearance: none;
-    width: calc(100% - (73px));
-    height: 5px;
-    border-radius: 5px;
-    background: #EEE;
-    outline: none;
-    padding: 0;
-    margin: 0;
+	-webkit-appearance: none;
+	width: calc(100% - (73px));
+	height: 5px;
+	border-radius: 5px;
+	background: #EEE;
+	outline: none;
+	padding: 0;
+	margin: 0;
 }
 
 .wpsight-settings-field-range .range-slider__range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #2c3e50;
-    cursor: pointer;
-    -webkit-transition: background .15s ease-in-out;
-    transition: background .15s ease-in-out;
+	-webkit-appearance: none;
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #2c3e50;
+	cursor: pointer;
+	-webkit-transition: background .15s ease-in-out;
+	transition: background .15s ease-in-out;
 }
 
 .wpsight-settings-field-range .range-slider__range::-webkit-slider-thumb:hover {
-    background: #1abc9c;
+	background: #1abc9c;
 }
 
 .wpsight-settings-field-range .range-slider__range:active::-webkit-slider-thumb {
-    background: #1abc9c;
+	background: #1abc9c;
 }
 
 .wpsight-settings-field-range .range-slider__range::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    border: 0;
-    border-radius: 50%;
-    background: #333;
-    cursor: pointer;
-    -webkit-transition: background .15s ease-in-out;
-    transition: background .15s ease-in-out;
+	width: 20px;
+	height: 20px;
+	border: 0;
+	border-radius: 50%;
+	background: #333;
+	cursor: pointer;
+	-webkit-transition: background .15s ease-in-out;
+	transition: background .15s ease-in-out;
 }
 
 .wpsight-settings-field-range .range-slider__range::-moz-range-thumb:hover {
-    background: #12AE8F;
+	background: #12AE8F;
 }
 
 .wpsight-settings-field-range .range-slider__range:active::-moz-range-thumb {
-    background: #12AE8F;
+	background: #12AE8F;
 }
 
 .wpsight-settings-field-range .range-slider__value {
-    display: inline-block;
-    position: relative;
-    width: 60px;
-    color: #fff;
-    line-height: 20px;
-    text-align: center;
-    border-radius: 3px;
-    background: #333;
-    padding: 5px 10px;
-    margin-left: 8px;
+	display: inline-block;
+	position: relative;
+	width: 60px;
+	color: #fff;
+	line-height: 20px;
+	text-align: center;
+	border-radius: 3px;
+	background: #333;
+	padding: 5px 10px;
+	margin-left: 8px;
 }
 
 .wpsight-settings-field-range .range-slider__value:after {
-    position: absolute;
-    top: 8px;
-    left: -7px;
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-right: 7px solid #2c3e50;
-    border-bottom: 7px solid transparent;
-    content: '';
+	position: absolute;
+	top: 8px;
+	left: -7px;
+	width: 0;
+	height: 0;
+	border-top: 7px solid transparent;
+	border-right: 7px solid #2c3e50;
+	border-bottom: 7px solid transparent;
+	content: '';
 }
 
 ::-moz-range-track {
-    background: #d7dcdf;
-    border: 0;
+	background: #d7dcdf;
+	border: 0;
 }
 
 input::-moz-focus-inner,
 input::-moz-focus-outer {
-    border: 0;
+	border: 0;
 }
 
 /*
@@ -1934,228 +2023,401 @@ input::-moz-focus-outer {
 
 
 .wpsight-settings-page .wpsight-settings-wrap {
-    margin: 0;
+	margin: 0;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-sidebar {
-    width: 260px;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    padding: 0;
-    background: #3b4045;
+	width: 260px;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	padding: 0;
+	background: #3b4045;
 }
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-sidebar-back {
-    width: 260px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    background: #3b4045;
+	width: 260px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	background: #3b4045;
 }
 
 
 .wpsight-settings-page ul#adminmenu a.wp-has-current-submenu:after,
 ul#adminmenu>li.current>a.current:after {
-    border-right-color: #3b4045;
+	border-right-color: #3b4045;
+}
+
+.wpsight-settings-page .notice {
+	position: relative;
 }
 
 .wpsight-settings-page .notice,
 .wpsight-settings-page .update-nag,
 .wpsight-settings-page #update-nag {
-    width: calc(100% - 260px);
-    margin: 0 0 0 260px !important;
-    padding: 1rem 2rem;
-    display: inline-block;
-    line-height: 1;
-    font-size: .8rem;
-    text-align: left;
-    z-index: 1;
-    background-color: #FFF;
-    background-color: rgb(255, 234, 179);
-    border-left: 5px solid rgb(255, 185, 0);
-    border-bottom: 1px solid rgba( 100, 100, 100, .1 );
-    box-shadow: none;
-    box-sizing: border-box;
+	width: 100%;
+	margin: 0 !important;
+	padding: 1rem 2rem;
+	display: inline-block;
+	line-height: 1;
+	font-size: .8rem;
+	text-align: left;
+	z-index: 1;
+	background-color: rgb(255, 234, 179);
+	border-left: 5px solid rgb(255, 185, 0);
+	border-bottom: 1px solid rgba( 100, 100, 100, .1 );
+	box-shadow: none;
+	box-sizing: border-box;
+	transition: .6s width ease, .6s margin-left ease;
+}
+
+@media (max-width: 600px) {
+	.wpsight-settings-page .notice,
+	.wpsight-settings-page .update-nag,
+	.wpsight-settings-page #update-nag {
+		width: 100%;
+		margin: 0 !important;
+	}
 }
 
 .wpsight-settings-page .notice.notice-error,
 .wpsight-settings-page .update-nag.notice-error {
-    background-color: rgb(244, 190, 190);
-    border-left: 5px solid rgb(220, 50, 50);
+	background-color: rgb(244, 190, 190);
+	border-left: 5px solid rgb(220, 50, 50);
 }
 
 .wpsight-settings-page .notice.notice-warning,
 .wpsight-settings-page .update-nag.notice-warning {
-    background-color: rgb(255, 234, 179);
-    border-left: 5px solid rgb(255, 185, 0);
+	background-color: rgb(255, 234, 179);
+	border-left: 5px solid rgb(255, 185, 0);
 }
 
 .wpsight-settings-page .notice.notice-success,
 .wpsight-settings-page .update-nag.notice-success {
-    background-color: rgb(200, 234, 203);
-    border-left: 5px solid rgb(70, 180, 80);
+	background-color: rgb(200, 234, 203);
+	border-left: 5px solid rgb(70, 180, 80);
 }
 
 .wpsight-settings-page .notice.notice-info,
 .wpsight-settings-page .update-nag.notice-info {
-    background-color: rgb(179, 237, 255);
-    border-left: 5px solid rgb(0, 160, 210);
+	background-color: rgb(179, 237, 255);
+	border-left: 5px solid rgb(0, 160, 210);
 }
-
-
-
 
 
 
 
 
 .wpsight-settings-page .wpsight-settings-wrap .submit {
-    clear: both;
-    padding: 0;
-    margin: 0;
+	clear: both;
+	padding: 0;
+	margin: 0;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-nav {
-    padding: 0;
-    border: none;
+	padding: 0;
+	border: none;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .nav-tab-wrapper .nav-tab {
-    display: block;
-    float: none;
-    margin: 0;
-    color: #CCC;
-    border: none;
-    background: none;
-    padding: 1rem 2rem;
-    border-bottom: 1px solid rgba(255,255,255,.05);
+	display: block;
+	float: none;
+	margin: 0;
+	color: #CCC;
+	border: none;
+	background: none;
+	padding: 1rem 2rem;
+	border-bottom: 1px solid rgba(255,255,255,.05);
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .nav-tab-wrapper .nav-tab-active {
-    color: #FFF;
-    background: rgba(255,255,255,.1);
+	color: #FFF;
+	background: rgba(255,255,255,.1);
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .nav-tab-wrapper .nav-tab .dashicons {
-    top: 1px;
-    position: relative;
-    margin-right: 5px;
+	top: 1px;
+	position: relative;
+	margin-right: 5px;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-main {
-    margin-left: 260px;
+	margin-left: 260px;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .form-table {
-    margin: 0;
+	margin: 0;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .form-table th {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel h3 {
-    font-size: 1.6rem;
+	font-size: 1.6rem;
+	line-height: 1.2;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel h3 small {
-    font-weight: normal;
-    font-size: .8rem;
+	font-weight: normal;
+	font-size: .8rem;
+	line-height: 1.2;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel h4 {
-    padding: 0;
-    margin: 0;
-    font-size: 1.4rem;
+	padding: 0;
+	margin: 0;
+	font-size: 1.4rem;
 }
 
 
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading {
 	border-bottom: 1px solid #DDD;
-    margin: 0 0 1rem 0;
-    padding: 1rem 0 2rem 0;
-    position: relative;    
+	margin: 0 0 1rem 0;
+	padding: 1rem 0 2rem 0;
+	position: relative;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading .wpsight-admin-ui-heading-title {
-    display: inline;
+	display: inline;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading .wpsight-admin-ui-heading-title .wpsight-admin-ui-icon {
-    padding: .5rem;
-    margin: 0 .5rem 0 0;
-    display: inline-block;
-    position: relative;
-    top: -8px;
-    color: #FFF;
-    background: #12AE8F;
+	padding: .5rem;
+	margin: 0 .5rem 0 0;
+	display: inline-block;
+	position: relative;
+	top: -8px;
+	color: #FFF;
+	background: #12AE8F;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading .wpsight-admin-ui-heading-actions {
-    float: right;
+	float: right;
+}
+
+@media (max-width: 1200px) {
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading .wpsight-admin-ui-heading-actions {
+		float: none;
+		margin-top: 1rem;
+	}
+
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading .button:first-child {
+		margin-left: 0;
+	}
+}
+
+@media (max-width: 782px) {
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading .wpsight-admin-ui-heading-actions {
+		margin-bottom: -0.5rem;
+	}
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading h3 {
-    display: inline;
-    margin: 0;
-    padding: 0;    
+	display: inline;
+	margin: 0;
+	padding: 0;
 }
 
 
 .wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading .button {
-    margin-left: 1rem;
+	margin-left: 1rem;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-no-padding {
-    padding: 0;
+	padding: 0;
+}
+
+.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-auto-height {
+	min-height: auto;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-hero p {
-    font-size: 1rem;
+	font-size: 1rem;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel .button {
-    height: 44px;
-    line-height: 42px;
+	height: 44px;
+	line-height: 42px;
+}
+
+@media (max-width: 782px) {
+	.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel .button {
+		margin-bottom: .5rem;
+		margin-left: 0;
+	}
+
+	.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel .button:first-child {
+		margin-right: 1rem;
+	}
+}
+
+.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel #wpsight-settings-save {
+	background: #14AD8F;
+	border-color: #20a087 #20a087 #20a087;
+	box-shadow: 0 1px 0 #1f826e;
+	color: #fff;
+	text-decoration: none;
+	text-shadow: 0 -1px 1px #15927a, 1px 0 1px #15927a, 0 1px 1px #15927a, -1px 0 1px #15927a;
+}
+
+.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel #wpsight-settings-save:hover {
+	background: #15B797;
+}
+
+.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel #wpsight-settings-save:focus {
+	box-shadow: 0 1px 0 #129D81, 0 0 2px 1px #47C4AB;
+}
+
+.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel #wpsight-settings-save:active {
+	background: #13A98B;
+	border-color: #129D81;
+	box-shadow: inset 0 2px 0 #129D81;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel .button-text-icon span {
-    position: relative;
-    top: 11px;
-    margin-right: 5px;
+	position: relative;
+	top: 11px;
+	margin-right: 5px;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel .button-icon span {
-    position: relative;
-    top: 11px;
+	position: relative;
+	top: 11px;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel:last-child {}
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-account {
-    background-image: url(../img/icon-cloud.png);
-    background-position: 150% 50px;
+	background-image: url(../img/icon-cloud.png);
+	background-position: 150% 50px;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-documentation {
-    background-image: url(../img/icon-documentation.png);
-    background-position: 150% 50px;
+	background-image: url(../img/icon-documentation.png);
+	background-position: 150% 50px;
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-support {
-    background-image: url(../img/icon-help.png);
-    background-position: 150% 50px;
+	background-image: url(../img/icon-help.png);
+	background-position: 150% 50px;
+}
+
+@media (max-width: 1200px) {
+	.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-account,
+	.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-documentation,
+	.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-support {
+		background-position: 76% 50px;
+	}
 }
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel-newsletter {
-    background: #F9F9F9;
+	background: #F9F9F9;
 }
 
 
 
+@media (max-width: 1200px) {
+	.wpsight-admin-ui-panel-wrap-theme-bar-item {
+		width: 50%;
+		float: left;
+	}
+}
 
 
+@media (max-width: 992px) {
+	.wpsight-admin-ui-panel-wrap-theme-bar-item {
+		width: 100%;
+		float: none;
+	}
+
+	.wpsight-admin-main .regular-text {
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 992px) {
+	.wpsight-admin-ui-panel-wrap-theme-bar-item {
+		width: 100%;
+		float: none;
+	}
+
+	.wpsight-admin-main .regular-text {
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 782px) {
+	.wpsight-admin-main .button {
+		padding: 0 10px 1px;
+		margin-bottom: 0
+	}
+
+	.settings_panel .form-table td select {
+		height: 45px !important;
+		padding: .3rem .75rem !important;
+	}
+}
+
+.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-main-wrap-btn-toggle {
+	min-height: auto;
+	display: none;
+}
 
 
+@media (max-width: 600px) {
+	.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-main-wrap-btn-toggle {
+		display: block;
+	}
+}
 
 
+.wpsight-admin-main-btn-toggle {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 38px;
+	height: 28px;
+	position: relative;
+	top: 0;
+	background: none;
+	border: none;
+	outline: none;
+}
+
+.wpsight-admin-main-btn-toggle .wpsight-admin-main-btn-toggle-line {
+	position: relative;
+	height: 3px;
+	width: inherit;
+	transition: .4s all ease;
+	background: #000;
+	border-radius: 10px;
+}
+
+.wpsight-admin-main-btn-toggle .wpsight-admin-main-btn-toggle-line:nth-child(2) {
+	margin: 8px 0;
+}
+
+.wpsight-admin-main-btn-toggle .wpsight-admin-main-btn-toggle-line:nth-child(3) {
+	align-self: flex-start;
+}
+
+
+.wpsight-admin-main-btn-toggle-active .wpsight-admin-main-btn-toggle-line:nth-child(1) {
+	margin-bottom: -3px;
+	transform: rotate(45deg);
+}
+
+.wpsight-admin-main-btn-toggle-active .wpsight-admin-main-btn-toggle-line:nth-child(2) {
+	margin: 0;
+	transform: translate(-100%, 0);
+	opacity: 0;
+}
+
+.wpsight-admin-main-btn-toggle-active .wpsight-admin-main-btn-toggle-line:nth-child(3) {
+	margin-top: -3px;
+	transform: rotate(-45deg);
+}

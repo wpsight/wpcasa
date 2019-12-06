@@ -32,6 +32,10 @@ class WPSight_Recommends {
             ],
         ]; ?>
 
+        <div class="wrap-title-recommend">
+            <h2>WPCasa Recommends</h2>
+        </div>
+
         <div class="wrap-cards-recommend">
 
         <?php foreach($recommends as $key => $value) { ?>

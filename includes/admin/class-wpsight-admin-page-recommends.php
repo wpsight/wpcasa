@@ -33,7 +33,7 @@ class WPSight_Recommends {
         ]; ?>
 
         <div class="wrap-title-recommend">
-            <h2>WPCasa Recommends</h2>
+            <h2><?php __( "WPCasa Recommends", "wpcasa" ) ?></h2>
         </div>
 
         <div class="wrap-cards-recommend">

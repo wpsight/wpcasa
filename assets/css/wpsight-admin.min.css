@@ -2546,7 +2546,7 @@ ul#adminmenu>li.current>a.current:after {
 }
 
 .wrap-cards-recommend .card__label {
-    pointer-events: none;
+
 }
 
 @media(max-width: 480px) {

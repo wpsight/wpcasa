@@ -2442,9 +2442,9 @@ ul#adminmenu>li.current>a.current:after {
 
 .wrap-cards-recommend .wrap-card {
     width: 100%;
-    max-width: calc(100% / 3 - 22px);
-    padding: 0 10px;
-    margin-bottom: 20px;
+    max-width: calc(100% / 3 - 18px);
+    padding: 0 8px;
+    margin-bottom: 16px;
 }
 
 @media(max-width: 1260px) {
@@ -2530,6 +2530,11 @@ ul#adminmenu>li.current>a.current:after {
     }
 }
 
+.wrap-cards-recommend *:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+
 .wrap-cards-recommend .card__link {
     display: block;
 }
@@ -2546,7 +2551,7 @@ ul#adminmenu>li.current>a.current:after {
 }
 
 .wrap-cards-recommend .card__label {
-    pointer-events: none;
+
 }
 
 @media(max-width: 480px) {

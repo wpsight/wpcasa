@@ -38,9 +38,9 @@ class WPSight_Recommends {
 
             <div class="wrap-card">
                 <div class="card">
-                    <div class="card__wrap-img">
+                    <a href="<?php echo $value['button_link']; ?>" class="card__wrap-img">
                         <img src="<?php echo $value['image_url']; ?>" class="card__img" alt="">
-                    </div>
+                    </a>
 
                     <div class="card__content">
                         <h2 class="card__wrap-link">
@@ -49,7 +49,7 @@ class WPSight_Recommends {
 
                         <p class="card__description"><?php echo $value['description']; ?></p>
 
-                        <span class="button card__label">€49,00 - €249,00</span>
+                        <a href="<?php echo $value['button_link']; ?>" class="button card__label"><?php echo $value['button_text']; ?></a>
                     </div>
                 </div>
             </div>

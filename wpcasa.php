@@ -331,3 +331,28 @@ function wpsight_admin_notice_wpcasa() {
 	echo '<div class="error"><p>' . __( 'Please make sure to <strong>deactivate the WPCasa theme</strong> in order to use the WPCasa plugin version. For more information about how to switch please <a href="http://docs.wpsight.com/article/switching-from-theme-version/" target="_blank">read our docs</a>.', 'wpcasa' ) . '</p></div>';
 
 }
+
+
+/**
+ *
+ *	Redirect after single wpcasa activatation
+ *	Prevent multiple activation redirect
+ *
+ *	@since 1.2.0
+ */
+register_activation_hook(__FILE__, 'wpcasa_plugin_activate');
+add_action('admin_init', 'wpcasa_activation_redirect');
+
+function wpcasa_plugin_activate() {
+    add_option('wpcasa_do_activation_redirect', true);
+}
+
+function wpcasa_activation_redirect() {
+    if (get_option('wpcasa_do_activation_redirect', false)) {
+        delete_option('wpcasa_do_activation_redirect');
+        if ( !isset($_GET['activate-multi']) ) {
+            wp_safe_redirect( admin_url( 'index.php?page=wpsight-settings' ));
+            exit();
+        }
+    }
+}

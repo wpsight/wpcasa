@@ -36,7 +36,7 @@ class WPSight_Admin_Settings {
 
 		if ( in_array( $screen->id, array( 'toplevel_page_wpsight-settings' ) ) ) {
 			$classes .= ' wpsight-settings-page ';
-		} elseif( in_array( $screen->id, array( 'wpcasa_page_wpsight-addons', 'wpcasa_page_wpsight-themes', 'wpcasa_page_wpsight-licenses' ) ) ) {
+		} elseif( in_array( $screen->id, array( 'wpcasa_page_wpsight-addons', 'wpcasa_page_wpsight-themes', 'wpcasa_page_wpsight-licenses', 'wpcasa_page_wpsight-recommends' ) ) ) {
 			$classes .= ' wpsight-extras-page ';
 		} elseif( in_array( $screen->id, array( 'edit-' . $post_type, $post_type ) ) ) {
 			$classes .= ' wpsight-post-type-page ';

@@ -84,7 +84,7 @@ class WPSight_Admin_CPT {
 			$columns = array();
 
 		// Unset some default columns
-		unset( $columns['title'], $columns['date'], $columns['author'] );
+		unset( $columns['date'], $columns['author'] );
 
 		// Define our custom columns
 
@@ -93,7 +93,7 @@ class WPSight_Admin_CPT {
 		$columns["listing_title"]	= __( 'Listing', 'wpcasa' );
 		$columns["listing_price"]	= __( 'Price', 'wpcasa' );
 		$columns["listing_posted"]	= __( 'Posted', 'wpcasa' );
-		
+
 		if( class_exists( 'WPSight_Expire_Listings' ) )
 			$columns["listing_expires"]	= __( 'Expires', 'wpcasa' );
 

@@ -2422,7 +2422,9 @@ ul#adminmenu>li.current>a.current:after {
 	transform: rotate(-45deg);
 }
 
-
+body.post-type-listing .wp-list-table.posts .column-title {
+    display: none;
+}
 
 /* Recommends */
 
@@ -2545,7 +2547,7 @@ ul#adminmenu>li.current>a.current:after {
 }
 
 @media(max-width: 480px) {
-    .wrap-cards-recommend .card__wrap-link {
+    .wrap-cards-recommend .card__мwrap-link {
         margin-bottom: 8px;
         font-size: 1.2em;
     }

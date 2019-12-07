@@ -2422,6 +2422,10 @@ ul#adminmenu>li.current>a.current:after {
 		transform: rotate(-45deg);
 }
 
+body.post-type-listing .wp-list-table.posts .column-title {
+    display: none;
+}
+
 
 
 /* Recommends */

@@ -140,4 +140,30 @@ jQuery(document).ready(function($) {
 
 	workWithListingFields();
 
+
+    var promoSlider = function () {
+        var $wrapSlider = $(".wpsight-admin-ui-promo");
+        var $slider = $(".wpsight-promo-slider");
+
+        var initSlider = function () {
+            new Swiper('.wpsight-promo-slider', {
+                spaceBetween: 0,
+                loop: true,
+                speed: 600,
+                pagination: {
+                    el: $wrapSlider.find('.swiper-pagination'),
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: $wrapSlider.find('.swiper-button-next'),
+                    prevEl: $wrapSlider.find('.swiper-button-prev'),
+                },
+            });
+        };
+
+        if ($slider.length) initSlider();
+    };
+
+    promoSlider();
+
 });

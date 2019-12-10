@@ -593,7 +593,7 @@ class WPSight_Admin {
             'name'	=> __( 'Maps', 'wpcasa' ),
             'desc'	=> __( 'Here you can define some basic settings', 'wpcasa' ),
             'icon'	=> 'dashicons dashicons-location-alt',
-            'link'	=> '',
+            'link'	=> 'https://docs.wpcasa.com',
             'id'	=> 'pageheading_maps',
             'type'	=> 'pageheading'
         );

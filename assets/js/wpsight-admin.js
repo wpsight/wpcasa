@@ -146,7 +146,7 @@ jQuery(document).ready(function($) {
         var $slider = $(".wpsight-promo-slider");
 
         var initSlider = function () {
-            new Swiper('.wpsight-promo-slider', {
+            const swiper = new Swiper('.wpsight-promo-slider', {
                 spaceBetween: 0,
                 loop: true,
                 speed: 600,
@@ -163,6 +163,15 @@ jQuery(document).ready(function($) {
                     prevEl: $wrapSlider.find('.swiper-button-prev'),
                 },
             });
+
+            $slider.hover(function () {
+                swiper.autoplay.stop();
+            }, function () {
+                setTimeout(function () {
+                    swiper.autoplay.start();
+                }, 600);
+            });
+
         };
 
         if ($slider.length) initSlider();

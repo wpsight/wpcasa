@@ -2641,6 +2641,10 @@ body.post-type-listing .wp-list-table.posts .column-title {
     min-height: auto;
 }
 
+.swiper-pagination-bullet {
+    outline: none;
+}
+
 @media (max-width: 1200px) {
     .wpsight-admin-ui-promo .swiper-slide {
         height: 45vw;

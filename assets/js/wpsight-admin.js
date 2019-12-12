@@ -150,6 +150,10 @@ jQuery(document).ready(function($) {
                 spaceBetween: 0,
                 loop: true,
                 speed: 600,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
                 pagination: {
                     el: $wrapSlider.find('.swiper-pagination'),
                     clickable: true,

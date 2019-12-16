@@ -1,9 +1,9 @@
 {
     "require": {
-        "webdevstudios/cmb2": "~2.1"
+        "webdevstudios/cmb2": "2.6.0"
     },
     "autoload": {
-        "files": ["vendor/webdevstudios/cmb2/init.php"],
+        "files": ["vendor/cmb2/cmb2/init.php"],
         "humanmade/custom-meta-boxes": "dev-master"
     },
     "config": {

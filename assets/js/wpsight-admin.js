@@ -140,12 +140,13 @@ jQuery(document).ready(function($) {
 
 	workWithListingFields();
 
-
     var promoSlider = function () {
         var $wrapSlider = $(".wpsight-admin-ui-promo");
         var $slider = $(".wpsight-promo-slider");
+        var $tab = $("#settings-overview-tab");
 
         var initSlider = function () {
+            console.log("sedf");
             const swiper = new Swiper('.wpsight-promo-slider', {
                 spaceBetween: 0,
                 loop: true,
@@ -174,7 +175,12 @@ jQuery(document).ready(function($) {
 
         };
 
-        if ($slider.length) initSlider();
+        var setEventOnTab = function () {
+            $tab.on('click', initSlider);
+        };
+
+        if ($slider.length && $tab.hasClass("nav-tab-active")) initSlider();
+        else if ($tab.length) setEventOnTab();
     };
 
     promoSlider();

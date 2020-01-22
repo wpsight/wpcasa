@@ -146,7 +146,6 @@ jQuery(document).ready(function($) {
         var $tab = $("#settings-overview-tab");
 
         var initSlider = function () {
-            console.log("sedf");
             const swiper = new Swiper('.wpsight-promo-slider', {
                 spaceBetween: 0,
                 loop: true,

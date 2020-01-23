@@ -1011,7 +1011,7 @@ class WPSight_Admin {
             'dashboard' => [
                 'title' =>  __( "WPCasa Dashboard", "wpcasa" ),
                 'description' => __( "Let listing agents submit and manage property listings from the front end.", "wpcasa" ),
-                'image_url' => 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Image-Porkeri_001.jpg',
+                'image_url' => 'https://images.unsplash.com/photo-1575961895658-53c39b1d3307?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
                 'button_text' => __( "Button text", "wpcasa" ),
                 'button_link' => 'button link',
             ],

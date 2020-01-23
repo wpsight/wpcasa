@@ -2676,4 +2676,77 @@ body.post-type-listing .wp-list-table.posts .column-title {
     cursor: grab;
 }
 
+.promo-services-content {
+    min-height: 17vw;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #16AC8F;
+}
 
+.promo-services-text {
+    color: #fff;
+    font-size: 1.3vw;
+    text-align: center;
+    line-height: 1.4;
+    display: block;
+    margin-bottom: 2.2vw;
+    font-weight: 300;
+}
+
+.promo-services-button {
+    color: #000 !important;
+    background-color: #fff;
+    padding: 1em;
+    width: 100%;
+    font-size: 0.9vw;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    max-width: 13vw;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+    transition: .3s all ease;
+
+}
+
+.promo-services-button:hover {
+    box-shadow: none;
+}
+
+@media (max-width: 992px) {
+    .promo-services-content {
+        min-height: 26vw;
+    }
+
+    .promo-services-text {
+        font-size: 2.2vw;
+        margin-bottom: 2.6vw;
+    }
+
+    .promo-services-button {
+        font-size: 1.8vw;
+        padding: .8em;
+        max-width: 26vw;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .promo-services-content {
+        min-height: 160px;
+    }
+
+    .promo-services-text {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .promo-services-button {
+        font-size: 12px;
+        max-width: 180px;
+    }
+}

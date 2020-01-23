@@ -15,24 +15,7 @@ class WPSight_Recommends {
 	 */
 	public function output()
     {
-        $recommends = [
-            'dashboard' => [
-                'title' =>  __( "WPCasa Dashboard", "wpcasa" ),
-                'description' => __( "Let listing agents submit and manage property listings from the front end.", "wpcasa" ),
-                'image_url' => 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Image-Porkeri_001.jpg',
-                'button_text' => __( "Button text", "wpcasa" ),
-                'button_link' => 'button link',
-            ],
-            'listing_pdf' => [
-                'title' =>  __( "WPCasa Listing PDF", "wpcasa" ),
-                'description' => __( "Let listing agents submit and manage property listings from the front end.", "wpcasa" ),
-                'image_url' => 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Image-Porkeri_001.jpg',
-                'button_text' => __( "Button text2", "wpcasa" ),
-                'button_link' => 'button link',
-            ],
-        ];
-
-        $recommends = apply_filters('wpsight_recommend_items', $recommends);
+        $recommends = wpsight_get_recommends();
         ?>
 
         <div class="wrap-title-recommend">

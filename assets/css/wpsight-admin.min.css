@@ -2714,6 +2714,13 @@ body.post-type-listing .wp-list-table.posts .column-title {
     box-shadow: none;
 }
 
+@media (max-width: 1200px) {
+    #settings-overview .settings_panel_boxes + .wpsight-admin-ui-grid {
+        display: block;
+    }
+}
+
+
 @media (max-width: 992px) {
     .promo-services-content {
         min-height: 26vw;

@@ -2666,6 +2666,14 @@ body.post-type-listing .wp-list-table.posts .column-title {
     }
 }
 
+#settings-overview .settings_panel_boxes + .wpsight-admin-ui-grid {
+    display: flex;
+    width: 100%;
+}
+
+#settings-overview .settings_panel_boxes + .wpsight-admin-ui-grid > div {
+    float: none;
+}
 
 .wpsight-admin-ui-promo .promo-slider-img {
     max-width: 100%;
@@ -2716,6 +2724,13 @@ body.post-type-listing .wp-list-table.posts .column-title {
 .promo-services-button:hover {
     box-shadow: none;
 }
+
+@media (max-width: 1200px) {
+    #settings-overview .settings_panel_boxes + .wpsight-admin-ui-grid {
+        display: block;
+    }
+}
+
 
 @media (max-width: 992px) {
     .promo-services-content {

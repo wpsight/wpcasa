@@ -191,12 +191,12 @@ jQuery(document).ready(function($) {
 
 
     var accordionMobileAddons = function () {
-        var $btns = $(".addons-info-mobile .content-btn");
+        var $btns = $(".addons-info-mobile .content-top");
         var $addons = $(".addons-info-mobile .content-bottom");
 
         $btns.click(function() {
             var isActive = $(this).hasClass("active");
-            var $nextEl = $(this).parent().next();
+            var $nextEl = $(this).next();
 
             $addons.slideUp();
             $btns.removeClass("active");

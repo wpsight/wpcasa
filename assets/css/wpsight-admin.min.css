@@ -3013,7 +3013,7 @@ body.post-type-listing .wp-list-table.posts .column-title {
 
 .addons-info-mobile .content-bottom {
     margin-top: 8px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .addons-info-mobile .content-bottom .content-item .text:last-child {
@@ -3033,6 +3033,7 @@ body.post-type-listing .wp-list-table.posts .column-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 8px;
 }
 
 .status-active {

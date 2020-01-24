@@ -21,16 +21,25 @@
         <div class="swiper-wrapper">
 
             <?php foreach ($recommends as $key => $value) {
-                $value['title'];
-                $value['description'];
-                $value['image_url'];
-                $value['button_text'];
-                $value['button_link'];
+                $title = $value['title'];
+                $description = $value['description'];
+                $image_url = $value['image_url'];
+                $button_text = $value['button_text'];
+                $link = $value['button_link'];
 //                var_dump($value);
-                ?>
-                <div class="swiper-slide">
+            ?>
+                <a href="<?php echo $link; ?>" class="swiper-slide swiper-slide-overlay">
                     <img class="promo-slider-img" src="<?php echo $value['image_url']; ?>" alt="">
-                </div>
+                    <div class="slide-content">
+                        <span class="slide-content-title">
+                            <?php echo $title; ?>
+                        </span>
+
+                        <p class="slide-content-desc">
+                            <?php echo $description; ?>
+                        </p>
+                    </div>
+                </a>
             <?php } ?>
 
         </div>

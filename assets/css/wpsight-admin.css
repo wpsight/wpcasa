@@ -2891,22 +2891,30 @@ body.post-type-listing .wp-list-table.posts .column-title {
 
 .wpsight-admin-addons {
     font-size: 14px;
-    max-width: 100%;
-    overflow-x: auto;
 }
 
 .wpsight-admin-addons > table {
-    min-width: 620px;
+    border-spacing: 0;
 }
 
 .wpsight-admin-addons tr {
     height: 55px;
     padding: 8px 0;
+}
 
+.wpsight-admin-addons td,
+.wpsight-admin-addons th {
+    padding: 6px;
 }
 
 .wpsight-admin-addons tr {
     box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+    transition: .3s all ease;
+    cursor: pointer;
+}
+
+.wpsight-admin-addons tbody tr:hover {
+    background-color: rgba(0, 0, 0, .01);
 }
 
 .wpsight-admin-addons td:nth-child(1) {
@@ -2945,4 +2953,118 @@ body.post-type-listing .wp-list-table.posts .column-title {
     color: #fff;
     background-color: #16AC8F;
     border-color: #16AC8F;
+}
+
+.addons-info-mobile,
+.addons-info-mobile .content-bottom {
+    display: none;
+}
+
+.addons-info-mobile .content-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addons-list {
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 8px 0;
+    margin-bottom: -1px;
+}
+
+.addons-info-mobile .content-name {
+    font-size: 16px;
+}
+
+.addons-info-mobile {
+    margin: 0;
+}
+
+.addons-info-mobile .content-btn {
+    background-color: #16AC8F;
+    border: 1px solid #16AC8F;
+    outline: none;
+    border-radius: 3px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s all ease;
+}
+
+.addons-info-mobile .content-btn.active {
+    background-color: transparent;
+}
+
+.addons-info-mobile .content-btn line,
+.addons-info-mobile .content-btn svg {
+    transition: .3s all ease;
+}
+
+.addons-info-mobile .content-btn.active line {
+    stroke: #16AC8F;
+}
+
+.addons-info-mobile .content-btn.active svg {
+    transform: rotate(180deg);
+}
+
+.addons-info-mobile .content-bottom {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.addons-info-mobile .content-bottom .content-item .text:last-child {
+    font-weight: 500;
+}
+
+.addons-info-mobile .content-bottom .content-item:last-child {
+    margin: 10px 0 0;
+}
+
+.addons-info-mobile .content-bottom .addons-table-btn {
+    display: block;
+    width: 100%;
+}
+
+.addons-info-mobile .content-bottom .content-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.status-active {
+    color: #4EC143;
+}
+
+.status-inactive {
+    color: #E53636;
+}
+
+@media(max-width: 1600px) {
+    .wpsight-admin-addons {
+        font-size: 12px;
+    }
+
+    .wpsight-admin-addons tr {
+        height: 50px;
+    }
+}
+
+@media(max-width: 1360px) {
+    .addons-info-desktop {
+        display: none;
+    }
+
+    .addons-info-mobile {
+        display: block;
+    }
+}
+
+@media(max-width: 576px) {
+    .addons-info-mobile .content-name {
+        font-size: 14px;
+    }
 }

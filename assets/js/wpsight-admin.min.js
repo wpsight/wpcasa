@@ -189,4 +189,29 @@ jQuery(document).ready(function($) {
 
     promoSlider();
 
+
+    var accordionMobileAddons = function () {
+        var $btns = $(".addons-info-mobile .content-btn");
+        var $addons = $(".addons-info-mobile .content-bottom");
+
+        $btns.click(function() {
+            var isActive = $(this).hasClass("active");
+            var $nextEl = $(this).parent().next();
+
+            $addons.slideUp();
+            $btns.removeClass("active");
+
+            $(this).addClass("active");
+
+            if ( isActive ) {
+                $(this).removeClass("active");
+            } else {
+                $nextEl.slideDown();
+            }
+
+        });
+    };
+
+    accordionMobileAddons();
+
 });

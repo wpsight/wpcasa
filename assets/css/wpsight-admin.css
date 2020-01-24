@@ -2698,7 +2698,7 @@ body.post-type-listing .wp-list-table.posts .column-title {
 
 .promo-services-text {
     color: #fff;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     text-align: center;
     line-height: 1.4;
     display: block;
@@ -2799,11 +2799,11 @@ body.post-type-listing .wp-list-table.posts .column-title {
 }
 
 .slide-content-title {
-    font-size: 1.7vw;
+    font-size: 1.6rem;
 }
 
 .slide-content-desc {
-    font-size: 1.2vw;
+    font-size: 1.1vw;
 }
 
 @media (max-width: 1200px) {

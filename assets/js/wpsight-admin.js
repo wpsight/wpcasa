@@ -119,6 +119,11 @@ jQuery(document).ready(function($) {
 
 		jQuery('.addon-inactive').hide();
 
+		jQuery('.wrap-addons-tabs > a').click(function(e) {
+            jQuery('.wrap-addons-tabs > a').removeClass("active");
+            $(this).addClass("active");
+        });
+
 		jQuery('#addons-all').click(function(e) {
 			e.preventDefault();
 			jQuery('.addon-active').show();

@@ -1,7 +1,10 @@
 <h3><?php _e( 'Addons', 'wpcasa' ) ?></h3>
-<a href="#addons-all" id="addons-all"><?php _e( 'All', 'wpcasa' ) ?></a>
-<a href="#addons-active" id="addons-active"><?php _e( 'Active', 'wpcasa' ) ?></a>
-<a href="#addons-inactive" id="addons-inactive"><?php _e( 'Inactive', 'wpcasa' ) ?></a>
+
+<div class="wrap-addons-tabs">
+    <a href="#addons-all" class="active" id="addons-all"><?php _e( 'All', 'wpcasa' ) ?></a>
+    <a href="#addons-active" id="addons-active"><?php _e( 'Active', 'wpcasa' ) ?></a>
+    <a href="#addons-inactive" id="addons-inactive"><?php _e( 'Inactive', 'wpcasa' ) ?></a>
+</div>
 
 <div class="wpsight-admin-ui-grid-col wpsight-admin-addons wpsight-admin-ui-grid-1-1">
 
@@ -13,6 +16,7 @@
                 <th><?php _e( 'Version', 'wpcasa' ) ?></th>
                 <th><?php _e( 'Author', 'wpcasa' ) ?></th>
                 <th><?php _e( 'Status', 'wpcasa' ) ?></th>
+                <th>Action</th>
             </tr>
         </thead>
 
@@ -27,6 +31,9 @@
                         <td><?php echo $p['Version'] ?></td>
                         <td><?php echo $p['Author'] ?></td>
                         <td><?php if( is_plugin_active( $plugin ) ) { echo __( 'Active', 'wpcasa' ); } else { echo __( 'Inactive', 'wpcasa' ); } ?></td>
+                        <td>
+                            <a href="#" class="addons-table-btn">Button</a>
+                        </td>
                     </tr>
                 <?php } ?>
 

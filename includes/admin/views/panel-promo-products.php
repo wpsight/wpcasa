@@ -1,42 +1,21 @@
 <?php
-
     $recommends = wpsight_get_recommends();
-//    $images = [
-//        'https://images.unsplash.com/photo-1575976371069-bf1d39f2fd21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-//        'https://images.unsplash.com/photo-1575991519121-156b78281296?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-//        'https://images.unsplash.com/photo-1575931923112-bf17a477d09c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=622&q=80',
-//        'https://images.unsplash.com/photo-1575915655585-76375f9d46bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-//        'https://images.unsplash.com/photo-1575961895658-53c39b1d3307?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-//        'https://images.unsplash.com/photo-1575931390568-44e58811bf7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-//        'https://images.unsplash.com/photo-1575923877462-a865f26c967a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
-//    ];
-
 //    shuffle($recommends);
-//var_dump($recommends);
 ?>
 
 <div class="wpsight-admin-ui-promo">
 
     <div class="swiper-container wpsight-promo-slider">
         <div class="swiper-wrapper">
-
-            <?php foreach ($recommends as $key => $value) {
-                $title = $value['title'];
-                $description = $value['description'];
-                $image_url = $value['image_url'];
-                $button_text = $value['button_text'];
-                $link = $value['button_link'];
-//                var_dump($value);
-            ?>
-                <a href="<?php echo $link; ?>" class="swiper-slide swiper-slide-overlay">
+            <?php foreach ($recommends as $key => $value) { ?>
+                <a href="<?php echo $value['button_link']; ?>" class="swiper-slide swiper-slide-overlay">
                     <img class="promo-slider-img" src="<?php echo $value['image_url']; ?>" alt="">
                     <div class="slide-content">
                         <span class="slide-content-title">
-                            <?php echo $title; ?>
+                            <?php echo $value['title']; ?>
                         </span>
-
                         <p class="slide-content-desc">
-                            <?php echo $description; ?>
+                            <?php echo $value['description']; ?>
                         </p>
                     </div>
                 </a>

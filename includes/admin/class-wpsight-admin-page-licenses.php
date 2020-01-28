@@ -98,7 +98,7 @@ class WPSight_Admin_Licenses {
                                 <?php wp_nonce_field( 'wpsight_' . $license['id'] . '_activate_nonce', 'wpsight_' . $license['id'] . '_activate_nonce' ); ?>
 							<?php } else { ?>
                             	<span class="tips" data-tip="<?php _e( 'Enter License Key first, then save and then activate.', 'wpcasa' ); ?>">
-                                	<input type="submit" class="button-secondary"  value="<?php _e( 'Activate License', 'wpcasa' ); ?>" disabled="disabled" />
+                                	<input type="submit" class="button-secondary"  value="<?php _e( 'Activate License', 'wpcasa' ); ?>" />
                                 </span>	
 							<?php } ?>
                                                                                 									

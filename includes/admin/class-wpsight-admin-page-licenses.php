@@ -62,8 +62,9 @@ class WPSight_Admin_Licenses {
 						<div class="wpsight-settings-panel-head">
                             <?php echo esc_attr( $license['name'] ); ?>
                             <?php
-							if( $license_status == 'valid' ) {
-								echo '<span class="indicator indicator-valid tips" data-tip="' . __( 'Valid', 'wpcasa' ) . '"></span>';
+							if( $license_status == 'valid' ) { ?>
+							    <small style="color:green;">(<?php _e( 'active', 'wpcasa' ); ?>)</small>
+							<?php	echo '<span class="indicator indicator-valid tips" data-tip="' . __( 'Valid', 'wpcasa' ) . '"></span>';
 								echo '<span class="wpsight-settings-help tips" data-tip="' . sprintf( __( 'Valid until %s', 'wpcasa' ), date_i18n( get_option( 'date_format' ), strtotime( $license_data->expires ) ) ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
 							} elseif( $license_status == 'expired' ) {
 								echo '<span class="indicator indicator-expired tips" data-tip="' . __( 'Expired', 'wpcasa' ) . '"></span>';

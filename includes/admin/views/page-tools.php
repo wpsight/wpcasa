@@ -45,7 +45,7 @@
                                     </div>
 
                                     <div class="wpsight-admin-ui-heading-actions">
-                                        <a href="#" class="button button-primary" target="_blank"><?php _e( 'View Documentation', 'wpcasa' ); ?></a>
+                                        <a href="https://docs.wpcasa.com/" class="button button-primary" target="_blank"><?php _e( 'View Documentation', 'wpcasa' ); ?></a>
                                     </div>
 
                                 </div>

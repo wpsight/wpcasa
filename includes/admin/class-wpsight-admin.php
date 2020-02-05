@@ -867,9 +867,8 @@ class WPSight_Admin {
      *	@since 1.2.0
      */
     public static function is_premium() {
-
         foreach( wpsight_licenses() as $id => $license )
-            $keys[$id] = get_option( 'wpsight_' . $license['id'] . '_status' );
+            $keys[$id] = get_transient( 'wpsight_' . $license['id'] )->license;
 
         if( in_array( 'valid', $keys ) )
             return true;

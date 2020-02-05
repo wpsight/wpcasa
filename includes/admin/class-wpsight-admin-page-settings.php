@@ -20,7 +20,7 @@ class WPSight_Admin_Settings {
 
         add_action( 'admin_post_reset_settings',  array( $this, 'reset_settings' ) );
         add_action( 'admin_post_migrate_data',  array( $this, 'migrate_data' ) );
-        add_action( 'admin_post_delete_all_transients',  array( $this, 'delete_all_transients' ) );
+//        add_action( 'admin_post_delete_all_transients',  array( $this, 'delete_all_transients' ) );
         add_action( 'admin_post_delete_all_data',  array( $this, 'delete_all_data' ) );
 	}
 
@@ -161,23 +161,18 @@ class WPSight_Admin_Settings {
 
     }
 
-    public function delete_all_transients() {
-        check_admin_referer( 'delete_transients', 'delete_all_transients' );
-        foreach( wpsight_licenses() as $id => $license ) {
-            $license_id = $license['id'];
-
-            wpsight_deactivate_license( $license_id, $license['name'] );
-            delete_transient( 'wpsight_' . $license_id );
-        }
-        delete_transient( 'wpsight_addons_html' );
-        delete_transient( 'wpsight_themes_html' );
-
-        $redirect = add_query_arg( 'delete_all_transients', 'success', admin_url("/admin.php?page=wpsight-settings") );
-        wp_redirect($redirect, 301);
-
-        exit;
-
-    }
+//    public function delete_all_transients() {
+//        check_admin_referer( 'delete_transients', 'delete_all_transients' );
+//
+//        delete_transient( 'wpsight_addons_html' );
+//        delete_transient( 'wpsight_themes_html' );
+//
+//        $redirect = add_query_arg( 'delete_all_transients', 'success', admin_url("/admin.php?page=wpsight-settings") );
+//        wp_redirect($redirect, 301);
+//
+//        exit;
+//
+//    }
 
     public function delete_all_data() {
         check_admin_referer( 'delete_data', 'delete_all_data' );

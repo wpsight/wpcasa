@@ -73,30 +73,31 @@
                                 </div>
                             </td>
 
-                        </tr>
+<!--                        </tr>-->
 
-                        <tr valign="top">
+<!--                        <tr valign="top">-->
 
-                            <th scope="row">
-                                <label><?php _e( 'Delete all Transients', 'wpcasa' ); ?></label>
-                                <p class="description"><?php _e( 'Transients are used in order to store specific kind of data. For example it stores currency exchange rates but also license information. You can safely delete all transients in order to see if it helps fixing an issue you came across.', 'wpcasa' ); ?></p>
-                            </th>
+<!--                            <th scope="row">-->
+<!--                                <label>--><?php //_e( 'Delete all Transients', 'wpcasa' ); ?><!--</label>-->
+<!--                                <p class="description">--><?php //_e( 'Transients are used in order to store specific kind of data. For example it stores currency exchange rates but also license information. You can safely delete all transients in order to see if it helps fixing an issue you came across.', 'wpcasa' ); ?><!--</p>-->
+<!--                            </th>-->
 
-                            <td>
+<!--                            <td>-->
 
-                                <div class="wpsight-settings-field-wrap wpsight-settings-field-reset-wrap">
-                                    <div class="wpsight-settings-field wpsight-settings-field-reset">
-                                        <form method="post" action="<?php echo admin_url( 'admin-post.php' ); ?>">
-                                            <input type="hidden" name="action" value="delete_all_transients">
-                                            <?php wp_nonce_field("delete_transients", "delete_all_transients"); ?>
-                                            <input type="submit" class="reset-button button-secondary" name="delete_transients" value="<?php esc_attr_e( 'Delete Data', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Do you really want to perform the migration?', 'wpcasa' ) ); ?>' );" />
-                                        </form>
-                                    </div>
-                                </div>
+<!--                                <div class="wpsight-settings-field-wrap wpsight-settings-field-reset-wrap">-->
+<!--                                    <div class="wpsight-settings-field wpsight-settings-field-reset">-->
+<!--                                        <form method="post" action="--><?php //echo admin_url( 'admin-post.php' ); ?><!--">-->
+<!--                                            <input type="hidden" name="action" value="delete_all_transients">-->
+<!--                                            --><?php //wp_nonce_field("delete_transients", "delete_all_transients"); ?>
+<!--                                            <input type="submit" class="reset-button button-secondary" name="delete_transients" value="--><?php //esc_attr_e( 'Delete Data', 'wpcasa' ); ?><!--" -->
+<!--                                                   onclick="return confirm( '--><?php //print esc_js( __( 'Do you really want to perform the migration?', 'wpcasa' ) ); ?><!--' );" />-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!---->
+<!--                            </td>-->
 
-                            </td>
-
-                        </tr>
+<!--                        </tr>-->
 
                         <tr valign="top">
 

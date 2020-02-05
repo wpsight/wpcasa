@@ -11,10 +11,9 @@ class WPSight_Admin_Licenses {
 	 *	Constructor
 	 */
 	public function __construct() {
-//priority is important here
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 		add_action( 'admin_init', array( $this, 'activate_licenses' ) );
-        //        add_action( 'admin_init', array( $this, 'check_licenses' ) );
+//		add_action( 'admin_init', array( $this, 'update_licenses' ) );
 	}
 
 	/**
@@ -47,19 +46,19 @@ class WPSight_Admin_Licenses {
 					$licenses = get_option( 'wpsight_licenses' );
 
 					foreach( wpsight_licenses() as $id => $license ) :
-                        $license_data			= $this->get_license_data( $license );
+                        $license_data			= $this->update_and_get_license_data( $license );
 						$option_key				= $license['id'];
-						$option_status			= 'wpsight_' . $license['id'] . '_status';
+						$option_status			= 'wpsight_' . $license['id'];
 						$option_value			= isset( $licenses[ $option_key ] ) ? $licenses[ $option_key ] : false;
-						$option_value_status	= get_option( $option_status );
+						$option_value_status	= get_transient( $option_status )->license;
 
 						$license_status			= $option_value_status;
 
 					?>
-
 					<div class="wpsight-settings-panel">
 
 						<div class="wpsight-settings-panel-head">
+
                             <?php echo esc_attr( $license['name'] ); ?>
                             <?php
 							if( $license_status == 'valid' ) { ?>
@@ -189,38 +188,11 @@ class WPSight_Admin_Licenses {
 
 	}
 
-	/**
-	 *	check_licenses()
-	 *
-	 *	Check if the license keys have been
-	 *	deactivated from the website account.
-	 *	The result is cached for 12 hours.
-	 *
-	 *	@uses	wpsight_licenses()
-	 *	@uses	get_transient()
-	 *	@uses	wpsight_check_license()
-	 *	@uses	set_transient()
-	 *
-	 *	@since 1.0.0
-	 */
-//	function check_licenses() {
-//
+
+//	function update_licenses() {
 //		foreach( wpsight_licenses() as $id => $license ) {
-////            var_dump($check_license = get_transient( 'wpsight_' . $license['id'] ));
-////            it's check not working
-////			if ( false === ( $check_license = get_transient( 'wpsight_' . $license['id'] ) ) ) {
-//            $check_license = wpsight_check_license( $license['id'], $license['name'] );
-//            var_dump($check_license);
-//
-//            if ( $check_license == 'valid' ) {
-//
-//            }
-//
-//            $this->wpsight_set_tansient('wpsight_' . $license['id'], $check_license, 12 * HOUR_IN_SECONDS);
-////			}
-//
+//            $this->update_and_get_license_data( $license );
 //		}
-//
 //	}
 
     /**
@@ -240,7 +212,6 @@ class WPSight_Admin_Licenses {
      *	@since 1.0.0
      */
     public function activate_license( $id = '', $item = '' ) {
-
         $licenses = get_option( 'wpsight_licenses' );
 
         // retrieve the license from the database
@@ -265,8 +236,7 @@ class WPSight_Admin_Licenses {
         $license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
         // $license_data->license will be either "active" or "inactive"
-        update_option( 'wpsight_' . $id . '_status', $license_data->license );
-        $this->wpsight_set_tansient('wpsight_' . $id, $license_data, $this->transient_lifespan());
+        set_transient('wpsight_' . $id, $license_data, $this->transient_lifespan());
     }
 
     /**
@@ -311,19 +281,8 @@ class WPSight_Admin_Licenses {
         $license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
         // $license_data->license will be either "deactivated" or "failed"
-        update_option( 'wpsight_' . $id . '_status', $license_data->license );
-        $this->wpsight_set_tansient('wpsight_' . $id, $license_data, $this->transient_lifespan());
+        set_transient('wpsight_' . $id, $license_data, $this->transient_lifespan());
     }
-
-    /**
-     * set transient
-     *
-     * @since  1.0.0
-     * @access public
-     */
-//    public function wpsight_set_tansient( $transient_name, $data, $transient_lifespan ) {
-//        set_transient( $transient_name, $data, $transient_lifespan );
-//    }
 
 
     /**
@@ -372,7 +331,7 @@ class WPSight_Admin_Licenses {
 	 * @since  1.0.0
 	 * @access public
 	 */
-	public function get_license_data( $license = null ) {
+	public function update_and_get_license_data( $license = null ) {
 
 		// Set transient name
 		$transient_name = 'wpsight_' . $license['id'];
@@ -389,8 +348,7 @@ class WPSight_Admin_Licenses {
 
 		// Save the API response so we don't have to call again until tomorrow.
 
-        $this->wpsight_set_tansient($transient_name, $data, $this->transient_lifespan());
-        update_option( 'wpsight_' . $license['id'] . '_status', $data->license );
+        set_transient($transient_name, $data, $this->transient_lifespan());
 
 		// Return the data. The function will return here the first time it is run, and then once again, each time the transient expires.
 		return $data;

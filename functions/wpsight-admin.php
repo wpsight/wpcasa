@@ -67,13 +67,13 @@ if ( ! function_exists( 'wpsight_licenses' ) ) {
  */
 
 // Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_check_license' ) ) {
-
-	function wpsight_check_license( $id = '', $item = '' ) {
-		return WPSight_Admin::check_license( $id, $item );
-	}
-
-}
+//if ( ! function_exists( 'wpsight_check_license' ) ) {
+//
+//	function wpsight_check_license( $id = '', $item = '' ) {
+//		return WPSight_Admin::check_license( $id, $item );
+//	}
+//
+//}
 
 /**
  *	wpsight_activate_license()
@@ -84,13 +84,13 @@ if ( ! function_exists( 'wpsight_check_license' ) ) {
  */
 
 // Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_activate_license' ) ) {
-
-	function wpsight_activate_license( $id = '', $item = '' ) {
-		return WPSight_Admin::activate_license( $id, $item );
-	}
-
-}
+//if ( ! function_exists( 'wpsight_activate_license' ) ) {
+//
+//	function wpsight_activate_license( $id = '', $item = '' ) {
+//		return WPSight_Admin::activate_license( $id, $item );
+//	}
+//
+//}
 
 /**
  *	wpsight_deactivate_license()
@@ -101,13 +101,13 @@ if ( ! function_exists( 'wpsight_activate_license' ) ) {
  */
 
 // Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_deactivate_license' ) ) {
-
-	function wpsight_deactivate_license( $id = '', $item = '' ) {
-		return WPSight_Admin::deactivate_license( $id, $item );
-	}
-
-}
+//if ( ! function_exists( 'wpsight_deactivate_license' ) ) {
+//
+//	function wpsight_deactivate_license( $id = '', $item = '' ) {
+//		return WPSight_Admin::deactivate_license( $id, $item );
+//	}
+//
+//}
 
 /**
  *	wpsight_is_premium()

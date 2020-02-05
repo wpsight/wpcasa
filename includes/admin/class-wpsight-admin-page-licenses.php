@@ -11,9 +11,10 @@ class WPSight_Admin_Licenses {
 	 *	Constructor
 	 */
 	public function __construct() {
-//        add_action( 'admin_init', array( $this, 'check_licenses' ) );
+//priority is important here
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 		add_action( 'admin_init', array( $this, 'activate_licenses' ) );
+        //        add_action( 'admin_init', array( $this, 'check_licenses' ) );
 	}
 
 	/**
@@ -46,13 +47,12 @@ class WPSight_Admin_Licenses {
 					$licenses = get_option( 'wpsight_licenses' );
 
 					foreach( wpsight_licenses() as $id => $license ) :
-
+                        $license_data			= $this->get_license_data( $license );
 						$option_key				= $license['id'];
 						$option_status			= 'wpsight_' . $license['id'] . '_status';
 						$option_value			= isset( $licenses[ $option_key ] ) ? $licenses[ $option_key ] : false;
 						$option_value_status	= get_option( $option_status );
 
-						$license_data			= $this->get_license_data( $license );
 						$license_status			= $option_value_status;
 
 					?>
@@ -150,8 +150,7 @@ class WPSight_Admin_Licenses {
 			$license_id = $license['id'];
 			if( isset( $old[ $license_id ] ) && $old[ $license_id ] != $new[ $license_id ] ) {
 				// If license key has changed, deactivate old license
-				wpsight_deactivate_license( $license_id, $license['name'] );
-				delete_transient( 'wpsight_' . $license_id );
+				$this->deactivate_license( $license_id, $license['name'] );
 			}
 		}
 
@@ -178,18 +177,12 @@ class WPSight_Admin_Licenses {
 
 			// listen for our activate button to be clicked
 			if( isset( $_POST[ 'wpsight_' . $license['id'] . '_activate' ] ) && check_admin_referer( 'wpsight_' . $license['id'] . '_activate_nonce', 'wpsight_' . $license['id'] . '_activate_nonce' ) ) {
-				wpsight_activate_license( $license['id'], $license['name'] );
-
-//				delete_transient( 'wpsight_' . $license['id'] );
+				$this->activate_license( $license['id'], $license['name'] );
 			}
 
 			// listen for our deactivate button to be clicked
 			if( isset( $_POST[ 'wpsight_' . $license['id'] . '_deactivate' ] ) && check_admin_referer( 'wpsight_' . $license['id'] . '_deactivate_nonce', 'wpsight_' . $license['id'] . '_deactivate_nonce' ) ) {
-//                wpsight_check_license( $license['id'], $license['name'] );
-				wpsight_deactivate_license( $license['id'], $license['name'] );
-//                wpsight_check_license( $license['id'], $license['name'] );
-
-//				delete_transient( 'wpsight_' . $license['id'] );
+				$this->deactivate_license( $license['id'], $license['name'] );
 			}
 
 		}
@@ -210,23 +203,131 @@ class WPSight_Admin_Licenses {
 	 *
 	 *	@since 1.0.0
 	 */
-	function check_licenses() {
+//	function check_licenses() {
+//
+//		foreach( wpsight_licenses() as $id => $license ) {
+////            var_dump($check_license = get_transient( 'wpsight_' . $license['id'] ));
+////            it's check not working
+////			if ( false === ( $check_license = get_transient( 'wpsight_' . $license['id'] ) ) ) {
+//            $check_license = wpsight_check_license( $license['id'], $license['name'] );
+//            var_dump($check_license);
+//
+//            if ( $check_license == 'valid' ) {
+//
+//            }
+//
+//            $this->wpsight_set_tansient('wpsight_' . $license['id'], $check_license, 12 * HOUR_IN_SECONDS);
+////			}
+//
+//		}
+//
+//	}
 
-		foreach( wpsight_licenses() as $id => $license ) {
-//            var_dump($check_license = get_transient( 'wpsight_' . $license['id'] ));
-//            it's check not working
-//			if ( false === ( $check_license = get_transient( 'wpsight_' . $license['id'] ) ) ) {
-            $check_license = wpsight_check_license( $license['id'], $license['name'] );
-            set_transient( 'wpsight_' . $license['id'], $check_license, 12 * HOUR_IN_SECONDS );
-//			}
+    /**
+     *	activate_license()
+     *
+     *	Activate a specific license.
+     *
+     *	@uses	get_option()
+     *	@uses	urlencode()
+     *	@uses	home_url()
+     *	@uses	wp_remote_post()
+     *	@uses	is_wp_error()
+     *	@uses	wp_remote_retrieve_body()
+     *	@uses	json_decode()
+     *	@uses	update_option()
+     *
+     *	@since 1.0.0
+     */
+    public function activate_license( $id = '', $item = '' ) {
+
+        $licenses = get_option( 'wpsight_licenses' );
+
+        // retrieve the license from the database
+        $license = trim( $licenses[ $id ] );
+
+        // data to send in our API request
+        $api_params = array(
+            'edd_action'=> 'activate_license',
+            'license' 	=> $license,
+            'item_name' => urlencode( $item ),
+            'url'       => home_url()
+        );
+
+        // Call the custom API.
+        $response = wp_remote_post( WPSIGHT_SHOP_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
+
+        // make sure the response came back okay
+        if ( is_wp_error( $response ) )
+            return false;
+
+        // decode the license data
+        $license_data = json_decode( wp_remote_retrieve_body( $response ) );
+
+        // $license_data->license will be either "active" or "inactive"
+        update_option( 'wpsight_' . $id . '_status', $license_data->license );
+        $this->wpsight_set_tansient('wpsight_' . $id, $license_data, $this->transient_lifespan());
+    }
+
+    /**
+     *	deactivate_license()
+     *
+     *	Deactivate a specific license.
+     *
+     *	@uses	get_option()
+     *	@uses	urlencode()
+     *	@uses	home_url()
+     *	@uses	wp_remote_post()
+     *	@uses	is_wp_error()
+     *	@uses	wp_remote_retrieve_body()
+     *	@uses	json_decode()
+     *	@uses	delete_option()
+     *
+     *	@since 1.0.0
+     */
+    public function deactivate_license( $id = '', $item = '' ) {
+
+        $licenses = get_option( 'wpsight_licenses' );
+
+        // retrieve the license from the database
+        $license = trim( $licenses[ $id ] );
+
+        // data to send in our API request
+        $api_params = array(
+            'edd_action'=> 'deactivate_license',
+            'license' 	=> $license,
+            'item_name' => urlencode( $item ),
+            'url'       => home_url()
+        );
+
+        // Call the custom API.
+        $response = wp_remote_post( WPSIGHT_SHOP_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
+
+        // make sure the response came back okay
+        if ( is_wp_error( $response ) )
+            return false;
+
+        // decode the license data
+        $license_data = json_decode( wp_remote_retrieve_body( $response ) );
+
+        // $license_data->license will be either "deactivated" or "failed"
+        update_option( 'wpsight_' . $id . '_status', $license_data->license );
+        $this->wpsight_set_tansient('wpsight_' . $id, $license_data, $this->transient_lifespan());
+    }
+
+    /**
+     * set transient
+     *
+     * @since  1.0.0
+     * @access public
+     */
+//    public function wpsight_set_tansient( $transient_name, $data, $transient_lifespan ) {
+//        set_transient( $transient_name, $data, $transient_lifespan );
+//    }
 
 
-		}
-
-	}
-
-	/**
-	 *	check_license()
+    /**
+	 *	get_license_response()
 	 *
 	 *	Check a specific license.
 	 *
@@ -263,7 +364,6 @@ class WPSight_Admin_Licenses {
 			return false;
 
 		return json_decode( wp_remote_retrieve_body( $response ) );
-
 	}
 
 	/**
@@ -275,7 +375,7 @@ class WPSight_Admin_Licenses {
 	public function get_license_data( $license = null ) {
 
 		// Set transient name
-		$transient_name = 'wpsight_' . $license['id'] . '_license_data';
+		$transient_name = 'wpsight_' . $license['id'];
 
 		// Do we have this information in our transients already?
 		$transient = get_transient( $transient_name );
@@ -288,12 +388,15 @@ class WPSight_Admin_Licenses {
 		$data = $this->get_license_response( $license['id'], $license['name'] );
 
 		// Save the API response so we don't have to call again until tomorrow.
-		set_transient( $transient_name, $data, $this->transient_lifespan() );
+
+        $this->wpsight_set_tansient($transient_name, $data, $this->transient_lifespan());
+        update_option( 'wpsight_' . $license['id'] . '_status', $data->license );
 
 		// Return the data. The function will return here the first time it is run, and then once again, each time the transient expires.
 		return $data;
 
 	}
+
 
 	/**
 	 * If the user is a super admin and debug mode is on, only store transients for a second.
@@ -310,50 +413,5 @@ class WPSight_Admin_Licenses {
 		}
 
 	}
-
-	/**
-	 *	check_license()
-	 *
-	 *	Check a specific license.
-	 *
-	 *	@uses	get_option()
-	 *	@uses	urlencode()
-	 *	@uses	home_url()
-	 *	@uses	wp_remote_post()
-	 *	@uses	is_wp_error()
-	 *	@uses	wp_remote_retrieve_body()
-	 *	@uses	json_decode()
-	 *	@uses	delete_option()
-	 *	@return	string	valid|invalid
-	 *
-	 *	@since 1.0.0
-	 */
-//	public function check_license( $id = '', $item = '' ) {
-//
-//		$licenses = get_option( 'wpsight_licenses' );
-//
-//		// retrieve the license from the database
-//		$license = isset( $licenses[ $id ] ) ? trim( $licenses[ $id ] ) : false;
-//
-//		$api_params = array(
-//			'edd_action'=> 'check_license',
-//			'license'	=> $license,
-//			'item_name' => urlencode( $item ),
-//			'url'       => home_url()
-//		);
-//
-//		// Call the custom API.
-//		$response = wp_remote_post( WPSIGHT_SHOP_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
-//
-//		if ( is_wp_error( $response ) )
-//			return false;
-//
-//		$license_data	= json_decode( wp_remote_retrieve_body( $response ) );
-//		$license		= $license_data->license;
-//
-//		if( $license )
-//			return $license;
-//
-//	}
 
 }

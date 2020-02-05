@@ -796,98 +796,7 @@ class WPSight_Admin {
 
     }
 
-    /**
-     *	activate_license()
-     *
-     *	Activate a specific license.
-     *
-     *	@uses	get_option()
-     *	@uses	urlencode()
-     *	@uses	home_url()
-     *	@uses	wp_remote_post()
-     *	@uses	is_wp_error()
-     *	@uses	wp_remote_retrieve_body()
-     *	@uses	json_decode()
-     *	@uses	update_option()
-     *
-     *	@since 1.0.0
-     */
-    public static function activate_license( $id = '', $item = '' ) {
 
-        $licenses = get_option( 'wpsight_licenses' );
-
-        // retrieve the license from the database
-        $license = trim( $licenses[ $id ] );
-
-        // data to send in our API request
-        $api_params = array(
-            'edd_action'=> 'activate_license',
-            'license' 	=> $license,
-            'item_name' => urlencode( $item ),
-            'url'       => home_url()
-        );
-
-        // Call the custom API.
-        $response = wp_remote_post( WPSIGHT_SHOP_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
-
-        // make sure the response came back okay
-        if ( is_wp_error( $response ) )
-            return false;
-
-        // decode the license data
-        $license_data = json_decode( wp_remote_retrieve_body( $response ) );
-
-        // $license_data->license will be either "active" or "inactive"
-        update_option( 'wpsight_' . $id . '_status', $license_data->license );
-
-    }
-
-    /**
-     *	deactivate_license()
-     *
-     *	Deactivate a specific license.
-     *
-     *	@uses	get_option()
-     *	@uses	urlencode()
-     *	@uses	home_url()
-     *	@uses	wp_remote_post()
-     *	@uses	is_wp_error()
-     *	@uses	wp_remote_retrieve_body()
-     *	@uses	json_decode()
-     *	@uses	delete_option()
-     *
-     *	@since 1.0.0
-     */
-    public static function deactivate_license( $id = '', $item = '' ) {
-
-        $licenses = get_option( 'wpsight_licenses' );
-
-        // retrieve the license from the database
-        $license = trim( $licenses[ $id ] );
-
-        // data to send in our API request
-        $api_params = array(
-            'edd_action'=> 'deactivate_license',
-            'license' 	=> $license,
-            'item_name' => urlencode( $item ),
-            'url'       => home_url()
-        );
-
-        // Call the custom API.
-        $response = wp_remote_post( WPSIGHT_SHOP_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
-
-        // make sure the response came back okay
-        if ( is_wp_error( $response ) )
-            return false;
-
-        // decode the license data
-        $license_data = json_decode( wp_remote_retrieve_body( $response ) );
-
-        // $license_data->license will be either "deactivated" or "failed"
-        //if( $license_data->license )
-        update_option( 'wpsight_' . $id . '_status', $license_data->license );
-
-    }
 
     /**
      *	check_license()
@@ -906,40 +815,42 @@ class WPSight_Admin {
      *
      *	@since 1.0.0
      */
-    public static function check_license( $id = '', $item = '' ) {
-
-        $licenses = get_option( 'wpsight_licenses' );
-
-        // retrieve the license from the database
-        $license = isset( $licenses[ $id ] ) ? trim( $licenses[ $id ] ) : false;
-
-        $api_params = array(
-            'edd_action'=> 'check_license',
-            'license'	=> $license,
-            'item_name' => urlencode( $item ),
-            'url'       => home_url()
-        );
-
-        // Call the custom API.
-        $response = wp_remote_post( WPSIGHT_SHOP_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
-
-        if ( is_wp_error( $response ) )
-            return false;
-
-        $license_data = json_decode( wp_remote_retrieve_body( $response ) );
-
-        update_option( 'wpsight_' . $id . '_status', $license_data->license );
-
-        return $license_data->license;
-
-//		if( $license_data->license == 'valid' ) {
-//			return 'valid';
-//		} else {
-//			//delete_option( 'wpsight_' . $id . '_status' );
-//			return 'invalid';
-//		}
-
-    }
+//    public static function check_license( $id = '', $item = '' ) {
+//
+//        $licenses = get_option( 'wpsight_licenses' );
+//
+//        // retrieve the license from the database
+//        $license = isset( $licenses[ $id ] ) ? trim( $licenses[ $id ] ) : false;
+//
+//        $api_params = array(
+//            'edd_action'=> 'check_license',
+//            'license'	=> $license,
+//            'item_name' => urlencode( $item ),
+//            'url'       => home_url()
+//        );
+//
+//        // Call the custom API.
+//        $response = wp_remote_post( WPSIGHT_SHOP_URL, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
+//
+//        if ( is_wp_error( $response ) )
+//            return false;
+//
+//        $license_data = json_decode( wp_remote_retrieve_body( $response ) );
+////        var_dump($license_data);
+//        update_option( 'wpsight_' . $id . '_status', $license_data->license );
+//
+//
+//
+//        return $license_data->license;
+//
+////		if( $license_data->license == 'valid' ) {
+////			return 'valid';
+////		} else {
+////			//delete_option( 'wpsight_' . $id . '_status' );
+////			return 'invalid';
+////		}
+//
+//    }
 
     /**
      *	is_premium()

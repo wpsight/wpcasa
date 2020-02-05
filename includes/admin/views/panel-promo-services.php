@@ -1,6 +1,6 @@
 <div class="wpsight-admin-promo-services promo-services">
     <div class="promo-services-content">
-        <span class="promo-services-text">Need help with installation or Setup?<br> Or need something customized?</span>
-        <a href="#" class="promo-services-button">Request quote</a>
+        <span class="promo-services-text"><?php _e( 'Need help with installation or Setup? Or need something customized?', 'wpcasa' ); ?></span>
+        <a href="#" class="promo-services-button"><?php _e( 'Request quote', 'wpcasa' ); ?></a>
     </div>
 </div>

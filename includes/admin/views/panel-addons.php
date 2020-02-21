@@ -16,7 +16,7 @@
                 <th><?php _e( 'Version', 'wpcasa' ) ?></th>
                 <th><?php _e( 'Author', 'wpcasa' ) ?></th>
                 <th><?php _e( 'Status', 'wpcasa' ) ?></th>
-                <th><?php _e( 'Action', 'wpcasa' ) ?></th>
+<!--                <th>--><?php //_e( 'Action', 'wpcasa' ) ?><!--</th>-->
             </tr>
         </thead>
 
@@ -33,9 +33,9 @@
                         <td class="<?php if( is_plugin_active( $plugin ) ) { echo 'status-active'; } else { echo 'status-inactive'; } ?>">
                           <?php if( is_plugin_active( $plugin ) ) { echo __( 'Active', 'wpcasa' ); } else { echo __( 'Inactive', 'wpcasa' ); } ?>
                         </td>
-                        <td>
-                            <a href="#" class="addons-table-btn"><?php _e( 'Button', 'wpcasa' ) ?></a>
-                        </td>
+<!--                        <td>-->
+<!--                            <a href="#" class="addons-table-btn">--><?php //_e( 'Button', 'wpcasa' ) ?><!--</a>-->
+<!--                        </td>-->
                     </tr>
                 <?php } ?>
 
@@ -82,10 +82,10 @@
                                       <?php if( is_plugin_active( $plugin ) ) { echo __( 'Active', 'wpcasa' ); } else { echo __( 'Inactive', 'wpcasa' ); } ?>
                                     </span>
                                 </li>
-
-                                <li class="content-item">
-                                    <a href="#" class="addons-table-btn"><?php _e( 'Button', 'wpcasa' ) ?></a>
-                                </li>
+<!---->
+<!--                                <li class="content-item">-->
+<!--                                    <a href="#" class="addons-table-btn">--><?php //_e( 'Button', 'wpcasa' ) ?><!--</a>-->
+<!--                                </li>-->
                             </ul>
                         </div>
                     </div>

@@ -80,7 +80,7 @@ class WPSight_Admin {
 
         $screen = get_current_screen();
 
-        if ( in_array( $screen->id, array( 'edit-' . $post_type, $post_type, 'toplevel_page_wpsight-settings', 'wpcasa_page_wpsight-addons', 'wpcasa_page_wpsight-themes', 'wpcasa_page_wpsight-licenses', 'wpcasa_page_wpsight-recommends' ) ) || $screen->id == 'plugin-install' && isset( $_GET['tab'] ) && $_GET['tab'] == 'wpcasa_addons' ) {
+        if ( in_array( $screen->id, array( 'edit-' . $post_type, $post_type, 'toplevel_page_wpsight-settings', 'wpcasa_page_wpsight-addons', 'wpcasa_page_wpsight-themes', 'wpcasa_page_wpsight-licenses', 'wpcasa_page_wpsight-recommendations' ) ) || $screen->id == 'plugin-install' && isset( $_GET['tab'] ) && $_GET['tab'] == 'wpcasa_addons' ) {
 
             wp_register_script( 'jquery-tiptip',				WPSIGHT_PLUGIN_URL . '/assets/js/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 

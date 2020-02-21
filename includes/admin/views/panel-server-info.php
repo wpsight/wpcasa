@@ -38,4 +38,4 @@
     </table>
 </div>
 
-<a href="#" target="_blank" class="button button-primary button-text-icon"><span class="dashicons dashicons-cloud"></span><?php _e( 'Detailed Report', 'wpcasa' ) ?></a>
+<!--<a href="#" target="_blank" class="button button-primary button-text-icon"><span class="dashicons dashicons-cloud"></span>--><?php //_e( 'Detailed Report', 'wpcasa' ) ?><!--</a>-->

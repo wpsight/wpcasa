@@ -934,7 +934,7 @@ class WPSight_Admin {
             ],
         ];
 
-        $recommends = apply_filters('wpsight_recommend_items', $recommends);
+        $recommends = apply_filters('wpsight_recommendations', $recommends);
 
         return $recommends;
 

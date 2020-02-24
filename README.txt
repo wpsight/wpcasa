@@ -176,7 +176,7 @@ Many thanks to all of them for contributing and making WPCasa even better.
 * Completely changed admin ui
 * Improved license algorithm working
 * Changed file structure
-* Ability to restore settings to default
+* Ability to restore wpcasa settings to default
 * Ability to delete all wpcasa data
 * Improved map searching algorithm
 * Multiple plugin activation

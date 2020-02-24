@@ -172,6 +172,19 @@ Many thanks to all of them for contributing and making WPCasa even better.
 
 == Changelog ==
 
+= 1.2.0 =
+* Completely changed admin ui
+* Improved license algorithm working
+* Changed file structure
+* Ability to restore settings to default
+* Ability to delete all wpcasa data
+* Improved map searching algorithm
+* Multiple plugin activation
+* Add recommends items
+* Fix bulk listing edit
+* Update CMB2 version from 2.1.2 to 2.6.0
+
+
 = 1.1.0 =
 * Tested up to WordPress 5.2
 * Added Italian Translation

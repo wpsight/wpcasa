@@ -29,12 +29,15 @@ class WPSight_Shortcode_Related_Listings {
     public function shortcode_related_listings( $atts ) {
         $taxonomy_filters	= array();
 
+//        Check if any of tax args added
         foreach( get_object_taxonomies( wpsight_post_type(), 'objects' ) as $key => $taxonomy ) {
             if ($key == 'listing-category') continue;
             $taxonomy_filters[ $key ] = isset( $atts[ $key ] ) ? esc_sql( $atts[ $key ] ) : false;
         }
 
+//        if none of tax args added, get them from listing
         if ( !array_filter($taxonomy_filters) ) {
+//           if none of args added $atts is string. Made it array for proper working
             if ( !is_array($atts) ) {
                 $atts = [];
             }

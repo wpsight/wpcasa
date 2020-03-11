@@ -43,11 +43,19 @@ if ( $theme->exists() ) {
             <tr>
                 <td><?php _e( 'WPCasa Support', 'wpcasa' ); ?>:</td>
                 <td>
-                    <?php if( current_theme_supports( 'wpcasa' ) ) {
-                        echo '<span class="wpsight-admin-ui-tag wpsight-admin-ui-tag-success">' . __( 'Yes', 'wpcasa' ) . '</span>';
-                    } else {
-                        echo '<span class="wpsight-admin-ui-tag wpsight-admin-ui-tag-error">' . __( 'No', 'wpcasa' ) . '</span>';
-                    } ?>
+                    <?php
+                        if ( $theme->get( 'Author' ) == 'WPSight' ) {
+                            echo '<span class="wpsight-admin-ui-tag wpsight-admin-ui-tag-success">' . __( 'Yes', 'wpcasa' ) . '</span>';
+                        } else {
+                            echo '<span class="wpsight-admin-ui-tag wpsight-admin-ui-tag-error">' . __( 'No', 'wpcasa' ) . '</span>';
+                        }
+                    ?>
+
+<!--                    --><?php //if( current_theme_supports( 'wpcasa' ) ) {
+//                        echo '<span class="wpsight-admin-ui-tag wpsight-admin-ui-tag-success">' . __( 'Yes', 'wpcasa' ) . '</span>';
+//                    } else {
+//                        echo '<span class="wpsight-admin-ui-tag wpsight-admin-ui-tag-error">' . __( 'No', 'wpcasa' ) . '</span>';
+//                    } ?>
                 </td>
             </tr>
         </table>

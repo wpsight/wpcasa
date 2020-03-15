@@ -866,16 +866,17 @@ class WPSight_Admin {
      *
      *	@since 1.2.0
      */
-    public static function is_premium() {
-        foreach( wpsight_licenses() as $id => $license )
-            $keys[$id] = get_transient( 'wpsight_' . $license['id'] )->license;
-
-        if( in_array( 'valid', $keys ) )
-            return true;
-
-        return false;
-
-    }
+//    public static function is_premium() {
+//        var_dump(wpsight_licenses());
+//        foreach( wpsight_licenses() as $id => $license )
+//            $keys[$id] = get_transient( 'wpsight_' . $license['id'] )->license;
+//
+//        if( in_array( 'valid', $keys ) )
+//            return true;
+//
+//        return false;
+//
+//    }
 
     /**
      *	notice_setup()

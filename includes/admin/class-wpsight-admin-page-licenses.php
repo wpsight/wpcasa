@@ -13,7 +13,7 @@ class WPSight_Admin_Licenses {
 	public function __construct() {
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 		add_action( 'admin_init', array( $this, 'activate_licenses' ) );
-//		add_action( 'admin_init', array( $this, 'update_licenses' ) );
+		add_action( 'admin_init', array( $this, 'update_licenses' ) );
 	}
 
 	/**
@@ -48,11 +48,8 @@ class WPSight_Admin_Licenses {
 					foreach( wpsight_licenses() as $id => $license ) :
                         $license_data			= $this->update_and_get_license_data( $license );
 						$option_key				= $license['id'];
-						$option_status			= 'wpsight_' . $license['id'];
 						$option_value			= isset( $licenses[ $option_key ] ) ? $licenses[ $option_key ] : false;
-						$option_value_status	= get_transient( $option_status )->license;
-
-						$license_status			= $option_value_status;
+                        $license_status	= $license_data->license;
 
 					?>
 					<div class="wpsight-settings-panel">
@@ -189,11 +186,11 @@ class WPSight_Admin_Licenses {
 	}
 
 
-//	function update_licenses() {
-//		foreach( wpsight_licenses() as $id => $license ) {
-//            $this->update_and_get_license_data( $license );
-//		}
-//	}
+	function update_licenses() {
+		foreach( wpsight_licenses() as $id => $license ) {
+            $this->update_and_get_license_data( $license );
+		}
+	}
 
     /**
      *	activate_license()
@@ -364,12 +361,23 @@ class WPSight_Admin_Licenses {
 	 */
 	public function transient_lifespan() {
 
-		if( is_super_admin() && WP_DEBUG ) {
+//		if( is_super_admin() && WP_DEBUG ) {
 			return DAY_IN_SECONDS;
-		} else {
-			return DAY_IN_SECONDS;
-		}
+//		} else {
+//			return DAY_IN_SECONDS;
+//		}
 
 	}
+
+    public static function is_premium() {
+        foreach( wpsight_licenses() as $id => $license ) {
+            $keys[$id] = get_transient( 'wpsight_' . $license['id'] )->license;
+        }
+
+        if( in_array( 'valid', $keys ) )
+            return true;
+
+        return false;
+    }
 
 }

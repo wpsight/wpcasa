@@ -121,7 +121,7 @@ if ( ! function_exists( 'wpsight_licenses' ) ) {
 if ( ! function_exists( 'wpsight_is_premium' ) ) {
 
 	function wpsight_is_premium() {
-		return WPSight_Admin::is_premium();
+		return WPSight_Admin_Licenses::is_premium();
 	}
 
 }

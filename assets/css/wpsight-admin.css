@@ -2252,28 +2252,28 @@ ul#adminmenu>li.current>a.current:after {
 	}
 }
 
-.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel #wpsight-settings-save {
-		background: #14AD8F;
-		border-color: #20a087 #20a087 #20a087;
-		box-shadow: 0 1px 0 #1f826e;
-		color: #fff;
-		text-decoration: none;
-		text-shadow: 0 -1px 1px #15927a, 1px 0 1px #15927a, 0 1px 1px #15927a, -1px 0 1px #15927a;
-}
+/*.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel #wpsight-settings-save {*/
+/*		background: #14AD8F;*/
+/*		border-color: #20a087 #20a087 #20a087;*/
+/*		box-shadow: 0 1px 0 #1f826e;*/
+/*		color: #fff;*/
+/*		text-decoration: none;*/
+/*		text-shadow: 0 -1px 1px #15927a, 1px 0 1px #15927a, 0 1px 1px #15927a, -1px 0 1px #15927a;*/
+/*}*/
 
-.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel #wpsight-settings-save:hover {
-		background: #15B797;
-}
+/*.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel #wpsight-settings-save:hover {*/
+/*		background: #15B797;*/
+/*}*/
 
-.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel #wpsight-settings-save:focus {
-	box-shadow: 0 1px 0 #129D81, 0 0 2px 1px #47C4AB;
-}
+/*.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel #wpsight-settings-save:focus {*/
+/*	box-shadow: 0 1px 0 #129D81, 0 0 2px 1px #47C4AB;*/
+/*}*/
 
-.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel #wpsight-settings-save:active {
-	background: #13A98B;
-	border-color: #129D81;
-	box-shadow: inset 0 2px 0 #129D81;
-}
+/*.wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel #wpsight-settings-save:active {*/
+/*	background: #13A98B;*/
+/*	border-color: #129D81;*/
+/*	box-shadow: inset 0 2px 0 #129D81;*/
+/*}*/
 
 .wpsight-settings-page .wpsight-settings-wrap .settings_panel .wpsight-admin-ui-panel .button-text-icon span {
     position: relative;

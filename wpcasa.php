@@ -96,6 +96,7 @@ class WPSight_Framework {
 //            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-polylang/wpcasa-polylang.php' );
 //        }
 
+
 //        Map admin ui integration
         if ( is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
             deactivate_plugins( '/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
@@ -103,17 +104,21 @@ class WPSight_Framework {
 
 
         if ( !is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
-            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
+            if ( !class_exists('WPSight_Admin_Map_UI') ) {
+                include_once( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
+            }
         }
 
 //      listing map integration
-//        if ( is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
-//            deactivate_plugins( '/wpcasa-listings-map/wpcasa-listings-map.php' );
-//        }
-//
-//        if ( !is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
-//            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-listings-map/wpcasa-listings-map.php' );
-//        }
+        if ( is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
+            deactivate_plugins( '/wpcasa-listings-map/wpcasa-listings-map.php' );
+        }
+
+        if ( !is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
+            if ( !class_exists('WPSight_Listings_Map') ) {
+                include(WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-listings-map/wpcasa-listings-map.php');
+            }
+        }
 
 		// Only instantiate admin class when in admin area
 		if ( is_admin() )
@@ -174,12 +179,12 @@ class WPSight_Framework {
 	 *	@since 1.0.0
 	 */
 	public function frontend_scripts() {
-
 		// Enqueue jQuery
 		wp_enqueue_script( 'jquery' );
 
 		// Script debugging?
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
+
 
 		wp_enqueue_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 		wp_enqueue_script( 'jquery-cookie', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.cookie.js', array( 'jquery' ), WPSIGHT_VERSION, true );

@@ -76,9 +76,12 @@ class WPSight_Admin {
         $screen		= get_current_screen();
         $post_type	= wpsight_post_type();
 
-        wp_enqueue_style( 'wpsight-font', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-font' . $suffix . '.css', array() );
+//        TODO: Delete it till wpcasa 1.7
+        if ( in_array( $screen->id, array( 'plugins' ) ) )
+            wp_enqueue_script( 'jquery-plugins-admin', WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-plugins-admin.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 
-        $screen = get_current_screen();
+
+        wp_enqueue_style( 'wpsight-font', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-font' . $suffix . '.css', array() );
 
         if ( in_array( $screen->id, array( 'edit-' . $post_type, $post_type, 'toplevel_page_wpsight-settings', 'wpcasa_page_wpsight-addons', 'wpcasa_page_wpsight-themes', 'wpcasa_page_wpsight-licenses', 'wpcasa_page_wpsight-recommendations' ) ) || $screen->id == 'plugin-install' && isset( $_GET['tab'] ) && $_GET['tab'] == 'wpcasa_addons' ) {
 

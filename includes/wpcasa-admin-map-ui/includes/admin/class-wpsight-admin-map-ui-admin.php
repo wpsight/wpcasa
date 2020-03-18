@@ -47,8 +47,8 @@ class WPSight_Admin_Map_UI_Admin {
         }
 
         //adapted admin map ui data to wpcasa map data
-        if ( ! empty( $value['latitude'] ) ) update_post_meta( $object_id, '_geolocation_lat', $value['lat'] );
-        if ( ! empty( $value['longitude'] ) ) update_post_meta( $object_id, '_geolocation_long', $value['long'] );
+        if ( ! empty( $value['lat'] ) ) update_post_meta( $object_id, '_geolocation_lat', $value['lat'] );
+        if ( ! empty( $value['long'] ) ) update_post_meta( $object_id, '_geolocation_long', $value['long'] );
 
         return $value;
     }

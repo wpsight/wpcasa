@@ -30,7 +30,7 @@ class WPSight_Post_Type_Listing {
         add_action( 'loop_end', array( $this, 'template_listing_single' ) );
         
         // Optionally create location data from front end
-        add_filter( 'wp', array( $this, 'listing_geolocation' ) );
+//        add_filter( 'wp', array( $this, 'listing_geolocation' ) );
         
         // Optionally add default meta data to listing
         add_action( 'wp_insert_post', array( $this, 'maybe_add_default_meta' ), 10, 2 );
@@ -439,17 +439,17 @@ class WPSight_Post_Type_Listing {
  	 * 
  	 * @since 1.0.0
 	 */
-	public function listing_geolocation() {
-		
-		if( ! wpsight_is_listing_single() || is_admin() )
-			return;
-		
-		// Update map location information		
-		if ( ! wpSight_Geocode::has_location_data( get_the_id() ) && ( $location = get_post_meta( get_the_id(), '_map_address', true ) ) ) {
-			wpSight_Geocode::generate_location_data( get_the_id(), $location );
-		}
-		
-	}
+//	public function listing_geolocation() {
+//
+//		if( ! wpsight_is_listing_single() || is_admin() )
+//			return;
+//
+//		// Update map location information
+//		if ( ! wpSight_Geocode::has_location_data( get_the_id() ) && ( $location = get_post_meta( get_the_id(), '_map_address', true ) ) ) {
+//			wpSight_Geocode::generate_location_data( get_the_id(), $location );
+//		}
+//
+//	}
 	
 	/**
 	 * maybe_add_default_meta()

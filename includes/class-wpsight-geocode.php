@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * @author Mike Jolley
  */
+//TODO: delete till wpcasa 1.5
 class WPSight_Geocode {
 
 	/**

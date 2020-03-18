@@ -131,7 +131,7 @@ class WPSight_Admin_Settings {
         exit;
 
     }
-
+//    TODO: delete till wpcasa 1.5
     public function migrate_data() {
         check_admin_referer( 'migrate', 'migrate_data' );
 

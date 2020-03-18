@@ -30,6 +30,7 @@ class WPSight_Post_Type_Listing {
         add_action( 'loop_end', array( $this, 'template_listing_single' ) );
         
         // Optionally create location data from front end
+//        TODO: delete till wpcasa 1.5
 //        add_filter( 'wp', array( $this, 'listing_geolocation' ) );
         
         // Optionally add default meta data to listing
@@ -439,6 +440,7 @@ class WPSight_Post_Type_Listing {
  	 * 
  	 * @since 1.0.0
 	 */
+    //TODO: delete till wpcasa 1.5
 //	public function listing_geolocation() {
 //
 //		if( ! wpsight_is_listing_single() || is_admin() )

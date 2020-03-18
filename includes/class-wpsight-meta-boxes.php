@@ -29,11 +29,14 @@ class WPSight_Meta_Boxes {
 		add_action( 'save_post', array( $this, 'admin_save_post' ), 1, 2 );
 
 		// Add action when a listing is saved
+//        TODO: delete till wpcasa 1.5
 //		add_action( 'wpsight_save_listing', array( $this, 'admin_save_listing_data' ), 20, 2 );
 
 		// Update geolocation data
+        //        TODO: delete till wpcasa 1.5
 //		add_action( 'update_post_meta', array( $this, 'maybe_generate_geolocation_data' ), 10, 4 );
 
+        //        TODO: delete till wpcasa 1.5
 //        add_action( 'updated_post_meta', array( $this, 'update_map_values' ), 10, 4 );
 
 		// Update some listing post meta data

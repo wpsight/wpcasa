@@ -19,44 +19,49 @@ class WPSight_Admin_Map_UI_Admin {
 
 		// Add map and map args field to meta box
 		add_filter( 'wpsight_meta_box_listing_location_fields', array( $this, 'location_map_fields' ) );
-		
+
 		// Add addon license to licenses page
 		add_filter( 'wpsight_licenses', array( $this, 'license' ) );
-		
+
 		// Add plugin updater
 		add_action( 'admin_init', array( $this, 'update' ), 0 );
 
 	}
 
-	/**
-	 *	sanitize_map()
-	 *	
-	 *	Sanitize individual map values
-	 *	
-	 *	@param	array 	$override_value
-	 *	@param  array 	$value
-	 *	@param  string	$object_id
-	 *	@param  array	$field_args
-	 *	@return array 	
-	 *	
-	 *	@since 1.0.0
-	 */
-	public static function sanitize_map( $override_value, $value, $object_id, $field_args ) {
-		if ( is_array( $value )) {
-			$value = array_map( 'sanitize_text_field', $value );
-		}
-		return $value;
-	}
+    /**
+     *	sanitize_map()
+     *
+     *	Sanitize individual map values
+     *
+     *	@param	array 	$override_value
+     *	@param  array 	$value
+     *	@param  string	$object_id
+     *	@param  array	$field_args
+     *	@return array
+     *
+     *	@since 1.0.0
+     */
+    public static function sanitize_map( $override_value, $value, $object_id, $field_args ) {
+        if ( is_array( $value )) {
+            $value = array_map( 'sanitize_text_field', $value );
+        }
+
+        //adapted admin map ui data to wpcasa map data
+        if ( ! empty( $value['latitude'] ) ) update_post_meta( $object_id, '_geolocation_lat', $value['lat'] );
+        if ( ! empty( $value['longitude'] ) ) update_post_meta( $object_id, '_geolocation_long', $value['long'] );
+
+        return $value;
+    }
 
 	/**
 	 *	location_map_fields()
-	 *	
+	 *
 	 *	Register the location meta fields
-	 *	
+	 *
 	 *	@param	array  $fields
 	 *	@uses	wpsight_sort_array_by_priority()
 	 *	@return array
-	 *	
+	 *
 	 *	@since 1.0.0
 	 */
 	public static function location_map_fields( $fields ) {
@@ -70,7 +75,7 @@ class WPSight_Admin_Map_UI_Admin {
 			'type'     => 'map',
 			'priority' => 20
 		);
-		
+
 		$fields['map_type'] = array(
 			'id'   => '_map_type',
 			'name' => __( 'Map Type', 'wpcasa-admin-map-ui' ),
@@ -86,7 +91,7 @@ class WPSight_Admin_Map_UI_Admin {
 			'class'    => 'map-type',
 			'priority' => 22
 		);
-		
+
 		$fields['map_zoom'] = array(
 			'id'       => '_map_zoom',
 			'name'     => __( 'Map Zoom', 'wpcasa-admin-map-ui' ),
@@ -97,7 +102,7 @@ class WPSight_Admin_Map_UI_Admin {
 			'class'    => 'map-zoom',
 			'priority' => 24
 		);
-		
+
 		$fields['map_streetview'] = array(
 			'id'  		=> '_map_no_streetview',
 			'name'		=> __( 'Streetview', 'wpcasa-admin-map-ui' ),
@@ -106,7 +111,7 @@ class WPSight_Admin_Map_UI_Admin {
 			'class'     => 'map-streetview',
 			'priority'  => 26
 		);
-		
+
 		// Apply filter and order fields by priority
 		$fields = wpsight_sort_array_by_priority( apply_filters( 'wpsight_meta_box_listing_location_map_fields', $fields ) );
 
@@ -116,14 +121,14 @@ class WPSight_Admin_Map_UI_Admin {
 
 	/**
 	 *	get_location_data()
-	 *	
+	 *
 	 *	Returns location data associated for a given listing
-	 *	
+	 *
 	 *	@param	int	$listing_id
 	 *	@uses	get_the_ID()
 	 *	@uses	get_post_meta()
 	 *	@return array
-	 *	
+	 *
 	 *	@since 1.0.0
 	 */
 	public static function get_location_data( $listing_id = null ) {
@@ -156,39 +161,39 @@ class WPSight_Admin_Map_UI_Admin {
 
 	/**
 	 *	enqueue_scripts()
-	 *	
+	 *
 	 *	Enqueues JS dependencies and passes map options to script
-	 *	
+	 *
 	 *	@uses	wp_enqueue_script()
 	 *	@uses	get_the_ID()
 	 *	@uses	self::get_location_data()
 	 *	@uses	wp_localize_script()
-	 *	
+	 *
 	 *	@since 1.0.0
 	 */
 	public static function enqueue_scripts() {
-		
+
 		// Script debugging?
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
-		
+
 		// Enqueue scripts
-			
-		$api_key = wpsight_get_option( 'google_maps_api_key' );			
+
+		$api_key = wpsight_get_option( 'google_maps_api_key' );
 		$api_url = $api_key ? add_query_arg( array( 'libraries' => 'places', 'key' => $api_key ), '//maps.googleapis.com/maps/api/js' ) : add_query_arg( array( 'libraries' => 'places' ), '//maps.googleapis.com/maps/api/js' );
-		
+
 		wp_enqueue_script( 'cmb-google-maps', apply_filters( 'wpsight_admin_map_ui_google_maps_endpoint', $api_url, $api_key ), null, WPSIGHT_ADMIN_MAP_UI_VERSION );
 		wp_enqueue_script( 'cmb-google-maps-script', WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL . '/assets/js/map' . $suffix . '.js', array( 'jquery', 'cmb-google-maps', 'cmb2-scripts' ) );
 
 		// Get map listing options
 
 		$listing_id  = get_the_ID();
-		
+
 		$map_options = array(
 		    '_map_type' 			=> get_post_meta( $listing_id, '_map_type', true ) ? get_post_meta( $listing_id, '_map_type', true ) : 'ROADMAP',
 		    '_map_zoom' 			=> get_post_meta( $listing_id, '_map_zoom', true ) ? get_post_meta( $listing_id, '_map_zoom', true ) : 14,
 		    '_map_no_streetview' 	=> get_post_meta( $listing_id, '_map_no_streetview', true ) ? get_post_meta( $listing_id, '_map_no_streetview', true ) : 'false'
 		);
-		
+
 		$geolocation = self::get_location_data( $listing_id );
 
 		wp_localize_script( 'cmb-google-maps-script', 'CMBGmaps',
@@ -209,9 +214,9 @@ class WPSight_Admin_Map_UI_Admin {
 
 	/**
 	 * 	render_map()
-	 * 	
+	 *
 	 * 	Displays the map UI in the meta boxes of the listing
-	 * 	
+	 *
 	 * 	@param	array	$field
 	 * 	@param  array	$value
 	 * 	@param  int		$object_id
@@ -221,7 +226,7 @@ class WPSight_Admin_Map_UI_Admin {
 	 * 	@uses	wp_parse_args()
 	 * 	@uses	$field_type->input()
 	 * 	@uses	$field_type->_name()
-	 * 	
+	 *
 	 * 	@since 1.0.0
 	 */
 	public static function render_map( $field, $value, $object_id, $object_type, $field_type ) {
@@ -259,48 +264,48 @@ class WPSight_Admin_Map_UI_Admin {
 
 		<?php
 	}
-	
+
 	/**
 	 *	license()
-	 *	
+	 *
 	 *	Add addon license to licenses page
-	 *	
+	 *
 	 *	@return	array	$options_licenses
-	 *	
+	 *
 	 *	@since 1.0.0
 	 */
 	public function license( $licenses ) {
-		
+
 		$licenses['admin_map_ui'] = array(
 			'name' => WPSIGHT_ADMIN_MAP_UI_NAME,
 			'desc' => sprintf( __( 'For premium support and seamless updates for %s please activate your license.', 'wpcasa-admin-map-ui' ), WPSIGHT_ADMIN_MAP_UI_NAME ),
 			'id'   => wpsight_underscores( WPSIGHT_ADMIN_MAP_UI_DOMAIN )
 		);
-		
+
 		return $licenses;
-	
+
 	}
-	
+
 	/**
 	 *	update()
-	 *	
+	 *
 	 *	Set up EDD plugin updater.
-	 *	
+	 *
 	 *	@uses	class_exists()
 	 *	@uses	get_option()
 	 *	@uses	wpsight_underscores()
-	 *	
+	 *
 	 *	@since 1.0.0
 	 */
 	public function update() {
-		
+
 		if( ! class_exists( 'EDD_SL_Plugin_Updater' ) )
 			return;
 
 		// Get license option
-		$licenses = get_option( 'wpsight_licenses' );		
+		$licenses = get_option( 'wpsight_licenses' );
 		$key = wpsight_underscores( WPSIGHT_ADMIN_MAP_UI_DOMAIN );
-	
+
 		// Setup the updater
 		$edd_updater = new EDD_SL_Plugin_Updater( WPSIGHT_SHOP_URL, WPSIGHT_ADMIN_MAP_UI_PLUGIN_DIR . '/wpcasa-admin-map-ui.php', array(
 				'version' 	=> WPSIGHT_ADMIN_MAP_UI_VERSION,
@@ -309,7 +314,7 @@ class WPSight_Admin_Map_UI_Admin {
 				'author' 	=> WPSIGHT_AUTHOR
 			)
 		);
-	
+
 	}
 
 }

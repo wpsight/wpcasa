@@ -41,16 +41,16 @@ class WPSight_Meta_Boxes {
 
 	}
 
-    function update_map_values($meta_id, $post_id, $meta_key='', $meta_value='') {
-        if ( get_post_meta( $post_id, '_map_geolocation', true )['lat'] != '' ) {
-            $geo_lat = esc_js( get_post_meta( $post_id, '_map_geolocation', true )['lat'] );
-            $geo_lng = esc_js( get_post_meta( $post_id, '_map_geolocation', true )['long'] );
-
-
-            update_post_meta( get_the_id(), '_geolocation_lat', $geo_lat );
-            update_post_meta( get_the_id(), '_geolocation_long', $geo_lng );
-        }
-    }
+//    function update_map_values($meta_id, $post_id, $meta_key='', $meta_value='') {
+//        if ( get_post_meta( $post_id, '_map_geolocation', true )['lat'] != '' ) {
+//            $geo_lat = esc_js( get_post_meta( $post_id, '_map_geolocation', true )['lat'] );
+//            $geo_lng = esc_js( get_post_meta( $post_id, '_map_geolocation', true )['long'] );
+//
+//
+//            update_post_meta( get_the_id(), '_geolocation_lat', $geo_lat );
+//            update_post_meta( get_the_id(), '_geolocation_long', $geo_lng );
+//        }
+//    }
 
 	/**
 	 * cmb2_meta_box_url()
@@ -211,22 +211,22 @@ class WPSight_Meta_Boxes {
 	 *
 	 * @since 1.0.0
 	 */
-	public function admin_save_listing_data( $post_id, $post ) {
-		
-		if( ! is_admin() )
-			return;
-
-		// Update listing location data
-
-		$value = array_values( (array) $_POST[ '_map_address' ] );
-
-		if ( update_post_meta( $post_id, '_map_address', sanitize_text_field( $value[0] ) ) ) {
-			// Location data will be updated by maybe_generate_geolocation_data method
-		} elseif ( apply_filters( 'wpsight_geolocation_enabled', true ) && ! WPSight_Geocode::has_location_data( $post_id ) ) {
-			WPSight_Geocode::generate_location_data( $post_id, sanitize_text_field( $value[0] ) );
-		}
-
-	}
+//	public function admin_save_listing_data( $post_id, $post ) {
+//
+//		if( ! is_admin() )
+//			return;
+//
+//		// Update listing location data
+//
+//		$value = array_values( (array) $_POST[ '_map_address' ] );
+//
+//		if ( update_post_meta( $post_id, '_map_address', sanitize_text_field( $value[0] ) ) ) {
+//			// Location data will be updated by maybe_generate_geolocation_data method
+//		} elseif ( apply_filters( 'wpsight_geolocation_enabled', true ) && ! WPSight_Geocode::has_location_data( $post_id ) ) {
+//			WPSight_Geocode::generate_location_data( $post_id, sanitize_text_field( $value[0] ) );
+//		}
+//
+//	}
 
 	/**
 	 * maybe_generate_geolocation_data()
@@ -235,12 +235,12 @@ class WPSight_Meta_Boxes {
 	 *
 	 * @since 1.0.0
 	 */
-	public function maybe_generate_geolocation_data( $meta_id, $object_id, $meta_key, $_meta_value ) {
-		if ( '_map_address' !== $meta_key || wpsight_post_type() !== get_post_type( $object_id ) ) {
-			return;
-		}
-		do_action( 'wpsight_listing_location_edited', $object_id, $_meta_value );
-	}
+//	public function maybe_generate_geolocation_data( $meta_id, $object_id, $meta_key, $_meta_value ) {
+//		if ( '_map_address' !== $meta_key || wpsight_post_type() !== get_post_type( $object_id ) ) {
+//			return;
+//		}
+//		do_action( 'wpsight_listing_location_edited', $object_id, $_meta_value );
+//	}
 
 	/**
 	 * admin_post_meta_update()

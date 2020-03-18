@@ -23,7 +23,7 @@
 
 		// Create map
 		var map = new google.maps.Map( mapCanvas, mapOptions );
-		
+
 		// Set initial map type
 		setMapType( CMBGmaps._map_type );
 
@@ -39,20 +39,20 @@
 		marker.setPosition( mapOptions.center );
 
 		// Set stored Coordinates
-		if ( latitude.val() && longitude.val() ) {
-			latLng = new google.maps.LatLng( latitude.val(), longitude.val() );
-			setPosition( latLng, parseInt( CMBGmaps._map_zoom ))
-		}
-		
+		// if ( latitude.val() && longitude.val() ) {
+		// 	latLng = new google.maps.LatLng( latitude.val(), longitude.val() );
+		// 	setPosition( latLng, parseInt( CMBGmaps._map_zoom ))
+		// }
+
 		// Click on map sets location
-		window.google.maps.event.addListener( map, 'click', function ( event ) {			
+		window.google.maps.event.addListener( map, 'click', function ( event ) {
 			setPosition( event.latLng );
-			setSearchInput( event.latLng );					
+			setSearchInput( event.latLng );
 		} );
 		// Drag marker sets location
 		window.google.maps.event.addListener( marker, 'dragend', function() {
 			setPosition( marker.getPosition() );
-			setSearchInput( marker.getPosition() );			
+			setSearchInput( marker.getPosition() );
 		});
 
 
@@ -71,33 +71,33 @@
 				e.preventDefault();
 			}
 		});
-		
+
 		// Change map type
-		map_type.change(function() {			
+		map_type.change(function() {
 			var map_type_val = map_type.filter(':checked').val();
-			setMapType( map_type_val );			
+			setMapType( map_type_val );
 		});
-		
+
 		// Change zoom level
 		map_zoom.change(function() {
 			var map_zoom_val = $('option:selected',this).val();
 			map.setZoom( parseInt(map_zoom_val) );
 		});
-		
+
 		// Toggle streetview
-		streetview.change(function() {		
-			if($(this).is(":checked")) {			
+		streetview.change(function() {
+			if($(this).is(":checked")) {
 				map.setOptions({ streetViewControl: false });
 			} else {
 				map.setOptions({ streetViewControl: true });
-			}		
+			}
 		});
 
 		// Set marker position
 		function setPosition( latLng, zoom ) {
 
 			marker.setPosition( latLng, CMBGmaps.zoom );
-			
+
 			setTimeout(function() {
 				map.panTo(marker.getPosition());
     		}, 500);
@@ -116,7 +116,7 @@
 			});
 
 		}
-		
+
 		// Set search input
 		function setSearchInput( latLngPos ) {
 			var latlng 	= new google.maps.LatLng( latLngPos.lat(), latLngPos.lng() );
@@ -124,7 +124,7 @@
 
     	    geocoder.geocode({'latLng': latlng}, function(results, status) {
     	    	if (status == google.maps.GeocoderStatus.OK) {
-    	        	if (results[0]) {	    	        	
+    	        	if (results[0]) {
     	        		search.val(results[0].formatted_address);
     	        	} else {
     	        		search.val('invalid address');
@@ -134,13 +134,13 @@
     	    	}
     	    });
 		}
-		
+
 		// Set map type
-		function setMapType( mapType ) {		
-			if( mapType == 'ROADMAP' ) 		{ map.setMapTypeId(google.maps.MapTypeId.ROADMAP); }			
+		function setMapType( mapType ) {
+			if( mapType == 'ROADMAP' ) 		{ map.setMapTypeId(google.maps.MapTypeId.ROADMAP); }
 			if( mapType == 'SATELLITE' )	{ map.setMapTypeId(google.maps.MapTypeId.SATELLITE); }
 			if( mapType == 'HYBRID' ) 		{ map.setMapTypeId(google.maps.MapTypeId.HYBRID); }
-			if( mapType == 'TERRAIN' )		{ map.setMapTypeId(google.maps.MapTypeId.TERRAIN); }			
+			if( mapType == 'TERRAIN' )		{ map.setMapTypeId(google.maps.MapTypeId.TERRAIN); }
 		}
 
 		maps.push( map );

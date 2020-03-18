@@ -42,7 +42,7 @@ class WPSight_Meta_Boxes {
 	}
 
     function update_map_values($meta_id, $post_id, $meta_key='', $meta_value='') {
-        if ( get_post_meta( $post_id, '_map_geolocation', true ) != '' ) {
+        if ( get_post_meta( $post_id, '_map_geolocation', true )['lat'] != '' ) {
             $geo_lat = esc_js( get_post_meta( $post_id, '_map_geolocation', true )['lat'] );
             $geo_lng = esc_js( get_post_meta( $post_id, '_map_geolocation', true )['long'] );
 

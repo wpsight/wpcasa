@@ -184,6 +184,8 @@ Many thanks to all of them for contributing and making WPCasa even better.
 * Add recommends items
 * Fix bulk listing edit
 * Update CMB2 version from 2.1.2 to 2.6.0
+* Wpcasa admin map ui integration
+* Wpcasa listings map integration
 
 
 = 1.1.0 =

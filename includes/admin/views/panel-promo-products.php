@@ -13,7 +13,7 @@
                     $class = 'swiper-slide swiper-slide-overlay';
                 }
                 ?>
-                <a href="<?php echo $value['button_link']; ?>" class="swiper-slide <?php echo $class; ?>">
+                <a target="_blank" href="<?php echo $value['button_link']; ?>" class="swiper-slide <?php echo $class; ?>">
                     <img class="promo-slider-img" src="<?php echo $value['image_url']; ?>" alt="">
                         <div class="slide-content">
                             <span class="slide-content-title">

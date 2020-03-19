@@ -360,10 +360,7 @@ function wpsight_admin_plugins_delete_notice() {
           Feel free to safely remove both of those plugins.', 'wpcasa' ) . '
       </p></div>';
   }
-
-
 }
-
 
 
 /**

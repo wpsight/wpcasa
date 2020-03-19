@@ -927,14 +927,14 @@ class WPSight_Admin {
                 'description' => __( "", "wpcasa" ),
                 'image_url' => WPSIGHT_PLUGIN_URL . '/assets/img/wpcasa-recommendation-hubspot.jpg',
                 'button_text' => __( "", "wpcasa" ),
-                'button_link' => '',
+                'button_link' => 'https://wpcasa.com/hubspot?ref=wpcasa-admin-dashboard',
             ],
-            'listing_pdf' => [
+            'hubspot' => [
                 'title' =>  __( "", "wpcasa" ),
                 'description' => __( "", "wpcasa" ),
                 'image_url' => WPSIGHT_PLUGIN_URL . '/assets/img/wpcasa-recommendation-premium.jpg',
                 'button_text' => __( "", "wpcasa" ),
-                'button_link' => '',
+                'button_link' => 'https://wpcasa.com?ref=wpcasa-admin-dashboard',
             ],
         ];
 

@@ -357,7 +357,7 @@ function wpsight_admin_plugins_delete_notice() {
       echo '<div class="notice notice-warning my-dismiss-notice is-dismissible"><p>
           ' . __( '<strong>WPCasa Admin Map UI</strong> and <strong>WPCasa Listings Map</strong> has been discontinued. 
           Functionality of both plugins has been integrated in WPCasa as of 1.2.0. </br>
-          Feel free to safely remove both of those plugins.', 'wpcasa' ) . '
+          Feel free to remove both of those plugins.', 'wpcasa' ) . '
       </p></div>';
   }
 }

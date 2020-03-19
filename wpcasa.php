@@ -97,23 +97,24 @@ class WPSight_Framework {
 //        }
 
 
-//        Map admin ui integration
+//      TODO: delete till wpcasa 2.0
         if ( is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
             deactivate_plugins( '/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
         }
 
-
+//      TODO: delete check till wpcasa 2.0
         if ( !is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
             if ( !class_exists('WPSight_Admin_Map_UI') ) {
                 include_once( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
             }
         }
 
-//      listing map integration
+//      TODO: delete till wpcasa 2.0
         if ( is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
             deactivate_plugins( '/wpcasa-listings-map/wpcasa-listings-map.php' );
         }
 
+//      TODO: delete check till wpcasa 2.0
         if ( !is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
             if ( !class_exists('WPSight_Listings_Map') ) {
                 include(WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-listings-map/wpcasa-listings-map.php');
@@ -334,8 +335,35 @@ function wpsight_admin_notice_wpcasa() {
 		return;
 
 	echo '<div class="error"><p>' . __( 'Please make sure to <strong>deactivate the WPCasa theme</strong> in order to use the WPCasa plugin version. For more information about how to switch please <a href="http://docs.wpsight.com/article/switching-from-theme-version/" target="_blank">read our docs</a>.', 'wpcasa' ) . '</p></div>';
+}
+
+/**
+ *	wpsight_admin_plugins_delete_notice()
+ *
+ *	Make sure users awera
+ *	that WPCasa Listing Map and
+ *	WPCasa admin map ui plugins
+ *	can be deleted
+ *
+ *	@since 1.2.0
+ */
+//TODO: delete till wpcasa 2.0
+add_action( 'admin_notices', 'wpsight_admin_plugins_delete_notice' );
+function wpsight_admin_plugins_delete_notice() {
+ $admin_map_ui_file = WP_PLUGIN_DIR . '/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php';
+ $listing_map_file = WP_PLUGIN_DIR . '/wpcasa-listings-map/wpcasa-listings-map.php';
+
+  if ( file_exists($admin_map_ui_file) || file_exists($listing_map_file) )  {
+      echo '<div class="notice notice-warning my-dismiss-notice is-dismissible"><p>
+          ' . __( '<strong>WPCasa Admin Map UI</strong> and <strong>WPCasa Listings Map</strong> has been discontinued. 
+          Functionality of both plugins has been integrated in WPCasa as of 1.2.0. </br>
+          Feel free to safely remove both of those plugins.', 'wpcasa' ) . '
+      </p></div>';
+  }
+
 
 }
+
 
 
 /**

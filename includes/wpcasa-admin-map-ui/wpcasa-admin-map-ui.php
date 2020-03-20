@@ -1,20 +1,4 @@
 <?php
-/*
-Plugin Name: WPCasa Admin Map UI
-Plugin URI: https://wpcasa.com/downloads/wpcasa-admin-map-ui
-Description: Set the listing location by a click or drag & drop on the map and make individual map settings in the listing editor.
-Version: 1.0.2
-Author: WPSight
-Author URI: http://wpsight.com
-Requires at least: 4.0
-Tested up to: 4.7.3
-Text Domain: wpcasa-admin-map-ui
-Domain Path: /languages
-*/
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) )
-	exit;
 
 /**
  * WPSight_Admin_Map_UI class
@@ -40,11 +24,9 @@ class WPSight_Admin_Map_UI {
 		if ( ! defined( 'WPSIGHT_AUTHOR' ) )
 			define( 'WPSIGHT_AUTHOR', 'WPSight' );
 
-		define( 'WPSIGHT_ADMIN_MAP_UI_NAME', 'WPCasa Admin Map UI' );
-		define( 'WPSIGHT_ADMIN_MAP_UI_DOMAIN', 'wpcasa-admin-map-ui' );
-		define( 'WPSIGHT_ADMIN_MAP_UI_VERSION', '1.0.2' );
-		define( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
-		define( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
+
+		define( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_DIR', WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui' );
+		define( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL', WPSIGHT_PLUGIN_URL . '/includes/wpcasa-admin-map-ui' );
 
 		if ( is_admin() ){
 			include( WPSIGHT_ADMIN_MAP_UI_PLUGIN_DIR . '/includes/admin/class-wpsight-admin-map-ui-admin.php' );

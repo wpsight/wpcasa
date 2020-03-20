@@ -20,9 +20,6 @@ class WPSight_Admin_Map_UI_Admin {
 		// Add map and map args field to meta box
 		add_filter( 'wpsight_meta_box_listing_location_fields', array( $this, 'location_map_fields' ) );
 
-		// Add addon license to licenses page
-		add_filter( 'wpsight_licenses', array( $this, 'license' ) );
-
 		// Add plugin updater
 		add_action( 'admin_init', array( $this, 'update' ), 0 );
 
@@ -131,6 +128,7 @@ class WPSight_Admin_Map_UI_Admin {
 	 *
 	 *	@since 1.0.0
 	 */
+//	TODO: delete all commented lines till wpcasa 1.4
 	public static function get_location_data( $listing_id = null ) {
 
 		if ( empty( $listing_id ) ) {
@@ -181,7 +179,7 @@ class WPSight_Admin_Map_UI_Admin {
 		$api_key = wpsight_get_option( 'google_maps_api_key' );
 		$api_url = $api_key ? add_query_arg( array( 'libraries' => 'places', 'key' => $api_key ), '//maps.googleapis.com/maps/api/js' ) : add_query_arg( array( 'libraries' => 'places' ), '//maps.googleapis.com/maps/api/js' );
 
-		wp_enqueue_script( 'cmb-google-maps', apply_filters( 'wpsight_admin_map_ui_google_maps_endpoint', $api_url, $api_key ), null, WPSIGHT_ADMIN_MAP_UI_VERSION );
+		wp_enqueue_script( 'cmb-google-maps', apply_filters( 'wpsight_admin_map_ui_google_maps_endpoint', $api_url, $api_key ), null, WPSIGHT_VERSION );
 		wp_enqueue_script( 'cmb-google-maps-script', WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL . '/assets/js/map' . $suffix . '.js', array( 'jquery', 'cmb-google-maps', 'cmb2-scripts' ) );
 
 		// Get map listing options
@@ -264,57 +262,4 @@ class WPSight_Admin_Map_UI_Admin {
 
 		<?php
 	}
-
-	/**
-	 *	license()
-	 *
-	 *	Add addon license to licenses page
-	 *
-	 *	@return	array	$options_licenses
-	 *
-	 *	@since 1.0.0
-	 */
-	public function license( $licenses ) {
-
-		$licenses['admin_map_ui'] = array(
-			'name' => WPSIGHT_ADMIN_MAP_UI_NAME,
-			'desc' => sprintf( __( 'For premium support and seamless updates for %s please activate your license.', 'wpcasa-admin-map-ui' ), WPSIGHT_ADMIN_MAP_UI_NAME ),
-			'id'   => wpsight_underscores( WPSIGHT_ADMIN_MAP_UI_DOMAIN )
-		);
-
-		return $licenses;
-
-	}
-
-	/**
-	 *	update()
-	 *
-	 *	Set up EDD plugin updater.
-	 *
-	 *	@uses	class_exists()
-	 *	@uses	get_option()
-	 *	@uses	wpsight_underscores()
-	 *
-	 *	@since 1.0.0
-	 */
-	public function update() {
-
-		if( ! class_exists( 'EDD_SL_Plugin_Updater' ) )
-			return;
-
-		// Get license option
-		$licenses = get_option( 'wpsight_licenses' );
-		$key = wpsight_underscores( WPSIGHT_ADMIN_MAP_UI_DOMAIN );
-
-		// Setup the updater
-		$edd_updater = new EDD_SL_Plugin_Updater( WPSIGHT_SHOP_URL, WPSIGHT_ADMIN_MAP_UI_PLUGIN_DIR . '/wpcasa-admin-map-ui.php', array(
-				'version' 	=> WPSIGHT_ADMIN_MAP_UI_VERSION,
-				'license' 	=> isset( $licenses[ $key ] ) ? trim( $licenses[ $key ] ) : false,
-				'item_name' => WPSIGHT_ADMIN_MAP_UI_NAME,
-				'author' 	=> WPSIGHT_AUTHOR
-			)
-		);
-
-	}
-
 }

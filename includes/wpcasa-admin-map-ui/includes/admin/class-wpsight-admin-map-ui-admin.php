@@ -12,17 +12,12 @@ class WPSight_Admin_Map_UI_Admin {
 	 * Constructor
 	 */
 	public function __construct() {
-
 		// Add custom meta box field types
 		add_filter( 'cmb2_render_map', array( $this, 'render_map' ), 10, 5 );
 		add_filter( 'cmb2_sanitize_map', array( $this, 'sanitize_map' ), 10, 4 );
 
 		// Add map and map args field to meta box
 		add_filter( 'wpsight_meta_box_listing_location_fields', array( $this, 'location_map_fields' ) );
-
-		// Add plugin updater
-		add_action( 'admin_init', array( $this, 'update' ), 0 );
-
 	}
 
     /**

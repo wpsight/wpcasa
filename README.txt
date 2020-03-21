@@ -172,6 +172,9 @@ Many thanks to all of them for contributing and making WPCasa even better.
 
 == Changelog ==
 
+= 1.2.1 =
+FIXED: map working after deleting WPCasa Listing Map plugin
+
 = 1.2.0 =
 * Tested up to WordPress 5.3.2
 * Completely changed admin ui

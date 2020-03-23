@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
 Requires at least: 4.0
 Tested up to: 5.3.2
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,10 @@ Using the existing shortcodes or the powerful template system you can use WPCasa
 = Admin Property Management =
 
 You can manage great numbers of listings using the well-organized property list with filters and bulk actions.
+
+= Integrated Maps =
+
+Select the location of your properties through the map in the editor, display the location of each property on a single listing map, or showcase all of your listings on the overall listings map.
 
 = Intuitive Options =		
 Setup date format, measurement units, listing details and much more via the intuitive and easy-to-understand admin interface
@@ -173,22 +177,22 @@ Many thanks to all of them for contributing and making WPCasa even better.
 == Changelog ==
 
 = 1.2.1 =
-FIXED: map working after deleting WPCasa Listing Map plugin
+* Fixed map functionality after deleting WPCasa Listing Map plugin
 
 = 1.2.0 =
 * Tested up to WordPress 5.3.2
 * Completely changed admin ui
-* Improved license algorithm working
-* Changed file structure
-* Ability to restore wpcasa settings to default
-* Ability to delete all wpcasa data
+* Improved license algorithm
+* Updated file/folder structure
+* Ability to restore settings to default
+* Ability to delete all data
 * Improved map searching algorithm
 * Multiple plugin activation
-* Add recommends items
-* Fix bulk listing edit
+* Added recommends items
+* Fixed bulk listing edit
 * Update CMB2 version from 2.1.2 to 2.6.0
-* Wpcasa admin map ui integration
-* Wpcasa listings map integration
+* Integration of WPCasa Admin Map UI
+* Integration of WPCasa Listings Map
 
 
 = 1.1.0 =

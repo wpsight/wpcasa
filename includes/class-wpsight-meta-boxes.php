@@ -609,9 +609,6 @@ class WPSight_Meta_Boxes {
 	 * @since 1.0.0
 	 */
 	public static function meta_box_listing_location() {
-
-		// Create map fields
-
 		$fields = array(
 			'address' => array(
 				'name'      => __( 'Address', 'wpcasa' ),
@@ -622,6 +619,43 @@ class WPSight_Meta_Boxes {
 				'dashboard'	=> true,
 				'priority'  => 10
 			),
+
+            'map_type' => array(
+                'id'   => '_map_type',
+                'name' => __( 'Map Type', 'wpcasa-admin-map-ui' ),
+                'desc' => false,
+                'type' => 'radio',
+                'options' => array(
+                    'ROADMAP'   => __( 'Roadmap', 'wpcasa-admin-map-ui' ),
+                    'SATELLITE' => __( 'Satellite', 'wpcasa-admin-map-ui' ),
+                    'HYBRID'    => __( 'Hybrid', 'wpcasa-admin-map-ui' ),
+                    'TERRAIN'   => __( 'Terrain', 'wpcasa-admin-map-ui' )
+                ),
+                'default'  => 'ROADMAP',
+                'class'    => 'map-type',
+                'priority' => 20
+            ),
+
+            'map_zoom' => array(
+                'id'       => '_map_zoom',
+                'name'     => __( 'Map Zoom', 'wpcasa-admin-map-ui' ),
+                'desc'     => false,
+                'type'     => 'select',
+                'options'  => array_combine( range( 1, 20 ), range( 1, 20 ) ),
+                'default'  => '14',
+                'class'    => 'map-zoom',
+                'priority' => 25
+            ),
+
+             'map_streetview' => array(
+                'id'  		=> '_map_no_streetview',
+                'name'		=> __( 'Streetview', 'wpcasa-admin-map-ui' ),
+                'type'		=> 'checkbox',
+                'desc'		=> __( 'Disable Streetview for this listing', 'wpcasa-admin-map-ui' ),
+                'class'     => 'map-streetview',
+                'priority'  => 30
+            ),
+
 			'note' => array(
 				'name'      => __( 'Public Note', 'wpcasa' ),
 				'id'        => '_map_note',

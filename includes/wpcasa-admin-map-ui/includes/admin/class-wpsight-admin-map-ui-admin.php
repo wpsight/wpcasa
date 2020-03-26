@@ -57,9 +57,7 @@ class WPSight_Admin_Map_UI_Admin {
 	 *	@since 1.0.0
 	 */
 	public static function location_map_fields( $fields ) {
-
 		// Set meta box fields
-
 		$fields['location'] = array(
 			'id'       => '_map_geolocation',
 			'name'     => __( 'Location', 'wpcasa-admin-map-ui' ),
@@ -68,47 +66,10 @@ class WPSight_Admin_Map_UI_Admin {
 			'priority' => 20
 		);
 
-		$fields['map_type'] = array(
-			'id'   => '_map_type',
-			'name' => __( 'Map Type', 'wpcasa-admin-map-ui' ),
-			'desc' => false,
-			'type' => 'radio',
-			'options' => array(
-				'ROADMAP'   => __( 'Roadmap', 'wpcasa-admin-map-ui' ),
-				'SATELLITE' => __( 'Satellite', 'wpcasa-admin-map-ui' ),
-				'HYBRID'    => __( 'Hybrid', 'wpcasa-admin-map-ui' ),
-				'TERRAIN'   => __( 'Terrain', 'wpcasa-admin-map-ui' )
-			),
-			'default'  => 'ROADMAP',
-			'class'    => 'map-type',
-			'priority' => 22
-		);
-
-		$fields['map_zoom'] = array(
-			'id'       => '_map_zoom',
-			'name'     => __( 'Map Zoom', 'wpcasa-admin-map-ui' ),
-			'desc'     => false,
-			'type'     => 'select',
-			'options'  => array_combine( range( 1, 20 ), range( 1, 20 ) ),
-			'default'  => '14',
-			'class'    => 'map-zoom',
-			'priority' => 24
-		);
-
-		$fields['map_streetview'] = array(
-			'id'  		=> '_map_no_streetview',
-			'name'		=> __( 'Streetview', 'wpcasa-admin-map-ui' ),
-			'type'		=> 'checkbox',
-			'desc'		=> __( 'Disable Streetview for this listing', 'wpcasa-admin-map-ui' ),
-			'class'     => 'map-streetview',
-			'priority'  => 26
-		);
-
 		// Apply filter and order fields by priority
 		$fields = wpsight_sort_array_by_priority( apply_filters( 'wpsight_meta_box_listing_location_map_fields', $fields ) );
 
 		return $fields;
-
 	}
 
 	/**
@@ -123,33 +84,16 @@ class WPSight_Admin_Map_UI_Admin {
 	 *
 	 *	@since 1.0.0
 	 */
-//	TODO: delete all commented lines till wpcasa 1.4
 	public static function get_location_data( $listing_id = null ) {
 
 		if ( empty( $listing_id ) ) {
 			$listing_id = get_the_ID();
 		}
-		// Check if map location already exists
-//		$geolocation = get_post_meta( $listing_id, '_map_geolocation', true );
-//
-//		if ( ! empty( $geolocation['lat'] ) ) {
-//			return $geolocation;
-//		}
 
-//		$geolocated = get_post_meta( $listing_id, '_geolocated', true );
-
-//		if ( ! empty( $geolocated ) ) {
-			return array(
-				'lat'  => get_post_meta( $listing_id, '_geolocation_lat', true ),
-				'long' => get_post_meta( $listing_id, '_geolocation_long', true )
-			);
-//		}
-
-//		$map_location = get_post_meta( $listing_id, '_map_location', true );
-
-//		if ( ! empty( $map_location ) ) {
-//			return array_combine( array( 'lat', 'long' ), (array) explode( ',', $map_location ) );
-//		}
+        return array(
+            'lat'  => get_post_meta( $listing_id, '_geolocation_lat', true ),
+            'long' => get_post_meta( $listing_id, '_geolocation_long', true )
+        );
 	}
 
 	/**

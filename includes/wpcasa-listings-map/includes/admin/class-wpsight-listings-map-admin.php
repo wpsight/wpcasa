@@ -36,6 +36,19 @@ class WPSight_Listings_Map_Admin {
 			'position'	=> 10,
 			'type'		=> 'heading',
 		);
+
+        $options_maps['listings_map_provider'] = array(
+            'name' 		=> __( 'Map Provider', 'wpcasa-listings-map' ),
+            'desc'		=> __( 'Choose the map provider', 'wpcasa-listings-map' ),
+            'id'   		=> 'listings_map_provider',
+            'position'	=> 15,
+            'type' 		=> 'radio',
+            'options'	=> array(
+                'leaflet'	=> __( 'Leaflet', 'wpcasa-listings-map' ),
+                'google'		=> __( 'Google', 'wpcasa-listings-map' )
+            ),
+            'default'	=> 'leaflet'
+        );
 		
 		$options_maps['listings_map_page'] = array(
 			'name' 		=> __( 'Map Page', 'wpcasa-listings-map' ),

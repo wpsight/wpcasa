@@ -102,12 +102,17 @@ class WPSight_Framework {
             deactivate_plugins( '/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
         }
 
-//      TODO: delete check till wpcasa 2.0
-        if ( !is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
-            if ( !class_exists('WPSight_Admin_Map_UI') ) {
-                include_once( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
+        if ( wpsight_get_option( 'listings_map_provider' ) == 'leaflet') {
+            include_once( WPSIGHT_PLUGIN_DIR . '/includes/leaflet/cmb-field-leaflet-map.php' );
+        } else {
+//           TODO: delete check till wpcasa 2.0
+            if ( !is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
+                if ( !class_exists('WPSight_Admin_Map_UI') ) {
+                    include_once( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
+                }
             }
         }
+
 
 //      TODO: delete till wpcasa 2.0
         if ( is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {

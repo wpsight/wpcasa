@@ -179,7 +179,7 @@ class WPSight_Admin_Map_UI {
         $api_url = $api_key ? add_query_arg( array( 'libraries' => 'places', 'key' => $api_key ), '//maps.googleapis.com/maps/api/js' ) : add_query_arg( array( 'libraries' => 'places' ), '//maps.googleapis.com/maps/api/js' );
 
         wp_enqueue_script( 'cmb-google-maps', apply_filters( 'wpsight_admin_map_ui_google_maps_endpoint', $api_url, $api_key ), null, WPSIGHT_VERSION );
-        wp_enqueue_script( 'cmb-google-maps-script', WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL . '/assets/js/map' . $suffix . '.js', array( 'jquery', 'cmb-google-maps', 'cmb2-scripts' ) );
+        wp_enqueue_script( 'cmb-google-maps-script', WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL . '/assets/js/map.js', array( 'jquery', 'cmb-google-maps', 'cmb2-scripts' ) );
 
         // Get map listing options
 

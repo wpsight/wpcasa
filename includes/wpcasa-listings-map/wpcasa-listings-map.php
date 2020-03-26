@@ -26,7 +26,7 @@ class WPSight_Listings_Map {
 		define( 'WPSIGHT_LISTINGS_MAP_NAME', 'WPCasa Listings Map' );
 		define( 'WPSIGHT_LISTINGS_MAP_DOMAIN', 'wpcasa-listings-map' );
 		define( 'WPSIGHT_LISTINGS_MAP_VERSION', '1.2.1' );
-////////////
+
         define( 'WPSIGHT_LISTINGS_MAP_PLUGIN_DIR', WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-listings-map' );
         define( 'WPSIGHT_LISTINGS_MAP_PLUGIN_URL', WPSIGHT_PLUGIN_URL . '/includes/wpcasa-listings-map' );
 

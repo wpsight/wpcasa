@@ -178,6 +178,7 @@ Many thanks to all of them for contributing and making WPCasa even better.
 
 = 1.3 =
 * Deleted WPSight_Geocode class
+* Updated cmb2 to 2.7.0
 
 = 1.2.2 =
 * Fixed reinitialize map coordinates in some cases

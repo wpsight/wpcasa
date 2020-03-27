@@ -1,6 +1,6 @@
 {
     "require": {
-        "webdevstudios/cmb2": "2.6.0"
+        "cmb2/cmb2": "2.7.0"
     },
     "autoload": {
         "files": ["vendor/cmb2/cmb2/init.php"],

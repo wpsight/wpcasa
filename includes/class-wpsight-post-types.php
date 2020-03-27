@@ -29,10 +29,6 @@ class WPSight_Post_Type_Listing {
         add_action( 'loop_start', array( $this, 'template_listing_single' ) );
         add_action( 'loop_end', array( $this, 'template_listing_single' ) );
         
-        // Optionally create location data from front end
-//        TODO: delete till wpcasa 1.5
-//        add_filter( 'wp', array( $this, 'listing_geolocation' ) );
-        
         // Optionally add default meta data to listing
         add_action( 'wp_insert_post', array( $this, 'maybe_add_default_meta' ), 10, 2 );
         

@@ -199,53 +199,6 @@ class WPSight_Meta_Boxes {
 	}
 
 	/**
-	 * admin_save_listing_data()
-	 *
-	 * Update listing data when saved.
-	 *
-	 * @access public
-	 * @param integer $post_id
-	 * @param mixed $post
-	 * @uses update_post_meta()
-	 * @uses apply_filters()
-	 * @uses WPSight_Geocode::has_location_data()
-	 * @uses WPSight_Geocode::generate_location_data()
-	 * @uses sanitize_text_field()
-	 *
-	 * @since 1.0.0
-	 */
-//	public function admin_save_listing_data( $post_id, $post ) {
-//
-//		if( ! is_admin() )
-//			return;
-//
-//		// Update listing location data
-//
-//		$value = array_values( (array) $_POST[ '_map_address' ] );
-//
-//		if ( update_post_meta( $post_id, '_map_address', sanitize_text_field( $value[0] ) ) ) {
-//			// Location data will be updated by maybe_generate_geolocation_data method
-//		} elseif ( apply_filters( 'wpsight_geolocation_enabled', true ) && ! WPSight_Geocode::has_location_data( $post_id ) ) {
-//			WPSight_Geocode::generate_location_data( $post_id, sanitize_text_field( $value[0] ) );
-//		}
-//
-//	}
-
-	/**
-	 * maybe_generate_geolocation_data()
-	 *
-	 * Generate location data if a post is saved
-	 *
-	 * @since 1.0.0
-	 */
-//	public function maybe_generate_geolocation_data( $meta_id, $object_id, $meta_key, $_meta_value ) {
-//		if ( '_map_address' !== $meta_key || wpsight_post_type() !== get_post_type( $object_id ) ) {
-//			return;
-//		}
-//		do_action( 'wpsight_listing_location_edited', $object_id, $_meta_value );
-//	}
-
-	/**
 	 * admin_post_meta_update()
 	 *
 	 * Rename and update some post meta to

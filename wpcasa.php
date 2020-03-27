@@ -71,7 +71,6 @@ class WPSight_Framework {
 
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-post-types.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-api.php' );
-		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-geocode.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-listings.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-agents.php' );
 		include( WPSIGHT_PLUGIN_DIR . '/includes/class-wpsight-general.php' );

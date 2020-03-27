@@ -423,36 +423,7 @@ class WPSight_Post_Type_Listing {
 		}
 		
 	}
-	
-	/**
-	 * listing_geolocation()
-	 *
-	 * If a listing is called on the front end,
-	 * check if we need to create geolocation data
-	 * to ensure backwards compatibiliy with older
-	 * WPCasa versions.
- 	 *
- 	 * @access public
- 	 * @uses wpsight_is_listing_single()
- 	 * @uses get_post_meta()
- 	 * @uses wpSight_Geocode::has_location_data()
- 	 * @uses wpSight_Geocode::generate_location_data()
- 	 * 
- 	 * @since 1.0.0
-	 */
-    //TODO: delete till wpcasa 1.5
-//	public function listing_geolocation() {
-//
-//		if( ! wpsight_is_listing_single() || is_admin() )
-//			return;
-//
-//		// Update map location information
-//		if ( ! wpSight_Geocode::has_location_data( get_the_id() ) && ( $location = get_post_meta( get_the_id(), '_map_address', true ) ) ) {
-//			wpSight_Geocode::generate_location_data( get_the_id(), $location );
-//		}
-//
-//	}
-	
+
 	/**
 	 * maybe_add_default_meta()
 	 *

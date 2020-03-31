@@ -177,7 +177,7 @@ Many thanks to all of them for contributing and making WPCasa even better.
 == Changelog ==
 
 = 1.2.2 =
-* Fixed reinitialize map coordinates in some cases
+* Fixed reinitialize map coordinates in some cases when dev mode is true
 
 = 1.2.1 =
 * Fixed map functionality after deleting WPCasa Listing Map plugin

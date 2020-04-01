@@ -124,14 +124,13 @@ class CMB2_Field_Leaflet {
         return wp_localize_script( 'cmb2-leaflet-main', 'CMB2LM', wp_parse_args( $args, [
             'tilelayer'           => self::INITIAL_TILELAYER,
             'searchbox_position'  => self::SEARCHBOX_POSITION,
-                'search'              => __( 'Search...', 'cmb2-leaflet-map' ),
+            'search'              => __( 'Search...', 'cmb2-leaflet-map' ),
             'not_found'           => __( 'Not found', 'cmb2-leaflet-map' ),
             'initial_coordinates' => [
                 'lat' => get_post_meta( get_the_ID(), '_geolocation_lat', true ),
                 'lng' => get_post_meta( get_the_ID(), '_geolocation_long', true )
             ],
-            'initial_zoom'        => self::INITIAL_ZOOM,
-            'default_zoom'        => self::DEFAULT_ZOOM
+            '_map_zoom'        => get_post_meta( get_the_ID(), '_map_zoom', true ) ? get_post_meta( get_the_ID(), '_map_zoom', true ) : 14,
         ] ) );
     }
 

@@ -91,13 +91,14 @@
         CMB2LM.initial_coordinates.lat,
         CMB2LM.initial_coordinates.lng
       ],
-      zoom: CMB2LM.initial_zoom
+      zoom: CMB2LM._map_zoom
     });
 
-    // if (latFieldVal && lngFieldVal) {
-    //   var markerCenter = new L.latLng(latFieldVal, lngFieldVal);
-    //   addMarker(markerCenter, map, marker);
-    // }
+
+    if (latFieldVal && lngFieldVal) {
+      var markerCenter = new L.latLng(CMB2LM.initial_coordinates.lat, CMB2LM.initial_coordinates.lng);
+      addMarker(markerCenter, map, marker);
+    }
 
 
     var tiles = L.esri.basemapLayer("Streets").addTo(map);
@@ -107,10 +108,6 @@
 
     // create an empty layer group to store the results and add it to the map
     var results = L.layerGroup().addTo(map);
-
-
-
-
 
 
     var search = BootstrapGeocoder.search({
@@ -130,13 +127,6 @@
       }
     });
 
-    // listen for the results event and add every result to the map
-    searchControl.on("results", function(data) {
-      results.clearLayers();
-      for (var i = data.results.length - 1; i >= 0; i--) {
-        results.addLayer(L.marker(data.results[i].latlng));
-      }
-    });
 
 
     map.on('layeradd', function (e) {

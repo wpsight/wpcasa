@@ -160,9 +160,9 @@ class WPSight_Listings_Map {
 	 *	@since 1.1.0
 	 */
 	public function panel_map( $panel, $query ) {
-
+//	TODO: temporary solution, delete till wpcasa 1.3
+    if ( wpsight_get_option('listings_map_display') == 1 )  {
 		if( isset( $query->post_count ) && $query->post_count >= 1 ) {
-		
 			$args = array(
 				'map_id'		=> uniqid( 'listings-panel-' ),
 				'toggle'		=> false,
@@ -174,6 +174,7 @@ class WPSight_Listings_Map {
 			$panel = $panel . $panel_map;
 		
 		}
+    }
 		
 		return $panel;
 		

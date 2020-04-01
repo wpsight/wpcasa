@@ -66,6 +66,16 @@ class WPSight_Listings_Map_Admin {
 			'position'	=> 30,
 			'type'     	=> 'checkbox'
 		);
+
+        $options_maps['listings_map_display'] = array(
+            'name'     	=> __( 'Listings Map Display', 'wpcasa-listings-map' ),
+            'cb_label' 	=> __( 'Show map above the listings', 'wpcasa-listings-map' ),
+            'desc'     	=> __( 'Show map above the listings ', 'wpcasa-listings-map' ),
+            'id'       	=> 'listings_map_display',
+            'type'     	=> 'checkbox',
+            'position'	=> 30,
+            'default'	=> 1,
+        );
 		
 		$options_maps['listings_map_panel_link'] = array(
 			'name'     	=> __( 'Link Text', 'wpcasa-listings-map' ),

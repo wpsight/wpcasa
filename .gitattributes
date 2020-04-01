@@ -1,0 +1,11 @@
+# Directories
+/.wordpress-org export-ignore
+/.github export-ignore
+
+# Files
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/entrypoint.sh export-ignore
+/Dockerfile export-ignore
+/composer.json export-ignore
+/composer.lock export-ignore

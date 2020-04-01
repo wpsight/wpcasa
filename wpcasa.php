@@ -112,7 +112,6 @@ class WPSight_Framework {
             }
         }
 
-
 //      TODO: delete till wpcasa 2.0
         if ( is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
             deactivate_plugins( '/wpcasa-listings-map/wpcasa-listings-map.php' );

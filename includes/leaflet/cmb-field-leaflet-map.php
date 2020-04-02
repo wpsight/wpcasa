@@ -111,7 +111,7 @@ class CMB2_Field_Leaflet {
 
         wp_enqueue_script( 'cmb2-leaflet-bootstrap-geocoder', WPSIGHT_PLUGIN_URL . '/includes/leaflet/assets/js/bootstrap-geocoder.js', [  ], self::VERSION );
 
-        wp_enqueue_script( 'cmb2-leaflet-main', WPSIGHT_PLUGIN_URL . '/includes/leaflet/assets/js/main.js', [ 'cmb2-leaflet-geocoder_esri_js' ], self::VERSION );
+        wp_enqueue_script( 'cmb2-leaflet-main', WPSIGHT_PLUGIN_URL . '/includes/leaflet/assets/js/main.js', [ 'cmb2-leaflet-bootstrap-geocoder'], self::VERSION );
         wp_enqueue_style( 'cmb2-leaflet-main',  WPSIGHT_PLUGIN_URL . '/includes/leaflet/assets/css/style.css', [  ], self::VERSION );
     }
 
@@ -174,7 +174,7 @@ class CMB2_Field_Leaflet {
     protected function render_input( $field_name = '', CMB2_Field $field, $field_escaped_value, CMB2_Types $field_type_object ) {
         $attrs = $field_type_object->concat_attrs( [
             'id'    => "{$field->args( 'id' )}_{$field_name}",
-            'type'  => 'hidden',
+            'type'  => 'text',
             'name'  => "{$field->args( '_name' )}[{$field_name}]",
             'value' => isset( $field_escaped_value[ $field_name ] ) ? $field_escaped_value[ $field_name ] : '',
             'class' => "leaflet-map__{$field_name}",

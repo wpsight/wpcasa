@@ -6,6 +6,8 @@
    */
   var maps = [];
 
+  var search_input = '_map_address';
+
   /**
    * Default marker
    */
@@ -40,24 +42,41 @@
     return "<span class='leaflet-map__popup'>" + markerCenter.lat + ", " + markerCenter.lng + "</span>";
   };
 
+
+    // $(document).on('keydown', '#_map_address', function() {
+    //   console.log($('.dropdown-menu ul').html());
+    // });
+    //
+    // $('body').on('click', '.geocoder-control-suggestion', function() {
+    //   alert('sdvr');
+    // });
+
   /**
    * Add marker to map
    * @param markerCenter
    * @param map
    */
   var addMarker = function (markerCenter, map, marker) {
+    var geocodeService = L.esri.Geocoding.geocodeService();
     marker
       .setLatLng(markerCenter)
-      .bindPopup(setMarkerHtml(markerCenter))
+      // .bindPopup(setMarkerHtml(markerCenter))
       .addTo(map);
 
-    marker.openPopup();
+    // marker.openPopup();
     marker.on('moveend', function (e) {
       marker.openPopup();
+
+      geocodeService.reverse().latlng(e.target._latlng).run(function (error, result) {
+       $('#' + search_input).val(result.address.LongLabel);
+
+      });
     });
 
-    // map.setView(markerCenter, CMB2LM.default_zoom);
+    // map.setView(markerCenter, CMB2LM._map_zoom);
   };
+
+
 
   /**
    * Handle adding latLng to inputs
@@ -77,14 +96,11 @@
    * @param index
    */
   var initMap = function (context, index) {
-
-    var mapId = 'cmb2-leaflet-map_' + index;
     var marker = createMarker();
+    var mapId = 'cmb2-leaflet-map_' + index;
 
     var latFieldVal = getLatField(context).val();
     var lngFieldVal = getLngField(context).val();
-    // alert(CMB2LM.initial_coordinates.lat);
-    // alert(CMB2LM.initial_coordinates.lng);
 
     var map = L.map(mapId, {
       center: [
@@ -94,95 +110,50 @@
       zoom: CMB2LM._map_zoom
     });
 
-
     if (latFieldVal && lngFieldVal) {
       var markerCenter = new L.latLng(CMB2LM.initial_coordinates.lat, CMB2LM.initial_coordinates.lng);
       addMarker(markerCenter, map, marker);
     }
 
 
-    var tiles = L.esri.basemapLayer("Streets").addTo(map);
+      L.tileLayer(CMB2LM.tilelayer, {
+          attribution: null
+      }).addTo(map);
 
-    // create the geocoding control and add it to the map
-    var searchControl = L.esri.Geocoding.geosearch().addTo(map);
+    // var tiles = L.esri.basemapLayer("Streets").addTo(map);
+
+
+      // L.control.layers(baseMaps, overlayMaps).addTo(map);
 
     // create an empty layer group to store the results and add it to the map
     var results = L.layerGroup().addTo(map);
 
 
     var search = BootstrapGeocoder.search({
-      inputTag: '_map_address',
-      placeholder: 'ex. LAX'
+      inputTag: search_input,
+      placeholder: 'ex. LAX',
+      allowMultipleResults: false
     }).addTo(map);
 
     search.on('results', function(data){
       document.getElementById(mapId).style.display = 'block';
-      // document.getElementById('intro').style.display = 'none';
-
-      // http://leafletjs.com/reference.html#map-invalidatesize
-      // map.invalidateSize();
       results.clearLayers();
       for (var i = data.results.length - 1; i >= 0; i--) {
-        results.addLayer(L.marker(data.results[i].latlng));
+        // Remove default markers on geocoder results
+        map.removeLayer(marker);
+        results.addLayer(L.marker(data.results[i].latlng, { draggable: true }));
       }
     });
 
 
 
+
+
+     // Handle marker position add / change
+      // TODO: not working after add new layer
     map.on('layeradd', function (e) {
       return handleLatLngChange(e, context)
     });
-
-
-
-   // If the map with given ID is already instantiated => return early
-   //  if (L.DomUtil.get(mapId)._leaflet_id) {
-    //   return;
-    // }
-    //
-    // var marker = createMarker();
-    // var geoCoder = new L.Control.Geocoder({
-    //   geocoder: null,
-    //   showResultIcons: false,
-    //   collapsed: true,
-    //   expand: 'click',
-    //   position: CMB2LM.searchbox_position,
-    //   placeholder: CMB2LM.search,
-    //   errorMessage: CMB2LM.not_found
-    // });
-    // var latFieldVal = getLatField(context).val();
-    // var lngFieldVal = getLngField(context).val();
-    // var map = L.map(mapId, {
-    //   center: [
-    //     CMB2LM.initial_coordinates.lat,
-    //     CMB2LM.initial_coordinates.lng
-    //   ],
-    //   zoom: CMB2LM.initial_zoom
-    // });
-    //
-    // L.tileLayer(CMB2LM.tilelayer, {
-    //   attribution: null
-    // }).addTo(map);
-    //
-    // geoCoder.addTo(map);
-    //
-    // // Check if fields are populated
-    // if (latFieldVal && lngFieldVal) {
-    //   var markerCenter = new L.latLng(latFieldVal, lngFieldVal);
-    //   addMarker(markerCenter, map, marker);
-    // }
-    //
-    // // Handle marker position add / change
-    // map.on('layeradd', function (e) {
-    //   return handleLatLngChange(e, context)
-    // });
-    //
-    // // Remove default markers on geocoder results
-    // map.on('geocoderMarkerAdd', function () {
-    //   return map.removeLayer(marker);
-    // });
-    //
-    // maps.push(map);
 
   };
 

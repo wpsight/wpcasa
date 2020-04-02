@@ -130,7 +130,7 @@ class CMB2_Field_Leaflet {
                 'lat' => get_post_meta( get_the_ID(), '_geolocation_lat', true ),
                 'lng' => get_post_meta( get_the_ID(), '_geolocation_long', true )
             ],
-            '_map_zoom'        => get_post_meta( get_the_ID(), '_map_zoom', true ) ? get_post_meta( get_the_ID(), '_map_zoom', true ) : 14,
+            '_map_zoom'        => self::DEFAULT_ZOOM,
         ] ) );
     }
 

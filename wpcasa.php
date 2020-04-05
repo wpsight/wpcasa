@@ -7,7 +7,7 @@ Version: 1.3
 Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 4.0
-Tested up to: 5.3.2
+Tested up to: 5.4
 Text Domain: wpcasa
 Domain Path: /languages
 
@@ -102,12 +102,12 @@ class WPSight_Framework {
         }
 
         if ( wpsight_get_option( 'listings_map_provider' ) == 'leaflet') {
-            include_once( WPSIGHT_PLUGIN_DIR . '/includes/leaflet/cmb-field-leaflet-map.php' );
+            include_once( WPSIGHT_PLUGIN_DIR . '/includes/admin/maps/leaflet/cmb2-field-leaflet-map.php' );
         } else {
 //           TODO: delete check till wpcasa 2.0
             if ( !is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
-                if ( !class_exists('WPSight_Admin_Map_UI') ) {
-                    include_once( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
+                if ( !class_exists('CMB2_Field_Google') ) {
+                    include_once( WPSIGHT_PLUGIN_DIR . '/includes/admin/maps/google/cmb2-field-google-map.php' );
                 }
             }
         }

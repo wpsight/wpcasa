@@ -3,36 +3,14 @@
 /**
  * WPSight_Admin_Map_UI class
  */
-class WPSight_Admin_Map_UI {
+class CMB2_Field_Google {
 
 	/**
 	 * Constructor
 	 */
 	public function __construct() {
-
-		// Define constants
-
-		if ( ! defined( 'WPSIGHT_NAME' ) )
-			define( 'WPSIGHT_NAME', 'WPCasa' );
-
-		if ( ! defined( 'WPSIGHT_DOMAIN' ) )
-			define( 'WPSIGHT_DOMAIN', 'wpcasa' );
-
-		if ( ! defined( 'WPSIGHT_SHOP_URL' ) )
-			define( 'WPSIGHT_SHOP_URL', 'https://wpcasa.com' );
-
-		if ( ! defined( 'WPSIGHT_AUTHOR' ) )
-			define( 'WPSIGHT_AUTHOR', 'WPSight' );
-
-        if ( ! defined( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_DIR' ) )
-		define( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_DIR', WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui' );
-
-        if ( ! defined( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL' ) )
-		define( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL', WPSIGHT_PLUGIN_URL . '/includes/wpcasa-admin-map-ui' );
-
-		// Actions		
+		// Actions
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
-
 
         if ( is_admin() ) {
             add_filter( 'cmb2_render_map', array( $this, 'render_map' ), 10, 5 );
@@ -41,27 +19,6 @@ class WPSight_Admin_Map_UI {
             // Add map and map args field to meta box
             add_filter( 'wpsight_meta_box_listing_location_fields', array( $this, 'location_map_fields' ) );
         }
-
-	}
-
-	/**
-	 *	init()
-	 *
-	 *  Initialize the plugin when WPCasa is loaded
-	 *
-	 *  @param  object  $wpsight
-	 *	@uses	do_action_ref_array()
-	 *  @return object
-	 *
-	 *	@since 1.0.0
-	 */
-	public static function init( $wpsight ) {
-		if ( ! isset( $wpsight->admin_map_ui ) ) {
-			$wpsight->admin_map_ui = new self();
-		}
-		do_action_ref_array( 'wpsight_init_admin_map_ui', array( &$wpsight ) );
-
-		return $wpsight->admin_map_ui;
 	}
 
 	/**
@@ -179,7 +136,7 @@ class WPSight_Admin_Map_UI {
         $api_url = $api_key ? add_query_arg( array( 'libraries' => 'places', 'key' => $api_key ), '//maps.googleapis.com/maps/api/js' ) : add_query_arg( array( 'libraries' => 'places' ), '//maps.googleapis.com/maps/api/js' );
 
         wp_enqueue_script( 'cmb-google-maps', apply_filters( 'wpsight_admin_map_ui_google_maps_endpoint', $api_url, $api_key ), null, WPSIGHT_VERSION );
-        wp_enqueue_script( 'cmb-google-maps-script', WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL . '/assets/js/map.js', array( 'jquery', 'cmb-google-maps', 'cmb2-scripts' ) );
+        wp_enqueue_script( 'cmb-google-maps-script', WPSIGHT_PLUGIN_URL . '/includes/admin/maps/google/assets/js/map.js', array( 'jquery', 'cmb-google-maps', 'cmb2-scripts' ) );
 
         // Get map listing options
 
@@ -263,6 +220,4 @@ class WPSight_Admin_Map_UI {
     }
 
 }
-
-// Initialize plugin on wpsight_init
-add_action( 'wpsight_init', array( 'WPSight_Admin_Map_UI', 'init' ) );
+new CMB2_Field_Google();

@@ -65,6 +65,7 @@
         CMB2LM.initial_coordinates.lat,
         CMB2LM.initial_coordinates.lng
       ],
+      scrollWheelZoom: false,
       zoom: CMB2LM._map_zoom
     });
 

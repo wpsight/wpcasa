@@ -39,6 +39,15 @@
     return context.find('.leaflet-map__lng');
   };
 
+    /**
+     * Get value from lng-input
+     * @param context
+     * @returns {{from, to}|T|*|{line, ch}|{}}
+     */
+    var getZoom = function (map_zoom_field) {
+        return parseInt( $('option:selected', map_zoom_field).val() );
+    };
+
   /**
    * Handle adding latLng to inputs
    * @param context
@@ -59,7 +68,7 @@
     var mapId = 'cmb2-leaflet-map_' + index;
     var geocodeService = L.esri.Geocoding.geocodeService();
     var latLng = new L.latLng(CMB2LM.initial_coordinates.lat, CMB2LM.initial_coordinates.lng);
-    var map_zoom	= $('[name="_map_zoom"]');
+    var map_zoom_field	= $('[name="_map_zoom"]');
 
     var map = L.map(mapId, {
       center: [
@@ -70,9 +79,7 @@
       zoom: CMB2LM._map_zoom
     });
 
-
     addMarker(latLng, map, marker);
-
 
     marker.on('moveend', function (data) {
       handleLatLngChange(context, data.target._latlng);
@@ -87,11 +94,6 @@
       attribution: null
     }).addTo(map);
 
-    // Change zoom level
-    map_zoom.change(function() {
-      var map_zoom_val = $('option:selected',this).val();
-      map.setZoom( parseInt(map_zoom_val) );
-    });
 
     // create an empty layer group to store the results and add it to the map
     var search = L.esri.BootstrapGeocoder.search({
@@ -105,10 +107,16 @@
 
       for (var i = data.results.length - 1; i >= 0; i--) {
         marker.setLatLng(data.results[i].latlng);
+        // map.setView(data.latlng, getZoom(map_zoom_field) );
 
         handleLatLngChange(context, data.latlng);
       }
     });
+
+      // Change zoom level
+      map_zoom_field.change(function() {
+          map.setView( new L.LatLng(getLatField(context).val(), getLngField(context).val()), getZoom(map_zoom_field) );
+      });
   };
 
   /**

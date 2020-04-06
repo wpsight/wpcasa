@@ -59,6 +59,7 @@
     var mapId = 'cmb2-leaflet-map_' + index;
     var geocodeService = L.esri.Geocoding.geocodeService();
     var latLng = new L.latLng(CMB2LM.initial_coordinates.lat, CMB2LM.initial_coordinates.lng);
+    var map_zoom	= $('[name="_map_zoom"]');
 
     var map = L.map(mapId, {
       center: [
@@ -85,6 +86,12 @@
     L.tileLayer(CMB2LM.tilelayer, {
       attribution: null
     }).addTo(map);
+
+    // Change zoom level
+    map_zoom.change(function() {
+      var map_zoom_val = $('option:selected',this).val();
+      map.setZoom( parseInt(map_zoom_val) );
+    });
 
     // create an empty layer group to store the results and add it to the map
     var search = L.esri.BootstrapGeocoder.search({

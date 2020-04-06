@@ -38,12 +38,6 @@
 		var marker = new google.maps.Marker( markerOptions );
 		marker.setPosition( mapOptions.center );
 
-		// Set stored Coordinates
-		// if ( latitude.val() && longitude.val() ) {
-		// 	latLng = new google.maps.LatLng( latitude.val(), longitude.val() );
-		// 	setPosition( latLng, parseInt( CMBGmaps._map_zoom ))
-		// }
-
 		// Click on map sets location
 		window.google.maps.event.addListener( map, 'click', function ( event ) {
 			setPosition( event.latLng );

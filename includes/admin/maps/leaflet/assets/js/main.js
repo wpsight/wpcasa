@@ -94,7 +94,6 @@
       attribution: null
     }).addTo(map);
 
-
     // create an empty layer group to store the results and add it to the map
     var search = L.esri.BootstrapGeocoder.search({
       inputTag: search_input,
@@ -102,16 +101,16 @@
       allowMultipleResults: false
     }).addTo(map);
 
+
     search.on('results', function(data){
       $('#' + search_input).val(data.text);
-
-      for (var i = data.results.length - 1; i >= 0; i--) {
-        marker.setLatLng(data.results[i].latlng);
-        // map.setView(data.latlng, getZoom(map_zoom_field) );
-
-        handleLatLngChange(context, data.latlng);
-      }
+      setTimeout(function(){
+        map.setView( data.latlng, getZoom(map_zoom_field) );
+      }, 500);
+      marker.setLatLng(data.latlng);
+      handleLatLngChange(context, data.latlng);
     });
+
 
       // Change zoom level
       map_zoom_field.change(function() {

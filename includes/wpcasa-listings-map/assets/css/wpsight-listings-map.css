@@ -1,5 +1,20 @@
 /* Listings Map
 ================================================== */
+.custom-leaflet-popup .leaflet-popup-content {
+	margin: 0 !important;
+	/*min-width: 290px;*/
+}
+
+.custom-leaflet-popup  .leaflet-popup-content-wrapper {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	padding: 0;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+	z-index: 100;
+}
 
 .map-toggle {
 	display: none;
@@ -112,7 +127,7 @@
 /* Infobox fade in and up animation */
 
 .infoBox {
-    -webkit-animation: fadeInUpSmall 250ms; 
+    -webkit-animation: fadeInUpSmall 250ms;
     animation: fadeInUpSmall 250ms;
 }
 

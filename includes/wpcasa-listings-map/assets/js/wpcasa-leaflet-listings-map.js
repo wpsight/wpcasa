@@ -12,15 +12,20 @@
     var markers = new L.MarkerClusterGroup();
     var markersList = [];
 
+    var customOptions = {
+         'maxWidth': '500',
+         'minWidth': '300',
+         'className' : 'custom-leaflet-popup'
+     }
+
 	for ( var i = wpsightMap.map.markers.length - 1; i >= 0; i-- ) {
-        var markerOptions = wpsightMap.map.markers[i];
+        var markerOptions = wpsightMap.map.markers[i]
+        var path = new L.Polyline(new L.LatLng(parseFloat(markerOptions.lat), parseFloat(markerOptions.lng)) );;
 
-		marker = new L.Marker([parseFloat(markerOptions.lat), parseFloat(markerOptions.lng)]);
-
+		marker = new L.Marker([parseFloat(markerOptions.lat), parseFloat(markerOptions.lng)] );
+        marker.bindPopup(markerOptions.infobox.content, customOptions).openPopup();
         markersList.push(marker);
         markers.addLayer(marker);
-
-        var path = new L.Polyline(new L.LatLng(parseFloat(markerOptions.lat), parseFloat(markerOptions.lng)) );
         map.addLayer(path);
 	}
     map.addLayer(markers);

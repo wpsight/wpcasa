@@ -337,23 +337,14 @@ function wpsight_get_listings_map( $atts = array(), $map_query = array() ) {
 
     if (wpsight_get_option('listings_map_provider') == 'leaflet') {
 
-        wp_enqueue_script('cmb2-leaflet-core', '//unpkg.com/leaflet/dist/leaflet-src.js', ['jquery'], '123');
-        wp_enqueue_style('cmb2-leaflet-core', '//unpkg.com/leaflet/dist/leaflet.css', [], '1232');
-        wp_enqueue_style('cmb2-leaflet-geocoder_esri', '//unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css', ['cmb2-leaflet-core'], '12344');
-
-        wp_enqueue_script('cmb2-leaflet-geocoder_esri_main_js', 'https://unpkg.com/esri-leaflet', [], '112323');
-        wp_enqueue_script('cmb2-leaflet-geocoder_esri_js', 'https://unpkg.com/esri-leaflet-geocoder', [], '1213243');
-
-
-
+        wp_enqueue_script('cmb2-leaflet-core', '//unpkg.com/leaflet/dist/leaflet-src.js', ['jquery'], WPSIGHT_LISTINGS_MAP_VERSION);
+        wp_enqueue_style('cmb2-leaflet-core', '//unpkg.com/leaflet/dist/leaflet.css', [], WPSIGHT_LISTINGS_MAP_VERSION);
 
         wp_enqueue_script( 'wpsight-leaflet-markercluster', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/leaflet.markercluster-src.js', [], WPSIGHT_LISTINGS_MAP_VERSION );
-        wp_enqueue_style('wpsight-leaflet-markercluster',  WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/css/MarkerCluster.css', [], '1232');
-        wp_enqueue_style('wpsight-leaflet-markercluster1',  WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/css/MarkerCluster.Default.css', [], '1232');
-
-
+        wp_enqueue_style('wpsight-leaflet-markercluster',  WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/css/MarkerCluster.css', [], WPSIGHT_LISTINGS_MAP_VERSION);
 
         wp_enqueue_script( 'wpsight-leaflet-listings-map', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/wpcasa-leaflet-listings-map.js', [], WPSIGHT_LISTINGS_MAP_VERSION );
+
         wp_localize_script( 'wpsight-leaflet-listings-map', 'wpsightMap', apply_filters( 'wpsight_listings_map_options', $map_options ) );
     } else {
         wp_enqueue_script( 'wpsight-listings-map' );

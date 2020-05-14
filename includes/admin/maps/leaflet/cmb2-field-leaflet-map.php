@@ -57,18 +57,14 @@ class CMB2_Field_Leaflet_Map {
      * Enqueue scripts and styles
      */
     public function enqueue_scripts() {
+        wp_enqueue_style( 'cmb2-leaflet-core' );
+        wp_enqueue_script( 'cmb2-leaflet-core' );
 
-        wp_enqueue_script( 'cmb2-leaflet-core', '//unpkg.com/leaflet/dist/leaflet-src.js', [ 'jquery' ], WPSIGHT_VERSION );
-        wp_enqueue_style( 'cmb2-leaflet-core', '//unpkg.com/leaflet/dist/leaflet.css', [], WPSIGHT_VERSION );
-        wp_enqueue_style( 'cmb2-leaflet-geocoder_esri', '//unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css', ['cmb2-leaflet-core'], WPSIGHT_VERSION );
-
+        wp_enqueue_style( 'cmb2-leaflet-main',  WPSIGHT_PLUGIN_URL . '/includes/admin/maps/leaflet/assets/css/style.css', [  ], WPSIGHT_VERSION );
         wp_enqueue_script( 'cmb2-leaflet-geocoder_esri_main_js', 'https://unpkg.com/esri-leaflet', [], WPSIGHT_VERSION );
         wp_enqueue_script( 'cmb2-leaflet-geocoder_esri_js', 'https://unpkg.com/esri-leaflet-geocoder', [], WPSIGHT_VERSION );
-
         wp_enqueue_script( 'cmb2-leaflet-bootstrap-geocoder', WPSIGHT_PLUGIN_URL . '/includes/admin/maps/leaflet/assets/js/bootstrap-geocoder.js', [  ], WPSIGHT_VERSION );
-
         wp_enqueue_script( 'cmb2-leaflet-main', WPSIGHT_PLUGIN_URL . '/includes/admin/maps/leaflet/assets/js/main.js', [ 'cmb2-leaflet-bootstrap-geocoder'], WPSIGHT_VERSION );
-        wp_enqueue_style( 'cmb2-leaflet-main',  WPSIGHT_PLUGIN_URL . '/includes/admin/maps/leaflet/assets/css/style.css', [  ], WPSIGHT_VERSION );
     }
 
     /**

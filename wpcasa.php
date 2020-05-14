@@ -149,11 +149,27 @@ class WPSight_Framework {
 		add_action( 'switch_theme', array( $this->post_types, 'register_post_type_listing' ), 10 );
 		add_action( 'switch_theme', 'flush_rewrite_rules', 15 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
+        add_action( 'wp_loaded', array( $this, 'register_front_and_admin_scripts' ) );
 
 		// Init action for add-ons to hook in
 		do_action_ref_array( 'wpsight_init', array( &$this ) );
 
 	}
+
+    /**
+     *	register_front_and_admin_scripts()
+     *
+     *	One leaflet core for all wpcasa products
+     *
+     *	@uses	wp_register_script()
+     *	@uses	wp_register_style()
+     *
+     *	@since 1.3.0
+     */
+    public function register_front_and_admin_scripts() {
+        wp_register_script( 'cmb2-leaflet-core', '//unpkg.com/leaflet/dist/leaflet-src.js', [ 'jquery' ], WPSIGHT_VERSION );
+        wp_register_style( 'cmb2-leaflet-core', '//unpkg.com/leaflet/dist/leaflet.css', [], WPSIGHT_VERSION );
+    }
 
 	/**
 	 *	load_plugin_textdomain()

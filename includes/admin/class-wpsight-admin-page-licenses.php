@@ -11,7 +11,7 @@ class WPSight_Admin_Licenses {
      *	Constructor
      */
     public function __construct() {
-        if ( !($_GET['page'] == 'wpsight-licenses') ) {
+        if ( !isset($_GET['page']) && !($_GET['page'] == 'wpsight-licenses') ) {
             add_action( 'admin_init', array( $this, 'update_licenses' ) );
         }
 

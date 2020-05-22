@@ -130,7 +130,7 @@ class WPSight_Admin_Licenses {
      *	@since 1.0.0
      */
     function register_settings() {
-        register_setting( 'wpsight_licenses', 'wpsight_licenses' );
+        register_setting( 'wpsight_licenses', 'wpsight_licenses', array( $this, 'sanitize_license'  ));
     }
 
     /**

@@ -165,9 +165,9 @@ class WPSight_General {
 
 		foreach ( $standard_details as $detail => $value ) {
 
-			$standard_details_option = wpsight_get_option( $detail );
+			$standard_details_option = (array) wpsight_get_option( $detail );
 
-			if ( ! empty( $standard_details_option ) ) {
+            if ( ! empty( $standard_details_option ) ) {
 				$standard_details[ $detail ]['label'] = $standard_details_option['label'];
 				$standard_details[ $detail ]['unit'] = $standard_details_option['unit'];
 			}

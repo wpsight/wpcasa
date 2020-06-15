@@ -142,6 +142,7 @@ class WPSight_Framework {
 		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), function() { include_once('includes/class-wpsight-install.php'); }, 10 );
 		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), 'flush_rewrite_rules', 15 );
 		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array( $this, 'activation' ) );
+		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array( $this, 'map_activation' ) );
 
 		// Actions
 
@@ -302,8 +303,62 @@ class WPSight_Framework {
 			wpsight_add_option( $option, $value );
 
 		}
-
 	}
+
+
+    /**
+     *	map_activation()
+     *
+     *	Callback for register_activation_hook
+     *	to create a default map settings
+     *
+     *	@uses	wpsight_get_option()
+     *	@uses	wpsight_add_option()
+     *
+     *	@since 1.0.0
+     */
+    public static function map_activation() {
+
+        // Create map page
+
+        $page_data = array(
+            'post_title'		=> _x( 'Listings Map', 'listings map page title', 'wpsight-listings-map' ),
+            'post_content'		=> '[wpsight_listings_map]',
+            'post_type'			=> 'page',
+            'post_status'		=> 'publish',
+            'comment_status'	=> 'closed',
+            'ping_status'		=> 'closed'
+        );
+
+        $page_id = ! wpsight_get_option( 'listings_map_page' ) ? wp_insert_post( $page_data ) : wpsight_get_option( 'listings_map_page' );
+
+        // Add some default options
+
+        $options = array(
+            'listings_map_page'				=> $page_id,
+            'listings_map_panel'			=> '1',
+            'listings_map_panel_link'		=> __( 'Toggle Map', 'wpcasa-listings-map' ),
+            'listings_map_nr'				=> 50,
+            'listings_map_width'			=> '100%',
+            'listings_map_height'			=> '800px',
+            'listings_map_type'				=> 'ROADMAP',
+            'listings_map_control_type'		=> '1',
+            'listings_map_control_nav'		=> '1',
+            'listings_map_scrollwheel'		=> '0',
+            'listings_map_streetview'		=> '1',
+            'listings_map_infobox_event'	=> 'mouseover',
+            'listings_map_infobox_close'	=> '1'
+        );
+
+        foreach ( $options as $option => $value ) {
+
+            if ( wpsight_get_option( $option ) )
+                continue;
+
+            wpsight_add_option( $option, $value );
+
+        }
+    }
 }
 
 /**

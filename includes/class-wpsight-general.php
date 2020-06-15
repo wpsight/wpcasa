@@ -15,6 +15,7 @@ class WPSight_General {
 		add_filter( 'wpsight_rental_periods', array( $this, 'check_rental_periods' ), 20 );
 		add_filter( 'init', array( $this, 'listing_query_vars_general' ) );
 		add_filter( 'init', array( $this, 'listing_query_vars_details' ) );
+		add_filter( 'init', array( $this, 'set_default_map_provider' ) );
 	}
 
 	/**
@@ -957,4 +958,30 @@ class WPSight_General {
 
 	}
 
+    /**
+     * listing_query_vars_taxonomies()
+     *
+     * Set default map provider if not any
+     *
+     * @uses wpsight_get_option()
+     * @uses wpsight_add_option()
+     *
+     * @since 1.3
+     */
+//    TODO: needs improvement to not send request every time
+    function set_default_map_provider() {
+        $map_option = wpsight_get_option( 'listings_map_provider' );
+        if ( $map_option ) {
+            return;
+        }
+
+        $google_key = wpsight_get_option( 'google_maps_api_key' );
+
+        if ( $google_key ) {
+            wpsight_add_option('listings_map_provider', 'google');
+        } else {
+            wpsight_add_option('listings_map_provider', 'leaflet');
+        }
+    }
 }
+

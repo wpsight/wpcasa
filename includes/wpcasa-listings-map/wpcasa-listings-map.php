@@ -22,7 +22,7 @@ class WPSight_Listings_Map {
 			define( 'WPSIGHT_DOMAIN', 'wpcasa' );
 
 
-//		TODO: check if we need that constants till wpcasa 1.3
+//		TODO: check if we need that constants till wpcasa 1.5
 		define( 'WPSIGHT_LISTINGS_MAP_NAME', 'WPCasa Listings Map' );
 		define( 'WPSIGHT_LISTINGS_MAP_DOMAIN', 'wpcasa-listings-map' );
 		define( 'WPSIGHT_LISTINGS_MAP_VERSION', '1.2.1' );
@@ -117,8 +117,8 @@ class WPSight_Listings_Map {
 		wp_enqueue_style( 'wpsight-listings-map', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/css/wpsight-listings-map.css', array(), WPSIGHT_LISTINGS_MAP_VERSION );
 		wp_register_script( 'wpsight-map-googleapi', '//maps.googleapis.com/maps/api/js', null, WPSIGHT_LISTINGS_MAP_VERSION );
 		wp_register_script( 'wpsight-map-infobox', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/infobox.js', array( 'wpsight-map-googleapi' ), WPSIGHT_LISTINGS_MAP_VERSION );
-		wp_register_script( 'wpsight-map-markerclusterer', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/markerclusterer' . $suffix . '.js', array( 'wpsight-map-googleapi' ), WPSIGHT_LISTINGS_MAP_VERSION );
-		wp_register_script( 'wpsight-listings-map', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/wpcasa-listings-map' . $suffix . '.js', array( 'wpsight-map-googleapi', 'wpsight-map-markerclusterer', 'wpsight-map-infobox' ), WPSIGHT_LISTINGS_MAP_VERSION );
+		wp_register_script( 'wpsight-map-markerclusterer', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/markerclusterer.js', array( 'wpsight-map-googleapi' ), WPSIGHT_LISTINGS_MAP_VERSION );
+		wp_register_script( 'wpsight-listings-map', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/wpcasa-listings-map.js', array( 'wpsight-map-googleapi', 'wpsight-map-markerclusterer', 'wpsight-map-infobox' ), WPSIGHT_LISTINGS_MAP_VERSION );
 
 	}
 
@@ -156,7 +156,7 @@ class WPSight_Listings_Map {
 	 *	@since 1.1.0
 	 */
 	public function panel_map( $panel, $query ) {
-//	TODO: temporary solution, delete till wpcasa 1.3
+//	TODO: temporary solution, delete till wpcasa 1.5
     if ( wpsight_get_option('listings_map_display') == 1 )  {
 		if( isset( $query->post_count ) && $query->post_count >= 1 ) {
 			$args = array(

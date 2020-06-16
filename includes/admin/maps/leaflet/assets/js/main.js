@@ -114,7 +114,7 @@
 
       // Change zoom level
       map_zoom_field.change(function() {
-          map.setView( new L.LatLng(getLatField(context).val(), getLngField(context).val()), getZoom(map_zoom_field) );
+        map.setZoom(getZoom(map_zoom_field));
       });
   };
 

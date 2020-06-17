@@ -6,8 +6,9 @@
 var map = new L.Map(wpsightMap.map.id, {
     zoom: 10,
     layers: [tiles],
-    scrollWheelZoom: false
+    scrollWheelZoom: ( wpsightMap.map.scrollwheel === 'true' )
 });
+
 
  var mapType = wpsightMap.map.mapTypeId;
  if( mapType === 'TERRAIN' ) {
@@ -33,7 +34,6 @@ var customOptions = {
      'closeButton' : ( wpsightMap.map.infobox_close === 'true' )
  };
 
-console.log(wpsightMap.map.infobox_close);
 
 for ( var i = wpsightMap.map.markers.length - 1; i >= 0; i-- ) {
     // closeButton
@@ -52,9 +52,6 @@ for ( var i = wpsightMap.map.markers.length - 1; i >= 0; i-- ) {
             ev.target.openPopup();
         });
     }
-
-
-
 
     markersList.push(marker);
     markers.addLayer(marker);

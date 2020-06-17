@@ -5,7 +5,6 @@ class CMB2_Field_Leaflet_Map {
     /**
      * @var string tilelayer
      */
-    const INITIAL_TILELAYER = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
 
     public function __construct() {
         add_filter( 'cmb2_render_leaflet_map', [ $this, 'render_leaflet_map' ], 10, 5 );
@@ -74,7 +73,7 @@ class CMB2_Field_Leaflet_Map {
      */
     protected function localize_script( $args ) {
         return wp_localize_script( 'cmb2-leaflet-main', 'CMB2LM', wp_parse_args( $args, [
-            'tilelayer'           => self::INITIAL_TILELAYER,
+            'tilelayer'           => get_post_meta( get_the_ID(), '_map_type', true ),
             'search'              => __( 'Search...', 'cmb2-leaflet-map' ),
             'not_found'           => __( 'Not found', 'cmb2-leaflet-map' ),
             'initial_coordinates' => [

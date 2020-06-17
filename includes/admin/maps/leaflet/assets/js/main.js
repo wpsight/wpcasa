@@ -58,6 +58,8 @@
     getLngField(context).val(latLng.lng);
   };
 
+  var map_type	= $('[name="_map_type"]');
+
   /**
    * Initialize Leaflet to map-container
    * @param context
@@ -90,9 +92,7 @@
       });
     });
 
-    L.tileLayer(CMB2LM.tilelayer, {
-      attribution: null
-    }).addTo(map);
+    setMapType(CMB2LM.tilelayer);
 
     // create an empty layer group to store the results and add it to the map
     var search = L.esri.BootstrapGeocoder.search({
@@ -110,13 +110,38 @@
       marker.setLatLng(data.latlng);
       handleLatLngChange(context, data.latlng);
     });
-
-
       // Change zoom level
       map_zoom_field.change(function() {
         map.setZoom(getZoom(map_zoom_field));
       });
+
+
+    function setMapType( mapType ) {
+      customLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: null
+      });
+
+      if( mapType === 'TERRAIN' ) {
+        map.removeLayer(customLayer);
+        customLayer = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+          maxZoom: 20,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+        });
+      }
+
+      map.addLayer(customLayer);
+    }
+
+    // Change map type
+    map_type.change(function() {
+      var map_type_val = $(this).filter(':checked').val();
+      setMapType( map_type_val );
+    });
+
+
+
   };
+
 
   /**
    * Initialize on load

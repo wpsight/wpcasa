@@ -562,6 +562,21 @@ class WPSight_Meta_Boxes {
 	 * @since 1.0.0
 	 */
 	public static function meta_box_listing_location() {
+	    $mapTypeOption = array(
+            'ROADMAP'   => __( 'Roadmap', 'wpcasa-admin-map-ui' ),
+            'SATELLITE' => __( 'Satellite', 'wpcasa-admin-map-ui' ),
+            'HYBRID'    => __( 'Hybrid', 'wpcasa-admin-map-ui' ),
+            'TERRAIN'   => __( 'Terrain', 'wpcasa-admin-map-ui' )
+        );
+
+        if (wpsight_get_option('listings_map_provider') == 'leaflet') {
+            $mapTypeOption = array(
+                'ROADMAP'   => __( 'Roadmap', 'wpcasa-admin-map-ui' ),
+//                'SATELLITE' => __( 'Stamen', 'wpcasa-admin-map-ui' ),
+//                'HYBRID'    => __( 'Dark', 'wpcasa-admin-map-ui' ),
+                'TERRAIN'   => __( 'Terrain', 'wpcasa-admin-map-ui' )
+            );
+        }
 		$fields = array(
 			'address' => array(
 				'name'      => __( 'Address', 'wpcasa' ),
@@ -573,17 +588,14 @@ class WPSight_Meta_Boxes {
 				'priority'  => 10
 			),
 
+
+
             'map_type' => array(
                 'id'   => '_map_type',
                 'name' => __( 'Map Type', 'wpcasa-admin-map-ui' ),
                 'desc' => false,
                 'type' => 'radio',
-                'options' => array(
-                    'ROADMAP'   => __( 'Roadmap', 'wpcasa-admin-map-ui' ),
-                    'SATELLITE' => __( 'Satellite', 'wpcasa-admin-map-ui' ),
-                    'HYBRID'    => __( 'Hybrid', 'wpcasa-admin-map-ui' ),
-                    'TERRAIN'   => __( 'Terrain', 'wpcasa-admin-map-ui' )
-                ),
+                'options' => $mapTypeOption,
                 'default'  => 'ROADMAP',
                 'class'    => 'map-type',
                 'priority' => 20

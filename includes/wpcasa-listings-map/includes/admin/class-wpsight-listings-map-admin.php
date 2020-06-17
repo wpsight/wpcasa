@@ -120,6 +120,20 @@ class WPSight_Listings_Map_Admin {
 			'type' 		=> 'text',
 			'default'	=> '600px'
 		);
+
+        $mapTypeOption = array(
+            'ROADMAP'   => __( 'Roadmap', 'wpcasa-admin-map-ui' ),
+            'SATELLITE' => __( 'Satellite', 'wpcasa-admin-map-ui' ),
+            'HYBRID'    => __( 'Hybrid', 'wpcasa-admin-map-ui' ),
+            'TERRAIN'   => __( 'Terrain', 'wpcasa-admin-map-ui' )
+        );
+
+        if (wpsight_get_option('listings_map_provider') == 'leaflet') {
+            $mapTypeOption = array(
+                'ROADMAP'   => __( 'Roadmap', 'wpcasa-admin-map-ui' ),
+                'TERRAIN'   => __( 'Terrain', 'wpcasa-admin-map-ui' )
+            );
+        }
 		
 		$options_maps['listings_map_type'] = array(
 			'name' 		=> __( 'Type', 'wpcasa-listings-map' ),
@@ -127,23 +141,19 @@ class WPSight_Listings_Map_Admin {
 			'id'   		=> 'listings_map_type',
 			'position'	=> 90,
 			'type' 		=> 'select',
-			'options'	=> array(
-				'ROADMAP'   => __( 'Roadmap', 'wpcasa-listings-map' ),
-				'SATELLITE' => __( 'Sattelite', 'wpcasa-listings-map' ),
-				'HYBRID'    => __( 'Hybrid', 'wpcasa-listings-map' ),
-				'TERRAIN'   => __( 'Terrain', 'wpcasa-listings-map' )
-			),
+			'options'	=> $mapTypeOption,
 			'default'	=> 'ROADMAP'
 		);
-		
-		$options_maps['listings_map_style'] = array(
-			'name' 		=> __( 'Style', 'wpcasa-listings-map' ),
-			'desc' 		=> __( 'Please select the style of the listings map. Styles will only apply to ROADMAP or TERRAIN map type.', 'wpcasa-listings-map' ),
-			'id'   		=> 'listings_map_style',
-			'position'	=> 100,
-			'type' 		=> 'select',
-			'options'	=> WPSight_Listings_Map_Styles::get_map_styles_choices( true )
-		);
+        if (wpsight_get_option('listings_map_provider') == 'google') {
+            $options_maps['listings_map_style'] = array(
+                'name' => __('Style', 'wpcasa-listings-map'),
+                'desc' => __('Please select the style of the listings map. Styles will only apply to ROADMAP or TERRAIN map type.', 'wpcasa-listings-map'),
+                'id' => 'listings_map_style',
+                'position' => 100,
+                'type' => 'select',
+                'options' => WPSight_Listings_Map_Styles::get_map_styles_choices(true)
+            );
+        }
 		
 		$options_maps['heading_listings_map_controls'] = array(
 			'name'		=> __( 'Map Controls', 'wpcasa' ),

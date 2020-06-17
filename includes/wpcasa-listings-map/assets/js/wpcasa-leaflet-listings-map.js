@@ -9,7 +9,6 @@ var map = new L.Map(wpsightMap.map.id, {
     scrollWheelZoom: false
 });
 
-
  var mapType = wpsightMap.map.mapTypeId;
  if( mapType === 'TERRAIN' ) {
      customLayer = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
@@ -22,9 +21,6 @@ var map = new L.Map(wpsightMap.map.id, {
      });
  }
  map.addLayer(customLayer);
-
-
-
 
 var markers = new L.MarkerClusterGroup();
 var markersList = [];

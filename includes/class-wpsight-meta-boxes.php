@@ -562,6 +562,8 @@ class WPSight_Meta_Boxes {
 	 * @since 1.0.0
 	 */
 	public static function meta_box_listing_location() {
+        $streetView = 'checkbox';
+
 	    $mapTypeOption = array(
             'ROADMAP'   => __( 'Roadmap', 'wpcasa-admin-map-ui' ),
             'SATELLITE' => __( 'Satellite', 'wpcasa-admin-map-ui' ),
@@ -572,11 +574,20 @@ class WPSight_Meta_Boxes {
         if (wpsight_get_option('listings_map_provider') == 'leaflet') {
             $mapTypeOption = array(
                 'ROADMAP'   => __( 'Roadmap', 'wpcasa-admin-map-ui' ),
-//                'SATELLITE' => __( 'Stamen', 'wpcasa-admin-map-ui' ),
-//                'HYBRID'    => __( 'Dark', 'wpcasa-admin-map-ui' ),
                 'TERRAIN'   => __( 'Terrain', 'wpcasa-admin-map-ui' )
             );
+
+            $streetView = 'hidden';
         }
+
+
+
+
+
+
+
+
+
 		$fields = array(
 			'address' => array(
 				'name'      => __( 'Address', 'wpcasa' ),
@@ -612,10 +623,10 @@ class WPSight_Meta_Boxes {
                 'priority' => 25
             ),
 
-             'map_streetview' => array(
+            'map_streetview' => array(
                 'id'  		=> '_map_no_streetview',
                 'name'		=> __( 'Streetview', 'wpcasa-admin-map-ui' ),
-                'type'		=> 'checkbox',
+                'type'		=> $streetView,
                 'desc'		=> __( 'Disable Streetview for this listing', 'wpcasa-admin-map-ui' ),
                 'class'     => 'map-streetview',
                 'priority'  => 30

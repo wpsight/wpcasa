@@ -25,18 +25,37 @@ var map = new L.Map(wpsightMap.map.id, {
 var markers = new L.MarkerClusterGroup();
 var markersList = [];
 
+
 var customOptions = {
      'maxWidth': '500',
      'minWidth': '300',
-     'className' : 'custom-leaflet-popup'
+     'className' : 'custom-leaflet-popup',
+     'closeButton' : ( wpsightMap.map.infobox_close === 'true' )
  };
 
+console.log(wpsightMap.map.infobox_close);
+
 for ( var i = wpsightMap.map.markers.length - 1; i >= 0; i-- ) {
-    var markerOptions = wpsightMap.map.markers[i]
+    // closeButton
+    var markerOptions = wpsightMap.map.markers[i];
     var path = new L.Polyline(new L.LatLng(parseFloat(markerOptions.lat), parseFloat(markerOptions.lng)) );;
 
     marker = new L.Marker([parseFloat(markerOptions.lat), parseFloat(markerOptions.lng)] );
-    marker.bindPopup(markerOptions.infobox.content, customOptions).openPopup();
+    marker.bindPopup(markerOptions.infobox.content, customOptions);
+
+    if ( wpsightMap.map.infobox_event === 'mouseover' ) {
+        marker.on('mouseover',function(ev) {
+            ev.target.openPopup();
+        });
+    } else {
+        marker.on('click',function(ev) {
+            ev.target.openPopup();
+        });
+    }
+
+
+
+
     markersList.push(marker);
     markers.addLayer(marker);
     map.addLayer(path);

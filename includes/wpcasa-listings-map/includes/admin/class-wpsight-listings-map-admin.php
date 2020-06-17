@@ -162,16 +162,17 @@ class WPSight_Listings_Map_Admin {
 			'position'	=> 110,
 			'type'		=> 'heading'
 		);
-		
-		$options_maps['listings_map_control_type'] = array(
-			'name'     	=> __( 'Type Control', 'wpcasa-listings-map' ),
-			'cb_label' 	=> __( 'Display type control', 'wpcasa-listings-map' ),
-			'desc'     	=> __( 'Let the user change the map type.', 'wpcasa-listings-map' ),
-			'id'       	=> 'listings_map_control_type',
-			'position'	=> 120,
-			'type'     	=> 'checkbox',
-			'default'	=> '1'
-		);
+        if (wpsight_get_option('listings_map_provider') == 'google') {
+            $options_maps['listings_map_control_type'] = array(
+                'name' => __('Type Control', 'wpcasa-listings-map'),
+                'cb_label' => __('Display type control', 'wpcasa-listings-map'),
+                'desc' => __('Let the user change the map type.', 'wpcasa-listings-map'),
+                'id' => 'listings_map_control_type',
+                'position' => 120,
+                'type' => 'checkbox',
+                'default' => '1'
+            );
+        }
 		
 		$options_maps['listings_map_scrollwheel'] = array(
 			'name'     	=> __( 'Scrollwheel', 'wpcasa-listings-map' ),
@@ -181,16 +182,17 @@ class WPSight_Listings_Map_Admin {
 			'position'	=> 130,
 			'type'     	=> 'checkbox'
 		);
-		
-		$options_maps['listings_map_streetview'] = array(
-			'name'     	=> __( 'Streetview', 'wpcasa-listings-map' ),
-			'cb_label' 	=> __( 'Enable streetview', 'wpcasa-listings-map' ),
-			'desc'     	=> __( 'Let the user activate streetview on the map.', 'wpcasa-listings-map' ),
-			'id'       	=> 'listings_map_streetview',
-			'position'	=> 140,
-			'type'     	=> 'checkbox',
-			'default'	=> '1'
-		);
+        if (wpsight_get_option('listings_map_provider') == 'google') {
+            $options_maps['listings_map_streetview'] = array(
+                'name' => __('Streetview', 'wpcasa-listings-map'),
+                'cb_label' => __('Enable streetview', 'wpcasa-listings-map'),
+                'desc' => __('Let the user activate streetview on the map.', 'wpcasa-listings-map'),
+                'id' => 'listings_map_streetview',
+                'position' => 140,
+                'type' => 'checkbox',
+                'default' => '1'
+            );
+        }
 		
 		$options_maps['heading_listings_map_infobox'] = array(
 			'name'		=> __( 'Infobox Settings', 'wpcasa' ),

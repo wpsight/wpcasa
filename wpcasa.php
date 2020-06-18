@@ -170,6 +170,12 @@ class WPSight_Framework {
     public function register_front_and_admin_scripts() {
         wp_register_script( 'cmb2-leaflet-core', '//unpkg.com/leaflet/dist/leaflet-src.js', [ 'jquery' ], WPSIGHT_VERSION );
         wp_register_style( 'cmb2-leaflet-core', '//unpkg.com/leaflet/dist/leaflet.css', [], WPSIGHT_VERSION );
+
+        if (wpsight_get_option('listings_map_provider') == 'leaflet') {
+            wp_enqueue_style('cmb2-leaflet-core');
+            wp_enqueue_script('cmb2-leaflet-core');
+        }
+
     }
 
 	/**

@@ -1,11 +1,5 @@
- var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 20,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    });
-
 var map = new L.Map(wpsightMap.map.id, {
     zoom: 10,
-    layers: [tiles],
     scrollWheelZoom: ( wpsightMap.map.scrollwheel === 'true' )
 });
 

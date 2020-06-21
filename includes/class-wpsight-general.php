@@ -968,7 +968,7 @@ class WPSight_General {
      *
      * @since 1.3
      */
-//    TODO: needs improvement to not send request every time
+//    TODO: needs improvement to not send request every page load
     function set_default_map_provider() {
         $map_option = wpsight_get_option( 'listings_map_provider' );
         if ( $map_option ) {

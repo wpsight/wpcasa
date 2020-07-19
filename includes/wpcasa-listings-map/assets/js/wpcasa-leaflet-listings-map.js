@@ -45,6 +45,12 @@ if( 'true' != mapOptions.map_page ) {
 
 }
 
+    var map_init = $('.map-init').attr('id');
+
+    if( undefined !== map_init && map_init.length ) {
+        initialize(map_init);
+    }
+
 }(jQuery));
 
 function initialize(  ) {

@@ -163,3 +163,12 @@
     right: 0;
     z-index: 1;
 }
+
+.leaflet-container a.leaflet-popup-close-button {
+	background-color: #fff !important;
+	height: 16px;
+	margin: 0;
+	padding: 0;
+	width: 16px;
+	color: #888;
+}

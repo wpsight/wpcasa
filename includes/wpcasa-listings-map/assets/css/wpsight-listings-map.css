@@ -172,3 +172,7 @@
 	width: 16px;
 	color: #888;
 }
+
+.leaflet-control-zoom a {
+	text-decoration: none !important;
+}

@@ -33,13 +33,21 @@ More add-ons are currently in the making. If you are missing an add-on or are a 
 
 ## Support
 
-For help and documentation please feel free to visit our [support center](https://wpcasa.com/support) and our [knowledge base](http://docs.wpsight.com/).
+For help and documentation please feel free to visit our [support center](https://wpcasa.com/support) and our [knowledge base](http://docs.wpcasa.com/).
 
 ## Translations
 
-* German (de_DE): Simon Rimkus (WPSight)
-* Spanish (es_ES): Simon Rimkus (WPSight)
-* Portuguese (pt_BR): [Walter Barcelos](http://walterbarcelos.com)
+* German (de_DE): [Simon Rimkus](http://wpcasa.com)
+* Spanish (es_ES): [Simon Rimkus](http://wpcasa.com)
+* French (fr_FR): [Guido Sommer](https://aiximmo.ch/)
+* Portuguese (pt_BR): [Walter Barcelos](http://walterbarcelos.com), [Leonardo Lima de Vasconcellos](https://www.devhouse.com.br/)		
+* Italian (it_IT): [Laura Vanoni](www.simboliweb.it), [Nicola Turato](https://www.linkedin.com/in/nicolaturato), [Andrea Manzato]		
+* Dutch (nl_NL): [Dennis Onstenk](http://citymakelaardij.nl)		
+* Croatian (hr_HR): [Danijel Cukarić](http://pistacio.hr)		
+* Russian (ru_RU): [Systemo](http://systemo.biz)		
+* Romanian (ro_RO): [Adrian Mocanu](http://www.bitopia.ro)		
+* Slovak (sk_SK): [Jana Mičeková](https://www.jmsupport.sk)
+* Farsi (fa_IR): Kim
 
 POT file with text strings is included. If you would like to add a translation and see your name here, please [get in touch](https://wpcasa.com/contact/).
 

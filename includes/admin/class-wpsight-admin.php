@@ -80,6 +80,8 @@ class WPSight_Admin {
         if ( in_array( $screen->id, array( 'plugins' ) ) )
             wp_enqueue_script( 'jquery-plugins-admin', WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-plugins-admin.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 
+		wp_enqueue_style( 'wpsight-admin-swiper', WPSIGHT_PLUGIN_URL . '/vendor/swiper/swiper-bundle' . $suffix . '.css', array( 'cmb2-styles' ) );
+		wp_enqueue_script( 'wpsight-admin-swiper', WPSIGHT_PLUGIN_URL . '/vendor/swiper/swiper-bundle' . $suffix . '.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 
         wp_enqueue_style( 'wpsight-font', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-font' . $suffix . '.css', array() );
 
@@ -93,8 +95,6 @@ class WPSight_Admin {
             wp_enqueue_script( 'wpsight_admin_js',				WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-admin' . $suffix . '.js', array( 'jquery', 'jquery-tiptip', 'jquery-ui-datepicker' ), WPSIGHT_VERSION, true );
             wp_localize_script( 'wpsight_admin_js', 'settings_name', $this->settings_page->settings_name);
 
-            wp_enqueue_style( 'wpsight-admin-swiper-styles',		WPSIGHT_PLUGIN_URL . '/assets/css/swiper.min.css', array( 'cmb2-styles' ) );
-            wp_enqueue_script( 'wpsight-admin-swiper-script',				WPSIGHT_PLUGIN_URL . '/assets/js/swiper.min.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 
         }
 

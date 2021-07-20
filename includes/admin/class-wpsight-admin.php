@@ -76,7 +76,7 @@ class WPSight_Admin {
         $screen		= get_current_screen();
         $post_type	= wpsight_post_type();
 
-//        TODO: Delete it till wpcasa 1.7
+		// TODO: Delete it till wpcasa 1.7
         if ( in_array( $screen->id, array( 'plugins' ) ) )
             wp_enqueue_script( 'jquery-plugins-admin', WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-plugins-admin.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 
@@ -87,13 +87,13 @@ class WPSight_Admin {
 
         if ( in_array( $screen->id, array( 'edit-' . $post_type, $post_type, 'toplevel_page_wpsight-settings', 'wpcasa_page_wpsight-addons', 'wpcasa_page_wpsight-themes', 'wpcasa_page_wpsight-licenses', 'wpcasa_page_wpsight-recommendations' ) ) || $screen->id == 'plugin-install' && isset( $_GET['tab'] ) && $_GET['tab'] == 'wpcasa_addons' ) {
 
-            wp_register_script( 'jquery-tiptip',				WPSIGHT_PLUGIN_URL . '/assets/js/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), WPSIGHT_VERSION, true );
+            wp_register_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), WPSIGHT_VERSION, true );
+			
+            wp_enqueue_style( 'wpsight-admin-ui-framework', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-ui-framework' . $suffix . '.css', array( 'cmb2-styles' ) );
+            wp_enqueue_style( 'wpsight-admin', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin' . $suffix . '.css', array( 'wpsight-admin-ui-framework', 'cmb2-styles' ) );
 
-            wp_enqueue_style( 'wpsight-admin-ui-framework',		WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-ui-framework' . $suffix . '.css', array( 'cmb2-styles' ) );
-            wp_enqueue_style( 'wpsight-admin',					WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin' . $suffix . '.css', array( 'wpsight-admin-ui-framework', 'cmb2-styles' ) );
-
-            wp_enqueue_script( 'wpsight_admin_js',				WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-admin' . $suffix . '.js', array( 'jquery', 'jquery-tiptip', 'jquery-ui-datepicker' ), WPSIGHT_VERSION, true );
-
+            wp_enqueue_script( 'wpsight_admin_js', WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-admin' . $suffix . '.js', array( 'jquery', 'jquery-tiptip', 'jquery-ui-datepicker' ), WPSIGHT_VERSION, true );
+			
 			wp_add_inline_script( 'wpsight_admin_js', 'const WPCASA_SETTINGS = ' . json_encode( array(
 				'name' => $this->settings_page->settings_name
 			) ), 'before' );

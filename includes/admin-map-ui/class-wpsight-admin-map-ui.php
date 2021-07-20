@@ -11,24 +11,11 @@ class WPSight_Admin_Map_UI {
 	public function __construct() {
 
 		// Define constants
-		
-		if ( ! defined( 'WPSIGHT_NAME' ) )
-			define( 'WPSIGHT_NAME', 'WPCasa' );
-
-		if ( ! defined( 'WPSIGHT_DOMAIN' ) )
-			define( 'WPSIGHT_DOMAIN', 'wpcasa' );
-		
-		if ( ! defined( 'WPSIGHT_SHOP_URL' ) )
-			define( 'WPSIGHT_SHOP_URL', 'https://wpcasa.com' );
-
-		if ( ! defined( 'WPSIGHT_AUTHOR' ) )
-			define( 'WPSIGHT_AUTHOR', 'WPSight' );
-
         if ( ! defined( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_DIR' ) )
-		define( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_DIR', WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui' );
+		define( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_DIR', WPSIGHT_PLUGIN_DIR . '/includes/admin-map-ui' );
 
         if ( ! defined( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL' ) )
-		define( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL', WPSIGHT_PLUGIN_URL . '/includes/wpcasa-admin-map-ui' );
+		define( 'WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL', WPSIGHT_PLUGIN_URL . '/includes/admin-map-ui' );
 
 		if ( is_admin() ){
 			include( WPSIGHT_ADMIN_MAP_UI_PLUGIN_DIR . '/includes/admin/class-wpsight-admin-map-ui-admin.php' );

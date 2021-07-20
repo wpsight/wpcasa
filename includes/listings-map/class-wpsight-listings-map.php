@@ -15,27 +15,20 @@ class WPSight_Listings_Map {
 
 		// Define constants
 		
-		if ( ! defined( 'WPSIGHT_NAME' ) )
-			define( 'WPSIGHT_NAME', 'WPCasa' );
-
-		if ( ! defined( 'WPSIGHT_DOMAIN' ) )
-			define( 'WPSIGHT_DOMAIN', 'wpcasa' );
-
-
 //		TODO: check if we need that constants till wpcasa 1.3
 		define( 'WPSIGHT_LISTINGS_MAP_NAME', 'WPCasa Listings Map' );
 		define( 'WPSIGHT_LISTINGS_MAP_DOMAIN', 'wpcasa-listings-map' );
 		define( 'WPSIGHT_LISTINGS_MAP_VERSION', '1.2.1' );
 ////////////
-        define( 'WPSIGHT_LISTINGS_MAP_PLUGIN_DIR', WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-listings-map' );
-        define( 'WPSIGHT_LISTINGS_MAP_PLUGIN_URL', WPSIGHT_PLUGIN_URL . '/includes/wpcasa-listings-map' );
+        define( 'WPSIGHT_LISTINGS_MAP_PLUGIN_DIR', WPSIGHT_PLUGIN_DIR . '/includes/listings-map' );
+        define( 'WPSIGHT_LISTINGS_MAP_PLUGIN_URL', WPSIGHT_PLUGIN_URL . '/includes/listings-map' );
 
 		// Cookie constants
 
 		define( 'WPSIGHT_LISTINGS_MAP_COOKIE', WPSIGHT_DOMAIN . '_listings_map' );
 
 		// Include functions
-		include 'wpcasa-listings-map-functions.php';
+		include 'includes/listings-map-functions.php';
 
 		// Include styles
 		include 'includes/class-wpsight-listings-map-styles.php';

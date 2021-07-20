@@ -3,11 +3,11 @@
 Plugin Name: WPCasa
 Plugin URI: https://wpcasa.com
 Description: Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
-Version: 1.2.5
+Version: 1.2.6
 Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 4.0
-Tested up to: 5.3.2
+Tested up to: 5.8
 Text Domain: wpcasa
 Domain Path: /languages
 

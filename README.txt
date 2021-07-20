@@ -3,8 +3,8 @@ Contributors: wpsight, joehana
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7EVKNVA7QFXZ8
 Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
 Requires at least: 4.0
-Tested up to: 5.6
-Stable tag: 1.2.5
+Tested up to: 5.8
+Stable tag: 1.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -131,6 +131,7 @@ For more information about how to get started please [read our documentation](ht
 * `[wpsight_listing]`: Displays a single listing
 * `[wpsight_listing_teasers]`: Displays a list of property teasers
 * `[wpsight_listing_teaser]`: Displays a single property teaser
+* `[wpsight_listings_map]`: Displays a Map with all your listings as markers if they have a location assigned
 
 For more information about shortcodes please [read our documentation](http://docs.wpcasa.com/article/shortcodes/).
 
@@ -171,10 +172,15 @@ Many thanks to all of them for contributing and making WPCasa even better.
 [Dennis Onstenk](http://citymakelaardij.nl)		
 [Systemo](http://systemo.biz)		
 [Adrian Mocanu](http://www.bitopia.ro)		
-[Jana Mičeková](https://www.jmsupport.sk
+[Jana Mičeková](https://www.jmsupport.sk)
 [Simon Rimkus](https://github.com/simonrimkus)
 
 == Changelog ==
+
+= 1.2.6 - 2021/07/20 =
+* TWEAK: Improved embedment of previously integrated functionality from WPCasa Listings Map and WPCasa Admin Map UI
+* TWEAK: Data for Javascript gets now provided through wp_add_inline_script instead of wp_localize_script
+* UPDATE: Updated swiper.js to 6.7.5
 
 = 1.2.5 =
 * Fixed admin license page issue

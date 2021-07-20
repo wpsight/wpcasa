@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPCasa\n"
 "POT-Creation-Date: 2016-07-02 14:40+0200\n"
-"PO-Revision-Date: 2021-07-20 16:05+0200\n"
-"Last-Translator: Sandro Lucifora <wordpress@kybernetik.com.de>\n"
+"PO-Revision-Date: 2016-07-02 14:40+0200\n"
+"Last-Translator: \n"
 "Language-Team: WPCasa <mail@wpcasa.com>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: wpcasa.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -43,7 +43,7 @@ msgstr ""
 
 #: includes/admin/EDD_SL_Plugin_Updater.php:325
 msgid "You do not have permission to install plugin updates"
-msgstr "Du hast zur Zeit nicht die Erlaubnis Plugin-Updates zu installieren"
+msgstr "Sie haben zur Zeit nicht die Erlaubnis Plugin-Updates zu installieren"
 
 #: includes/admin/EDD_SL_Plugin_Updater.php:325
 msgid "Error"
@@ -86,8 +86,8 @@ msgid ""
 "license key. <a href=\"https://wpcasa.com/support/package/\" target=\"_blank"
 "\">More information&hellip;</a>"
 msgstr ""
-"Für Support für ein kostenloses Produkt gebe bitte den Lizenzschlüssel "
-"Deines Support-Paketes ein. <a href=\"https://wpcasa.com/support/package/\" "
+"Für Support für ein kostenloses Produkt geben Sie bitte den Lizenzschlüssel "
+"Ihres Support-Paketes ein. <a href=\"https://wpcasa.com/support/package/\" "
 "target=\"_blank\">Weitere Info&hellip;</a>"
 
 #: includes/admin/class-wpsight-admin.php:189
@@ -99,8 +99,8 @@ msgid ""
 "Please select the main search results page with the "
 "<code>[wpsight_listings]</code> shortcode."
 msgstr ""
-"Bitte wähle die Hauptsuchergebnisseite mit dem <code>[wpsight_listings]</"
-"code>-Shortcode."
+"Bitte wählen Sie die Hauptsuchergebnisseite mit dem "
+"<code>[wpsight_listings]</code>-Shortcode."
 
 #: includes/admin/class-wpsight-admin.php:196 wpcasa.php:226
 msgid "ID-"
@@ -127,7 +127,7 @@ msgid ""
 "Please select the general measurement unit. The unit for the listing "
 "standard features can be defined separately below."
 msgstr ""
-"Bitte wähle die allgemeine Maßeinheit. Die Einheit für bestimmte "
+"Bitte wählen Sie die allgemeine Maßeinheit. Die Einheit für bestimmte "
 "Anzeigendetails kann weiter unten separat gewählt werden."
 
 #: includes/admin/class-wpsight-admin.php:217
@@ -139,8 +139,8 @@ msgid ""
 "Please select the currency for the listing prices. If your currency is not "
 "listed, please select <code>Other</code>."
 msgstr ""
-"Bitte wähle die Währung für Anzeigenpreise. Sollte Ihre Wähung nicht "
-"aufgeführt sein, wähle <code>Andere</code>."
+"Bitte wählen Sie die Währung für Anzeigenpreise. Sollte Ihre Wähung nicht "
+"aufgeführt sein, wählen Sie <code>Andere</code>."
 
 #: includes/admin/class-wpsight-admin.php:223
 msgid "Other"
@@ -159,7 +159,7 @@ msgstr "Abkürzung"
 msgid ""
 "Please insert the abbreviation of your currency (e.g. <code>EUR</code>)."
 msgstr ""
-"Bitte gebe die Abkürzung für Deine Währung ein (z. B. <code>EUR</code>)."
+"Bitte geben Sie die Abkürzung für Ihre Währung ein (z. B. <code>EUR</code>)."
 
 #: includes/admin/class-wpsight-admin.php:235
 msgid "Symbol"
@@ -170,7 +170,7 @@ msgid ""
 "Please insert the currency symbol or HTML entity (e.g. <code>&amp;euro;</"
 "code>)."
 msgstr ""
-"Bitte gebe das Währungssymbol oder HTML-Entity (z. B. <code>&amp;euro;</"
+"Bitte geben Sie das Währungssymbol oder HTML-Entity (z. B. <code>&amp;euro;</"
 "code>) ein."
 
 #: includes/admin/class-wpsight-admin.php:243
@@ -179,7 +179,7 @@ msgstr "Währungssymbol"
 
 #: includes/admin/class-wpsight-admin.php:244
 msgid "Please select the position of the currency symbol."
-msgstr "Bitte wähle die Position des Währungssymbols."
+msgstr "Bitte wählen Sie die Position des Währungssymbols."
 
 #: includes/admin/class-wpsight-admin.php:248
 msgid "Before the value"
@@ -195,7 +195,7 @@ msgstr "Tausendertrennzeichen"
 
 #: includes/admin/class-wpsight-admin.php:253
 msgid "Please select the thousands separator for your listing prices."
-msgstr "Bitte wähle das Tausendertrennzeichen für die Anzeigenpreise."
+msgstr "Bitte wählen Sie das Tausendertrennzeichen für Ihre Anzeigenpreise."
 
 #: includes/admin/class-wpsight-admin.php:257
 msgid "Comma (e.g. 1,000,000)"
@@ -211,7 +211,7 @@ msgstr "Anzeigendetails"
 
 #: includes/admin/class-wpsight-admin.php:264
 msgid "Please check the box to edit the listing standard features."
-msgstr "Für die Bearbeitung der Anzeigendetails setze bitte den Haken."
+msgstr "Für die Bearbeitung der Anzeigendetails setzen Sie bitte den Haken."
 
 #: includes/admin/class-wpsight-admin.php:277
 msgid "Standard Feature"
@@ -223,7 +223,7 @@ msgstr "Mietperioden"
 
 #: includes/admin/class-wpsight-admin.php:293
 msgid "Please check the box to edit the rental periods."
-msgstr "Für die Bearbeitung der Mietperioden setze bitte den Haken."
+msgstr "Für die Bearbeitung der Mietperioden setzen Sie bitte den Haken."
 
 #: includes/admin/class-wpsight-admin.php:306
 msgid "Rental Period"
@@ -235,7 +235,7 @@ msgstr "Datumsformat"
 
 #: includes/admin/class-wpsight-admin.php:319
 msgid "Please select the date format for the listings table in the admin."
-msgstr "Bitte wähle das Datumsformat für die Übersicht im Admin-Bereich."
+msgstr "Bitte wählen Sie das Datumsformat für die Übersicht im Admin-Bereich."
 
 #: includes/admin/class-wpsight-admin.php:327
 msgid "Output CSS"
@@ -243,7 +243,8 @@ msgstr "CSS einbinden"
 
 #: includes/admin/class-wpsight-admin.php:328
 msgid "Please uncheck the box to disable the plugin from outputting CSS."
-msgstr "Bitte setze den Haken, um das Plugin am Einbinden von CSS zu hindern."
+msgstr ""
+"Bitte setzen Sie den Haken, um das Plugin am Einbinden von CSS zu hindern."
 
 #: includes/admin/class-wpsight-admin.php:335
 msgid "Google Maps API"
@@ -255,8 +256,8 @@ msgid ""
 "If necessary, please enter your Google Maps API key (<a href=\"%s\" target="
 "\"_blank\">register here</a>)."
 msgstr ""
-"Falls erforderlich, gebe bitte Ihren Google Maps API-Schlüssel ein (<a href="
-"\"%s\" target=\"_blank\">hier registrieren</a>)."
+"Falls erforderlich, geben Sie bitte Ihren Google Maps API-Schlüssel ein (<a "
+"href=\"%s\" target=\"_blank\">hier registrieren</a>)."
 
 #: includes/admin/class-wpsight-admin.php:379
 msgid "All"
@@ -1742,7 +1743,7 @@ msgstr ""
 "Bitte das <strong>WPCasa-Theme deaktivieren</strong>, um die neue Plugin-"
 "Version zu verwenden. Für weitere Infos zum Umstellen auf das Plugin <a href="
 "\"http://docs.wpsight.com/article/switching-from-theme-version/\" target="
-"\"_blank\">findest Du hier</a>."
+"\"_blank\">finden Sie hier</a>."
 
 #. Plugin Name of the plugin/theme
 msgid "WPCasa"

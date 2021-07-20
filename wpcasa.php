@@ -87,37 +87,28 @@ class WPSight_Framework {
 		include( WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin.php' );
 
         require_once(ABSPATH . 'wp-admin/includes/plugin.php');
-        // Include wpcasa polylang
-//        if ( is_plugin_active( 'wpcasa-polylang/wpcasa-polylang.php' )  ) {
-//            deactivate_plugins( '/wpcasa-polylang/wpcasa-polylang.php' );
-//        }
-//
-//        if ( !is_plugin_active( 'wpcasa-polylang/wpcasa-polylang.php' )  ) {
-//            include( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-polylang/wpcasa-polylang.php' );
-//        }
 
-
-//      TODO: delete till wpcasa 2.0
+		// TODO: delete till wpcasa 2.0
         if ( is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
             deactivate_plugins( '/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
         }
 
-//      TODO: delete check till wpcasa 2.0
-        if ( !is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
-            if ( !class_exists('WPSight_Admin_Map_UI') ) {
-                include_once( WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' );
+		// TODO: delete check till wpcasa 2.0
+        if ( ! is_plugin_active( 'wpcasa-admin-map-ui/wpcasa-admin-map-ui.php' )  ) {
+            if ( ! class_exists( 'WPSight_Admin_Map_UI' ) ) {
+                include_once( WPSIGHT_PLUGIN_DIR . '/includes/admin-map-ui/class-wpsight-admin-map-ui.php' );
             }
         }
 
-//      TODO: delete till wpcasa 2.0
+		// TODO: delete till wpcasa 2.0
         if ( is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
             deactivate_plugins( '/wpcasa-listings-map/wpcasa-listings-map.php' );
         }
 
-//      TODO: delete check till wpcasa 2.0
-        if ( !is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
-            if ( !class_exists('WPSight_Listings_Map') ) {
-                include(WPSIGHT_PLUGIN_DIR . '/includes/wpcasa-listings-map/wpcasa-listings-map.php');
+		// TODO: delete check till wpcasa 2.0
+        if ( ! is_plugin_active( 'wpcasa-listings-map/wpcasa-listings-map.php' )  ) {
+            if ( ! class_exists( 'WPSight_Listings_Map' ) ) {
+                include( WPSIGHT_PLUGIN_DIR . '/includes/listings-map/class-wpsight-listings-map.php' );
             }
         }
 
@@ -192,7 +183,6 @@ class WPSight_Framework {
 		wp_enqueue_script( 'wpsight-listings-search', WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-listings-search.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 
 		// Localize scripts
-
 		$data = array(
 			'cookie_path'			=> COOKIEPATH,
 			'cookie_search_query'	=> WPSIGHT_COOKIE_SEARCH_QUERY
@@ -347,19 +337,20 @@ function wpsight_admin_notice_wpcasa() {
  *
  *	@since 1.2.0
  */
-//TODO: delete till wpcasa 2.0
 add_action( 'admin_notices', 'wpsight_admin_plugins_delete_notice' );
-function wpsight_admin_plugins_delete_notice() {
- $admin_map_ui_file = WP_PLUGIN_DIR . '/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php';
- $listing_map_file = WP_PLUGIN_DIR . '/wpcasa-listings-map/wpcasa-listings-map.php';
 
-  if ( file_exists($admin_map_ui_file) || file_exists($listing_map_file) )  {
-      echo '<div class="notice notice-warning my-dismiss-notice is-dismissible"><p>
-          ' . __( '<strong>WPCasa Admin Map UI</strong> and <strong>WPCasa Listings Map</strong> has been discontinued. 
-          Functionality of both plugins has been integrated in WPCasa as of 1.2.0. </br>
-          Feel free to remove both of those plugins.', 'wpcasa' ) . '
-      </p></div>';
-  }
+function wpsight_admin_plugins_delete_notice() {
+	
+	$admin_map_ui	= WP_PLUGIN_DIR . '/wpcasa-admin-map-ui/wpcasa-admin-map-ui.php';
+	$listing_map	= WP_PLUGIN_DIR . '/wpcasa-listings-map/wpcasa-listings-map.php';
+
+	if ( file_exists( $admin_map_ui ) || file_exists( $listing_map ) )  {
+	  echo '<div class="notice notice-warning my-dismiss-notice is-dismissible"><p>
+		  ' . __( '<strong>WPCasa Admin Map UI</strong> and <strong>WPCasa Listings Map</strong> has been discontinued. 
+		  Functionality of both plugins has been integrated in WPCasa as of 1.2.0. </br>
+		  Feel free to remove both of those plugins.', 'wpcasa' ) . '
+	  </p></div>';
+	}
 }
 
 

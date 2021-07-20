@@ -66,6 +66,7 @@ The real estate business is international. And so is WPCasa. The framework and a
 = Translations =
 
 * German (de_DE): [Simon Rimkus](http://wpsight.com)
+* German - Formal (de_DE_formal): [Kybernetik Services](https://www.kybernetik-services.com/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=wpcasa&utm_content=readme)
 * Spanish (es_ES): [Simon Rimkus](http://wpsight.com)
 * French (fr_FR): [Guido Sommer](https://aiximmo.ch/)
 * Portuguese (pt_BR): [Walter Barcelos](http://walterbarcelos.com), [Leonardo Lima de Vasconcellos](https://www.devhouse.com.br/)		
@@ -174,11 +175,15 @@ Many thanks to all of them for contributing and making WPCasa even better.
 [Adrian Mocanu](http://www.bitopia.ro)		
 [Jana Mičeková](https://www.jmsupport.sk)
 [Simon Rimkus](https://github.com/simonrimkus)
+[Kybernetik Services](https://www.kybernetik-services.com/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=wpcasa&utm_content=readme)
 
 == Changelog ==
 
 = 1.2.6 - 2021/07/20 =
+* NEW: Added German Formal Translation
+* NEW: Added filter wpsight_listing_text_not_available to customize the informal text when a listing is not available
 * TWEAK: Improved embedment of previously integrated functionality from WPCasa Listings Map and WPCasa Admin Map UI
+* TWEAK: Improved data escaping
 * TWEAK: Data for Javascript gets now provided through wp_add_inline_script instead of wp_localize_script
 * UPDATE: Updated swiper.js to 6.7.5
 

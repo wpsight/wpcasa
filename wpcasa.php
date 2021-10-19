@@ -3,7 +3,7 @@
 Plugin Name: WPCasa
 Plugin URI: https://wpcasa.com
 Description: Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
-Version: 1.2.6
+Version: 1.2.7
 Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 4.0
@@ -33,13 +33,17 @@ class WPSight_Framework {
 	 */
 	public function __construct() {
 
+		// Get plugin details
+
+		$plugin_data = get_plugin_data( __FILE__ );
+
 		// Define constants
 
 		if ( ! defined( 'WPSIGHT_NAME' ) )
 			define( 'WPSIGHT_NAME', 'WPCasa' );
 
 		if ( ! defined( 'WPSIGHT_DOMAIN' ) )
-			define( 'WPSIGHT_DOMAIN', 'wpcasa' );
+			define( 'WPSIGHT_DOMAIN', $plugin_data[ 'TextDomain' ] );
 
 		if ( ! defined( 'WPSIGHT_SHOP_URL' ) )
 			define( 'WPSIGHT_SHOP_URL', 'https://wpcasa.com' );
@@ -47,7 +51,7 @@ class WPSight_Framework {
 		if ( ! defined( 'WPSIGHT_AUTHOR' ) )
 			define( 'WPSIGHT_AUTHOR', 'WPSight' );
 
-		define( 'WPSIGHT_VERSION', '1.2.5' );
+		define( 'WPSIGHT_VERSION', $plugin_data[ 'Version' ] );
 		define( 'WPSIGHT_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 
@@ -137,6 +141,7 @@ class WPSight_Framework {
 		add_action( 'switch_theme', array( $this->post_types, 'register_post_type_listing' ), 10 );
 		add_action( 'switch_theme', 'flush_rewrite_rules', 15 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 
 		// Init action for add-ons to hook in
 		do_action_ref_array( 'wpsight_init', array( &$this ) );
@@ -178,8 +183,8 @@ class WPSight_Framework {
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
 
-		wp_enqueue_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), WPSIGHT_VERSION, true );
-		wp_enqueue_script( 'jquery-cookie', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.cookie.js', array( 'jquery' ), WPSIGHT_VERSION, true );
+		wp_enqueue_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), '1.3', true );
+		wp_enqueue_script( 'jquery-cookie', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.cookie.js', array( 'jquery' ), '1.4.1', true );
 		wp_enqueue_script( 'wpsight-listings-search', WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-listings-search.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 
 		// Localize scripts
@@ -208,6 +213,34 @@ class WPSight_Framework {
 
 			if ( is_rtl() )
 				wp_enqueue_style( 'wpsight-rtl', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-rtl' . $suffix . '.css' );
+
+		}
+
+	}
+
+	/**
+	 *	admin_scripts()
+	 *
+	 *	Register and enqueue scripts and css in admin area.
+	 *
+	 *	@uses	wp_enqueue_script()
+	 *	@uses	wp_localize_script()
+	 *	@uses	wp_enqueue_style()
+	 *	@uses	wpsight_get_option()
+	 *
+	 *	@since 1.2.7
+	 */
+	public function admin_scripts( $hook_suffix ) {
+
+		if( $hook_suffix == 'toplevel_page_wpsight-settings' ) {
+
+			// Enqueue jQuery
+			wp_enqueue_script( 'jquery' );
+
+			// Script debugging?
+			$suffix = SCRIPT_DEBUG ? '' : '.min';
+
+			wp_enqueue_script( 'mc-validate', WPSIGHT_PLUGIN_URL . '/assets/js/mc-validate' . $suffix . '.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 
 		}
 

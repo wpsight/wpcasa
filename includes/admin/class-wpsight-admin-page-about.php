@@ -326,8 +326,8 @@ class WPSight_About {
 				</div><?php */?>
 				<?php /*?><div class="inline-svg full-width">
 					<picture>
-						<source media="(max-width: 500px)" srcset="<?php echo 'https://s.w.org/images/core/4.9/banner-mobile.svg'; ?>">
-						<img src="https://s.w.org/images/core/4.9/banner.svg" alt="">
+						<source media="(max-width: 500px)" srcset="<?php echo '<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/banner-mobile.svg'; ?>">
+						<img src="<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/banner.svg" alt="">
 					</picture>
 				</div><?php */?>
                 
@@ -351,28 +351,28 @@ class WPSight_About {
 					<div class="section-content">
 						<div class="section-item">
 							<div class="inline-svg">
-								<img src="https://s.w.org/images/core/4.9/draft-and-schedule.svg" alt="">
+								<img src="<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/draft-and-schedule.svg" alt="">
 							</div>
 							<h3><?php _e( 'Easy to use' ); ?></h3>
 							<p><?php _e( 'It never has been so easy to control your WPCasa-powered website. All the options have been improved and new controls makes it even easier to setup your site. It also offers a solid foundation for future developments so stay tuned.' ); ?></p>
 						</div>
 						<div class="section-item">
 							<div class="inline-svg">
-								<img src="https://s.w.org/images/core/4.9/design-preview-links.svg" alt="">
+								<img src="<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/design-preview-links.svg" alt="">
 							</div>
 							<h3><?php _e( 'Additional Options' ); ?></h3>
 							<p><?php _e( 'In the same breath we also added a few new options to offer you even more customizability with just a few clicks. ' ); ?></p>
 						</div>
 						<div class="section-item">
 							<div class="inline-svg">
-								<img src="https://s.w.org/images/core/4.9/locking.svg" alt="">
+								<img src="<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/locking.svg" alt="">
 							</div>
 							<h3><?php _e( 'Improved License Activation' ); ?></h3>
 							<p><?php _e( 'License activation is now easier than before. No separate page which might get forgotten and which causes to miss out on important updates. You can now access all the licenses from the overview page and always see when a license expires with the option to directly renew without any hazzle' );?></p>
 						</div>
 						<div class="section-item">
 							<div class="inline-svg">
-								<img src="https://s.w.org/images/core/4.9/prompt.svg" alt="">
+								<img src="<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/prompt.svg" alt="">
 							</div>
 							<h3><?php _e( 'Useful Infos' ); ?></h3>
 							<p><?php _e( 'What theme are you using? Does it officially support WPCasa? What are your server specs? What version of the addons are installed? Where do you find the documentation. We included a lot of additional info which should make it easier for you to understand how WPCasa works and if all your systems are working as expected.' ); ?></p>
@@ -388,14 +388,14 @@ class WPSight_About {
 					<div class="section-content">
 						<div class="section-item">
 							<div class="inline-svg">
-								<img src="https://s.w.org/images/core/4.9/syntax-highlighting.svg" alt="">
+								<img src="<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/syntax-highlighting.svg" alt="">
 							</div>
 							<h3><?php _e( 'GDPR? Yes, Please!' ); ?></h3>
 							<p><?php _e( 'While it might be a controversial topic it still needs to be considered. And while there is actually nothing wrong with using Google Maps or similar services, since there is no clear official judgement it remains unclear if and how the GDPR will take effect. And according to our users we have got a few requests to have services such as Google Maps optionally disabled. So we did that!' ); ?></p>
 						</div>
 						<div class="section-item">
 							<div class="inline-svg">
-								<img src="https://s.w.org/images/core/4.9/sandbox.svg" alt="">
+								<img src="<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/sandbox.svg" alt="">
 							</div>
 							<h3><?php _e( 'More GDPR? We are ready' ); ?></h3>
 							<p><?php _e( 'And while we worked on that we also made WPCasa ready for possible future changes in terms of the GDPR. Soon various updates of our themes and addons will be released with full GDPR functionality' ); ?></p>
@@ -411,14 +411,14 @@ class WPSight_About {
 					<div class="section-content">
 						<div class="section-item">
 							<div class="inline-svg">
-								<img src="https://s.w.org/images/core/4.9/gallery-widget.svg" alt="">
+								<img src="<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/gallery-widget.svg" alt="">
 							</div>
 							<h3><?php _e( 'More Translations' ); ?></h3>
 							<p><?php _e( 'From Croatian to Farsi, Russia, Italian and Portoguese. This new version of WPCasa includes 9 new translatations and makes it even easier to use WPCasa in your language.' ); ?></p>
 						</div>
 						<div class="section-item">
 							<div class="inline-svg">
-								<img src="https://s.w.org/images/core/4.9/media-button.svg" alt="">
+								<img src="<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/media-button.svg" alt="">
 							</div>
 							<h3><?php _e( 'Press a Button, Add Media' ); ?></h3>
 							<p><?php _e( 'Want to add media to your text widget? Embed images, video, and audio directly into the widget along with your text, with our simple but useful Add Media button. Woo!' ); ?></p>
@@ -434,14 +434,14 @@ class WPSight_About {
 					<div class="section-content">
 						<div class="section-item">
 							<div class="inline-svg">
-								<img src="https://s.w.org/images/core/4.9/theme-switching.svg" alt="">
+								<img src="<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/theme-switching.svg" alt="">
 							</div>
 							<h3><?php _e( 'More Reliable Theme Switching' ); ?></h3>
 							<p><?php _e( 'When you switch themes, widgets sometimes think they can just up and move location. Improvements in WordPress 4.9 offer more persistent menu and widget placement when you decide it&#8217;s time for a new theme. Additionally, you can preview installed themes or download, install, and preview new themes right. Nothing says handy like being able to preview before you deploy. ' ); ?></p>
 						</div>
 						<div class="section-item">
 							<div class="inline-svg">
-								<img src="https://s.w.org/images/core/4.9/menu-flow.svg" alt="">
+								<img src="<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/menu-flow.svg" alt="">
 							</div>
 							<h3><?php _e( 'Better Menu Instructions = Less Confusion' ); ?></h3>
 							<p><?php _e( 'Were you confused by the steps to create a new menu? Perhaps no longer! We&#8217;ve ironed out the UX for a smoother menu creation process. Newly updated copy will guide you.' ); ?></p>
@@ -451,8 +451,8 @@ class WPSight_About {
 		
 				<?php /*?><div class="inline-svg">
 					<picture>
-						<source media="(max-width: 500px)" srcset="<?php echo 'https://s.w.org/images/core/4.9/gutenberg-mobile.svg'; ?>">
-						<img src="https://s.w.org/images/core/4.9/gutenberg.svg" alt="">
+						<source media="(max-width: 500px)" srcset="<?php echo '<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/gutenberg-mobile.svg'; ?>">
+						<img src="<?php echo plugins_url('wpcasa' ) ?>/assets/img/about/gutenberg.svg" alt="">
 					</picture>
 				</div>
 		

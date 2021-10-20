@@ -328,7 +328,7 @@ class WPSight_Search {
 			$field_var = wpsight_get_query_var_by_detail( $field );
 			
 			if( isset( $_GET[$field_var] ) && is_array( $_GET[$field_var] ) )
-				$_GET[$field_var] = array_map( 'esc_attr', $_GET[$field_var] );
+				$_GET[$field_var] = array_map( 'sanitize_text_field', $_GET[$field_var] );
 			
 			// Set field value from cookie
 			
@@ -341,7 +341,7 @@ class WPSight_Search {
 			// If empty, set field value from GET
 			
 			if( isset( $_GET[$field_var] ) )
-				$field_value = is_array( $_GET[ $field_var ] ) ? array_map( 'esc_attr', $_GET[ $field_var ] ) : esc_attr( $_GET[ $field_var ] );
+				$field_value = is_array( $_GET[ $field_var ] ) ? array_map( 'sanitize_text_field', $_GET[ $field_var ] ) : sanitize_text_field( $_GET[ $field_var ] );
 			
 			// If still empty, set field value to default
 				
@@ -349,7 +349,7 @@ class WPSight_Search {
 				$field_value = $default;
 			
 			// Check HTML class
-			$class = isset( $fields[$field]['class'] ) ? esc_attr( $fields[$field]['class'] ) : false;
+			$class = isset( $fields[$field]['class'] ) ? sanitize_text_field( $fields[$field]['class'] ) : false;
 			
 			// Get corresponding field template
 			

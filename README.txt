@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
 Requires at least: 4.0
 Tested up to: 5.8
-Stable tag: 1.2.6
+Stable tag: 1.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -176,6 +176,12 @@ Many thanks to all of them for contributing and making WPCasa even better.
 [Simon Rimkus](https://github.com/simonrimkus)
 
 == Changelog ==
+
+= 1.2.7 - 2021/10/xx =
+* TWEAK: Sanitized input fields
+* TWEAK: Calling remote files now locally
+* TWEAK: Enqueueing all JS files
+* UPDATE: Updated cmb2 to 2.9
 
 = 1.2.6 - 2021/07/20 =
 * TWEAK: Improved embedment of previously integrated functionality from WPCasa Listings Map and WPCasa Admin Map UI

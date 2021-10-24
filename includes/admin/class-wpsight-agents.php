@@ -41,7 +41,7 @@ class WPSight_Admin_Agents {
 	    if ( ! current_user_can( 'listing_admin' ) && ! current_user_can( 'administrator' ) )
 	        return false;
 	        
-		$agent_update = isset( $_POST['agent_update'] ) ? $_POST['agent_update'] : false;
+		$agent_update = isset( $_POST['agent_update'] ) && rest_sanitize_boolean( $_POST['agent_update'] );
 		
 		if( $agent_update ) {
 			

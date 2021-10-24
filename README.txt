@@ -2,7 +2,7 @@
 Contributors: wpsight, joehana
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7EVKNVA7QFXZ8
 Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
-Requires at least: 4.0
+Requires at least: 4.7
 Tested up to: 5.8
 Stable tag: 1.2.7
 License: GPLv2 or later
@@ -178,7 +178,7 @@ Many thanks to all of them for contributing and making WPCasa even better.
 == Changelog ==
 
 = 1.2.7 - 2021/10/xx =
-* TWEAK: Sanitized input fields
+* TWEAK: Sanitized input fields and data
 * TWEAK: Calling remote files now locally
 * TWEAK: Enqueueing all JS files
 * UPDATE: Updated cmb2 to 2.9

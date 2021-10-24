@@ -381,8 +381,8 @@ class WPSight_Search {
 		if( ! isset( $_COOKIE[WPSIGHT_COOKIE_SEARCH_QUERY] ) )
 			return false;
 		
-		$cookie_query = wpsight_explode_array( ',', $_COOKIE[WPSIGHT_COOKIE_SEARCH_QUERY] );
-		
+		$cookie_query = wpsight_explode_array( ',', sanitize_text_field( $_COOKIE[WPSIGHT_COOKIE_SEARCH_QUERY] ) );
+
 		if( $field === false )
 			return $cookie_query;
 		

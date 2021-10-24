@@ -1263,8 +1263,8 @@ class WPSight_Admin_CPT {
 	
 		<select name="wpsight-offer">
 			<option value=""><?php _e( 'Offers', 'wpcasa' ); ?></option><?php
-			
-			$current = isset( $_GET['wpsight-offer'] ) ? $_GET['wpsight-offer'] : false;
+
+			$current = isset( $_GET['wpsight-offer'] ) && rest_sanitize_boolean( $_GET['wpsight-offer'] );
 	
 			foreach ( $offers as $offer => $label )
 				echo '<option value="' . $offer . '"' . selected( $offer, $current, false ) . '>' . $label . '</option>'; ?>
@@ -1433,7 +1433,7 @@ class WPSight_Admin_CPT {
 	}
 	
 	function parse_request_listing_id_search_query() {	
-		return $_GET['s'];	
+		return get_search_query();
 	}
     
 }

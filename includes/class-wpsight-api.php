@@ -49,7 +49,7 @@ class WPSight_API {
 		global $wp;
 
 		if ( ! empty( $_GET['wpsight-api'] ) )
-			$wp->query_vars['wc-api'] = $_GET['wpsight-api'];
+			$wp->query_vars['wc-api'] = sanitize_text_field( $_GET['wpsight-api'] );
 
 		if ( ! empty( $wp->query_vars['wc-api'] ) ) {
 			// Buffer, we won't want any output here

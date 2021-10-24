@@ -711,12 +711,13 @@ class WPSight_Admin {
 	    WHERE meta_value LIKE '%s'
 	    ", $wp_query->query_vars['s'] ) );
 
-        if ( ! empty( $post_ids_meta ) && isset( $_GET['s'] ) ) {
+        if ( ! empty( $post_ids_meta ) && get_search_query() !== null ) {
             unset( $views );
             $_num_posts = (array) wp_count_attachments();
             $_total_posts = array_sum( $_num_posts ) - $_num_posts['trash'];
             $views['all'] = '<a href="' . $pagenow . '">' . __( 'All', 'wpcasa' ) . ' <span class="count">(' . $_total_posts . ')</span></a>';
-            $views['found'] = '<a href="' . $pagenow . '?s=' . $_GET['s'] . '" class="current">' . $_GET['s'] . ' <span class="count">(' . $wp_query->found_posts . ')</span></a>';
+			$s = get_search_query();
+            $views['found'] = '<a href="' . $pagenow . '?s=' . $s . '" class="current">' . $s . ' <span class="count">(' . $wp_query->found_posts . ')</span></a>';
         }
 
         return $views;

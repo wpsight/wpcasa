@@ -61,8 +61,23 @@ class WPSight_About {
                 <div class="changelog">
                 
 					<h2><?php _e( 'Changelog', 'wpcasa' ) ?></h2>
-                    
-                	<table>
+					
+					<table>
+                    	<tr>
+                        	<td><span class="changelog-entry-improved">Improved</span></td>
+                        	<td>Sanitized input fields and data</td>
+                        </tr>
+                    	<tr>
+                        	<td><span class="changelog-entry-improved">Improved</span></td>
+                        	<td>Modifications to the Newsletter Panel in WPCasa Settings</td>
+                        </tr>
+                    	<tr>
+                        	<td><span class="changelog-entry-updated">Updated</span></td>
+                        	<td>Updated CMB2 to 2.9.0</td>
+                        </tr>
+					</table>
+					                    
+                	<?php /*?><table>
                     	<tr>
                         	<td><span class="changelog-entry-improved">Improved</span></td>
                         	<td>Complete revamp of the WPCasa Admin UI</td>
@@ -120,7 +135,7 @@ class WPSight_About {
                         	<td>Portoguese Translation</td>
                         </tr>
                                                 
-                    </table>
+                    </table><?php */?>
                 
                 </div>
 		

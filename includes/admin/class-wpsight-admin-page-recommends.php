@@ -20,7 +20,7 @@ class WPSight_Recommendations {
 	?>
 
         <div class="wrap-title-recommend">
-            <h2><?php __( 'WPCasa Recommendations', 'wpcasa' ) ?></h2>
+            <h2><?php __( 'WPCasa Recommendations', 'wpcasa' ); ?></h2>
         </div>
 
         <div class="wrap-cards-recommend">

@@ -99,6 +99,9 @@ class WPSight_Admin {
 			) ), 'before' );
 
         }
+		
+		if ( $screen->id == 'wpcasa_page_wpsight-about' )
+            wp_enqueue_style( 'wpsight-admin-page-about', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-page-about' . $suffix . '.css' );
 
         if ( in_array( $screen->id, array( 'profile', 'user-edit' ) ) )
             wp_enqueue_media();
@@ -137,7 +140,7 @@ class WPSight_Admin {
             add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Licenses', 'wpcasa' ),  __( 'Licenses', 'wpcasa' ) , 'manage_options', 'wpsight-licenses', array( $this->license_page, 'output' ) );
 
         if ( apply_filters( 'wpsight_show_about_page', true ) )
-            add_submenu_page(  null, WPSIGHT_NAME . ' ' . __( 'About', 'wpcasa' ),  __( 'About', 'wpcasa' ) , 'manage_options', 'wpsight-about', array( $this, 'about_page' ) );
+            add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'About', 'wpcasa' ),  __( 'About', 'wpcasa' ) , 'manage_options', 'wpsight-about', array( $this, 'about_page' ) );
     }
 
     /**

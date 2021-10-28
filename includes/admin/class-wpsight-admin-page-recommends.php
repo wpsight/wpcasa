@@ -14,12 +14,13 @@ class WPSight_Recommendations {
 	 * Handles output of the reports page in admin.
 	 */
 	public function output()
+		
     {
 
-?>
+	?>
 
         <div class="wrap-title-recommend">
-            <h2><?php __( 'WPCasa Recommendations,' 'wpcasa' ) ?></h2>
+            <h2><?php __( 'WPCasa Recommendations', 'wpcasa' ) ?></h2>
         </div>
 
         <div class="wrap-cards-recommend">

@@ -126,20 +126,20 @@ class WPSight_Framework {
 
 		// Activation
 
-		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array( $this->post_types, 'register_post_type_listing' ), 10 );
+		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), [ $this->post_types, 'register_post_type_listing' ], 10 );
 		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), function() { include_once('includes/class-wpsight-install.php'); }, 10 );
 		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), 'flush_rewrite_rules', 15 );
-		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array( $this, 'activation' ) );
+		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), [ $this, 'activation' ] );
 
 		// Actions
 
-		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
-		add_action( 'switch_theme', array( $this->post_types, 'register_post_type_listing' ), 10 );
+		add_action( 'plugins_loaded', [ $this, 'load_plugin_textdomain' ] );
+		add_action( 'switch_theme', [ $this->post_types, 'register_post_type_listing' ], 10 );
 		add_action( 'switch_theme', 'flush_rewrite_rules', 15 );
-		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
+		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_scripts' ] );
 
 		// Init action for add-ons to hook in
-		do_action_ref_array( 'wpsight_init', array( &$this ) );
+		do_action_ref_array( 'wpsight_init', [ &$this ] );
 
 	}
 
@@ -178,15 +178,15 @@ class WPSight_Framework {
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
 
-		wp_enqueue_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), WPSIGHT_VERSION, true );
-		wp_enqueue_script( 'jquery-cookie', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.cookie.js', array( 'jquery' ), WPSIGHT_VERSION, true );
-		wp_enqueue_script( 'wpsight-listings-search', WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-listings-search.js', array( 'jquery' ), WPSIGHT_VERSION, true );
+		wp_enqueue_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.tipTip' . $suffix . '.js', [ 'jquery' ], '1.3', true );
+		wp_enqueue_script( 'jquery-cookie', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.cookie.js', [ 'jquery' ], '1.4.1', true );
+		wp_enqueue_script( 'wpsight-listings-search', WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-listings-search.js', [ 'jquery' ], WPSIGHT_VERSION, true );
 
 		// Localize scripts
-		$data = array(
+		$data = [
 			'cookie_path'			=> COOKIEPATH,
 			'cookie_search_query'	=> WPSIGHT_COOKIE_SEARCH_QUERY
-		);
+		];
 
 		wp_localize_script( 'wpsight-listings-search', 'wpsight_localize', $data );
 
@@ -195,8 +195,7 @@ class WPSight_Framework {
 		if( true == apply_filters( 'wpsight_google_maps', true ) ) {
 
 			$api_key = wpsight_get_option( 'google_maps_api_key' );
-
-			$api_url = $api_key ? add_query_arg( array( 'key' => $api_key ), '//maps.googleapis.com/maps/api/js' ) : '//maps.googleapis.com/maps/api/js';
+			$api_url = $api_key ? add_query_arg( [ 'key' => $api_key ], '//maps.googleapis.com/maps/api/js' ) : '//maps.googleapis.com/maps/api/js';
 
 			wp_enqueue_script( 'wpsight-map-googleapi', apply_filters( 'wpsight_google_maps_endpoint', esc_url( $api_url ), $api_key ), null, WPSIGHT_VERSION );
 
@@ -233,20 +232,20 @@ class WPSight_Framework {
 
 		// Create listings page
 
-		$page_data = array(
+		$page_data = [
 			'post_title'     => _x( 'Listings', 'listings page title', 'wpcasa' ),
 			'post_content'   => '[wpsight_listings]',
 			'post_type'      => 'page',
 			'post_status'	 => 'publish',
 			'comment_status' => 'closed',
 			'ping_status'	 => 'closed'
-		);
+		];
 
 		$page_id = ! wpsight_get_option( 'listings_page' ) ? wp_insert_post( $page_data ) : false;
 
 		// Add some default options
 
-		$options = array(
+		$options = [
 			'listings_page'			=> $page_id,
 			'listing_id'			=> __( 'ID-', 'wpcasa' ),
 			'measurement_unit'		=> 'm2',
@@ -255,11 +254,11 @@ class WPSight_Framework {
 			'currency_separator'	=> 'comma',
 			'date_format'			=> get_option( 'date_format' ),
 			'listings_css'			=> '1'
-		);
+		];
 
 		// Add default standard features
 		foreach ( wpsight_details() as $option => $value )
-			$options[ $option ] = array( 'label' => $value['label'], 'unit' => $value['unit'] );
+			$options[ $option ] = [ 'label' => $value['label'], 'unit' => $value['unit'] ];
 
 		// Add default rental periods
 		foreach ( wpsight_rental_periods() as $option => $value )

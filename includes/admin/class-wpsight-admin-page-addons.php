@@ -53,7 +53,7 @@ class WPSight_Addons {
 
 		<div class="wrap wpsight-addons">
 			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Add-Ons', 'wpcasa' ); ?></h2>			
-			<?php echo $addons; ?>			
+			<?php echo wp_kses( $addons, 'post' ); ?>
 		</div>
 		<?php
 	}

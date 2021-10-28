@@ -302,7 +302,7 @@ class WPSight_Admin_CPT {
 				$user_name = current_user_can( 'edit_users' ) ? '<a href="' . get_edit_user_link( $post->post_author ) . '">' . get_the_author() . '</a>' : get_the_author();
 				
 				// Display listing agent
-				echo '<span class="listing-agent">' . ( empty( $post->post_author ) ? __( 'by a guest', 'wpcasa' ) : sprintf( __( 'by %s', 'wpcasa' ), $user_name ) ) . '</span>';
+				echo '<span class="listing-agent">' . ( empty( $post->post_author ) ? __( 'by a guest', 'wpcasa' ) : sprintf( __( 'by %s', 'wpcasa' ), esc_html( $user_name ) ) ) . '</span>';
 
 			break;
 

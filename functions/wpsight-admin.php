@@ -127,18 +127,18 @@ if ( ! function_exists( 'wpsight_is_premium' ) ) {
 }
 
 /**
- *	wpsight_get_recommends()
+ *	wpsight_admin_get_recommendations()
  *
- *	return recommends
+ *	return recommendations
  *
  *	@since 1.2.0
  */
 
 // Make function pluggable/overwritable
-if ( ! function_exists( 'wpsight_get_recommends' ) ) {
+if ( ! function_exists( 'wpsight_admin_get_recommendations' ) ) {
 
-    function wpsight_get_recommends() {
-        return WPSight_Admin::recommends();
+    function wpsight_admin_get_recommendations() {
+        return WPSight_Admin::recommendations();
     }
 }
 

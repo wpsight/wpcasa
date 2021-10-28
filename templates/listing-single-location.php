@@ -57,12 +57,12 @@ if( $lat && $long && ! $hide ) { ?>
 	      function initialize() {
 			  var myLatlng = new google.maps.LatLng(<?php echo $lat; ?>,<?php echo $long; ?>);
 			  var mapOptions = {
-			    zoom: 				<?php echo $map_args['map_zoom']; ?>,
-			    mapTypeId: 			google.maps.MapTypeId.<?php echo $map_args['map_type']; ?>,
-			    mapTypeControl: 	<?php echo $map_args['control_type']; ?>,
-			    navigationControl: 	<?php echo $map_args['control_nav']; ?>,
-			    scrollwheel: 		<?php echo $map_args['scrollwheel']; ?>,
-			    streetViewControl: 	<?php echo $map_args['streetview']; ?>,
+			    zoom: 				<?php echo esc_html( $map_args['map_zoom'] ); ?>,
+			    mapTypeId: 			google.maps.MapTypeId.<?php echo esc_html( $map_args['map_type'] ); ?>,
+			    mapTypeControl: 	<?php echo esc_html( $map_args['control_type'] ); ?>,
+			    navigationControl: 	<?php echo esc_html( $map_args['control_nav'] ); ?>,
+			    scrollwheel: 		<?php echo esc_html( $map_args['scrollwheel'] ); ?>,
+			    streetViewControl: 	<?php echo esc_html( $map_args['streetview'] ); ?>,
 			    center: myLatlng
 			  }
 			  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);

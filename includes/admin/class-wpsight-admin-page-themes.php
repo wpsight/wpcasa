@@ -53,7 +53,7 @@ class WPSight_Themes {
 
 		<div class="wrap wpsight-themes">
 			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Themes', 'wpcasa' ); ?></h2>			
-			<?php echo $themes; ?>
+			<?php echo wp_kses( $themes, 'post' ); ?>
 		</div>
 		<?php
 	}

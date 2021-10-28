@@ -24,9 +24,10 @@ class WPSight_Admin {
         include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin-helpers.php';
 
         $this->cpt				= new WPSight_Admin_CPT();
-        $this->settings_page	= new WPSight_Admin_Settings();
-        $this->license_page		= new WPSight_Admin_Licenses();
         $this->agents			= new WPSight_Admin_Agents();
+
+		$this->settings_page	= new WPSight_Admin_Settings();
+        $this->license_page		= new WPSight_Admin_Licenses();
 
         $this->color_scheme		= new WPSight_Admin_Color_Scheme();
 
@@ -45,7 +46,7 @@ class WPSight_Admin {
 
         add_filter( 'install_plugins_tabs',				array( $this, 'add_addon_tab' ) );
         add_action( 'install_plugins_wpcasa_addons',	array( $this, 'addons_page' ), 10, 1 );
-//        add_action( 'install_plugins_wpcasa_recommends',	array( $this, 'recommends_page' ), 10, 1 );
+//      add_action( 'install_plugins_wpcasa_recommends',	array( $this, 'recommends_page' ), 10, 1 );
 
 //		add_filter( 'install_themes_tabs',				array( $this, 'add_theme_tab' ) );
 //		add_action( 'install_themes_wpcasa_themes',		array( $this, 'themes_page' ), 10, 1 );
@@ -928,28 +929,28 @@ class WPSight_Admin {
      *
      *	@since 1.2.0
      */
-    public static function recommends() {
+    public static function recommendations() {
 
-        $recommends = [
-            'dashboard' => [
-                'title' =>  __( "", "wpcasa" ),
-                'description' => __( "", "wpcasa" ),
+        $recommendations = [
+            'hubspot' => [
+                'title' =>  __( '', 'wpcasa' ),
+                'description' => __( '', 'wpcasa' ),
                 'image_url' => WPSIGHT_PLUGIN_URL . '/assets/img/wpcasa-recommendation-hubspot.jpg',
-                'button_text' => __( "", "wpcasa" ),
+                'button_text' => __( '', 'wpcasa' ),
                 'button_link' => 'https://wpcasa.com/hubspot?ref=wpcasa-admin-dashboard',
             ],
-            'hubspot' => [
-                'title' =>  __( "", "wpcasa" ),
-                'description' => __( "", "wpcasa" ),
+            'premium' => [
+                'title' =>  __( '', 'wpcasa' ),
+                'description' => __( '', 'wpcasa' ),
                 'image_url' => WPSIGHT_PLUGIN_URL . '/assets/img/wpcasa-recommendation-premium.jpg',
-                'button_text' => __( "", "wpcasa" ),
+                'button_text' => __( '', 'wpcasa' ),
                 'button_link' => 'https://wpcasa.com?ref=wpcasa-admin-dashboard',
             ],
         ];
 
-        $recommends = apply_filters('wpsight_recommendations', $recommends);
+        $recommendations = apply_filters( 'wpsight_recommendations', $recommendations );
 
-        return $recommends;
+        return $recommendations;
 
     }
 

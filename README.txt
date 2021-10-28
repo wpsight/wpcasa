@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
 Requires at least: 5.0
 Tested up to: 5.8
-Stable tag: 1.2.7
+Stable tag: 1.2.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -178,6 +178,9 @@ Many thanks to all of them for contributing and making WPCasa even better.
 [Kybernetik Services](https://www.kybernetik-services.com/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=wpcasa&utm_content=readme)
 
 == Changelog ==
+= 1.2.8 - 2021/10/28 =
+* TWEAK: Optimized code base
+
 = 1.2.7 - 2021/10/28 =
 * TWEAK: Sanitized input fields and data
 * TWEAK: Modifications to the Newsletter Panel in WPCasa Settings.

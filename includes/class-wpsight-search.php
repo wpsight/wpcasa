@@ -48,11 +48,11 @@ class WPSight_Search {
 				
 				// Set query vars
 				
-				if ( $_GET[$var] == 'price' ) {
+				if ( $_GET[ $var ] == 'price' ) {
 					$query->set( 'orderby', 'meta_value_num' );
 					$query->set( 'meta_key', '_price' );
 				} else {				
-					$query->set( $var, sanitize_key( $_GET[$var] ) );				
+					$query->set( $var, sanitize_key( $_GET[ $var ] ) );
 				}
 				
 			}
@@ -79,7 +79,7 @@ class WPSight_Search {
 		
 		// Stop if not search or cookie disabled
 
-		if( ! isset( $_GET['keyword'] ) || $search_cookie == false || is_admin() )
+		if( ! isset( $_GET['keyword'] ) || ! $search_cookie || is_admin() )
 			return;
 		
 		// Get query
@@ -92,7 +92,7 @@ class WPSight_Search {
 			if( is_array( $get_v ) )
 				$get_v = implode( '|', $get_v );
 			
-			$get_query[$get] = $get_v;
+			$get_query[ sanitize_key( $get ) ] = sanitize_text_field( $get_v );
 		}
 		
 		// Make string from get array		
@@ -139,7 +139,7 @@ class WPSight_Search {
 		$args = wp_parse_args( $args, $defaults );
 		
 		// Set form HTML ID
-		$args['id'] = $args['id'] ? ' id="' . sanitize_html_class( $args['id'] ) . '"' : '';
+		$args['id'] = $args['id'] ? ' id="' . esc_attr( sanitize_html_class( $args['id'] ) ) . '"' : '';
 		
 		// Set default action from settings
 

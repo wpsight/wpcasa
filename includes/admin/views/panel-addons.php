@@ -1,9 +1,11 @@
-<h3><?php _e( 'Addons', 'wpcasa' ) ?></h3>
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+
+<h3><?php echo esc_html__( 'Addons', 'wpcasa' ) ?></h3>
 
 <div class="wrap-addons-tabs">
-    <a href="#addons-all" class="active" id="addons-all"><?php _e( 'All', 'wpcasa' ) ?></a>
-    <a href="#addons-active" id="addons-active"><?php _e( 'Active', 'wpcasa' ) ?></a>
-    <a href="#addons-inactive" id="addons-inactive"><?php _e( 'Inactive', 'wpcasa' ) ?></a>
+    <a href="#addons-all" class="active" id="addons-all"><?php echo esc_html__( 'All', 'wpcasa' ) ?></a>
+    <a href="#addons-active" id="addons-active"><?php echo esc_html__( 'Active', 'wpcasa' ) ?></a>
+    <a href="#addons-inactive" id="addons-inactive"><?php echo esc_html__( 'Inactive', 'wpcasa' ) ?></a>
 </div>
 
 <div class="wpsight-admin-ui-grid-col wpsight-admin-addons wpsight-admin-ui-grid-1-1">
@@ -12,10 +14,10 @@
 
         <thead>
             <tr>
-                <th><?php _e( 'Addon', 'wpcasa' ) ?></th>
-                <th><?php _e( 'Version', 'wpcasa' ) ?></th>
-                <th><?php _e( 'Author', 'wpcasa' ) ?></th>
-                <th><?php _e( 'Status', 'wpcasa' ) ?></th>
+                <th><?php echo esc_html__( 'Addon', 'wpcasa' ) ?></th>
+                <th><?php echo esc_html__( 'Version', 'wpcasa' ) ?></th>
+                <th><?php echo esc_html__( 'Author', 'wpcasa' ) ?></th>
+                <th><?php echo esc_html__( 'Status', 'wpcasa' ) ?></th>
                 <?php /*?><th><?php _e( 'Action', 'wpcasa' ) ?></th><?php */?>
             </tr>
         </thead>
@@ -24,13 +26,13 @@
 
             <?php foreach( get_plugins() as $plugin => $p ) { ?>
 
-                <?php if ( strpos( esc_html( $p['Name'] ), 'WPCasa' ) !== false ) { ?>
-                    <tr class="<?php if( is_plugin_active( $plugin ) ) { echo __( 'addon-active', 'wpcasa' ); } else { echo __( 'addon-inactive', 'wpcasa' ); } ?>">
+                <?php if ( strpos( $p['Name'], 'WPCasa' ) !== false ) { ?>
+                    <tr class="<?php if( is_plugin_active( $plugin ) ) { echo esc_attr( 'addon-active' ); } else { echo esc_attr( 'addon-inactive' ); } ?>">
                         <td><?php echo esc_html( $p['Name'] ) ?></td>
                         <td><?php echo esc_html( $p['Version'] ) ?></td>
                         <td><?php echo esc_html( $p['Author'] ) ?></td>
-                        <td class="<?php if( is_plugin_active( $plugin ) ) { echo 'status-active'; } else { echo 'status-inactive'; } ?>">
-                          <?php if( is_plugin_active( $plugin ) ) { echo __( 'Active', 'wpcasa' ); } else { echo __( 'Inactive', 'wpcasa' ); } ?>
+                        <td class="<?php if( is_plugin_active( $plugin ) ) { echo esc_attr( 'status-active' ); } else { echo esc_attr( 'status-inactive' ); } ?>">
+                          <?php if( is_plugin_active( $plugin ) ) { echo esc_html__( 'Active', 'wpcasa' ); } else { echo esc_html__( 'Inactive', 'wpcasa' ); } ?>
                         </td>
                         <?php /*?><td>
                             <a href="#" class="addons-table-btn"><?php _e( 'Button', 'wpcasa' ) ?></a>
@@ -47,7 +49,7 @@
         <?php foreach( get_plugins() as $plugin => $p ) {
 
             if ( strpos( esc_html( $p['Name'] ), 'WPCasa' ) !== false ) { ?>
-                <li class="addons-list <?php if( is_plugin_active( $plugin ) ) { echo __( 'addon-active', 'wpcasa' ); } else { echo __( 'addon-inactive', 'wpcasa' ); } ?>">
+                <li class="addons-list <?php if( is_plugin_active( $plugin ) ) { echo esc_attr__( 'addon-active', 'wpcasa' ); } else { echo esc_attr__( 'addon-inactive', 'wpcasa' ); } ?>">
                     <div class="addons-list-card">
                         <div class="content">
                             <div class="content-top">
@@ -61,24 +63,24 @@
 
                             <ul class="content-bottom">
                                 <li class="content-item">
-                                    <span class="text"><?php _e( 'Addon', 'wpcasa' ) ?></span>
+                                    <span class="text"><?php echo esc_html__( 'Addon', 'wpcasa' ) ?></span>
                                     <span class="text"><?php echo esc_html( $p['Name'] ) ?></span>
                                 </li>
 
                                 <li class="content-item">
-                                    <span class="text"><?php _e( 'Version', 'wpcasa' ) ?></span>
+                                    <span class="text"><?php echo esc_html__( 'Version', 'wpcasa' ) ?></span>
                                     <span class="text"><?php echo esc_html( $p['Version'] ) ?></span>
                                 </li>
 
                                 <li class="content-item">
-                                    <span class="text"><?php _e( 'Author', 'wpcasa' ) ?></span>
+                                    <span class="text"><?php echo esc_html__( 'Author', 'wpcasa' ) ?></span>
                                     <span class="text"><?php echo esc_html( $p['Author'] ) ?></span>
                                 </li>
 
                                 <li class="content-item">
-                                    <span class="text"><?php _e( 'Status', 'wpcasa' ) ?></span>
-                                    <span class="text <?php if( is_plugin_active( $plugin ) ) { echo 'status-active'; } else { echo 'status-inactive'; } ?>">
-                                      <?php if( is_plugin_active( $plugin ) ) { echo __( 'Active', 'wpcasa' ); } else { echo __( 'Inactive', 'wpcasa' ); } ?>
+                                    <span class="text"><?php echo esc_html__( 'Status', 'wpcasa' ) ?></span>
+                                    <span class="text <?php if( is_plugin_active( $plugin ) ) { echo esc_attr( 'status-active' ); } else { echo esc_attr( 'status-inactive' ); } ?>">
+                                      <?php if( is_plugin_active( $plugin ) ) { echo esc_html__( 'Active', 'wpcasa' ); } else { echo esc_html__( 'Inactive', 'wpcasa' ); } ?>
                                     </span>
                                 </li>
                             </ul>

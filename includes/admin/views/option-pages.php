@@ -1,4 +1,6 @@
 <?php
+  if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
   $page_args = array(
     'sort_order' => 'asc',
     'sort_column' => 'post_title',
@@ -31,9 +33,9 @@
     if( !isset( $value ) && isset( $option['default'] ) ) $value = $option['default'];
 ?>
 
-<div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-  <select id="setting-<?php echo $option_css; ?>" class="regular-text" name="<?php echo $option_id; ?>" <?php echo implode( ' ', $attributes ); ?>>
-    <option value=""><?php _ex( 'Select page', 'plugin settings', 'wpcasa' ); ?>&hellip;</option><?php
+<div class="wpsight-settings-field wpsight-settings-field-<?php echo esc_attr( $option_type ); ?>">
+  <select id="setting-<?php echo esc_attr( $option_css ); ?>" class="regular-text" name="<?php echo esc_attr( $option_id ); ?>" <?php echo esc_html( implode( ' ', $attributes ) ); ?>>
+    <option value=""><?php echo esc_html_x( 'Select page', 'plugin settings', 'wpcasa' ); ?>&hellip;</option><?php
     foreach( $pages as $key => $page )
       echo '<option value="' . esc_attr( $key ) . '" ' . selected( $value, $key, false ) . '>' . esc_html( $page['name'] ) . ' <small><i>(' . esc_html( $page['date'] ) . ')<small><i></option>'; ?>
   </select>

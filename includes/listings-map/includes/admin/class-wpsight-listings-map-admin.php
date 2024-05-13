@@ -43,7 +43,7 @@ class WPSight_Listings_Map_Admin {
 	public function options( $options ) {
 		$options_maps['heading_listings_map_general'] = array(
 			'name'		=> __( 'General Map Settings', 'wpcasa-listings-map' ),
-			'desc'		=> __( '', 'wpcasa-listings-map' ),
+			'desc'		=> __( 'Here you can get general map settings', 'wpcasa-listings-map' ),
 			'id'		=> 'heading_listings_map_general',
 			'position'	=> 10,
 			'type'		=> 'heading',
@@ -63,17 +63,22 @@ class WPSight_Listings_Map_Admin {
 			'desc'     	=> __( 'Will show a link in the listings panel (next to orderby options) and the map below when clicked.', 'wpcasa-listings-map' ),
 			'id'       	=> 'listings_map_panel',
 			'position'	=> 30,
-			'type'     	=> 'checkbox'
+			'type'     	=> 'checkbox',
+			
 		);
 
         $options_maps['listings_map_display'] = array(
             'name'     	=> __( 'Listings Map Display', 'wpcasa-listings-map' ),
             'cb_label' 	=> __( 'Show map above the listings', 'wpcasa-listings-map' ),
-            'desc'     	=> __( 'Show map above the listings ', 'wpcasa-listings-map' ),
+            'desc'     	=> __( 'Show map above the listings', 'wpcasa-listings-map' ),
             'id'       	=> 'listings_map_display',
             'type'     	=> 'checkbox',
-            'position'	=> 30,
+            'position'	=> 35,
             'default'	=> 1,
+			'show_if'	=> array(
+				'id' => 'listings_map_panel',
+				'value' => 1,
+			),
         );
 		
 		$options_maps['listings_map_panel_link'] = array(
@@ -83,6 +88,10 @@ class WPSight_Listings_Map_Admin {
 			'position'	=> 40,
 			'type'     	=> 'text',
 			'default'	=> __( 'Toggle Map', 'wpcasa-listings-map' ),
+			'show_if'	=> array(
+				'id' => 'listings_map_panel',
+				'value' => 1,
+			),
 		);
 		
 		$options_maps['listings_map_nr'] = array(
@@ -96,7 +105,7 @@ class WPSight_Listings_Map_Admin {
 		
 		$options_maps['heading_listings_map_appearance'] = array(
 			'name'		=> __( 'Map Appearance', 'wpcasa' ),
-			'desc'		=> __( '', 'wpcasa' ),
+			'desc'		=> __( 'Here you can define map appearance', 'wpcasa' ),
 			'id'		=> 'heading_listings_map_appearance',
 			'position'	=> 60,
 			'type'		=> 'heading'
@@ -146,7 +155,7 @@ class WPSight_Listings_Map_Admin {
 		
 		$options_maps['heading_listings_map_controls'] = array(
 			'name'		=> __( 'Map Controls', 'wpcasa' ),
-			'desc'		=> __( '', 'wpcasa' ),
+			'desc'		=> __( 'Here you can define map controls', 'wpcasa' ),
 			'id'		=> 'heading_listings_map_controls',
 			'position'	=> 110,
 			'type'		=> 'heading'
@@ -183,7 +192,7 @@ class WPSight_Listings_Map_Admin {
 		
 		$options_maps['heading_listings_map_infobox'] = array(
 			'name'		=> __( 'Infobox Settings', 'wpcasa' ),
-			'desc'		=> __( '', 'wpcasa' ),
+			'desc'		=> __( 'Here you can define infobox settings', 'wpcasa' ),
 			'id'		=> 'heading_listings_map_infobox',
 			'position'	=> 150,
 			'type'		=> 'heading'

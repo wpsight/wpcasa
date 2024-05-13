@@ -1,144 +1,143 @@
-body {background: #3b4045;}
-
-.about-wrap.full-width-layout {max-width: 100%; padding: 0; margin: 0 auto; position: relative; overflow: hidden;}
-.about-wrap.full-width-layout > .wrap-inner {width: 100%; position: relative; z-index: 1;}
-
-.about-wrap {text-align: center; color: #EEE;}
-.about-wrap h1 {text-align: center; margin: 1rem 0;}
-.about-wrap h1, .about-wrap h2, .about-wrap h3, .about-wrap h4, .about-wrap h5, .about-wrap h6 {color: #FFF !important;}
-.about-wrap p {text-align: center; margin: 0;}
-.about-wrap h2 {
-	margin: 0 0 .6em;
-	font-size: 2.7em;
-	line-height: 1.3;
-	font-weight: 300;
-	text-align: center;
-}
-
 #wpcontent {padding-left: 0;}
 #wpfooter {display: none;}
-#wpbody-content {
-	padding-bottom: 0;
+#wpbody-content {padding-bottom: 0;}
+
+.wpcasa-about.full-width-layout {
+	max-width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
 }
 
-.about-wrap .wp-badge {
+.wpcasa-about {
+	text-align: center;
+	color: #EEE;
+}
+
+.wpcasa-about h1 {font-size: 3.0rem;}
+.wpcasa-about h2 {font-size: 2.8rem;}
+.wpcasa-about h3 {font-size: 2.6rem;}
+.wpcasa-about h4 {font-size: 2.4rem;}
+.wpcasa-about h5 {font-size: 2.2rem;}
+.wpcasa-about h6 {font-size: 2.0rem;}
+
+.wpcasa-about h1,
+.wpcasa-about h2,
+.wpcasa-about h3,
+.wpcasa-about h4,
+.wpcasa-about h5,
+.wpcasa-about h6 {
+	margin: 0 0 2rem 0;
+	color: #FFF !important;
+	font-family: "Open Sans";
+	font-weight: normal;
+}
+.wpcasa-about p {
+	text-align: center;
+	margin: 0;
+}
+
+/* Badge */
+.wpcasa-about .wp-badge {
 	position: fixed;
 	top: 0;
 	right: 0;
+	z-index: 1;
 	text-decoration: none;
 	background-position: center !important;
 	padding-top: 120px;
 	background: #12AE8F url(../img/icon.png) no-repeat;
 	background-size: contain;
-	box-shadow: 0 0 50px rgba(0,0,0,.5);
+	box-shadow: 0 0 50px rgba(0, 0, 0, .5);
 	transition: all .2s;
 }
 
-.about-wrap .wp-badge:hover {
-	color: #FFF;
+.wpcasa-about .wp-badge:hover {
 	transform: scale(1.2);
 }
 
-.bg-layer {
-	content: '';
-	background: #12AE8F;
-	height: 80vh;
+
+.wpcasa-about {background: #3b4045;}
+
+.wpcasa-about .section {transform: skew(0, 3deg);}
+.wpcasa-about .section-wrap {padding: 10rem 0;transform: skew(0, -3deg);}
+
+.wpcasa-about .section:nth-child(even) {background: #12AE8F;}
+
+.wpcasa-about .section:first-of-type {margin-top: -3rem;}
+.wpcasa-about .section:last-of-type {margin-bottom: -3rem;}
+
+.wpcasa-about .section-intro:before {
+	content: "";
+	width: 100%;
+	height: 80%;
+	background: rgba(255,255,255,.1);
 	position: absolute;
+	top: -3rem;
 	left: 0;
 	right: 0;
-	width: 100%;
-	z-index: 0;
-	box-shadow: 0 0 200px rgba(0,0,0,.5);
+	transform: skew(0deg, -5deg);
 }
 
-.bg-layer-1 {
-	top: 65vh;
-	transform: skew(0, 3deg);
+.hero-image {
+	padding: 3rem 0 0;
+}
+.hero-image img {
+	max-width: 1000px;
 }
 
-.bg-layer-2 {
-	top: 215vh;
-	transform: skew(0, -3deg);
-}
-
-.bg-layer-3 {
-	top: 365vh;
-	transform: skew(0, 3deg);
-}
-
-.bg-layer-4 {
-	top: 515vh;
-	transform: skew(0, -3deg);
-}
-
-.bg-layer-5 {
-	top: 65vh;
-	transform: skew(0, 6deg);
-	background: rgba(18, 174, 143,.5);
-	box-shadow: none;
-}
-
-.bg-layer-6 {
-	top: 215vh;
-	transform: skew(0, -6deg);
-	background: rgba(18, 174, 143,.5);
-	box-shadow: none;
-}
-
-.bg-layer-7 {
-	top: 365vh;
-	transform: skew(0, 6deg);
-	background: rgba(18, 174, 143,.5);
-	box-shadow: none;
-}
-
-.bg-layer-8 {
-	top: 515vh;
-	transform: skew(0, -6deg);
-	background: rgba(18, 174, 143,.5);
-	box-shadow: none;
-}
-
-.intro-text {padding: 5rem 0 0; background: #12AE8F;}
-.hero-image {padding: 5rem 0; background: #12AE8F;}
-.hero-image img {max-width: 1000px;}
-
-.changelog {
-	max-width: 800px;
+/* Changelog */
+.section .changelog {
+	max-width: 600px;
+	padding: 50px 0;
 	margin: auto;
+	overflow:hidden;
 }
 
-.changelog table {width: 100%; text-align: left; border-collapse: collapse;}
-.changelog table tr {
-	border-bottom: 1px solid rgba(255,255,255,.1);
+.section .changelog table {
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+.section .changelog table tr {
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
 	transition: all .2s;
 }
-.changelog table tr:hover {
-	background: rgba(255,255,255,.1);
-}
-.changelog table tr td {
-	padding: .5rem 1rem;
-}
-.changelog table tr td:first-child {
-	text-align: right;
+
+.section .changelog table tr:hover {
+	background: rgba(255, 255, 255, .1);
 }
 
- .changelog-entry-improved,
- .changelog-entry-added,
- .changelog-entry-fixed,
- .changelog-entry-updated {
-	 width: 80px;
-	 display: inline-block;
-	 color: #FFF;
-	 text-align: center; 
-	 font-size: .8rem;
-	 padding: 3px;
-	 border-radius: 3px;
-	 text-transform: uppercase;
-	 background: #333;  
- }
+.section .changelog table tr td {
+	padding: .5rem;
+}
+.changelog table tr td a {
+	color: white;
+}
+.changelog table tr td a:hover {
+	text-decoration: none;
+}
 
- .changelog-entry-improved {color: rgb(0,204,102);}
- .changelog-entry-added {color: rgb(255,204,102);}
- .changelog-entry-fixed {color: rgb(255,51,51);}
- .changelog-entry-updated {color: rgb(102,204,255);}
+.section .changelog table tr td:first-child {
+	text-align: left;
+}
+
+.section .changelog-entry-tweak,
+.section .changelog-entry-new,
+.section .changelog-entry-fix,
+.section .changelog-entry-update {
+	width: 80px;
+	display: inline-block;
+	color: #FFF;
+	text-align: center;
+	font-size: .8rem;
+	padding: 3px;
+	border-radius: 3px;
+	text-transform: uppercase;
+	background: #333;
+}
+
+.section .changelog-entry-tweak  {color: rgb(0, 204, 102);}
+.section .changelog-entry-new    {color: rgb(255, 204, 102);}
+.section .changelog-entry-fix    {color: rgb(255, 155, 51);}
+.section .changelog-entry-update {color: rgb(102, 204, 255);}

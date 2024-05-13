@@ -11,7 +11,7 @@
  *	@since 1.1.0
  */
 function wpsight_listings_map( $atts = array(), $map_query = array() ) {
-	echo apply_filters( 'wpsight_listings_map', wpsight_get_listings_map( $atts, $map_query ), $atts, $map_query );
+	echo wp_kses_post( apply_filters( 'wpsight_listings_map', wpsight_get_listings_map( $atts, $map_query ), $atts, $map_query ) );
 }
 
 /**
@@ -159,6 +159,10 @@ function wpsight_get_listings_map( $atts = array(), $map_query = array() ) {
 		$args['toggle'] = true === $args['toggle'] || 'true' === $args['toggle'] ? true : false;
 	}
 
+	// Check default option 'display'
+	$args['default_display'] = wpsight_get_option( 'listings_map_display' ) ? true : false;
+
+
 	// Get map listings
 	
 	$map_query_args = array(
@@ -259,6 +263,7 @@ function wpsight_get_listings_map( $atts = array(), $map_query = array() ) {
 			'cookie'			=> WPSIGHT_LISTINGS_MAP_COOKIE,
 			'cookie_path'		=> COOKIEPATH,
 			'map_page'			=> $args['map_page'] ? 'true' : 'false',
+			'default_display'	=> esc_js( $args['default_display'] ),
 		),
 		'cluster' => array(
 			'gridSize'			=> esc_js( $args['cluster_grid'] ),
@@ -332,6 +337,15 @@ function wpsight_get_listings_map( $atts = array(), $map_query = array() ) {
 
 	endwhile;
     wp_reset_query();
+
+	if ( ! wp_script_is( 'wpsight-listings-map', 'registered' ) ) {
+		$suffix = SCRIPT_DEBUG ? '' : '.min';
+		wp_enqueue_script( 'jquery' );
+		wp_register_script('cookie', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.cookie' . $suffix .'.js', array(), false, false );
+		wp_enqueue_script( 'cookie' );
+		wp_register_script( 'wpsight-listings-map', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/wpcasa-listings-map' . $suffix . '.js', array( 'wpsight-map-googleapi', 'wpsight-map-markerclusterer', 'wpsight-map-infobox' ), WPSIGHT_LISTINGS_MAP_VERSION, array( 'in_footer' => true ) );
+	}
+
 
 	wp_enqueue_script( 'wpsight-listings-map' );
 	wp_localize_script( 'wpsight-listings-map', 'wpsightMap', apply_filters( 'wpsight_listings_map_options', $map_options ) );

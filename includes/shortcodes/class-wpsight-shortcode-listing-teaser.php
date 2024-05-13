@@ -48,7 +48,7 @@ class WPSight_Shortcode_Listing_Teaser {
         $output = sprintf( '%1$s%3$s%2$s', $before, $after, ob_get_clean() );
         
         // Set css class
-        $class = ! empty( $class ) ? ' ' . sanitize_html_class( $class ) : '';
+        $class = ! empty( $class ) ? ' ' . esc_attr( sanitize_html_class( $class ) ) : '';
         
         // Set orientation
         $orientation = in_array( $orientation, array( 'horizontal', 'vertical' ) ) ? ' ' . $orientation : '';

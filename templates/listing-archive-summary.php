@@ -1,3 +1,5 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+
 <div class="wpsight-listing-section wpsight-listing-section-summary">
 	
 	<?php do_action( 'wpsight_listing_archive_summary_before' ); ?>

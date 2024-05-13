@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
 
 <?php if( isset( $fields[$field]['data'] ) && is_array( $fields[$field]['data'] ) ) : ?>
 
@@ -19,6 +20,6 @@
 		<label class="checkbox"><input type="checkbox" name="<?php echo esc_attr( $field ); ?>[<?php echo esc_attr( $k ); ?>]" value="<?php echo esc_attr( $k ); ?>"<?php checked( $k, $field_option_value ); ?>><?php echo esc_attr( $v ); ?></label>		
 	<?php endforeach; ?>
 
-</div><!-- .listings-search-field-<?php echo esc_attr( $field ); ?> -->
+</div><!-- .listings-search-field-<?php echo esc_html( sanitize_html_class( $field ) ); ?> -->
 
 <?php endif; ?>

@@ -1,5 +1,7 @@
 <?php
-  if (isset($option)) {
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+if (isset($option)) {
     $option_type = isset( $option['type'] ) ? $option['type'] : '';
     $option_id = isset( $option['id'] ) ? $this->settings_name . '[' . $option['id'] . ']' : '';
     $option_css = sanitize_html_class( $this->settings_name . '_' . $option['id'] );
@@ -17,8 +19,8 @@
     $placeholder = isset( $option['placeholder'] ) ? 'placeholder="' . $option['placeholder'] . '"'	: '';
 ?>
 
-  <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-    <textarea id="setting-<?php echo $option_css; ?>" cols="100" rows="8" name="<?php echo $option_id; ?>" <?php echo implode( ' ', $attributes ); ?> <?php echo $placeholder; ?>><?php echo esc_textarea( $value ); ?></textarea>
+  <div class="wpsight-settings-field wpsight-settings-field-<?php echo esc_attr( $option_type ); ?>">
+    <textarea id="setting-<?php echo esc_attr( $option_css ); ?>" cols="100" rows="8" name="<?php echo esc_attr( $option_id ); ?>" <?php echo esc_attr( implode( ' ', $attributes ) ); ?> <?php echo esc_attr( $placeholder ); ?>><?php echo esc_textarea( $value ); ?></textarea>
   </div>
 
 <?php } ?>

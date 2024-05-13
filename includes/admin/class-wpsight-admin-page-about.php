@@ -26,119 +26,488 @@ class WPSight_About {
 		
 		?>
         
-			<div class="wrap about-wrap full-width-layout">
-            
-            	<?php /*?><div class="bg-layer bg-layer-1"></div>
-            	<div class="bg-layer bg-layer-2"></div>
-            	<div class="bg-layer bg-layer-3"></div>
-            	<div class="bg-layer bg-layer-4"></div>
-            	<div class="bg-layer bg-layer-5"></div>
-            	<div class="bg-layer bg-layer-6"></div>
-            	<div class="bg-layer bg-layer-7"></div>
-            	<div class="bg-layer bg-layer-8"></div><?php */?>
-            
+			<div class="wpcasa-about wrap full-width-layout">
+                        
             	<div class="wrap-inner">
                 
-				<a href="https://wpcasa.com" target="_blank" class="wp-badge"><?php printf( __( 'Version %s' ), $display_version ); ?></a>
+				<a href="https://wpcasa.com" target="_blank" class="wp-badge">
+                    <?php
+                    /* translators: %s: is the current version */
+                    printf( esc_html__( 'Version %s' ), esc_html( $display_version ) ); ?></a>
                 
-                <div class="intro-text">
-                    <h1><?php printf( __( 'Welcome to WPCasa&nbsp;%s' ), $display_version ); ?></h1>
-                    <p><?php printf( __( 'Thank you for updating to the latest version! WPCasa %s will smooth your user experience and includes new features and improvements.' ), $display_version ); ?></p>  
-                </div>              
+                <section id="section-intro" class="section section-intro">
+                    
+                    <div class="section-wrap">
+                    
+                        <div class="intro-text">
+                            <h1><?php
+                                /* translators: %s: is the current version */
+                                printf( esc_html__( 'Welcome to WPCasa&nbsp;%s' ), esc_html( $display_version ) ); ?></h1>
+                            <p><?php
+                                /* translators: %s: is the current version */
+                                printf( esc_html__( 'Thank you for updating to the latest version! WPCasa %s will smooth your user experience and includes new features and improvements.' ), esc_html( $display_version ) ); ?></p>
+                        </div>              
+
+                        <div class="hero-image">
+                            <img src="<?php echo esc_url( WPSIGHT_PLUGIN_URL . '/assets/img/wpcasa-update-1.png' ); ?>" />
+                        </div>
+                        
+                    </div>
+                    
+                </section>
+
+                <section id="section-changelog" class="section section-changelog">
                 
-                <div class="hero-image">
-                	<img src="<?php echo plugins_url( 'wpcasa' ) ?>/assets/img/wpcasa-update-1.png" />
-                </div>
-		
-				<hr />
-                
-                <div class="developer-changes">
-                </div>
-                
-                <div class="contributors">
-                </div>
-                
-                <div class="changelog">
-                
-					<h2><?php _e( 'Changelog', 'wpcasa' ) ?></h2>
-					
-					<table>
-                    	<tr>
-                        	<td><span class="changelog-entry-improved">Improved</span></td>
-                        	<td>Sanitized input fields and data</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-improved">Improved</span></td>
-                        	<td>Modifications to the Newsletter Panel in WPCasa Settings</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-updated">Updated</span></td>
-                        	<td>Updated CMB2 to 2.9.0</td>
-                        </tr>
-					</table>
-					                    
-                	<?php /*?><table>
-                    	<tr>
-                        	<td><span class="changelog-entry-improved">Improved</span></td>
-                        	<td>Complete revamp of the WPCasa Admin UI</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-added">Improved</span></td>
-                        	<td>Added XX new Currencies and Symbols</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-added">Added</span></td>
-                        	<td>Italian Translation</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-added">Added</span></td>
-                        	<td>Croatian Translation</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-added">Added</span></td>
-                        	<td>Dutch Translation</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-added">Added</span></td>
-                        	<td>Russian Translation</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-added">Added</span></td>
-                        	<td>Romanian Translation</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-added">Added</span></td>
-                        	<td>Slovak Translation</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-fixed">Fixed</span></td>
-                        	<td>Typo in rental periods</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-fixed">Fixed</span></td>
-                        	<td>Default order for listing type and location in search form</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-fixed">Fixed</span></td>
-                        	<td>Reference conditional tag to correspondending query</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-fixed">Fixed</span></td>
-                        	<td>Double 'edit_listings' capability</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-fixed">Fixed</span></td>
-                        	<td>Missing textdomain in WPSight_Admin->listings_custom_views</td>
-                        </tr>
-                    	<tr>
-                        	<td><span class="changelog-entry-updated">Updated</span></td>
-                        	<td>Portoguese Translation</td>
-                        </tr>
-                                                
-                    </table><?php */?>
-                
-                </div>
-		
+                    <div class="section-wrap">
+
+                        <div class="changelog">
+                            
+                            <h3><?php echo esc_html__( 'Changelog', 'wpcasa' ) ?></h3>
+                            
+                            <style>
+                                
+                            .tabs {
+                                width: 100%;
+                                float: left;
+                                margin: 0;
+                                padding: 0;
+                            }
+
+                            .tabs li {
+                                float: left;
+                                width: 20%;
+                                margin: 0;
+                            }
+
+                            .tabs a {
+                                display: block;
+                                text-align: center;
+                                text-decoration: none;
+                                color: #999;
+                                padding: 10px 0;
+                                background: rgba(0,0,0,.1);
+                            }
+
+                            .tabs a:hover,
+                            .tabs a.active {
+                                background: #12AE8F;
+                                color: #FFF;
+                            }
+                                
+                            .tabs a:focus {box-shadow: none;}
+
+                            .tabgroup {
+                                width: 100%;
+                                float: left;
+                            }
+
+                            .tabgroup div {
+                                padding: 30px;
+                            }
+                                
+                            .tabgroup div p {margin-bottom: 30px;}
+
+                            </style>
+
+                            <ul class="tabs" data-tabgroup="first-tab-group">
+                                <li class="tab"><a href="#version-1-2-11" class="active">v1.2.11</a></li>
+                                <li class="tab"><a href="#version-1-2-10-hot">v1.2.10.x</a></li>
+                                <li class="tab"><a href="#version-1-2-10">v1.2.10</a></li>
+                                <li class="tab"><a href="#version-1-2-9-hot">v1.2.9.x</a></li>
+                                <li><a href="https://wpcasa.com" target="_blank">More</a></li>
+                            </ul>
+
+                            <section id="first-tab-group" class="tabgroup">
+
+                                <div id="version-1-2-11">
+                                    <p>Version: 1.2.11</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-new">New</span></td>
+                                            <td> Added upgrade notice on WordPress plugin page</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Updated plugin header with file-level PHPDoc DocBlock</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Ensure compatibility with WordPress 6.5</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Listing Map settings didn't save new value</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>In some cases, toggling the Listing Map link did not work</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Removed unwanted extra character after description on listing single page</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div id="version-1-2-10-hot">
+                                    <p><br>Version: 1.2.10.1</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Search form stopped working for some non-WPCasa themes</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="version-1-2-10">
+                                    <p>Version: 1.2.10</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Improved title escaping for compatibility with <a href="https://wpcasa.com/downloads/wpcasa-listing-labels/" target="_blank">WPCasa Listing Labels</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Load WPCasa CSS on all pages, not just on the single listing pages</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Minimization of all CSS to improve the loading speed of the page</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="version-1-2-9-hot">
+                                    <p><br>Version: 1.2.9.2</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Improved html escaping on listing page for compatibility with <a href="https://wpcasa.com/downloads/wpcasa-listing-labels/" target="_blank">WPCasa Listing Labels</a></td>
+                                        </tr>
+                                    </table>
+                                    <p><br>Version: 1.2.9.1</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Additional classes for listings were no longer taken into account</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                            </section>
+
+                            <script type="text/javascript">
+                            jQuery(document).ready(function($) {                      
+                                $('.tabgroup > div').hide();
+                                $('.tabgroup > div:first-of-type').show();
+                                $('.tabs .tab a').click(function(e){
+                                    e.preventDefault();
+                                    var $this = $(this),
+                                    tabgroup = '#'+$this.parents('.tabs').data('tabgroup'),
+                                    others = $this.closest('.tab').siblings().children('a'),
+                                    target = $this.attr('href');
+                                    others.removeClass('active');
+                                    $this.addClass('active');
+                                    $(tabgroup).children('div').hide();
+                                    $(target).show();
+                                })
+                            });
+                            </script>
+
+                        </div>
+
+                        <?php /*?>
+
+                                 <div id="version-1-2-9">
+                                    <p>Version: 1.2.9</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Optimized code base</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Fixed guideline violation</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Bumped required WordPress version to 6.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Improved speed of database query to get listings</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Fixed listing filter with <code>wpsight_exclude_unavailable</code> stopped working</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Improved WPCasa About page</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Removed server info panel in favor of Site Health tools</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Issue of not assigning default value after activation in checkbox</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Apply and separate listing map default</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-update">Update</span></td>
+                                            <td>Updated CMB2 to 2.10.1</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div id="version-1-2-8">
+                                    <p>Version: 1.2.8</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Optimized code base</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                 <div id="version-1-2-7">
+                                    <p>Version: 1.2.7</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Sanitized input fields and data</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Modifications to the Newsletter Panel in WPCasa Settings</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-update">Update</span></td>
+                                            <td>Updated CMB2 to 2.9.0</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+
+ <div class="changelog">
+
+                            <h3><?php _e( 'Changelog', 'wpcasa' ) ?></h3>
+
+                            <!-- Accordion > Start -->
+                            <a href="#" class="selected" wpsight-admin-ui--accordion-toggle>Version 1.2.8 - <small>2021/10/28</small></a>
+                            <div class="open" wpsight-admin-ui--accordion-content>
+                                <div class="inner">
+
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Optimized code base</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                            <a href="#" wpsight-admin-ui--accordion-toggle>Version 1.2.7 - <small>2021/10/28</small></a>
+                            <div wpsight-admin-ui--accordion-content>
+                                <div class="inner">
+
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Sanitized input fields and data</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Modifications to the Newsletter Panel in WPCasa Settings</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-update">Update</span></td>
+                                            <td>Updated CMB2 to 2.9.0</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                            <a href="#" wpsight-admin-ui--accordion-toggle>Version 1.2.6 - <small>2021/07/20</small></a>
+                            <div wpsight-admin-ui--accordion-content>
+                                <div class="inner">
+
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-new">New</span></td>
+                                            <td>Added German Formal Translation</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-new">New</span></td>
+                                            <td>Added filter wpsight_listing_text_not_available to customize the informal text when a listing is not available</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Improved embedment of previously integrated functionality from WPCasa Listings Map and WPCasa Admin Map UI</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Data for Javascript gets now provided through wp_add_inline_script instead of wp_localize_script</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Improved data escaping</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-update">Update</span></td>
+                                            <td>Updated swiper.js to 6.7.5</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                            <a href="#" wpsight-admin-ui--accordion-toggle>Version 1.2.5 - <small>2021/02/09</small></a>
+                            <div wpsight-admin-ui--accordion-content>
+                                <div class="inner">
+
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Ensure compatibility with latest version of WordPress</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Fixed admin license page issue</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                            <a href="#" wpsight-admin-ui--accordion-toggle>Version 1.2.4 - <small>2020/05/26</small></a>
+                            <div wpsight-admin-ui--accordion-content>
+                                <div class="inner">
+
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Fixed licenses activation</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                            <a href="#" wpsight-admin-ui--accordion-toggle>Version 1.2.3 - <small>2020/04/01</small></a>
+                            <div wpsight-admin-ui--accordion-content>
+                                <div class="inner">
+
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Add ability to disable listing map displaying</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                            <a href="#" wpsight-admin-ui--accordion-toggle>Version 1.2.2 - <small>2020/03/31</small></a>
+                            <div wpsight-admin-ui--accordion-content>
+                                <div class="inner">
+
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Fixed reinitialize map coordinates in some cases when dev mode is true</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                            <a href="#" wpsight-admin-ui--accordion-toggle>Version 1.2.1 - <small>2020/03/23</small></a>
+                            <div wpsight-admin-ui--accordion-content>
+                                <div class="inner">
+
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Fixed map functionality after deleting WPCasa Listing Map plugin</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                            <a href="#" wpsight-admin-ui--accordion-toggle>Version 1.2.0 - <small>2020/03/20</small></a>
+                            <div wpsight-admin-ui--accordion-content>
+                                <div class="inner">
+
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-new">New</span></td>
+                                            <td>Complete revamp of the WPCasa Admin UI</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-new">New</span></td>
+                                            <td>Integration of WPCasa Admin Map UI</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-new">New</span></td>
+                                            <td>Integration of WPCasa Listings Map</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-new">New</span></td>
+                                            <td>Ability to restore settings to default</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-new">New</span></td>
+                                            <td>Ability to delete all data</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-new">New</span></td>
+                                            <td>Added recommends items</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Improved license algorithm</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Updated file/folder structure</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Improved map searching algorithm</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Multiple plugin activation</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Tested up to WordPress 5.3.2</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Fixed bulk listing edit</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-update">Update</span></td>
+                                            <td>Updated CMB2 to 2.6.0</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <!-- Accordion > End -->
+
+                        </div><?php */?>
+                        
+                    </div>
+                    
+                </section>
+                    
 			</div>
 				
 		<?php

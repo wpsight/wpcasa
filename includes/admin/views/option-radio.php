@@ -1,4 +1,6 @@
 <?php
+  if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
   if (isset($option)) {
     $option_type = isset( $option['type'] ) ? $option['type'] : '';
     $option_id = isset( $option['id'] ) ? $this->settings_name . '[' . $option['id'] . ']' : '';
@@ -18,7 +20,7 @@
     $placeholder = isset( $option['placeholder'] ) ? 'placeholder="' . $option['placeholder'] . '"'	: '';
 ?>
 
-  <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
+  <div class="wpsight-settings-field wpsight-settings-field-<?php echo esc_attr( $option_type ); ?>">
 
     <?php
       $name = $option_name .'['. $option_id .']';
@@ -27,8 +29,8 @@
         $id = $option_css .'-'. $key;
       ?>
 
-      <input id="setting-<?php echo $id; ?>" name="<?php echo esc_attr( $option_id ); ?>" type="<?php echo $option_type; ?>" value="<?php echo esc_attr( $key ); ?>" <?php echo implode( ' ', $attributes ); ?> <?php checked( $value, $key ); ?> />
-      <label for="setting-<?php echo $id; ?>" class="label-<?php echo $option_type; ?>"><?php echo $option; ?></label>
+      <input id="setting-<?php echo esc_attr( $id ); ?>" name="<?php echo esc_attr( $option_id ); ?>" type="<?php echo esc_attr( $option_type ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php echo esc_html( implode( ' ', $attributes ) ); ?> <?php checked( $value, $key ); ?> />
+      <label for="setting-<?php echo esc_attr( $id ); ?>" class="label-<?php echo esc_attr( $option_type ); ?>"><?php echo esc_html( $option ); ?></label>
 
     <?php } ?>
 

@@ -52,7 +52,9 @@ class WPSight_Addons {
 		} ?>
 
 		<div class="wrap wpsight-addons">
-			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Add-Ons', 'wpcasa' ); ?></h2>			
+			<h2><?php
+                /* translators: %s: is the name */
+                printf( esc_html__( '%s Add-Ons', 'wpcasa' ), esc_html( WPSIGHT_NAME ) ); ?></h2>
 			<?php echo wp_kses( $addons, 'post' ); ?>
 		</div>
 		<?php

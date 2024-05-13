@@ -13,45 +13,41 @@ class WPSight_Admin {
      */
     public function __construct() {
 
+		// Include files
         include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-cpt.php';
         include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-agents.php';
-
         include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin-page-settings.php';
         include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin-page-licenses.php';
-
         include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin-color-scheme.php';
-
         include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin-helpers.php';
 
+		// Load classes
         $this->cpt				= new WPSight_Admin_CPT();
         $this->agents			= new WPSight_Admin_Agents();
-
 		$this->settings_page	= new WPSight_Admin_Settings();
         $this->license_page		= new WPSight_Admin_Licenses();
-
         $this->color_scheme		= new WPSight_Admin_Color_Scheme();
-
         $this->helpers			= new WPSight_Admin_Helpers();
 
-        add_action( 'admin_menu',						array( $this, 'admin_menu' ),					12 );
-        add_action( 'admin_enqueue_scripts',			array( $this, 'admin_enqueue_scripts' ) );
+		// Actions & Filers
+		
+        add_action( 'admin_menu',								[ $this, 'admin_menu' ], 12 );
+        add_action( 'admin_enqueue_scripts',					[ $this, 'admin_enqueue_scripts' ] );
 
-        add_action( 'admin_notices',					array( $this, 'notice_setup' ) );
+        add_action( 'admin_notices',							[ $this, 'notice_setup' ] );
 
-        add_filter( 'views_upload',						array( $this, 'media_custom_views' ) );
-        add_filter( 'views_edit-listing',				array( $this, 'listings_custom_views' ) );
-        add_filter( 'views_edit-property',				array( $this, 'listings_custom_views' ) );
-        add_filter( 'manage_users_columns',				array( $this, 'manage_users_columns' ) );
-        add_action( 'manage_users_custom_column',		array( $this, 'manage_users_custom_column' ),	10, 3 );
+        add_filter( 'views_upload',								[ $this, 'media_custom_views' ] );
+        add_filter( 'views_edit-listing',						[ $this, 'listings_custom_views' ] );
+        add_filter( 'views_edit-property',						[ $this, 'listings_custom_views' ] );
+        add_filter( 'manage_users_columns',						[ $this, 'manage_users_columns' ] );
+        add_action( 'manage_users_custom_column',				[ $this, 'manage_users_custom_column' ], 10, 3 );
+		
+		add_filter( 'install_plugins_tabs',						[ $this, 'add_addon_tab' ] );
+		add_action( 'install_plugins_wpcasa_addons',			[ $this, 'addons_page' ] );
+		add_action( 'install_themes_wpcasa_themes',				[ $this, 'themes_pag ' ] );
+		add_action( 'install_plugins_wpcasa_recommendations',	[ $this, 'recommends_page' ] );
 
-        add_filter( 'install_plugins_tabs',				array( $this, 'add_addon_tab' ) );
-        add_action( 'install_plugins_wpcasa_addons',	array( $this, 'addons_page' ), 10, 1 );
-//      add_action( 'install_plugins_wpcasa_recommends',	array( $this, 'recommends_page' ), 10, 1 );
-
-//		add_filter( 'install_themes_tabs',				array( $this, 'add_theme_tab' ) );
-//		add_action( 'install_themes_wpcasa_themes',		array( $this, 'themes_page' ), 10, 1 );
-
-    }
+	}
 
     /**
      *	admin_enqueue_scripts()
@@ -81,28 +77,28 @@ class WPSight_Admin {
         if ( in_array( $screen->id, array( 'plugins' ) ) )
             wp_enqueue_script( 'jquery-plugins-admin', WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-plugins-admin.js', array( 'jquery' ), WPSIGHT_VERSION, true );
 
-		wp_enqueue_style( 'wpsight-admin-swiper', WPSIGHT_PLUGIN_URL . '/vendor/swiper/swiper-bundle' . $suffix . '.css', array( 'cmb2-styles' ) );
-		wp_enqueue_script( 'wpsight-admin-swiper', WPSIGHT_PLUGIN_URL . '/vendor/swiper/swiper-bundle' . $suffix . '.js', array( 'jquery' ), WPSIGHT_VERSION, true );
+		wp_enqueue_style( 'wpsight-admin-swiper', WPSIGHT_PLUGIN_URL . '/vendor/swiper/swiper-bundle' . $suffix . '.css', array( 'cmb2-styles' ), '6.7.5' );
+		wp_enqueue_script( 'wpsight-admin-swiper', WPSIGHT_PLUGIN_URL . '/vendor/swiper/swiper-bundle' . $suffix . '.js', array( 'jquery' ), '6.7.5', true );
 
-        wp_enqueue_style( 'wpsight-font', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-font' . $suffix . '.css', array() );
+        wp_enqueue_style( 'wpsight-font', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-font' . $suffix . '.css', null, WPSIGHT_VERSION );
 
-        if ( in_array( $screen->id, array( 'edit-' . $post_type, $post_type, 'toplevel_page_wpsight-settings', 'wpcasa_page_wpsight-addons', 'wpcasa_page_wpsight-themes', 'wpcasa_page_wpsight-licenses', 'wpcasa_page_wpsight-recommendations' ) ) || $screen->id == 'plugin-install' && isset( $_GET['tab'] ) && $_GET['tab'] == 'wpcasa_addons' ) {
+        if ( in_array( $screen->id, array( 'edit-' . $post_type, $post_type, 'toplevel_page_wpsight-settings', 'wpcasa_page_wpsight-addons', 'wpcasa_page_wpsight-themes', 'wpcasa_page_wpsight-licenses', 'wpcasa_page_wpsight-recommendations', 'wpcasa_page_wpsight-about' ) ) || $screen->id == 'plugin-install' && isset( $_GET['tab'] ) && $_GET['tab'] == 'wpcasa_addons' ) {
 
-            wp_register_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), WPSIGHT_VERSION, true );
+            wp_register_script( 'jquery-tiptip', WPSIGHT_PLUGIN_URL . '/assets/js/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), '1.3', true );
 			
-            wp_enqueue_style( 'wpsight-admin-ui-framework', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-ui-framework' . $suffix . '.css', array( 'cmb2-styles' ) );
-            wp_enqueue_style( 'wpsight-admin', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin' . $suffix . '.css', array( 'wpsight-admin-ui-framework', 'cmb2-styles' ) );
+            wp_enqueue_style( 'wpsight-admin-ui-framework', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-ui-framework' . $suffix . '.css', array( 'cmb2-styles' ), WPSIGHT_VERSION );
+            wp_enqueue_style( 'wpsight-admin', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin' . $suffix . '.css', array( 'wpsight-admin-ui-framework', 'cmb2-styles' ), WPSIGHT_VERSION );
 
             wp_enqueue_script( 'wpsight_admin_js', WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-admin' . $suffix . '.js', array( 'jquery', 'jquery-tiptip', 'jquery-ui-datepicker' ), WPSIGHT_VERSION, true );
 			
-			wp_add_inline_script( 'wpsight_admin_js', 'const WPCASA_SETTINGS = ' . json_encode( array(
+			wp_add_inline_script( 'wpsight_admin_js', 'const WPCASA_SETTINGS = ' . wp_json_encode( array(
 				'name' => $this->settings_page->settings_name
 			) ), 'before' );
 
         }
 		
 		if ( $screen->id == 'wpcasa_page_wpsight-about' )
-            wp_enqueue_style( 'wpsight-admin-page-about', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-page-about' . $suffix . '.css' );
+            wp_enqueue_style( 'wpsight-admin-page-about', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-page-about' . $suffix . '.css', null, WPSIGHT_VERSION );
 
         if ( in_array( $screen->id, array( 'profile', 'user-edit' ) ) )
             wp_enqueue_media();
@@ -124,24 +120,22 @@ class WPSight_Admin {
      */
     public function admin_menu() {
 
-        add_menu_page( WPSIGHT_NAME, WPSIGHT_NAME, 'manage_options', 'wpsight-settings', array( $this->settings_page, 'output' ), 'dashicons-marker' );
+        add_menu_page( WPSIGHT_NAME, WPSIGHT_NAME, 'manage_options', 'wpsight-settings', [ $this->settings_page, 'output' ], 'dashicons-marker' );
 
-        add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Settings', 'wpcasa' ),  __( 'Settings', 'wpcasa' ) , 'manage_options', 'wpsight-settings', array( $this->settings_page, 'output' ) );
+        add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Settings', 'wpcasa' ),  __( 'Settings', 'wpcasa' ) , 'manage_options', 'wpsight-settings', [ $this->settings_page, 'output' ] );
 
         if ( apply_filters( 'wpsight_show_addons_page', true ) )
-            add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Add-Ons', 'wpcasa' ),  __( 'Add-Ons', 'wpcasa' ) , 'manage_options', 'wpsight-addons', array( $this, 'addons_page' ) );
-
-//        if ( apply_filters( 'wpsight_show_recommend_page', true ) )
-//            add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Recommendations', 'wpcasa' ),  __( 'Recommendations', 'wpcasa' ) , 'manage_options', 'wpsight-recommendations', array( $this, 'recommends_page' ) );
+            add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Add-Ons', 'wpcasa' ),  __( 'Add-Ons', 'wpcasa' ) , 'manage_options', 'wpsight-addons', [ $this, 'addons_page' ] );
 
         if ( apply_filters( 'wpsight_show_themes_page', true ) )
-            add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Themes', 'wpcasa' ),  __( 'Themes', 'wpcasa' ) , 'manage_options', 'wpsight-themes', array( $this, 'themes_page' ) );
+            add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Themes', 'wpcasa' ),  __( 'Themes', 'wpcasa' ) , 'manage_options', 'wpsight-themes', [ $this, 'themes_page' ] );
 
         if ( apply_filters( 'wpsight_show_licenses_page', true ) )
-            add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Licenses', 'wpcasa' ),  __( 'Licenses', 'wpcasa' ) , 'manage_options', 'wpsight-licenses', array( $this->license_page, 'output' ) );
+            add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'Licenses', 'wpcasa' ),  __( 'Licenses', 'wpcasa' ) , 'manage_options', 'wpsight-licenses', [ $this->license_page, 'output' ] );
 
         if ( apply_filters( 'wpsight_show_about_page', true ) )
-            add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'About', 'wpcasa' ),  __( 'About', 'wpcasa' ) , 'manage_options', 'wpsight-about', array( $this, 'about_page' ) );
+            add_submenu_page(  'wpsight-settings', WPSIGHT_NAME . ' ' . __( 'About', 'wpcasa' ),  __( 'About', 'wpcasa' ) , 'manage_options', 'wpsight-about', [ $this, 'about_page' ] );
+		
     }
 
     /**
@@ -167,31 +161,6 @@ class WPSight_Admin {
         $addons = include WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin-page-addons.php';
         $addons->output();
     }
-
-    /**
-     *	recommends_page()
-     *
-     *	Add WPSight recommends page to sub menu.
-     *
-     *	@access	public
-     *
-     *	@since 1.0.0
-     */
-//    public function recommends_page() {
-//        $addons = include WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-admin-page-recommends.php';
-//        $addons->output();
-//    }
-
-    /**
-     * Adds a new tab to the install plugins page.
-     *
-     * @return void
-     */
-    public function add_theme_tab( $tabs ) {
-        $tabs['wpcasa_themes'] = __( 'WPCasa ', 'wpcasa' ) . '<span class="wpcasa-themes">' . __( 'Themes', 'wpcasa' ) . '</span>' ;
-        return $tabs;
-    }
-
 
     /**
      *	themes_page()
@@ -445,20 +414,9 @@ class WPSight_Admin {
             'type'		=> 'heading'
         );
 
-        /** Toggle standard details */
-
-//		$options_listings['listing_details'] = array(
-//			'name'		=> __( 'Listing Details', 'wpcasa' ),
-//			'desc'	=> __( 'Please check the box to edit the listing details.', 'wpcasa' ),
-//			'id'		=> 'listing_features',
-//			'type'		=> 'checkbox',
-//			'default'	=> '0'
-//		);
-
         /** Loop through standard details */
 
         $i=1;
-
         $position=150;
 
         foreach ( wpsight_details() as $detail_id => $value ) {
@@ -476,9 +434,6 @@ class WPSight_Admin {
                 )
             );
 
-//			$i++;
-//			$position++;
-
         }
 
         $options_listings['heading_rental_periods'] = array(
@@ -487,16 +442,6 @@ class WPSight_Admin {
             'position'	=> 300,
             'type'		=> 'heading'
         );
-
-        /** Toggle rental periods */
-
-//		$options_listings['rental_periods'] = array(
-//			'name'		=> __( 'Rental Periods', 'wpcasa' ),
-//			'desc'	=> __( 'Please check the box to edit the rental periods.', 'wpcasa' ),
-//			'id'		=> 'rental_periods',
-//			'type'		=> 'checkbox',
-//			'default'	=> '0'
-//		);
 
         /** Loop through rental periods */
 
@@ -513,9 +458,6 @@ class WPSight_Admin {
                 'class'		=> '',
                 'default'	=> $value
             );
-
-//			$i++;
-//			$position++;
 
         }
 
@@ -613,7 +555,7 @@ class WPSight_Admin {
 
         $options_maps['heading_listings_map_api'] = array(
             'name'	=> __( 'Map API', 'wpcasa' ),
-            'desc'	=> __( '', 'wpcasa' ),
+            'desc'	=> __( 'Here you can enter Map API', 'wpcasa' ),
             'id'	=> 'heading_listings_map_api',
             'type'	=> 'heading',
             'position'	=> '490'
@@ -621,6 +563,7 @@ class WPSight_Admin {
 
         $options_maps['google_maps_api_key'] = array(
             'name'		=> __( 'Google Maps API', 'wpcasa' ),
+            /* translators: %s: is the link to google maps */
             'desc'		=> sprintf( __( 'If necessary, please enter your Google Maps API key (<a href="%s" target="_blank">register here</a>).', 'wpcasa' ), 'https://developers.google.com/maps/documentation/javascript/get-api-key' ),
             'id'		=> 'google_maps_api_key',
             'type'		=> 'text',
@@ -712,7 +655,7 @@ class WPSight_Admin {
 
         $post_ids_meta = $wpdb->get_col( $wpdb->prepare( "
 	    SELECT DISTINCT post_id FROM {$wpdb->postmeta}
-	    WHERE meta_value LIKE '%s'
+	    WHERE meta_value LIKE %s
 	    ", $wp_query->query_vars['s'] ) );
 
         if ( ! empty( $post_ids_meta ) && get_search_query() !== null ) {
@@ -759,8 +702,8 @@ class WPSight_Admin {
         // Search custom fields for listing ID
 
         $post_ids_meta = $wpdb->get_col( $wpdb->prepare( "
-	    SELECT DISTINCT post_id FROM {$wpdb->postmeta}
-	    WHERE meta_value LIKE '%s'
+	    SELECT DISTINCT post_id FROM $wpdb->postmeta
+	    WHERE meta_value LIKE %s
 	    ", $wp_query->query_vars['s'] ) );
 
         if ( empty( $post_ids_meta ) )
@@ -912,7 +855,14 @@ class WPSight_Admin {
             $link = admin_url() . 'admin.php?page=wpsight-settings#settings-listings';
 
             echo '<div id="" class="notice notice-warning">';
-            echo '<p>' . sprintf( __( '<strong>Welcome to WPCasa</strong> &#8211; You&lsquo;re almost ready. Now go ahead and <a href="%s">setup your main listings page</a> as this is required in order to properly list your properties.', 'wpcasa' ), $link ) . '</p>';
+            echo '<p>' .
+            sprintf( 
+                wp_kses( 
+                            /* translators: %s: is the link */
+                            __( '<strong>Welcome to WPCasa</strong> &#8211; You&lsquo;re almost ready. Now go ahead and <a href="%s">setup your main listings page</a> as this is required in order to properly list your properties.', 'wpcasa' ),
+                            array( 'strong' => array(), 'a' => array( 'href' => array() ) ) )
+                            , esc_url( $link ) ) .
+                '</p>';
             echo '</div>';
 
         }
@@ -932,22 +882,28 @@ class WPSight_Admin {
     public static function recommendations() {
 
         $recommendations = [
-            'hubspot' => [
-                'title' =>  __( '', 'wpcasa' ),
-                'description' => __( '', 'wpcasa' ),
-                'image_url' => WPSIGHT_PLUGIN_URL . '/assets/img/wpcasa-recommendation-hubspot.jpg',
-                'button_text' => __( '', 'wpcasa' ),
-                'button_link' => 'https://wpcasa.com/hubspot?ref=wpcasa-admin-dashboard',
-            ],
-            'premium' => [
-                'title' =>  __( '', 'wpcasa' ),
-                'description' => __( '', 'wpcasa' ),
-                'image_url' => WPSIGHT_PLUGIN_URL . '/assets/img/wpcasa-recommendation-premium.jpg',
-                'button_text' => __( '', 'wpcasa' ),
-                'button_link' => 'https://wpcasa.com?ref=wpcasa-admin-dashboard',
-            ],
+            'shortpixel' => [
+                'title' =>  __( 'ShortPixel Image Compression', 'wpcasa' ),
+                'description' => __( 'Here you can compress your images for free or create your personal ShortPixel account', 'wpcasa' ),
+                'image_url' => WPSIGHT_PLUGIN_URL . '/assets/img/wpcasa-recommendation-shortpixel.jpg',
+                'button_text' => __( 'ShortPixel', 'wpcasa' ),
+                'button_link' => 'https://shortpixel.com/otp/af/95WCWLA889753',
+            ]
+
         ];
 
+        if( ! wpsight_is_premium()) {
+			
+			$recommendations['premium'] = [
+					'title' =>  __( 'Premium', 'wpcasa' ),
+					'description' => __( 'Here you can upgrade to premium', 'wpcasa' ),
+					'image_url' => WPSIGHT_PLUGIN_URL . '/assets/img/wpcasa-recommendation-premium.jpg',
+					'button_text' => __( 'Premium', 'wpcasa' ),
+					'button_link' => 'https://wpcasa.com?ref=wpcasa-admin-dashboard',
+			];
+			
+		}
+		
         $recommendations = apply_filters( 'wpsight_recommendations', $recommendations );
 
         return $recommendations;
@@ -956,6 +912,3 @@ class WPSight_Admin {
 
 
 }
-
-if( ! class_exists( 'EDD_SL_Plugin_Updater' ) )
-    include(dirname(__FILE__) . '/EDD_SL_Plugin_Updater.php');

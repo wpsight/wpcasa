@@ -16,6 +16,7 @@
  *	
  *	@since 1.0.0
  */
+
 function wpsight_details() {
     return WPSight_General::details();
 }
@@ -109,7 +110,7 @@ function wpsight_get_offer( $offer ) {
  *	@since 1.0.0
  */
 function wpsight_offer( $offer ) {
-	echo wpsight_get_offer( $offer );
+	echo esc_html( wpsight_get_offer( $offer ) );
 }
 
 /**
@@ -123,7 +124,7 @@ function wpsight_offer( $offer ) {
  *	@since 1.0.0
  */
 function wpsight_offer_color( $offer ) {
-	echo wpsight_get_offer_color( $offer );
+	echo esc_html( wpsight_get_offer_color( $offer ) );
 }
 
 /**
@@ -182,7 +183,7 @@ function wpsight_get_rental_period( $period ) {
  *	@since 1.0.0
  */
 function wpsight_rental_period( $period ) {
-    echo wpsight_get_rental_period( $period );
+    echo esc_html( wpsight_get_rental_period( $period ) );
 }
 
 /**
@@ -226,7 +227,7 @@ function wpsight_get_measurement( $measurement ) {
  *	@since 1.0.0
  */
 function wpsight_measurement( $measurement ) {
-    echo wpsight_get_measurement( $measurement );
+    echo esc_html( wpsight_get_measurement( $measurement ) );
 }
 
 /**
@@ -332,7 +333,7 @@ function wpsight_get_currency( $currency = '' ) {
  *	@since 1.0.0
  */
 function wpsight_currency( $currency = '' ) {
-	echo wpsight_get_currency( $currency );
+	echo esc_html( wpsight_get_currency( $currency ) );
 }
 
 /**
@@ -362,4 +363,150 @@ function wpsight_spaces() {
  */
 function wpsight_listing_query_vars() {
 	return WPSight_General::listing_query_vars();
+}
+
+/**
+ * wpsight_allowed_html_tags()
+ *
+ * Return allowed tags with its attributes
+ *
+ * @return array Allowed tags and its attributes
+ *
+ */
+function wpsight_allowed_html_tags() {
+
+    $wpsight_tags = wp_kses_allowed_html( 'post' );
+	// iframe
+	$wpsight_tags['iframe'] = array(
+		'src'             => array(),
+		'height'          => array(),
+		'width'           => array(),
+		'frameborder'     => array(),
+		'allowfullscreen' => array(),
+	);
+    $wpsight_tags['form'] = array(
+        'class'          => true,
+        'id'             => true,
+        'action'         => true,
+        'accept'         => true,
+        'accept-charset' => true,
+        'enctype'        => true,
+        'method'         => true,
+        'name'           => true,
+        'target'         => true,
+    );
+	// form fields - input
+	$wpsight_tags['input'] = array(
+		'class'       => array(),
+		'id'          => array(),
+		'name'        => array(),
+		'value'       => array(),
+		'type'        => array(),
+        'title'       => array(),
+        'placeholder' => array(),
+        'checked'     => array(),
+	);
+	// select
+	$wpsight_tags['select'] = array(
+		'class'  => array(),
+		'id'     => array(),
+		'name'   => array(),
+		'value'  => array(),
+		'type'   => array(),
+	);
+	// select options
+	$wpsight_tags['option'] = array(
+        'class'        => array(),
+        'id'           => array(),
+		'selected'     => array(),
+        'value'        => array(),
+        'data-default' => array()
+	);
+	// style
+	$wpsight_tags['style'] = array(
+		'types' => array(),
+	);
+
+	return apply_filters( 'wpsight_allowed_html_tags', $wpsight_tags );
+}
+
+/**
+ * wpsight_get_img_html()
+ * 
+ * Return allowed tags and attributes with for <img>
+ * 
+ * @return array Allowed tags and its attributes
+ * 
+ */
+function wpsight_get_img_html() {
+	$img_html = array(
+		'img' => array(
+			'title' 	=> array(),
+			'src'		=> array(),
+			'alt'		=> array(),
+			'width'		=> array(),
+			'height' 	=> array(),
+		)
+	);
+	return $img_html;
+}
+
+/**
+ * wpsight_get_listing_html()
+ * 
+ * Return allowed tags and attributes with for listing template
+ * 
+ * @return array Allowed tags and its attributes
+ *
+ * @since 1.2.9.2
+ */
+function wpsight_get_listing_html() {
+
+	$listing_html = array(
+		'img' => array(
+			'title' 	=> array(),
+			'src'		=> array(),
+			'alt'		=> array(),
+			'width'		=> array(),
+			'height' 	=> array(),
+			'class'		=> array(),
+			'style'		=> array(),
+			'decoding'	=> array(),
+			'data-mh'	=> array(),
+		),
+		'div' => array(
+			'class' => array(),
+		),
+		'span' => array(
+			'class' => array()
+		)
+	);
+
+	return $listing_html;
+
+}
+
+/**
+ * wpsight_get_listing_details_html()
+ * 
+ * Return allowed tags and attributes with for details list
+ * 
+ * @return array Allowed tags and its attributes
+ * 
+ */
+function wpsight_get_listing_details_html() {
+	$listing_details_html = array(
+		'span' => array(
+			'class' => array(),
+		),
+		'i' => array(
+			'class' => array()
+		),
+		'a' => array(
+			'class' => array(),
+			'rel'	=> array(),
+			'href'	=> array()
+		)
+	);
+	return $listing_details_html;
 }

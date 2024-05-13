@@ -151,3 +151,185 @@
 .wpsight-admin-ui-tag-success {background: rgb(0,204,102);}
 .wpsight-admin-ui-tag-warning {background: rgb(255,102,51);}
 .wpsight-admin-ui-tag-error {background: rgb(255,51,51);}
+
+
+/**
+ * WPSIGHT ADMIN UI FRAMEWORK > INDICATORS
+ */
+
+.wpsight-admin-ui-indicator {
+	background: rgba(100, 100, 100, 1);
+	border-radius: 50%;
+	box-shadow: 0 0 0 0 rgba(100, 100, 100, 1);
+	height: 12px;
+	width: 12px;
+	display: block;
+	transform: scale(1);
+	animation: pulse-black 2s infinite;
+}
+
+@keyframes pulse-black {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(100, 100, 100, 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(100, 100, 100, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(100, 100, 100, 0);
+	}
+}
+
+.wpsight-admin-ui-indicator.wpsight-admin-ui-indicator-error {
+	background: rgba(255, 82, 82, 1);
+	box-shadow: 0 0 0 0 rgba(255, 82, 82, 1);
+	animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+	}
+}
+
+.wpsight-admin-ui-indicator.wpsight-admin-ui-indicator-warning {
+	background: rgba(255, 121, 63, 1);
+	box-shadow: 0 0 0 0 rgba(255, 121, 63, 1);
+	animation: pulse-orange 2s infinite;
+}
+
+@keyframes pulse-orange {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 121, 63, 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(255, 121, 63, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 121, 63, 0);
+	}
+}
+
+.wpsight-admin-ui-indicator.wpsight-admin-ui-indicator-notice {
+	background: rgba(255, 177, 66, 1);
+	box-shadow: 0 0 0 0 rgba(255, 177, 66, 1);
+	animation: pulse-yellow 2s infinite;
+}
+
+@keyframes pulse-yellow {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 177, 66, 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(255, 177, 66, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 177, 66, 0);
+	}
+}
+
+.wpsight-admin-ui-indicator.wpsight-admin-ui-indicator-info {
+	background: rgba(52, 172, 224, 1);
+	box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
+	animation: pulse-blue 2s infinite;
+}
+
+@keyframes pulse-blue {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+	}
+}
+
+.wpsight-admin-ui-indicator.wpsight-admin-ui-indicator-success {
+	background: rgba(51, 217, 178, 1);
+	box-shadow: 0 0 0 0 rgba(51, 217, 178, 1);
+	animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(51, 217, 178, 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+	}
+}
+
+/**
+ * WPSIGHT ADMIN UI FRAMEWORK > ACCORDION
+ */
+.changelog {
+    width:90%;
+    margin:30px auto 0 auto;
+    padding: 50px 0;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    -o-border-radius:8px;
+    border-radius:8px;
+    overflow:hidden;
+    background: #222;
+}
+
+[wpsight-admin-ui--accordion-toggle] { 
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 25px;
+    display: block;
+    cursor: pointer;
+}
+
+[wpsight-admin-ui--accordion-content] { 
+    height: 0px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+[wpsight-admin-ui--accordion-content] .acc-content-inner {padding:30px;}
+[wpsight-admin-ui--accordion-content].open {height: auto;}
+[wpsight-admin-ui--accordion-toggle].selected {color:#1ABC9C;}

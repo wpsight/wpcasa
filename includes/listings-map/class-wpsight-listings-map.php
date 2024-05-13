@@ -8,6 +8,8 @@ if ( ! defined( 'ABSPATH' ) )
  */
 class WPSight_Listings_Map {
 
+	private static $instance = false;
+
 	/**
 	 *	Constructor
 	 */
@@ -44,8 +46,8 @@ class WPSight_Listings_Map {
 		}
 
 		// Actions
-
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
+		add_action( 'admin_init', array( $this, 'activation' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
 		
 		// Display Show/hide map link in listings panel
@@ -68,8 +70,10 @@ class WPSight_Listings_Map {
 	 */
 	public static function init( $wpsight ) {
 		
-		if ( ! isset( $wpsight->listings_map ) )
+		if ( false === self::$instance ) {
 			$wpsight->listings_map = new self();
+			self::$instance = true;
+		}
 
 		do_action_ref_array( 'wpsight_init_listings_map', array( &$wpsight ) );
 
@@ -107,19 +111,22 @@ class WPSight_Listings_Map {
 		// Script debugging?
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_style( 'wpsight-listings-map', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/css/wpsight-listings-map' . $suffix . '.css', array(), WPSIGHT_LISTINGS_MAP_VERSION );
+		if ( is_singular( 'listing') ) {
+			wp_enqueue_style( 'wpsight-listings-map', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/css/wpsight-listings-map' . $suffix . '.css', WPSIGHT_LISTINGS_MAP_VERSION, 'all' );
+		}
 
-		wp_register_script( 'wpsight-map-googleapi', '//maps.googleapis.com/maps/api/js', null, WPSIGHT_LISTINGS_MAP_VERSION );
 
-		wp_register_script( 'wpsight-map-infobox', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/infobox' . $suffix . '.js', array( 'wpsight-map-googleapi' ), WPSIGHT_LISTINGS_MAP_VERSION );
+		wp_register_script( 'wpsight-map-googleapi', '//maps.googleapis.com/maps/api/js', null, WPSIGHT_LISTINGS_MAP_VERSION, array( 'in_footer' => false ) );
 
-		wp_register_script( 'wpsight-map-markerclusterer', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/markerclusterer' . $suffix . '.js', array( 'wpsight-map-googleapi' ), WPSIGHT_LISTINGS_MAP_VERSION );
+		wp_register_script( 'wpsight-map-infobox', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/infobox' . $suffix . '.js', array( 'wpsight-map-googleapi' ), WPSIGHT_LISTINGS_MAP_VERSION, array( 'in_footer' => false ) );
+
+		wp_register_script( 'wpsight-map-markerclusterer', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/markerclusterer' . $suffix . '.js', array( 'wpsight-map-googleapi' ), WPSIGHT_LISTINGS_MAP_VERSION, array( 'in_footer' => false ) );
 		
-		wp_register_script( 'wpsight-listings-map', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/wpcasa-listings-map' . $suffix . '.js', array( 'wpsight-map-googleapi', 'wpsight-map-markerclusterer', 'wpsight-map-infobox' ), WPSIGHT_LISTINGS_MAP_VERSION );
+		wp_register_script( 'wpsight-listings-map', WPSIGHT_LISTINGS_MAP_PLUGIN_URL . '/assets/js/wpcasa-listings-map' . $suffix . '.js', array( 'wpsight-map-googleapi', 'wpsight-map-markerclusterer', 'wpsight-map-infobox' ), WPSIGHT_LISTINGS_MAP_VERSION, array( 'in_footer' => false ) );
 
 	}
 
-	/**
+/**
 	 *	panel_map_link()
 	 *	
 	 *	Add Show Map link to listings panel.
@@ -130,12 +137,12 @@ class WPSight_Listings_Map {
 	 */
 	public function panel_map_link() {
 
-        if( ! wpsight_get_option( 'listings_map_panel' ) )
-            return;
+        if( wpsight_get_option( 'listings_map_panel' ) ) {
 
-		$link = sprintf( '<div class="listings-panel-action"><a href="#" class="toggle-map">%1$s</a></div>', apply_filters( 'wpsight_listings_panel_map_link_label', wpsight_get_option( 'listings_map_panel_link', __( 'Toggle Map', 'wpcasa-listings-map' ) ) ) );
-		
-		echo apply_filters( 'wpsight_listings_panel_map_link', $link );
+			$link = sprintf( '<div class="listings-panel-action"><a href="#" class="toggle-map">%1$s</a></div>', apply_filters( 'wpsight_listings_panel_map_link_label', wpsight_get_option( 'listings_map_panel_link', __( 'Toggle Map', 'wpcasa-listings-map' ) ) ) );
+			
+			echo wp_kses( apply_filters( 'wpsight_listings_panel_map_link', $link ), array( 'div' => array( 'class' => array() ), 'a' => array( 'href' => array(), 'class' => array() ) ) );
+		}
 		
 	}
 	
@@ -153,21 +160,21 @@ class WPSight_Listings_Map {
 	 *	@since 1.1.0
 	 */
 	public function panel_map( $panel, $query ) {
-//	TODO: temporary solution, delete till wpcasa 1.3
-    if ( wpsight_get_option('listings_map_display') == 1 )  {
-		if( isset( $query->post_count ) && $query->post_count >= 1 ) {
-			$args = array(
-				'map_id'		=> uniqid( 'listings-panel-' ),
-				'toggle'		=> false,
-				'toggle_button'	=> 'listings-panel',
-			);
-			
-			$panel_map = wpsight_get_listings_map( $args, $query );
-			
-			$panel = $panel . $panel_map;
-		
+		//	TODO: temporary solution, delete till wpcasa 1.3
+		if ( wpsight_get_option('listings_map_panel') )  {
+			if( isset( $query->post_count ) && $query->post_count >= 1 ) {
+				$args = array(
+					'map_id'		=> uniqid( 'listings-panel-' ),
+					'toggle'		=> false,
+					'toggle_button'	=> 'listings-panel',
+				);
+				
+				$panel_map = wpsight_get_listings_map( $args, $query );
+				
+				$panel = $panel . $panel_map;
+
+			}
 		}
-    }
 		
 		return $panel;
 		
@@ -190,6 +197,8 @@ class WPSight_Listings_Map {
 	 */
 	public static function activation() {
 
+		if ( self::$instance ) return;
+
 		// Create map page
 
 		$page_data = array(
@@ -208,6 +217,7 @@ class WPSight_Listings_Map {
 		$options = array(
 			'listings_map_page'				=> $page_id,
 			'listings_map_panel'			=> '1',
+			'listings_map_display'			=> '0',
 			'listings_map_panel_link'		=> __( 'Toggle Map', 'wpcasa-listings-map' ),
 			'listings_map_nr'				=> 50,
 			'listings_map_width'			=> '100%',
@@ -229,13 +239,9 @@ class WPSight_Listings_Map {
 			wpsight_add_option( $option, $value );
 
 		}
-
 	}
 
 }
-
-// Activation Hook
-register_activation_hook( __FILE__, array( 'WPSight_Listings_Map', 'activation' ) );
 
 // Initialize plugin on wpsight_init
 add_action( 'wpsight_init', array( 'WPSight_Listings_Map', 'init' ) );

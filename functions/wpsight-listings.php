@@ -121,7 +121,7 @@ function wpsight_get_listing_price_raw( $post_id = '' ) {
  *	@since 1.0.0
  */
 function wpsight_listing_price_raw( $post_id = '' ) {
-	echo wpsight_get_listing_price_raw( $post_id );
+	echo wp_kses_post( wpsight_get_listing_price_raw( $post_id ) );
 }
 
 /**
@@ -152,7 +152,7 @@ function wpsight_get_listing_offer( $post_id = '', $label = true ) {
  *	@since 1.0.0
  */
 function wpsight_listing_offer( $post_id = '', $label = true ) {
-	echo wpsight_get_listing_offer( $post_id, $label );
+	echo esc_html( wpsight_get_listing_offer( $post_id, $label ) );
 }
 
 /**
@@ -183,7 +183,7 @@ function wpsight_get_listing_period( $post_id = '', $label = true ) {
  *	@since 1.0.0
  */
 function wpsight_listing_period( $post_id = '', $label = true ) {
-	echo wpsight_get_listing_period( $post_id, $label );
+	echo esc_html( wpsight_get_listing_period( $post_id, $label ) );
 }
 
 /**
@@ -214,7 +214,7 @@ function wpsight_get_listing_detail( $detail, $post_id = '' ) {
  *	@since 1.0.0
  */
 function wpsight_listing_detail( $detail, $post_id = '' ) {
-	echo wpsight_get_listing_detail( $detail, $post_id );
+	echo wp_kses( wpsight_get_listing_detail( $detail, $post_id ), wp_kses_allowed_html() );
 }
 
 /**
@@ -253,7 +253,7 @@ function wpsight_listing_details( $post_id = '', $details = false, $formatted = 
 	// Only echo if not array
 
 	if ( ! is_array( $listing_details ) ) {
-		echo $listing_details;
+		echo wp_kses( $listing_details, array( 'div' => array( 'class' => array() ), 'span' => array( 'class' => array() ) ) );
 	} else {
 		// Echo print_r array for debugging
 		?><pre><?php print_r( $listing_details ); ?></pre><?php
@@ -296,7 +296,7 @@ function wpsight_listing_summary( $post_id = '', $details = false, $formatted = 
 	// Only echo if not array
 
 	if ( ! is_array( $listing_summary ) ) {
-		echo $listing_summary;
+		echo wp_kses_post( $listing_summary );
 	} else {
 		// Echo print_r array for debugging
 		?><pre><?php print_r( $listing_summary ); ?></pre><?php
@@ -334,7 +334,7 @@ function wpsight_get_listing_id( $post_id = '', $prefix = '' ) {
  *	@since 1.0.0
  */
 function wpsight_listing_id( $post_id = '', $prefix = '' ) {
-	echo wpsight_get_listing_id( $post_id, $prefix );
+	echo esc_html( wpsight_get_listing_id( $post_id, $prefix ) );
 }
 
 /**
@@ -372,7 +372,21 @@ function wpsight_get_listing_price( $post_id = '', $before = '', $after = '', $a
  *	@since 1.0.0
  */
 function wpsight_listing_price( $post_id = '', $before = '', $after = '', $args = array() ) {
-	echo wpsight_get_listing_price( $post_id, $before, $after, $args );
+	$price_html = array(
+		'div' => array(
+			'class' => array()
+		),
+		'span' => array(
+			'class' => array(),
+			'itemprop' => array(),
+			'content' => array(),
+		),
+		'meta' => array(
+			'itemprop' => array(),
+			'content' => array()
+		)
+	);
+	echo wp_kses( wpsight_get_listing_price( $post_id, $before, $after, $args ), $price_html );
 }
 
 /**
@@ -414,7 +428,7 @@ function wpsight_get_listing_terms( $taxonomy = '', $post_id = '', $sep = '', $t
  *	@since 1.0.0
  */
 function wpsight_listing_terms( $taxonomy = '', $post_id = '', $sep = '', $term_before = '', $term_after = '', $linked = true, $reverse = false ) {
-	echo wpsight_get_listing_terms( $taxonomy, $post_id, $sep, $term_before, $term_after, $linked, $reverse );
+	echo wp_kses( wpsight_get_listing_terms( $taxonomy, $post_id, $sep, $term_before, $term_after, $linked, $reverse ), wpsight_get_listing_details_html() );
 }
 
 /**
@@ -447,7 +461,7 @@ function wpsight_get_listing_thumbnail( $post_id = '', $size = 'thumbnail', $att
  *	@since 1.0.0
  */
 function wpsight_listing_thumbnail( $post_id = '', $size = 'thumbnail', $attr = '', $default = '', $formatted = 'wpsight-listing-thumbnail' ) {
-	echo wpsight_get_listing_thumbnail( $post_id, $size, $attr, $default, $formatted );
+	echo wp_kses( wpsight_get_listing_thumbnail( $post_id, $size, $attr, $default, $formatted ), wpsight_get_listing_html() );
 }
 
 /**
@@ -478,7 +492,7 @@ function wpsight_get_listing_thumbnail_url( $post_id = '', $size = 'thumbnail' )
  *	@since 1.0.0
  */
 function wpsight_listing_thumbnail_url( $post_id = '', $size = 'thumbnail' ) {
-	echo wpsight_get_listing_thumbnail_url( $post_id, $size );
+	echo esc_url( wpsight_get_listing_thumbnail_url( $post_id, $size ) );
 }
 
 /**

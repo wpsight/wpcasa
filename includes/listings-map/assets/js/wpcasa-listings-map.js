@@ -1,13 +1,26 @@
 (function($) {
 	
 	var mapOptions = wpsightMap.map;
+
+	
 	
 	if( 'true' != mapOptions.map_page ) {
 	
-		if($.cookie(mapOptions.cookie) != 'closed') {
+		// if( $.cookie(mapOptions.cookie) != 'closed' ) {
+		// 	$('#map-toggle-' + mapOptions.id).show();
+		// 	$('#map-toggle-' + mapOptions.id + ' .toggle-map').addClass('open');
+		// 	initialize(mapOptions.id);
+		// } else {
+		// 	$('#map-toggle-' + mapOptions.id).hide();
+		// }
+
+		
+		if ( mapOptions.default_display ) {
 			$('#map-toggle-' + mapOptions.id).show();
 			$('#map-toggle-' + mapOptions.id + ' .toggle-map').addClass('open');
 			initialize(mapOptions.id);
+		} else {
+			$('#map-toggle-' + mapOptions.id).hide();
 		}
 		
 		$('.toggle-map').click(function(e) {

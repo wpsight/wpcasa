@@ -191,13 +191,13 @@ class WPSight_Geocode {
 
 		$transient_name              = 'geocode_' . md5( $raw_address );
 		$geocoded_address            = get_transient( $transient_name );
-		$jm_geocode_over_query_limit = get_transient( 'jm_geocode_over_query_limit' );
+		$wpsight_geocode_over_query_limit = get_transient( 'wpsight_geocode_over_query_limit' );
 		
 		$api_key = wpsight_get_option( 'google_maps_api_key' );
 
 		// Query limit reached - don't geocode for a while
 
-		if ( ! $api_key && $jm_geocode_over_query_limit && false === $geocoded_address )
+		if ( ! $api_key && $wpsight_geocode_over_query_limit && false === $geocoded_address )
 			return false;
 
 		try {
@@ -237,7 +237,7 @@ class WPSight_Geocode {
 						break;
 
 						case 'OVER_QUERY_LIMIT' :
-							set_transient( 'jm_geocode_over_query_limit', 1, HOUR_IN_SECONDS );
+							set_transient( 'wpsight_geocode_over_query_limit', 1, HOUR_IN_SECONDS );
 							throw new Exception( __( "Query limit reached", 'wpcasa' ) );
 						break;
 

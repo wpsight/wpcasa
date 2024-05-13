@@ -1,4 +1,6 @@
-<div class="wpsight-infobox" id="wpsight-infobox-<?php echo get_the_id() ?>">
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+
+<div class="wpsight-infobox" id="wpsight-infobox-<?php the_id(); ?>">
 
 	<div class="infobox-image">
 		<a href="<?php the_permalink(); ?>">
@@ -29,7 +31,7 @@
 	</div><!-- .infobox-content -->
 
 	<div class="infobox-footer">
-		<p><a href="<?php the_permalink(); ?>" class="button"><?php _e( 'View details', 'wpsight-listings-map' ) ?></a></p>
+		<p><a href="<?php the_permalink(); ?>" class="button"><?php echo esc_html__( 'View details', 'wpsight-listings-map' ) ?></a></p>
 	</div>
 
 </div>

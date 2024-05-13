@@ -1,5 +1,7 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+
 <section>
 	
-	<p><?php _e( 'Sorry, but no listing matches your criteria.', 'wpcasa' ); ?></p>
+	<p><?php esc_html__( 'Sorry, but no listing matches your criteria.', 'wpcasa' ); ?></p>
 	
 </section>

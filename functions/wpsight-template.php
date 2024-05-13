@@ -111,7 +111,9 @@ function wpsight_get_templates_url() {
  *	@since 1.0.0
  */
 function wpsight_orderby( $args = array() ) {
-	echo wpsight_get_orderby( $args );		
+	$allowed_html = wpsight_allowed_html_tags();
+	$orderby_select = wpsight_get_orderby( $args );
+	echo wp_kses( $orderby_select, $allowed_html );
 }
 
 /**
@@ -153,8 +155,10 @@ function wpsight_get_panel( $args = array() ) {
  *	
  *	@since 1.0.0
  */
-function wpsight_panel( $args = array() ) {	
-	echo wpsight_get_panel( $args );
+function wpsight_panel( $args = array() ) {
+	$allowed_html = wpsight_allowed_html_tags();
+	$panel_html = wpsight_get_panel( $args );
+	echo wp_kses( $panel_html, $allowed_html );
 }
 
 /**
@@ -186,7 +190,9 @@ function wpsight_get_listing_title( $post_id = '', $actions = array() ) {
  *	@since 1.0.0
  */
 function wpsight_listing_title( $post_id = '', $actions = array() ) {	
-	echo wpsight_get_listing_title( $post_id, $actions );
+	$allowed_html = wpsight_allowed_html_tags();
+	$listing_title = wpsight_get_listing_title( $post_id, $actions );
+	echo wp_kses( $listing_title, $allowed_html );
 }
 
 /**
@@ -212,8 +218,10 @@ function wpsight_get_archive_title() {
  *	
  *	@since 1.0.0
  */
-function wpsight_archive_title() {	
-	echo wpsight_get_archive_title();
+function wpsight_archive_title() {
+	$allowed_html = wpsight_allowed_html_tags();
+	$archive_title = wpsight_get_archive_title();
+	echo wp_kses( $archive_title, $allowed_html );
 }
 
 /**
@@ -243,8 +251,10 @@ function wpsight_get_pagination( $max_num_pages = '', $args = array() ) {
  *	
  *	@since 1.0.0
  */
-function wpsight_pagination( $max_num_pages, $args = array() ) {	
-	echo wpsight_get_pagination( $max_num_pages, $args );
+function wpsight_pagination( $max_num_pages, $args = array() ) {
+	$allowed_html = wpsight_allowed_html_tags();
+	$pagination_html = wpsight_get_pagination( $max_num_pages, $args );
+	echo wp_kses( $pagination_html, $allowed_html );	
 }
 
 /**
@@ -259,7 +269,9 @@ function wpsight_pagination( $max_num_pages, $args = array() ) {
  *	@since 1.0.0
  */
 function wpsight_listing_class( $class = '', $post_id = false ) {
-	echo 'class="' . join( ' ', wpsight_get_listing_class( $class, $post_id ) ) . '"';
+	// echo 'class="' . join( ' ', wpsight_get_listing_class( $class, $post_id ) ) . '"';
+	$class_attr = 'class="' . join( ' ', wpsight_get_listing_class( $class, $post_id ) ) . '"';
+	echo wp_kses_data( $class_attr );
 }
 
 /**
@@ -305,5 +317,7 @@ function wpsight_get_listing_actions( $post_id = '' ) {
  *	@since 1.0.0
  */
 function wpsight_listing_actions( $post_id = '', $actions = array() ) {
-	echo WPSight_Template::listing_actions( $post_id, $actions );
+	$allowed_html = wpsight_allowed_html_tags();
+	$listing_actions = WPSight_Template::listing_actions( $post_id, $actions );
+	echo wp_kses( $listing_actions, $allowed_html );
 }

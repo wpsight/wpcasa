@@ -1,4 +1,6 @@
 <?php
+  if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
   if (isset($option)) {
     $option_type = isset( $option['type'] ) ? $option['type'] : '';
     $option_id = isset( $option['id'] ) ? $this->settings_name . '[' . $option['id'] . ']' : '';
@@ -17,8 +19,8 @@
     if( !isset( $value ) && isset( $option['default'] ) ) $value = $option['default'];
 ?>
 
-  <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-    <select id="setting-<?php echo $option_css; ?>" class="regular-text" name="<?php echo $option_id; ?>" <?php echo implode( ' ', $attributes ); ?>><?php
+  <div class="wpsight-settings-field wpsight-settings-field-<?php echo esc_attr( $option_type ); ?>">
+    <select id="setting-<?php echo esc_attr( $option_css ); ?>" class="regular-text" name="<?php echo esc_attr( $option_id ); ?>" <?php echo esc_attr( implode( ' ', $attributes ) ); ?>><?php
       foreach( $option_options as $key => $name )
         echo '<option value="' . esc_attr( $key ) . '" ' . selected( $value, $key, false ) . '>' . esc_html( $name ) . '</option>'; ?>
     </select>

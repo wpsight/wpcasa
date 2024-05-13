@@ -17,7 +17,7 @@
  *	@since 1.0.0
  */
 function wpsight_search( $args = array(), $search_fields = array() ) {
-	echo wpsight_get_search( $args, $search_fields );	
+    echo wp_kses( wpsight_get_search($args, $search_fields), wpsight_allowed_html_tags() );
 }
 
 /**

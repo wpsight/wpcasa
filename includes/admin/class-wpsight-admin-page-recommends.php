@@ -11,16 +11,14 @@ if ( ! class_exists( 'WPSight_Recommendations' ) ) :
 class WPSight_Recommendations {
 
 	/**
-	 * Handles output of the reports page in admin.
+	 * Handles output of the recommendations page in admin.
 	 */
-	public function output()
-		
-    {
-
-	?>
+	public function output() { ?>
 
         <div class="wrap-title-recommend">
-            <h2><?php __( 'WPCasa Recommendations', 'wpcasa' ); ?></h2>
+			<h2><?php
+                /* translators: %s: is the name */
+                printf( esc_html__( '%s Recommendations', 'wpcasa' ), esc_html( WPSIGHT_NAME ) ); ?></h2>
         </div>
 
         <div class="wrap-cards-recommend">
@@ -49,8 +47,7 @@ class WPSight_Recommendations {
 
         </div>
 
-    <?php
-    }
+    <?php }
 
 }
 

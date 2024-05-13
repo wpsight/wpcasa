@@ -1,8 +1,3 @@
-// ==ClosureCompiler==
-// @compilation_level ADVANCED_OPTIMIZATIONS
-// @externs_url https://raw.githubusercontent.com/google/closure-compiler/master/contrib/externs/maps/google_maps_api_v3.js
-// ==/ClosureCompiler==
-
 /**
  * @name MarkerClusterer for Google Maps v3
  * @version version 1.0

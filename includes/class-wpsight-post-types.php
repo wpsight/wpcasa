@@ -12,7 +12,7 @@ class WPSight_Post_Type_Listing {
 	 * Constructor
 	 */
 	public function __construct() {
-		
+
 		// Register listing post type
 		add_action( 'init', array( $this, 'register_post_type_listing' ), 0 );
 		
@@ -535,17 +535,17 @@ class WPSight_Post_Type_Listing {
 		}
 		?>
 		<script type="text/javascript">
-			jQuery( document ).ready( function($) {
+			jQuery( document ).ready( function($) { //#TEST
 
 				postStatus = $('#post_status');
-				status = '<?php echo $post->post_status; ?>';
+				status = '<?php echo esc_html( $post->post_status ); ?>';
 				
-				save_expired = '<?php _ex( 'Save as Expired', 'listing post status', 'wpcasa' ); ?>';
-				save_preview = '<?php _ex( 'Save as Preview', 'listing post status', 'wpcasa' ); ?>';
-				save_pending = '<?php _ex( 'Save as Pending', 'listing post status', 'wpcasa' ); ?>';
+				save_expired = '<?php echo esc_html_x( 'Save as Expired', 'listing post status', 'wpcasa' ); ?>';
+				save_preview = '<?php echo esc_html_x( 'Save as Preview', 'listing post status', 'wpcasa' ); ?>';
+				save_pending = '<?php echo esc_html_x( 'Save as Pending', 'listing post status', 'wpcasa' ); ?>';
 
 				<?php if ( ! empty( $display ) ) : ?>
-					$( '#post-status-display' ).html( '<?php echo $display; ?>' );
+                $( '#post-status-display' ).html( '<?php echo esc_html( $display ) ?>' );
 				<?php endif; ?>
 				
 				if ( status == 'pending_payment' )
@@ -558,8 +558,13 @@ class WPSight_Post_Type_Listing {
 					$('#save-post').show().val( save_preview );
 
 				var select = $( '#post-status-select' ).find( 'select' );
-				$( select ).html( "<?php echo $options; ?>" );
-				
+				$( select ).html( "<?php echo wp_kses( $options, array( 'option' => array(
+                    'selected' => array(),
+                    'value'    => array(),
+                    'disabled' => array(),
+                    'label'    => array(),
+                ) ) ) ?>" );
+
 				$('#post-status-select').find('.save-post-status').click( function( event ) {
 					
 					if( $('option:selected', postStatus).val() == 'pending_payment' )
@@ -623,9 +628,10 @@ class WPSight_Post_Type_Listing {
 	 *
 	 * @since 1.0.0
 	 */
-	function wpsight_head_print_css() { ?>
-	<link href="<?php echo WPSIGHT_PLUGIN_URL; ?>/assets/css/wpsight-print.css" rel="stylesheet" type="text/css">
-	<?php
+	function wpsight_head_print_css() {
+		wp_styles();
+		wp_enqueue_style( 'wpsight-print', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-print.css', '', WPSIGHT_VERSION );
+		wp_print_styles();
 	}
 	
 	/**

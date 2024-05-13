@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
 <div id="settings-tools" class="settings_panel">
     <?php
         $tools_message_array = [
@@ -8,12 +9,12 @@
         ];
 
         foreach ( $tools_message_array as $key => $message ) {
-            if ( filter_input( INPUT_GET, $key ) === 'success' ) {
+            if ( filter_input( INPUT_GET, $key, FILTER_SANITIZE_ENCODED ) === 'success' ) {
                 flush_rewrite_rules();
-                echo '<div class="fade notice notice-success"><p>' . $message . '</p></div>'; ?>
+                echo '<div class="fade notice notice-success"><p>' . esc_html( $message ) . '</p></div>'; ?>
                 <script>
                     if (typeof window.history.pushState == 'function') {
-                        window.history.pushState({}, "Hide", "<?php echo $_SERVER['PHP_SELF'] . '?page=wpsight-settings'; ?>")
+                        window.history.pushState({}, "Hide", "<?php echo esc_url( sanitize_url( $_SERVER['PHP_SELF'] ) ) . '?page=wpsight-settings'; ?>")
                     }
                 </script>
                 <?php
@@ -39,13 +40,13 @@
                                     <div class="wpsight-admin-ui-heading-title">
 
                                         <span class="wpsight-admin-ui-icon"><span class="dashicons dashicons-admin-tools"></span></span>
-                                        <h3><?php _e( 'Tools', 'wpcasa' ); ?></h3>
-                                        <small> - <?php _e( 'Sample Description', 'wpcasa' ); ?></small>
+                                        <h3><?php echo esc_html__( 'Tools', 'wpcasa' ); ?></h3>
+                                        <small> - <?php echo esc_html__( 'Sample Description', 'wpcasa' ); ?></small>
 
                                     </div>
 
                                     <div class="wpsight-admin-ui-heading-actions">
-                                        <a href="https://docs.wpcasa.com/" class="button button-primary" target="_blank"><?php _e( 'View Documentation', 'wpcasa' ); ?></a>
+                                        <a href="https://docs.wpcasa.com/" class="button button-primary" target="_blank"><?php echo esc_html__( 'View Documentation', 'wpcasa' ); ?></a>
                                     </div>
 
                                 </div>
@@ -57,14 +58,14 @@
                         <tr valign="top">
 
                             <th scope="row">
-                                <label><?php _e( 'Restore Defaults', 'wpcasa' ); ?></label>
-                                <p class="description"><?php _e( 'This will restore all the settings to the defaults. Use this if you want to start over again.', 'wpcasa' ); ?></p>
+                                <label><?php echo esc_html__( 'Restore Defaults', 'wpcasa' ); ?></label>
+                                <p class="description"><?php echo esc_html__( 'This will restore all the settings to the defaults. Use this if you want to start over again.', 'wpcasa' ); ?></p>
                             </th>
 
                             <td>
                                 <div class="wpsight-settings-field-wrap wpsight-settings-field-reset-wrap">
                                     <div class="wpsight-settings-field wpsight-settings-field-reset">
-                                        <form method="post" action="<?php echo admin_url( 'admin-post.php' ); ?>">
+                                        <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
                                             <input type="hidden" name="action" value="reset_settings">
                                             <?php wp_nonce_field("reset", "reset_settings"); ?>
                                             <input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Reset Settings', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Are you sure?', 'wpcasa' ) ); ?>' );" />
@@ -102,15 +103,15 @@
                         <tr valign="top">
 
                             <th scope="row">
-                                <label><?php _e( 'Delete all Data', 'wpcasa' ); ?></label>
-                                <p class="description"><?php _e( 'This will erase all data completely. Use this if you want to start over. Keep in mind that this does only erase WPCasa-related data and dont touch data from any other plugins. If you want to completely reset your site we would recommend to have a look at WP Reset.', 'wpcasa' ); ?></p>
+                                <label><?php echo esc_html__( 'Delete all Data', 'wpcasa' ); ?></label>
+                                <p class="description"><?php echo esc_html__( 'This will erase all data completely. Use this if you want to start over. Keep in mind that this does only erase WPCasa-related data and dont touch data from any other plugins. If you want to completely reset your site we would recommend to have a look at WP Reset.', 'wpcasa' ); ?></p>
                             </th>
 
                             <td>
 
                                 <div class="wpsight-settings-field-wrap wpsight-settings-field-reset-wrap">
                                     <div class="wpsight-settings-field wpsight-settings-field-reset">
-                                        <form method="post" action="<?php echo admin_url( 'admin-post.php' ); ?>">
+                                        <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
                                             <input type="hidden" name="action" value="delete_all_data">
                                             <?php wp_nonce_field("delete_data", "delete_all_data"); ?>
                                             <input type="submit" class="reset-button button-secondary" name="delete_data" value="<?php esc_attr_e( 'Delete Data', 'wpcasa' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Do you really want to perform the migration?', 'wpcasa' ) ); ?>' );" />

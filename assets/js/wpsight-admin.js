@@ -69,7 +69,7 @@ jQuery(document).ready(function($) {
 
     // Switch navbar on click
 
-    $('.wpsight-admin-main-btn-toggle').click( function (e) {
+    $('.wpsight-admin-main-btn-toggle').click( function(e) {
         e.preventDefault();
 
         $(this).toggleClass("wpsight-admin-main-btn-toggle-active");
@@ -104,7 +104,6 @@ jQuery(document).ready(function($) {
         if (jQuery('#setting' + WPCASA_SETTINGS.name + 'listing_features:checked').val() !== undefined) {
             totoggle_details.show();
         }
-
 
         var totoggle_periods = $('.setting' + WPCASA_SETTINGS.name + 'heading_rental_periods-tr ~[class^=setting' + WPCASA_SETTINGS.name + 'rental_period_]');
 
@@ -143,26 +142,27 @@ jQuery(document).ready(function($) {
     workWithListingFields();
 
     var promoSlider = function () {
-        var $wrapSlider = $(".wpsight-admin-ui-promo");
-        var $slider = $(".wpsight-promo-slider");
+        var $wrapSlider = $("[swiper]");
+        var $slider = $("[swiper-container]");
         var $tab = $("#settings-overview-tab");
 
         var initSlider = function () {
-            const swiper = new Swiper('.wpsight-promo-slider', {
+            const swiper = new Swiper('[swiper-container]', {
                 spaceBetween: 0,
                 loop: true,
                 speed: 600,
                 autoplay: {
-                    delay: 3000,
+                    delay: 5000,
                     disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
                 },
                 pagination: {
-                    el: $wrapSlider.find('.swiper-pagination'),
+                    el: '.swiper-pagination',
                     clickable: true,
                 },
                 navigation: {
-                    nextEl: $wrapSlider.find('.swiper-button-next'),
-                    prevEl: $wrapSlider.find('.swiper-button-prev'),
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
                 },
             });
 
@@ -210,5 +210,33 @@ jQuery(document).ready(function($) {
     };
 
     accordionMobileAddons();
+    
+    var WPCasaAdminUIAccordion = function() {
+        
+        var animTime = 300,
+        clickPolice = false;
+
+        $(document).on('touchstart click', '.acc-btn', function(){
+        if(!clickPolice){
+        clickPolice = true;
+
+        var currIndex = $(this).index('.acc-btn'),
+          targetHeight = $('.acc-content-inner').eq(currIndex).outerHeight();
+
+        $('.acc-btn h1').removeClass('selected');
+        $(this).find('h1').addClass('selected');
+
+        $('.acc-content').stop().animate({ height: 0 }, animTime);
+        $('.acc-content').eq(currIndex).stop().animate({ height: targetHeight }, animTime);
+
+        setTimeout(function(){ clickPolice = false; }, animTime);
+        }
+
+        });
+        
+        
+    }
+    
+    WPCasaAdminUIAccordion()
 
 });

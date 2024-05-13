@@ -548,7 +548,7 @@ class WPSight_Helpers {
 			$output = "\n\t" . sprintf( '%s { %s:%s; }', $selector, $style, $prefix . $mod . $postfix ) . "\n";
 
 			if ( $echo )
-				echo $output;
+				echo esc_attr( $output );
 		}
 
 		return $output;
@@ -722,7 +722,7 @@ class WPSight_Helpers {
 	public static function get_attachment_id_by_url( $url ) {
 		global $wpdb;
 
-		$attachment = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid='%s';", $url ) );
+		$attachment = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid=%s;", $url ) );
 
 		return isset( $attachment[0] ) ? $attachment[0] : false;
 
@@ -744,7 +744,7 @@ class WPSight_Helpers {
 	public static function get_attachment_by_url( $url, $size = 'thumbnail' ) {
 		global $wpdb;
 
-		$attachment = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid='%s';", $url ) );
+		$attachment = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid=%s;", $url ) );
 
 		$image = wp_get_attachment_image_src( $attachment[0], $size );
 

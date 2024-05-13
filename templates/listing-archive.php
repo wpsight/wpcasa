@@ -1,3 +1,5 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+
 <div id="listing-<?php the_ID(); ?>" <?php wpsight_listing_class( 'entry-content listing-archive' ); ?> itemscope itemtype="http://schema.org/Product">
 
 	<meta itemprop="name" content="<?php echo esc_attr( $post->post_title ); ?>" />

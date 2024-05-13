@@ -1,4 +1,7 @@
-<?php
+<?php if ( ! defined('ABSPATH')) {
+    exit;
+} // Exit if accessed directly
+
 /**
  * Template: Single Listing Info
  */

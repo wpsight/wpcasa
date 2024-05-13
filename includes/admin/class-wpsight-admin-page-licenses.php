@@ -32,9 +32,10 @@ class WPSight_Admin_Licenses {
 	public function output() { ?>
 
 		<div class="wrap">
-
-			<h2><?php echo WPSIGHT_NAME . ' ' . __( 'Licenses', 'wpcasa' ); ?> <small>- <?php _e( 'To receive premium support and seamless updates, please activate your licenses here.', 'wpcasa' ); ?></small></h2>
-            <p><?php _e( 'By activating a license, you agree that a safe connection to wpcasa.com will be generated for validation purposes. If validated and activated this information will be stored on wpcasa.com and will be associated with your account.', 'wpcasa' ); ?></p>
+			<h2><?php
+                /* translators: %s: is the name */
+                echo sprintf( esc_html__( '%s Licenses', 'wpcasa' ), esc_html( WPSIGHT_NAME ) ); ?> <small>- <?php echo esc_html__( 'To receive premium support and seamless updates, please activate your licenses here.', 'wpcasa' ); ?></small></h2>
+            <p><?php echo esc_html__( 'By activating a license, you agree that a safe connection to wpcasa.com will be generated for validation purposes. If validated and activated this information will be stored on wpcasa.com and will be associated with your account.', 'wpcasa' ); ?></p>
 			<form method="post" action="options.php">
 
             	<div class="wpsight-settings-grid">
@@ -49,7 +50,7 @@ class WPSight_Admin_Licenses {
                         $license_data			= $this->update_and_get_license_data( $license );
 						$option_key				= $license['id'];
 						$option_value			= isset( $licenses[ $option_key ] ) ? $licenses[ $option_key ] : false;
-                        $license_status	= $license_data->license;
+                        $license_status			= isset( $license_data->license ) ? $license_data->license : false;
 
 					?>
 					<div class="wpsight-settings-panel">
@@ -59,21 +60,22 @@ class WPSight_Admin_Licenses {
                             <?php echo esc_attr( $license['name'] ); ?>
                             <?php
 							if( $license_status == 'valid' ) { ?>
-							    <small style="color:green;">(<?php _e( 'active', 'wpcasa' ); ?>)</small>
-							<?php	echo '<span class="indicator indicator-valid tips" data-tip="' . __( 'Valid', 'wpcasa' ) . '"></span>';
-								echo '<span class="wpsight-settings-help tips" data-tip="' . sprintf( __( 'Valid until %s', 'wpcasa' ), date_i18n( get_option( 'date_format' ), strtotime( $license_data->expires ) ) ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
+							    <small style="color:green;">(<?php echo esc_attr( 'active' ); ?>)</small>
+							<?php	echo '<span class="indicator indicator-valid tips" data-tip="' . esc_attr__( 'Valid', 'wpcasa' ) . '"></span>';
+                                /* translators: %s: is the license expire date */
+								echo '<span class="wpsight-settings-help tips" data-tip="' . esc_attr( sprintf( __( 'Valid until %s', 'wpcasa' ) ), date_i18n( get_option( 'date_format' ), strtotime( $license_data->expires ) ) ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
 							} elseif( $license_status == 'expired' ) {
-								echo '<span class="indicator indicator-expired tips" data-tip="' . __( 'Expired', 'wpcasa' ) . '"></span>';
-								echo '<span class="wpsight-settings-help tips" data-tip="' . __( 'License is expired. Please consider to re-new.', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
+								echo '<span class="indicator indicator-expired tips" data-tip="' . esc_attr__( 'Expired', 'wpcasa' ) . '"></span>';
+								echo '<span class="wpsight-settings-help tips" data-tip="' . esc_attr__( 'License is expired. Please consider to re-new.', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
 							} elseif( $license_status == 'inactive' || $license_status == 'site_inactive' ) {
-								echo '<span class="indicator indicator-inactive tips" data-tip="' . __( 'Inactive', 'wpcasa' ) . '"></span>';
-								echo '<span class="wpsight-settings-help tips" data-tip="' . __( 'Activate your license', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
+								echo '<span class="indicator indicator-inactive tips" data-tip="' . esc_attr__( 'Inactive', 'wpcasa' ) . '"></span>';
+								echo '<span class="wpsight-settings-help tips" data-tip="' . esc_attr__( 'Activate your license', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
 							} elseif( $license_status == 'item_name_mismatch' ) {
-								echo '<span class="indicator indicator-mismatch tips" data-tip="' . __( 'Mismatch', 'wpcasa' ) . '"></span>';
-								echo '<span class="wpsight-settings-help tips" data-tip="' . __( 'Enter correct license key for this product.', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
+								echo '<span class="indicator indicator-mismatch tips" data-tip="' . esc_attr__( 'Mismatch', 'wpcasa' ) . '"></span>';
+								echo '<span class="wpsight-settings-help tips" data-tip="' . esc_attr__( 'Enter correct license key for this product.', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
 							} else {
 								echo '<span class="indicator"></span>';
-								echo '<span class="wpsight-settings-help tips" data-tip="' . __( 'Enter License Key here, save and activate.', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
+								echo '<span class="wpsight-settings-help tips" data-tip="' . esc_attr__( 'Enter License Key here, save and activate.', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
 							}
 
 							?>
@@ -81,18 +83,18 @@ class WPSight_Admin_Licenses {
 
 						<div class="wpsight-settings-panel-body">
 
-                            <input id="wpsight_licenses[<?php esc_attr_e( $license['id'] ); ?>]" name="wpsight_licenses[<?php esc_attr_e( $license['id'] ); ?>]" type="text" class="regular-text" value="<?php esc_attr_e( $option_value ); ?>" />
+                            <input id="wpsight_licenses[<?php echo esc_attr( $license['id'] ); ?>]" name="wpsight_licenses[<?php echo esc_attr( $license['id'] ); ?>]" type="text" class="regular-text" value="<?php echo esc_attr( $option_value ); ?>" />
 							<?php if( $license_status == 'valid' ) { ?>
-                                <input type="submit" class="button-secondary" name="wpsight_<?php esc_attr_e( $license['id'] ); ?>_deactivate" value="<?php _e( 'Deactivate License', 'wpcasa' ); ?>"/>
+                                <input type="submit" class="button-secondary" name="wpsight_<?php echo esc_attr( $license['id'] ); ?>_deactivate" value="<?php echo esc_html__( 'Deactivate License', 'wpcasa' ); ?>"/>
                                 <?php wp_nonce_field( 'wpsight_' . $license['id'] . '_deactivate_nonce', 'wpsight_' . $license['id'] . '_deactivate_nonce' ); ?>
 							<?php } elseif( $license_status == 'expired' ) { ?>
-								<a href="https://wpcasa.com/account/licenses/" target="_blank" class="button-secondary"><?php _e( 'Renew License', 'wpcasa' ); ?></a>
+								<a href="https://wpcasa.com/account/licenses/" target="_blank" class="button-secondary"><?php echo esc_html__( 'Renew License', 'wpcasa' ); ?></a>
 							<?php } elseif( $license_status == 'inactive' || $license_status == 'site_inactive' ) { ?>
-                                <input type="submit" class="button-secondary" name="wpsight_<?php esc_attr_e( $license['id'] ); ?>_activate" value="<?php _e( 'Activate License', 'wpcasa' ); ?>"/>
+                                <input type="submit" class="button-secondary" name="wpsight_<?php echo esc_attr( $license['id'] ); ?>_activate" value="<?php echo esc_html__( 'Activate License', 'wpcasa' ); ?>"/>
                                 <?php wp_nonce_field( 'wpsight_' . $license['id'] . '_activate_nonce', 'wpsight_' . $license['id'] . '_activate_nonce' ); ?>
 							<?php } else { ?>
-                            	<span class="tips" data-tip="<?php _e( 'Enter License Key first, then save and then activate.', 'wpcasa' ); ?>">
-                                	 <input type="submit" class="button-secondary" name="wpsight_<?php esc_attr_e( $license['id'] ); ?>_activate" value="<?php _e( 'Activate License', 'wpcasa' ); ?>"/>
+                            	<span class="tips" data-tip="<?php echo esc_html__( 'Enter License Key first, then save and then activate.', 'wpcasa' ); ?>">
+                                	 <input type="submit" class="button-secondary" name="wpsight_<?php echo esc_attr( $license['id'] ); ?>_activate" value="<?php echo esc_html__( 'Activate License', 'wpcasa' ); ?>"/>
                                      <?php wp_nonce_field( 'wpsight_' . $license['id'] . '_activate_nonce', 'wpsight_' . $license['id'] . '_activate_nonce' ); ?>
                                 </span>
 							<?php } ?>

@@ -165,7 +165,7 @@ class WPSight_General {
 
 		foreach ( $standard_details as $detail => $value ) {
 
-			$standard_details_option = (array) wpsight_get_option( $detail );
+			$standard_details_option = (array) wpsight_get_option( $detail, $value );
 
             if ( ! empty( $standard_details_option ) ) {
 				$standard_details[ $detail ]['label'] = $standard_details_option['label'];
@@ -534,6 +534,7 @@ class WPSight_General {
 				'exclude_from_search'		=> true,
 				'show_in_admin_all_list'	=> false,
 				'show_in_admin_status_list'	=> false,
+				// Translators: %s is listing name
 				'label_count'				=> _n_noop( 'Preview <span class="count">(%s)</span>', 'Preview <span class="count">(%s)</span>', 'wpcasa' )
 			),
 			'pending_payment' => array(
@@ -543,6 +544,7 @@ class WPSight_General {
 				'exclude_from_search'		=> true,
 				'show_in_admin_all_list'	=> true,
 				'show_in_admin_status_list'	=> true,
+				// Translators: %s is listing name which payment is pending
 				'label_count'				=> _n_noop( 'Pending Payment <span class="count">(%s)</span>', 'Pending Payment <span class="count">(%s)</span>', 'wpcasa' )
 			),
 			'trash' => array(
@@ -809,7 +811,7 @@ class WPSight_General {
 	 * @since 1.0.0
 	 */
 	public static function currency( $currency = '' ) {
-		echo wpsight_get_currency( $currency );
+		echo esc_html( wpsight_get_currency( $currency ) );
 	}
 
 	/**

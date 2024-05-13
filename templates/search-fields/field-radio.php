@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
 
 <?php if( isset( $fields[$field]['data'] ) && is_array( $fields[$field]['data'] ) ) : ?>
 
@@ -14,6 +15,6 @@
 		</label>		
 	<?php endforeach; ?>
 
-</div><!-- .listings-search-field-<?php echo esc_attr( $field ); ?> -->
+</div><!-- .listings-search-field-<?php echo esc_html( sanitize_html_class( $field ) ); ?> -->
 
 <?php endif; ?>

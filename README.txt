@@ -1,12 +1,13 @@
 === WPCasa ===
-Contributors: wpsight, joehana, codestylist
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7EVKNVA7QFXZ8
+Contributors: wpsight, kybernetikservices, mrinal013
+Plugin URI: https://wordpress.org/plugins/wpcasa/
+Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
 Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
-Requires at least: 5.0
-Tested up to: 5.8
-Stable tag: 1.2.8
+Requires at least: 6.2
+Tested up to: 6.5
+Stable tag: 1.2.11
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
 
@@ -15,11 +16,11 @@ Flexible WordPress plugin to create professional real estate websites and manage
 WPCasa is a **real estate** WordPress solution that provides an intuitive way to manage property listings and create first-class real estate websites. No coding required.
 
 * Website: [wpcasa.com](https://wpcasa.com)
-* Demo: [demo.wpcasa.com](http://demo.wpcasa.com)
-* Documentation: [docs.wpcasa.com](http://docs.wpcasa.com/)
+* Demo: [try.wpcasa.com](https://try.wpcasa.com)
+* Documentation: [docs.wpcasa.com](https://docs.wpcasa.com/)
 * Add-Ons: [wpcasa.com/add-ons](https://wpcasa.com/add-ons)
 * Themes: [wpcasa.com/themes](https://wpcasa.com/themes)
-* Github: [github.com/wpsight/wpcasa](https://github.com/wpsight/wpcasa)
+* GitHub: [github.com/wpsight/wpcasa](https://github.com/wpsight/wpcasa)
 
 > Have a look at our latest themes [WPCasa Madrid](https://wpcasa.com/downloads/wpcasa-madrid), [WPCasa Oslo](https://wpcasa.com/downloads/wpcasa-oslo/)
 and [WPCasa London](https://wpcasa.com/downloads/wpcasa-london).
@@ -30,7 +31,7 @@ WPCasa fully integrates with the familiar and easy-to-use interface that ships w
 
 = Flexible & Extendable =
 
-With our custom themes and add-ons you can modularly create a powerful real estate tool tailored to your special needs.
+With our custom themes and add-ons you can create modular a powerful real estate tool tailored to your special needs.
 
 = Advanced Property Search =
 
@@ -65,16 +66,16 @@ The real estate business is international. And so is WPCasa. The framework and a
 
 = Translations =
 
-* German (de_DE): [Simon Rimkus](http://wpsight.com)
+* German (de_DE): [Simon Rimkus](https://wpsight.com)
 * German - Formal (de_DE_formal): [Kybernetik Services](https://www.kybernetik-services.com/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=wpcasa&utm_content=readme)
-* Spanish (es_ES): [Simon Rimkus](http://wpsight.com)
+* Spanish (es_ES): [Simon Rimkus](https://wpsight.com)
 * French (fr_FR): [Guido Sommer](https://aiximmo.ch/)
-* Portuguese (pt_BR): [Walter Barcelos](http://walterbarcelos.com), [Leonardo Lima de Vasconcellos](https://www.devhouse.com.br/)		
+* Portuguese (pt_BR): [Walter Barcelos](https://walterbarcelos.com), [Leonardo Lima de Vasconcellos](https://www.devhouse.com.br/)
 * Italian (it_IT): [Laura Vanoni](www.simboliweb.it), [Nicola Turato](https://www.linkedin.com/in/nicolaturato), [Andrea Manzato]		
-* Dutch (nl_NL): [Dennis Onstenk](http://citymakelaardij.nl)		
-* Croatian (hr_HR): [Danijel Cukarić](http://pistacio.hr)		
-* Russian (ru_RU): [Systemo](http://systemo.biz)		
-* Romanian (ro_RO): [Adrian Mocanu](http://www.bitopia.ro)		
+* Dutch (nl_NL): [Dennis Onstenk](https://citymakelaardij.nl)
+* Croatian (hr_HR): [Danijel Cukarić](https://pistacio.hr)
+* Russian (ru_RU): [Systemo](https://systemo.biz)
+* Romanian (ro_RO): [Adrian Mocanu](https://www.bitopia.ro)
 * Slovak (sk_SK): [Jana Mičeková](https://www.jmsupport.sk)
 * Farsi (fa_IR): Kim
 
@@ -119,9 +120,9 @@ If you prefer to install the plugin manually, you need to download it to your lo
 
 = Getting Started =
 
-Once you have installed and activated WPCasa you will find a new page called "Listings" with the `[wpsight_listings]` shortcode. Add your listings on _WP-Admin > Listings > Add New_ and they will be listed on that page.
+Once you have installed and activated WPCasa you will find a new page called "Listings" with the `[wpsight_listings]` shortcode. Add your listings on _WP-Admin > Listings > Add New, and they will be listed on that page.
 
-For more information about how to get started please [read our documentation](http://docs.wpsight.com/).
+For more information about how to get started please [read our documentation](https://docs.wpsight.com/).
 
 == Frequently Asked Questions ==
 
@@ -134,7 +135,7 @@ For more information about how to get started please [read our documentation](ht
 * `[wpsight_listing_teaser]`: Displays a single property teaser
 * `[wpsight_listings_map]`: Displays a Map with all your listings as markers if they have a location assigned
 
-For more information about shortcodes please [read our documentation](http://docs.wpcasa.com/article/shortcodes/).
+For more information about shortcodes please [read our documentation](https://docs.wpcasa.com/article/shortcodes/).
 
 = Where can I change currency, measurements etc.? =
 
@@ -142,11 +143,21 @@ You can fit general plugin settings to your needs on _WP-Admin > WPCasa > Settin
 
 = Is WPCasa free? =
 
-Yes, the core features are free. Additionally we offer free and paid add-ons and themes exclusively built for WPCasa.
+Yes, the core features are free. Additionally, we offer free and paid add-ons and themes exclusively built for WPCasa.
+
+= Do you use of a 3rd Party or external service? =
+
+We do not use any 3rd Party providers or external services, but on the backend pages `WPCasa > Add-Ons`, `WPCasa > Themes` and `WPCasa > Licenses` we load some information from our URL wpcasa.com. This is just to provide you with the latest information for further downloads. So that you have the opportunity to adapt WPCasa to your needs. We do not collect personal information or track your behavior. It's just about providing you with better service. If you do not want this, please do not open the mentioned pages! WPCasa also works without you having to visit the sites.
+
+= Why do you use external services like Google?  =
+
+We do call Google services for two reasons:
+1.) When you view the listing map where we have placed the listings on it. For this you have to add your Google Maps key.
+2.) When you print a listing, we add a QR code on the last page. This is generated by chart.apis.google.com.
 
 = How can I contribute? =
 
-If you find WPCasa an interesting project, please feel free to have a look at our [Github repo](https://github.com/wpsight/wpcasa).
+If you find WPCasa an interesting project, please feel free to have a look at our [GitHub repo](https://github.com/wpsight/wpcasa).
 
 == Screenshots ==
 
@@ -158,26 +169,63 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 6. Plugin settings
 7. Property Management
 
-== Contributions ==		
+== Contributors ==
 This is a list of contributors to WPCasa.		
 Many thanks to all of them for contributing and making WPCasa even better.	
 
-[Fabian Marz](https://github.com/fabianmarz)		
+[Mrinal Haque](https://profiles.wordpress.org/mrinal013/)
+[Kybernetik Services](https://www.kybernetik-services.com/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=wpcasa&utm_content=readme)
+[Joe Hana](https://wordpress.org/support/users/joehana/)
+[Fabian Marz](https://github.com/fabianmarz)
+[codestylist](https://wordpress.org/support/users/codestylist/)
 [Luiz Bills](https://github.com/luizbills)		
-[Walter Barcelos](http://walterbarcelos.com)		
+[Walter Barcelos](https://walterbarcelos.com)
 [Leonardo Lima de Vasconcellos](https://www.devhouse.com.br/)		
 [Laura Vanoni](www.simboliweb.it)		
 [Nicola Turato](https://www.linkedin.com/in/nicolaturato)		
 [Andrea Manzato]		
-[Danijel Cukarić](http://pistacio.hr)		
-[Dennis Onstenk](http://citymakelaardij.nl)		
-[Systemo](http://systemo.biz)		
-[Adrian Mocanu](http://www.bitopia.ro)		
+[Danijel Cukarić](https://pistacio.hr)
+[Dennis Onstenk](https://citymakelaardij.nl)
+[Systemo](https://systemo.biz)
+[Adrian Mocanu](https://www.bitopia.ro)
 [Jana Mičeková](https://www.jmsupport.sk)
 [Simon Rimkus](https://github.com/simonrimkus)
-[Kybernetik Services](https://www.kybernetik-services.com/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=wpcasa&utm_content=readme)
 
 == Changelog ==
+= 1.2.11 =
+* NEW: Added upgrade notice on WordPress plugin page
+* TWEAK: Updated plugin header with file-level PHPDoc DocBlock
+* TWEAK: Ensure compatibility with WordPress 6.5
+* FIX: Listing Map settings didn't save new value
+* FIX: In some cases, toggling the Listing Map link did not work
+* FIX: Removed unwanted extra character after description on listing single page
+
+= 1.2.10.1 =
+* FIX: Search form stopped working for some non-WPCasa themes
+
+= 1.2.10 =
+* FIX: Improved title escaping for compatibility with [WPCasa Listing Labels](https://wpcasa.com/downloads/wpcasa-listing-labels/)
+* FIX: Load WPCasa CSS on all pages, not just on the single listing pages
+* TWEAK: Minimization of all CSS to improve the loading speed of the page
+
+= 1.2.9.2 =
+* FIX: Improved html escaping on listing page for compatibility with [WPCasa Listing Labels](https://wpcasa.com/downloads/wpcasa-listing-labels/)
+
+= 1.2.9.1 =
+* FIX: Additional classes for listings were no longer taken into account
+
+= 1.2.9 =
+* TWEAK: Fixed guideline violation
+* TWEAK: Optimized code base
+* TWEAK: Bumped required WordPress version to 6.2
+* TWEAK: Removed server info panel in favor of Site Health tools
+* TWEAK: Improved speed of database query to get listings
+* TWEAK: Improved WPCasa about page
+* FIX: Listing filter with 'wpsight_exclude_unavailable' stopped working
+* FIX: Issue of not assigning default value after activation in checkbox
+* FIX: Apply and separate listing map default
+* UPDATE: Updated cmb2 to 2.10.1
+
 = 1.2.8 - 2021/10/28 =
 * TWEAK: Optimized code base
 
@@ -190,43 +238,42 @@ Many thanks to all of them for contributing and making WPCasa even better.
 * NEW: Added German Formal Translation
 * NEW: Added filter wpsight_listing_text_not_available to customize the informal text when a listing is not available
 * TWEAK: Improved embedment of previously integrated functionality from WPCasa Listings Map and WPCasa Admin Map UI
-* TWEAK: Improved data escaping
 * TWEAK: Data for Javascript gets now provided through wp_add_inline_script instead of wp_localize_script
+* TWEAK: Improved data escaping
 * UPDATE: Updated swiper.js to 6.7.5
 
-= 1.2.5 =
-* Fixed admin license page issue
-* Ensure compatibility with latest version of WordPress
+= 1.2.5 - 2021/02/09 =
+* FIX: Fixed admin license page issue
+* TWEAK: Ensure compatibility with latest version of WordPress
 
-= 1.2.4 =
-* Fixed licenses activation
+= 1.2.4 - 2020/05/26 =
+* FIX: Fixed licenses activation
 
-= 1.2.3 =
-* Add ability to disable listing map displaying
+= 1.2.3 - 2020/04/01 =
+* TWEAK: Add ability to disable listing map displaying
 
-= 1.2.2 =
-* Fixed reinitialize map coordinates in some cases when dev mode is true
+= 1.2.2 - 2020/03/31 =
+* FIX: Fixed reinitialize map coordinates in some cases when dev mode is true
 
-= 1.2.1 =
-* Fixed map functionality after deleting WPCasa Listing Map plugin
+= 1.2.1 - 2020/03/23 =
+* FIX: Fixed map functionality after deleting WPCasa Listing Map plugin
 
-= 1.2.0 =
-* Tested up to WordPress 5.3.2
-* Completely changed admin ui
-* Improved license algorithm
-* Updated file/folder structure
-* Ability to restore settings to default
-* Ability to delete all data
-* Improved map searching algorithm
-* Multiple plugin activation
-* Added recommends items
-* Fixed bulk listing edit
-* Update CMB2 version from 2.1.2 to 2.6.0
-* Integration of WPCasa Admin Map UI
-* Integration of WPCasa Listings Map
+= 1.2.0 - 2020/03/20 =
+* NEW: Complete revamp of the WPCasa Admin UI
+* NEW: Integration of WPCasa Admin Map UI
+* NEW: Integration of WPCasa Listings Map
+* NEW: Ability to restore settings to default
+* NEW: Ability to delete all data
+* NEW: Added recommends items
+* TWEAK: Improved license algorithm
+* TWEAK: Updated file/folder structure
+* TWEAK: Improved map searching algorithm
+* TWEAK: Multiple plugin activation
+* TWEAK: Tested up to WordPress 5.3.2
+* FIX: Fixed bulk listing edit
+* UPDATE: Update CMB2 to 2.6.0
 
-
-= 1.1.0 =
+= 1.1.0 - 2019/09/02 =
 * Tested up to WordPress 5.2
 * Added Italian Translation
 * Added French Translation
@@ -300,7 +347,3 @@ Many thanks to all of them for contributing and making WPCasa even better.
 * Initial release
 
 == Upgrade Notice ==
-
-= 1.1.0 =
-* Tested up to WordPress 5.2
-* Improved PHP Compatibility

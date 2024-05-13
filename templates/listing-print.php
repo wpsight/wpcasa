@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * This template shows a print-friendly
  * version of a single listing page
@@ -15,20 +16,20 @@ $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 <html>
 	
 <head>
-	<title><?php echo strip_tags( $listing->_listing_title ); ?></title>
+	<title><?php echo esc_html( $listing->_listing_title ); ?></title>
 	<?php do_action( 'wpsight_head_print' ); ?>
 </head>
 
-<body class="print<?php if( is_rtl() ) echo ' rtl'; ?>">
+<body class="print<?php if( is_rtl() ) echo esc_attr( ' rtl' ); ?>">
 
 	<div class="actions clearfix">
 	
 		<div class="alignleft">
-			<a href="<?php echo esc_url_raw( get_permalink( $listing->ID ) ); ?>" class="button back">&laquo; <?php _ex( 'Back to Listing', 'listing print', 'wpcasa' ); ?></a>
+			<a href="<?php echo esc_url( get_permalink( $listing->ID ) ); ?>" class="button back">&laquo; <?php echo esc_html_x( 'Back to Listing', 'listing print', 'wpcasa' ); ?></a>
 		</div>
 		
 		<div class="alignright">
-			<a href="#" onclick="window.print();return false" class="button printnow"><?php _ex( 'Print Now', 'listing print', 'wpcasa' ); ?></a>
+			<a href="#" onclick="window.print();return false" class="button printnow"><?php echo esc_html_x( 'Print Now', 'listing print', 'wpcasa' ); ?></a>
 		</div>
 	
 	</div><!-- .actions -->
@@ -38,7 +39,7 @@ $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 		<div class="wrap">
 	
 			<div class="listing-print-title">			
-				<h1><?php echo get_the_title( $listing ); ?></h1>			
+				<h1><?php echo esc_html( get_the_title( $listing ) ); ?></h1>			
 			</div><!-- .listing-print-title -->
 			
 			<div class="listing-print-info clearfix">	
@@ -61,11 +62,11 @@ $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 			<div class="listing-print-description">			
 				<?php if( wpsight_is_listing_not_available() ) : ?>
 					<div class="wpsight-alert wpsight-alert-small wpsight-alert-not-available">
-						<?php echo apply_filters( 'wpsight_listing_text_not_available', __( 'This property is currently not available.', 'wpcasa' ) ); ?>
+						<?php echo esc_html( apply_filters( 'wpsight_listing_text_not_available', __( 'This property is currently not available.', 'wpcasa' ) ) ); ?>
 					</div>
 				<?php endif; ?>				
 				<div class="wpsight-listing-description" itemprop="description">
-					<?php echo apply_filters( 'wpsight_listing_description', wpsight_format_content( $listing->post_content ) ); ?>
+					<?php echo wp_kses_post( apply_filters( 'wpsight_listing_description', wpsight_format_content( $listing->post_content ) ) ); ?>
 				</div>			
 			</div><!-- .listing-print-description -->
 			
@@ -85,7 +86,7 @@ $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 					<?php endif; ?>			        
 			    </div>			
 			    <div class="alignright">			    	
-			    	<img src="<?php echo esc_url_raw( 'http://chart.apis.google.com/chart?cht=qr&chs=100x100&chld=H|0&chl=' . urlencode( get_permalink( $listing->ID ) ) ); ?>" width="100" height="100" alt="" />
+			    	<img src="<?php echo esc_url( 'http://chart.apis.google.com/chart?cht=qr&chs=100x100&chld=H|0&chl=' . urlencode( get_permalink( $listing->ID ) ) ); ?>" width="100" height="100" alt="" />
 			    </div>			
 			</div><!-- .listing-print-agent -->
 		

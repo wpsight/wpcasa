@@ -90,7 +90,7 @@ class WPSight_Meta_Boxes {
 		$post_type	= wpsight_post_type();
 
 		if ( in_array( $screen->id, array( 'edit-' . $post_type, $post_type ) ) )
-			wp_enqueue_style( 'wpsight-meta-boxes', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-meta-boxes' . $suffix . '.css' );
+			wp_enqueue_style( 'wpsight-meta-boxes', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-meta-boxes' . $suffix . '.css', '', WPSIGHT_VERSION );
 
 	}
 

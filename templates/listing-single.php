@@ -1,17 +1,19 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+
 <?php
 /**
  * Template: Single Listing
  */
 global $listing; ?>
 
-<div class="wpsight-listing wpsight-listing-<?php echo $listing->ID; ?> entry-content" itemscope itemtype="http://schema.org/Product">
+<div class="wpsight-listing wpsight-listing-<?php echo esc_attr( $listing->ID ); ?> entry-content" itemscope itemtype="http://schema.org/Product">
 
 	<meta itemprop="name" content="<?php echo esc_attr( $listing->post_title ); ?>" />
 
 	<?php if ( $listing->post_status == 'expired' ) : ?>
 
 		<div class="wpsight-alert wpsight-alert-expired">
-			<?php _e( 'This listing has expired.', 'wpcasa' ); ?>
+			<?php echo esc_html__( 'This listing has expired.', 'wpcasa' ); ?>
 		</div>
 
 	<?php endif; ?>
@@ -44,4 +46,4 @@ global $listing; ?>
 		
 	<?php endif; ?>
 
-</div><!-- .wpsight-listing-<?php echo $listing->ID; ?> -->
+</div><!-- .wpsight-listing-<?php echo esc_attr( $listing->ID ); ?> -->

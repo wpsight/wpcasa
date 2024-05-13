@@ -146,11 +146,18 @@ class WPSight_Agents {
 			// Get attachment ID
 			$attachment_id = wpsight_get_attachment_id_by_url( $agent_image_url );
 
-			// Get attachment URL for specific size
-			$attachment = wp_get_attachment_image_src( $attachment_id, $size );
+			if ( $attachment_id ) {
 
-			// Build HTML image tag
-			$agent_image = '<img src="' . $attachment[0] . '" width="' . $attachment[1] . '" height="' . $attachment[2] . '" alt="' . wpsight_get_listing_agent_name( $post ) . '" />';
+				$attachment = wp_get_attachment_image_src( $attachment_id, $size );
+	
+				// Build HTML image tag
+				$agent_image = '<img src="' . $attachment[0] . '" width="' . $attachment[1] . '" height="' . $attachment[2] . '" alt="' . wpsight_get_listing_agent_name( $post ) . '" />';
+			} else {
+				// Build HTML image tag
+				$agent_image = '<img src="' . $agent_image_url . '" alt="' . wpsight_get_listing_agent_name( $post ) . '" />';
+			}
+
+			// Get attachment URL for specific size
 
 		}
 
@@ -769,7 +776,7 @@ class WPSight_Agents {
 		$query = "SELECT ID FROM $wpdb->posts $where";
 		
 		// Get post IDs
-		$post_ids = $wpdb->get_col( $query );
+		$post_ids = $wpdb->get_col( $wpdb->prepare( "%s", $query ) );
 		
 		return apply_filters( 'wpsight_get_user_posts_by_type', $post_ids, $user_id );
 	

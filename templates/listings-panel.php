@@ -1,3 +1,5 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+
 <div class="listings-panel clearfix">
 	
 	<div class="listings-panel-title">

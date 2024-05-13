@@ -1,6 +1,8 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+
 <?php
     if ( isset( $_GET['settings-updated'] ) ) {
-        echo '<div class="fade notice notice-success"><p>' . __( 'Settings saved.', 'wpcasa' ) . '</p></div>';
+        echo '<div class="fade notice notice-success"><p>' . esc_html__( 'Settings saved.', 'wpcasa' ) . '</p></div>';
     }
 ?>
 

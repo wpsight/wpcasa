@@ -1,4 +1,7 @@
-<?php
+<?php if ( ! defined('ABSPATH')) {
+    exit;
+} // Exit if accessed directly
+
 /**
  * Template: Single Listing Agent
  */
@@ -39,15 +42,15 @@ global $listing; ?>
 	        <div class="wpsight-listing-agent-links">
 	        
 	        	<?php if( wpsight_get_listing_agent_website( $listing->ID ) ) : ?>
-	        	<a href="<?php wpsight_listing_agent_website( $listing->ID ); ?>" class="agent-website" title="<?php echo esc_attr( wpsight_get_listing_agent_website( $listing->ID ) ); ?>" itemprop="url" target="_blank" rel="nofollow"><?php _e( 'Website', 'wpcasa' ); ?></a>
+	        	<a href="<?php wpsight_listing_agent_website( $listing->ID ); ?>" class="agent-website" title="<?php echo esc_attr( wpsight_get_listing_agent_website( $listing->ID ) ); ?>" itemprop="url" target="_blank" rel="nofollow"><?php echo esc_html__( 'Website', 'wpcasa' ); ?></a>
 	        	<?php endif; ?>
 	        	
 	        	<?php if( wpsight_get_listing_agent_twitter( $listing->ID ) ) : ?>
-	        	<a href="<?php wpsight_listing_agent_twitter( $listing->ID, 'url' ); ?>" class="agent-twitter" title="@<?php echo esc_attr( wpsight_get_listing_agent_twitter( $listing->ID ) ); ?>" target="_blank" rel="nofollow"><?php _e( 'Twitter', 'wpcasa' ); ?></a>
+	        	<a href="<?php wpsight_listing_agent_twitter( $listing->ID, 'url' ); ?>" class="agent-twitter" title="@<?php echo esc_attr( wpsight_get_listing_agent_twitter( $listing->ID ) ); ?>" target="_blank" rel="nofollow"><?php echo esc_html__( 'Twitter', 'wpcasa' ); ?></a>
 	        	<?php endif; ?>
 	        	
 	        	<?php if( wpsight_get_listing_agent_facebook( $listing->ID ) ) : ?>
-	        	<a href="<?php wpsight_listing_agent_facebook( $listing->ID, 'url' ); ?>" class="agent-facebook" title="<?php echo esc_attr( wpsight_get_listing_agent_facebook( $listing->ID ) ); ?>" target="_blank" rel="nofollow"><?php _e( 'Facebook', 'wpcasa' ); ?></a>
+	        	<a href="<?php wpsight_listing_agent_facebook( $listing->ID, 'url' ); ?>" class="agent-facebook" title="<?php echo esc_attr( wpsight_get_listing_agent_facebook( $listing->ID ) ); ?>" target="_blank" rel="nofollow"><?php echo esc_html__( 'Facebook', 'wpcasa' ); ?></a>
 	        	<?php endif; ?>
 
 	        </div>
@@ -58,7 +61,7 @@ global $listing; ?>
 	        
 	        <?php if( wpsight_get_listing_agent_archive( $listing->ID ) ) : ?>	        
 	        <div class="wpsight-listing-agent-archive">
-	        	<a href="<?php wpsight_listing_agent_archive( $listing->ID ); ?>"><?php _e( 'My Listings', 'wpcasa' ); ?></a>
+	        	<a href="<?php wpsight_listing_agent_archive( $listing->ID ); ?>"><?php echo esc_html__( 'My Listings', 'wpcasa' ); ?></a>
 	        </div>
 	        <?php endif; ?>
 	    

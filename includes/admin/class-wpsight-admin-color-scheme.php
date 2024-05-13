@@ -79,63 +79,63 @@ class WPSight_Admin_Color_Scheme {
 		echo '<style type="text/css" id="wpsight-settings-css">
 		
 		.wpsight-settings-page .wpsight-settings-wrap .wpsight-admin-ui-heading .wpsight-admin-ui-heading-title .wpsight-admin-ui-icon {
-			background: ' . $color_4 . ';
+			background: ' . esc_attr( $color_4 ) . ';
 		}		
 		
 		.wpsight-settings-field-radio input[type="radio"]:checked + .label-radio:before {
-			background: ' . $color_4 . ';
+			background: ' . esc_attr( $color_4 ) . ';
 		}
 		
 		.wpsight-settings-field-radio input[type="radio"]:checked + .label-radio {
-			background: ' . $color_4 . ';
-			border-color: ' . $color_4 . ';
+			background: ' . esc_attr( $color_4 ) . ';
+			border-color: ' . esc_attr( $color_4 ) . ';
 		}
 		
 		.wpsight-settings-field-radio input[type="radio"] + .label-radio:after {
-			border-color: ' . $color_4 . ';
+			border-color: ' . esc_attr( $color_4 ) . ';
 		}
 		
 		.wpsight-settings-field-multicheck input[type="checkbox"]:checked + .label-checkbox {
-			background: ' . $color_4 . ';
-			border-color: ' . $color_4 . ';
+			background: ' . esc_attr( $color_4 ) . ';
+			border-color: ' . esc_attr( $color_4 ) . ';
 		}
 		
 		.wpsight-settings-field-multicheck input[type="checkbox"]:checked + .label-checkbox:before {
-			background: ' . $color_4 . ';
+			background: ' . esc_attr( $color_4 ) . ';
 		}
 				
 		.wpsight-settings-field-range .range-slider__range::-webkit-slider-thumb {
-			background: ' . $color_4 . ';
+			background: ' . esc_attr( $color_4 ) . ';
 		}
 		
 		.wpsight-settings-field-range .range-slider__range::-webkit-slider-thumb:hover {
-			background: ' . $color_3 . ';
+			background: ' . esc_attr( $color_3 ) . ';
 		}
 		
 		.wpsight-settings-field-range .range-slider__range:focus::-webkit-slider-thumb,
 		.wpsight-settings-field-range .range-slider__range:active::-webkit-slider-thumb {
-			background: ' . $color_3 . ';
+			background: ' . esc_attr( $color_3 ) . ';
 		}
 		
 		.wpsight-settings-field-range .range-slider__range::-moz-range-thumb {
-			background: ' . $color_4 . ';
+			background: ' . esc_attr( $color_4 ) . ';
 		}
 		
 		.wpsight-settings-field-range .range-slider__range::-moz-range-thumb:hover {
-			background: ' . $color_3 . ';
+			background: ' . esc_attr( $color_3 ) . ';
 		}
 		
 		.wpsight-settings-field-range .range-slider__range:active::-moz-range-thumb {
-			background: ' . $color_3 . ';
+			background: ' . esc_attr( $color_3 ) . ';
 		}
 		
 		.wpsight-settings-field-checkbox .switch input[type="checkbox"]:checked + .label-checkbox,
 		.wpsight-settings-field-checkbox .switch input[type="checkbox"]:checked + .label-checkbox:before {
-			border-color: ' . $color_4 . ';
+			border-color: ' . esc_attr( $color_4 ) . ';
 		}
 
 		.wpsight-settings-field-checkbox .switch input[type="checkbox"]:checked + .label-checkbox {
-			background-color: ' . $color_4 . ';
+			background-color: ' . esc_attr( $color_4 ) . ';
 		}
 		
 		.cmb2-element .ui-datepicker .ui-datepicker-header,
@@ -146,7 +146,7 @@ class WPSight_Admin_Color_Scheme {
 		.cmb2-element .ui-datepicker td .ui-state-hover,
 		.cmb2-element.ui-datepicker td .ui-state-active,
 		.cmb2-element.ui-datepicker td .ui-state-hover {
-			background: ' . $color_4 . ';
+			background: ' . esc_attr( $color_4 ) . ';
 		}
 		
 		</style>';

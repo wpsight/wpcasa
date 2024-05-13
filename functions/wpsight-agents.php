@@ -57,7 +57,7 @@ function wpsight_agent_roles() {
  *	@since 1.0.0
  */
 function wpsight_listing_agent_image( $post = null, $size = array( 75, 75 ) ) {
-	echo wpsight_get_listing_agent_image( $post, $size );
+	echo wp_kses( wpsight_get_listing_agent_image( $post, $size ), wpsight_get_img_html() );
 }
 
 /**
@@ -89,7 +89,7 @@ function wpsight_get_listing_agent_image( $post = null, $size = array( 75, 75 ) 
  *	@since 1.0.0
  */
 function wpsight_agent_image( $user_id, $size = array( 75, 75 ) ) {
-	echo wpsight_get_agent_image( $user_id, $size );
+	echo wp_kses( wpsight_get_agent_image( $user_id, $size ), wpsight_get_img_html() );
 }
 
 /**
@@ -120,7 +120,7 @@ function wpsight_get_agent_image( $user_id, $size = array( 75, 75 ) ) {
  *	@since 1.0.0
  */
 function wpsight_listing_agent_name( $post = null ) {
-	echo wpsight_get_listing_agent_name( $post );
+	echo esc_html( wpsight_get_listing_agent_name( $post ) );
 }
 
 /**
@@ -151,7 +151,7 @@ function wpsight_get_listing_agent_name( $post = null ) {
  *	@since 1.0.0
  */
 function wpsight_agent_name( $user_id, $name = 'display_name' ) {
-	echo wpsight_get_agent_name( $user_id, $name );
+	echo esc_html( wpsight_get_agent_name( $user_id, $name ) );
 }
 
 /**
@@ -181,7 +181,7 @@ function wpsight_get_agent_name( $user_id, $name = 'display_name' ) {
  *	@since 1.0.0
  */
 function wpsight_listing_agent_company( $post = null ) {
-	echo wpsight_get_listing_agent_company( $post );
+	echo esc_html( wpsight_get_listing_agent_company( $post ) );
 }
 
 /**
@@ -211,7 +211,7 @@ function wpsight_get_listing_agent_company( $post = null ) {
  *	@since 1.0.0
  */
 function wpsight_agent_company( $user_id ) {
-	echo wpsight_get_agent_company( $user_id );
+	echo esc_html( wpsight_get_agent_company( $user_id ) );
 }
 
 /**
@@ -240,7 +240,7 @@ function wpsight_get_agent_company( $user_id ) {
  *	@since 1.0.0
  */
 function wpsight_listing_agent_description( $post = null ) {
-	echo wpsight_get_listing_agent_description( $post );
+	echo wp_kses( wpsight_get_listing_agent_description( $post ), wp_kses_allowed_html( 'post' ) );
 }
 
 /**
@@ -270,7 +270,7 @@ function wpsight_get_listing_agent_description( $post = null ) {
  *	@since 1.0.0
  */
 function wpsight_agent_description( $user_id ) {
-	echo wpsight_get_agent_description( $user_id );
+	echo wp_kses( wpsight_get_agent_description( $user_id ), wp_kses_allowed_html( 'post' ) );
 }
 
 /**
@@ -299,7 +299,7 @@ function wpsight_get_agent_description( $user_id ) {
  *	@since 1.0.0
  */
 function wpsight_listing_agent_website( $post = null ) {
-	echo wpsight_get_listing_agent_website( $post );
+	echo esc_url( wpsight_get_listing_agent_website( $post ) );
 }
 
 /**
@@ -329,7 +329,7 @@ function wpsight_get_listing_agent_website( $post = null ) {
  *	@since 1.0.0
  */
 function wpsight_agent_website( $user_id ) {
-	echo wpsight_get_agent_website( $user_id );
+	echo esc_url( wpsight_get_agent_website( $user_id ) );
 }
 
 /**
@@ -358,7 +358,7 @@ function wpsight_get_agent_website( $user_id ) {
  *	@since 1.0.0
  */
 function wpsight_listing_agent_phone( $post = null ) {
-	echo wpsight_get_listing_agent_phone( $post );
+	echo esc_html( wpsight_get_listing_agent_phone( $post ) );
 }
 
 /**
@@ -388,7 +388,7 @@ function wpsight_get_listing_agent_phone( $post = null ) {
  *	@since 1.0.0
  */
 function wpsight_agent_phone( $user_id ) {
-	echo wpsight_get_agent_phone( $user_id );
+	echo esc_html( wpsight_get_agent_phone( $user_id ) );
 }
 
 /**
@@ -418,7 +418,7 @@ function wpsight_get_agent_phone( $user_id ) {
  *	@since 1.0.0
  */
 function wpsight_listing_agent_twitter( $post = null, $return = 'user' ) {
-	echo wpsight_get_listing_agent_twitter( $post, $return );
+	echo esc_url( wpsight_get_listing_agent_twitter( $post, $return ) );
 }
 
 /**
@@ -450,7 +450,7 @@ function wpsight_get_listing_agent_twitter( $post = null, $return = 'user' ) {
  *	@since 1.0.0
  */
 function wpsight_agent_twitter( $user_id, $return = 'user' ) {
-	echo wpsight_get_agent_twitter( $user_id, $return );
+	echo esc_url( wpsight_get_agent_twitter( $user_id, $return ) );
 }
 
 /**
@@ -481,7 +481,7 @@ function wpsight_get_agent_twitter( $user_id, $return = 'user' ) {
  *	@since 1.0.0
  */
 function wpsight_listing_agent_facebook( $post = null, $return = 'user' ) {
-	echo wpsight_get_listing_agent_facebook( $post, $return );
+	echo esc_url( wpsight_get_listing_agent_facebook( $post, $return ) );
 }
 
 /**
@@ -513,7 +513,7 @@ function wpsight_get_listing_agent_facebook( $post = null, $return = 'user' ) {
  *	@since 1.0.0
  */
 function wpsight_agent_facebook( $user_id, $return = 'user' ) {
-	echo wpsight_get_agent_facebook( $user_id, $return );
+	echo esc_url( wpsight_get_agent_facebook( $user_id, $return ) );
 }
 
 /**
@@ -544,7 +544,7 @@ function wpsight_get_agent_facebook( $user_id, $return = 'user' ) {
  *	@since 1.0.0
  */
 function wpsight_listing_agent_archive( $post = null, $user_id = false ) {
-	echo wpsight_get_listing_agent_archive( $post, $user_id );
+	echo esc_url( wpsight_get_listing_agent_archive( $post, $user_id ) );
 }
 
 /**
@@ -575,7 +575,7 @@ function wpsight_get_listing_agent_archive( $post = null, $user_id = false ) {
  *	@since 1.0.0
  */
 function wpsight_agent_archive( $user_id ) {
-	echo wpsight_get_agent_archive( $user_id );
+	echo esc_url( wpsight_get_agent_archive( $user_id ) );
 }
 
 /**

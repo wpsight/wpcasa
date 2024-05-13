@@ -1,4 +1,7 @@
 <?php
+if ( ! defined('ABSPATH')) {
+    exit;
+} // Exit if accessed directly
 
 /**
  * WPSight_Admin_Map_UI class

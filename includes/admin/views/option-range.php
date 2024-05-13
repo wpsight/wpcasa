@@ -1,4 +1,6 @@
 <?php
+  if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
   if (isset($option)) {
     $option_type = isset( $option['type'] ) ? $option['type'] : '';
     $option_id = isset( $option['id'] ) ? $this->settings_name . '[' . $option['id'] . ']' : '';
@@ -21,8 +23,8 @@
     $placeholder = isset( $option['placeholder'] ) ? 'placeholder="' . $option['placeholder'] . '"'	: '';
 ?>
 
-  <div class="wpsight-settings-field wpsight-settings-field-<?php echo $option_type; ?>">
-    <input id="setting-<?php echo $option_css; ?>" class="range-slider__range" type="<?php echo $option_type; ?>" name="<?php echo $option_id; ?>" value="<?php esc_attr_e( $value ); ?>" <?php echo implode( ' ', $attributes ); ?> <?php echo $placeholder; ?> <?php echo $min; ?> <?php echo $max; ?> <?php echo $step; ?> />
+  <div class="wpsight-settings-field wpsight-settings-field-<?php echo esc_attr( $option_type ); ?>">
+    <input id="setting-<?php echo esc_attr( $option_css ); ?>" class="range-slider__range" type="<?php echo esc_attr( $option_type ); ?>" name="<?php echo esc_attr( $option_id ); ?>" value="<?php echo esc_attr( $value ); ?>" <?php echo esc_html( implode( ' ', $attributes ) ); ?> <?php echo esc_attr( $placeholder ); ?> <?php echo esc_attr( $min ); ?> <?php echo esc_attr( $max ); ?> <?php echo esc_attr( $step ); ?> />
     <span class="range-slider__value">0</span>
   </div>
 

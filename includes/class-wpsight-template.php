@@ -253,7 +253,7 @@ class WPSight_Template {
 	    <div class="wpsight-listing-title clearfix">
 
 		    <h1 class="entry-title">
-				<?php echo get_the_title( $post_id ); ?>
+				<?php echo wp_kses_post( get_the_title( $post_id ) ); ?>
 			</h1>
 
 		    <?php wpsight_listing_actions( $post_id, $actions ); ?>
@@ -503,7 +503,7 @@ class WPSight_Template {
 				if ( ! is_array( $listing_actions[ $action ] ) )
 					continue;
 
-				$output .= '<div class="wpsight-listing-action ' . sanitize_html_class( 'wpsight-listing-action-' . $action ) . '">';
+				$output .= '<div class="wpsight-listing-action ' . esc_attr( sanitize_html_class( 'wpsight-listing-action-' . $action ) ) . '">';
 
 				// First check if we have a callback
 

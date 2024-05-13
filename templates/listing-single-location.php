@@ -1,4 +1,7 @@
-<?php
+<?php if ( ! defined('ABSPATH')) {
+    exit;
+} // Exit if accessed directly
+
 /**
  * Template: Single Listing Location
  */
@@ -26,28 +29,28 @@ if( $lat && $long && ! $hide ) { ?>
 		    
 		    // Set map default options
 		    
-		    $map_defaults = array(
-				'map_type' 	   	    => 'ROADMAP',
-				'control_type' 	    => 'true',
-				'control_nav'  	    => 'true',
-				'scrollwheel'  	    => 'false',
-				'streetview'   	    => 'true',
-				'map_zoom'			=> '14'
-		    );
+		    $map_defaults = [
+				'map_type'		=> 'ROADMAP',
+				'control_type'	=> 'true',
+				'control_nav'	=> 'true',
+				'scrollwheel'	=> 'false',
+				'streetview'	=> 'true',
+				'map_zoom'		=> '14'
+		    ];
 		    
 		    // Get map listing options
 
-		    $map_options = array(
+		    $map_options = [
 			    '_map_type' 			=> get_post_meta( $listing->ID, '_map_type', true ),
 			    '_map_zoom' 			=> get_post_meta( $listing->ID, '_map_zoom', true ),
 			    '_map_no_streetview' 	=> get_post_meta( $listing->ID, '_map_no_streetview', true )
-		    );
+		    ];
 		    
-		    $map_args = array(
+		    $map_args = [
 			    'map_type' 		=> ! empty( $map_options['_map_type'] ) ? $map_options['_map_type'] : $map_defaults['map_type'],
 			    'map_zoom' 		=> ! empty( $map_options['_map_zoom'] ) ? $map_options['_map_zoom'] : $map_defaults['map_zoom'],
-			    'streetview' 	=> ! empty( $map_options['_map_no_streetview'] ) ? 'false' : 'true'
-		    );
+			    'streetview'	=> ! empty( $map_options['_map_no_streetview'] ) ? 'false' : 'true'
+		    ];
 
 			// Parse map args and apply filter		    
 		    $map_args = apply_filters( 'wpsight_listing_map_args', wp_parse_args( $map_args, $map_defaults ) );
@@ -55,14 +58,14 @@ if( $lat && $long && ! $hide ) { ?>
 		?>
 	    <script>
 	      function initialize() {
-			  var myLatlng = new google.maps.LatLng(<?php echo $lat; ?>,<?php echo $long; ?>);
+			  var myLatlng = new google.maps.LatLng(<?php echo esc_js( $lat ); ?>,<?php echo esc_js( $long ); ?>);
 			  var mapOptions = {
-			    zoom: 				<?php echo esc_html( $map_args['map_zoom'] ); ?>,
-			    mapTypeId: 			google.maps.MapTypeId.<?php echo esc_html( $map_args['map_type'] ); ?>,
-			    mapTypeControl: 	<?php echo esc_html( $map_args['control_type'] ); ?>,
-			    navigationControl: 	<?php echo esc_html( $map_args['control_nav'] ); ?>,
-			    scrollwheel: 		<?php echo esc_html( $map_args['scrollwheel'] ); ?>,
-			    streetViewControl: 	<?php echo esc_html( $map_args['streetview'] ); ?>,
+			    zoom: 				<?php echo esc_js( $map_args['map_zoom'] ); ?>,
+			    mapTypeId: 			google.maps.MapTypeId.<?php echo esc_js( $map_args['map_type'] ); ?>,
+			    mapTypeControl: 	<?php echo esc_js( $map_args['control_type'] ); ?>,
+			    navigationControl: 	<?php echo esc_js( $map_args['control_nav'] ); ?>,
+			    scrollwheel: 		<?php echo esc_js( $map_args['scrollwheel'] ); ?>,
+			    streetViewControl: 	<?php echo esc_js( $map_args['streetview'] ); ?>,
 			    center: myLatlng
 			  }
 			  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -85,8 +88,8 @@ if( $lat && $long && ! $hide ) { ?>
 			
 				<div id="map-canvas"></div>
 				
-				<meta itemprop="latitude" content="<?php echo $lat; ?>" />
-				<meta itemprop="longitude" content="<?php echo $long; ?>" />
+				<meta itemprop="latitude" content="<?php echo esc_attr( $lat ); ?>" />
+				<meta itemprop="longitude" content="<?php echo esc_attr( $long ); ?>" />
 				
 				<?php if( ! empty( $listing->_map_note ) ) : ?>
 				<div class="wpsight-listing-location-note">

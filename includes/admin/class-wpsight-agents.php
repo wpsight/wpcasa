@@ -37,6 +37,10 @@ class WPSight_Admin_Agents {
 	 * @since 1.0.0
 	 */
 	public function profile_agent_update_save( $user_id ) {
+
+		if( ! isset( $_POST[ '_wpnonce' ] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST[ '_wpnonce' ] ) ), 'update-user_' . $user_id ) ) {
+			return;
+		}
 	
 	    if ( ! current_user_can( 'listing_admin' ) && ! current_user_can( 'administrator' ) )
 	        return false;
@@ -54,7 +58,7 @@ class WPSight_Admin_Agents {
 				'_agent_name'			=> isset( $_POST['display_name'] ) ? 	sanitize_text_field( $_POST['display_name'] ) : '',
 				'_agent_company'		=> isset( $_POST['company'] ) ? 		sanitize_text_field( $_POST['company'] ) : '',
 				'_agent_phone'			=> isset( $_POST['phone'] ) ? 			sanitize_text_field( $_POST['phone'] ) : '',
-				'_agent_description'	=> isset( $_POST['description'] ) ? 	wp_kses_post( $_POST['description'] ) : '',
+				'_agent_description'	=> isset( $_POST['description'] ) ? 	sanitize_post( $_POST['description'] ) : '',
 				'_agent_website'		=> isset( $_POST['url'] ) ? 			esc_url_raw( $_POST['url'] ) : '',
 				'_agent_twitter'		=> isset( $_POST['twitter'] ) ? 		sanitize_text_field( $_POST['twitter'] ) : '',
 				'_agent_facebook'		=> isset( $_POST['facebook'] ) ? 		sanitize_text_field( $_POST['facebook'] ) : '',
@@ -154,13 +158,17 @@ class WPSight_Admin_Agents {
 		global $wpdb, $current_user;
 	
 		$and = wp_post_mime_type_where(''); //Default mime type //AND post_author = {$current_user->ID}
-		$count = $wpdb->get_results( "SELECT post_mime_type, COUNT( * ) AS num_posts FROM $wpdb->posts WHERE post_type = 'attachment' AND post_status != 'trash' AND post_author = {$current_user->ID} $and GROUP BY post_mime_type", ARRAY_A );
+		$count = $wpdb->get_results( 
+			$wpdb->prepare( "SELECT post_mime_type, COUNT( * ) AS num_posts FROM $wpdb->posts WHERE post_type = 'attachment' AND post_status != 'trash' AND post_author = %d %s GROUP BY post_mime_type", $current_user->ID, $and ), 
+			ARRAY_A );
 	
 		$counts = array();
 		foreach( (array) $count as $row )
 			$counts[ $row['post_mime_type'] ] = $row['num_posts'];
 	
-		$counts['trash'] = $wpdb->get_var( "SELECT COUNT( * ) FROM $wpdb->posts WHERE post_type = 'attachment' AND post_author = {$current_user->ID} AND post_status = 'trash' $and" );
+		$counts['trash'] = $wpdb->get_var( 
+			$wpdb->prepare( "SELECT COUNT( * ) FROM $wpdb->posts WHERE post_type = 'attachment' AND post_author = %s AND post_status = 'trash' %s", $current_user->ID, $and ) 
+		);
 
 		return $counts;
 

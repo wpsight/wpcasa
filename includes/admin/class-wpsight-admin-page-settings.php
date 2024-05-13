@@ -20,7 +20,7 @@ class WPSight_Admin_Settings {
 
         add_action( 'admin_post_reset_settings',  array( $this, 'reset_settings' ) );
         add_action( 'admin_post_migrate_data',  array( $this, 'migrate_data' ) );
-//        add_action( 'admin_post_delete_all_transients',  array( $this, 'delete_all_transients' ) );
+		//add_action( 'admin_post_delete_all_transients',  array( $this, 'delete_all_transients' ) );
         add_action( 'admin_post_delete_all_data',  array( $this, 'delete_all_data' ) );
 	}
 
@@ -36,7 +36,7 @@ class WPSight_Admin_Settings {
 
 		if ( in_array( $screen->id, array( 'toplevel_page_wpsight-settings' ) ) ) {
 			$classes .= ' wpsight-settings-page ';
-		} elseif( in_array( $screen->id, array( 'wpcasa_page_wpsight-addons', 'wpcasa_page_wpsight-themes', 'wpcasa_page_wpsight-licenses', 'wpcasa_page_wpsight-recommends' ) ) ) {
+		} elseif( in_array( $screen->id, array( 'wpcasa_page_wpsight-addons', 'wpcasa_page_wpsight-themes', 'wpcasa_page_wpsight-licenses', 'wpcasa_page_wpsight-recommendations' ) ) ) {
 			$classes .= ' wpsight-extras-page ';
 		} elseif( in_array( $screen->id, array( 'edit-' . $post_type, $post_type ) ) ) {
 			$classes .= ' wpsight-post-type-page ';
@@ -133,6 +133,7 @@ class WPSight_Admin_Settings {
     }
 //    TODO: delete till wpcasa 1.5
     public function migrate_data() {
+		
         check_admin_referer( 'migrate', 'migrate_data' );
 
 //        $args = array(

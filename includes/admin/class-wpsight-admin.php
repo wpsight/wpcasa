@@ -8,10 +8,21 @@ if ( ! defined( 'ABSPATH' ) )
  */
 class WPSight_Admin {
 
+    // Variables
+    public $cpt;
+    public $agents;
+    public $settings_page;
+    public $license_page;
+    public $color_scheme;
+    public $helpers;
+
+
     /**
      *	Constructor
      */
     public function __construct() {
+
+        
 
 		// Include files
         include_once WPSIGHT_PLUGIN_DIR . '/includes/admin/class-wpsight-cpt.php';

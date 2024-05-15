@@ -8,6 +8,10 @@ if ( ! defined('ABSPATH')) {
  */
 class WPSight_Admin_Map_UI {
 
+	// Variables
+	public $admin;
+	
+
 	/**
 	 * Constructor
 	 */

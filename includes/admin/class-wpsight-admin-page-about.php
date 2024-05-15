@@ -110,14 +110,28 @@ class WPSight_About {
                             </style>
 
                             <ul class="tabs" data-tabgroup="first-tab-group">
-                                <li class="tab"><a href="#version-1-2-11" class="active">v1.2.11</a></li>
+                                <li class="tab"><a href="#version-1-2-12" class="active">v1.2.12</a></li>
+                                <li class="tab"><a href="#version-1-2-11">v1.2.11</a></li>
                                 <li class="tab"><a href="#version-1-2-10-hot">v1.2.10.x</a></li>
                                 <li class="tab"><a href="#version-1-2-10">v1.2.10</a></li>
-                                <li class="tab"><a href="#version-1-2-9-hot">v1.2.9.x</a></li>
                                 <li><a href="https://wpcasa.com" target="_blank">More</a></li>
                             </ul>
 
                             <section id="first-tab-group" class="tabgroup">
+
+                                <div id="version-1-2-12">
+                                    <p>Version: 1.2.12</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-new">New</span></td>
+                                            <td>Compatible with PHP 8+</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Listing Map styling of listing in popup box</td>
+                                        </tr>
+                                    </table>
+                                </div>
 
                                 <div id="version-1-2-11">
                                     <p>Version: 1.2.11</p>
@@ -175,22 +189,6 @@ class WPSight_About {
                                         </tr>
                                     </table>
                                 </div>
-                                <div id="version-1-2-9-hot">
-                                    <p><br>Version: 1.2.9.2</p>
-                                    <table>
-                                        <tr>
-                                            <td><span class="changelog-entry-fix">Fix</span></td>
-                                            <td>Improved html escaping on listing page for compatibility with <a href="https://wpcasa.com/downloads/wpcasa-listing-labels/" target="_blank">WPCasa Listing Labels</a></td>
-                                        </tr>
-                                    </table>
-                                    <p><br>Version: 1.2.9.1</p>
-                                    <table>
-                                        <tr>
-                                            <td><span class="changelog-entry-fix">Fix</span></td>
-                                            <td>Additional classes for listings were no longer taken into account</td>
-                                        </tr>
-                                    </table>
-                                </div>
 
                             </section>
 
@@ -215,6 +213,22 @@ class WPSight_About {
                         </div>
 
                         <?php /*?>
+                                <div id="version-1-2-9-hot">
+                                    <p><br>Version: 1.2.9.2</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Improved html escaping on listing page for compatibility with <a href="https://wpcasa.com/downloads/wpcasa-listing-labels/" target="_blank">WPCasa Listing Labels</a></td>
+                                        </tr>
+                                    </table>
+                                    <p><br>Version: 1.2.9.1</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Additional classes for listings were no longer taken into account</td>
+                                        </tr>
+                                    </table>
+                                </div>
 
                                  <div id="version-1-2-9">
                                     <p>Version: 1.2.9</p>

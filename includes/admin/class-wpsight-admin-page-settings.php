@@ -7,6 +7,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 class WPSight_Admin_Settings {
 
+	// Variables
+	public $settings;
+	public $settings_group;
+	public $settings_name;
+
 	/**
 	 *	Constructor
 	 */

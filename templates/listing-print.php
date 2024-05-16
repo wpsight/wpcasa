@@ -86,7 +86,7 @@ $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 					<?php endif; ?>			        
 			    </div>			
 			    <div class="alignright">			    	
-			    	<img src="<?php echo esc_url( 'http://chart.apis.google.com/chart?cht=qr&chs=100x100&chld=H|0&chl=' . urlencode( get_permalink( $listing->ID ) ) ); ?>" width="100" height="100" alt="" />
+			    	<img src="<?php echo esc_url( 'https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=' . urlencode( get_permalink( $listing->ID ) ) ); ?>" width="100" height="100" alt="" />
 			    </div>			
 			</div><!-- .listing-print-agent -->
 		

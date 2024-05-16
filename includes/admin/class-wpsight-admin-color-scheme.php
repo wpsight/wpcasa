@@ -71,10 +71,10 @@ class WPSight_Admin_Color_Scheme {
 		
 		$scheme = $this->get_color_scheme();
 		
-		$color_1	= $scheme->colors[0];
-		$color_2	= $scheme->colors[1];
-		$color_3	= $scheme->colors[2];
-		$color_4	= $scheme->colors[3];
+		$color_1	= isset( $scheme->colors[0] ) ? $scheme->colors[0] : '';
+		$color_2	= isset( $scheme->colors[1] ) ? $scheme->colors[1] : '';
+		$color_3	= isset( $scheme->colors[2] ) ? $scheme->colors[2] : '';
+		$color_4	= isset( $scheme->colors[3] ) ? $scheme->colors[3] : '';
 		
 		echo '<style type="text/css" id="wpsight-settings-css">
 		

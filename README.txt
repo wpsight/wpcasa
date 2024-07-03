@@ -4,8 +4,8 @@ Plugin URI: https://wordpress.org/plugins/wpcasa/
 Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
 Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
 Requires at least: 6.2
-Tested up to: 6.5
-Stable tag: 1.2.12
+Tested up to: 6.6
+Stable tag: 1.2.13
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,7 +95,7 @@ POT file with text strings is included. If you would like to add a translation a
 * Extensive functions API
 * RTL CSS
 
-= Custom Post Type =
+= Custom Post-Type =
 
 * Listings (listing)
 
@@ -395,6 +395,9 @@ Many thanks to all of them for contributing and making WPCasa even better.
 * Initial release
 
 == Upgrade Notice ==
+= 1.2.13 =
+We have fixed the non-functioning QR code on the single page and made sure that WPCasa works correctly with WordPress 6.6.
+
 = 1.2.12 =
 This version is now compatible with PHP8+ and we fixed a styling issue with the popup of Listings Map.
 Please note: WordPress 6.6 will drop support for PHP 7.0 and 7.1, so in the upcoming updates we will also start dropping PHP support for older and unsecure PHP versions up to PHP 7.1. If you would like to benefit from further WPCasa updates from the end of 2024, please keep in mind that you must be running at least PHP 7.2.

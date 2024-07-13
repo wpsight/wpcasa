@@ -1294,15 +1294,15 @@ class WPSight_Admin_CPT {
 		
 		$messages[ $post_type ] = array(
 			// Translators: %s is single/multiple listing name
-			'updated'   => _n( '%s listing updated.', '%s listings updated.', $bulk_counts['updated'], 'wpcasa' ),
+			'updated'   => sprintf( _n( '%s listing updated.', '%s listings updated.', $bulk_counts['updated'], 'wpcasa' ), $bulk_counts['updated'] ),
 			// Translators: %s is single/multiple listing name
-			'locked'    => _n( '%s listing not updated, somebody is editing it.', '%s listings not updated, somebody is editing them.', $bulk_counts['locked'], 'wpcasa' ),
+			'locked'    => sprintf( _n( '%s listing not updated, somebody is editing it.', '%s listings not updated, somebody is editing them.', $bulk_counts['locked'], 'wpcasa' ), $bulk_counts['locked'] ),
 			// Translators: %s is single/multiple listing name
-			'deleted'   => _n( '%s listing permanently deleted.', '%s listings permanently deleted.', $bulk_counts['deleted'], 'wpcasa' ),
+			'deleted'   => sprintf( _n( '%s listing permanently deleted.', '%s listings permanently deleted.', $bulk_counts['deleted'], 'wpcasa' ), $bulk_counts['deleted'] ),
 			// Translators: %s is single/multiple listing name
-			'trashed'   => _n( '%s listing moved to the Trash.', '%s listings moved to the Trash.', $bulk_counts['trashed'], 'wpcasa' ),
+			'trashed'   => sprintf( _n( '%s listing moved to the Trash.', '%s listings moved to the Trash.', $bulk_counts['trashed'], 'wpcasa' ), $bulk_counts['trashed'] ),
 			// Translators: %s is single/multiple listing name
-			'untrashed' => _n( '%s listing restored from the Trash.', '%s listings restored from the Trash.', $bulk_counts['untrashed'], 'wpcasa' ),
+			'untrashed' => sprintf( _n( '%s listing restored from the Trash.', '%s listings restored from the Trash.', $bulk_counts['untrashed'], 'wpcasa' ), $bulk_counts['untrashed'] ),
 		);
 
 		return $messages;

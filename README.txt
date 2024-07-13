@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
 Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
 Requires at least: 6.2
 Tested up to: 6.6
-Stable tag: 1.2.13
+Stable tag: 1.2.14
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -233,6 +233,9 @@ Many thanks to all of them for contributing and making WPCasa even better.
 [Simon Rimkus](https://github.com/simonrimkus)
 
 == Changelog ==
+= 1.2.14 =
+* TWEAK: Improved use of singular and plural string translation
+
 = 1.2.13 =
 * FIX: QR code on listing single page was not working anymore. Switched from Google to the free QR Code Generator (goqr.me)[https://goqr.me]
 
@@ -395,6 +398,9 @@ Many thanks to all of them for contributing and making WPCasa even better.
 * Initial release
 
 == Upgrade Notice ==
+= 1.2.14 =
+xxx
+
 = 1.2.13 =
 We have fixed the non-functioning QR code on the single page and made sure that WPCasa works correctly with WordPress 6.6.
 

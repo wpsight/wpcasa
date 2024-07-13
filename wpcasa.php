@@ -11,7 +11,7 @@
  * Plugin Name:       WPCasa
  * Plugin URI:        https://wordpress.org/plugins/wpcasa/
  * Description:       Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
- * Version:           1.2.13
+ * Version:           1.2.14
  * Requires at least: 6.2
  * Requires PHP:      5.6
  * Author:            WPSight
@@ -391,8 +391,8 @@ function wpsight_admin_plugins_delete_notice() {
         $message = sprintf( 
                             // Translators: %s is plugin name
                             _n( 
-                                '%s has been discontinued. Functionality of the plugin has been integrated in WPCasa as of 1.2.0.</br>Feel free to remove the plugin.',
-                                '%s has been discontinued. Functionality of both plugins has been integrated in WPCasa as of 1.2.0.</br>Feel free to remove both of those plugins.',
+                                '%s has been discontinued. The Functionality of the plugin has been integrated in WPCasa as of 1.2.0.</br>Feel free to remove the plugin.',
+                                '%s has been discontinued. The Functionality of both plugins has been integrated in WPCasa as of 1.2.0.</br>Feel free to remove both of those plugins.',
                                 $count, 'wpcasa' ),
                     $plugin_name );
 

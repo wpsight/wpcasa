@@ -110,14 +110,24 @@ class WPSight_About {
                             </style>
 
                             <ul class="tabs" data-tabgroup="first-tab-group">
-                                <li class="tab"><a href="#version-1-2-13" class="active">v1.2.13</a></li>
+                                <li class="tab"><a href="#version-1-2-14" class="active">v1.2.14</a></li>
+                                <li class="tab"><a href="#version-1-2-13">v1.2.13</a></li>
                                 <li class="tab"><a href="#version-1-2-12">v1.2.12</a></li>
                                 <li class="tab"><a href="#version-1-2-11">v1.2.11</a></li>
-                                <li class="tab"><a href="#version-1-2-10-hot">v1.2.10.x</a></li>
                                 <li><a href="https://wpcasa.com" target="_blank">More</a></li>
                             </ul>
 
                             <section id="first-tab-group" class="tabgroup">
+
+                                <div id="version-1-2-14">
+                                    <p>Version: 1.2.14</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Improved use of singular and plural string translation</td>
+                                        </tr>
+                                    </table>
+                                </div>
 
                                 <div id="version-1-2-13">
                                     <p>Version: 1.2.13</p>
@@ -173,16 +183,6 @@ class WPSight_About {
                                     </table>
                                 </div>
 
-                                <div id="version-1-2-10-hot">
-                                    <p><br>Version: 1.2.10.1</p>
-                                    <table>
-                                        <tr>
-                                            <td><span class="changelog-entry-fix">Fix</span></td>
-                                            <td>Search form stopped working for some non-WPCasa themes</td>
-                                        </tr>
-                                    </table>
-                                </div>
-
                             </section>
 
                             <script type="text/javascript">
@@ -206,6 +206,17 @@ class WPSight_About {
                         </div>
 
                         <?php /*?>
+
+                                <div id="version-1-2-10-hot">
+                                    <p><br>Version: 1.2.10.1</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Search form stopped working for some non-WPCasa themes</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
                                 <div id="version-1-2-10">
                                     <p>Version: 1.2.10</p>
                                     <table>

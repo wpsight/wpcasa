@@ -2,10 +2,10 @@
 Contributors: wpsight, kybernetikservices, mrinal013
 Plugin URI: https://wordpress.org/plugins/wpcasa/
 Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
-Tags: real estate, realestate, agency, agent, directory, house, listing, listings, property, properties, property management, realtor, wpcasa
+Tags: realtor, wpcasa, real estate, realestate, listings
 Requires at least: 6.2
-Tested up to: 6.6
-Stable tag: 1.2.14
+Tested up to: 6.7
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,20 +66,7 @@ The real estate business is international. And so is WPCasa. The framework and a
 
 = Translations =
 
-* German (de_DE): [Simon Rimkus](https://wpsight.com)
-* German - Formal (de_DE_formal): [Kybernetik Services](https://www.kybernetik-services.com/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=wpcasa&utm_content=readme)
-* Spanish (es_ES): [Simon Rimkus](https://wpsight.com)
-* French (fr_FR): [Guido Sommer](https://aiximmo.ch/)
-* Portuguese (pt_BR): [Walter Barcelos](https://walterbarcelos.com), [Leonardo Lima de Vasconcellos](https://www.devhouse.com.br/)
-* Italian (it_IT): [Laura Vanoni](www.simboliweb.it), [Nicola Turato](https://www.linkedin.com/in/nicolaturato), [Andrea Manzato]		
-* Dutch (nl_NL): [Dennis Onstenk](https://citymakelaardij.nl)
-* Croatian (hr_HR): [Danijel Cukarić](https://pistacio.hr)
-* Russian (ru_RU): [Systemo](https://systemo.biz)
-* Romanian (ro_RO): [Adrian Mocanu](https://www.bitopia.ro)
-* Slovak (sk_SK): [Jana Mičeková](https://www.jmsupport.sk)
-* Farsi (fa_IR): Kim
-
-POT file with text strings is included. If you would like to add a translation and see your name here, please [get in touch](https://wpcasa.com/contact/).
+The translations are handled on WordPress.org. Please be part of the community and help to translate WPCasa on [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa/). Thank you!
 
 = Other Features =
 
@@ -191,6 +178,10 @@ We do not use any third Party providers or external services, but on the backend
 We do call Google Maps when you view the listing map where we have placed the listings on it. For this you have to add your Google Maps key.
 We call (goqr.me)[https://goqr.me/] when you print a listing. This service allows us to add a QR code on the last page.
 
+= Where is the *.pot file for translating the plugin in any language? =
+
+The translations are handled on WordPress.org. Please be part of the community and help to translate WPCasa on [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa/). Thank you!
+
 = Is WPCasa running with PHP 8+? =
 
 Yes. Since version 1.2.12 we call WPCasa PHP 8+ compatible. Not optimized, but runs fine with PHP 8+ (which is what we've noticed so far).
@@ -233,8 +224,20 @@ Many thanks to all of them for contributing and making WPCasa even better.
 [Simon Rimkus](https://github.com/simonrimkus)
 
 == Changelog ==
-= 1.2.14 =
+= 1.3.0 =
+* NEW: Added input field for longitude and latitude to manually set the location of the listing
+* NEW: Switch to using language files from [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa/).
+* NEW: Sanitize price before saving and remove
+* NEW: A decimal separator has been added in preparation for upcoming functions that require a decimal separator.
+* NEW: Option to select Swiss Franc currency symbol between 'SFr.' and 'CHF'. Default 'CHF'
+* TWEAK: The settings for thousands separator are more flexible, now. Countries that do not use commas or periods are now also covered.
 * TWEAK: Improved use of singular and plural string translation
+* TWEAK: Minified JS files for increase page load
+* TWEAK: Improved PHP 8 compatibility
+* FIX: Added missing file needed for [WPCasa Dashboard](https://wpcasa.com/downloads/wpcasa-dashboard/) to show the map
+* FIX: Fixed some notice when debug mode is activated
+* FIX: Fixed SQL error on media page when `WP_DEBUG` is activated
+* FIX: Fixed insecure direct object references (IDOR) (Thanks to Patchstack)
 
 = 1.2.13 =
 * FIX: QR code on listing single page was not working anymore. Switched from Google to the free QR Code Generator (goqr.me)[https://goqr.me]
@@ -398,8 +401,9 @@ Many thanks to all of them for contributing and making WPCasa even better.
 * Initial release
 
 == Upgrade Notice ==
-= 1.2.14 =
-xxx
+= 1.3.0 =
+We have changed the loading of the language files of [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa/). This means that the language files included in the plugin are no longer available. If you find that the WPCasa output is now in English instead of your local language, please go to [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa/) and translate WPCasa into your local language. This way the community can benefit from your translation, just as you benefit from WPCasa.
+Please note: WordPress 6.6 has droped support for PHP 7.0 and 7.1, so in the upcoming updates we will also drop PHP support for older and unsecure PHP versions up to PHP 7.1. If you would like to benefit from further WPCasa updates from the end of 2024, please keep in mind that you must be running at least PHP 7.2 on your server.
 
 = 1.2.13 =
 We have fixed the non-functioning QR code on the single page and made sure that WPCasa works correctly with WordPress 6.6.

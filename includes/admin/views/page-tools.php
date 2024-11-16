@@ -41,7 +41,7 @@
 
                                         <span class="wpsight-admin-ui-icon"><span class="dashicons dashicons-admin-tools"></span></span>
                                         <h3><?php echo esc_html__( 'Tools', 'wpcasa' ); ?></h3>
-                                        <small> - <?php echo esc_html__( 'Sample Description', 'wpcasa' ); ?></small>
+                                        <small> - <?php echo esc_html__( 'A collection of WPCasa tools', 'wpcasa' ); ?></small>
 
                                     </div>
 

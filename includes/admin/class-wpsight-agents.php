@@ -158,9 +158,7 @@ class WPSight_Admin_Agents {
 		global $wpdb, $current_user;
 	
 		$and = wp_post_mime_type_where(''); //Default mime type //AND post_author = {$current_user->ID}
-		$count = $wpdb->get_results( 
-			$wpdb->prepare( "SELECT post_mime_type, COUNT( * ) AS num_posts FROM $wpdb->posts WHERE post_type = 'attachment' AND post_status != 'trash' AND post_author = %d %s GROUP BY post_mime_type", $current_user->ID, $and ), 
-			ARRAY_A );
+		$count = $wpdb->get_results( "SELECT post_mime_type, COUNT( * ) AS num_posts FROM $wpdb->posts WHERE post_type = 'attachment' AND post_status != 'trash' AND post_author = {$current_user->ID} $and GROUP BY post_mime_type", ARRAY_A );
 	
 		$counts = array();
 		foreach( (array) $count as $row )

@@ -105,7 +105,6 @@ class WPSight_Meta_Boxes {
 	 * @uses new_cmb2_box()
 	 * @uses $cmb->add_field()
 	 * @uses $cmb->add_group_field()
-	 * @return array
 	 * @see /functions/wpsight-meta-boxes.php
 	 *
 	 * @since 1.0.0
@@ -358,8 +357,8 @@ class WPSight_Meta_Boxes {
 				'name'      => __( 'Availability', 'wpcasa' ),
 				'id'        => '_listing_not_available',
 				'type'      => 'checkbox',
-				'label_cb'  => __( 'Item not available', 'wpcasa' ),
-				'desc'      => __( 'The item is currently not available as it has been sold or rented.', 'wpcasa' ),
+				'label_cb'  => __( 'Listing not available', 'wpcasa' ),
+				'desc'      => __( 'The listing is currently not available as it has been sold or rented.', 'wpcasa' ),
 				'dashboard' => false,
 				'priority'  => 10
 			)
@@ -453,6 +452,7 @@ class WPSight_Meta_Boxes {
 				'name'      => __( 'Price', 'wpcasa' ) . ' (' . wpsight_get_currency() . ')',
 				'id'        => '_price',
 				'type'      => 'text',
+				'sanitization_cb' => array( 'WPSight_Meta_Boxes', 'sanitize_meta_box_listing_price'),
 				'desc'      => __( 'No currency symbols or thousands separators', 'wpcasa' ),
 				'dashboard' => true,
 				'priority'  => 10
@@ -491,6 +491,51 @@ class WPSight_Meta_Boxes {
 		);
 
 		return apply_filters( 'wpsight_meta_box_listing_price', $meta_box );
+
+	}
+
+	/**
+	 * sanitize_meta_box_listing_price()
+	 *
+	 * Sanitize listing price before saving
+	 * remove space, thousands separator and allow decimal value
+	 *
+	 * @uses wpsight_get_decimal()
+
+	 * @return string sanitized value
+	 *
+	 * @since 1.3.0
+	 */
+	public static function sanitize_meta_box_listing_price( $value ) : string {
+
+		// bail if value is empty
+		if( empty( trim( $value ) ) ) {
+			return trim( $value );
+		}
+
+		// sanitize value and allow only digits, decimal and thousands separator
+		$pattern = '/[^0-9'. wpsight_get_decimal() . wpsight_get_thousands_separator() . ']+/';
+		$value = preg_replace( $pattern, '', $value );
+
+		// explode value by the defined decimal separator
+		$value_arr = explode( wpsight_get_decimal(), $value );
+
+		// remove non-digit characters
+		$pre_decimal = preg_replace('~\D~', '', $value_arr[0] );
+
+		// if we have decimal digits
+		if( 1 < count( $value_arr ) ) {
+
+			$decimal_digits = $value_arr[1];
+
+			return $pre_decimal . wpsight_get_decimal() . substr( $decimal_digits, 0, apply_filters( 'wpsight_decimal_digits', 2 ) ) ;
+
+		}
+		else {
+
+			return $pre_decimal;
+
+		}
 
 	}
 

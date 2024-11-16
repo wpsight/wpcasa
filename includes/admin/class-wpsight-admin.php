@@ -411,11 +411,17 @@ class WPSight_Admin {
             'desc'		=> __( 'Please select the thousands separator for your listing prices.', 'wpcasa' ),
             'id'		=> 'currency_separator',
             'position'	=> 130,
-            'type'		=> 'radio',
-            'options'	=> array(
-                'comma'		=> __( 'Comma (e.g. 1,000,000)', 'wpcasa' ),
-                'dot'		=> __( 'Period (e.g. 1.000.000)', 'wpcasa' ) ),
-            'default'	=> 'comma'
+            'type'		=> 'text',
+            'default'	=> '.'
+        );
+
+        $options_listings['decimal_separator'] = array(
+            'name'		=> __( 'Decimal Separator', 'wpcasa' ),
+            'desc'		=> __( 'Please select the decimal separator for your listing prices.', 'wpcasa' ),
+            'id'		=> 'decimal_separator',
+            'position'	=> 131,
+            'type'		=> 'text',
+            'default'	=> ','
         );
 
         $options_listings['heading_details'] = array(

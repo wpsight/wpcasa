@@ -229,10 +229,10 @@ class WPSight_Admin_CPT {
 					
 					echo '</div>';
 					
-					// Display text if item not available
+					// Display text if listing not available
 					
 					if( wpsight_is_listing_not_available() )
-						echo '<span class="listing-not-available">' . esc_html__( 'Item is currently not available', 'wpcasa' ) . '</span>';
+						echo '<span class="listing-not-available">' . esc_html__( 'Listing is currently not available', 'wpcasa' ) . '</span>';
 					
 					// Display listing title actions (edit, view)
 					

@@ -387,3 +387,27 @@ function wpsight_maybe_update_gallery( $listing_id ) {
 function wpsight_user_can_edit_listing_id() {
 	return WPSight_Helpers::user_can_edit_listing_id();
 }
+
+/**
+ * wpsight_get_decimal
+ * 
+ * @uses WPSight_Helpers::get_decimal
+ * @return string
+ * 
+ * @since 1.3.0
+ */
+function wpsight_get_decimal() : string {
+	return WPSight_Helpers::get_decimal();
+}
+
+/**
+ * wpsight_get_thousands_separator
+ * 
+ * @uses WPSight_Helpers::get_thousands_separator
+ * @return string
+ * 
+ * @since 1.3.0
+ */
+function wpsight_get_thousands_separator() : string {
+	return WPSight_Helpers::get_thousands_separator();
+}

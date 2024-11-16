@@ -6,9 +6,9 @@
 		var search		= $('#_map_address');
 		var searchInput = search.get(0);
 		var mapCanvas   = $('.map', fieldEl ).get(0);
-		var latitude    = $('._map_geolocation_lat', fieldEl );
-		var longitude   = $('._map_geolocation_long', fieldEl );
-		var elevation   = $('._map_geolocation_elevation', fieldEl );
+		var latitude    = $('._geolocation_lat', fieldEl );
+		var longitude   = $('._geolocation_long', fieldEl );
+		var elevation   = $('._geolocation_elevation', fieldEl );
 		var elevator    = new google.maps.ElevationService();
 		var map_type	= $('[name="_map_type"]');
 		var map_zoom	= $('[name="_map_zoom"]');
@@ -93,6 +93,43 @@
 			}
 		});
 
+		// Change latitude field manually
+		$(document).on('keyup', '#_geolocation_lat', function(e) {
+			updatePosition();
+		  });
+		  $(document).on('keyup', '#_geolocation_long', function(e) {
+			updatePosition();
+		  });
+		  function updatePosition(){
+			var lat = parseFloat(document.getElementById("_geolocation_lat").value);
+			var lng = parseFloat(document.getElementById("_geolocation_long").value);
+
+			if (lat && lng) {
+				var mapCanvas   = $('.map', fieldEl ).get(0);
+				// Set map options
+				var mapOptions = {
+					center:         new google.maps.LatLng( lat, lng ),
+					zoom:           parseInt( CMBGmaps._map_zoom ),
+					scrollwheel:    (CMBGmaps.scrollwheel == "true"),
+					streetViewControl:  (CMBGmaps._map_no_streetview != "on")
+				};
+				// Create map
+				var map = new google.maps.Map( mapCanvas, mapOptions );
+				// Set marker options
+				var markerOptions = {
+				map: map,
+				draggable: true,
+				title: CMBGmaps.markerTitle
+				};
+				// Create new marker
+				var marker = new google.maps.Marker( markerOptions );
+				marker.setPosition( { lat: parseFloat(lat), lng: parseFloat(lng)} );
+
+				latitude.val( lat );
+				longitude.val( lng );
+			}
+		}
+
 		// Set marker position
 		function setPosition( latLng, zoom ) {
 
@@ -163,5 +200,7 @@
 			}
 		};
 	}
+
+	
 
 }(jQuery));

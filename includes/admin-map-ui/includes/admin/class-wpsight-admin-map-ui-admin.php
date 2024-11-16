@@ -175,7 +175,7 @@ class WPSight_Admin_Map_UI_Admin {
 		$api_url = $api_key ? add_query_arg( array( 'libraries' => 'places', 'key' => $api_key ), '//maps.googleapis.com/maps/api/js' ) : add_query_arg( array( 'libraries' => 'places' ), '//maps.googleapis.com/maps/api/js' );
 
 		wp_enqueue_script( 'cmb-google-maps', apply_filters( 'wpsight_admin_map_ui_google_maps_endpoint', $api_url, $api_key ), null, WPSIGHT_VERSION, array( 'in_footer' => false ) );
-		wp_enqueue_script( 'cmb-google-maps-script', WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL . '/assets/js/map.js', array( 'jquery', 'cmb-google-maps', 'cmb2-scripts' ), WPSIGHT_VERSION, array( 'in_footer' => false ) );
+		wp_enqueue_script( 'cmb-google-maps-script', WPSIGHT_ADMIN_MAP_UI_PLUGIN_URL . '/assets/js/map.min.js', array( 'jquery', 'cmb-google-maps', 'cmb2-scripts' ), WPSIGHT_VERSION, array( 'in_footer' => false ) );
 
 		// Get map listing options
 
@@ -226,43 +226,55 @@ class WPSight_Admin_Map_UI_Admin {
 
 		self::enqueue_scripts();
 
-		// Ensure all args used are set
-		$value = wp_parse_args( $value, array( 'lat' => null, 'long' => null, 'elevation' => null ) ); ?>
-
+		$allowed_html = array(
+			'input' => array(
+				'type'      => array(),
+				'class'     => array(),
+				'name'      => array(),
+				'id'        => array(),
+				'value'     => array(),
+				'data-hash' => array(),
+			),
+		);
+		?>
 		<div class="map" style="width: 100%; height: 400px; border: 1px solid #eee; margin-top: 8px;"></div>
 
-        <?php $allowed_html = array('input' => array(
-                'type'      => array(),
-                'class'     => array(),
-                'name'      => array(),
-                'id'        => array(),
-                'value'     => array(),
-                'data-hash' => array(),
-        ) ); ?>
-
-		<?php echo wp_kses( $field_type->input( array(
-				'name'  => esc_attr( $field_type->_name( '[lat]' ) ),
-				'value' => esc_attr( $value['lat'] ),
-				'type'  => 'hidden',
-				'class' => '_map_geolocation_lat',
-				'id'    => '_map_geolocation_lat'
-			) ), $allowed_html ); ?>
-
-        <?php echo wp_kses( $field_type->input( array(
-				'name'  => esc_attr( $field_type->_name( '[long]' ) ),
-				'value' => esc_attr( $value['long'] ),
-				'type'  => 'hidden',
-				'class' => '_map_geolocation_long',
-				'id'    => '_map_geolocation_long'
-			) ), $allowed_html ); ?>
-
-        <?php echo wp_kses( $field_type->input( array(
-				'name'  => esc_attr( $field_type->_name( '[elevation]' ) ),
-				'value' => esc_attr( $value['elevation'] ),
-				'type'  => 'hidden',
-				'class' => '_map_geolocation_elevation',
-				'id'    => '_map_geolocation_elevation'
-			) ), $allowed_html ); ?>
+        <div>
+            <table class="geolocation">
+                <tr>
+                    <th class="form-wrap">
+                        <label for="_geolocation_lat"><b><?php echo esc_html__( 'Latitude', 'wpcasa' ); ?></b></label>
+                    </th>
+                    <td class="form-table">
+						<?php
+						echo wp_kses( $field_type->input( array(
+								'name' 	=> esc_attr( $field_type->_name( '[lat]' ) ),
+								'value' => esc_attr( get_post_meta( $object_id, '_geolocation_lat', true ) ),
+								'type'  => 'text',
+								'class' => '_geolocation_lat',
+								'id'    => '_geolocation_lat'
+							) ), $allowed_html ); 
+						?>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="form-wrap">
+                        <label for="_geolocation_long"><b><?php echo esc_html__( 'Longitude', 'wpcasa' ); ?></b></label>
+                    </th>
+                    <td class="form-table">
+						<?php
+						echo wp_kses( $field_type->input( array(
+							'name'  => esc_attr( $field_type->_name( '[long]' ) ),
+							'value' => esc_attr( get_post_meta( $object_id, '_geolocation_long', true ) ),
+							'type'  => 'text',
+							'class' => '_geolocation_long',
+							'id'    => '_geolocation_long'
+						) ), $allowed_html );
+						?>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
 		<?php
 	}

@@ -889,4 +889,31 @@ class WPSight_Helpers {
 
 	}
 
+	/**
+	 * get_decimal()
+	 * 
+	 * Return the decimal separator
+	 * 
+	 * @return string
+	 * 
+	 * @since 1.3.0
+	 */
+	public static function get_decimal() : string {
+		return apply_filters( 'wpsight_get_decimal', wpsight_get_option( 'decimal_separator', true ) );
+	}
+
+	/**
+	 * get_thousands_separator()
+	 *
+	 * Return the thousands separator and
+	 * replace old `dot` or `comma` option with `.` or `,` for backward compatibility
+	 * 
+	 * @return string
+	 * 
+	 * @since 1.3.0
+	 */
+	public static function get_thousands_separator() : string {
+		return apply_filters( 'wpsight_get_thousands_separator', str_replace( array( 'dot', 'comma' ), array( '.', ',' ), wpsight_get_option( 'currency_separator', true ) ) );
+	}
+
 }

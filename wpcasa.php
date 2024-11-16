@@ -11,13 +11,12 @@
  * Plugin Name:       WPCasa
  * Plugin URI:        https://wordpress.org/plugins/wpcasa/
  * Description:       Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
- * Version:           1.2.14
+ * Version:           1.3.0
  * Requires at least: 6.2
- * Requires PHP:      5.6
+ * Requires PHP:      7.2
  * Author:            WPSight
  * Author URI:        https://wpcasa.com
  * Text Domain:       wpcasa
- * Domain Path:       /languages
  * License:           GPL v2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
@@ -32,6 +31,7 @@ require __DIR__ . '/vendor/autoload.php';
 /**
  * WPSight_Framework class
  */
+#[\AllowDynamicProperties]
 class WPSight_Framework {
 
     // Variables
@@ -155,7 +155,6 @@ class WPSight_Framework {
 
         // Actions
 
-        add_action( 'plugins_loaded', [ $this, 'load_plugin_textdomain' ] );
         add_action( 'switch_theme', [ $this->post_types, 'register_post_type_listing' ], 10 );
         add_action( 'switch_theme', 'flush_rewrite_rules', 15 );
         add_action( 'wp_enqueue_scripts', [ $this, 'frontend_scripts' ] );
@@ -166,18 +165,17 @@ class WPSight_Framework {
     }
 
     /**
-     *	load_plugin_textdomain()
-     *
-     *	Set up the text domain for the plugin
-     *	and load language files.
-     *
-     *	@uses	plugin_basename()
-     *	@uses	load_plugin_textdomain()
-     *
-     *	@since 1.0.0
+     * setChildClass()
+     * 
+     * Set up the child plugin class
+     * 
+     * @param $addon_object
+     * 
+     * @since 1.2.13
      */
-    public function load_plugin_textdomain() {
-        load_plugin_textdomain( 'wpcasa', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+
+    public function setChildClass( $name, $addon_object ) {
+        $this->{$name} = $addon_object;
     }
 
     /**
@@ -447,3 +445,24 @@ function wpcasa_plugin_update_message( $data, $response ) {
 
 }
 add_action( 'in_plugin_update_message-wpcasa/wpcasa.php', 'wpcasa_plugin_update_message', 10, 2 );
+
+
+
+function wpcasa_settings_value_change() {
+    $wpcasa_settings    = get_option('wpcasa');
+    $thousand_separator = isset ( $wpcasa_settings['currency_separator'] ) ? $wpcasa_settings['currency_separator'] : ''; 
+
+    if ( ( 'comma' === $thousand_separator ) || ( 'dot' === $thousand_separator ) ) {
+        switch ( $thousand_separator ) {
+            case 'comma':
+                $wpcasa_settings['currency_separator'] = ',';
+            break;
+            case 'dot':
+                $wpcasa_settings['currency_separator'] = '.';
+            break;
+        }
+        update_option( 'wpcasa', $wpcasa_settings );
+    }   
+}
+
+add_action('admin_init', 'wpcasa_settings_value_change');

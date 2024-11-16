@@ -151,7 +151,7 @@ class WPSight_Listings {
 
         if ( empty( $args['post_status'] ) || ! is_user_logged_in() ) {
 
-            // When emtpy or unlogged user, set publish
+            // When empty or unlogged user, set publish
 
             $query_args['post_status'] = 'publish';
 
@@ -956,7 +956,7 @@ class WPSight_Listings {
     /**
      * get_listing_price()
      *
-     * Returns formatted listing price with
+     * Returns formatted listing price
      * with currency and rental period.
      *
      * @param integer $post_id               Post ID (defaults to get_the_ID())
@@ -998,20 +998,19 @@ class WPSight_Listings {
 
         // Set listing price args
 
-        $defauts = array(
+        $defaults = array(
             'number_format' => true,
             'show_currency' => true,
             'show_period'  => true,
             'show_request'  => true
         );
 
-        $args = wp_parse_args( $args, $defauts );
+        $args = wp_parse_args( $args, $defaults );
 
         // Get price info
-
-        $listing_price  = self::get_listing_price_raw( $post_id );
-        $listing_offer  = self::get_listing_offer( $post_id, false );
-        $listing_period = self::get_listing_period( $post_id, false );
+        $listing_price         = self::get_listing_price_raw( $post_id );
+        $listing_offer         = self::get_listing_offer( $post_id, false );
+        $listing_rental_period = self::get_listing_period( $post_id, false );
 
         // Return false if no price
 
@@ -1025,42 +1024,26 @@ class WPSight_Listings {
 
         } else {
 
-            if ( $args['number_format'] == true ) {
+            if ( $args['number_format'] === true ) {
 
                 $listing_price_arr = false;
 
-                // Remove white spaces
-                $listing_price = preg_replace( '/\s+/', '', $listing_price );
-
-                if ( strpos( $listing_price, ',' ) )
+				// explode string if decimal number
+                if ( strpos( $listing_price, wpsight_get_decimal() ) )
                     $listing_price_arr = explode( ',', $listing_price );
 
-                if ( strpos( $listing_price, '.' ) )
-                    $listing_price_arr = explode( '.', $listing_price );
-
+				// get pre-decimal number
                 if ( is_array( $listing_price_arr ) )
                     $listing_price = $listing_price_arr[0];
 
-                // remove dots and commas
+	            if ( is_numeric( $listing_price ) ) {
 
-                $listing_price = str_replace( '.', '', $listing_price );
-                $listing_price = str_replace( ',', '', $listing_price );
+					// create pre-number value with thousands separator
+                    $listing_price = number_format( $listing_price, 0, '', wpsight_get_thousands_separator() );
 
-                if ( is_numeric( $listing_price ) ) {
-
-                    // Get thousands separator
-                    $listing_price_format = wpsight_get_option( 'currency_separator', true );
-
-                    // Add thousands separators
-
-                    if ( $listing_price_format == 'dot' ) {
-                        $listing_price = number_format( $listing_price, 0, ',', '.' );
-                        if ( is_array( $listing_price_arr ) )
-                            $listing_price .= ',' . $listing_price_arr[1];
-                    } else {
-                        $listing_price = number_format( $listing_price, 0, '.', ',' );
-                        if ( is_array( $listing_price_arr ) )
-                            $listing_price .= '.' . $listing_price_arr[1];
+					// add decimal number
+                    if ( is_array( $listing_price_arr ) ) {
+                        $listing_price .= wpsight_get_decimal() . $listing_price_arr[1];
                     }
 
                 }
@@ -1105,11 +1088,11 @@ class WPSight_Listings {
 
             if ( $args['show_period'] == true ) {
 
-                $listing_period = get_post_meta( $post_id, '_price_period', true );
+                $listing_rental_period = get_post_meta( $post_id, '_price_period', true );
 
-                if ( $listing_offer == 'rent' && ! empty( $listing_period ) ) {
+                if ( $listing_offer == 'rent' && ! empty( $listing_rental_period ) ) {
 
-                    $listing_price = $listing_price . ' <span class="listing-rental-period">/ ' . wpsight_get_rental_period( $listing_period ) . '</span><!-- .listing-rental-period -->';
+                    $listing_price = $listing_price . ' <span class="listing-rental-period">/ ' . wpsight_get_rental_period( $listing_rental_period ) . '</span><!-- .listing-rental-period -->';
 
                 }
 

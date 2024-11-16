@@ -110,21 +110,49 @@ class WPSight_About {
                             </style>
 
                             <ul class="tabs" data-tabgroup="first-tab-group">
-                                <li class="tab"><a href="#version-1-2-14" class="active">v1.2.14</a></li>
+                                <li class="tab"><a href="#version-1-3-0" class="active">v1.3.0</a></li>
                                 <li class="tab"><a href="#version-1-2-13">v1.2.13</a></li>
                                 <li class="tab"><a href="#version-1-2-12">v1.2.12</a></li>
                                 <li class="tab"><a href="#version-1-2-11">v1.2.11</a></li>
-                                <li><a href="https://wpcasa.com" target="_blank">More</a></li>
+                                <li><a href="https://wpcasa.com" target="_blank"><?php echo esc_html__( 'More', 'wpcasa' ); ?></a></li>
                             </ul>
 
                             <section id="first-tab-group" class="tabgroup">
 
-                                <div id="version-1-2-14">
-                                    <p>Version: 1.2.14</p>
+                                <div id="version-1-3-0">
+                                    <p>Version: 1.3.0</p>
                                     <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-new">New</span></td>
+                                            <td>Added input field for longitude and latitude to manually set the location of the listing</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-new">New</span></td>
+                                            <td>Switch to loading language files from <a href="https://translate.wordpress.org/projects/wp-plugins/wpcasa/" target="_blank">GlotPress</a></td>
+                                        </tr>
                                         <tr>
                                             <td><span class="changelog-entry-tweak">Tweak</span></td>
                                             <td>Improved use of singular and plural string translation</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Minified JS files for increase page load</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Improved PHP 8 compatibility</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Fixed some notice when debug mode is activated</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Added missing file needed from [WPCasa Dashboard](https://wpcasa.com/downloads/wpcasa-dashboard/) to show the map</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Fixed insecure direct object references (IDOR) (Thanks to Patchstack)</td>
                                         </tr>
                                     </table>
                                 </div>

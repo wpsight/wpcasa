@@ -798,6 +798,15 @@ th.column-listing_actions {
 
 }
 
+/* Map/Geolocation
+================================================== */
+.geolocation th {
+    padding-block: 10px;
+}
+.geolocation td {
+    padding-block: 5px;
+}
+
 /* Feather Icon Font
 ================================================== */
 

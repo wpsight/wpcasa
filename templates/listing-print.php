@@ -11,6 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 $listing_id = absint( $_GET['print'] );
 $listing = get_post( $listing_id );
 
+if ( get_post_status( $listing_id ) !== 'publish' ) {
+	echo '<h2>' . sprintf( esc_html__( 'This listing is %s', 'wpcasa' ), get_post_status( $listing_id ) ) . '</h2>';
+	return;
+}
+
 $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 <!DOCTYPE html>
 <html>

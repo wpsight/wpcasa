@@ -2,10 +2,11 @@
 Contributors: wpsight, kybernetikservices, mrinal013
 Plugin URI: https://wordpress.org/plugins/wpcasa/
 Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
-Tags: realtor, wpcasa, real estate, realestate, listings
+Tags: listings, property, real-estate, rental, realtor
 Requires at least: 6.2
+Requires PHP: 7.2
 Tested up to: 6.7
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,7 +54,7 @@ You can manage great numbers of listings using the well-organized property list 
 
 Select the location of your properties through the map in the editor, display the location of each property on a single listing map, or showcase all of your listings on the overall listings map.
 
-= Intuitive Options =		
+= Intuitive Options =
 Setup date format, measurement units, listing details and much more via the intuitive and easy-to-understand admin interface
 
 = Developer Friendly =
@@ -202,20 +203,20 @@ If you find WPCasa an interesting project, please feel free to have a look at ou
 7. Property Management
 
 == Contributors ==
-This is a list of contributors to WPCasa.		
-Many thanks to all of them for contributing and making WPCasa even better.	
+This is a list of contributors to WPCasa.
+Many thanks to all of them for contributing and making WPCasa even better.
 
 [Mrinal Haque](https://profiles.wordpress.org/mrinal013/)
 [Kybernetik Services](https://www.kybernetik-services.com/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=wpcasa&utm_content=readme)
 [Joe Hana](https://wordpress.org/support/users/joehana/)
 [Fabian Marz](https://github.com/fabianmarz)
 [codestylist](https://wordpress.org/support/users/codestylist/)
-[Luiz Bills](https://github.com/luizbills)		
+[Luiz Bills](https://github.com/luizbills)
 [Walter Barcelos](https://walterbarcelos.com)
-[Leonardo Lima de Vasconcellos](https://www.devhouse.com.br/)		
-[Laura Vanoni](www.simboliweb.it)		
-[Nicola Turato](https://www.linkedin.com/in/nicolaturato)		
-[Andrea Manzato]		
+[Leonardo Lima de Vasconcellos](https://www.devhouse.com.br/)
+[Laura Vanoni](www.simboliweb.it)
+[Nicola Turato](https://www.linkedin.com/in/nicolaturato)
+Andrea Manzato
 [Danijel Cukarić](https://pistacio.hr)
 [Dennis Onstenk](https://citymakelaardij.nl)
 [Systemo](https://systemo.biz)
@@ -224,6 +225,11 @@ Many thanks to all of them for contributing and making WPCasa even better.
 [Simon Rimkus](https://github.com/simonrimkus)
 
 == Changelog ==
+= 1.3.1 =
+* TWEAK: added string translation of listing details
+* UPDATE: CMB2 updated to 2.11.0
+* FIX: Fixed authenticated stored XSS (Thanks to Vlad Nikandrov)
+
 = 1.3.0 =
 * NEW: Added input field for longitude and latitude to manually set the location of the listing
 * NEW: Switch to using language files from [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa/).

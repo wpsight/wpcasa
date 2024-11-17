@@ -11,7 +11,7 @@
  * Plugin Name:       WPCasa
  * Plugin URI:        https://wordpress.org/plugins/wpcasa/
  * Description:       Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
- * Version:           1.3.0
+ * Version:           1.3.1
  * Requires at least: 6.2
  * Requires PHP:      7.2
  * Author:            WPSight
@@ -44,6 +44,7 @@ class WPSight_Framework {
     public $meta_boxes;
     public $admin_map_ui;
     public $listings_map;
+	public $ninja_forms;
 
     /**
      *	Constructor - get the plugin hooked in and ready
@@ -164,15 +165,16 @@ class WPSight_Framework {
 
     }
 
-    /**
-     * setChildClass()
-     * 
-     * Set up the child plugin class
-     * 
-     * @param $addon_object
-     * 
-     * @since 1.2.13
-     */
+	/**
+	 * setChildClass()
+	 *
+	 * Set up the child plugin class
+	 *
+	 * @param $name
+	 * @param $addon_object
+	 *
+	 * @since 1.2.13
+	 */
 
     public function setChildClass( $name, $addon_object ) {
         $this->{$name} = $addon_object;

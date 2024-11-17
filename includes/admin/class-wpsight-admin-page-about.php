@@ -110,7 +110,8 @@ class WPSight_About {
                             </style>
 
                             <ul class="tabs" data-tabgroup="first-tab-group">
-                                <li class="tab"><a href="#version-1-3-0" class="active">v1.3.0</a></li>
+                                <li class="tab"><a href="#version-1-3-1" class="active">v1.3.1</a></li>
+                                <li class="tab"><a href="#version-1-3-0" >v1.3.0</a></li>
                                 <li class="tab"><a href="#version-1-2-13">v1.2.13</a></li>
                                 <li class="tab"><a href="#version-1-2-12">v1.2.12</a></li>
                                 <li class="tab"><a href="#version-1-2-11">v1.2.11</a></li>
@@ -118,6 +119,19 @@ class WPSight_About {
                             </ul>
 
                             <section id="first-tab-group" class="tabgroup">
+                                <div id="version-1-3-1">
+                                    <p>Version: 1.3.1</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Added string translation of listing details</a></td>
+                                            <td><span class="changelog-entry-update">Update</span></td>
+                                            <td>CMB2 updated to 2.11.0</a></td>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Fixed authenticated stored XSS</a></td>
+                                        </tr>
+                                    </table>
+                                </div>
 
                                 <div id="version-1-3-0">
                                     <p>Version: 1.3.0</p>

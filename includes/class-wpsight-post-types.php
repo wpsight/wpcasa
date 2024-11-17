@@ -52,8 +52,12 @@ class WPSight_Post_Type_Listing {
 		add_action( 'wpsight_head_print', array( $this, 'wpsight_head_print_css' ) );
 		add_filter( 'wpsight_head_print', array( $this, 'wpsight_head_print_robots' ) );
 
+        // Sanitize CPT
+
+		add_filter( 'wp_insert_post_data', array( $this, 'wpsight_sanitize_post_title' ), 10, 2 );
+
 	}
-	
+
 	/**
 	 * register_post_type_listing()
 	 *
@@ -137,7 +141,7 @@ class WPSight_Post_Type_Listing {
 	        'add_new_item' 		 		 => _x( 'Add New Listing Type', 'taxonomy types', 'wpcasa' ),
 	        'new_item_name' 	 		 => _x( 'New Listing Type Name', 'taxonomy types', 'wpcasa' ),
 	        'parent_item'  		 		 => _x( 'Parent Listing Type', 'taxonomy types', 'wpcasa' ),
-	        'parent_item_colon'  		 => _x( 'Parent Listing Type:', 'taxonomy types', 'wpcasa' ),
+	        'parent_item_colon'  		 => _x( 'Parent Listing Type', 'taxonomy types', 'wpcasa' ).':',
 	        'search_items' 		 		 => _x( 'Search listing types', 'taxonomy types', 'wpcasa' ),
 	        'popular_items' 	 		 => _x( 'Popular Listing Types', 'taxonomy types', 'wpcasa' ),
 	        'separate_items_with_commas' => _x( 'Separate listing types with commas', 'taxonomy types', 'wpcasa' ),
@@ -646,5 +650,32 @@ class WPSight_Post_Type_Listing {
 	<meta name="robots" content="noindex" />
 	<?php
 	}
+
+	/**
+	 * wpsight_sanitize_post_title()
+	 *
+	 * This functions sanitizes the custom post type listing
+	 * title to prevent XSS and script in the title
+	 *
+	 * @access public
+	 * @uses wp_kses()
+	 *
+	 * @since 1.3.1
+	 */
+	public function wpsight_sanitize_post_title( $data, $postarr ) {
+
+		if( 'listing' == $data['post_type'] ) {
+
+			if( ! empty( $data['post_title'] ) ) {
+
+				$data['post_title'] = wp_kses( $data['post_title'], 'post' );
+
+			}
+
+		}
+
+		return $data;
+	}
+
 
 }

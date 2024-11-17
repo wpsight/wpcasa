@@ -37,19 +37,7 @@ For help and documentation please feel free to visit our [support center](https:
 
 ## Translations
 
-* German (de_DE): [Simon Rimkus](http://wpcasa.com)
-* Spanish (es_ES): [Simon Rimkus](http://wpcasa.com)
-* French (fr_FR): [Guido Sommer](https://aiximmo.ch/)
-* Portuguese (pt_BR): [Walter Barcelos](http://walterbarcelos.com), [Leonardo Lima de Vasconcellos](https://www.devhouse.com.br/)		
-* Italian (it_IT): [Laura Vanoni](www.simboliweb.it), [Nicola Turato](https://www.linkedin.com/in/nicolaturato), [Andrea Manzato]		
-* Dutch (nl_NL): [Dennis Onstenk](http://citymakelaardij.nl)		
-* Croatian (hr_HR): [Danijel Cukarić](http://pistacio.hr)		
-* Russian (ru_RU): [Systemo](http://systemo.biz)		
-* Romanian (ro_RO): [Adrian Mocanu](http://www.bitopia.ro)		
-* Slovak (sk_SK): [Jana Mičeková](https://www.jmsupport.sk)
-* Farsi (fa_IR): Kim
-
-POT file with text strings is included. If you would like to add a translation and see your name here, please [get in touch](https://wpcasa.com/contact/).
+Since version 1.3.0 the translations are handled on WordPress.org. Please be part of the community and help to translate WPCasa on [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa/). Thank you!
 
 ## Contribution
 
@@ -57,5 +45,4 @@ You are warmly welcome to contribute to WPCasa. No matter if you find a typo or 
 
 1. [Report](https://github.com/wpsight/wpcasa/issues) a minor issue or a major bug
 2. [Provide feedback](https://github.com/wpsight/wpcasa/issues?direction=desc&labels=Enhancement&page=1&sort=created&state=open) on enhancements
-3. [Submit](https://wpcasa.com/contact) a translation of your language
-4. Send pull requests with fixes and improvments
+3. Send pull requests with fixes and improvements

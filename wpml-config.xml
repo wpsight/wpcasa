@@ -1,0 +1,14 @@
+<wpml-config>
+    <admin-texts>
+        <key name="wpcasa">
+            <key name="details_1" />
+            <key name="details_2" />
+            <key name="details_3" />
+            <key name="details_4" />
+            <key name="details_5" />
+            <key name="details_6" />
+            <key name="details_7" />
+            <key name="details_8" />
+        </key>
+    </admin-texts>
+</wpml-config>

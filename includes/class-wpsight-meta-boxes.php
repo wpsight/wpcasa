@@ -357,8 +357,8 @@ class WPSight_Meta_Boxes {
 				'name'      => __( 'Availability', 'wpcasa' ),
 				'id'        => '_listing_not_available',
 				'type'      => 'checkbox',
-				'label_cb'  => __( 'Listing not available', 'wpcasa' ),
-				'desc'      => __( 'The listing is currently not available as it has been sold or rented.', 'wpcasa' ),
+				'label_cb'  => __( 'Property not available', 'wpcasa' ),
+				'desc'      => __( 'The property is currently not available as it has been sold or rented.', 'wpcasa' ),
 				'dashboard' => false,
 				'priority'  => 10
 			)
@@ -771,7 +771,7 @@ class WPSight_Meta_Boxes {
 				'priority'  => 50
 			),
 			'twitter' => array(
-				'name'      => __( 'Twitter', 'wpcasa' ),
+				'name'      => __( 'X', 'wpcasa' ),
 				'id'        => '_agent_twitter',
 				'type'      => 'text',
 				'desc'      => false,
@@ -866,7 +866,7 @@ class WPSight_Meta_Boxes {
 			),
 			'twitter'		=> array(
 				'id'        => 'twitter',
-				'name'      => __( 'Twitter', 'wpcasa' ),
+				'name'      => __( 'X', 'wpcasa' ),
 				'type'      => 'text',
 				'priority'  => 50
 			),

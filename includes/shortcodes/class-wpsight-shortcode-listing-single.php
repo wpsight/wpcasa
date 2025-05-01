@@ -39,7 +39,7 @@ class WPSight_Shortcode_Listing_Single {
         // Merge shortcodes atts with defaults and extract
 		extract( shortcode_atts( $defaults, $atts ) );
         
-        // Make sure full is emtpy or false, or falls back to default (true)
+        // Make sure full is empty or false, or falls back to default (true)
         
         if( ( empty( $full ) || $full === 'false' ) && $full !== 'true' ) {
         	$full = false;
@@ -52,7 +52,7 @@ class WPSight_Shortcode_Listing_Single {
 		// Get listing output
 		wpsight_listing( $id, $full );
         
-        $output = sprintf( '%1$s%3$s%2$s', $before, $after, ob_get_clean() );
+        $output = sprintf( '%1$s%3$s%2$s', esc_attr( $before ), esc_attr( $after ), ob_get_clean() );
 	
 		// Optionally wrap shortcode in HTML tags
 		

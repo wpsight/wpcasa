@@ -490,7 +490,7 @@ class WPSight_General {
 	 */
 	public static function date_formats( $date_i18n = false ) {
 
-		$formats = apply_filters( 'date_formats', array( __( 'F j, Y' ), __( 'j. F Y' ), 'Y-m-d', 'y-m-d', 'm/d/Y', 'm/d/y', 'd/m/Y', 'd/m/y', 'd.m.Y', 'd.m.y' ) );
+		$formats = apply_filters( 'date_formats', array( 'F j, Y', 'j. F Y', 'Y-m-d', 'y-m-d', 'm/d/Y', 'm/d/y', 'd/m/Y', 'd/m/y', 'd.m.Y', 'd.m.y' ) );
 
 		$date_formats = array();
 

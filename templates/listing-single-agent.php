@@ -46,7 +46,7 @@ global $listing; ?>
 	        	<?php endif; ?>
 	        	
 	        	<?php if( wpsight_get_listing_agent_twitter( $listing->ID ) ) : ?>
-	        	<a href="<?php wpsight_listing_agent_twitter( $listing->ID, 'url' ); ?>" class="agent-twitter" title="@<?php echo esc_attr( wpsight_get_listing_agent_twitter( $listing->ID ) ); ?>" target="_blank" rel="nofollow"><?php echo esc_html__( 'Twitter', 'wpcasa' ); ?></a>
+	        	<a href="<?php wpsight_listing_agent_twitter( $listing->ID, 'url' ); ?>" class="agent-twitter" title="@<?php echo esc_attr( wpsight_get_listing_agent_twitter( $listing->ID ) ); ?>" target="_blank" rel="nofollow"><?php echo esc_html__( 'X', 'wpcasa' ); ?></a>
 	        	<?php endif; ?>
 	        	
 	        	<?php if( wpsight_get_listing_agent_facebook( $listing->ID ) ) : ?>

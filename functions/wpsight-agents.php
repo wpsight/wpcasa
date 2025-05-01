@@ -412,7 +412,7 @@ function wpsight_get_agent_phone( $user_id ) {
  *	Echo wpsight_get_listing_agent_twitter()
  *	
  *	@param	integer|object	$post	Post ID or object of specific listing (defaults to null = current listing)
- *	@param	string			$return	Return Twitter user or URL (defaults to 'user' - can be 'url')
+ *	@param	string			$return	Return X (Twitter) user or URL (defaults to 'user' - can be 'url')
  *	@uses	wpsight_get_listing_agent_twitter()
  *	
  *	@since 1.0.0

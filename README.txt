@@ -5,8 +5,8 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
 Tags: listings, property, real-estate, rental, realtor
 Requires at least: 6.2
 Requires PHP: 7.2
-Tested up to: 6.7
-Stable tag: 1.3.1
+Tested up to: 6.8
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,7 @@ WPCasa is a **real estate** WordPress solution that provides an intuitive way to
 * Themes: [wpcasa.com/themes](https://wpcasa.com/themes)
 * GitHub: [github.com/wpsight/wpcasa](https://github.com/wpsight/wpcasa)
 
-> Have a look at our latest themes [WPCasa Madrid](https://wpcasa.com/downloads/wpcasa-madrid), [WPCasa Oslo](https://wpcasa.com/downloads/wpcasa-oslo/)
+> Check out our latest themes [WPCasa Madrid](https://wpcasa.com/downloads/wpcasa-madrid), [WPCasa Oslo](https://wpcasa.com/downloads/wpcasa-oslo/)
 and [WPCasa London](https://wpcasa.com/downloads/wpcasa-london).
 
 = Easy as WordPress =
@@ -63,7 +63,7 @@ WPCasa comes with readable & well-documented code with loads of actions, filters
 
 = Translation Ready =
 
-The real estate business is international. And so is WPCasa. The framework and all our add-ons and themes are translation-ready and comes with 11 translations on board.
+The real estate business is international. And so is WPCasa. The plugin and all our add-ons and themes are translation-ready. You can show your listings in multiple languages.
 
 = Translations =
 
@@ -112,7 +112,7 @@ Once you have installed and activated WPCasa you will find a new page called "Li
 
 For more information about how to get started please [read our documentation](https://docs.wpsight.com/).
 
-= Whats’ Next =
+= What's Next =
 
 Other useful [free add-ons](https://wordpress.org/plugins/search/WPCasa/) for WPCasa
 
@@ -124,6 +124,7 @@ WPCasa Listings Map
 WPCasa Ninja Forms
 WPCasa Polylang
 WPCasa Pricing Tables
+WPCasa Migration Tool (NEW)
 
 More useful [Pro add-ons](https://wpcasa.com/downloads/category/add-ons/) for WPCasa
 
@@ -131,10 +132,10 @@ WPCasa Dashboard
 WPCasa Listing PDF
 WPCasa Featured Listings
 WPCasa Listing Labels
-WPCasa Admin Map UI
 WPCasa Favorites
 WPCasa Currency Converter
 WPCasa Expire Listings
+WPCasa Energy Efficiency (NEW)
 
 Check out our [WPCasa themes](https://wpcasa.com/downloads/category/themes/) for your real estate website:
 
@@ -149,7 +150,7 @@ WPCasa Elviria
 
 = Which shortcodes are included? =
 
-* `[wpsight_listings]`: Displays a list of your latest properites
+* `[wpsight_listings]`: Displays a list of your latest properties
 * `[wpsight_listings_search]`: Displays the property search form
 * `[wpsight_listing]`: Displays a single listing
 * `[wpsight_listing_teasers]`: Displays a list of property teasers
@@ -165,6 +166,11 @@ You can fit general plugin settings to your needs on _WP-Admin > WPCasa > Settin
 = Is WPCasa free? =
 
 Yes, the core features are free. Additionally, we offer free and paid add-ons and themes exclusively built for WPCasa.
+
+= Does WPCasa support the block editor (aka Gutenberg)? =
+
+Let's say yes, but don't expect blocks to build your pages. With WPCasa 1.4.0 we have added block editor support (which needs to be enabled in the WPCasa settings) which allows you to use all WPCasa related data in the block editor. This allows you to create your own output with the loop block, for example.
+However, you can still use our [shortcodes](https://docs.wpcasa.com/article/category/shortcodes/) with the block editor.
 
 = Does WPCasa include a listing gallery? =
 
@@ -225,8 +231,25 @@ Andrea Manzato
 [Simon Rimkus](https://github.com/simonrimkus)
 
 == Changelog ==
+= 1.4.1 =
+* FIX: The license page may show an error under certain circumstances
+
+= 1.4.0 =
+* NEW: Added basic compatibility with the block editor and REST API endpoints for listings and all related taxonomies.
+* NEW: Added energy efficiency diagram to page printout. Requires [WPCasa Energy Efficiency](https://wpcasa.com/downloads/wpcasa-energy-efficiency).
+* NEW: Added color selector for use on the settings page, as with [WPCasa Featured Listing](https://wpcasa.com/downloads/wpcasa-featured-listing) and [WPCasa Listing Labels](https://wpcasa.com/downloads/wpcasa-listing-labels).
+* NEW: Added note if the updater class for paid plugins is missing.
+* TWEAK: Twitter renamed to X.
+* TWEAK: Translation settings improved and missing strings for translation added.
+* FIX: Textdomain WPCasa was loaded too early.
+* FIX: Message if no image is assigned to an agent.
+* FIX: Vulnerability for Cross Site Scripting (XSS) fixed (thanks to Patchstack).
+
+= 1.3.2 =
+* TEWAK: Text improvements
+
 = 1.3.1 =
-* TWEAK: added string translation of listing details
+* TWEAK: Added string translation for listing details
 * UPDATE: CMB2 updated to 2.11.0
 * FIX: Fixed authenticated stored XSS (Thanks to Vlad Nikandrov)
 
@@ -407,9 +430,17 @@ Andrea Manzato
 * Initial release
 
 == Upgrade Notice ==
+= 1.4.1 =
+With this version we are starting to add basic compatibility with block editor (aka Gutenberg). It includes also new REST API endpoints for listings and all associated taxonomies. You can control this new feature on the settings page.
+In addition, we have renamed Twitter to X to match the official wording and we have fixed an issue on the license page.
+
+= 1.4.0 =
+With this version we are starting to add basic compatibility with block editor (aka Gutenberg). It includes also new REST API endpoints for listings and all associated taxonomies. You can control this new feature on the settings page.
+In addition, we have renamed Twitter to X to match the official wording.
+
 = 1.3.0 =
 We have changed the loading of the language files of [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa/). This means that the language files included in the plugin are no longer available. If you find that the WPCasa output is now in English instead of your local language, please go to [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa/) and translate WPCasa into your local language. This way the community can benefit from your translation, just as you benefit from WPCasa.
-Please note: WordPress 6.6 has droped support for PHP 7.0 and 7.1, so in the upcoming updates we will also drop PHP support for older and unsecure PHP versions up to PHP 7.1. If you would like to benefit from further WPCasa updates from the end of 2024, please keep in mind that you must be running at least PHP 7.2 on your server.
+Please note: WordPress 6.6 has dropped support for PHP 7.0 and 7.1, so in the upcoming updates we will also drop PHP support for older and unsecure PHP versions up to PHP 7.1. If you would like to benefit from further WPCasa updates from the end of 2024, please keep in mind that you must be running at least PHP 7.2 on your server.
 
 = 1.2.13 =
 We have fixed the non-functioning QR code on the single page and made sure that WPCasa works correctly with WordPress 6.6.

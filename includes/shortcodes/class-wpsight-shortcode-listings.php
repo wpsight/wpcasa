@@ -58,7 +58,7 @@ class WPSight_Shortcode_Listings {
         
         wpsight_listings( $args );
         
-        $output = sprintf( '%1$s%3$s%2$s', $before, $after, ob_get_clean() );
+        $output = sprintf( '%1$s%3$s%2$s', esc_attr( $before ), esc_attr( $after ), ob_get_clean() );
 	
 		// Optionally wrap shortcode in HTML tags
 		

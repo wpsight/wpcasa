@@ -526,8 +526,9 @@ class WPSight_Listings {
             $paged = 1;
         }
 
-        if( false === $args['show_paging'] )
-            $paged = 1;
+        if( isset( $args['show_paging'] ) && false === $args['show_paging'] ) {
+	        $paged = 1;
+        }
 
         // Make sure other listing queries don't set paged
         $args = array_merge( array( 'paged' => $paged ), $args );

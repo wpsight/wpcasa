@@ -77,6 +77,11 @@ jQuery(document).ready(function($) {
         $(".wpsight-settings-wrap").toggleClass("wpsight-settings-wrap-hide-navbar");
     });
 
+    // Show color picker
+
+    jQuery(document).ready(function($){
+        $('.wpsight-settings-colorpicker').wpColorPicker();
+    });
 
     // Working with listing fields
 
@@ -240,3 +245,4 @@ jQuery(document).ready(function($) {
     WPCasaAdminUIAccordion()
 
 });
+

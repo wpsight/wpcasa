@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 
 $listing_id = absint( $_GET['print'] );
-$listing = get_post( $listing_id );
+$listing    = get_post( $listing_id );
 
 if ( get_post_status( $listing_id ) !== 'publish' ) {
 	echo '<h2>' . sprintf( esc_html__( 'This listing is %s', 'wpcasa' ), get_post_status( $listing_id ) ) . '</h2>';
@@ -55,16 +55,16 @@ $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 			    	<?php wpsight_listing_id( $listing->ID ); ?> - <?php wpsight_listing_offer( $listing->ID ); ?>
 			    </div>			
 			</div><!-- .listing-print-info -->
-			
-			<div class="listing-print-image">			
+
+			<div class="listing-print-image">
 				<?php wpsight_listing_thumbnail( $listing->ID, 'full' ); ?>			
 			</div><!-- .listing-print-image -->
-			
-			<div class="listing-print-details">			
+
+            <div class="listing-print-details">
 				<?php wpsight_listing_details( $listing->ID ); ?>			
 			</div><!-- .listing-print-details -->
-			
-			<div class="listing-print-description">			
+
+			<div class="listing-print-description">
 				<?php if( wpsight_is_listing_not_available() ) : ?>
 					<div class="wpsight-alert wpsight-alert-small wpsight-alert-not-available">
 						<?php echo esc_html( apply_filters( 'wpsight_listing_text_not_available', __( 'This property is currently not available.', 'wpcasa' ) ) ); ?>
@@ -74,12 +74,18 @@ $listing_offer = wpsight_get_listing_offer( $listing->ID, false ); ?>
 					<?php echo wp_kses_post( apply_filters( 'wpsight_listing_description', wpsight_format_content( $listing->post_content ) ) ); ?>
 				</div>			
 			</div><!-- .listing-print-description -->
-			
-			<div class="listing-print-features">			
+
+			<?php if( wpsight_get_option( 'energy_efficiency_print' ) ) : ?>
+                <div class="listing-print-energy-efficiency">
+					<?php echo do_shortcode( '[wpsight_listing_energy_efficiency orientation="horizontal"]' ); ?>
+                </div><!-- .listing-print-energy-efficiency -->
+			<?php endif; ?>
+
+            <div class="listing-print-features">
 				<?php wpsight_listing_terms( 'feature', $listing->ID, ', ' ); ?>			
 			</div><!-- .listing-print-features -->
-			
-			<div class="listing-print-agent clearfix">			
+
+			<div class="listing-print-agent clearfix">
 				<div class="alignleft">
 					<?php wpsight_listing_agent_image( $listing->ID, array( 50, 50 ) ); ?>
 			        <?php wpsight_listing_agent_name( $listing->ID ); ?>

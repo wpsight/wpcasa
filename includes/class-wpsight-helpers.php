@@ -172,7 +172,7 @@ class WPSight_Helpers {
 				$defaults = self::options_defaults();
 			
 				// When default is set, return it, else false
-				$return = isset( $defaults[ $name ] ) ? $defaults[ $name ] : false;
+				$return = $defaults[$name] ?? false;
 			
 			} elseif ( ! empty( $default ) ) {
 				

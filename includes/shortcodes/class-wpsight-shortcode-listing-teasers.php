@@ -59,7 +59,7 @@ class WPSight_Shortcode_Listing_Teasers {
 		
 		wpsight_listing_teasers( $args );
 		
-		$output = sprintf( '%1$s%3$s%2$s', $before, $after, ob_get_clean() );
+		$output = sprintf( '%1$s%3$s%2$s', esc_attr( $before ), esc_attr( $after ), ob_get_clean() );
 		
 		// Set css class
 		$class = ! empty( $class ) ? ' ' . esc_attr( sanitize_html_class( $class ) ) : '';

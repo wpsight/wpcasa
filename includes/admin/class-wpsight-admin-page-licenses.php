@@ -49,8 +49,8 @@ class WPSight_Admin_Licenses {
 					foreach( wpsight_licenses() as $id => $license ) :
                         $license_data			= $this->update_and_get_license_data( $license );
 						$option_key				= $license['id'];
-						$option_value			= isset( $licenses[ $option_key ] ) ? $licenses[ $option_key ] : false;
-                        $license_status			= isset( $license_data->license ) ? $license_data->license : false;
+						$option_value			= $licenses[$option_key] ?? false;
+                        $license_status			= $license_data->license ?? false;
 
 					?>
 					<div class="wpsight-settings-panel">
@@ -63,7 +63,7 @@ class WPSight_Admin_Licenses {
 							    <small style="color:green;">(<?php echo esc_attr( 'active' ); ?>)</small>
 							<?php	echo '<span class="indicator indicator-valid tips" data-tip="' . esc_attr__( 'Valid', 'wpcasa' ) . '"></span>';
                                 /* translators: %s: is the license expire date */
-								echo '<span class="wpsight-settings-help tips" data-tip="' . esc_attr( sprintf( __( 'Valid until %s', 'wpcasa' ) ), date_i18n( get_option( 'date_format' ), strtotime( $license_data->expires ) ) ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
+								echo '<span class="wpsight-settings-help tips" data-tip="' . esc_attr( sprintf( __( 'Valid until %s', 'wpcasa' ), date_i18n( get_option( 'date_format' ), strtotime( $license_data->expires ) ) ) ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
 							} elseif( $license_status == 'expired' ) {
 								echo '<span class="indicator indicator-expired tips" data-tip="' . esc_attr__( 'Expired', 'wpcasa' ) . '"></span>';
 								echo '<span class="wpsight-settings-help tips" data-tip="' . esc_attr__( 'License is expired. Please consider to re-new.', 'wpcasa' ) . '"><span class="dashicons dashicons-editor-help"></span></span>';
@@ -132,7 +132,7 @@ class WPSight_Admin_Licenses {
 	 *	sanitize_license()
 	 *
 	 *	Check if the license key has changed
-	 *	and deactivate license if yes.
+	 *	and deactivate the license if yes.
 	 *
 	 *	@uses	get_option()
 	 *	@uses	wpsight_licenses()

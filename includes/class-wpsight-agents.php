@@ -197,8 +197,12 @@ class WPSight_Agents {
 			// Get attachment URL for specific size
 			$attachment = wp_get_attachment_image_src( $agent_image_id, $size );
 
-			// Build HTML image tag
-			$agent_image = '<img src="' . $attachment[0] . '" width="' . $attachment[1] . '" height="' . $attachment[2] . '" alt="' . esc_attr( get_userdata( $user_id )->display_name ) . '" />';
+			if( is_array( $attachment ) ) {
+
+				// Build HTML image tag
+				$agent_image = '<img src="' . $attachment[0] . '" width="' . $attachment[1] . '" height="' . $attachment[2] . '" alt="' . esc_attr( get_userdata( $user_id )->display_name ) . '" />';
+
+			}
 
 		}
 
@@ -801,7 +805,7 @@ class WPSight_Agents {
 				'label' => __( 'Phone', 'wpcasa' )
 			),
 			'twitter'   => array(
-				'label' => 'Twitter'
+				'label' => 'X'
 			),
 			'facebook'  => array(
 				'label' => 'Facebook'

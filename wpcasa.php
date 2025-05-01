@@ -4,14 +4,14 @@
  *
  * @package           WPCasa
  * @author            WPSight
- * @copyright         2024 Kybernetik Services GmbH
+ * @copyright         2025 Kybernetik Services GmbH
  * @license           GPL-2.0-or-later
  *
  * @wordpress-plugin
  * Plugin Name:       WPCasa
  * Plugin URI:        https://wordpress.org/plugins/wpcasa/
  * Description:       Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
- * Version:           1.3.1
+ * Version:           1.4.1
  * Requires at least: 6.2
  * Requires PHP:      7.2
  * Author:            WPSight
@@ -68,7 +68,7 @@ class WPSight_Framework {
         if( ! function_exists( 'get_plugin_data' ) ) {
             require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
         }
-        $plugin_data = get_file_data(__FILE__, array( 'Version' => 'Version' ), false);
+	    $plugin_data = get_plugin_data( __FILE__, false, false );
 
         define( 'WPSIGHT_VERSION', $plugin_data[ 'Version' ] );
         define( 'WPSIGHT_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
@@ -410,10 +410,10 @@ add_action( 'admin_notices', 'wpsight_admin_plugins_delete_notice' );
  *
  *	@since 1.2.0
  */
-register_activation_hook(__FILE__, 'wpcasa_plugin_activate');
 function wpcasa_plugin_activate() {
     add_option('wpcasa_do_activation_redirect', true);
 }
+register_activation_hook(__FILE__, 'wpcasa_plugin_activate');
 
 function wpcasa_activation_redirect() {
     if (get_option('wpcasa_do_activation_redirect', false)) {
@@ -448,11 +448,9 @@ function wpcasa_plugin_update_message( $data, $response ) {
 }
 add_action( 'in_plugin_update_message-wpcasa/wpcasa.php', 'wpcasa_plugin_update_message', 10, 2 );
 
-
-
 function wpcasa_settings_value_change() {
     $wpcasa_settings    = get_option('wpcasa');
-    $thousand_separator = isset ( $wpcasa_settings['currency_separator'] ) ? $wpcasa_settings['currency_separator'] : ''; 
+    $thousand_separator = $wpcasa_settings['currency_separator'] ?? '';
 
     if ( ( 'comma' === $thousand_separator ) || ( 'dot' === $thousand_separator ) ) {
         switch ( $thousand_separator ) {
@@ -466,5 +464,6 @@ function wpcasa_settings_value_change() {
         update_option( 'wpcasa', $wpcasa_settings );
     }   
 }
-
 add_action('admin_init', 'wpcasa_settings_value_change');
+
+

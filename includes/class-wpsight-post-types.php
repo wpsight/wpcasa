@@ -76,7 +76,10 @@ class WPSight_Post_Type_Listing {
 	
 		// Custom admin capability
 		$admin_capability = 'edit_listings';
-	
+
+        // Option value show in REST API true/false
+		$show_in_rest = apply_filters( 'wpsight_show_in_rest', wpsight_get_option('listings_rest_api' ) );
+
 		// Set labels and localize them
 	
 		$locations_name		= apply_filters( 'wpsight_taxonomy_locations_name', __( 'Locations', 'wpcasa' ) );
@@ -117,7 +120,10 @@ class WPSight_Post_Type_Listing {
 				'slug' 		   => apply_filters( 'wpsight_rewrite_loctions_slug', 'location' ),
 				'with_front'   => false,
 				'hierarchical' => true
-			)
+			),
+			'show_in_rest'          => $show_in_rest,
+			'rest_base'             => 'wpsight-' . apply_filters( 'wpsight_rewrite_loctions_slug', 'location' ),
+			'rest_controller_class' => 'WP_REST_Terms_Controller'
 		);
 		
 		$locations_args = apply_filters( 'wpsight_taxonomy_locations_args', $locations_args );
@@ -164,7 +170,10 @@ class WPSight_Post_Type_Listing {
 			'rewrite' 	   => array( 
 				'slug' 		 => apply_filters( 'wpsight_rewrite_types_slug', 'type' ),
 				'with_front' => false
-			)
+			),
+			'show_in_rest'          => $show_in_rest,
+			'rest_base'             => 'wpsight-' . apply_filters( 'wpsight_rewrite_types_slug', 'type' ),
+			'rest_controller_class' => 'WP_REST_Terms_Controller'
 		);
 		
 		$types_args = apply_filters( 'wpsight_taxonomy_types_args', $types_args );
@@ -211,7 +220,10 @@ class WPSight_Post_Type_Listing {
 			'rewrite' 	   => array(
 				'slug' 		 => apply_filters( 'wpsight_rewrite_features_slug', 'feature' ),
 				'with_front' => false
-			)
+			),
+			'show_in_rest'          => $show_in_rest,
+			'rest_base'             => 'wpsight-' . apply_filters( 'wpsight_rewrite_features_slug', 'feature' ),
+			'rest_controller_class' => 'WP_REST_Terms_Controller'
 		);
 		
 		$features_args = apply_filters( 'wpsight_taxonomy_features_args', $features_args );
@@ -244,7 +256,10 @@ class WPSight_Post_Type_Listing {
 				'slug' 		   => apply_filters( 'wpsight_rewrite_categories_slug', 'listing-category' ), 
 				'with_front'   => false,
 				'hierarchical' => true
-			)
+			),
+			'show_in_rest'          => $show_in_rest,
+			'rest_base'             => 'wpsight-' . apply_filters( 'wpsight_rewrite_categories_slug', 'listing-category' ),
+			'rest_controller_class' => 'WP_REST_Terms_Controller'
 		);
 		
 		$categories_args = apply_filters( 'wpsight_taxonomy_categories_args', $categories_args );
@@ -271,29 +286,32 @@ class WPSight_Post_Type_Listing {
 		$labels = apply_filters( 'wpsight_post_type_labels_listing', $labels );
 		
 		// Set post type arguments
-		
+
 		$args = array(
-			'label'               => _x( 'Listings', 'listing', 'wpcasa' ),
-			'description'         => _x( 'Searchable listings with detailed information about the corresponding item.', 'listing', 'wpcasa' ),
-		    'labels' 			  => $labels,
-		    'hierarchical' 		  => false,        
-		    'supports' 			  => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields', 'revisions', 'excerpt' ),
-		    'public' 			  => true,
-		    'show_ui' 			  => true,
-		    'show_in_menu' 		  => true,
-		    'show_in_nav_menus'   => true,
-			'menu_position' 	  => 50,
-		    'menu_icon'			  => 'dashicons-location',
-		    'publicly_queryable'  => true,
-		    'exclude_from_search' => false,
-		    'has_archive' 		  => true,
-		    'query_var' 		  => true,
-		    'can_export' 		  => true,
-		    'rewrite' 			  => array( 'slug' => apply_filters( 'wpsight_rewrite_listings_slug', 'listing' ), 'with_front' => false ),
-		    'capability_type' 	  => array( 'listing', 'listings' ),
-		    'map_meta_cap'		  => true
+			'label'                 => _x( 'Listings', 'listing', 'wpcasa' ),
+			'description'           => _x( 'Searchable listings with detailed information about the corresponding item.', 'listing', 'wpcasa' ),
+		    'labels' 			    => $labels,
+		    'hierarchical' 		    => false,
+		    'supports' 			    => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields', 'revisions', 'excerpt' ),
+		    'public' 			    => true,
+		    'show_ui' 			    => true,
+		    'show_in_menu' 		    => true,
+		    'show_in_nav_menus'     => true,
+			'menu_position' 	    => 50,
+		    'menu_icon'			    => 'dashicons-location',
+		    'publicly_queryable'    => true,
+		    'exclude_from_search'   => false,
+		    'has_archive' 		    => true,
+		    'query_var' 		    => true,
+		    'can_export' 		    => true,
+		    'rewrite' 			    => array( 'slug' => apply_filters( 'wpsight_rewrite_listings_slug', 'listing' ), 'with_front' => false ),
+		    'capability_type' 	    => array( 'listing', 'listings' ),
+		    'map_meta_cap'		    => true,
+			'show_in_rest'          => $show_in_rest,
+			'rest_base'             => 'wpsight-' . apply_filters( 'wpsight_rewrite_listings_slug', 'listing' ) ,
+			'rest_controller_class' => 'WP_REST_Posts_Controller',
 		);
-		
+
 		$args = apply_filters( 'wpsight_post_type_args_listing', $args );
 		
 		// Register post type		

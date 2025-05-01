@@ -2,10 +2,10 @@
 <div id="settings-tools" class="settings_panel">
     <?php
         $tools_message_array = [
-            'reset_settings' => __( 'Settings reset.', 'wpcasa' ),
+            'reset_settings' => esc_html__( 'Settings reset.', 'wpcasa' ),
 //            'migrate_data' => __( 'Migrate map data completed successfully.' ),
-            'delete_all_transients' => __( 'All transients removed.' ),
-            'delete_all_data' => __( 'All data deleted.' )
+            'delete_all_transients' => esc_html__( 'All transients removed.', 'wpcasa' ),
+            'delete_all_data' => esc_html__( 'All data deleted.', 'wpcasa' )
         ];
 
         foreach ( $tools_message_array as $key => $message ) {

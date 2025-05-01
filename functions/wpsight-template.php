@@ -183,13 +183,13 @@ function wpsight_get_listing_title( $post_id = '', $actions = array() ) {
  *	
  *	Echo wpsight_get_listing_title()
  *	
- *	@param	integer	$post_id	Post ID of specific listing
- *	@param	array	$actions	Array of listing title actions
+ *	@param	integer $post_id Post ID of specific listing
+ *	@param  array   $actions Array of listing title actions
  *	@uses	wpsight_get_listing_title()
  *	
  *	@since 1.0.0
  */
-function wpsight_listing_title( $post_id = '', $actions = array() ) {	
+function wpsight_listing_title( $post_id = '', array $actions = array() ) {
 	$allowed_html = wpsight_allowed_html_tags();
 	$listing_title = wpsight_get_listing_title( $post_id, $actions );
 	echo wp_kses( $listing_title, $allowed_html );

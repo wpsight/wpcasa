@@ -476,9 +476,11 @@ function wpsight_get_listing_html() {
 		),
 		'div' => array(
 			'class' => array(),
+			'style' => array(),
 		),
 		'span' => array(
-			'class' => array()
+			'class' => array(),
+			'style' => array()
 		)
 	);
 

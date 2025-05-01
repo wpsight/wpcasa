@@ -36,7 +36,7 @@ class WPSight_Admin_Color_Scheme {
 		
 		wp_admin_css_color(
 			'wpcasa',
-			 __( 'WPCasa' ),
+			 'WPCasa',
 			WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-color-scheme' . $suffix . '.css',
 			array( '#222','#333','#0F8E75','#12AE8F' )
 		);

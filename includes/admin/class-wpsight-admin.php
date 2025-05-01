@@ -46,6 +46,7 @@ class WPSight_Admin {
         add_action( 'admin_enqueue_scripts',					[ $this, 'admin_enqueue_scripts' ] );
 
         add_action( 'admin_notices',							[ $this, 'notice_setup' ] );
+	    add_action( 'admin_notices',							[ $this, 'notice_updater' ] );
 
         add_filter( 'views_upload',								[ $this, 'media_custom_views' ] );
         add_filter( 'views_edit-listing',						[ $this, 'listings_custom_views' ] );
@@ -100,8 +101,10 @@ class WPSight_Admin {
             wp_enqueue_style( 'wpsight-admin-ui-framework', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin-ui-framework' . $suffix . '.css', array( 'cmb2-styles' ), WPSIGHT_VERSION );
             wp_enqueue_style( 'wpsight-admin', WPSIGHT_PLUGIN_URL . '/assets/css/wpsight-admin' . $suffix . '.css', array( 'wpsight-admin-ui-framework', 'cmb2-styles' ), WPSIGHT_VERSION );
 
-            wp_enqueue_script( 'wpsight_admin_js', WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-admin' . $suffix . '.js', array( 'jquery', 'jquery-tiptip', 'jquery-ui-datepicker' ), WPSIGHT_VERSION, true );
-			
+	        wp_enqueue_style('wp-color-picker');
+
+	        wp_enqueue_script( 'wpsight_admin_js', WPSIGHT_PLUGIN_URL . '/assets/js/wpsight-admin' . $suffix . '.js', array( 'jquery', 'jquery-tiptip', 'jquery-ui-datepicker', 'wp-color-picker' ), WPSIGHT_VERSION, true );
+
 			wp_add_inline_script( 'wpsight_admin_js', 'const WPCASA_SETTINGS = ' . wp_json_encode( array(
 				'name' => $this->settings_page->settings_name
 			) ), 'before' );
@@ -150,12 +153,12 @@ class WPSight_Admin {
     }
 
     /**
-     * Adds a new tab to the install plugins page.
+     * Adds a new tab to the install-plugins-page.
      *
      * @return void
      */
     public function add_addon_tab( $tabs ) {
-        $tabs['wpcasa_addons'] = __( 'WPCasa ', 'wpcasa' ) . '<span class="wpcasa-addons">' . __( 'Addons', 'wpcasa' ) . '</span>' ;
+        $tabs['wpcasa_addons'] = WPSIGHT_NAME . ' <span class="wpcasa-addons">' . __( 'Addons', 'wpcasa' ) . '</span>' ;
         return $tabs;
     }
 
@@ -355,7 +358,23 @@ class WPSight_Admin {
             'default'	=> 'm2'
         );
 
-        $options_listings['heading_currency'] = array(
+	    $options_listings['heading_rest_api'] = array(
+		    'name'		=> __( 'REST API', 'wpcasa' ),
+		    'id'		=> 'heading_rest_api',
+		    'position'	=> 75,
+		    'type'		=> 'heading'
+	    );
+
+	    $options_listings['listings_rest_api'] = array(
+		    'name'		=> __( 'Show in REST API (and block editor)', 'wpcasa' ),
+		    'desc'		=> __( 'Please check the box to show listings and all property taxonomies in the REST API. This is also required to show listings in the block editor.', 'wpcasa' ),
+		    'id'		=> 'listings_rest_api',
+		    'position'	=> 76,
+		    'type'		=> 'checkbox',
+		    'default'	=> '0'
+	    );
+
+	    $options_listings['heading_currency'] = array(
             'name'		=> __( 'Currency', 'wpcasa' ),
             'id'		=> 'heading_currency',
             'position'	=> 80,
@@ -886,6 +905,66 @@ class WPSight_Admin {
 
     }
 
+
+	/**
+	 *	notice_updater()
+	 *
+	 *	Show a notice if updater is not available
+	 *
+	 *	@uses	get_option()
+	 *	@uses	wpsight_licenses()
+	 *	@uses	in_array()
+	 *
+	 *	@since 1.2.0
+	 */
+	public static function notice_updater() : void {
+
+		// List of WPCasa paid plugin paths relative to the plugins directory
+		$plugins = array(
+			'wpcasa-currency-converter/wpcasa-currency-converter.php' => 'WPCasa Currency Converter',
+			'wpcasa-dashboard/wpcasa-dashboard.php' => 'WPCasa Dashboard',
+			'wpcasa-energy-efficiency/wpcasa-energy-efficiency.php' => 'WPCasa Energy Efficiency',
+			'wpcasa-expire-listings/wpcasa-expire-listings.php' => 'WPCasa Expire Listings',
+			'wpcasa-favorites/wpcasa-favorites.php' => 'WPCasa Favorites',
+			'wpcasa-featured-listings/wpcasa-featured-listings.php' => 'WPCasa Featured Listings',
+			'wpcasa-listing-labels/wpcasa-listing-labels.php' => 'WPCasa Listing Labels',
+			'wpcasa-listing-pdf/wpcasa-listing-pdf.php' => 'WPCasa Listing PDF',
+		);
+
+		// Array to hold active plugins
+		$active_plugins = array();
+
+		foreach ( $plugins as $plugin => $name  ) {
+			// Check if each plugin is active
+			if ( is_plugin_active( $plugin ) ) {
+				$active_plugins[ $plugin ] = $name;
+			}
+		}
+
+		// Output result
+		if ( 0 < count( $active_plugins ) && ! class_exists( 'WPSight_EDD_SL_Plugin_Updater' ) ) {
+			// At least one of the WPCasa paid plugins is active
+
+			$plugin_names = implode(", ", $active_plugins );
+
+			echo '<div id="" class="notice notice-warning">';
+			echo '<p>' .
+			     esc_html__( 'To comply with the WordPress guidelines for plugins, we have removed the update functionality for our premium plugins from WPCasa.', 'wpcasa' ) . '<br />' .
+			     sprintf(
+				       wp_kses(
+				       /* translators: %s: is the link */
+					       _n( 'As a result, your WPCasa plugin <strong>%1$s will no longer update automatically</strong> when a new version is available. Therefore, you will need to <strong>manually download the latest version of your plugin %1$s</strong> from <a href="https://wpcasa.com/login/" target="_blank">your account on wpcasa.com</a> and upload it to your WordPress website.',
+					           'As a result, your WPCasa plugins <strong>%1$s will no longer update automatically</strong> when a new version is available. Therefore, you will need to <strong>manually download the latest version of your plugins %1$s</strong> from <a href="https://wpcasa.com/login/" target="_blank">your account on wpcasa.com</a> and upload it to your WordPress website.',
+					           count( $active_plugins ), 'wpcasa' ),
+					       array( 'strong' => array(), 'a' => array( 'href' => array() ) ) )
+				     , esc_html( $plugin_names ) ) . '<br />' .
+			     esc_html__( 'After this, automatic updates will resume as usual. Unfortunately, this action was necessary to ensure that WPCasa remains available on wordpress.org. We appreciate your understanding and continued support.', 'wpcasa' )
+			     . '</p>';
+			echo '</div>';
+
+		}
+
+	}
 
     /**
      *

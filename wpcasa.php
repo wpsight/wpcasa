@@ -11,7 +11,7 @@
  * Plugin Name:       WPCasa
  * Plugin URI:        https://wordpress.org/plugins/wpcasa/
  * Description:       Flexible WordPress plugin to create professional real estate websites and manage property listings with ease.
- * Version:           1.4.1
+ * Version:           1.4.2
  * Requires at least: 6.2
  * Requires PHP:      7.2
  * Author:            WPSight
@@ -31,7 +31,6 @@ require __DIR__ . '/vendor/autoload.php';
 /**
  * WPSight_Framework class
  */
-#[\AllowDynamicProperties]
 class WPSight_Framework {
 
     // Variables
@@ -42,9 +41,28 @@ class WPSight_Framework {
     public $helpers;
     public $search;
     public $meta_boxes;
+
+	// Add-ons
     public $admin_map_ui;
     public $listings_map;
 	public $ninja_forms;
+	public $advanced_search;
+	public $contact_form_7;
+	public $listing_pdf;
+	public $currency_converter;
+	public $dashboard;
+	public $expire_listings;
+	public $favorites;
+	public $featured_listings;
+	public $gravityforms;
+	public $legacy;
+	public $list_agents;
+	public $listing_labels;
+	public $polylang;
+	public $pricing_tables;
+	public $energy_efficiency;
+	public $mortgage_calculator;
+	public $elementor;
 
     /**
      *	Constructor - get the plugin hooked in and ready
@@ -160,7 +178,7 @@ class WPSight_Framework {
         add_action( 'switch_theme', 'flush_rewrite_rules', 15 );
         add_action( 'wp_enqueue_scripts', [ $this, 'frontend_scripts' ] );
 
-        // Init action for add-ons to hook in
+	    // Init action for add-ons to hook in
         do_action_ref_array( 'wpsight_init', [ &$this ] );
 
     }
@@ -424,7 +442,7 @@ function wpcasa_activation_redirect() {
         }
     }
 }
-add_action('admin_init', 'wpcasa_activation_redirect');
+add_action( 'admin_init', 'wpcasa_activation_redirect' );
 
 /**
  *  Adds plugin upgrade notification
@@ -464,6 +482,6 @@ function wpcasa_settings_value_change() {
         update_option( 'wpcasa', $wpcasa_settings );
     }   
 }
-add_action('admin_init', 'wpcasa_settings_value_change');
+add_action( 'admin_init', 'wpcasa_settings_value_change' );
 
 

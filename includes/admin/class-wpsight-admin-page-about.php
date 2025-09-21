@@ -110,14 +110,35 @@ class WPSight_About {
                             </style>
 
                             <ul class="tabs" data-tabgroup="first-tab-group">
-                                <li class="tab"><a href="#version-1-4-1" class="active">v1.4.1</a></li>
+                                <li class="tab"><a href="#version-1-4-2" class="active">v1.4.2</a></li>
+                                <li class="tab"><a href="#version-1-4-1">v1.4.1</a></li>
                                 <li class="tab"><a href="#version-1-4-0">v1.4.0</a></li>
                                 <li class="tab"><a href="#version-1-3-1">v1.3.1</a></li>
-                                <li class="tab"><a href="#version-1-3-0" >v1.3.0</a></li>
                                 <li><a href="https://wordpress.org/plugins/wpcasa/#developers" target="_blank"><?php echo esc_html__( 'More', 'wpcasa' ); ?></a></li>
                             </ul>
 
                             <section id="first-tab-group" class="tabgroup">
+                                <div id="version-1-4-2">
+                                    <p>Version: 1.4.2</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Hotfix</span></td>
+                                            <td>Vulnerable to cross site scripting (XSS) with shortcodes 'wpsight_listings_map' reported by Muhammad Yudha - DJ at Patchstack</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Hotfix</span></td>
+                                            <td>Vulnerable to API code injection reported by mikemyers from Wordfence</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Deprecated message "Creation of dynamic property"</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>"Trying to access array offset on false" on settings page</td>
+                                        </tr>
+                                    </table>
+                                </div>
                                 <div id="version-1-4-1">
                                     <p>Version: 1.4.1</p>
                                     <table>
@@ -186,6 +207,29 @@ class WPSight_About {
                                     </table>
                                 </div>
 
+                            </section>
+
+                            <script type="text/javascript">
+                            jQuery(document).ready(function($) {                      
+                                $('.tabgroup > div').hide();
+                                $('.tabgroup > div:first-of-type').show();
+                                $('.tabs .tab a').click(function(e){
+                                    e.preventDefault();
+                                    var $this = $(this),
+                                    tabgroup = '#'+$this.parents('.tabs').data('tabgroup'),
+                                    others = $this.closest('.tab').siblings().children('a'),
+                                    target = $this.attr('href');
+                                    others.removeClass('active');
+                                    $this.addClass('active');
+                                    $(tabgroup).children('div').hide();
+                                    $(target).show();
+                                })
+                            });
+                            </script>
+
+                        </div>
+
+                        <?php /*?>
                                 <div id="version-1-3-0">
                                     <p>Version: 1.3.0</p>
                                     <table>
@@ -224,29 +268,6 @@ class WPSight_About {
                                     </table>
                                 </div>
 
-                            </section>
-
-                            <script type="text/javascript">
-                            jQuery(document).ready(function($) {                      
-                                $('.tabgroup > div').hide();
-                                $('.tabgroup > div:first-of-type').show();
-                                $('.tabs .tab a').click(function(e){
-                                    e.preventDefault();
-                                    var $this = $(this),
-                                    tabgroup = '#'+$this.parents('.tabs').data('tabgroup'),
-                                    others = $this.closest('.tab').siblings().children('a'),
-                                    target = $this.attr('href');
-                                    others.removeClass('active');
-                                    $this.addClass('active');
-                                    $(tabgroup).children('div').hide();
-                                    $(target).show();
-                                })
-                            });
-                            </script>
-
-                        </div>
-
-                        <?php /*?>
                                  <div id="version-1-2-13">
                                     <p>Version: 1.2.13</p>
                                     <table>

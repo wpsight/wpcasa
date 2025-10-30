@@ -2,6 +2,6 @@
 
 <section>
 	
-	<p><?php esc_html__( 'Sorry, but no listing matches your criteria.', 'wpcasa' ); ?></p>
+	<p><?php esc_html_e( 'Sorry, but no listing matches your criteria.', 'wpcasa' ); ?></p>
 	
 </section>

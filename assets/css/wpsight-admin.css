@@ -706,6 +706,16 @@ th.column-listing_actions {
     margin-right: 0;
 }
 
+.download-wrapper .custom-download-badge {
+  display: inline-block;
+  padding: 12px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  margin-right: 8px;
+  rotate: -0.05turn;
+}
+
 @media screen and ( min-width: 1600px ) {
     .download-wrapper .column {
         width: 30%;

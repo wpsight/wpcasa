@@ -459,7 +459,7 @@ class WPSight_Admin {
 
             $options_listings[ $detail_id ] = array(
                 'name'		=> __( 'Listing Detail', 'wpcasa' ) . ' #' . $i++,
-                'desc'		=> $value['description'],
+                'desc'		=> $value['description'] ?? '',
                 'id'		=> $detail_id,
                 'position'	=> $position++,
                 'type'		=> 'measurement',

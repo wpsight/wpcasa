@@ -5,8 +5,8 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
 Tags: listings, property, real-estate, rental, realtor
 Requires at least: 6.2
 Requires PHP: 7.2
-Tested up to: 6.8
-Stable tag: 1.4.2
+Tested up to: 6.9
+Stable tag: 1.4.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -231,6 +231,10 @@ Andrea Manzato
 [Simon Rimkus](https://github.com/simonrimkus)
 
 == Changelog ==
+= 1.4.3 =
+* FIX: Not showing message when no listing available (thanks to @DAnn2012 on github)
+* TWEAK: Badge for new add-ons on add-on page
+
 = 1.4.2 =
 * FIX: Vulnerable to cross site scripting (XSS) with shortcodes 'wpsight_listings_map' reported by Muhammad Yudha - DJ on Patchstack - Thank you for that!
 * FIX: Vulnerable to API code injection reported by mikemyers from Wordfence - Thank you for that!

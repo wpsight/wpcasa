@@ -110,14 +110,27 @@ class WPSight_About {
                             </style>
 
                             <ul class="tabs" data-tabgroup="first-tab-group">
-                                <li class="tab"><a href="#version-1-4-2" class="active">v1.4.2</a></li>
+                                <li class="tab"><a href="#version-1-4-3" class="active">v1.4.3</a></li>
+                                <li class="tab"><a href="#version-1-4-2">v1.4.2</a></li>
                                 <li class="tab"><a href="#version-1-4-1">v1.4.1</a></li>
                                 <li class="tab"><a href="#version-1-4-0">v1.4.0</a></li>
-                                <li class="tab"><a href="#version-1-3-1">v1.3.1</a></li>
                                 <li><a href="https://wordpress.org/plugins/wpcasa/#developers" target="_blank"><?php echo esc_html__( 'More', 'wpcasa' ); ?></a></li>
                             </ul>
 
                             <section id="first-tab-group" class="tabgroup">
+                                <div id="version-1-4-3">
+                                    <p>Version: 1.4.3</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Not showing message when no listing is available</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Badge for new add-ons on add-on page</td>
+                                        </tr>
+                                    </table>
+                                </div>
                                 <div id="version-1-4-2">
                                     <p>Version: 1.4.2</p>
                                     <table>
@@ -189,24 +202,6 @@ class WPSight_About {
                                         </tr>
                                     </table>
                                 </div>
-                                <div id="version-1-3-1">
-                                    <p>Version: 1.3.1</p>
-                                    <table>
-                                        <tr>
-                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
-                                            <td>Added string translation of listing details</td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="changelog-entry-update">Update</span></td>
-                                            <td>CMB2 updated to 2.11.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="changelog-entry-fix">Fix</span></td>
-                                            <td>Fixed authenticated stored XSS</td>
-                                        </tr>
-                                    </table>
-                                </div>
-
                             </section>
 
                             <script type="text/javascript">
@@ -230,6 +225,23 @@ class WPSight_About {
                         </div>
 
                         <?php /*?>
+                                <div id="version-1-3-1">
+                                    <p>Version: 1.3.1</p>
+                                    <table>
+                                        <tr>
+                                            <td><span class="changelog-entry-tweak">Tweak</span></td>
+                                            <td>Added string translation of listing details</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-update">Update</span></td>
+                                            <td>CMB2 updated to 2.11.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="changelog-entry-fix">Fix</span></td>
+                                            <td>Fixed authenticated stored XSS</td>
+                                        </tr>
+                                    </table>
+                                </div>
                                 <div id="version-1-3-0">
                                     <p>Version: 1.3.0</p>
                                     <table>

@@ -511,7 +511,7 @@ class WPSight_Post_Type_Listing {
 	public function delete_listing_previews() {
 		
 		// Delete old listing previews if desired
-		if ( apply_filters( 'wpsight_delete_listing_previews', true ) )
+		if ( apply_filters( 'wpsight_delete_listing_previews_enabled', true ) )
 			wpsight_delete_listing_previews();
 		
 	}
